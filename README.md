@@ -14,7 +14,7 @@ Cosmos.Standard is the core repository of [COSMOS LOOPS PROGRAMME](https://githu
 
 ***
 
-## Thanks ##
+## Thanks
 
 People or projects that have made a great contribbution to this project:
 
@@ -22,10 +22,12 @@ People or projects that have made a great contribbution to this project:
 + Mr. [何镇汐](https://github.com/UtilCore)
 + *The next one must be you*
 
-### Organizations and projects ###
+### Organizations and projects
 
 + *null*
 
 ***
 
-[MIT](https://mit-license.org)
+# License
+
+[Apache 2.0 License](/LICENSE)
