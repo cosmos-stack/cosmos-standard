@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cosmos.Validations.Abstractions;
 using FluentValidation.Results;
 
 namespace Cosmos.Validations

@@ -1,4 +1,6 @@
-﻿using Cosmos.Validations;
+﻿using Cosmos.Domain.Core;
+using Cosmos.Validations;
+using Cosmos.Validations.Abstractions;
 
 namespace Cosmos.Domain
 {

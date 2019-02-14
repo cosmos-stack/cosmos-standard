@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Cosmos.Validations.Abstractions;
 
 namespace Cosmos.Validations
 {

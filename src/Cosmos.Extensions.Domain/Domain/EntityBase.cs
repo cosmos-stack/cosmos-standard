@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Cosmos.Domain.Core;
 using Cosmos.IdUtils;
 using Cosmos.Validations;
+using Cosmos.Validations.Abstractions;
 
 namespace Cosmos.Domain
 {
@@ -33,7 +35,7 @@ namespace Cosmos.Domain
 
         public static bool operator ==(EntityBase<TEntity, TKey> left, EntityBase<TEntity, TKey> right)
         {
-            if ((object) left == null && (object) right == null)
+            if ((object)left == null && (object)right == null)
                 return true;
             if (!(left is TEntity) || !(right is TEntity))
                 return false;
@@ -53,7 +55,7 @@ namespace Cosmos.Domain
             {
                 Id = GenerateCombKey().CastTo<TKey>();
             }
-            else if (Id.Equals(default(TKey)))
+            else if (Id?.Equals(default(TKey)) ?? false)
             {
                 Id = GenerateKey();
             }
