@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cosmos.Validations.Abstractions;
 
 namespace Cosmos.Validations
 {

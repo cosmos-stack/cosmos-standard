@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Validations.Abstractions;
 using FluentValidation;
 
 namespace Cosmos.Validations

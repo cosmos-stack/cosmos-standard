@@ -9,7 +9,13 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>Cosmos</RootNamespace>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="DotNetCore.Collections.Paginable" Version="1.0.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
+  </ItemGroup>
+  
 </Project>

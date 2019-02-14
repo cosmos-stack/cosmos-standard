@@ -1,5 +1,4 @@
 ﻿using System;
-using Cosmos.Extensions;
 
 namespace Cosmos
 {
