@@ -4,6 +4,8 @@ namespace Cosmos
 {
     public static class TypeClass
     {
+        public static Type ObjectClass { get; } = typeof(object);
+
         public static Type Int32Class { get; } = typeof(int);
 
         public static Type Int32NullableClass { get; } = typeof(int?);

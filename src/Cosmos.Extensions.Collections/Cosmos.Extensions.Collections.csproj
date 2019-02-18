@@ -1,5 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
   <PropertyGroup>
     <AssemblyName>Cosmos.Extensions.Collections</AssemblyName>
     <PackageId>Cosmos.Extensions.Collections</PackageId>
@@ -11,7 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetCore.Collections.Paginable" Version="1.0.1" />
+    <PackageReference Include="DotNetCore.Collections.Paginable" Version="2.0.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,6 +3,10 @@
     <Import Project="..\..\build\common.props" />
 
     <PropertyGroup>
+      <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <AssemblyName>Cosmos</AssemblyName>
         <PackageId>Cosmos.Core</PackageId>
         <Description>Cosmos base library</Description>

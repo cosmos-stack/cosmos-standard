@@ -1,5 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
   <PropertyGroup>
     <AssemblyName>Cosmos.Extensions.DateTime</AssemblyName>
     <PackageId>Cosmos.Extensions.DateTime</PackageId>
@@ -9,10 +14,12 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>Cosmos</RootNamespace>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
-  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="FluentDateTime" Version="1.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
   </ItemGroup>
 </Project>
