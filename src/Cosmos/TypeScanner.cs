@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using Cosmos.Disposables;
 
 namespace Cosmos
 {
-     public abstract class TypeScanner : DisposableObjects
+    public abstract class TypeScanner : IDisposable
     {
         private const string DEFAULT_SKIP_ASSEMBLIES =
             "^System|^Mscorlib|^Netstandard|^Microsoft|^Autofac|^AutoMapper|^EntityFramework|^Newtonsoft|^Castle|^NLog|^Pomelo|^AspectCore|^Xunit|^Nito|^Npgsql|^Exceptionless|^MySqlConnector|^Anonymously Hosted";
+
+        private readonly AnonymousDisposableObject _anonymousDisposableObject;
 
         protected List<Type> ScannedResultCache { get; private set; } = new List<Type>();
         protected bool ScannedResultCached { get; private set; }
@@ -18,12 +21,12 @@ namespace Cosmos
 
         protected TypeScanner(string scannerName)
         {
-            AddDisposableAction($"_{scannerName}CleanCache", () =>
-            {
-                ScannedResultCache.Clear();
-                ScannedResultCache = null;
-                ScannedResultCached = false;
-            });
+            _anonymousDisposableObject = AnonymousDisposableObject.Create(() =>
+             {
+                 ScannedResultCache.Clear();
+                 ScannedResultCache = null;
+                 ScannedResultCached = false;
+             });
         }
 
         protected TypeScanner(Type baseType) : this(string.Empty, baseType) { }
@@ -83,6 +86,11 @@ namespace Cosmos
             if (string.IsNullOrWhiteSpace(limitedAssemblies))
                 return Regex.IsMatch(assembly.FullName, skipAssemblies, regexOptions);
             return !Regex.IsMatch(assembly.FullName, limitedAssemblies, regexOptions);
+        }
+
+        public void Dispose()
+        {
+            _anonymousDisposableObject.Dispose();
         }
     }
 }

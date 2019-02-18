@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <AssemblyName>Cosmos.Extensions.Collections</AssemblyName>
-    <PackageId>Cosmos.Extensions.Collections</PackageId>
-    <Description>Cosmos collections extension library</Description>
+    <AssemblyName>Cosmos.Extensions.Asyncs</AssemblyName>
+    <PackageId>Cosmos.Extensions.Asyncs</PackageId>
+    <Description>Cosmos synchronous and asynchronous extension library</Description>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -16,12 +16,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetCore.Collections.Paginable" Version="2.0.1" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
+    <PackageReference Include="Nito.AsyncEx" Version="5.0.0-pre-05" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
   </ItemGroup>
-  
+
 </Project>

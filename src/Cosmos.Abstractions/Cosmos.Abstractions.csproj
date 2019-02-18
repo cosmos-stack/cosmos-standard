@@ -3,6 +3,10 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <AssemblyName>Cosmos.Abstractions</AssemblyName>
     <PackageId>Cosmos.Abstractions</PackageId>
     <Description>Cosmos abstractions library</Description>
@@ -10,6 +14,7 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Loggings\" />
   </ItemGroup>

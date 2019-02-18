@@ -4,29 +4,31 @@ Cosmos.Standard is the core repository of [COSMOS LOOPS PROGRAMME](https://githu
 
 **Includes projects:**
 
-+ Cosmos.Core
-+ Cosmos.Abstractions
-+ Cosmos.Extensions
-+ Cosmos.Extensions.Collections
-+ Cosmos.Extensions.DateTime
-+ Cosmos.Extensions.Domain
-+ Cosmos.Extensions.Preconditions
+- Cosmos.Core
+- Cosmos.Abstractions
+- Cosmos.Extensions
+- Cosmos.Extensions.Asyncs
+- Cosmos.Extensions.Collections
+- Cosmos.Extensions.DateTime
+- Cosmos.Extensions.Domain
+- Cosmos.Extensions.Preconditions
 
-***
+---
 
 ## Thanks
 
 People or projects that have made a great contribbution to this project:
 
-+ Mr. [刘浩杨](https://github.com/liuhaoyang)
-+ Mr. [何镇汐](https://github.com/UtilCore)
-+ *The next one must be you*
+- Mr. [刘浩杨](https://github.com/liuhaoyang)
+- Mr. [何镇汐](https://github.com/UtilCore)
+- Mr. [Stephen Cleary](https://github.com/StephenCleary)
+- _The next one must be you_
 
 ### Organizations and projects
 
-+ *null*
+- [StephenCleary/Disposables](https://github.com/StephenCleary/Disposables), MIT
 
-***
+---
 
 # License
 
