@@ -27,6 +27,7 @@ People or projects that have made a great contribbution to this project:
 ### Organizations and projects
 
 - [StephenCleary/Disposables](https://github.com/StephenCleary/Disposables), MIT
+- [StephenCleary/Guids](https://github.com/StephenCleary/Guids), MIT
 
 ---
 
