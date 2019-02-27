@@ -4,6 +4,8 @@
 
     <PropertyGroup>
       <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>7.2</LangVersion>
+        <RootNamespace />
     </PropertyGroup>
 
     <PropertyGroup>
@@ -13,7 +15,6 @@
         <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
         <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-        <LangVersion>7.2</LangVersion>
     </PropertyGroup>
     
     <ItemGroup>

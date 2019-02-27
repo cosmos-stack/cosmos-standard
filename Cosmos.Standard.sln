@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BDBDE50C-D11
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF634BA0-51EE-4B4A-AB50-5DA72FCD3B6B}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
 		NuGet.config = NuGet.config
 		Publish.bat = Publish.bat
 		PublishToMyGet.bat = PublishToMyGet.bat
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}"
@@ -46,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Test.ScannerTestEntr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Test.ScannerTest0", "test\Cosmos.Test.ScannerTest0\Cosmos.Test.ScannerTest0.csproj", "{99689F56-23DE-42F3-8797-137D7B77D613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Asyncs", "src\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj", "{324B2399-958B-4E6B-90AF-4FD51DEB7681}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Asyncs", "src\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj", "{324B2399-958B-4E6B-90AF-4FD51DEB7681}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
