@@ -1,4 +1,4 @@
-﻿namespace Cosmos.Abstractions.Disposables
+﻿namespace Cosmos.Disposables
 {
     public interface IDisposableAction
     {

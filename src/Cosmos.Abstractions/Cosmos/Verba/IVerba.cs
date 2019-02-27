@@ -1,4 +1,4 @@
-﻿namespace Cosmos.Abstractions
+﻿namespace Cosmos.Verba
 {
     public interface IVerba
     {

@@ -1,4 +1,4 @@
-﻿namespace Cosmos.Abstractions.Workflow
+﻿namespace Cosmos.Workflow
 {
     public interface IDynamicForms
     {

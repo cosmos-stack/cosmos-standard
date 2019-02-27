@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Cosmos.Abstractions.Workflow
+namespace Cosmos.Workflow
 {
     public interface IDynamicFormsDesign
     {
