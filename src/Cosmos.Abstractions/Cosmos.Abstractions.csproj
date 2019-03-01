@@ -13,9 +13,11 @@
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <LangVersion>7.2</LangVersion>
+    <RootNamespace />
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Loggings\" />
+    <Folder Include="Cosmos\Loggings\" />
   </ItemGroup>
 </Project>
