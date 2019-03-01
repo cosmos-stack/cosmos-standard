@@ -1,7 +1,4 @@
-using System;
-
-// ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace System
 {
     public static partial class BaseTypeExtensions
     {

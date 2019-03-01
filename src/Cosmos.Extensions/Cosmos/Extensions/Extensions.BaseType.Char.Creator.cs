@@ -6,11 +6,6 @@ namespace Cosmos
 {
     public static partial class BaseTypeExtensions
     {
-        public static string Repeat(this char @this, int repeatCount)
-        {
-            return new string(@this, repeatCount);
-        }
-
         public static IEnumerable<char> To(this char @this, char toCharacter)
         {
             var reverseRequired = @this > toCharacter;

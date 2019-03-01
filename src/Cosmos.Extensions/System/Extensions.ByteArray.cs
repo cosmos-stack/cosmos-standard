@@ -1,9 +1,7 @@
-using System;
 using System.IO;
 using Cosmos.Conversions;
 
-// ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace System
 {
     public static partial class BaseTypeExtensions
     {

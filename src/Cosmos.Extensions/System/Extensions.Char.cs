@@ -1,7 +1,6 @@
 using System.Globalization;
 
-// ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace System
 {
     public static partial class BaseTypeExtensions
     {
@@ -73,6 +72,11 @@ namespace Cosmos
         public static bool IsLowSurrogate(this char c)
         {
             return char.IsLowSurrogate(c);
+        }
+
+        public static string Repeat(this char @this, int repeatCount)
+        {
+            return new string(@this, repeatCount);
         }
     }
 }
