@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>7.2</LangVersion>
+        <RootNamespace />
+  </PropertyGroup>
+  
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Serialization.Json</AssemblyName>
+        <PackageId>Cosmos.Serialization.Json</PackageId>
+        <Description>Nertosoft JSON serializer extension for Cosmos base library</Description>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+</Project>
