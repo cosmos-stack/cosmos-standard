@@ -1,12 +1,16 @@
 @echo off
+
+::create nuget_pub
 if not exist nuget_pub (
     md nuget_pub
 )
 
+::clear nuget_pub
 for /R "nuget_pub" %%s in (*) do (
     del %%s
 )
 
+::Standard
 dotnet pack src/Cosmos -c Release -o ../../nuget_pub
 dotnet pack src/Cosmos.Extensions -c Release -o ../../nuget_pub
 dotnet pack src/Cosmos.Extensions.Asyncs -c Release -o ../../nuget_pub
@@ -16,6 +20,15 @@ dotnet pack src/Cosmos.Extensions.Collections -c Release -o ../../nuget_pub
 dotnet pack src/Cosmos.Extensions.Preconditions -c Release -o ../../nuget_pub
 dotnet pack src/Cosmos.Abstractions -c Release -o ../../nuget_pub
 dotnet pack src/Cosmos.Standard -c Release -o ../../nuget_pub
+
+::Extensions for serialization
+dotnet pack extra/serialization/src/Cosmos.serialization.Xml -c Release -o ../../nuget_pub
+dotnet pack extra/serialization/src/Cosmos.Serialization.Jil -c Release -o ../../nuget_pub
+dotnet pack extra/serialization/src/Cosmos.Serialization.Lit -c Release -o ../../nuget_pub
+dotnet pack extra/serialization/src/Cosmos.Serialization.Json -c Release -o ../../nuget_pub
+dotnet pack extra/serialization/src/Cosmos.Serialization.Swifter -c Release -o ../../nuget_pub
+dotnet pack extra/serialization/src/Cosmos.Serialization.Protobuf -c Release -o ../../nuget_pub
+dotnet pack extra/serialization/src/Cosmos.Serialization.MessagePack -c Release -o ../../nuget_pub
 
 for /R "nuget_pub" %%s in (*symbols.nupkg) do (
     del %%s
