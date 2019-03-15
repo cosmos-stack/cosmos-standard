@@ -1,8 +1,8 @@
-# COSMOSLOOPS/Cosmos.Extensions.Dependency
+# COSMOSLOOPS/Cosmos.Dependency
 
-Cosmos.Extensions.Dependency extensions is an inline common project of [COSMOS LOOPS PROGRAMME](https://github.com/cosmos-loops).
+Cosmos.Dependency extensions is an inline common project of [COSMOS LOOPS PROGRAMME](https://github.com/cosmos-loops).
 
-Cosmos.Extensions.Dependency provides several extensions:
+Cosmos.Dependency extensions provides several extensions:
 
 - Cosmos.Extensions.Autofac
 - Cosmos.Extensions.AspectCoreInjector
