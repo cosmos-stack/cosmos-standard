@@ -19,7 +19,10 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.1" />
-    <PackageReference Include="Cosmos.Standard" Version="0.1.1-alpha1-107362" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Cosmos.Standard\Cosmos.Standard.csproj" />
   </ItemGroup>
 
 </Project>
