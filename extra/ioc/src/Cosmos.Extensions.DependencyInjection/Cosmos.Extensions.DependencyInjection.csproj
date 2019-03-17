@@ -18,8 +18,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cosmos.Standard" Version="0.1.1-alpha1-107362" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Cosmos.Standard\Cosmos.Standard.csproj" />
   </ItemGroup>
 
 </Project>

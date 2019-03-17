@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Cosmos
 {
@@ -23,6 +24,13 @@ namespace Cosmos
         protected CosmosException(long errorCode, string errorMessage, Exception innerException = null)
             : this(errorCode, errorMessage, EMPTY_FLAG, innerException) { }
 
+        protected CosmosException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+            ExtraData = new Dictionary<string, object>();
+            Code = DEFAULT_EXTEND_ERROR_CODE;
+            Flag = EMPTY_FLAG;
+        }
+
         protected CosmosException(long errorCode, string errorMessage, string flag, Exception innerException = null)
             : base(errorMessage, innerException)
         {
@@ -36,9 +44,9 @@ namespace Cosmos
             Flag = flag;
         }
 
-        public long Code { get; }
+        public long Code { get; protected set; }
 
-        public string Flag { get; }
+        public string Flag { get; protected set; }
 
         public Dictionary<string, object> ExtraData { get; }
 
