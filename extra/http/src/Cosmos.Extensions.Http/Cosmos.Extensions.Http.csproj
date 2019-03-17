@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.2</LangVersion>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyName>Cosmos.Extensions.Http</AssemblyName>
+    <PackageId>Cosmos.Extensions.Http</PackageId>
+    <Description>Http extensions for Cosmos base library</Description>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections.Immutable" Version="1.6.0-preview3.19128.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Cosmos\Cosmos.csproj" />
+    <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Jil\Cosmos.Serialization.Jil.csproj" />
+    <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Protobuf\Cosmos.Serialization.Protobuf.csproj" />
+  </ItemGroup>
+
+</Project>
