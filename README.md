@@ -34,6 +34,7 @@ People or projects that have made a great contribbution to this project:
 
 - [StephenCleary/Disposables](https://github.com/StephenCleary/Disposables), MIT
 - [StephenCleary/Guids](https://github.com/StephenCleary/Guids), MIT
+- [VerbalExpressions/CSharpVerbalExpressions](https://github.com/VerbalExpressions/CSharpVerbalExpressions), MIT
 - [zzzprojects/LINQ-Async](https://github.com/zzzprojects/LINQ-Async), MIT
 
 ---
