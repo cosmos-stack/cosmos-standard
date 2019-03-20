@@ -32,6 +32,7 @@ People or projects that have made a great contribbution to this project:
 
 ### Organizations and projects
 
+- [dadhi/FastExpressionCompiler](https://github.com/dadhi/FastExpressionCompiler), MIT
 - [StephenCleary/Disposables](https://github.com/StephenCleary/Disposables), MIT
 - [StephenCleary/Guids](https://github.com/StephenCleary/Guids), MIT
 - [VerbalExpressions/CSharpVerbalExpressions](https://github.com/VerbalExpressions/CSharpVerbalExpressions), MIT
