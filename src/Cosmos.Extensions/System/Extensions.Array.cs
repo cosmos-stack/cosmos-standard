@@ -149,5 +149,10 @@ namespace System
         {
             return Array.BinarySearch(array, index, length, value, comparer);
         }
+
+        public static T[] FindAll<T>(this T[] me, Predicate<T> condition)
+        {
+            return Array.FindAll(me, condition);
+        }
     }
 }

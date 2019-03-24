@@ -3,7 +3,7 @@
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
-    public static class DeepCopyExtensions
+    public static partial class ObjectExtensions
     {
         public static T DeepCopy<T>(this T original)
         {

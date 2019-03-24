@@ -3,18 +3,18 @@ using System;
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
-    public static partial class BaseTypeExtensions
+    public static partial class ObjectExtensions
     {
         public static T As<T>(this object @this)
         {
-            return (T) @this;
+            return (T)@this;
         }
 
         public static T AsOrDefault<T>(this object @this)
         {
             try
             {
-                return (T) @this;
+                return (T)@this;
             }
             catch (Exception)
             {
@@ -26,7 +26,7 @@ namespace Cosmos
         {
             try
             {
-                return (T) @this;
+                return (T)@this;
             }
             catch (Exception)
             {
@@ -38,7 +38,7 @@ namespace Cosmos
         {
             try
             {
-                return (T) @this;
+                return (T)@this;
             }
             catch (Exception)
             {
@@ -50,7 +50,7 @@ namespace Cosmos
         {
             try
             {
-                return (T) @this;
+                return (T)@this;
             }
             catch (Exception)
             {

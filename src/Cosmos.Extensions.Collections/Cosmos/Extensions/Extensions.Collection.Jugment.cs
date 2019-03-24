@@ -69,6 +69,5 @@ namespace Cosmos.Extensions
         /// <returns></returns>
         public static bool ContainsEqualCount<T>(this IQueryable<T> @this, IQueryable<T> @that)
             => Judgements.QueryableJudgement.ContainsEqualCount(@this, @that);
-
     }
 }
