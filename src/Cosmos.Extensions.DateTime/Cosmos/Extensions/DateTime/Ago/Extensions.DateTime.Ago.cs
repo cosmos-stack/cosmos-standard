@@ -1,7 +1,8 @@
 ﻿using System;
 using Cosmos.Verba.Time;
 
-namespace Cosmos.Extensions
+// ReSharper disable once CheckNamespace
+namespace Cosmos
 {
     // ReSharper disable once IdentifierTypo
     using VERBA = GlobalTimeVerbaManager;

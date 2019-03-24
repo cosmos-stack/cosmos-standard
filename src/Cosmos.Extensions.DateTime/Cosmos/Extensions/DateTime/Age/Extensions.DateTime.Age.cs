@@ -1,6 +1,7 @@
 ﻿using System;
 
-namespace Cosmos.Extensions
+// ReSharper disable once CheckNamespace
+namespace Cosmos
 {
     /// <summary>
     /// Age helper

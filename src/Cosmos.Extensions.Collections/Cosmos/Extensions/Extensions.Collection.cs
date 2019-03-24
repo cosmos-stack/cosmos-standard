@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Cosmos.Extensions
 {
-    public static class CollectionExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// 对集合内每一项元素都进行一次操作
@@ -60,8 +60,7 @@ namespace Cosmos.Extensions
             while (left.MoveNext()) yield return left.Current;
             yield return last;
         }
-
-
+        
         /// <summary>
         /// 将多层的集合展开并整理为单层集合
         /// </summary>
@@ -97,6 +96,67 @@ namespace Cosmos.Extensions
         public static IEnumerable Flatten(this IEnumerable inputs, Func<object, IEnumerable> enumerate)
         {
             return Flatten(inputs.Cast<object>(), o => (enumerate(o) ?? new object[0]).Cast<object>());
+        }
+
+        public static TItem FirstBasedOn<TItem>(this IList<TItem> list, Func<TItem, IComparable> order) where TItem : class
+        {
+            if (!list.Any()) return default;
+            var first = default(TItem);
+            IComparable valueFirst = null;
+
+            foreach (var item in list)
+            {
+                var actual = order(item);
+                if (valueFirst == null || actual.CompareTo(valueFirst) < 0)
+                {
+                    valueFirst = actual;
+                    first = item;
+                }
+            }
+
+            return first;
+        }
+
+        public static TItem LastBasedOn<TItem>(this List<TItem> list, Func<TItem, IComparable> order)
+        {
+            if (!list.Any()) return default;
+            var last = default(TItem);
+            IComparable valueLast = null;
+
+            foreach (var item in list)
+            {
+                var actual = order(item);
+                if (valueLast == null || actual.CompareTo(valueLast) >= 0)
+                {
+                    valueLast = actual;
+                    last = item;
+                }
+            }
+
+            return last;
+        }
+
+        public static int CountDistinct<TObj, TResult>(this IList<TObj> list, Func<TObj, TResult> valCalculator)
+        {
+            var check = new HashSet<TResult>();
+            foreach (var item in list)
+            {
+                var result = valCalculator(item);
+                if (!check.Contains(result))
+                    check.Add(result);
+            }
+
+            return check.Count;
+        }
+
+        public static List<TSource> MoveToFirst<TSource>(this List<TSource> source, TSource element)
+        {
+            if (!source.Contains(element))
+                return source;
+
+            source.Remove(element);
+            source.Insert(0, element);
+            return source;
         }
     }
 }

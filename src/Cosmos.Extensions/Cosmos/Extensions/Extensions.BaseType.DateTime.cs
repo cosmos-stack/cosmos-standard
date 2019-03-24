@@ -50,11 +50,11 @@ namespace Cosmos
         /// <summary>
         /// 获得两个时间的间隔
         /// </summary>
-        /// <param name="startTime"></param>
-        /// <param name="endTime">  </param>
+        /// <param name="fecha"></param>
+        /// <param name="endFecha">  </param>
         /// <returns></returns>
-        public static TimeSpan GetTimeSpan(this DateTime startTime, DateTime endTime)
-            => endTime - startTime;
+        public static TimeSpan GetTimeSpan(this DateTime fecha, DateTime endFecha)
+            => endFecha - fecha;
 
         #endregion 获得时间间隔
 
@@ -272,7 +272,7 @@ namespace Cosmos
 
         #endregion 获得周
 
-    
+
         /// <summary>
         /// 获取当前最后时间（即当天的 23:59:59:999）
         /// </summary>
@@ -361,6 +361,46 @@ namespace Cosmos
         public static DateTime Yesterday(this DateTime @this)
         {
             return @this.AddDays(-1);
+        }
+
+        public static DateTime SetTime(this DateTime originalDate, int hour, int minute, int second)
+        {
+            return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, second, originalDate.Millisecond);
+        }
+
+        public static DateTime SetHour(this DateTime originalDate, int hour)
+        {
+            return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, hour, originalDate.Minute, originalDate.Second, originalDate.Millisecond);
+        }
+
+        public static DateTime SetMinute(this DateTime originalDate, int minute)
+        {
+            return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, minute, originalDate.Second, originalDate.Millisecond);
+        }
+
+        public static DateTime SetSecond(this DateTime originalDate, int second)
+        {
+            return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, originalDate.Minute, second, originalDate.Millisecond);
+        }
+
+        public static DateTime SetDate(this DateTime value, int year, int month, int day)
+        {
+            return new DateTime(year, month, day, value.Hour, value.Minute, value.Second, value.Millisecond);
+        }
+
+        public static DateTime SetYear(this DateTime value, int year)
+        {
+            return new DateTime(year, value.Month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond);
+        }
+
+        public static DateTime SetMonth(this DateTime value, int month)
+        {
+            return new DateTime(value.Year, month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond);
+        }
+
+        public static DateTime SetDay(this DateTime value, int day)
+        {
+            return new DateTime(value.Year, value.Month, day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
     }
 }
