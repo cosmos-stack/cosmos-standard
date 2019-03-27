@@ -21,7 +21,7 @@ namespace Cosmos.Jil
 
         public static T Deserialize<T>(string json, Options options = null)
         {
-            return string.IsNullOrWhiteSpace(json) ? default(T) : JSON.Deserialize<T>(json, options);
+            return string.IsNullOrWhiteSpace(json) ? default : JSON.Deserialize<T>(json, options);
         }
 
         public static object Deserialize(string json, Type type, Options options = null)
