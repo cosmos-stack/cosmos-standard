@@ -28,6 +28,7 @@ dotnet pack extra/serialization/src/Cosmos.Serialization.Lit -c Release -o ../..
 dotnet pack extra/serialization/src/Cosmos.Serialization.Json -c Release -o ../../../../nuget_pub
 dotnet pack extra/serialization/src/Cosmos.Serialization.Swifter -c Release -o ../../../../nuget_pub
 dotnet pack extra/serialization/src/Cosmos.Serialization.Protobuf -c Release -o ../../../../nuget_pub
+dotnet pack extra/serialization/src/Cosmos.Serialization.KoobooJson -c Release -o ../../../../nuget_pub
 dotnet pack extra/serialization/src/Cosmos.Serialization.MessagePack -c Release -o ../../../../nuget_pub
 
 ::Extensions for dependency/ioc

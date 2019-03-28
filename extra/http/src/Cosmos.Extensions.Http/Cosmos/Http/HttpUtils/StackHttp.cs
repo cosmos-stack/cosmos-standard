@@ -49,11 +49,9 @@ namespace Cosmos.Http.HttpUtils
                 {
                     using (request)
                     {
-                        using (response = await settings.ClientPool.Get(builder.Inner)
-                            .SendAsync(request, cancellationToken))
+                        using (response = await settings.ClientPool.Get(builder.Inner).SendAsync(request, cancellationToken))
                         {
-                            if (!response.IsSuccessStatusCode &&
-                                !builder.Inner.IgnoreResponseStatuses.Contains(response.StatusCode))
+                            if (!response.IsSuccessStatusCode && !builder.Inner.IgnoreResponseStatuses.Contains(response.StatusCode))
                             {
                                 exception = new HttpClientException(
                                     $"Response code was {(int)response.StatusCode} ({response.StatusCode}) from {response.RequestMessage.RequestUri}: {response.ReasonPhrase}",

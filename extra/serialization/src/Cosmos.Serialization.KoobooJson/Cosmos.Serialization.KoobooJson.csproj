@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.2</LangVersion>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyName>Cosmos.Serialization.KoobooJson</AssemblyName>
+    <PackageId>Cosmos.Serialization.KoobooJson</PackageId>
+    <Description>Kooboo JSON serializer extension for Cosmos base library</Description>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kooboo.Json" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
