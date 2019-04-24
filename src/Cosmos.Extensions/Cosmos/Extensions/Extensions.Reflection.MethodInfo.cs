@@ -15,7 +15,11 @@ namespace Cosmos
         public static string GetFullName(this MethodInfo method)
         {
             var result = new StringBuilder();
-            result.Append(method.DeclaringType.FullName).Append('.').Append(method.Name);
+            var type = method.DeclaringType;
+            if (type != null)
+                result.Append(type.FullName).Append('.');
+
+            result.Append(method.Name);
             return result.ToString();
         }
 
@@ -34,10 +38,10 @@ namespace Cosmos
             {
                 sb.Append("[");
                 var genericTypes = method.GetGenericArguments().ToTypeInfo().ToList();
-                for (var i = 0; i < genericTypes.Count(); i++)
+                for (var i = 0; i < genericTypes.Count; i++)
                 {
                     sb.Append(genericTypes[i].ToComputeSignature());
-                    if (i != genericTypes.Count() - 1)
+                    if (i != genericTypes.Count - 1)
                         sb.Append(", ");
                 }
 

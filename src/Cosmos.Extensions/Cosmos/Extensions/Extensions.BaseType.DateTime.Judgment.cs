@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -10,63 +11,63 @@ namespace Cosmos
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTime date) => Judgements.DateTimeJudgement.IsToday(date);
+        public static bool IsToday(this DateTime date) => DateTimeJudgment.IsToday(date);
 
         /// <summary>
         /// 判断指定日期是否为今天
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTime? date) => Judgements.DateTimeJudgement.IsToday(date);
+        public static bool IsToday(this DateTime? date) => DateTimeJudgment.IsToday(date);
 
         /// <summary>
         /// 判断指定
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTimeOffset dto) => Judgements.DateTimeJudgement.IsToday(dto);
+        public static bool IsToday(this DateTimeOffset dto) => DateTimeJudgment.IsToday(dto);
 
         /// <summary>
         /// 判断指定
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTimeOffset? dto) => Judgements.DateTimeJudgement.IsToday(dto);
+        public static bool IsToday(this DateTimeOffset? dto) => DateTimeJudgment.IsToday(dto);
 
         /// <summary>
         /// 判断是否为工作日
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekday(this DateTime date) => Judgements.DateTimeJudgement.IsWeekday(date);
+        public static bool IsWeekday(this DateTime date) => DateTimeJudgment.IsWeekday(date);
 
         /// <summary>
         /// 判断是否为工作日
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekday(this DateTime? date) => Judgements.DateTimeJudgement.IsWeekday(date);
+        public static bool IsWeekday(this DateTime? date) => DateTimeJudgment.IsWeekday(date);
 
         /// <summary>
         /// 判断是否为周末
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekend(this DateTime date) => Judgements.DateTimeJudgement.IsWeekend(date);
+        public static bool IsWeekend(this DateTime date) => DateTimeJudgment.IsWeekend(date);
 
         /// <summary>
         /// 判断是否为周末
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekend(this DateTime? date) => Judgements.DateTimeJudgement.IsWeekend(date);
+        public static bool IsWeekend(this DateTime? date) => DateTimeJudgment.IsWeekend(date);
 
         /// <summary>
         /// 判断时间是否合法
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static bool IsValid(this DateTime target) => Judgements.DateTimeJudgement.IsValid(target);
+        public static bool IsValid(this DateTime target) => DateTimeJudgment.IsValid(target);
 
         /// <summary>
         /// 判断是否为上午

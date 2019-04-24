@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Judgements
+namespace Cosmos.Judgments
 {
     /// <summary>
-    /// Guid Judgement Utilities
+    /// Guid Judgment Utilities
     /// </summary>
-    public static class GuidJudgement
+    public static class GuidJudgment
     {
         /// <summary>
         /// To judge whether the <see cref="Guid"/> is null or empty

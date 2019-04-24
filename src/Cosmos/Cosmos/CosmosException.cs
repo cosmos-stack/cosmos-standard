@@ -44,6 +44,13 @@ namespace Cosmos
             Flag = flag;
         }
 
+        protected CosmosException(CosmosExceptionOptions options) : base(options.Message, options.InnerException)
+        {
+            ExtraData = new Dictionary<string, object>();
+            Code = options.ErrorCode;
+            Flag = options.Flag;
+        }
+
         public long Code { get; protected set; }
 
         public string Flag { get; protected set; }

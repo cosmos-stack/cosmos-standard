@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using AspectCore.Extensions.Reflection;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -12,6 +13,7 @@ namespace Cosmos
     /// </summary>
     public static partial class ReflectionExtensions
     {
+
         #region ToNonNullableType
 
         /// <summary>
@@ -52,16 +54,25 @@ namespace Cosmos
 
         #endregion
 
-        #region GetPropertyValue
+        #region Gets/Sets PropertyValue
 
         /// <summary>
-        /// Get property value
+        /// Gets property value
         /// </summary>
         /// <param name="object">Any <see cref="object"/></param>
         /// <param name="propertyName">Property name in this object</param>
         /// <returns>Value of the specific property in this object</returns>
         public static object GetPropertyValue(this object @object, string propertyName)
-            => @object.TypeInfo().GetProperty(propertyName).GetValue(@object, null);
+            => @object.TypeInfo().GetProperty(propertyName).GetReflector().GetValue(@object);
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
+        public static void SetPropertyValue(this object @object, string propertyName, object value)
+            => @object.TypeInfo().GetProperty(propertyName).GetReflector().SetValue(@object, value);
 
         #endregion
 
@@ -81,10 +92,10 @@ namespace Cosmos
                     .Append("[");
 
                 var genericArgs = typeinfo.GetGenericArguments().ToTypeInfo().ToList();
-                for (var i = 0; i < genericArgs.Count(); i++)
+                for (var i = 0; i < genericArgs.Count; i++)
                 {
                     sb.Append(genericArgs[i].ToComputeSignature());
-                    if (i != genericArgs.Count() - 1)
+                    if (i != genericArgs.Count - 1)
                         sb.Append(", ");
                 }
 
@@ -234,17 +245,12 @@ namespace Cosmos
         #region IsAssignableFrom
 
         public static bool IsAssignableFrom<T>(this object @this)
-        {
-            Type type = @this.GetType();
-            return type.IsAssignableFrom(typeof(T));
-        }
+            => @this.GetType().IsAssignableFrom(typeof(T));
 
         public static bool IsAssignableFrom(this object @this, Type targetType)
-        {
-            var type = @this.GetType();
-            return type.IsAssignableFrom(targetType);
-        }
+            => @this.GetType().IsAssignableFrom(targetType);
 
         #endregion
+
     }
 }

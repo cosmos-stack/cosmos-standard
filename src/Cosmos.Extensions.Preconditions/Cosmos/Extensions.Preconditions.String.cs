@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Judgments;
 
 namespace Cosmos
 {
@@ -15,10 +16,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void CheckNull(this string argument, string argumentName, string message = null)
         {
-            if (string.IsNullOrWhiteSpace(argument))
-            {
-                throw new ArgumentNullException(argumentName, $"{nameof(argument)} can not be null or white space.");
-            }
+            AssertionJudgment.Require2<ArgumentNullException>(
+                !string.IsNullOrWhiteSpace(argument),
+                argumentName, $"{nameof(argument)} can not be null or white space.");
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Cosmos
         ///  <param name="length"></param>
         ///  <param name="argumentName"></param>
         ///  <param name="message"></param>
-        public static void CheckOutOfLenth(this string argument, int length, string argumentName, string message = null)
+        public static void CheckOutOfLength(this string argument, int length, string argumentName, string message = null)
             => Preconditions.IsNotOutOfLength(argument, length, argumentName, message);
     }
 }

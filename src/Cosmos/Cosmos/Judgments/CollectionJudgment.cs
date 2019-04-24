@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cosmos.Judgements
+namespace Cosmos.Judgments
 {
     /// <summary>
-    /// Collection Judgement Utilities
+    /// Collection Judgment Utilities
     /// </summary>
-    public static class CollectionJudgement
+    public static class CollectionJudgment
     {
         /// <summary>
         /// To judge whether the collection is null or not

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cosmos.Judgments;
 
 namespace Cosmos
 {
@@ -17,10 +18,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotNull(object argument, string argumentName, string message = null)
         {
-            if (argument == null)
-            {
-                throw new ArgumentNullException(argumentName, message ?? $"{nameof(argument)} can not be null.");
-            }
+            AssertionJudgment.Require2<ArgumentNullException>(
+                argument != null,
+                argumentName, message ?? $"{nameof(argument)} can not be null.");
         }
 
         /// <summary>
@@ -31,10 +31,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotNull(IEnumerable argument, string argumentName, string message = null)
         {
-            if (Judgements.CollectionJudgement.IsNull(argument))
-            {
-                throw new ArgumentNullException(argumentName, message ?? $"{nameof(argument)} can not be null.");
-            }
+            AssertionJudgment.Require2<ArgumentNullException>(
+                !CollectionJudgment.IsNull(argument),
+                argumentName, message ?? $"{nameof(argument)} can not be null.");
         }
 
         /// <summary>
@@ -46,11 +45,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotEmpty(IEnumerable argument, string argumentName, string message = null)
         {
-            if (Judgements.CollectionJudgement.IsNullOrEmpty(argument))
-            {
-                throw new ArgumentNullException(argumentName,
-                    message ?? $"{nameof(argument)} can not be null or empty.");
-            }
+            AssertionJudgment.Require2<ArgumentNullException>(
+                !CollectionJudgment.IsNullOrEmpty(argument),
+                argumentName, message ?? $"{nameof(argument)} can not be null or empty.");
         }
 
         /// <summary>
@@ -63,11 +60,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsAtLeast<T>(ICollection<T> argument, string argumentName, int number, string message = null)
         {
-            if (!Judgements.CollectionJudgement.ContainsAtLeast(argument, number))
-            {
-                throw new ArgumentOutOfRangeException(argumentName,
-                    message ?? $"{nameof(argument)} should has {number} items at least.");
-            }
+            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+                CollectionJudgment.ContainsAtLeast(argument, number),
+                argumentName, argument.Count, message ?? $"{nameof(argument)} should has {number} items at least.");
         }
 
         /// <summary>
@@ -78,11 +73,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotEmpty(Guid argument, string argumentName, string message = null)
         {
-            if (Judgements.GuidJudgement.IsNullOrEmpty(argument))
-            {
-                throw new ArgumentNullException(argumentName,
-                    message ?? $"{nameof(argument)} can not be null or empty.");
-            }
+            AssertionJudgment.Require2<ArgumentNullException>(
+                !GuidJudgment.IsNullOrEmpty(argument),
+                argumentName, message ?? $"{nameof(argument)} can not be null or empty.");
         }
 
         /// <summary>
@@ -104,10 +97,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotEmpty(string argument, string argumentName, string message = null)
         {
-            if (string.IsNullOrWhiteSpace((argument ?? string.Empty).Trim()))
-            {
-                throw new ArgumentNullException(argumentName, message ?? $"{nameof(argument)} can not be blank.");
-            }
+            AssertionJudgment.Require2<ArgumentNullException>(
+                !string.IsNullOrWhiteSpace((argument ?? string.Empty).Trim()),
+                argumentName, message ?? $"{nameof(argument)} can not be blank.");
         }
 
         /// <summary>
@@ -130,11 +122,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotOutOfLength(string argument, int length, string argumentName, string message = null)
         {
-            if (argument.Trim().Length > length)
-            {
-                throw new ArgumentOutOfRangeException(argumentName, argument.Trim().Length,
-                    message ?? $"{nameof(argument)}'s length can not be greater than {length}.");
-            }
+            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+                argument.Trim().Length <= length,
+                argumentName, argument.Trim().Length, message ?? $"{nameof(argument)}'s length can not be greater than {length}.");
         }
 
     }

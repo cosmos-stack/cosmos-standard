@@ -1,4 +1,4 @@
-﻿using Cosmos.Judgements;
+﻿using Cosmos.Judgments;
 using Xunit;
 
 namespace Cosmos.Test.Judgements
@@ -12,7 +12,7 @@ namespace Cosmos.Test.Judgements
         [InlineData("+100")]
         public void IsInt32Test_True(string str)
         {
-            Assert.True(NumericJudgement.IsInt32(str));
+            Assert.True(NumericJudgment.IsInt32(str));
         }
 
         [Theory]
@@ -25,7 +25,7 @@ namespace Cosmos.Test.Judgements
         [InlineData(null)]
         public void IsInt32Test_False(string str)
         {
-            Assert.False(NumericJudgement.IsInt32(str));
+            Assert.False(NumericJudgment.IsInt32(str));
         }
 
         [Theory]
@@ -41,7 +41,7 @@ namespace Cosmos.Test.Judgements
         [InlineData("1.")]
         public void IsNumericTest_True(string str)
         {
-            Assert.True(NumericJudgement.IsNumeric(str));
+            Assert.True(NumericJudgment.IsNumeric(str));
         }
 
         [Theory]
@@ -53,7 +53,7 @@ namespace Cosmos.Test.Judgements
         [InlineData(null)]
         public void IsNumericTest_False(string str)
         {
-            Assert.False(NumericJudgement.IsNumeric(str));
+            Assert.False(NumericJudgment.IsNumeric(str));
         }
     }
 }

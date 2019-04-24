@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -13,7 +14,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public static bool IsGuid(this string @string) => Judgements.GuidJudgement.IsValid(@string);
+        public static bool IsGuid(this string @string) => GuidJudgment.IsValid(@string);
 
         /// <summary>
         /// 检查字符串是 null 还是 System.String.Empty 字符串
@@ -48,28 +49,28 @@ namespace Cosmos
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public static bool IsInt(this string @string) => Judgements.NumericJudgement.IsInt32(@string);
+        public static bool IsInt(this string @string) => NumericJudgment.IsInt32(@string);
 
         /// <summary>
         /// 指示指定的字符串是否为数字
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public static bool IsNumberic(this string @string) => Judgements.NumericJudgement.IsNumeric(@string);
+        public static bool IsNumberic(this string @string) => NumericJudgment.IsNumeric(@string);
 
         /// <summary>
         /// 判断是否为 Url 路径
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static bool IsWebUrl(this string target) => Judgements.StringJudgement.IsWebUrl(target);
+        public static bool IsWebUrl(this string target) => StringJudgment.IsWebUrl(target);
 
         /// <summary>
         /// 判断是否为 Email 地址
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static bool IsEmail(this string target) => Judgements.StringJudgement.IsEmail(target);
+        public static bool IsEmail(this string target) => StringJudgment.IsEmail(target);
         
         public static bool OneAbsentChar(this string text, string toCheck)
         {

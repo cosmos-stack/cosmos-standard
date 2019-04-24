@@ -36,6 +36,7 @@ namespace Cosmos
                     var current = stack.Pop();
                     if (current == null) continue;
                     yield return current;
+                    
                     var enumerable = enumerableFunc?.Invoke(current);
                     if (enumerable != null)
                     {

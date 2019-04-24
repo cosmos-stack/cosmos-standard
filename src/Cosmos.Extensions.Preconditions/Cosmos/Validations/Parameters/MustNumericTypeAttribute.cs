@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
-using Cosmos.Judgements;
+using Cosmos.Judgments;
 using Cosmos.Validations.Parameters.Internals;
 
 namespace Cosmos.Validations.Parameters
@@ -15,8 +15,8 @@ namespace Cosmos.Validations.Parameters
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             var condition = MayBeNullable
-                ? TypeJudgement.IsNumericType(context.Parameter.Type)
-                : TypeJudgement.IsNumericType(context.Parameter.Type) && !TypeJudgement.IsNullableType(context.Parameter.Type);
+                ? TypeJudgment.IsNumericType(context.Parameter.Type)
+                : TypeJudgment.IsNumericType(context.Parameter.Type) && !TypeJudgment.IsNullableType(context.Parameter.Type);
             if (condition)
                 throw new ArgumentException(Message, context.Parameter.Name);
             return next(context);
