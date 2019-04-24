@@ -1,11 +1,11 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Cosmos.Judgements
+namespace Cosmos.Judgments
 {
     /// <summary>
-    /// Regex Judgement Utilities
+    /// Regex Judgment Utilities
     /// </summary>
-    public static class RegexJudgement
+    public static class RegexJudgment
     {
         /// <summary>
         /// Indicates whether the regular expression specified in the Regex constructor finds a match in a specified input string.

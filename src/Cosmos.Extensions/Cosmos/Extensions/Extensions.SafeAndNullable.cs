@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -101,7 +102,7 @@ namespace Cosmos
         /// <param name="query"></param>
         /// <returns></returns>
         public static IQueryable<T> SafeQueryable<T>(this IQueryable<T> @query) =>
-            Judgements.CollectionJudgement.IsNullOrEmpty(query) ? (new List<T>()).AsQueryable() : query;
+            CollectionJudgment.IsNullOrEmpty(query) ? (new List<T>()).AsQueryable() : query;
 
         /// <summary>
         /// 安全获得 IQueryable 集合
@@ -118,7 +119,7 @@ namespace Cosmos
         /// <param name="query"></param>
         /// <returns></returns>
         public static IQueryable SafeQueryable(this IQueryable query) =>
-            Judgements.CollectionJudgement.IsNullOrEmpty(query) ? (new List<object>()).AsQueryable() : query;
+            CollectionJudgment.IsNullOrEmpty(query) ? (new List<object>()).AsQueryable() : query;
 
         /// <summary>
         /// 安全获得 IQueryable 集合

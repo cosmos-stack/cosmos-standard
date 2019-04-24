@@ -13,8 +13,7 @@
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void CheckOutOfRange(this double argument, double min, double max, string argumentName,
-            string message = null)
+        public static void CheckOutOfRange(this double argument, double min, double max, string argumentName, string message = null)
             => Preconditions.IsNotOutOfRange(argument, min, max, argumentName, message);
 
         /// <summary>
@@ -25,8 +24,7 @@
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void CheckOutOfRange(this double? argument, double min, double max, string argumentName,
-            string message = null)
+        public static void CheckOutOfRange(this double? argument, double min, double max, string argumentName, string message = null)
             => Preconditions.IsNotOutOfRange(argument, min, max, argumentName, message);
 
         /// <summary>

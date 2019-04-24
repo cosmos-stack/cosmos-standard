@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Judgments;
 
 namespace Cosmos
 {
@@ -15,10 +16,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotInvalidDate(DateTime argument, string argumentName, string message = null)
         {
-            if (!Judgements.DateTimeJudgement.IsValid(argument))
-            {
-                throw new ArgumentException(message ?? $"{nameof(argument)} is invalid datetime value.", argumentName);
-            }
+            AssertionJudgment.Require2<ArgumentException>(
+                DateTimeJudgment.IsValid(argument),
+                message ?? $"{nameof(argument)} is invalid datetime value.", argumentName);
         }
 
         /// <summary>
@@ -41,11 +41,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotInPast(DateTime argument, string argumentName, string message = null)
         {
-            if (argument < DateTime.UtcNow)
-            {
-                throw new ArgumentOutOfRangeException(argumentName, argument,
-                    message ?? $"{nameof(argument)} can not be in past.");
-            }
+            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+                argument <= DateTime.UtcNow,
+                argumentName, argument, message ?? $"{nameof(argument)} can not be in past.");
         }
 
         /// <summary>
@@ -69,11 +67,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotInFuture(DateTime argument, string argumentName, string message = null)
         {
-            if (argument > DateTime.UtcNow)
-            {
-                throw new ArgumentOutOfRangeException(argumentName, argument,
-                    message ?? $"{nameof(argument)} can not be in future.");
-            }
+            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+                argument <= DateTime.UtcNow,
+                argumentName, argument, message ?? $"{nameof(argument)} can not be in future.");
         }
 
         /// <summary>
@@ -96,11 +92,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotNegative(TimeSpan argument, string argumentName, string message = null)
         {
-            if (argument < TimeSpan.Zero)
-            {
-                throw new ArgumentOutOfRangeException(argumentName, argument,
-                    message ?? $"{nameof(argument)} can not be negative.");
-            }
+            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+                argument >= TimeSpan.Zero,
+                argumentName, argument, message ?? $"{nameof(argument)} can not be negative.");
         }
 
         /// <summary>
@@ -122,11 +116,9 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void IsNotNegativeOrZero(TimeSpan argument, string argumentName, string message = null)
         {
-            if (argument <= TimeSpan.Zero)
-            {
-                throw new ArgumentOutOfRangeException(argumentName, argument,
-                    message ?? $"{nameof(argument)} can not be negative or zero.");
-            }
+            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+                argument > TimeSpan.Zero,
+                argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
         }
 
         /// <summary>

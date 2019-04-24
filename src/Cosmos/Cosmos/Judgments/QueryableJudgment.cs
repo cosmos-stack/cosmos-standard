@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 
-namespace Cosmos.Judgements
+namespace Cosmos.Judgments
 {
     /// <summary>
-    /// Queryable Judgement Utilities
+    /// Queryable Judgment Utilities
     /// </summary>
-    public static class QueryableJudgement
+    public static class QueryableJudgment
     {
         /// <summary>
         /// To judge whether one queryable collection contains specified count of elements at least

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cosmos.Judgments;
 
 namespace Cosmos.Extensions
 {
@@ -11,7 +12,7 @@ namespace Cosmos.Extensions
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static bool IsNull(this IEnumerable source) => Judgements.CollectionJudgement.IsNull(source);
+        public static bool IsNull(this IEnumerable source) => CollectionJudgment.IsNull(source);
 
         /// <summary>
         /// 判断集合是否为空
@@ -19,7 +20,7 @@ namespace Cosmos.Extensions
         /// <param name="source">要处理的集合</param>
         /// <returns>为空返回 True，不为空返回 False</returns>
         public static bool IsNullOrEmpty(this IEnumerable source) =>
-            Judgements.CollectionJudgement.IsNullOrEmpty(source);
+            CollectionJudgment.IsNullOrEmpty(source);
 
         /// <summary>
         /// 判断集合是否为空
@@ -28,7 +29,7 @@ namespace Cosmos.Extensions
         /// <param name="source">要处理的集合</param>
         /// <returns>为空返回 True，不为空返回 False</returns>
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
-            => Judgements.CollectionJudgement.IsNullOrEmpty(source);
+            => CollectionJudgment.IsNullOrEmpty(source);
 
         /// <summary>
         /// 检查一个集合是否拥有指定数量的成员
@@ -38,7 +39,7 @@ namespace Cosmos.Extensions
         /// <param name="count"></param>
         /// <returns></returns>
         public static bool ContainsAtLeast<T>(this ICollection<T> enumeration, int count)
-            => Judgements.CollectionJudgement.ContainsAtLeast(enumeration, count);
+            => CollectionJudgment.ContainsAtLeast(enumeration, count);
 
         /// <summary>
         /// 检查两个集合是否拥有相等数量的成员
@@ -48,7 +49,7 @@ namespace Cosmos.Extensions
         /// <param name="that"></param>
         /// <returns></returns>
         public static bool ContainsEqualCount<T>(this ICollection<T> @this, ICollection<T> @that)
-            => Judgements.CollectionJudgement.ContainsEqualCount(@this, @that);
+            => CollectionJudgment.ContainsEqualCount(@this, @that);
 
         /// <summary>
         /// 检查一个集合是否拥有指定数量的成员
@@ -58,7 +59,7 @@ namespace Cosmos.Extensions
         /// <param name="count"></param>
         /// <returns></returns>
         public static bool ContainsAtLeast<T>(this IQueryable<T> enumeration, int count)
-            => Judgements.QueryableJudgement.ContainsAtLeast(enumeration, count);
+            => QueryableJudgment.ContainsAtLeast(enumeration, count);
 
         /// <summary>
         /// 检查两个集合是否拥有相等数量的成员
@@ -68,6 +69,6 @@ namespace Cosmos.Extensions
         /// <param name="that"></param>
         /// <returns></returns>
         public static bool ContainsEqualCount<T>(this IQueryable<T> @this, IQueryable<T> @that)
-            => Judgements.QueryableJudgement.ContainsEqualCount(@this, @that);
+            => QueryableJudgment.ContainsEqualCount(@this, @that);
     }
 }

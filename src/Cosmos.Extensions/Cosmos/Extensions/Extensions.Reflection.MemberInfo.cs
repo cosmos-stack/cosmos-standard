@@ -53,8 +53,7 @@ namespace Cosmos
         /// <typeparam name="TAttribute"></typeparam>
         /// <param name="info"></param>
         /// <returns></returns>
-        public static IEnumerable<TAttribute> GetAttributes<TAttribute>(this MemberInfo info)
-            where TAttribute : Attribute
+        public static IEnumerable<TAttribute> GetAttributes<TAttribute>(this MemberInfo info) where TAttribute : Attribute
             => info.GetCustomAttributes(typeof(TAttribute)).OfType<TAttribute>();
 
         /// <summary>
@@ -64,8 +63,7 @@ namespace Cosmos
         /// <param name="info">类型类型成员</param>
         /// <param name="inherit">是否从继承中查找</param>
         /// <returns>存在返回第一个，不存在返回 null</returns>
-        public static IEnumerable<TAttribute> GetAttributes<TAttribute>(this MemberInfo info, bool inherit)
-            where TAttribute : Attribute
+        public static IEnumerable<TAttribute> GetAttributes<TAttribute>(this MemberInfo info, bool inherit) where TAttribute : Attribute
             => info.GetCustomAttributes(typeof(TAttribute), inherit).OfType<TAttribute>();
     }
 }

@@ -1,9 +1,9 @@
-﻿namespace Cosmos.Judgements
+﻿namespace Cosmos.Judgments
 {
     /// <summary>
-    /// Numeric Judgement Utilities
+    /// Numeric Judgment Utilities
     /// </summary>
-    public static class NumericJudgement
+    public static class NumericJudgment
     {
         /// <summary>
         /// To judge whether the string is integer or not

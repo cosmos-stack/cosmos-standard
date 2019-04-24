@@ -6,6 +6,7 @@ namespace Cosmos
 {
     public static class Types
     {
+
         #region Of
 
         /// <summary>
@@ -123,10 +124,7 @@ namespace Cosmos
         }
 
         public static TInstance CreateInstance<TInstance>(Type type, params object[] args)
-        {
-            var instance = CreateInstance(type, args);
-            return instance is TInstance ret ? ret : default(TInstance);
-        }
+            => CreateInstance(type, args) is TInstance ret ? ret : default;
 
         public static object CreateInstance(Type type, params object[] args)
         {
@@ -136,29 +134,18 @@ namespace Cosmos
         }
 
         private static TInstance CreateInstanceCore<TInstance>()
-        {
-            var instance = CreateInstanceCore(typeof(TInstance));
-            return instance is TInstance ret ? ret : default(TInstance);
-        }
+            => CreateInstanceCore(typeof(TInstance)) is TInstance ret ? ret : default;
 
         private static TInstance CreateInstanceCore<TInstance>(object[] args)
-        {
-            var instance = CreateInstanceCore(typeof(TInstance), args);
-            return instance is TInstance ret ? ret : default(TInstance);
-        }
+            => CreateInstanceCore(typeof(TInstance), args) is TInstance ret ? ret : default;
 
         private static object CreateInstanceCore(Type type)
-        {
-            var constructorInfo = type.GetConstructors().FirstOrDefault(x => !x.GetParameters().Any());
-            return constructorInfo?.GetReflector().Invoke();
-        }
+            => type.GetConstructors().FirstOrDefault(x => !x.GetParameters().Any())?.GetReflector().Invoke();
 
         private static object CreateInstanceCore(Type type, object[] args)
-        {
-            var constructorInfo = type.GetConstructor(Of(args));
-            return constructorInfo?.GetReflector().Invoke(args);
-        }
+            => type.GetConstructor(Of(args))?.GetReflector().Invoke(args);
 
         #endregion
+
     }
 }

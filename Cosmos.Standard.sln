@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}"
 EndProject
@@ -52,7 +52,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Asyncs", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-extra", "src-extra", "{FD9EB5B3-126F-4139-9CDE-DAAE0D0AC1FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ioc", "ioc", "{0C6B14E0-AB7B-43B6-8163-A463179522AC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependency", "dependency", "{0C6B14E0-AB7B-43B6-8163-A463179522AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "serialization", "serialization", "{2C6D7C1C-E3B8-46FC-BAAF-86B77F55A327}"
 EndProject
@@ -60,11 +60,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E4F33DAC-372
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{87D7302C-14EA-46B4-9324-0E42E39C100D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.AspectCoreInjector", "extra\ioc\src\Cosmos.Extensions.AspectCoreInjector\Cosmos.Extensions.AspectCoreInjector.csproj", "{924B899A-F15F-4147-BD9C-C30A8D7AFF35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.AspectCoreInjector", "extra\dependency\src\Cosmos.Extensions.AspectCoreInjector\Cosmos.Extensions.AspectCoreInjector.csproj", "{924B899A-F15F-4147-BD9C-C30A8D7AFF35}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Autofac", "extra\ioc\src\Cosmos.Extensions.Autofac\Cosmos.Extensions.Autofac.csproj", "{9605BF73-97AC-4453-AAA6-18549CC3C11D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Autofac", "extra\dependency\src\Cosmos.Extensions.Autofac\Cosmos.Extensions.Autofac.csproj", "{9605BF73-97AC-4453-AAA6-18549CC3C11D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.DependencyInjection", "extra\ioc\src\Cosmos.Extensions.DependencyInjection\Cosmos.Extensions.DependencyInjection.csproj", "{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.DependencyInjection", "extra\dependency\src\Cosmos.Extensions.DependencyInjection\Cosmos.Extensions.DependencyInjection.csproj", "{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Serialization.Jil", "extra\serialization\src\Cosmos.Serialization.Jil\Cosmos.Serialization.Jil.csproj", "{25824020-4BBD-4A85-B231-03F7A574B25F}"
 EndProject
@@ -86,7 +86,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6E783B6-4DB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Http", "extra\http\src\Cosmos.Extensions.Http\Cosmos.Extensions.Http.csproj", "{DDE555C8-09CB-4BC2-AF43-7DAEE5F3B04D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Serialization.KoobooJson", "extra\serialization\src\Cosmos.Serialization.KoobooJson\Cosmos.Serialization.KoobooJson.csproj", "{FAEB44ED-DAED-4417-911E-567C9EE79453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Serialization.KoobooJson", "extra\serialization\src\Cosmos.Serialization.KoobooJson\Cosmos.Serialization.KoobooJson.csproj", "{FAEB44ED-DAED-4417-911E-567C9EE79453}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

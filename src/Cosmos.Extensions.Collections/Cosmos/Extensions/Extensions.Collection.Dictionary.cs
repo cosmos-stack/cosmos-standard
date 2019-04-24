@@ -55,8 +55,24 @@ namespace Cosmos.Extensions
                 return res;
 
             res = newValueCreator(key);
-            dictionary.Add(key, res);
-            return res;
+            return dictionary[key] = res;
+        }
+
+        /// <summary>
+        /// 从字典中获取数据。若不存在，则将指定的新值插入字典并返回该值。
+        /// </summary>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="dictionary"></param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        {
+            if (dictionary.TryGetValue(key, out var res))
+                return res;
+
+            return dictionary[key] = value;
         }
 
         /// <summary>
@@ -86,10 +102,7 @@ namespace Cosmos.Extensions
         /// <returns></returns>
         public static TValue GetOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key) where TValue : class
         {
-            if (dictionary != null && dictionary.TryGetValue(key, out var res))
-                return res;
-
-            return default;
+            return dictionary != null && dictionary.TryGetValue(key, out var res) ? res : default;
         }
 
         public static void AddDictionary<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other)

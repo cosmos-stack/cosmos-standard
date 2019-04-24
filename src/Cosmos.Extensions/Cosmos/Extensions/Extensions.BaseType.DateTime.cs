@@ -29,8 +29,6 @@ namespace Cosmos
             return date;
         }
 
-        #region GetPreviousWeekday(获得上一个工作日)
-
         /// <summary>
         /// 获得上一个工作日
         /// </summary>
@@ -42,8 +40,6 @@ namespace Cosmos
             while (date.DayOfWeek != weekday) date = date.AddDays(-1);
             return date;
         }
-
-        #endregion GetPreviousWeekday(获得上一个工作日)
 
         #region GetTimeSpan(获得两个时间的间隔)
 
@@ -95,7 +91,7 @@ namespace Cosmos
         /// <param name="date"></param>
         /// <returns></returns>
         public static DateTime GetLastDayOfMonth(this DateTime date)
-            => new DateTime(date.Year, date.Month, GetCountDaysOfMonth(date));
+            => new DateTime(date.Year, date.Month, date.GetCountDaysOfMonth());
 
         /// <summary>
         /// 获得本月最后一个指定的星期几

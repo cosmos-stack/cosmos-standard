@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using Cosmos.Judgements;
+using Cosmos.Judgments;
 
 namespace Cosmos.Conversions
 {
@@ -31,12 +31,12 @@ namespace Cosmos.Conversions
 
         public static Type ToSafeNonNullableType(Type type)
         {
-            return TypeJudgement.IsNullableType(type) ? ToNonNullableType(type) : type;
+            return TypeJudgment.IsNullableType(type) ? ToNonNullableType(type) : type;
         }
 
         public static TypeInfo ToSafeNonNullableTypeInfo(TypeInfo typeInfo)
         {
-            return TypeJudgement.IsNullableType(typeInfo) ? ToNonNullableTypeInfo(typeInfo) : typeInfo;
+            return TypeJudgment.IsNullableType(typeInfo) ? ToNonNullableTypeInfo(typeInfo) : typeInfo;
         }
     }
 }

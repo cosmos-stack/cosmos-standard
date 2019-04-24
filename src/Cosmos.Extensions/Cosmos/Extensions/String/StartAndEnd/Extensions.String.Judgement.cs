@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -15,7 +16,7 @@ namespace Cosmos
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool StartsWith(this string @string, params string[] values)
-            => Judgements.StringJudgement.StartWithThese(@string, values);
+            => StringJudgment.StartWithThese(@string, values);
 
         /// <summary>
         /// 确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
@@ -25,7 +26,7 @@ namespace Cosmos
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool StartsWith(this string @string, ICollection<string> values)
-            => Judgements.StringJudgement.StartWithThese(@string, values);
+            => StringJudgment.StartWithThese(@string, values);
 
         public static bool StartsWithIgnoreCase(this string text, string toCheck)
         {
@@ -49,7 +50,7 @@ namespace Cosmos
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool EndsWith(this string @string, params string[] values)
-            => Judgements.StringJudgement.EndWithThese(@string, values);
+            => StringJudgment.EndWithThese(@string, values);
 
         /// <summary>
         /// 确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
@@ -59,7 +60,7 @@ namespace Cosmos
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool EndsWith(this string @string, ICollection<string> values)
-            => Judgements.StringJudgement.EndWithThese(@string, values);
+            => StringJudgment.EndWithThese(@string, values);
 
         public static bool EndsWithIgnoreCase(this string text, string toCheck)
         {

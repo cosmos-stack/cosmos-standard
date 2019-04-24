@@ -2,14 +2,14 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Judgements
+namespace Cosmos.Judgments
 {
     /// <summary>
-    /// String Judgement Utilities
+    /// String Judgment Utilities
     /// </summary>
-    public static class StringJudgement
+    public static class StringJudgment
     {
-        static StringJudgement() { }
+        static StringJudgment() { }
 
         /// <summary>
         /// To judge whether the string starts with the specified strings
@@ -102,7 +102,7 @@ namespace Cosmos.Judgements
         /// <returns></returns>
         public static bool ContainsChineseCharacters(string str)
         {
-            return !string.IsNullOrWhiteSpace(str) && RegexJudgement.IsMatch(str, "[\u4e00-\u9fa5]+");
+            return !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[\u4e00-\u9fa5]+");
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Cosmos.Judgements
         /// <returns></returns>
         public static bool ContainsNumber(string str)
         {
-            return !string.IsNullOrWhiteSpace(str) && RegexJudgement.IsMatch(str, "[0-9]+");
+            return !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[0-9]+");
         }
     }
 }

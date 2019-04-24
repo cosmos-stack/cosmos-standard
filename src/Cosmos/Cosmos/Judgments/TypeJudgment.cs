@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Cosmos.Judgements
+namespace Cosmos.Judgments
 {
     /// <summary>
-    /// Type Judgement Utilities
+    /// Type Judgment Utilities
     /// </summary>
-    public static class TypeJudgement
+    public static class TypeJudgment
     {
         /// <summary>
         /// To judge whether the type is number type or not

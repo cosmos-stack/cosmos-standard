@@ -7,13 +7,9 @@ namespace Cosmos
     public static partial class ReflectionExtensions
     {
         public static bool IsDefined<TAttribute>(this Type type) where TAttribute : Attribute
-        {
-            return type.GetReflector().IsDefined<TAttribute>();
-        }
+            => type.GetReflector().IsDefined<TAttribute>();
 
         public static bool IsNotDefined<TAttribute>(this Type type) where TAttribute : Attribute
-        {
-            return !type.GetReflector().IsDefined<TAttribute>();
-        }
+            => !type.GetReflector().IsDefined<TAttribute>();
     }
 }

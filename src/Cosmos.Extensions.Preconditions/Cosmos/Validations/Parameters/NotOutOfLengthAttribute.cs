@@ -15,7 +15,7 @@ namespace Cosmos.Validations.Parameters
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.Type.Is(TypeClass.StringClass))
-                context.Parameter.TryTo(TypeDefault.StringEmpty).CheckOutOfLenth(Length, context.Parameter.Name, Message);
+                context.Parameter.TryTo(TypeDefault.StringEmpty).CheckOutOfLength(Length, context.Parameter.Name, Message);
             return next(context);
         }
     }

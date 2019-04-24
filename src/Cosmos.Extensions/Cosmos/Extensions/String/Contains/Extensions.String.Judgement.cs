@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -9,13 +10,13 @@ namespace Cosmos
         /// 是否包含中文
         /// </summary>
         /// <param name="text"></param>
-        public static bool ContainsChinese(string text) => Judgements.StringJudgement.ContainsChineseCharacters(text);
+        public static bool ContainsChinese(string text) => StringJudgment.ContainsChineseCharacters(text);
 
         /// <summary>
         /// 是否包含数字
         /// </summary>
         /// <param name="text">文本</param>
-        public static bool ContainsNumber(string text) => Judgements.StringJudgement.ContainsNumber(text);
+        public static bool ContainsNumber(string text) => StringJudgment.ContainsNumber(text);
 
         public static bool ContainsIgnoreCase(this string text, string toCheck)
         {

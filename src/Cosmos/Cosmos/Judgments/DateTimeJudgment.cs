@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Cosmos.Judgements
+namespace Cosmos.Judgments
 {
     /// <summary>
-    /// Datetime Judgement Utilities
+    /// Datetime Judgment Utilities
     /// </summary>
-    public static class DateTimeJudgement
+    public static class DateTimeJudgment
     {
         /// <summary>
         /// To judge whether the day is today

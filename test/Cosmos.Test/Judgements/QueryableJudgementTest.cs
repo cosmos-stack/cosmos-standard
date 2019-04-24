@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Cosmos.Judgements;
+using Cosmos.Judgments;
 using Xunit;
 
 namespace Cosmos.Test.Judgements
@@ -17,7 +17,7 @@ namespace Cosmos.Test.Judgements
         public void ContainAtLeastTest_True(int count)
         {
             var query = source.AsQueryable();
-            Assert.True(QueryableJudgement.ContainsAtLeast(query, count));
+            Assert.True(QueryableJudgment.ContainsAtLeast(query, count));
         }
 
         [Theory]
@@ -25,7 +25,7 @@ namespace Cosmos.Test.Judgements
         public void ContainAtLeastTest_False(int count)
         {
             var query = source.AsQueryable();
-            Assert.False(QueryableJudgement.ContainsAtLeast(query, count));
+            Assert.False(QueryableJudgment.ContainsAtLeast(query, count));
         }
 
         [Fact]
@@ -33,13 +33,13 @@ namespace Cosmos.Test.Judgements
         {
             var query = source.AsQueryable();
             var targetQuery = new List<string> { "9", "8", "7", "6", "5", "4", "3", "2" }.AsQueryable();
-            Assert.True(QueryableJudgement.ContainsEqualCount(query, targetQuery));
-            Assert.True(QueryableJudgement.ContainsEqualCount<string>(null, null));
-            Assert.False(QueryableJudgement.ContainsEqualCount(query, null));
-            Assert.False(QueryableJudgement.ContainsEqualCount(null, targetQuery));
+            Assert.True(QueryableJudgment.ContainsEqualCount(query, targetQuery));
+            Assert.True(QueryableJudgment.ContainsEqualCount<string>(null, null));
+            Assert.False(QueryableJudgment.ContainsEqualCount(query, null));
+            Assert.False(QueryableJudgment.ContainsEqualCount(null, targetQuery));
 
             var wrongQuery = new List<string> { "1" }.AsQueryable();
-            Assert.False(QueryableJudgement.ContainsEqualCount(query, wrongQuery));
+            Assert.False(QueryableJudgment.ContainsEqualCount(query, wrongQuery));
         }
     }
 }
