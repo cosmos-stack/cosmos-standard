@@ -27,7 +27,7 @@
         <PackageReference Include="Humanizer.Core" Version="2.6.2" />
         <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.6.2" />
         <PackageReference Include="Humanizer.Core.zh-Hant" Version="2.6.2" />
-        <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview3.19128.7" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview4.19212.13" />
         <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
     </ItemGroup>
 </Project>

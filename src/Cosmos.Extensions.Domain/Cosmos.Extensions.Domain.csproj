@@ -19,8 +19,8 @@
   <ItemGroup>
     <PackageReference Include="AspectCore.Abstractions" Version="1.2.0" />
     <PackageReference Include="AspectCore.Extensions.Reflection" Version="1.2.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview3.19128.7" />
-    <PackageReference Include="FluentValidation" Version="8.1.3" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview4.19212.13" />
+    <PackageReference Include="FluentValidation" Version="8.2.3" />
   </ItemGroup>
 
   <ItemGroup>

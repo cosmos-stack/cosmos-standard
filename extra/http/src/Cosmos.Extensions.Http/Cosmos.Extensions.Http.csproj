@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Collections.Immutable" Version="1.6.0-preview3.19128.7" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.6.0-preview4.19212.13" />
   </ItemGroup>
 
   <ItemGroup>
