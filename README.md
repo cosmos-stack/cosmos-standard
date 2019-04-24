@@ -16,7 +16,7 @@ Cosmos.Standard is the core repository of [COSMOS LOOPS PROGRAMME](https://githu
 This repository also include these inline common projects:
 
 - [Cosmos.Http](extra/http) - Http extensions for cosmos-standard
-- [Cosmos.Dependency](extra/ioc) - Dependency extensions for cosmos-standard
+- [Cosmos.Dependency](extra/dependency) - Dependency extensions for cosmos-standard
 - [Cosmos.Serialization](extra/serialization) - Serialization extensions for cosmos-standard
 
 ---

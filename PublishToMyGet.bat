@@ -32,9 +32,9 @@ dotnet pack extra/serialization/src/Cosmos.Serialization.KoobooJson -c Release -
 dotnet pack extra/serialization/src/Cosmos.Serialization.MessagePack -c Release -o ../../../../nuget_pub
 
 ::Extensions for dependency/ioc
-dotnet pack extra/ioc/src/Cosmos.Extensions.Autofac -c Release -o ../../../../nuget_pub
-dotnet pack extra/ioc/src/Cosmos.Extensions.AspectCoreInjector -c Release -o ../../../../nuget_pub
-dotnet pack extra/ioc/src/Cosmos.Extensions.DependencyInjection -c Release -o ../../../../nuget_pub
+dotnet pack extra/dependency/src/Cosmos.Extensions.Autofac -c Release -o ../../../../nuget_pub
+dotnet pack extra/dependency/src/Cosmos.Extensions.AspectCoreInjector -c Release -o ../../../../nuget_pub
+dotnet pack extra/dependency/src/Cosmos.Extensions.DependencyInjection -c Release -o ../../../../nuget_pub
 
 ::Extensions for http
 dotnet pack extra/http/src/Cosmos.Extensions.Http -c Release -o ../../../../nuget_pub
