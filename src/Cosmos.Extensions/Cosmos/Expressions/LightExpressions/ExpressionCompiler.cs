@@ -426,6 +426,27 @@ namespace Cosmos.Expressions.LightExpressions
                     NestedLambdaExprs = NestedLambdaExprs.WithLast(lambdaExpr);
             }
 
+            public void AddLabel(LabelTarget labelTarget)
+            {
+                if ((labelTarget != null) && (Labels.GetFirstIndex(kvp => kvp.Key == labelTarget) == -1))
+                    Labels = Labels.WithLast(new KeyValuePair<LabelTarget, Label?>(labelTarget, null));
+            }
+
+            public Label GetOrCreateLabel(LabelTarget labelTarget, ILGenerator il)
+                => GetOrCreateLabel(GetLabelIndex(labelTarget), il);
+
+            public Label GetOrCreateLabel(int index, ILGenerator il)
+            {
+                var labelPair = Labels[index];
+                var label = labelPair.Value;
+                if (!label.HasValue)
+                    Labels[index] = new KeyValuePair<LabelTarget, Label?>(labelPair.Key, label = il.DefineLabel());
+
+                return label.Value;
+            }
+
+            public int GetLabelIndex(LabelTarget labelTarget) => Labels.GetFirstIndex(kvp => kvp.Key == labelTarget);
+
             public object ConstructClosureTypeAndObject(bool constructTypeOnly)
             {
                 IsClosureConstructed = true;
@@ -972,6 +993,13 @@ namespace Cosmos.Expressions.LightExpressions
                         closure.PopBlock();
                         return true;
 
+                    case ExpressionType.Loop:
+                        var loopExpr = (LoopExpression)expr;
+                        closure.AddLabel(loopExpr.BreakLabel);
+                        closure.AddLabel(loopExpr.ContinueLabel);
+                        expr = loopExpr.Body;
+                        continue;
+
                     case ExpressionType.Index:
                         var indexExpr = (IndexExpression)expr;
                         if (!TryCollectBoundConstants(ref closure, indexExpr.Arguments, paramExprs))
@@ -987,8 +1015,7 @@ namespace Cosmos.Expressions.LightExpressions
                     case ExpressionType.Label:
                         var labelExpr = (LabelExpression)expr;
                         var defaultValueExpr = labelExpr.DefaultValue;
-                        closure.Labels = closure.Labels
-                            .WithLast(new KeyValuePair<LabelTarget, Label?>(labelExpr.Target, null));
+                        closure.AddLabel(labelExpr.Target);
                         if (defaultValueExpr == null)
                             return true;
                         expr = defaultValueExpr;
@@ -1044,7 +1071,8 @@ namespace Cosmos.Expressions.LightExpressions
             }
         }
 
-        private static bool TryCompileNestedLambda(ref ClosureInfo closure, int lambdaIndex, LambdaExpression lambdaExpr)
+        private static bool TryCompileNestedLambda(ref ClosureInfo closure, int lambdaIndex,
+            LambdaExpression lambdaExpr)
         {
             // 1. Try to compile nested lambda in place
             // 2. Check that parameters used in compiled lambda are passed or closed by outer lambda
@@ -1072,7 +1100,9 @@ namespace Cosmos.Expressions.LightExpressions
         private static bool TryCollectMemberInitExprConstants(ref ClosureInfo closure, MemberInitExpression expr,
             IReadOnlyList<ParameterExpression> paramExprs)
         {
-            var newExpr = expr.NewExpression ?? expr.Expression;
+            var newExpr = expr.NewExpression
+                          ?? expr.Expression
+                ;
             if (!TryCollectBoundConstants(ref closure, newExpr, paramExprs))
                 return false;
 
@@ -1153,10 +1183,18 @@ namespace Cosmos.Expressions.LightExpressions
         /// to normal and slow Expression.Compile.</summary>
         private static class EmittingVisitor
         {
+#if !NETSTANDARD2_0 && !NET45
+            private static readonly MethodInfo _getTypeFromHandleMethod = typeof(Type).GetTypeInfo()
+                .DeclaredMethods.First(m => m.IsStatic && m.Name == "GetTypeFromHandle");
+
+            private static readonly MethodInfo _objectEqualsMethod = typeof(object).GetTypeInfo()
+                .DeclaredMethods.First(m => m.IsStatic && m.Name == "Equals");
+#else
             private static readonly MethodInfo _getTypeFromHandleMethod =
                 ((Func<RuntimeTypeHandle, Type>)Type.GetTypeFromHandle).Method;
 
             private static readonly MethodInfo _objectEqualsMethod = ((Func<object, object, bool>)object.Equals).Method;
+#endif
 
             public static bool TryEmit(Expression expr, IReadOnlyList<ParameterExpression> paramExprs,
                 ILGenerator il, ref ClosureInfo closure, ParentFlags parent, int byRefIndex = -1)
@@ -1294,6 +1332,27 @@ namespace Cosmos.Expressions.LightExpressions
                             closure.PopBlock();
                             return true;
 
+                        case ExpressionType.Loop:
+                            var loopExpr = (LoopExpression)expr;
+
+                            // Mark the start of the loop body:
+                            var loopBodyLabel = il.DefineLabel();
+                            il.MarkLabel(loopBodyLabel);
+
+                            if (loopExpr.ContinueLabel != null)
+                                il.MarkLabel(closure.GetOrCreateLabel(loopExpr.ContinueLabel, il));
+
+                            if (!TryEmit(loopExpr.Body, paramExprs, il, ref closure, parent))
+                                return false;
+
+                            // If loop hasn't exited, jump back to start of its body:
+                            il.Emit(OpCodes.Br_S, loopBodyLabel);
+
+                            if (loopExpr.BreakLabel != null)
+                                il.MarkLabel(closure.GetOrCreateLabel(loopExpr.BreakLabel, il));
+
+                            return true;
+
                         case ExpressionType.Try:
                             return TryEmitTryCatchFinallyBlock((TryExpression)expr, paramExprs, il, ref closure,
                                 parent);
@@ -1348,16 +1407,14 @@ namespace Cosmos.Expressions.LightExpressions
             private static bool TryEmitLabel(LabelExpression expr,
                 IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
-                var index = closure.Labels.GetFirstIndex(x => x.Key == expr.Target);
+                var index = closure.GetLabelIndex(expr.Target);
                 if (index == -1)
                     return false; // should be found in first collecting constants round
 
                 // define a new label or use the label provided by the preceding GoTo expression
-                var label = closure.Labels[index].Value;
-                if (!label.HasValue)
-                    closure.Labels[index] = new KeyValuePair<LabelTarget, Label?>(expr.Target, label = il.DefineLabel());
+                var label = closure.GetOrCreateLabel(index, il);
 
-                il.MarkLabel(label.Value);
+                il.MarkLabel(label);
 
                 return expr.DefaultValue == null || TryEmit(expr.DefaultValue, paramExprs, il, ref closure, parent);
             }
@@ -1365,22 +1422,26 @@ namespace Cosmos.Expressions.LightExpressions
             // todo: GotoExpression.Value 
             private static bool TryEmitGoto(GotoExpression expr, ILGenerator il, ref ClosureInfo closure)
             {
-                var index = closure.Labels.GetFirstIndex(x => x.Key == expr.Target);
+                var index = closure.GetLabelIndex(expr.Target);
                 if (index == -1)
                     throw new InvalidOperationException("Cannot jump, no labels found");
 
                 // use label defined by Label expression or define its own to use by subsequent Label
-                var label = closure.Labels[index].Value;
-                if (!label.HasValue)
-                    closure.Labels[index] = new KeyValuePair<LabelTarget, Label?>(expr.Target, label = il.DefineLabel());
+                var label = closure.GetOrCreateLabel(index, il);
 
-                if (expr.Kind == GotoExpressionKind.Goto)
+                switch (expr.Kind)
                 {
-                    il.Emit(OpCodes.Br, label.Value);
-                    return true;
-                }
+                    case GotoExpressionKind.Goto:
+                        il.Emit(OpCodes.Br, label);
+                        return true;
 
-                return false;
+                    case GotoExpressionKind.Break:
+                        il.Emit(OpCodes.Br_S, label);
+                        return true;
+
+                    default:
+                        return false;
+                }
             }
 
             private static bool TryEmitIndex(IndexExpression expr, ILGenerator il)
@@ -2256,7 +2317,6 @@ namespace Cosmos.Expressions.LightExpressions
                     valueVar = il.DeclareLocal(expr.Type);
 
                 var newExpr = expr.NewExpression;
-
                 if (newExpr == null)
                 {
                     if (!TryEmit(expr.Expression, paramExprs, il, ref closure, parent/*, valueVar*/)) // todo: fix me
@@ -3057,7 +3117,7 @@ namespace Cosmos.Expressions.LightExpressions
                         return false;
                 }
 
-                nullCheck:
+            nullCheck:
                 if (leftIsNullable)
                 {
                     il.Emit(OpCodes.Ldloca_S, lVar);

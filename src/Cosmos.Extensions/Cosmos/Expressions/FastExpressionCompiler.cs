@@ -40,15 +40,18 @@ namespace Cosmos.Expressions
     /// <summary>Compiles expression to delegate ~20 times faster than Expression.Compile.
     /// Partial to extend with your things when used as source file.</summary>
     // ReSharper disable once PartialTypeWithSinglePart
-    public static partial class FastExpressionCompiler
+    public static partial class ExpressionCompiler
     {
         #region Expression.CompileFast overloads for Delegate, Funcs, and Actions
 
         /// <summary>Compiles lambda expression to TDelegate type. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
-        public static TDelegate CompileFast<TDelegate>(this LambdaExpression lambdaExpr, bool ifFastFailedReturnNull = false) where TDelegate : class
+        public static TDelegate CompileFast<TDelegate>(this LambdaExpression lambdaExpr,
+            bool ifFastFailedReturnNull = false) where TDelegate : class
         {
             var ignored = new ClosureInfo(false);
-            return (TDelegate)TryCompile(ref ignored, typeof(TDelegate), Tools.GetParamTypes(lambdaExpr.Parameters), lambdaExpr.ReturnType, lambdaExpr.Body, lambdaExpr.Parameters)
+            return (TDelegate)TryCompile(ref ignored,
+                       typeof(TDelegate), Tools.GetParamTypes(lambdaExpr.Parameters),
+                       lambdaExpr.ReturnType, lambdaExpr.Body, lambdaExpr.Parameters)
                 ?? (ifFastFailedReturnNull ? null : (TDelegate)(object)lambdaExpr.CompileSys());
         }
 
@@ -56,38 +59,51 @@ namespace Cosmos.Expressions
         public static Delegate CompileFast(this LambdaExpression lambdaExpr, bool ifFastFailedReturnNull = false)
         {
             var ignored = new ClosureInfo(false);
-            return (Delegate)TryCompile(ref ignored, lambdaExpr.Type, Tools.GetParamTypes(lambdaExpr.Parameters), lambdaExpr.ReturnType, lambdaExpr.Body, lambdaExpr.Parameters)
+            return (Delegate)TryCompile(ref ignored,
+                lambdaExpr.Type, Tools.GetParamTypes(lambdaExpr.Parameters),
+                       lambdaExpr.ReturnType, lambdaExpr.Body, lambdaExpr.Parameters)
                 ?? (ifFastFailedReturnNull ? null : lambdaExpr.CompileSys());
         }
 
         /// <summary>Unifies Compile for System.Linq.Expressions and FEC.LightExpression</summary>
-        public static TDelegate CompileSys<TDelegate>(this Expression<TDelegate> lambdaExpr) where TDelegate : class => lambdaExpr.Compile();
+        public static TDelegate CompileSys<TDelegate>(this Expression<TDelegate> lambdaExpr) where TDelegate : class =>
+            lambdaExpr
+            .Compile();
 
         /// <summary>Unifies Compile for System.Linq.Expressions and FEC.LightExpression</summary>
-        public static Delegate CompileSys(this LambdaExpression lambdaExpr) => lambdaExpr.Compile();
+        public static Delegate CompileSys(this LambdaExpression lambdaExpr) =>
+            lambdaExpr
+                .Compile();
 
         /// <summary>Compiles lambda expression to TDelegate type. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
-        public static TDelegate CompileFast<TDelegate>(this Expression<TDelegate> lambdaExpr, bool ifFastFailedReturnNull = false) where TDelegate : class
-            => ((LambdaExpression)lambdaExpr).CompileFast<TDelegate>(ifFastFailedReturnNull);
+        public static TDelegate CompileFast<TDelegate>(this Expression<TDelegate> lambdaExpr,
+            bool ifFastFailedReturnNull = false)
+            where TDelegate : class => ((LambdaExpression)lambdaExpr).CompileFast<TDelegate>(ifFastFailedReturnNull);
 
         /// <summary>Compiles lambda expression to delegate. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
-        public static Func<R> CompileFast<R>(this Expression<Func<R>> lambdaExpr, bool ifFastFailedReturnNull = false)
-            => TryCompile<Func<R>>(lambdaExpr.Body, lambdaExpr.Parameters, Tools.Empty<Type>(), typeof(R))
-               ?? (ifFastFailedReturnNull ? null : lambdaExpr.CompileSys());
-
-        /// <summary>Compiles lambda expression to delegate. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
-        public static Func<T1, R> CompileFast<T1, R>(this Expression<Func<T1, R>> lambdaExpr, bool ifFastFailedReturnNull = false)
-            => TryCompile<Func<T1, R>>(lambdaExpr.Body, lambdaExpr.Parameters, new[] { typeof(T1) }, typeof(R))
-            ?? (ifFastFailedReturnNull ? null : lambdaExpr.CompileSys());
-
-        /// <summary>Compiles lambda expression to TDelegate type. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
-        public static Func<T1, T2, R> CompileFast<T1, T2, R>(this Expression<Func<T1, T2, R>> lambdaExpr, bool ifFastFailedReturnNull = false)
-            => TryCompile<Func<T1, T2, R>>(lambdaExpr.Body, lambdaExpr.Parameters, new[] { typeof(T1), typeof(T2) }, typeof(R))
+        public static Func<R> CompileFast<R>(this Expression<Func<R>> lambdaExpr,
+            bool ifFastFailedReturnNull = false) =>
+            TryCompile<Func<R>>(lambdaExpr.Body, lambdaExpr.Parameters, Tools.Empty<Type>(), typeof(R))
             ?? (ifFastFailedReturnNull ? null : lambdaExpr.CompileSys());
 
         /// <summary>Compiles lambda expression to delegate. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
-        public static Func<T1, T2, T3, R> CompileFast<T1, T2, T3, R>(this Expression<Func<T1, T2, T3, R>> lambdaExpr, bool ifFastFailedReturnNull = false)
-            => TryCompile<Func<T1, T2, T3, R>>(lambdaExpr.Body, lambdaExpr.Parameters, new[] { typeof(T1), typeof(T2), typeof(T3) }, typeof(R))
+        public static Func<T1, R> CompileFast<T1, R>(this Expression<Func<T1, R>> lambdaExpr,
+            bool ifFastFailedReturnNull = false) =>
+            TryCompile<Func<T1, R>>(lambdaExpr.Body, lambdaExpr.Parameters, new[] { typeof(T1) }, typeof(R))
+            ?? (ifFastFailedReturnNull ? null : lambdaExpr.CompileSys());
+
+        /// <summary>Compiles lambda expression to TDelegate type. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
+        public static Func<T1, T2, R> CompileFast<T1, T2, R>(this Expression<Func<T1, T2, R>> lambdaExpr,
+            bool ifFastFailedReturnNull = false) =>
+            TryCompile<Func<T1, T2, R>>(lambdaExpr.Body, lambdaExpr.Parameters, new[] { typeof(T1), typeof(T2) },
+                typeof(R))
+            ?? (ifFastFailedReturnNull ? null : lambdaExpr.CompileSys());
+
+        /// <summary>Compiles lambda expression to delegate. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
+        public static Func<T1, T2, T3, R> CompileFast<T1, T2, T3, R>(
+            this Expression<Func<T1, T2, T3, R>> lambdaExpr, bool ifFastFailedReturnNull = false) =>
+            TryCompile<Func<T1, T2, T3, R>>(lambdaExpr.Body, lambdaExpr.Parameters,
+                new[] { typeof(T1), typeof(T2), typeof(T3) }, typeof(R))
             ?? (ifFastFailedReturnNull ? null : lambdaExpr.CompileSys());
 
         /// <summary>Compiles lambda expression to TDelegate type. Use ifFastFailedReturnNull parameter to Not fallback to Expression.Compile, useful for testing.</summary>
@@ -224,7 +240,7 @@ namespace Cosmos.Expressions
             var methodParamTypes = closureType == null ? paramTypes : GetClosureAndParamTypes(paramTypes, closureType);
 
             var method = new DynamicMethod(string.Empty, returnType, methodParamTypes,
-                typeof(FastExpressionCompiler), skipVisibility: true);
+                typeof(ExpressionCompiler), skipVisibility: true);
 
             var il = method.GetILGenerator();
             var parentFlags = returnType == typeof(void) ? ParentFlags.IgnoreResult : ParentFlags.Empty;
@@ -409,6 +425,27 @@ namespace Cosmos.Expressions
                     NestedLambdaExprs = NestedLambdaExprs.WithLast(lambdaExpr);
             }
 
+            public void AddLabel(LabelTarget labelTarget)
+            {
+                if ((labelTarget != null) && (Labels.GetFirstIndex(kvp => kvp.Key == labelTarget) == -1))
+                    Labels = Labels.WithLast(new KeyValuePair<LabelTarget, Label?>(labelTarget, null));
+            }
+
+            public Label GetOrCreateLabel(LabelTarget labelTarget, ILGenerator il)
+                => GetOrCreateLabel(GetLabelIndex(labelTarget), il);
+
+            public Label GetOrCreateLabel(int index, ILGenerator il)
+            {
+                var labelPair = Labels[index];
+                var label = labelPair.Value;
+                if (!label.HasValue)
+                    Labels[index] = new KeyValuePair<LabelTarget, Label?>(labelPair.Key, label = il.DefineLabel());
+
+                return label.Value;
+            }
+
+            public int GetLabelIndex(LabelTarget labelTarget) => Labels.GetFirstIndex(kvp => kvp.Key == labelTarget);
+
             public object ConstructClosureTypeAndObject(bool constructTypeOnly)
             {
                 IsClosureConstructed = true;
@@ -424,7 +461,7 @@ namespace Cosmos.Expressions
 
                 // Construct the array based closure when number of values is bigger than
                 // number of fields in biggest supported Closure class.
-                var createMethods = FastExpressionCompiler.Closure.CreateMethods;
+                var createMethods = ExpressionCompiler.Closure.CreateMethods;
                 if (totalItemCount > createMethods.Length)
                 {
                     ClosureType = typeof(ArrayClosure);
@@ -955,6 +992,13 @@ namespace Cosmos.Expressions
                         closure.PopBlock();
                         return true;
 
+                    case ExpressionType.Loop:
+                        var loopExpr = (LoopExpression)expr;
+                        closure.AddLabel(loopExpr.BreakLabel);
+                        closure.AddLabel(loopExpr.ContinueLabel);
+                        expr = loopExpr.Body;
+                        continue;
+
                     case ExpressionType.Index:
                         var indexExpr = (IndexExpression)expr;
                         if (!TryCollectBoundConstants(ref closure, indexExpr.Arguments, paramExprs))
@@ -970,8 +1014,7 @@ namespace Cosmos.Expressions
                     case ExpressionType.Label:
                         var labelExpr = (LabelExpression)expr;
                         var defaultValueExpr = labelExpr.DefaultValue;
-                        closure.Labels = closure.Labels
-                            .WithLast(new KeyValuePair<LabelTarget, Label?>(labelExpr.Target, null));
+                        closure.AddLabel(labelExpr.Target);
                         if (defaultValueExpr == null)
                             return true;
                         expr = defaultValueExpr;
@@ -1056,7 +1099,8 @@ namespace Cosmos.Expressions
         private static bool TryCollectMemberInitExprConstants(ref ClosureInfo closure, MemberInitExpression expr,
             IReadOnlyList<ParameterExpression> paramExprs)
         {
-            var newExpr = expr.NewExpression;
+            var newExpr = expr.NewExpression
+                ;
             if (!TryCollectBoundConstants(ref closure, newExpr, paramExprs))
                 return false;
 
@@ -1137,9 +1181,18 @@ namespace Cosmos.Expressions
         /// to normal and slow Expression.Compile.</summary>
         private static class EmittingVisitor
         {
-            private static readonly MethodInfo _getTypeFromHandleMethod = ((Func<RuntimeTypeHandle, Type>)Type.GetTypeFromHandle).Method;
+#if !NETSTANDARD2_0 && !NET45
+            private static readonly MethodInfo _getTypeFromHandleMethod = typeof(Type).GetTypeInfo()
+                .DeclaredMethods.First(m => m.IsStatic && m.Name == "GetTypeFromHandle");
+
+            private static readonly MethodInfo _objectEqualsMethod = typeof(object).GetTypeInfo()
+                .DeclaredMethods.First(m => m.IsStatic && m.Name == "Equals");
+#else
+            private static readonly MethodInfo _getTypeFromHandleMethod =
+                ((Func<RuntimeTypeHandle, Type>)Type.GetTypeFromHandle).Method;
 
             private static readonly MethodInfo _objectEqualsMethod = ((Func<object, object, bool>)object.Equals).Method;
+#endif
 
             public static bool TryEmit(Expression expr, IReadOnlyList<ParameterExpression> paramExprs,
                 ILGenerator il, ref ClosureInfo closure, ParentFlags parent, int byRefIndex = -1)
@@ -1277,6 +1330,27 @@ namespace Cosmos.Expressions
                             closure.PopBlock();
                             return true;
 
+                        case ExpressionType.Loop:
+                            var loopExpr = (LoopExpression)expr;
+
+                            // Mark the start of the loop body:
+                            var loopBodyLabel = il.DefineLabel();
+                            il.MarkLabel(loopBodyLabel);
+
+                            if (loopExpr.ContinueLabel != null)
+                                il.MarkLabel(closure.GetOrCreateLabel(loopExpr.ContinueLabel, il));
+
+                            if (!TryEmit(loopExpr.Body, paramExprs, il, ref closure, parent))
+                                return false;
+
+                            // If loop hasn't exited, jump back to start of its body:
+                            il.Emit(OpCodes.Br_S, loopBodyLabel);
+
+                            if (loopExpr.BreakLabel != null)
+                                il.MarkLabel(closure.GetOrCreateLabel(loopExpr.BreakLabel, il));
+
+                            return true;
+
                         case ExpressionType.Try:
                             return TryEmitTryCatchFinallyBlock((TryExpression)expr, paramExprs, il, ref closure,
                                 parent);
@@ -1331,16 +1405,14 @@ namespace Cosmos.Expressions
             private static bool TryEmitLabel(LabelExpression expr,
                 IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
-                var index = closure.Labels.GetFirstIndex(x => x.Key == expr.Target);
+                var index = closure.GetLabelIndex(expr.Target);
                 if (index == -1)
                     return false; // should be found in first collecting constants round
 
                 // define a new label or use the label provided by the preceding GoTo expression
-                var label = closure.Labels[index].Value;
-                if (!label.HasValue)
-                    closure.Labels[index] = new KeyValuePair<LabelTarget, Label?>(expr.Target, label = il.DefineLabel());
+                var label = closure.GetOrCreateLabel(index, il);
 
-                il.MarkLabel(label.Value);
+                il.MarkLabel(label);
 
                 return expr.DefaultValue == null || TryEmit(expr.DefaultValue, paramExprs, il, ref closure, parent);
             }
@@ -1348,22 +1420,26 @@ namespace Cosmos.Expressions
             // todo: GotoExpression.Value 
             private static bool TryEmitGoto(GotoExpression expr, ILGenerator il, ref ClosureInfo closure)
             {
-                var index = closure.Labels.GetFirstIndex(x => x.Key == expr.Target);
+                var index = closure.GetLabelIndex(expr.Target);
                 if (index == -1)
                     throw new InvalidOperationException("Cannot jump, no labels found");
 
                 // use label defined by Label expression or define its own to use by subsequent Label
-                var label = closure.Labels[index].Value;
-                if (!label.HasValue)
-                    closure.Labels[index] = new KeyValuePair<LabelTarget, Label?>(expr.Target, label = il.DefineLabel());
+                var label = closure.GetOrCreateLabel(index, il);
 
-                if (expr.Kind == GotoExpressionKind.Goto)
+                switch (expr.Kind)
                 {
-                    il.Emit(OpCodes.Br, label.Value);
-                    return true;
-                }
+                    case GotoExpressionKind.Goto:
+                        il.Emit(OpCodes.Br, label);
+                        return true;
 
-                return false;
+                    case GotoExpressionKind.Break:
+                        il.Emit(OpCodes.Br_S, label);
+                        return true;
+
+                    default:
+                        return false;
+                }
             }
 
             private static bool TryEmitIndex(IndexExpression expr, ILGenerator il)
@@ -1488,6 +1564,7 @@ namespace Cosmos.Expressions
 
                 return true;
             }
+
 
             private static bool TryEmitTryCatchFinallyBlock(TryExpression tryExpr,
                 IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
@@ -1727,8 +1804,9 @@ namespace Cosmos.Expressions
                 return true;
             }
 
-            private static bool TryEmitNot(UnaryExpression expr, IReadOnlyList<ParameterExpression> paramExprs,
-                ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitNot(UnaryExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure,
+                ParentFlags parent)
             {
                 if (!TryEmit(expr.Operand, paramExprs, il, ref closure, parent))
                     return false;
@@ -1749,8 +1827,8 @@ namespace Cosmos.Expressions
                 return true;
             }
 
-            private static bool TryEmitConvert(UnaryExpression expr, IReadOnlyList<ParameterExpression> paramExprs,
-                ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitConvert(UnaryExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 var opExpr = expr.Operand;
                 var method = expr.Method;
@@ -2111,7 +2189,8 @@ namespace Cosmos.Expressions
                 return loc;
             }
 
-            private static LocalBuilder InitValueTypeVariable(ILGenerator il, Type exprType, LocalBuilder existingVar = null)
+            private static LocalBuilder InitValueTypeVariable(ILGenerator il, Type exprType,
+                LocalBuilder existingVar = null)
             {
                 var valVar = existingVar ?? il.DeclareLocal(exprType);
                 il.Emit(OpCodes.Ldloca_S, valVar);
@@ -2119,7 +2198,8 @@ namespace Cosmos.Expressions
                 return valVar;
             }
 
-            private static bool LoadClosureFieldOrItem(ref ClosureInfo closure, ILGenerator il, int itemIndex, Type itemType, Expression itemExprObj = null)
+            private static bool LoadClosureFieldOrItem(ref ClosureInfo closure, ILGenerator il, int itemIndex,
+                Type itemType, Expression itemExprObj = null)
             {
                 il.Emit(OpCodes.Ldarg_0); // closure is always a first argument
 
@@ -2164,7 +2244,8 @@ namespace Cosmos.Expressions
                 return true;
             }
 
-            private static bool EmitNewArray(NewArrayExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool EmitNewArray(NewArrayExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 var arrayType = expr.Type;
                 var elems = expr.Expressions;
@@ -2225,7 +2306,8 @@ namespace Cosmos.Expressions
                 return true;
             }
 
-            private static bool EmitMemberInit(MemberInitExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool EmitMemberInit(MemberInitExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 // todo: Use closureInfo Block to track the variable instead
                 LocalBuilder valueVar = null;
@@ -2320,7 +2402,8 @@ namespace Cosmos.Expressions
                 return true;
             }
 
-            private static bool TryEmitAssign(BinaryExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitAssign(BinaryExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 var exprType = expr.Type;
                 var left = expr.Left;
@@ -2558,7 +2641,8 @@ namespace Cosmos.Expressions
                 return EmitMethodCall(il, instType?.GetTypeInfo().GetDeclaredMethod("Set"));
             }
 
-            private static bool TryEmitMethodCall(MethodCallExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitMethodCall(MethodCallExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 var flags = parent & ~ParentFlags.IgnoreResult | ParentFlags.Call;
 
@@ -2592,7 +2676,8 @@ namespace Cosmos.Expressions
                 return EmitMethodCall(il, expr.Method, parent);
             }
 
-            private static bool TryEmitMemberAccess(MemberExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitMemberAccess(MemberExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 var prop = expr.Member as PropertyInfo;
                 var instanceExpr = expr.Expression;
@@ -2639,7 +2724,8 @@ namespace Cosmos.Expressions
             }
 
             // ReSharper disable once FunctionComplexityOverflow
-            private static bool TryEmitNestedLambda(LambdaExpression lambdaExpr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure)
+            private static bool TryEmitNestedLambda(LambdaExpression lambdaExpr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure)
             {
                 // First, find in closed compiled lambdas the one corresponding to the current lambda expression.
                 // Situation with not found lambda is not possible/exceptional,
@@ -2808,7 +2894,8 @@ namespace Cosmos.Expressions
                     : CurryClosureFuncs.Methods[lambdaTypeArgs.Length - 2].MakeGenericMethod(lambdaTypeArgs);
             }
 
-            private static bool TryEmitInvoke(InvocationExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitInvoke(InvocationExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 // optimization #138: we are inlining invoked lambda body (only for lambdas without arguments) 
                 var lambda = expr.Expression;
@@ -2829,7 +2916,8 @@ namespace Cosmos.Expressions
                 return EmitMethodCall(il, lambda.Type.FindDelegateInvokeMethod(), parent);
             }
 
-            private static bool TryEmitSwitch(SwitchExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitSwitch(SwitchExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 // todo:
                 //- use switch statement for int comparison (if int difference is less or equal 3 -> use il switch)
@@ -3021,7 +3109,7 @@ namespace Cosmos.Expressions
                         return false;
                 }
 
-                nullCheck:
+            nullCheck:
                 if (leftIsNullable)
                 {
                     il.Emit(OpCodes.Ldloca_S, lVar);
@@ -3154,7 +3242,8 @@ namespace Cosmos.Expressions
                 return true;
             }
 
-            private static bool TryEmitArithmeticOperation(BinaryExpression expr, ExpressionType exprNodeType, Type exprType, ILGenerator il)
+            private static bool TryEmitArithmeticOperation(BinaryExpression expr,
+                ExpressionType exprNodeType, Type exprType, ILGenerator il)
             {
                 if (!exprType.IsPrimitive())
                 {
@@ -3267,7 +3356,8 @@ namespace Cosmos.Expressions
                 return false;
             }
 
-            private static bool TryEmitLogicalOperator(BinaryExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitLogicalOperator(BinaryExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 if (!TryEmit(expr.Left, paramExprs, il, ref closure, parent))
                     return false;
@@ -3288,7 +3378,8 @@ namespace Cosmos.Expressions
                 return true;
             }
 
-            private static bool TryEmitConditional(ConditionalExpression expr, IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
+            private static bool TryEmitConditional(ConditionalExpression expr,
+                IReadOnlyList<ParameterExpression> paramExprs, ILGenerator il, ref ClosureInfo closure, ParentFlags parent)
             {
                 var testExpr = expr.Test;
                 var usedInverted = false;
