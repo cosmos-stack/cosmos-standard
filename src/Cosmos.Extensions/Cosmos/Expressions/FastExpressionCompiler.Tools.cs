@@ -120,7 +120,8 @@ namespace Cosmos.Expressions
 
         public static T[] AsArray<T>(this IEnumerable<T> xs) => xs as T[] ?? xs.ToArray();
 
-        public static IReadOnlyList<T> AsReadOnlyList<T>(this IEnumerable<T> xs) => xs as IReadOnlyList<T> ?? xs.ToArray();
+        public static IReadOnlyList<T> AsReadOnlyList<T>(this IEnumerable<T> xs) =>
+            xs as IReadOnlyList<T> ?? xs.ToArray();
 
         private static class EmptyArray<T>
         {
@@ -177,7 +178,8 @@ namespace Cosmos.Expressions
                     case 6: return typeof(Action<,,,,,>).MakeGenericType(paramTypes);
                     case 7: return typeof(Action<,,,,,,>).MakeGenericType(paramTypes);
                     default:
-                        throw new NotSupportedException($"Action with so many ({paramTypes.Length}) parameters is not supported!");
+                        throw new NotSupportedException(
+                            $"Action with so many ({paramTypes.Length}) parameters is not supported!");
                 }
             }
 
@@ -193,7 +195,8 @@ namespace Cosmos.Expressions
                 case 7: return typeof(Func<,,,,,,>).MakeGenericType(paramTypes);
                 case 8: return typeof(Func<,,,,,,,>).MakeGenericType(paramTypes);
                 default:
-                    throw new NotSupportedException($"Func with so many ({paramTypes.Length}) parameters is not supported!");
+                    throw new NotSupportedException(
+                        string.Format("Func with so many ({0}) parameters is not supported!", paramTypes.Length));
             }
         }
 

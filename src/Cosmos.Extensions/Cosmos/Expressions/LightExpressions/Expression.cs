@@ -42,8 +42,7 @@ namespace Cosmos.Expressions.LightExpressions
 
     /// <summary>Facade for constructing Expression.</summary>
     public abstract class Expression
-    {
-        /// <summary>Expression node type.</summary>
+    {   /// <summary>Expression node type.</summary>
         public abstract ExpressionType NodeType { get; }
 
         /// <summary>All expressions should have a Type.</summary>
@@ -656,6 +655,25 @@ namespace Cosmos.Expressions.LightExpressions
         public static BlockExpression Block(Type type, IEnumerable<ParameterExpression> variables, params Expression[] expressions) =>
             new BlockExpression(type, variables.AsReadOnlyList(), expressions);
 
+        /// <summary>
+        /// Creates a LoopExpression with the given body and (optional) break target.
+        /// </summary>
+        /// <param name="body">The body of the loop.</param>
+        /// <param name="break">The break target used by the loop body, if required.</param>
+        /// <returns>The created LoopExpression.</returns>
+        public static LoopExpression Loop(Expression body, LabelTarget @break = null) =>
+            @break == null ? new LoopExpression(body, null, null) : new LoopExpression(body, @break, null);
+
+        /// <summary>
+        /// Creates a LoopExpression with the given body.
+        /// </summary>
+        /// <param name="body">The body of the loop.</param>
+        /// <param name="break">The break target used by the loop body.</param>
+        /// <param name="continue">The continue target used by the loop body.</param>
+        /// <returns>The created LoopExpression.</returns>
+        public static LoopExpression Loop(Expression body, LabelTarget @break, LabelTarget @continue) =>
+            new LoopExpression(body, @break, @continue);
+
         public static TryExpression TryCatch(Expression body, params CatchBlock[] handlers) =>
             new TryExpression(body, null, handlers);
 
@@ -719,6 +737,7 @@ namespace Cosmos.Expressions.LightExpressions
                     return new SimpleBinaryExpression(binaryType, left, right, left.Type);
             }
         }
+
 
         public static GotoExpression MakeGoto(GotoExpressionKind kind, LabelTarget target, Expression value, Type type = null) =>
             new GotoExpression(kind, target, value, type ?? typeof(void));
@@ -1483,6 +1502,29 @@ namespace Cosmos.Expressions.LightExpressions
         }
     }
 
+    public sealed class LoopExpression : Expression
+    {
+        public override ExpressionType NodeType => ExpressionType.Loop;
+
+        public override Type Type => typeof(void);
+
+        public readonly Expression Body;
+        public readonly LabelTarget BreakLabel;
+        public readonly LabelTarget ContinueLabel;
+
+        public override SysExpr ToExpression() =>
+            BreakLabel == null ? SysExpr.Loop(Body.ToExpression()) :
+            ContinueLabel == null ? SysExpr.Loop(Body.ToExpression(), BreakLabel) :
+            SysExpr.Loop(Body.ToExpression(), BreakLabel, ContinueLabel);
+
+        internal LoopExpression(Expression body, LabelTarget breakLabel, LabelTarget continueLabel)
+        {
+            Body = body;
+            BreakLabel = breakLabel;
+            ContinueLabel = continueLabel;
+        }
+    }
+
     public sealed class TryExpression : Expression
     {
         public override ExpressionType NodeType => ExpressionType.Try;
@@ -1541,7 +1583,9 @@ namespace Cosmos.Expressions.LightExpressions
         public readonly LabelTarget Target;
         public readonly Expression DefaultValue;
 
-        public override SysExpr ToExpression() => SysExpr.Label(Target, DefaultValue.ToExpression());
+        public override SysExpr ToExpression() =>
+            DefaultValue == null ? SysExpr.Label(Target) :
+            SysExpr.Label(Target, DefaultValue.ToExpression());
 
         internal LabelExpression(LabelTarget target, Expression defaultValue)
         {
@@ -1555,7 +1599,9 @@ namespace Cosmos.Expressions.LightExpressions
         public override ExpressionType NodeType => ExpressionType.Goto;
         public override Type Type { get; }
 
-        public override SysExpr ToExpression() => SysExpr.Goto(Target, Value.ToExpression(), Type);
+        public override SysExpr ToExpression() =>
+            Value == null ? SysExpr.Goto(Target, Type) :
+            SysExpr.Goto(Target, Value.ToExpression(), Type);
 
         public readonly Expression Value;
         public readonly LabelTarget Target;
