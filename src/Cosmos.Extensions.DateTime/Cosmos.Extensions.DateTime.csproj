@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentDateTime" Version="1.15.0" />
+    <PackageReference Include="NodaTime" Version="3.0.0-alpha01" />
   </ItemGroup>
 
   <ItemGroup>

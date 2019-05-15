@@ -29,7 +29,7 @@ namespace Cosmos
             return true;
         }
 
-        public static bool DateBetweenWithoutBoundary(this DateTime date, DateTime min, DateTime max)
+        public static bool IsDateBetweenWithoutBoundary(this DateTime date, DateTime min, DateTime max)
             => date.IsBetween(min, max, false);
     }
 }
