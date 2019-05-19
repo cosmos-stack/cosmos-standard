@@ -21,4 +21,8 @@
     <PackageReference Include="Kooboo.Json" Version="1.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

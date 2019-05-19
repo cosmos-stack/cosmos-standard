@@ -22,4 +22,8 @@
     <PackageReference Include="NodaTime.Serialization.JsonNet" Version="2.2.0" />
   </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
 </Project>
