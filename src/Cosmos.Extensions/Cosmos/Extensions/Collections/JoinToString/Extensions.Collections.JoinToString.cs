@@ -82,31 +82,10 @@ namespace Cosmos
         {
             if (list == null)
                 return string.Empty;
-            bool head = true;
+
             var sb = new StringBuilder();
 
-            foreach (var item in list)
-            {
-                var checker = item;
-                if (!(predicate?.Invoke(checker) ?? true))
-                {
-                    if (replaceFunc == null)
-                        continue;
-                    else
-                        checker = replaceFunc(item);
-                }
-
-                if (head)
-                {
-                    head = false;
-                }
-                else
-                {
-                    sb.Append(delimiter);
-                }
-
-                sb.Append(to(checker));
-            }
+            JoinUtils.JoinToString<T, StringBuilder>(sb, (c, s) => c.Append(s), list, delimiter, predicate, to, replaceFunc);
 
             return sb.ToString();
         }

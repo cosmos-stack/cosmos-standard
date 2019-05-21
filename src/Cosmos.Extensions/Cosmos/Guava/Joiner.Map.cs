@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Cosmos.Guava
 {
@@ -63,13 +64,21 @@ namespace Cosmos.Guava
             var replacer = Options.GetMapReplace<string, string, string, string>();
             var defaultKey = replacer.KeyFunc?.Invoke(string.Empty) ?? string.Empty;
             var defaultValue = replacer.ValueFunc?.Invoke(string.Empty) ?? string.Empty;
-            return JoinToKeyValuePairString(list, defaultKey, defaultValue, s => s, v => v, replacer);
+            var middle = new List<string>();
+            JoinToKeyValuePairString(
+                middle, (c, k, v, i) => c.Add($"{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, s => s, v => v, replacer);
+            return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
         string IGuavaMapJoiner.Join(IEnumerable<string> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
-            return JoinToKeyValuePairString(list, defaultKey, defaultValue, s => s, v => v, replacer);
+            var middle = new List<string>();
+            JoinToKeyValuePairString(
+                middle, (c, k, v, i) => c.Add($"{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, s => s, v => v, replacer);
+            return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
         string IGuavaMapJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
@@ -77,13 +86,21 @@ namespace Cosmos.Guava
             var replacer = Options.GetMapReplace<T, T, T, T>();
             var defaultKey = replacer.KeyFunc == null ? default : replacer.KeyFunc(default);
             var defaultValue = replacer.ValueFunc == null ? default : replacer.ValueFunc(default);
-            return JoinToKeyValuePairString(list, defaultKey, defaultValue, converter.To, converter.To, replacer);
+            var middle = new List<string>();
+            JoinToKeyValuePairString(
+                middle, (c, k, v, i) => c.Add($"{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, converter.To, converter.To, replacer);
+            return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
         string IGuavaMapJoiner.Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
-            return JoinToKeyValuePairString(list, defaultKey, defaultValue, converter.To, converter.To, replacer);
+            var middle = new List<string>();
+            JoinToKeyValuePairString(
+                middle, (c, k, v, i) => c.Add($"{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, converter.To, converter.To, replacer);
+            return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
         string IGuavaMapJoiner.Join(string str1, string str2, params string[] restStrings)
@@ -93,22 +110,30 @@ namespace Cosmos.Guava
             return ((IGuavaMapJoiner)this).Join(list);
         }
 
-        private string JoinToKeyValuePairString<T>(IEnumerable<T> list, T defaultKey, T defaultValue, Func<T, string> keyFunc, Func<T, string> valueFunc,
+        string IGuavaMapJoiner.Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
+        {
+            var list = new List<T> { t1, t2 };
+            list.AddRange(restTs);
+            return ((IGuavaMapJoiner)this).Join(list, converter);
+        }
+
+        private void JoinToKeyValuePairString<T, TContainer>(
+            TContainer container, Action<TContainer, string, string, int> containerUpdateFunc,
+            IEnumerable<T> list, T defaultKey, T defaultValue, Func<T, string> keyFunc, Func<T, string> valueFunc,
             (Func<T, T> KeyFunc, Func<T, T> ValueFunc) replacer)
         {
             if (list == null)
-                return string.Empty;
+                return;
 
             var instances = list.ToList();
             if (!instances.Any())
-                return string.Empty;
+                return;
 
             if (instances.Count % 2 == 1)
                 instances.Add(defaultValue);
 
             var timesToLoops = instances.Count / 2;
             var index = 0;
-            var middle = new List<string>();
             for (var i = 0; i < timesToLoops; i++)
             {
                 var k = instances[index++];
@@ -124,12 +149,67 @@ namespace Cosmos.Guava
                     value = JoinerUtils.FixMapValueSafety(v, value, key, defaultValue, valueFunc, replacer.ValueFunc, Options.SkipValueNullType);
                 }
 
-                middle.Add($"{key}{Options.MapSeparator}{value}");
+                containerUpdateFunc(container, key, value, i);
             }
-
-            return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
+        #endregion
+
+        #region AppendTo
+
+        StringBuilder IGuavaMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
+        {
+            var replacer = Options.GetMapReplace<string, string, string, string>();
+            var defaultKey = replacer.KeyFunc?.Invoke(string.Empty) ?? string.Empty;
+            var defaultValue = replacer.ValueFunc?.Invoke(string.Empty) ?? string.Empty;
+            JoinToKeyValuePairString(
+                builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, s => s, v => v, replacer);
+            return builder;
+        }
+
+        StringBuilder IGuavaMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue)
+        {
+            var replacer = Options.GetMapReplace<string, string, string, string>();
+            JoinToKeyValuePairString(
+                builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, s => s, v => v, replacer);
+            return builder;
+        }
+
+        StringBuilder IGuavaMapJoiner.AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings)
+        {
+            var list = new List<string> { str1, str2 };
+            list.AddRange(restStrings);
+            return ((IGuavaMapJoiner)this).AppendTo(builder, list);
+        }
+
+        StringBuilder IGuavaMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
+        {
+            var replacer = Options.GetMapReplace<T, T, T, T>();
+            var defaultKey = replacer.KeyFunc == null ? default : replacer.KeyFunc(default);
+            var defaultValue = replacer.ValueFunc == null ? default : replacer.ValueFunc(default);
+            JoinToKeyValuePairString(
+                builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, converter.To, converter.To, replacer);
+            return builder;
+        }
+
+        StringBuilder IGuavaMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
+        {
+            var replacer = Options.GetMapReplace<T, T, T, T>();
+            JoinToKeyValuePairString(
+                builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
+                list, defaultKey, defaultValue, converter.To, converter.To, replacer);
+            return builder;
+        }
+
+        StringBuilder IGuavaMapJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
+        {
+            var list = new List<T> { t1, t2 };
+            list.AddRange(restTs);
+            return ((IGuavaMapJoiner)this).AppendTo(builder, list, converter);
+        }
 
         #endregion
 
@@ -299,8 +379,15 @@ namespace Cosmos.Guava
         IGuavaTupleJoiner FromTuple();
         string Join(IEnumerable<string> list);
         string Join(IEnumerable<string> list, string defaultKey, string defaultValue);
+        string Join(string str1, string str2, params string[] restStrings);
         string Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter);
         string Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter);
-        string Join(string str1, string str2, params string[] restStrings);
+        string Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs);
+        StringBuilder AppendTo(StringBuilder builder, IEnumerable<string> list);
+        StringBuilder AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue);
+        StringBuilder AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings);
+        StringBuilder AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter);
+        StringBuilder AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter);
+        StringBuilder AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs);
     }
 }
