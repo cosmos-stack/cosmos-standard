@@ -65,7 +65,9 @@ namespace Cosmos.Guava
                 return Enumerable.Empty<KeyValuePair<string, TValue>>();
 
             var result = new List<KeyValuePair<string, TValue>>();
-            var middle = ((IGuavaSplitter)this).Split(originalString);
+            var middle = _fixedLengthMode
+                ? ((IGuavaFixedLengthSplitter)this).Split(originalString)
+                : ((IGuavaSplitter)this).Split(originalString);
 
             foreach (var item in middle)
             {

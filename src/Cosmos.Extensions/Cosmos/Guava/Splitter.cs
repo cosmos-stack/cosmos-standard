@@ -10,9 +10,11 @@ namespace Cosmos.Guava
     public partial class Splitter : IGuavaSplitter
     {
         private readonly bool _regexMode;
+        private readonly bool _fixedLengthMode;
         private readonly string[] _on;
         private readonly string _pattern;
         private readonly Regex _regexPattern;
+        private readonly int _fixedLengthPattern;
 
         private SplitterOptions Options { get; set; } = new SplitterOptions();
 
@@ -22,6 +24,8 @@ namespace Cosmos.Guava
             _pattern = string.Empty;
             _regexPattern = null;
             _regexMode = false;
+            _fixedLengthPattern = 0;
+            _fixedLengthMode = false;
         }
 
         private Splitter(string pattern)
@@ -30,6 +34,8 @@ namespace Cosmos.Guava
             _pattern = pattern;
             _regexPattern = null;
             _regexMode = true;
+            _fixedLengthPattern = 0;
+            _fixedLengthMode = false;
         }
 
         private Splitter(Regex regexPattern)
@@ -38,6 +44,18 @@ namespace Cosmos.Guava
             _pattern = string.Empty;
             _regexPattern = regexPattern;
             _regexMode = true;
+            _fixedLengthPattern = 0;
+            _fixedLengthMode = false;
+        }
+
+        private Splitter(int fixedLength)
+        {
+            _on = new string[0];
+            _pattern = string.Empty;
+            _regexPattern = null;
+            _regexMode = false;
+            _fixedLengthPattern = fixedLength;
+            _fixedLengthMode = true;
         }
 
         #region OmitEmptyStrings
@@ -52,13 +70,12 @@ namespace Cosmos.Guava
 
         #region WithKeyValueSeparator
 
-        public IGuavaMapSplitter WithKeyValueSeparator(string separator)
+        IGuavaMapSplitter IGuavaSplitter.WithKeyValueSeparator(string separator)
         {
             Options.SetMapSeparator(separator);
             return this;
         }
-
-        public IGuavaMapSplitter WithKeyValueSeparator(char separator)
+        IGuavaMapSplitter IGuavaSplitter.WithKeyValueSeparator(char separator)
         {
             Options.SetMapSeparator(separator);
             return this;
@@ -108,17 +125,17 @@ namespace Cosmos.Guava
         IEnumerable<T> IGuavaSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
             => InternalSplitToEnumerable(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
-        public List<string> SplitToList(string originalString)
-            => ((IGuavaSplitter)this).Split(originalString).ToList();
+        List<string> IGuavaSplitter.SplitToList(string originalString)
+           => ((IGuavaSplitter)this).Split(originalString).ToList();
 
-        public List<T> SplitToList<T>(string originalString, IObjectSerializer serializer)
-            => ((IGuavaSplitter)this).Split<T>(originalString, serializer).ToList();
+        List<T> IGuavaSplitter.SplitToList<T>(string originalString, IObjectSerializer serializer)
+           => ((IGuavaSplitter)this).Split<T>(originalString, serializer).ToList();
 
-        public List<T> SplitToList<T>(string originalString, ITypeConverter<string, T> converter)
-            => ((IGuavaSplitter)this).Split(originalString, converter).ToList();
+        List<T> IGuavaSplitter.SplitToList<T>(string originalString, ITypeConverter<string, T> converter)
+           => ((IGuavaSplitter)this).Split(originalString, converter).ToList();
 
-        public List<T> SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
-            => ((IGuavaSplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToList();
+        List<T> IGuavaSplitter.SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+           => ((IGuavaSplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToList();
 
         private IEnumerable<TValue> InternalSplitToEnumerable<TValue>(string originalString, Func<string, TValue> to)
         {
@@ -163,6 +180,17 @@ namespace Cosmos.Guava
         public static IGuavaSplitter OnPattern(string separatorPattern)
         {
             return new Splitter(separatorPattern);
+        }
+
+        #endregion
+
+        #region FixedLength
+
+        public static IGuavaFixedLengthSplitter FixedLength(int length)
+        {
+            if (length <= 0)
+                throw new ArgumentOutOfRangeException(nameof(length), length, "The fixedLength must be greater than zero.");
+            return new Splitter(length);
         }
 
         #endregion

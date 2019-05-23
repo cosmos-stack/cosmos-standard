@@ -20,6 +20,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
             public static string NormalMapString { get; } = "a=1&b=2&c=3&d=4&e=5";
             public static string IncludeNullString { get; } = "a,,b,,,c,d,e";
             public static string IncludeWhiteSpaceString { get; } = "a, b ,c,d,e";
+            public static string FixedLengthMapString { get; } = "a=1b=2c=3d=4e=5";
         }
 
         [Fact]
@@ -116,6 +117,39 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
             dict["c"].ShouldBe(3);
             dict["d"].ShouldBe(4);
             dict["e"].ShouldBe(5);
+        }
+
+        [Fact]
+        public void StringToFixedLengthKvpTest()
+        {
+            var kvp = Splitter.FixedLength(3).WithKeyValueSeparator("=").Split(OriginalStrings.FixedLengthMapString);
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            kvp.Count().ShouldBe(5);
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            var dict = kvp.ToDictionary(k => k.Key, v => v.Value);
+            dict.Count.ShouldBe(5);
+
+            dict["a"].ShouldBe("1");
+            dict["b"].ShouldBe("2");
+            dict["c"].ShouldBe("3");
+            dict["d"].ShouldBe("4");
+            dict["e"].ShouldBe("5");
+        }
+
+        [Fact]
+        public void StringToFixedLengthDictionaryTest()
+        {
+            var dict = Splitter.FixedLength(3).WithKeyValueSeparator("=").SplitToDictionary(OriginalStrings.FixedLengthMapString);
+
+            dict.Count.ShouldBe(5);
+
+            dict["a"].ShouldBe("1");
+            dict["b"].ShouldBe("2");
+            dict["c"].ShouldBe("3");
+            dict["d"].ShouldBe("4");
+            dict["e"].ShouldBe("5");
         }
     }
 }

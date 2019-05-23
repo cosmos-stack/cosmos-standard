@@ -42,5 +42,27 @@ namespace Cosmos.Tests.GuavaTests.GuavaStrings
             var checker = Strings.NullToEmpty(str);
             checker.ShouldBe("");
         }
+
+        [Theory]
+        [InlineData("aaac", "aa", "aa")]
+        [InlineData("aabc", "aab", "aab")]
+        [InlineData("", "aab", "")]
+        [InlineData("aabc", "bbc", "")]
+        public void CommonPrefixTest(string left, string right, string expected)
+        {
+            var actual = Strings.CommonPrefix(left, right);
+            actual.ShouldBe(expected);
+        }
+
+        [Theory]
+        [InlineData("aaac", "aac", "aac")]
+        [InlineData("", "aac", "")]
+        [InlineData("aabc", "bbc", "bc")]
+        [InlineData("aaac", "aad", "")]
+        public void CommonSuffexTest(string left, string right, string expected)
+        {
+            var actual = Strings.CommonSuffix(left, right);
+            actual.ShouldBe(expected);
+        }
     }
 }
