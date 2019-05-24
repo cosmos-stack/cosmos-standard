@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 // ReSharper disable InconsistentNaming
 
-namespace Cosmos.Guava
+namespace Cosmos.Splitters
 {
-    public partial class Splitter : IGuavaSplitter
+    public partial class Splitter : ISplitter
     {
         private readonly bool _regexMode;
         private readonly bool _fixedLengthMode;
@@ -60,7 +60,7 @@ namespace Cosmos.Guava
 
         #region OmitEmptyStrings
 
-        public IGuavaSplitter OmitEmptyStrings()
+        public ISplitter OmitEmptyStrings()
         {
             Options.SetOmitEmptyStrings();
             return this;
@@ -70,12 +70,12 @@ namespace Cosmos.Guava
 
         #region WithKeyValueSeparator
 
-        IGuavaMapSplitter IGuavaSplitter.WithKeyValueSeparator(string separator)
+        IMapSplitter ISplitter.WithKeyValueSeparator(string separator)
         {
             Options.SetMapSeparator(separator);
             return this;
         }
-        IGuavaMapSplitter IGuavaSplitter.WithKeyValueSeparator(char separator)
+        IMapSplitter ISplitter.WithKeyValueSeparator(char separator)
         {
             Options.SetMapSeparator(separator);
             return this;
@@ -85,13 +85,13 @@ namespace Cosmos.Guava
 
         #region TrimResults
 
-        IGuavaSplitter IGuavaSplitter.TrimResults()
+        ISplitter ISplitter.TrimResults()
         {
             Options.SetTrimResults();
             return this;
         }
 
-        IGuavaSplitter IGuavaSplitter.TrimResults(Func<string, string> trimFunc)
+        ISplitter ISplitter.TrimResults(Func<string, string> trimFunc)
         {
             Options.SetTrimResults(trimFunc);
             return this;
@@ -101,7 +101,7 @@ namespace Cosmos.Guava
 
         #region Limit
 
-        IGuavaSplitter IGuavaSplitter.Limit(int limit)
+        ISplitter ISplitter.Limit(int limit)
         {
             Options.SetLimitLength(limit);
             return this;
@@ -113,29 +113,29 @@ namespace Cosmos.Guava
 
         private bool _doesUseInLimitedMode() => Options.LimitLength >= 0 && (!_regexMode || (_regexMode && _regexPattern == null));
 
-        IEnumerable<string> IGuavaSplitter.Split(string originalString)
+        IEnumerable<string> ISplitter.Split(string originalString)
             => InternalSplitToEnumerable(originalString, s => s);
 
-        IEnumerable<T> IGuavaSplitter.Split<T>(string originalString, IObjectSerializer serializer)
+        IEnumerable<T> ISplitter.Split<T>(string originalString, IObjectSerializer serializer)
             => InternalSplitToEnumerable(originalString, serializer.Deserialize<T>);
 
-        IEnumerable<T> IGuavaSplitter.Split<T>(string originalString, ITypeConverter<string, T> converter)
+        IEnumerable<T> ISplitter.Split<T>(string originalString, ITypeConverter<string, T> converter)
             => InternalSplitToEnumerable(originalString, converter.To);
 
-        IEnumerable<T> IGuavaSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+        IEnumerable<T> ISplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
             => InternalSplitToEnumerable(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
-        List<string> IGuavaSplitter.SplitToList(string originalString)
-           => ((IGuavaSplitter)this).Split(originalString).ToList();
+        List<string> ISplitter.SplitToList(string originalString)
+           => ((ISplitter)this).Split(originalString).ToList();
 
-        List<T> IGuavaSplitter.SplitToList<T>(string originalString, IObjectSerializer serializer)
-           => ((IGuavaSplitter)this).Split<T>(originalString, serializer).ToList();
+        List<T> ISplitter.SplitToList<T>(string originalString, IObjectSerializer serializer)
+           => ((ISplitter)this).Split<T>(originalString, serializer).ToList();
 
-        List<T> IGuavaSplitter.SplitToList<T>(string originalString, ITypeConverter<string, T> converter)
-           => ((IGuavaSplitter)this).Split(originalString, converter).ToList();
+        List<T> ISplitter.SplitToList<T>(string originalString, ITypeConverter<string, T> converter)
+           => ((ISplitter)this).Split(originalString, converter).ToList();
 
-        List<T> IGuavaSplitter.SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
-           => ((IGuavaSplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToList();
+        List<T> ISplitter.SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+           => ((ISplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToList();
 
         private IEnumerable<TValue> InternalSplitToEnumerable<TValue>(string originalString, Func<string, TValue> to)
         {
@@ -163,7 +163,7 @@ namespace Cosmos.Guava
 
         #region On
 
-        public static IGuavaSplitter On(string on, params string[] on2)
+        public static ISplitter On(string on, params string[] on2)
         {
             var o = new string[(on2?.Length ?? 0) + 1];
             o[0] = on;
@@ -172,12 +172,12 @@ namespace Cosmos.Guava
             return new Splitter(o);
         }
 
-        public static IGuavaSplitter On(Regex pattern)
+        public static ISplitter On(Regex pattern)
         {
             return new Splitter(pattern);
         }
 
-        public static IGuavaSplitter OnPattern(string separatorPattern)
+        public static ISplitter OnPattern(string separatorPattern)
         {
             return new Splitter(separatorPattern);
         }
@@ -186,7 +186,7 @@ namespace Cosmos.Guava
 
         #region FixedLength
 
-        public static IGuavaFixedLengthSplitter FixedLength(int length)
+        public static IFixedLengthSplitter FixedLength(int length)
         {
             if (length <= 0)
                 throw new ArgumentOutOfRangeException(nameof(length), length, "The fixedLength must be greater than zero.");
@@ -274,21 +274,4 @@ namespace Cosmos.Guava
         #endregion
     }
 
-    public interface IGuavaSplitter
-    {
-        IGuavaSplitter OmitEmptyStrings();
-        IGuavaSplitter TrimResults();
-        IGuavaSplitter TrimResults(Func<string, string> trimFunc);
-        IGuavaSplitter Limit(int limit);
-        IGuavaMapSplitter WithKeyValueSeparator(char separator);
-        IGuavaMapSplitter WithKeyValueSeparator(string separator);
-        IEnumerable<string> Split(string originalString);
-        IEnumerable<T> Split<T>(string originalString, IObjectSerializer serializer);
-        IEnumerable<T> Split<T>(string originalString, ITypeConverter<string, T> converter);
-        IEnumerable<T> Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
-        List<string> SplitToList(string originalString);
-        List<T> SplitToList<T>(string originalString, IObjectSerializer serializer);
-        List<T> SplitToList<T>(string originalString, ITypeConverter<string, T> converter);
-        List<T> SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
-    }
 }

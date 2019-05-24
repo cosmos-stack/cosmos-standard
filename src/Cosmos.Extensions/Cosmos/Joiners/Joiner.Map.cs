@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cosmos.Guava
+namespace Cosmos.Joiners
 {
-    public partial class Joiner : IGuavaMapJoiner
+    public partial class Joiner : IMapJoiner
     {
         #region SkipValueNulls
 
-        IGuavaMapJoiner IGuavaMapJoiner.SkipNulls()
+        IMapJoiner IMapJoiner.SkipNulls()
         {
             Options.SetSkipValueNulls();
             return this;
         }
 
-        IGuavaMapJoiner IGuavaMapJoiner.SkipNulls(SkipNullType type)
+        IMapJoiner IMapJoiner.SkipNulls(SkipNullType type)
         {
             Options.SetSkipValueNulls(type);
             return this;
@@ -25,25 +25,25 @@ namespace Cosmos.Guava
 
         #region UseForNull
 
-        IGuavaMapJoiner IGuavaMapJoiner.UseForNull(string key, string value)
+        IMapJoiner IMapJoiner.UseForNull(string key, string value)
         {
             Options.SetMapReplace<string, string, string, string>(k => key, s => value);
             return this;
         }
 
-        IGuavaMapJoiner IGuavaMapJoiner.UseForNull(Func<string, string> keyFunc, Func<string, string> valueFunc)
+        IMapJoiner IMapJoiner.UseForNull(Func<string, string> keyFunc, Func<string, string> valueFunc)
         {
             Options.SetMapReplace(keyFunc, valueFunc);
             return this;
         }
 
-        IGuavaMapJoiner IGuavaMapJoiner.UseForNull<T1, T2>(T1 key, T2 value)
+        IMapJoiner IMapJoiner.UseForNull<T1, T2>(T1 key, T2 value)
         {
             Options.SetMapReplace<T1, T1, T2, T2>(t => key, t => value);
             return this;
         }
 
-        IGuavaMapJoiner IGuavaMapJoiner.UseForNull<T1, T2>(Func<T1, T1> keyFunc, Func<T2, T2> valueFunc)
+        IMapJoiner IMapJoiner.UseForNull<T1, T2>(Func<T1, T1> keyFunc, Func<T2, T2> valueFunc)
         {
             Options.SetMapReplace(keyFunc, valueFunc);
             return this;
@@ -53,13 +53,13 @@ namespace Cosmos.Guava
 
         #region FromTuple
 
-        IGuavaTupleJoiner IGuavaMapJoiner.FromTuple() => this;
+        ITupleJoiner IMapJoiner.FromTuple() => this;
 
         #endregion
 
         #region Join - KeyValuePair
 
-        string IGuavaMapJoiner.Join(IEnumerable<string> list)
+        string IMapJoiner.Join(IEnumerable<string> list)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             var defaultKey = replacer.KeyFunc?.Invoke(string.Empty) ?? string.Empty;
@@ -71,7 +71,7 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
-        string IGuavaMapJoiner.Join(IEnumerable<string> list, string defaultKey, string defaultValue)
+        string IMapJoiner.Join(IEnumerable<string> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             var middle = new List<string>();
@@ -81,7 +81,7 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
-        string IGuavaMapJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
+        string IMapJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             var defaultKey = replacer.KeyFunc == null ? default : replacer.KeyFunc(default);
@@ -93,7 +93,7 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
-        string IGuavaMapJoiner.Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
+        string IMapJoiner.Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             var middle = new List<string>();
@@ -103,18 +103,18 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
-        string IGuavaMapJoiner.Join(string str1, string str2, params string[] restStrings)
+        string IMapJoiner.Join(string str1, string str2, params string[] restStrings)
         {
             var list = new List<string> { str1, str2 };
             list.AddRange(restStrings);
-            return ((IGuavaMapJoiner)this).Join(list);
+            return ((IMapJoiner)this).Join(list);
         }
 
-        string IGuavaMapJoiner.Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
+        string IMapJoiner.Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
         {
             var list = new List<T> { t1, t2 };
             list.AddRange(restTs);
-            return ((IGuavaMapJoiner)this).Join(list, converter);
+            return ((IMapJoiner)this).Join(list, converter);
         }
 
         private void JoinToKeyValuePairString<T, TContainer>(
@@ -157,7 +157,7 @@ namespace Cosmos.Guava
 
         #region AppendTo
 
-        StringBuilder IGuavaMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
+        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             var defaultKey = replacer.KeyFunc?.Invoke(string.Empty) ?? string.Empty;
@@ -168,7 +168,7 @@ namespace Cosmos.Guava
             return builder;
         }
 
-        StringBuilder IGuavaMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue)
+        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             JoinToKeyValuePairString(
@@ -177,14 +177,14 @@ namespace Cosmos.Guava
             return builder;
         }
 
-        StringBuilder IGuavaMapJoiner.AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings)
+        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings)
         {
             var list = new List<string> { str1, str2 };
             list.AddRange(restStrings);
-            return ((IGuavaMapJoiner)this).AppendTo(builder, list);
+            return ((IMapJoiner)this).AppendTo(builder, list);
         }
 
-        StringBuilder IGuavaMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
+        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             var defaultKey = replacer.KeyFunc == null ? default : replacer.KeyFunc(default);
@@ -195,7 +195,7 @@ namespace Cosmos.Guava
             return builder;
         }
 
-        StringBuilder IGuavaMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
+        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             JoinToKeyValuePairString(
@@ -204,11 +204,11 @@ namespace Cosmos.Guava
             return builder;
         }
 
-        StringBuilder IGuavaMapJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
+        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
         {
             var list = new List<T> { t1, t2 };
             list.AddRange(restTs);
-            return ((IGuavaMapJoiner)this).AppendTo(builder, list, converter);
+            return ((IMapJoiner)this).AppendTo(builder, list, converter);
         }
 
         #endregion
@@ -334,9 +334,7 @@ namespace Cosmos.Guava
                     return key;
 
                 if (type == SkipNullType.Nothing || (type == SkipNullType.WhenValueIsNull && !string.IsNullOrWhiteSpace(value)))
-                {
                     return to(keyFunc == null ? defaultKey : keyFunc(k));
-                }
 
                 return key;
             }
@@ -350,9 +348,7 @@ namespace Cosmos.Guava
                     return value;
 
                 if (type == SkipNullType.Nothing || (type == SkipNullType.WhenKeyIsNull && !string.IsNullOrWhiteSpace(key)))
-                {
                     return to(valueFunc == null ? defaultValue : valueFunc(v));
-                }
 
                 return value;
             }
@@ -368,26 +364,4 @@ namespace Cosmos.Guava
         #endregion
     }
 
-    public interface IGuavaMapJoiner
-    {
-        IGuavaMapJoiner SkipNulls();
-        IGuavaMapJoiner SkipNulls(SkipNullType type);
-        IGuavaMapJoiner UseForNull(string key, string value);
-        IGuavaMapJoiner UseForNull(Func<string, string> keyFunc, Func<string, string> valueFunc);
-        IGuavaMapJoiner UseForNull<T1, T2>(T1 key, T2 value);
-        IGuavaMapJoiner UseForNull<T1, T2>(Func<T1, T1> keyFunc, Func<T2, T2> valueFunc);
-        IGuavaTupleJoiner FromTuple();
-        string Join(IEnumerable<string> list);
-        string Join(IEnumerable<string> list, string defaultKey, string defaultValue);
-        string Join(string str1, string str2, params string[] restStrings);
-        string Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter);
-        string Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter);
-        string Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs);
-        StringBuilder AppendTo(StringBuilder builder, IEnumerable<string> list);
-        StringBuilder AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue);
-        StringBuilder AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings);
-        StringBuilder AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter);
-        StringBuilder AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter);
-        StringBuilder AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs);
-    }
 }

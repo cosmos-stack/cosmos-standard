@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cosmos
+namespace Cosmos.Joiners
 {
-    public static class JoinUtils
+    public static class CommonJoinUtils
     {
         public static void JoinToString<T, TContainer>(
             TContainer container, Action<TContainer, string> containerUpdateFunc,
@@ -34,6 +34,7 @@ namespace Cosmos
                 {
                     containerUpdateFunc.Invoke(container, delimiter);
                 }
+
                 containerUpdateFunc.Invoke(container, to(checker));
             }
         }

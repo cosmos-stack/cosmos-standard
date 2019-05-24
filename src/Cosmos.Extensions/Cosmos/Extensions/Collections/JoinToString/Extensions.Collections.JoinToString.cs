@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Cosmos.Joiners;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -85,7 +86,7 @@ namespace Cosmos
 
             var sb = new StringBuilder();
 
-            JoinUtils.JoinToString<T, StringBuilder>(sb, (c, s) => c.Append(s), list, delimiter, predicate, to, replaceFunc);
+            CommonJoinUtils.JoinToString<T, StringBuilder>(sb, (c, s) => c.Append(s), list, delimiter, predicate, to, replaceFunc);
 
             return sb.ToString();
         }

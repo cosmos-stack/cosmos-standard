@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cosmos.Guava
+namespace Cosmos.Joiners
 {
-    public partial class Joiner : IGuavaJoiner
+    public partial class Joiner : IJoiner
     {
         private readonly string _on;
 
@@ -17,7 +17,7 @@ namespace Cosmos.Guava
 
         #region SkipNulls
 
-        IGuavaJoiner IGuavaJoiner.SkipNulls()
+        IJoiner IJoiner.SkipNulls()
         {
             Options.SetSkipNulls();
             return this;
@@ -27,13 +27,13 @@ namespace Cosmos.Guava
 
         #region UseForNull
 
-        IGuavaJoiner IGuavaJoiner.UseForNull(string value)
+        IJoiner IJoiner.UseForNull(string value)
         {
             Options.SetReplacer<string>(s => value);
             return this;
         }
 
-        IGuavaJoiner IGuavaJoiner.UseForNull(Func<string, string> valueFunc)
+        IJoiner IJoiner.UseForNull(Func<string, string> valueFunc)
         {
             Options.SetReplacer(valueFunc);
             return this;
@@ -43,13 +43,13 @@ namespace Cosmos.Guava
 
         #region WithKeyValueSeparator
 
-        public IGuavaMapJoiner WithKeyValueSeparator(string separator)
+        public IMapJoiner WithKeyValueSeparator(string separator)
         {
             Options.SetMapSeparator(separator);
             return this;
         }
 
-        public IGuavaMapJoiner WithKeyValueSeparator(char separator)
+        public IMapJoiner WithKeyValueSeparator(char separator)
         {
             Options.SetMapSeparator(separator);
             return this;
@@ -59,95 +59,95 @@ namespace Cosmos.Guava
 
         #region Join - List
 
-        string IGuavaJoiner.Join(IEnumerable<string> list)
+        string IJoiner.Join(IEnumerable<string> list)
         {
             return list.JoinToString(_on, JoinerUtils.GetStringPredicate(Options), Options.GetReplacer<string>());
         }
 
-        string IGuavaJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
+        string IJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
             return list.JoinToString(_on, JoinerUtils.GetObjectPredicate<T>(Options), converter, replaceFunc: Options.GetReplacer<T>());
         }
 
-        string IGuavaJoiner.Join<T>(IEnumerable<T> list, Func<T, string> to)
+        string IJoiner.Join<T>(IEnumerable<T> list, Func<T, string> to)
         {
             return list.JoinToString(_on, JoinerUtils.GetObjectPredicate<T>(Options), to, Options.GetReplacer<T>());
         }
 
-        string IGuavaJoiner.Join(string str1, params string[] restStrings)
+        string IJoiner.Join(string str1, params string[] restStrings)
         {
             var list = new List<string>() { str1 };
             list.AddRange(restStrings);
-            return ((IGuavaJoiner)this).Join(list);
+            return ((IJoiner)this).Join(list);
         }
 
-        string IGuavaJoiner.Join<T>(ITypeConverter<T, string> converter, T item1, params T[] restItems)
+        string IJoiner.Join<T>(ITypeConverter<T, string> converter, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
             list.AddRange(restItems);
-            return ((IGuavaJoiner)this).Join(list, converter);
+            return ((IJoiner)this).Join(list, converter);
         }
 
-        string IGuavaJoiner.Join<T>(Func<T, string> to, T item1, params T[] restItems)
+        string IJoiner.Join<T>(Func<T, string> to, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
             list.AddRange(restItems);
-            return ((IGuavaJoiner)this).Join(list, to);
+            return ((IJoiner)this).Join(list, to);
         }
 
         #endregion
 
         #region AppendTo
 
-        StringBuilder IGuavaJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
+        StringBuilder IJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
         {
-            JoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetStringPredicate(Options), s => s, Options.GetReplacer<string>());
+            CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetStringPredicate(Options), s => s, Options.GetReplacer<string>());
             return builder;
         }
 
-        StringBuilder IGuavaJoiner.AppendTo(StringBuilder builder, string str1, params string[] restStrings)
+        StringBuilder IJoiner.AppendTo(StringBuilder builder, string str1, params string[] restStrings)
         {
             var list = new List<string>() { str1 };
             list.AddRange(restStrings);
-            return ((IGuavaJoiner)this).AppendTo(builder, list);
+            return ((IJoiner)this).AppendTo(builder, list);
         }
 
-        StringBuilder IGuavaJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
-            JoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), converter.To, replaceFunc: Options.GetReplacer<T>());
+            CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), converter.To, replaceFunc: Options.GetReplacer<T>());
             return builder;
         }
 
-        StringBuilder IGuavaJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, Func<T, string> to)
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, Func<T, string> to)
         {
-            JoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), to, replaceFunc: Options.GetReplacer<T>());
+            CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), to, replaceFunc: Options.GetReplacer<T>());
             return builder;
         }
 
-        StringBuilder IGuavaJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T item1, params T[] restItems)
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
             list.AddRange(restItems);
-            return ((IGuavaJoiner)this).AppendTo(builder, list, converter);
+            return ((IJoiner)this).AppendTo(builder, list, converter);
         }
 
-        StringBuilder IGuavaJoiner.AppendTo<T>(StringBuilder builder, Func<T, string> to, T item1, params T[] restItems)
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, Func<T, string> to, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
             list.AddRange(restItems);
-            return ((IGuavaJoiner)this).AppendTo(builder, list, to);
+            return ((IJoiner)this).AppendTo(builder, list, to);
         }
 
         #endregion
 
         #region On
 
-        public static IGuavaJoiner On(string on)
+        public static IJoiner On(string on)
         {
             return new Joiner(on);
         }
 
-        public static IGuavaJoiner On(char on)
+        public static IJoiner On(char on)
         {
             return new Joiner($"{on}");
         }
@@ -236,35 +236,5 @@ namespace Cosmos.Guava
         }
 
         #endregion
-    }
-
-    public interface IGuavaJoiner
-    {
-        IGuavaJoiner SkipNulls();
-        IGuavaJoiner UseForNull(string value);
-        IGuavaJoiner UseForNull(Func<string, string> valueFunc);
-        IGuavaMapJoiner WithKeyValueSeparator(string separator);
-        IGuavaMapJoiner WithKeyValueSeparator(char separator);
-        string Join(IEnumerable<string> list);
-        string Join(string str1, params string[] restStrings);
-        string Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter);
-        string Join<T>(IEnumerable<T> list, Func<T, string> to);
-        string Join<T>(ITypeConverter<T, string> converter, T item1, params T[] restItems);
-        string Join<T>(Func<T, string> to, T item1, params T[] restItems);
-        StringBuilder AppendTo(StringBuilder builder, IEnumerable<string> list);
-        StringBuilder AppendTo(StringBuilder builder, string str1, params string[] restStrings);
-        StringBuilder AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter);
-        StringBuilder AppendTo<T>(StringBuilder builder, IEnumerable<T> list, Func<T, string> to);
-        StringBuilder AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T item1, params T[] restItems);
-        StringBuilder AppendTo<T>(StringBuilder builder, Func<T, string> to, T item1, params T[] restItems);
-    }
-
-    public enum SkipNullType
-    {
-        Nothing,
-        WhenBoth,
-        WhenEither,
-        WhenKeyIsNull,
-        WhenValueIsNull
     }
 }

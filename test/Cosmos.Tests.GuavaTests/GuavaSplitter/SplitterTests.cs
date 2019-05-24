@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Cosmos.Guava;
 using Shouldly;
 using Xunit;
+using Splitter = Cosmos.Splitters.Splitter;
 
 namespace Cosmos.Tests.GuavaTests.GuavaSplitter
 {

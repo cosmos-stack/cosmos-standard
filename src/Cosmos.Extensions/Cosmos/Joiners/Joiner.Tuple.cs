@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cosmos.Guava
+namespace Cosmos.Joiners
 {
-    public partial class Joiner : IGuavaTupleJoiner
+    public partial class Joiner : ITupleJoiner
     {
         #region SkipValueNulls
 
-        IGuavaTupleJoiner IGuavaTupleJoiner.SkipNulls()
+        ITupleJoiner ITupleJoiner.SkipNulls()
         {
             Options.SetSkipTupleValueNulls();
             return this;
         }
 
-        IGuavaTupleJoiner IGuavaTupleJoiner.SkipNulls(SkipNullType type)
+        ITupleJoiner ITupleJoiner.SkipNulls(SkipNullType type)
         {
             Options.SetSkipTupleValueNulls(type);
             return this;
@@ -25,7 +25,7 @@ namespace Cosmos.Guava
 
         #region UseForNull
 
-        IGuavaTupleJoiner IGuavaTupleJoiner.UseForNull<T1, T2>(Func<T1, T2, T1> tupleKeyFunc, Func<T1, T2, T2> tupleValueFunc)
+        ITupleJoiner ITupleJoiner.UseForNull<T1, T2>(Func<T1, T2, T1> tupleKeyFunc, Func<T1, T2, T2> tupleValueFunc)
         {
             Options.SetTupleReplace(tupleKeyFunc, tupleValueFunc);
             return this;
@@ -35,7 +35,7 @@ namespace Cosmos.Guava
 
         #region Join - Tuple
 
-        string IGuavaTupleJoiner.Join(IEnumerable<(string, string)> list)
+        string ITupleJoiner.Join(IEnumerable<(string, string)> list)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
             var defaultKey = replacer.KeyFunc?.Invoke(string.Empty, string.Empty) ?? string.Empty;
@@ -47,7 +47,7 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
-        string IGuavaTupleJoiner.Join(IEnumerable<(string, string)> list, string defaultKey, string defaultValue)
+        string ITupleJoiner.Join(IEnumerable<(string, string)> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
             var middle = new List<string>();
@@ -57,7 +57,7 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
-        string IGuavaTupleJoiner.Join<T1, T2>(IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
+        string ITupleJoiner.Join<T1, T2>(IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             var middle = new List<string>();
             JoinToTupleString(
@@ -66,7 +66,7 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
-        string IGuavaTupleJoiner.Join<T1, T2>(IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
+        string ITupleJoiner.Join<T1, T2>(IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             var middle = new List<string>();
             JoinToTupleString(
@@ -75,18 +75,18 @@ namespace Cosmos.Guava
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
-        string IGuavaTupleJoiner.Join((string, string) tuple1, params (string, string)[] restTuples)
+        string ITupleJoiner.Join((string, string) tuple1, params (string, string)[] restTuples)
         {
             var list = new List<(string, string)> { tuple1 };
             list.AddRange(restTuples);
-            return ((IGuavaTupleJoiner)this).Join(list);
+            return ((ITupleJoiner)this).Join(list);
         }
 
-        string IGuavaTupleJoiner.Join<T1, T2>(Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples)
+        string ITupleJoiner.Join<T1, T2>(Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples)
         {
             var list = new List<(T1, T2)> { tuple1 };
             list.AddRange(restTuples);
-            return ((IGuavaTupleJoiner)this).Join(list, keyFunc, valueFunc);
+            return ((ITupleJoiner)this).Join(list, keyFunc, valueFunc);
         }
 
         private void JoinToTupleString<T1, T2, TContainer>(
@@ -125,7 +125,7 @@ namespace Cosmos.Guava
 
         #region AppendTo
 
-        StringBuilder IGuavaTupleJoiner.AppendTo(StringBuilder builder, IEnumerable<(string, string)> list)
+        StringBuilder ITupleJoiner.AppendTo(StringBuilder builder, IEnumerable<(string, string)> list)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
             var defaultKey = replacer.KeyFunc?.Invoke(string.Empty, string.Empty) ?? string.Empty;
@@ -136,7 +136,7 @@ namespace Cosmos.Guava
             return builder;
         }
 
-        StringBuilder IGuavaTupleJoiner.AppendTo(StringBuilder builder, IEnumerable<(string, string)> list, string defaultKey, string defaultValue)
+        StringBuilder ITupleJoiner.AppendTo(StringBuilder builder, IEnumerable<(string, string)> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
             JoinToTupleString(
@@ -145,14 +145,14 @@ namespace Cosmos.Guava
             return builder;
         }
 
-        StringBuilder IGuavaTupleJoiner.AppendTo(StringBuilder builder, (string, string) tuple1, params (string, string)[] restTuples)
+        StringBuilder ITupleJoiner.AppendTo(StringBuilder builder, (string, string) tuple1, params (string, string)[] restTuples)
         {
             var list = new List<(string, string)> { tuple1 };
             list.AddRange(restTuples);
-            return ((IGuavaTupleJoiner)this).AppendTo(builder, list);
+            return ((ITupleJoiner)this).AppendTo(builder, list);
         }
 
-        StringBuilder IGuavaTupleJoiner.AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
+        StringBuilder ITupleJoiner.AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             JoinToTupleString(
                 builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
@@ -160,7 +160,7 @@ namespace Cosmos.Guava
             return builder;
         }
         
-        StringBuilder IGuavaTupleJoiner.AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
+        StringBuilder ITupleJoiner.AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             JoinToTupleString(
                 builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
@@ -168,11 +168,11 @@ namespace Cosmos.Guava
             return builder;
         }
 
-        StringBuilder IGuavaTupleJoiner.AppendTo<T1, T2>(StringBuilder builder, Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples)
+        StringBuilder ITupleJoiner.AppendTo<T1, T2>(StringBuilder builder, Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples)
         {
             var list = new List<(T1, T2)> { tuple1 };
             list.AddRange(restTuples);
-            return ((IGuavaTupleJoiner)this).AppendTo(builder, list, keyFunc, valueFunc);
+            return ((ITupleJoiner)this).AppendTo(builder, list, keyFunc, valueFunc);
         }
 
         #endregion
@@ -323,22 +323,4 @@ namespace Cosmos.Guava
         #endregion
     }
 
-    public interface IGuavaTupleJoiner
-    {
-        IGuavaTupleJoiner SkipNulls();
-        IGuavaTupleJoiner SkipNulls(SkipNullType type);
-        IGuavaTupleJoiner UseForNull<T1, T2>(Func<T1, T2, T1> tupleKeyFunc, Func<T1, T2, T2> tupleValueFunc);
-        string Join(IEnumerable<(string, string)> list);
-        string Join(IEnumerable<(string, string)> list, string defaultKey, string defaultValue);
-        string Join((string, string) tuple1, params (string, string)[] restTuples);
-        string Join<T1, T2>(IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc);
-        string Join<T1, T2>(IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc);
-        string Join<T1, T2>(Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples);
-        StringBuilder AppendTo(StringBuilder builder, IEnumerable<(string, string)> list);
-        StringBuilder AppendTo(StringBuilder builder, IEnumerable<(string, string)> list, string defaultKey, string defaultValue);
-        StringBuilder AppendTo(StringBuilder builder, (string, string) tuple1, params (string, string)[] restTuples);
-        StringBuilder AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc);
-        StringBuilder AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc);
-        StringBuilder AppendTo<T1, T2>(StringBuilder builder, Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples);
-    }
 }

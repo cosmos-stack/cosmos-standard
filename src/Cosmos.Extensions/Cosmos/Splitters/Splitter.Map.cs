@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cosmos.Guava
+namespace Cosmos.Splitters
 {
-    public partial class Splitter : IGuavaMapSplitter
+    public partial class Splitter : IMapSplitter
     {
 
         #region TrimResults
 
-        IGuavaMapSplitter IGuavaMapSplitter.TrimResults()
+        IMapSplitter IMapSplitter.TrimResults()
         {
             Options.SetTrimResults(k => k.Trim(), v => v.Trim());
             return this;
         }
 
-        IGuavaMapSplitter IGuavaMapSplitter.TrimResults(Func<string, string> keyTrimFunc, Func<string, string> valueTrimFunc)
+        IMapSplitter IMapSplitter.TrimResults(Func<string, string> keyTrimFunc, Func<string, string> valueTrimFunc)
         {
             Options.SetTrimResults(keyTrimFunc, valueTrimFunc);
             return this;
@@ -25,7 +25,7 @@ namespace Cosmos.Guava
 
         #region Limit
 
-        IGuavaMapSplitter IGuavaMapSplitter.Limit(int limit)
+        IMapSplitter IMapSplitter.Limit(int limit)
         {
             Options.SetLimitLength(limit);
             return this;
@@ -35,29 +35,29 @@ namespace Cosmos.Guava
 
         #region Split - KeyValuePair
 
-        IEnumerable<KeyValuePair<string, T>> IGuavaMapSplitter.Split<T>(string originalString, IObjectSerializer serializer)
+        IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<T>(string originalString, IObjectSerializer serializer)
             => InternalSplitToKeyValuePair(originalString, serializer.Deserialize<T>);
 
-        IEnumerable<KeyValuePair<string, T>> IGuavaMapSplitter.Split<T>(string originalString, ITypeConverter<string, T> converter)
+        IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<T>(string originalString, ITypeConverter<string, T> converter)
             => InternalSplitToKeyValuePair(originalString, converter.To);
 
-        IEnumerable<KeyValuePair<string, string>> IGuavaMapSplitter.Split(string originalString)
+        IEnumerable<KeyValuePair<string, string>> IMapSplitter.Split(string originalString)
             => InternalSplitToKeyValuePair(originalString, s => s);
 
-        IEnumerable<KeyValuePair<string, T>> IGuavaMapSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+        IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
             => InternalSplitToKeyValuePair(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
         public Dictionary<string, string> SplitToDictionary(string originalString)
-            => ((IGuavaMapSplitter)this).Split(originalString).ToDictionary(k => k.Key, v => v.Value);
+            => ((IMapSplitter)this).Split(originalString).ToDictionary(k => k.Key, v => v.Value);
 
         public Dictionary<string, T> SplitToDictionary<T>(string originalString, IObjectSerializer serializer)
-            => ((IGuavaMapSplitter)this).Split<T>(originalString, serializer).ToDictionary(k => k.Key, v => v.Value);
+            => ((IMapSplitter)this).Split<T>(originalString, serializer).ToDictionary(k => k.Key, v => v.Value);
 
         public Dictionary<string, T> SplitToDictionary<T>(string originalString, ITypeConverter<string, T> converter)
-            => ((IGuavaMapSplitter)this).Split(originalString, converter).ToDictionary(k => k.Key, v => v.Value);
+            => ((IMapSplitter)this).Split(originalString, converter).ToDictionary(k => k.Key, v => v.Value);
 
         public Dictionary<string, T> SplitToDictionary<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
-            => ((IGuavaMapSplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToDictionary(k => k.Key, v => v.Value);
+            => ((IMapSplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToDictionary(k => k.Key, v => v.Value);
 
         private IEnumerable<KeyValuePair<string, TValue>> InternalSplitToKeyValuePair<TValue>(string originalString, Func<string, TValue> to)
         {
@@ -66,8 +66,8 @@ namespace Cosmos.Guava
 
             var result = new List<KeyValuePair<string, TValue>>();
             var middle = _fixedLengthMode
-                ? ((IGuavaFixedLengthSplitter)this).Split(originalString)
-                : ((IGuavaSplitter)this).Split(originalString);
+                ? ((IFixedLengthSplitter)this).Split(originalString)
+                : ((ISplitter)this).Split(originalString);
 
             foreach (var item in middle)
             {
@@ -140,18 +140,4 @@ namespace Cosmos.Guava
         #endregion
     }
 
-    public interface IGuavaMapSplitter
-    {
-        IGuavaMapSplitter TrimResults();
-        IGuavaMapSplitter TrimResults(Func<string, string> keyTrimFunc, Func<string, string> valueTrimFunc);
-        IGuavaMapSplitter Limit(int limit);
-        IEnumerable<KeyValuePair<string, string>> Split(string originalString);
-        IEnumerable<KeyValuePair<string, T>> Split<T>(string originalString, IObjectSerializer serializer);
-        IEnumerable<KeyValuePair<string, T>> Split<T>(string originalString, ITypeConverter<string, T> converter);
-        IEnumerable<KeyValuePair<string, T>> Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
-        Dictionary<string, string> SplitToDictionary(string originalString);
-        Dictionary<string, T> SplitToDictionary<T>(string originalString, IObjectSerializer serializer);
-        Dictionary<string, T> SplitToDictionary<T>(string originalString, ITypeConverter<string, T> converter);
-        Dictionary<string, T> SplitToDictionary<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
-    }
 }
