@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 
-namespace Cosmos.Guava
+namespace Cosmos
 {
     public static class Strings
     {
