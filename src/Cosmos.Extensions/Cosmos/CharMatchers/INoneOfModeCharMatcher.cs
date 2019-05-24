@@ -3,8 +3,6 @@ using System;
 namespace Cosmos.CharMatchers {
     public interface INoneOfModeCharMatcher : ICharMatcher
     {
-        INoneOfModeCharMatcher And(INoneOfModeCharMatcher matcher);
-        INoneOfModeCharMatcher Or(INoneOfModeCharMatcher matcher);
         IAnyOfModeCharMatcher Negate();
         string InRange(char startInclusive, char endInclusive);
         string ForPredicate(Func<char, bool> predicate);

@@ -55,8 +55,6 @@ namespace Cosmos.CharMatchers
 
         private class MatchingPredicateOptions
         {
-            public CoreMatchers Matchers { get; set; } = new CoreMatchers();
-
             #region NOT
 
             public bool Not { get; set; }

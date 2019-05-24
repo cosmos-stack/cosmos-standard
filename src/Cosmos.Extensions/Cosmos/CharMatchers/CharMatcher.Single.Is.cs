@@ -4,20 +4,7 @@ namespace Cosmos.CharMatchers
 {
     public partial class CharMatcher : IIsModeCharMatcher
     {
-
         #region Negate
-
-        IIsModeCharMatcher IIsModeCharMatcher.And(IIsModeCharMatcher matcher)
-        {
-            Options.Matchers.AndMatchers(((CharMatcher) matcher).Options.Matchers);
-            return this;
-        }
-
-        IIsModeCharMatcher IIsModeCharMatcher.Or(IIsModeCharMatcher matcher)
-        {
-            Options.Matchers.OrMatchers(((CharMatcher) matcher).Options.Matchers);
-            return this;
-        }
 
         IIsNotModeCharMatcher IIsModeCharMatcher.Negate()
         {

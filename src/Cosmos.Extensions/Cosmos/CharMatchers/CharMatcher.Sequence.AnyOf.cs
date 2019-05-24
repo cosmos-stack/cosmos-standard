@@ -5,21 +5,7 @@ namespace Cosmos.CharMatchers
 {
     public partial class CharMatcher : IAnyOfModeCharMatcher
     {
-
         #region Negate
-
-        IAnyOfModeCharMatcher IAnyOfModeCharMatcher.And(IAnyOfModeCharMatcher matcher)
-        {
-            Options.Matchers.AndMatchers(((CharMatcher) matcher).Options.Matchers);
-            return this;
-        }
-
-        IAnyOfModeCharMatcher IAnyOfModeCharMatcher.Or(IAnyOfModeCharMatcher matcher)
-        {
-            Options.Matchers.OrMatchers(((CharMatcher) matcher).Options.Matchers);
-            return this;
-        }
-
         INoneOfModeCharMatcher IAnyOfModeCharMatcher.Negate()
         {
             Options.Negate();
