@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <Import Project="..\..\build\common.props" />
 
@@ -18,7 +18,11 @@
     </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swifter.Json" Version="1.1.2" />
+    <PackageReference Include="Swifter.Json" Version="1.2.1" />
   </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
 
 </Project>

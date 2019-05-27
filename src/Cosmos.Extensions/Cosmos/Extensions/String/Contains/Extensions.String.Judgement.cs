@@ -21,19 +21,8 @@ namespace Cosmos
         public static bool ContainsIgnoreCase(this string text, string toCheck)
         {
             if (toCheck.IsNullOrEmpty())
-                throw new ArgumentException("El parametro 'toCheck' es vacio");
-
+                throw new ArgumentException($" The value of '{nameof(toCheck)}' cannot be null or empty.");
             return text.IndexOfIgnoreCase(toCheck) >= 0;
-        }
-
-        public static bool Contains(this string text, string[] values)
-        {
-            bool contain = false;
-            foreach (String s in values)
-            {
-                if (text.Contains(s)) contain = true;
-            }
-            return contain;
         }
 
         public static bool ContainsWholeWord(this string text, string toCheck)

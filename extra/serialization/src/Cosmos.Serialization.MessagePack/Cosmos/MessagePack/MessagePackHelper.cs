@@ -1,4 +1,5 @@
-﻿using MessagePack;
+﻿using System;
+using MessagePack;
 
 namespace Cosmos.MessagePack
 {
@@ -12,6 +13,11 @@ namespace Cosmos.MessagePack
         public static T Deserialize<T>(byte[] bytes)
         {
             return MessagePackSerializer.Deserialize<T>(bytes);
+        }
+
+        public static object Deserialize(byte[] bytes, Type type)
+        {
+            return MessagePackSerializer.NonGeneric.Deserialize(type, bytes);
         }
 
         public static string JsonBytesToString(byte[] json)

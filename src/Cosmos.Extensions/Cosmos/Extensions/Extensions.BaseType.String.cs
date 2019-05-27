@@ -96,8 +96,8 @@ namespace Cosmos
             else if (times == 4)
                 return string.Concat(text, text, text, text);
 
-            StringBuilder res = new StringBuilder(text.Length * times);
-            for (int i = 0; i < times; i++)
+            var res = new StringBuilder(text.Length * times);
+            for (var i = 0; i < times; i++)
             {
                 res.Append(text);
             }
@@ -153,6 +153,6 @@ namespace Cosmos
 
             return match.Groups[name].Value;
         }
-       
+
     }
 }

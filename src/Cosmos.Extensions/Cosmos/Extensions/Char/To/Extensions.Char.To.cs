@@ -6,7 +6,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
-    public static partial class BaseTypeExtensions
+    public static partial class CharExtensions
     {
         public static IEnumerable<char> To(this char @this, char toCharacter)
         {

@@ -33,6 +33,22 @@ namespace Cosmos
             }
         }
 
+        public static TValue Ifttt<TValue>(this bool condition, Func<TValue> @this, Func<TValue> @that)
+        {
+            if (condition)
+            {
+                if (@this == null)
+                    return default;
+                return @this.Invoke();
+            }
+            else
+            {
+                if (that == null)
+                    return default;
+                return that.Invoke();
+            }
+        }
+
 
         public static byte ToBinary(this bool @this)
         {
