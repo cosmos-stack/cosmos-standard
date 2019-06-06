@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Text;
 
-/*
- * Base64UrlString Reference to:
- *     https://github.com/toolgood/RCX/blob/master/ToolGood.RcxTest/ToolGood.RcxTest/Base64.cs
- *     Author: ToolGood
- */
-
 namespace Cosmos.Conversions
 {
     /// <summary>
@@ -14,10 +8,11 @@ namespace Cosmos.Conversions
     /// </summary>
     public static class Base64Conversion
     {
+        // ReSharper disable once InconsistentNaming
         private const string BASE64 = "===========================================+=+=/0123456789=======ABCDEFGHIJKLMNOPQRSTUVWXYZ====/=abcdefghijklmnopqrstuvwxyz=====";
 
         /// <summary>
-        /// Convert from bytes to base64 string
+        /// Convert from bytes to base64 <see cref="string"/>.
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
@@ -27,7 +22,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from string to base64 string
+        /// Convert from <see cref="string"/> to base64 <see cref="string"/>.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="encoding"></param>
@@ -38,7 +33,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from base64 string to string
+        /// Convert from base64 <see cref="string"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="base64String"></param>
         public static byte[] FromBase64String(string base64String)
@@ -47,7 +42,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from base64 string to string
+        /// Convert from base64 <see cref="string"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="base64String"></param>
         /// <param name="encoding"></param>
@@ -58,7 +53,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from string to base64url string
+        /// Convert from <see cref="string"/> to base64url <see cref="string"/>.
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
@@ -71,7 +66,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from string to base64url string
+        /// Convert from <see cref="string"/> to base64url <see cref="string"/>.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="encoding"></param>
@@ -82,7 +77,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from base64url string to string
+        /// Convert from base64url <see cref="string"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="base64UrlString"></param>
         public static byte[] FromBase64UrlString(string base64UrlString)
@@ -90,20 +85,20 @@ namespace Cosmos.Conversions
             var sb = new StringBuilder();
             foreach (var c in base64UrlString)
             {
-                if ((int) c >= 128) continue;
+                if ((int)c >= 128) continue;
                 var k = BASE64[c];
                 if (k == '=') continue;
                 sb.Append(k);
             }
 
             var len = sb.Length;
-            int padChars = (len % 4) == 0 ? 0 : (4 - (len % 4));
+            var padChars = (len % 4) == 0 ? 0 : (4 - (len % 4));
             if (padChars > 0) sb.Append(string.Empty.PadRight(padChars, '='));
             return Convert.FromBase64String(sb.ToString());
         }
 
         /// <summary>
-        /// Convert from base64url string to string
+        /// Convert from base64url <see cref="string"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="base64UrlString"></param>
         /// <param name="encoding"></param>

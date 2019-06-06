@@ -11,10 +11,19 @@ using System.Threading;
 
 namespace Cosmos.Disposables
 {
+    /// <summary>
+    /// Disposable Action Field
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public sealed class DisposableActionField<T>
     {
         private DisposableAction<T> _field;
 
+        /// <summary>
+        /// Create a new <see cref="DisposableActionField{T}"/> instance.
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="context"></param>
         public DisposableActionField(Action<T> action, T context)
         {
             _field = new DisposableAction<T>(action, context);

@@ -8,7 +8,7 @@ namespace Cosmos.Judgments
     public static class DateTimeJudgment
     {
         /// <summary>
-        /// To judge whether the day is today
+        /// To judge whether the day is today.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -18,7 +18,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is today
+        /// To judge whether the day is today.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -28,7 +28,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is today
+        /// To judge whether the day is today.
         /// </summary>
         /// <param name="dtOffset"></param>
         /// <returns></returns>
@@ -38,7 +38,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is today
+        /// To judge whether the day is today.
         /// </summary>
         /// <param name="dtOffset"></param>
         /// <returns></returns>
@@ -48,7 +48,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is weekend
+        /// To judge whether the day is weekend.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -58,7 +58,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is weekend
+        /// To judge whether the day is weekend.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -68,7 +68,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is weekday
+        /// To judge whether the day is weekday.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -78,7 +78,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is weekday
+        /// To judge whether the day is weekday.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -88,7 +88,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the day is valid
+        /// To judge whether the day is valid.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>

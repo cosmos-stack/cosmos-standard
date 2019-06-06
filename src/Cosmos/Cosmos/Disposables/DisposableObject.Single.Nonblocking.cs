@@ -10,6 +10,10 @@
 
 namespace Cosmos.Disposables
 {
+    /// <summary>
+    /// Single Nonblocking Disposable Object
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class SingleNonblockingDisposableObject<T> : IDisposable
     {
         private readonly DisposableActionField<T> _context;

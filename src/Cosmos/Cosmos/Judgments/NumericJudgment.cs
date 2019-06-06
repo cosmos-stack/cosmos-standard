@@ -6,7 +6,7 @@
     public static class NumericJudgment
     {
         /// <summary>
-        /// To judge whether the string is integer or not
+        /// To judge whether the string is integer or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
@@ -16,7 +16,7 @@
         }
 
         /// <summary>
-        /// To judge whether the string is numeric or not
+        /// To judge whether the string is numeric or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
@@ -26,7 +26,7 @@
         }
 
         /// <summary>
-        /// To judge whether the short value is between left and right
+        /// To judge whether the short value is between left and right.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="left"></param>
@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// To judge whether the int value is between left and right
+        /// To judge whether the int value is between left and right.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="left"></param>
@@ -50,7 +50,7 @@
         }
 
         /// <summary>
-        /// To judge whether the long value is between left and right
+        /// To judge whether the long value is between left and right.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="left"></param>
@@ -62,7 +62,7 @@
         }
 
         /// <summary>
-        /// To judge whether the float value is between left and right
+        /// To judge whether the float value is between left and right.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="left"></param>
@@ -74,7 +74,7 @@
         }
 
         /// <summary>
-        /// To judge whether the double value is between left and right
+        /// To judge whether the double value is between left and right.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="left"></param>
@@ -86,7 +86,7 @@
         }
 
         /// <summary>
-        /// To judge whether the decimal value is between left and right
+        /// To judge whether the decimal value is between left and right.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="left"></param>

@@ -8,7 +8,7 @@ namespace Cosmos.Conversions
     public static class BooleanConversion
     {
         /// <summary>
-        /// Convert from object to boolean
+        /// Convert from <see cref="object"/> to <see cref="bool"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -25,7 +25,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from object to nullable boolean
+        /// Convert from <see cref="object"/> to nullable <see cref="bool"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>

@@ -8,7 +8,7 @@ namespace Cosmos.Conversions
     public static class GuidConversion
     {
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="Guid"/>
+        /// Convert from an <see cref="object"/> to <see cref="Guid"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -23,7 +23,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref=" Guid"/>
+        /// Convert from an <see cref="object"/> to nullable <see cref=" Guid"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>

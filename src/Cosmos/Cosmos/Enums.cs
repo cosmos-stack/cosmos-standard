@@ -9,6 +9,7 @@ namespace Cosmos
     public static class Enums
     {
         /// <summary>
+        /// Get instance <br />
         /// 获取实例
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
@@ -28,6 +29,7 @@ namespace Cosmos
         }
 
         /// <summary>
+        /// Get name of member <br />
         /// 获取成员名
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
@@ -41,6 +43,7 @@ namespace Cosmos
         }
 
         /// <summary>
+        /// Get name of member <br />
         /// 获取成员名
         /// </summary>
         /// <param name="type">枚举类型</param>
@@ -51,6 +54,7 @@ namespace Cosmos
         }
 
         /// <summary>
+        /// Get name of member <br />
         /// 获取成员名
         /// </summary>
         /// <param name="typeinfo">枚举类型</param>
@@ -65,6 +69,7 @@ namespace Cosmos
         }
 
         /// <summary>
+        /// Get value of member <br />
         /// 获取成员值
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
@@ -78,6 +83,7 @@ namespace Cosmos
         }
 
         /// <summary>
+        /// Get value of member <br />
         /// 获取成员值
         /// </summary>
         /// <param name="type">枚举类型</param>
@@ -95,7 +101,8 @@ namespace Cosmos
 
 
         /// <summary>
-        /// 获取描述,使用System.ComponentModel.Description特性设置描述
+        /// Get description via <see cref="System.ComponentModel.DescriptionAttribute"/> <br />
+        /// 获取描述，使用 <see cref="System.ComponentModel.DescriptionAttribute"/> 特性设置描述
         /// </summary>
         /// <typeparam name="T">枚举</typeparam>
         /// <param name="member">成员名、值、实例均可</param>
@@ -105,7 +112,8 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// 获取描述,使用System.ComponentModel.Description特性设置描述
+        /// Get description via <see cref="System.ComponentModel.DescriptionAttribute"/> <br />
+        /// 获取描述，使用 <see cref="System.ComponentModel.DescriptionAttribute"/> 特性设置描述
         /// </summary>
         /// <param name="type">枚举类型</param>
         /// <param name="member">成员名、值、实例均可</param>
@@ -115,13 +123,14 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// 获取描述,使用System.ComponentModel.Description特性设置描述
+        /// Get description via <see cref="System.ComponentModel.DescriptionAttribute"/> <br />
+        /// 获取描述，使用 <see cref="System.ComponentModel.DescriptionAttribute"/> 特性设置描述
         /// </summary>
-        /// <param name="typeinfo">枚举类型</param>
+        /// <param name="typeInfo">枚举类型</param>
         /// <param name="member">成员名、值、实例均可</param>
-        public static string GetDescription(TypeInfo typeinfo, object member)
+        public static string GetDescription(TypeInfo typeInfo, object member)
         {
-            return Reflections.GetDescription(typeinfo, NameOf(typeinfo, member));
+            return Reflections.GetDescription(typeInfo, NameOf(typeInfo, member));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Cosmos.Conversions.Scale
     public static class BytesConversion
     {
         /// <summary>
-        /// Convert from <see cref="bytes"/> to ASCII
+        /// Convert from bytes to ASCII <see cref="string"/>.
         /// </summary>
         /// <example>in: new byte[] {65, 66, 67}; out: ABC</example>
         /// <param name="bytes"></param>
@@ -17,7 +17,7 @@ namespace Cosmos.Conversions.Scale
         public static string ToAscii(byte[] bytes) => Encoding.ASCII.GetString(bytes, 0, bytes.Length);
 
         /// <summary>
-        /// Convert from <see cref="byte"/> to binary
+        /// Convert from byte to binary.
         /// </summary>
         /// <example>in: (byte)128; out: 10000000</example>
         /// <param name="byte"></param>
@@ -25,7 +25,7 @@ namespace Cosmos.Conversions.Scale
         public static string ToBinary(byte @byte) => DecimalismConversion.ToBinary(@byte);
 
         /// <summary>
-        /// Convert high address <see cref="byte"/> and low address <see cref="byte"/> to decimalsim
+        /// Convert high address 'h' and low address 'l' to decimalism.
         /// </summary>
         /// <example>in: (byte)65, (byte)66; out: 16706</example>
         /// <example>in: (byte)66, (byte)65; out: 16961</example>
@@ -35,7 +35,7 @@ namespace Cosmos.Conversions.Scale
         public static int ToDecimalism(byte h, byte l) => h << 8 | l;
 
         /// <summary>
-        /// Convert high address <see cref="byte"/> and low address <see cref="byte"/> to decimalism
+        /// Convert high address 'h' and low address 'l' to decimalism.
         /// </summary>
         /// <example>in: (byte)255, (byte)66; out: 65346</example>
         /// <example>in: (byte)66, (byte)255; out: -190</example>
@@ -58,7 +58,7 @@ namespace Cosmos.Conversions.Scale
         }
 
         /// <summary>
-        /// Convert from <see cref="byte"/> to hexadecimal
+        /// Convert from byte to hexadecimal.
         /// </summary>
         /// <example>in: (byte)128; out: 80</example>
         /// <param name="byte"></param>
@@ -66,7 +66,7 @@ namespace Cosmos.Conversions.Scale
         public static string ToHexadecimal(byte @byte) => @byte.ToString("X2");
 
         /// <summary>
-        /// Convert from <see cref="bytes"/> to hexadecimal
+        /// Convert from bytes to hexadecimal.
         /// </summary>
         /// <example>in: new byte[] {65, 66, 67}; out: 414243</example>
         /// <param name="bytes"></param>
@@ -83,7 +83,7 @@ namespace Cosmos.Conversions.Scale
         }
 
         /// <summary>
-        /// Convert from high address <see cref="byte"/> and low address <see cref="byte"/> to hexadecimal
+        /// Convert from high address 'h' and low address 'l' to hexadecimal.
         /// </summary>
         /// <example>in: (byte)65, (byte)66; out: 4142</example>
         /// <example>in: (byte)66, (byte)65; out: 4241</example>

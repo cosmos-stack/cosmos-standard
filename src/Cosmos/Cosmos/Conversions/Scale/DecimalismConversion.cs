@@ -8,7 +8,7 @@ namespace Cosmos.Conversions.Scale
     public static class DecimalismConversion
     {
         /// <summary>
-        /// Convert from decimalism to binary
+        /// Convert from decimalism to binary.
         /// </summary>
         /// <example>in: 46; out: 101110</example>
         /// <param name="dec"></param>
@@ -16,7 +16,7 @@ namespace Cosmos.Conversions.Scale
         public static string ToBinary(int dec) => Convert.ToString(dec, 2);
 
         /// <summary>
-        /// Convert from decimal to hexadecimal
+        /// Convert from decimal to hexadecimal.
         /// </summary>
         /// <example>in: 46; out: 2E</example>
         /// <param name="dec"></param>
@@ -24,7 +24,7 @@ namespace Cosmos.Conversions.Scale
         public static string ToHexadecimal(int dec) => Convert.ToString(dec, 16).ToUpper();
 
         /// <summary>
-        /// Convert from decimal to hexadecimal
+        /// Convert from decimal to hexadecimal.
         /// </summary>
         /// <example>in: 46, 4; out: 002E</example>
         /// <param name="dec"></param>

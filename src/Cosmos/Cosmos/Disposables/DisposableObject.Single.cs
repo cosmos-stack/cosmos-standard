@@ -11,6 +11,10 @@ using System.Threading;
 
 namespace Cosmos.Disposables
 {
+    /// <summary>
+    /// Single Disposable Object
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class SingleDisposableObject<T> : IDisposable
     {
         private readonly DisposableActionField<T> _context;

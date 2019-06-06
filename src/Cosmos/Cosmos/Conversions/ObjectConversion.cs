@@ -12,7 +12,7 @@ namespace Cosmos.Conversions
     public static class ObjectConversion
     {
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="string"/>
+        /// Convert from an <see cref="object"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -22,7 +22,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance
+        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance.
         /// </summary>
         /// <param name="fromObj"></param>
         /// <param name="targetType"></param>
@@ -33,7 +33,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance
+        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance.
         /// </summary>
         /// <param name="fromObj"></param>
         /// <param name="targetType"></param>
@@ -56,7 +56,7 @@ namespace Cosmos.Conversions
             {
                 if (fromObjType.Name.ToLower() == "guid")
                 {
-                    return (object) GuidConversion.ToGuid(fromObj);
+                    return (object)GuidConversion.ToGuid(fromObj);
                 }
 
                 if (fromObjType.GetTypeInfo().IsEnum)
@@ -83,7 +83,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance
+        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance.
         /// </summary>
         /// <param name="fromObj"></param>
         /// <param name="targetTypeInfo"></param>
@@ -94,7 +94,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance
+        /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance.
         /// </summary>
         /// <param name="fromObj"></param>
         /// <param name="targetTypeInfo"></param>
@@ -106,7 +106,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to a <see cref="TTo"/> instance
+        /// Convert from an <see cref="object"/> to a TTo instance.
         /// </summary>
         /// <typeparam name="TTo"></typeparam>
         /// <param name="fromObj"></param>
@@ -117,7 +117,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to a <see cref="TTo"/> instance
+        /// Convert from an <see cref="object"/> to a TTo instance.
         /// </summary>
         /// <typeparam name="TTo"></typeparam>
         /// <param name="fromObj"></param>
@@ -127,7 +127,7 @@ namespace Cosmos.Conversions
         {
             try
             {
-                return (TTo) To(fromObj, typeof(TTo), defaultValue);
+                return (TTo)To(fromObj, typeof(TTo), defaultValue);
             }
             catch
             {
@@ -136,7 +136,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from string to a <see cref="TTo"/> instances list
+        /// Convert from string to a TTo instances list.
         /// </summary>
         /// <typeparam name="TTo"></typeparam>
         /// <param name="listStr"></param>
@@ -157,7 +157,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="DateTime"/>
+        /// Convert from an <see cref="object"/> to <see cref="DateTime"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="defaultRet"></param>
@@ -173,7 +173,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref="DateTime"/>
+        /// Convert from an <see cref="object"/> to nullable <see cref="DateTime"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="defaultRet"></param>

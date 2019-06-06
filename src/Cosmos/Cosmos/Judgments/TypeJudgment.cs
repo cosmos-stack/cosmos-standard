@@ -9,7 +9,7 @@ namespace Cosmos.Judgments
     public static class TypeJudgment
     {
         /// <summary>
-        /// To judge whether the type is number type or not
+        /// To judge whether the type is number type or not.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -29,7 +29,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the type is number type or not
+        /// To judge whether the type is number type or not.
         /// </summary>
         /// <param name="typeInfo"></param>
         /// <returns></returns>
@@ -39,7 +39,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the type is nullable type or not
+        /// To judge whether the type is nullable type or not.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -50,7 +50,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the type is nullable type or not
+        /// To judge whether the type is nullable type or not.
         /// </summary>
         /// <param name="typeInfo"></param>
         /// <returns></returns>

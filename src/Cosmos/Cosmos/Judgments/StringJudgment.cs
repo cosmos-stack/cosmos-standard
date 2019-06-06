@@ -12,7 +12,7 @@ namespace Cosmos.Judgments
         static StringJudgment() { }
 
         /// <summary>
-        /// To judge whether the string starts with the specified strings
+        /// To judge whether the string starts with the specified strings.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="values"></param>
@@ -26,7 +26,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the string starts with the specified strings
+        /// To judge whether the string starts with the specified strings.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="values"></param>
@@ -40,7 +40,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the string ends with the specified strings
+        /// To judge whether the string ends with the specified strings.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="values"></param>
@@ -54,7 +54,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the string ends with the specified strings
+        /// To judge whether the string ends with the specified strings.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="values"></param>
@@ -72,7 +72,7 @@ namespace Cosmos.Judgments
                 RegexOptions.Singleline | RegexOptions.Compiled);
 
         /// <summary>
-        /// To judge whether the string is web url or not
+        /// To judge whether the string is web url or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
@@ -86,7 +86,7 @@ namespace Cosmos.Judgments
                 RegexOptions.Singleline | RegexOptions.Compiled);
 
         /// <summary>
-        /// TO judge whether the string is email or not
+        /// TO judge whether the string is email or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
@@ -96,7 +96,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the string contains chinese characters or not
+        /// To judge whether the string contains chinese characters or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
@@ -106,7 +106,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the string contains number or not
+        /// To judge whether the string contains number or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>

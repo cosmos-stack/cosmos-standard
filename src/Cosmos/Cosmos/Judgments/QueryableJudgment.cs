@@ -8,7 +8,7 @@ namespace Cosmos.Judgments
     public static class QueryableJudgment
     {
         /// <summary>
-        /// To judge whether one queryable collection contains specified count of elements at least
+        /// To judge whether one queryable collection contains specified count of elements at least.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="query"></param>
@@ -23,7 +23,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether these two queryable collections contain same count of elements
+        /// To judge whether these two queryable collections contain same count of elements.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="query"></param>

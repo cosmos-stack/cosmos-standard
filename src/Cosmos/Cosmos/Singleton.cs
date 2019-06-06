@@ -4,9 +4,8 @@ using System.Collections.Generic;
 namespace Cosmos
 {
     /// <summary>
-    /// 提供一个统一的单例管理入口
+    /// Provide a unified singleton management portal.
     /// </summary>
-    // ReSharper disable once InconsistentNaming
     public class Singleton
     {
         static Singleton()
@@ -15,22 +14,21 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// 所有单例对象
+        /// All singleton objects
         /// </summary>
         public static IDictionary<Type, object> AllSingletons { get; }
     }
 
     /// <summary>
-    /// 提供一个统一的单例管理入口，同时自身亦是一份副本
+    /// Provide a unified singleton management portal and a copy of itself.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    // ReSharper disable once InconsistentNaming
     public class Singleton<T> : Singleton
     {
         private static T _instance;
 
         /// <summary>
-        /// 单例实例
+        /// Singleton instance
         /// </summary>
         public static T Instance
         {
@@ -44,10 +42,9 @@ namespace Cosmos
     }
 
     /// <summary>
-    /// 提供一个统一的单例管理入口，同时自身亦是一份副本
+    /// Provide a unified singleton management portal and a copy of itself.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    // ReSharper disable once InconsistentNaming
     public class SingletonList<T> : Singleton<IList<T>>
     {
         static SingletonList()
@@ -56,17 +53,16 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// 获得一个指定类型 T 的单例
+        /// Get a singleton of the specified type T
         /// </summary>
         public new static IList<T> Instance => Singleton<IList<T>>.Instance;
     }
 
     /// <summary>
-    /// 提供一个统一的单例管理入口，同时自身亦是一份副本
+    /// Provide a unified singleton management portal and a copy of itself
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TValue"></typeparam>
-    // ReSharper disable once InconsistentNaming
     public class SingletonDictionary<TKey, TValue> : Singleton<IDictionary<TKey, TValue>>
     {
         static SingletonDictionary()
@@ -75,7 +71,7 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// 获得一个指定类型 T 的单例
+        /// Get a singleton of the specified type T
         /// </summary>
         public new static IDictionary<TKey, TValue> Instance => Singleton<Dictionary<TKey, TValue>>.Instance;
     }
