@@ -1,0 +1,915 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions.Preconditions</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.PreconditionsExtensions">
+            <summary>
+            Argument checking extensions
+            </summary>
+            <summary>
+            DateTime arguments checking extensions
+            </summary>
+            <summary>
+            Decimal arguments checking extensions
+            </summary>
+            <summary>
+            Double arguments checking extensions
+            </summary>
+            <summary>
+            Float arguments checking extensions
+            </summary>
+            <summary>
+            Integer arguments checking extensions
+            </summary>
+            <summary>
+            Long arguments checking extensions
+            </summary>
+            <summary>
+            String arguments checking extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNull(System.Guid,System.String,System.String)">
+            <summary>
+            检查 Guid 是否为空
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNull(System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            检查 Guid 是否为空
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNull(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            检查集合是否为空
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNullOrEmpty(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            检查集合是否为空
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckAtLeast``1(System.Collections.Generic.ICollection{``0},System.String,System.Int32,System.String)">
+            <summary>
+            检查集合内至少包含的项目数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="number"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNull``2(System.Collections.Generic.KeyValuePair{``0,``1},System.String,System.String)">
+            <summary>
+            检查键值对是否为空
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNull(System.Object,System.String,System.String)">
+            <summary>
+            检测空值,为 null 则抛出 ArgumentNullException 异常
+            </summary>
+            <param name="argument">对象</param>
+            <param name="argumentName">参数名</param>
+            <param name="message">消息</param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckValidDate(System.DateTime,System.String,System.String)">
+            <summary>
+            检查是否为合法时间
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckValidDate(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            检查是否为合法时间
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNotInPast(System.DateTime,System.String,System.String)">
+            <summary>
+            检查是否为过去
+            <para> 如果为过去，则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNotInPast(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            检查是否为过去
+            <para>如果为过去，则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNotInFuture(System.DateTime,System.String,System.String)">
+            <summary>
+            检查是否为未来
+            <para> 如果为未来，则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNotInFuture(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            检查是否为未来
+            <para>如果为未来，则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.TimeSpan,System.String,System.String)">
+            <summary>
+            检查是否为负时间间隔
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            检查是否为负时间间隔
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.TimeSpan,System.String,System.String)">
+            <summary>
+            检查是否为零时间间隔或负时间间隔
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            检查是否为零时间间隔或负时间间隔
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            检查 decimal 是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            检查 decimal 是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Decimal,System.String,System.String)">
+            <summary>
+            检查 decimal 是否为负
+            <para>如果为负则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            检查 decimal 是否为负
+            <para> 如果为负则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Decimal,System.String,System.String)">
+            <summary>
+            检查 decimal 是否为负或为零
+            <para>如果为负或为零则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            检查 decimal 是否为负或为零
+            <para>如果为负或为零则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Double,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            检查双精度浮点数是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String)">
+            <summary>
+            检查双精度浮点数是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Double,System.String,System.String)">
+            <summary>
+            检查双浮点数是否为负
+            <para> 如果为负则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            检查双浮点数是否为负
+            <para> 如果为负则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Double,System.String,System.String)">
+            <summary>
+            检查双浮点数是否为负或为零
+            <para> 如果为负或为零则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            检查双浮点数是否为负或为零
+            <para> 如果为负或为零则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Single,System.Single,System.Single,System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Single,System.String,System.String)">
+            <summary>
+            检查浮点数是否为负
+            <para> 如果为负则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            检查浮点数是否为负
+            <para> 如果为负则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Single,System.String,System.String)">
+            <summary>
+            检查浮点数是否为负或为零
+            <para> 如果为负或为零则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            检查浮点数是否为负或为零
+            <para> 如果为负或为零则抛出ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            检查指定数字是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            检查指定数字是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Int32,System.String,System.String)">
+            <summary>
+            检查整型是否为负
+            <para>如果为负则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            检查整型是否为负
+            <para>如果为负则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Int32,System.String,System.String)">
+            <summary>
+            检查整型是否为负或为零
+            <para>如果为负或为零则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            检查整型是否为负或为零
+            <para>如果为负或为零则抛出 ArgumentOutOfRangeException</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            检查长整型是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            检查长整型是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Int64,System.String,System.String)">
+            <summary>
+            检查长整型是否为负
+            <para> 如果为负则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegative(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            检查长整型是否为负
+            <para> 如果为负则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            检查长整型是否为负或为零
+            <para> 如果为负或为零则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNegativeOrZero(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            检查长整型是否为负或为零
+            <para> 如果为负或为零则抛出 ArgumentOutOfRangeException </para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckNull(System.String,System.String,System.String)">
+            <summary>
+            检查字符串是否为 null、String.Empty 或 Blank
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckBlank(System.String,System.String,System.String)">
+            <summary>
+            检查字符串是否为 String.Empty 或 Blank
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.PreconditionsExtensions.CheckOutOfLength(System.String,System.Int32,System.String,System.String)">
+             <summary>
+            检查字符串长度是否超界
+             </summary>
+             <param name="argument"></param>
+             <param name="length"></param>
+             <param name="argumentName"></param>
+             <param name="message"></param>
+        </member>
+        <member name="T:Cosmos.Preconditions">
+            <summary>
+            Arguments checking
+            </summary>
+            <summary>
+            DateTime arguments checking
+            </summary>
+            <summary>
+            Numeric arguments checking
+            </summary>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNull(System.Object,System.String,System.String)">
+            <summary>
+            检查对象是否为空
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNull(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            检查集合是否为空
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotEmpty(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            检查集合是否为空
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsAtLeast``1(System.Collections.Generic.ICollection{``0},System.String,System.Int32,System.String)">
+            <summary>
+            检查集合至少包含多少个元素
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="number"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotEmpty(System.Guid,System.String,System.String)">
+            <summary>
+            检查 Guid 是否为空
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotEmpty(System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            检查 Guid? 是否为空
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotEmpty(System.String,System.String,System.String)">
+            <summary>
+            检查字符串是否为 Blank
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotBlank(System.String,System.String,System.String)">
+            <summary>
+            检查字符串是否为 Blank
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfLength(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            检查字符串长度是否超界
+            </summary>
+            <param name="argument"></param>
+            <param name="length"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotInvalidDate(System.DateTime,System.String,System.String)">
+            <summary>
+            检查时间是否合法
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotInvalidDate(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            检查时间是否合法
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotInPast(System.DateTime,System.String,System.String)">
+            <summary>
+            检查时间是否为过去
+            <para>如果是过去，则抛出异常</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotInPast(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            检查时间是否为过去
+            <para>如果是过去，则抛出异常</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotInFuture(System.DateTime,System.String,System.String)">
+            <summary>
+            检查时间是否为未来
+            <para>如果是未来，则抛出异常</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotInFuture(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            检查时间是否为未来
+            <para>如果是未来，则抛出异常</para>
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.TimeSpan,System.String,System.String)">
+            <summary>
+            检查时间间隔是否为负
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            检查时间间隔是否为负
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.TimeSpan,System.String,System.String)">
+            <summary>
+            检查时间间隔是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            检查时间间隔是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Int32,System.String,System.String)">
+            <summary>
+            检查整数是否为负
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            检查整数是否为负
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Int32,System.String,System.String)">
+            <summary>
+            检查整数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            检查整数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            检查整数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            检查整数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Int64,System.String,System.String)">
+            <summary>
+            检查长整数是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            检查长整数是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            检查长整数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            检查长整数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            检查长整数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            检查长整数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Single,System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Single,System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Single,System.Single,System.Single,System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String)">
+            <summary>
+            检查单精度浮点数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Double,System.String,System.String)">
+            <summary>
+            检查双精度浮点数是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            检查双精度浮点数是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Double,System.String,System.String)">
+            <summary>
+            检查双精度浮点数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            检查双精度浮点数是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Double,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            检查多精度浮点数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String)">
+            <summary>
+            检查多精度浮点数是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Decimal,System.String,System.String)">
+            <summary>
+            检查 Decimal 是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegative(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            检查 Decimal 是否为负数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Decimal,System.String,System.String)">
+            <summary>
+            检查 Decimal 是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            检查 Decimal 是否为非正数
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            检查 Decimal 是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Preconditions.IsNotOutOfRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            检查 Decimal 是否越界
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+    </members>
+</doc>

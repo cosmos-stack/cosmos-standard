@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Serialization.Xml</name>
+    </assembly>
+    <members>
+        <member name="M:Cosmos.Extensions.XmlExtensions.ToXml``1(``0,System.Text.Encoding)">
+            <summary>
+            Serialize object to xml
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.XmlExtensions.FromXml``1(System.String,System.Text.Encoding)">
+            <summary>
+            Deserialize the xml to generic instance.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="str"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.XmlExtensions.FromXml(System.String,System.Type,System.Text.Encoding)">
+            <summary>
+            Deserialize the xml to object.
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

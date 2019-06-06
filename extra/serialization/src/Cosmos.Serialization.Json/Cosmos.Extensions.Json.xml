@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Serialization.Json</name>
+    </assembly>
+    <members>
+        <member name="M:Cosmos.Extensions.Extensions.ToFixJsonDateTimeFormat(System.String,System.String)">
+            <summary>
+            处理Json的时间格式为正常格式
+            </summary>
+            <param name="jsonString">Json 字符串</param>
+            <param name="format">时间格式</param>
+            <returns></returns>
+        </member>
+        <member name="T:Newtonsoft.Json.JsonIgnoreExtAttribute">
+            <summary>
+            Json ignore attribute
+            </summary>
+        </member>
+    </members>
+</doc>

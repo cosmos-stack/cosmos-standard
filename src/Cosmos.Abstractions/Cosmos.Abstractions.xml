@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="M:Cosmos.Disposables.IDisposableAction.Invoke">
+            <summary>
+            Invoke the disposable action
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.IVerba.VerbaName">
+            <summary>
+            Verba name
+            </summary>
+        </member>
+    </members>
+</doc>

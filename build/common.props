@@ -13,8 +13,15 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageProjectUrl>https://github.com/cosmos-loops/Standard</PackageProjectUrl>
 		<PackageIconUrl>https://avatars2.githubusercontent.com/u/25580633?s=200</PackageIconUrl>
-		<PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageTags>StarrySky;Cosmos;Standard;Framework</PackageTags>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
