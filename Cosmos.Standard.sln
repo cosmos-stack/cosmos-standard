@@ -90,7 +90,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Serialization.Kooboo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Tests.DateTimeTests", "test\Cosmos.Tests.DateTimeTests\Cosmos.Tests.DateTimeTests.csproj", "{BAD239AF-A603-47C5-B088-1C97A09BC67F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Tests.GuavaTests", "test\Cosmos.Tests.GuavaTests\Cosmos.Tests.GuavaTests.csproj", "{0CB6F0EB-576A-4416-8223-F3865A7970BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Tests.GuavaTests", "test\Cosmos.Tests.GuavaTests\Cosmos.Tests.GuavaTests.csproj", "{0CB6F0EB-576A-4416-8223-F3865A7970BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-verba", "src-verba", "{54639486-95C8-4CA4-B938-C74C190816BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

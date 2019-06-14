@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using Cosmos.Date;
+using Cosmos.Date.Chinese;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -11,16 +13,11 @@ namespace Cosmos
     public static partial class DateInfoExtensions
     {
         /// <summary>
-        /// Clone<br />
-        /// 克隆
+        /// Gets Constellation name<br />
+        /// 获取星座名
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="dt"></param>
         /// <returns></returns>
-        public static DateInfo Clone(this DateInfo date)
-        {
-            if (date == null)
-                throw new ArgumentNullException(nameof(date));
-            return new DateInfo(date.DateTimeRef);
-        }
+        public static string GetConstellationName(this DateInfo dt) => ConstellationHelper.Get(dt);
     }
 }

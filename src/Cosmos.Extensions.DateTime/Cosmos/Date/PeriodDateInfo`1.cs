@@ -3,19 +3,44 @@ using System.Collections.Generic;
 
 namespace Cosmos.Date
 {
-
+    /// <summary>
+    /// Period DateInfo<br />
+    /// 时间段日期信息
+    /// </summary>
+    /// <typeparam name="TDateInfo"></typeparam>
     public abstract class PeriodDateInfo<TDateInfo> where TDateInfo : DateInfo
     {
+        /// <summary>
+        /// From
+        /// </summary>
         // ReSharper disable once InconsistentNaming
         protected readonly TDateInfo _from;
+
+        /// <summary>
+        /// To
+        /// </summary>
         // ReSharper disable once InconsistentNaming
         protected readonly TDateInfo _to;
+
+        /// <summary>
+        /// Is infinite future
+        /// </summary>
         // ReSharper disable once InconsistentNaming
         protected readonly bool _isInfiniteFuture;
 
+        /// <summary>
+        /// Cache
+        /// </summary>
         // ReSharper disable once InconsistentNaming
         protected readonly DateInfoCache<TDateInfo> _cache;
 
+        /// <summary>
+        /// Create a new <see cref="PeriodDateInfo{TDateInfo}"/> instance.<br />
+        /// 创建一个新的 <see cref="PeriodDateInfo{TDateInfo}"/> 实例。
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="itemCreateFunc"></param>
         protected PeriodDateInfo(TDateInfo from, TDateInfo to, Func<TDateInfo, TDateInfo> itemCreateFunc)
         {
             PeriodChecker.CheckFromAndTo(from, to);
@@ -25,10 +50,22 @@ namespace Cosmos.Date
             _cache = new DateInfoCache<TDateInfo>(itemCreateFunc);
         }
 
+        /// <summary>
+        /// Length of period date.<br />
+        /// 时间段的长度
+        /// </summary>
         public int Length => _isInfiniteFuture ? int.MaxValue : (_from.DateTimeRef - _to.DateTimeRef).Days + 1;
 
+        /// <summary>
+        /// From date<br />
+        /// 时间起始于...
+        /// </summary>
         public abstract TDateInfo From { get; }
 
+        /// <summary>
+        /// To date<br />
+        /// 时间截止于...
+        /// </summary>
         public abstract TDateInfo To { get; }
 
         private static class PeriodChecker
@@ -42,6 +79,11 @@ namespace Cosmos.Date
             }
         }
 
+        /// <summary>
+        /// Get all dates<br />
+        /// 获取所有日期
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<TDateInfo> GetAllDates()
         {
             Initialize();
@@ -49,8 +91,18 @@ namespace Cosmos.Date
                 yield return item;
         }
 
+        /// <summary>
+        /// Initialize<br />
+        /// 初始化
+        /// </summary>
         protected virtual void Initialize() { }
 
+        /// <summary>
+        /// Indexer<br />
+        /// 索引器
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public virtual TDateInfo this[int index] {
             get {
                 Initialize();
