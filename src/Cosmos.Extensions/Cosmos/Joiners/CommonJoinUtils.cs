@@ -3,8 +3,23 @@ using System.Collections.Generic;
 
 namespace Cosmos.Joiners
 {
+    /// <summary>
+    /// Common join utils
+    /// </summary>
     public static class CommonJoinUtils
     {
+        /// <summary>
+        /// Join to string
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TContainer"></typeparam>
+        /// <param name="container"></param>
+        /// <param name="containerUpdateFunc"></param>
+        /// <param name="list"></param>
+        /// <param name="delimiter"></param>
+        /// <param name="predicate"></param>
+        /// <param name="to"></param>
+        /// <param name="replaceFunc"></param>
         public static void JoinToString<T, TContainer>(
             TContainer container, Action<TContainer, string> containerUpdateFunc,
             IEnumerable<T> list, string delimiter,

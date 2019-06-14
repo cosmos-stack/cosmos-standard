@@ -4,6 +4,7 @@ namespace Cosmos.IdUtils.GuidImplements
 {
     internal static class NoRepeatTimeStampManager
     {
+        // ReSharper disable once InconsistentNaming
         private static readonly NoRepeatTimeStampFactory _factory;
 
         static NoRepeatTimeStampManager()

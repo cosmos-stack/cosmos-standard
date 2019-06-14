@@ -27,12 +27,24 @@ namespace Cosmos.RegexUtils
             Value = value;
         }
 
+        /// <summary>
+        /// Name
+        /// </summary>
         public string Name { get; }
 
+        /// <summary>
+        /// Values
+        /// </summary>
         public int Value { get; }
 
+        /// <summary>
+        /// URL
+        /// </summary>
         public static readonly RegexTypes Url = new RegexTypes(1, @"((([A-Za-z]{3,9}:(?:\/\/)?)(?:[^-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(:[0-9]+)?|(?:www.|[^-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w_]*)?\??(?:[-\+=&;%@.\w-_]*)#?‌​(?:[\w]*))?)");
 
+        /// <summary>
+        /// Email
+        /// </summary>
         public static readonly RegexTypes Email = new RegexTypes(2, @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}");
     }
 }

@@ -3,7 +3,8 @@
 namespace Cosmos.RegexUtils
 {
     /// <summary>
-    /// Regex Utilities
+    /// Regex Utilities<br />
+    /// 表达式工具集
     /// </summary>
     // ReSharper disable once InconsistentNaming
     public static class Regexs
@@ -15,7 +16,6 @@ namespace Cosmos.RegexUtils
         /// <param name="pattern">模式字符串</param>        
         public static bool IsMatch(string input, string pattern)
             => IsMatch(input, pattern, RegexOptions.IgnoreCase);
-
 
         /// <summary>
         /// 验证输入与模式是否匹配

@@ -5,6 +5,12 @@ namespace Cosmos
 {
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Cut off from right to left.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
         public static string Right(this string text, int length)
         {
             if (length < 0)
@@ -19,6 +25,12 @@ namespace Cosmos
             return length >= strLength ? text : text.Substring(strLength - length, length);
         }
 
+        /// <summary>
+        /// Cut off from left to right
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
         public static string Left(this string text, int length)
         {
             if (length < 0)

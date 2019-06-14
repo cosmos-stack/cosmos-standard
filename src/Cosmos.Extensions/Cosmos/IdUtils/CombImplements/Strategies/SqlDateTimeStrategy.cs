@@ -82,6 +82,7 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
                 throw new ArgumentException("Not a COMB, time component exceeds 24 hours.");
             }
 
+            // ReSharper disable once RedundantCast
             return MinDateTimeValue.AddDays(days).AddMilliseconds((double) ticks / TicksPerMillisecond);
         }
     }

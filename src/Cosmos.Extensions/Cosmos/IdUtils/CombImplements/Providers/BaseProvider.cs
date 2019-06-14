@@ -10,9 +10,10 @@ namespace Cosmos.IdUtils.CombImplements.Providers
 
     internal abstract class BaseProvider : ICombProvider
     {
+        // ReSharper disable once InconsistentNaming
         protected IDateStrategy _dateTimeStrategy;
 
-        public BaseProvider(IDateStrategy strategy,
+        protected BaseProvider(IDateStrategy strategy,
             InternalTimeStampProvider customTimeStampProvider = null,
             InternalGuidProvider customGuidProvider = null)
         {
@@ -38,8 +39,10 @@ namespace Cosmos.IdUtils.CombImplements.Providers
         
         protected static DateTime DefaultTimeStampProvider() => DateTime.UtcNow;
 
+        // ReSharper disable once MemberInitializerValueIgnored
         public InternalTimeStampProvider InternalTimeStampProvider { get; } = DefaultTimeStampProvider;
 
+        // ReSharper disable once MemberInitializerValueIgnored
         public InternalGuidProvider InternalGuidProvider { get; } = NoParamGuidImplementProxy.Basic;
     }
 }

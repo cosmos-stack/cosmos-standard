@@ -5,6 +5,13 @@ namespace Cosmos
 {
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Index whole phrase
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="startIndex"></param>
+        /// <returns></returns>
         public static int IndexWholePhrase(this string text, string toCheck, int startIndex = 0)
         {
             if (toCheck.IsNullOrEmpty())
@@ -28,26 +35,59 @@ namespace Cosmos
             return -1;
         }
 
+        /// <summary>
+        /// Index of ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int IndexOfIgnoreCase(this string text, string toCheck)
         {
             return text.IndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// Last index of ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int LastIndexOfIgnoreCase(this string text, string toCheck)
         {
             return text.LastIndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// Last index of ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public static int LastIndexOfIgnoreCase(this string text, string toCheck, int startIndex, int count)
         {
             return text.LastIndexOf(toCheck, startIndex, count, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// Index of ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int IndexOfIgnoreCase(this string text, int startIndex, string toCheck)
         {
             return text.IndexOf(toCheck, startIndex, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// Last index of any
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int LastIndexOfAny(this string text, params string[] toCheck)
         {
             if (toCheck == null || toCheck.Length == 0)

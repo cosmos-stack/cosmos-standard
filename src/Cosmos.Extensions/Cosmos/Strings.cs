@@ -17,9 +17,7 @@ namespace Cosmos
         /// <returns></returns>
         public static string NullToEmpty(string @string)
         {
-            if (@string.IsNullOrEmpty())
-                return string.Empty;
-            return @string;
+            return @string.AvoidNull();
         }
 
         /// <summary>

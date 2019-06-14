@@ -2,26 +2,60 @@ using System;
 
 namespace Cosmos.IdUtils.GuidImplements
 {
+    /// <summary>
+    /// Unix timestamp style provider
+    /// </summary>
     public static class UnixTimeStampStyleProvider
     {
         private static DateTime GetUnixUtcNow() => new UnixTimeStamp(DateTime.UtcNow).ToDateTime();
         private static DateTime GetNoRepeatUnixUtcNow() => NoRepeatTimeStampManager.GetFactory().GetUtcUnixTimeStampObject().ToDateTime();
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <returns></returns>
         public static Guid Create()
             => Create(NoRepeatMode.Off);
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static Guid Create(Guid value)
             => Create(value, NoRepeatMode.Off);
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <returns></returns>
         public static Guid Create(NoRepeatMode mode)
             => Create(Guid.NewGuid(), mode);
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="mode"></param>
+        /// <returns></returns>
         public static Guid Create(Guid value, NoRepeatMode mode)
             => Create(value, mode == NoRepeatMode.On ? GetNoRepeatUnixUtcNow() : GetUnixUtcNow());
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="secureTimestamp"></param>
+        /// <returns></returns>
         public static Guid Create(DateTime secureTimestamp)
             => Create(Guid.NewGuid(), secureTimestamp);
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="secureTimestamp"></param>
+        /// <returns></returns>
         public static Guid Create(Guid value, DateTime secureTimestamp)
         {
             byte[] guidArray = value.ToByteArray();

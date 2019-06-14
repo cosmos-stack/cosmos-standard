@@ -11,6 +11,12 @@ namespace Cosmos
     /// </summary>
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Fill
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
         public static string Fill(this string original, params object[] values)
         {
             string texto =
@@ -21,6 +27,11 @@ namespace Cosmos
             return string.Format(texto, values);
         }
 
+        /// <summary>
+        /// Enumerate lines
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static IEnumerable<string> EnumerateLines(this string s)
         {
             var index = 0;
@@ -43,6 +54,11 @@ namespace Cosmos
             }
         }
 
+        /// <summary>
+        /// To valid identifier
+        /// </summary>
+        /// <param name="original"></param>
+        /// <returns></returns>
         public static string ToValidIdentifier(this string original)
         {
             original = original.ToCapitalCase();
@@ -66,11 +82,23 @@ namespace Cosmos
             return res.ToString().ReplaceRecursive("__", "_").Trim('_');
         }
 
+        /// <summary>
+        /// Use As Separator For
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="separator"></param>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public static string UseAsSeparatorFor<T>(this string separator, IEnumerable<T> list)
         {
             return list.JoinToString(separator);
         }
 
+        /// <summary>
+        /// Avoid null
+        /// </summary>
+        /// <param name="original"></param>
+        /// <returns></returns>
         public static string AvoidNull(this string original)
         {
             if (original == null)
@@ -79,6 +107,12 @@ namespace Cosmos
             return original;
         }
 
+        /// <summary>
+        /// Repeat
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="times"></param>
+        /// <returns></returns>
         public static string Repeat(this string text, int times)
         {
             if (text.IsNullOrEmpty() || times == 0)
@@ -104,6 +138,14 @@ namespace Cosmos
             return res.ToString();
         }
 
+        /// <summary>
+        /// Extract around
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="index"></param>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static string ExtractAround(this string text, int index, int left, int right)
         {
             if (text.IsNullOrEmpty())
@@ -118,6 +160,11 @@ namespace Cosmos
             return text.Substring(startIndex, length);
         }
 
+        /// <summary>
+        /// Only letters numbers
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static string OnlyLettersNumbers(this string text)
         {
             var res = new StringBuilder(text.Length);
@@ -131,6 +178,12 @@ namespace Cosmos
             return res.ToString();
         }
 
+        /// <summary>
+        /// Filter chars
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="onlyThese"></param>
+        /// <returns></returns>
         public static string FilterChars(this string text, Predicate<char> onlyThese)
         {
             var res = new StringBuilder(text.Length);
@@ -144,6 +197,12 @@ namespace Cosmos
             return res.ToString();
         }
 
+        /// <summary>
+        /// To safe group value
+        /// </summary>
+        /// <param name="match"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static string SafeGroupValue(this Match match, string name)
         {
             var group = match.Groups[name];

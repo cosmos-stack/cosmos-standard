@@ -8,6 +8,13 @@ namespace Cosmos
     /// </summary>
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Evaluate Similarity
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="similarityMinimal"></param>
+        /// <returns></returns>
         public static double EvaluateSimilarity(this string text, string toCheck, double similarityMinimal)
         {
             const int diffFound = 0;
@@ -16,6 +23,14 @@ namespace Cosmos
 
         private const int MMaxDifToleradas = 2;
 
+        /// <summary>
+        /// Evaluate Similarity
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="similarityMinimal"></param>
+        /// <param name="diffFound"></param>
+        /// <returns></returns>
         public static double EvaluateSimilarity(this string text, string toCheck, double similarityMinimal, int diffFound)
         {
             //if you have too many differences and no longer comparing
@@ -76,6 +91,12 @@ namespace Cosmos
             return res;
         }
 
+        /// <summary>
+        /// Evaluate Type Similarity
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static TypeSimilarity EvaluateTypeSimilarity(this string text, string toCheck)
         {
             //ignore spaces

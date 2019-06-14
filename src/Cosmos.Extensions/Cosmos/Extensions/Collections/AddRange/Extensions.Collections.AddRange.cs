@@ -6,8 +6,18 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
+    /// <summary>
+    /// Collection extensions
+    /// </summary>
     public static partial class CollectionExtensions
     {
+        /// <summary>
+        /// Add range
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="collection"></param>
+        /// <param name="limit"></param>
         public static void AddRange<T>(this List<T> source, IEnumerable<T> collection, int limit)
         {
             if (limit <= 0)

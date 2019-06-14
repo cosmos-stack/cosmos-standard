@@ -3,6 +3,11 @@ namespace Cosmos
 {
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Total words
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static int TotalWords(this string text)
         {
             text = text.Trim();
@@ -30,6 +35,11 @@ namespace Cosmos
             return res;
         }
 
+        /// <summary>
+        /// Last word
+        /// </summary>
+        /// <param name="me"></param>
+        /// <returns></returns>
         public static string LastWord(this string me)
         {
             if (me.IsNullOrEmpty())
@@ -46,6 +56,11 @@ namespace Cosmos
             return me;
         }
 
+        /// <summary>
+        /// Second word
+        /// </summary>
+        /// <param name="me"></param>
+        /// <returns></returns>
         public static string SecondWord(this string me)
         {
             if (me.IsNullOrEmpty())
@@ -55,6 +70,11 @@ namespace Cosmos
             return parts.Length >= 2 ? parts[1] : string.Empty;
         }
 
+        /// <summary>
+        /// First word
+        /// </summary>
+        /// <param name="me"></param>
+        /// <returns></returns>
         public static string FirstWord(this string me)
         {
             if (me.IsNullOrEmpty())

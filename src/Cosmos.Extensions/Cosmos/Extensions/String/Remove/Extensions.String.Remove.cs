@@ -9,17 +9,34 @@ namespace Cosmos
     /// </summary>
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Remove
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="removeText"></param>
+        /// <returns></returns>
         public static string Remove(this string text, string removeText)
         {
             return text.Replace(removeText, String.Empty);
         }
 
+        /// <summary>
+        /// Remove from ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="removeFromThis"></param>
+        /// <returns></returns>
         public static string RemoveFromIgnoreCase(this string text, string removeFromThis)
         {
             var index = text.IndexOfIgnoreCase(removeFromThis);
             return index < 0 ? text : text.Substring(0, index);
         }
 
+        /// <summary>
+        /// Remove duplicate space
+        /// </summary>
+        /// <param name="me"></param>
+        /// <returns></returns>
         public static string RemoveDuplicateSpaces(this string me)
         {
             if (me.IsNullOrEmpty())
@@ -34,6 +51,12 @@ namespace Cosmos
             return me;
         }
 
+        /// <summary>
+        /// Remove duplicate char
+        /// </summary>
+        /// <param name="me"></param>
+        /// <param name="charRemove"></param>
+        /// <returns></returns>
         public static string RemoveDuplicateChar(this string me, char charRemove)
         {
             if (me.IsNullOrEmpty())
@@ -51,6 +74,12 @@ namespace Cosmos
             return me;
         }
 
+        /// <summary>
+        /// Remove chars
+        /// </summary>
+        /// <param name="me"></param>
+        /// <param name="toRemove"></param>
+        /// <returns></returns>
         public static string RemoveChars(this string me, params char[] toRemove)
         {
             var res = new StringBuilder(me);
@@ -62,11 +91,21 @@ namespace Cosmos
             return res.ToString();
         }
 
+        /// <summary>
+        /// Remove accents ignore case and N
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static string RemoveAccentsIgnoreCaseAndÑ(this string text)
         {
             return text.IsNullOrEmpty() ? text : text.RemoveAccentsIgnoreCase().Replace('Ñ', 'N').Replace('ñ', 'n');
         }
 
+        /// <summary>
+        /// Remove accents ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static string RemoveAccentsIgnoreCase(this string text)
         {
             if (text.IsNullOrEmpty())

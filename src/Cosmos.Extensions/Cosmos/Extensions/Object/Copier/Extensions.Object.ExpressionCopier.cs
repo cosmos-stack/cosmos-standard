@@ -17,6 +17,12 @@ namespace Cosmos
 {
     public static partial class ObjectExtensions
     {
+        /// <summary>
+        /// Expression copy
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public static T ExpressionCopy<T>(this T source)
         {
             return Copier<T>.Copy(source);

@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Cosmos.Joiners
 {
+    /// <summary>
+    /// Joiner<br />
+    /// 连接器
+    /// </summary>
     public partial class Joiner : IJoiner
     {
         private readonly string _on;
@@ -17,6 +21,11 @@ namespace Cosmos.Joiners
 
         #region SkipNulls
 
+        /// <summary>
+        /// Skip null<br />
+        /// 跳过 null
+        /// </summary>
+        /// <returns></returns>
         IJoiner IJoiner.SkipNulls()
         {
             Options.SetSkipNulls();
@@ -27,12 +36,24 @@ namespace Cosmos.Joiners
 
         #region UseForNull
 
+        /// <summary>
+        /// If null, then use the special value.<br />
+        /// 如果为 null，则使用指定的值来替代
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         IJoiner IJoiner.UseForNull(string value)
         {
             Options.SetReplacer<string>(s => value);
             return this;
         }
 
+        /// <summary>
+        /// If null, then use the special value.<br />
+        /// 如果为 null，则使用指定的值来替代
+        /// </summary>
+        /// <param name="valueFunc"></param>
+        /// <returns></returns>
         IJoiner IJoiner.UseForNull(Func<string, string> valueFunc)
         {
             Options.SetReplacer(valueFunc);
@@ -43,12 +64,22 @@ namespace Cosmos.Joiners
 
         #region WithKeyValueSeparator
 
+        /// <summary>
+        /// With KeyValue Separator
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <returns></returns>
         public IMapJoiner WithKeyValueSeparator(string separator)
         {
             Options.SetMapSeparator(separator);
             return this;
         }
 
+        /// <summary>
+        /// With KeyValue Separator
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <returns></returns>
         public IMapJoiner WithKeyValueSeparator(char separator)
         {
             Options.SetMapSeparator(separator);
@@ -59,21 +90,50 @@ namespace Cosmos.Joiners
 
         #region Join - List
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         string IJoiner.Join(IEnumerable<string> list)
         {
             return list.JoinToString(_on, JoinerUtils.GetStringPredicate(Options), Options.GetReplacer<string>());
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         string IJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
             return list.JoinToString(_on, JoinerUtils.GetObjectPredicate<T>(Options), converter, replaceFunc: Options.GetReplacer<T>());
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
         string IJoiner.Join<T>(IEnumerable<T> list, Func<T, string> to)
         {
             return list.JoinToString(_on, JoinerUtils.GetObjectPredicate<T>(Options), to, Options.GetReplacer<T>());
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="str1"></param>
+        /// <param name="restStrings"></param>
+        /// <returns></returns>
         string IJoiner.Join(string str1, params string[] restStrings)
         {
             var list = new List<string>() { str1 };
@@ -81,6 +141,15 @@ namespace Cosmos.Joiners
             return ((IJoiner)this).Join(list);
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="converter"></param>
+        /// <param name="item1"></param>
+        /// <param name="restItems"></param>
+        /// <returns></returns>
         string IJoiner.Join<T>(ITypeConverter<T, string> converter, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
@@ -88,6 +157,15 @@ namespace Cosmos.Joiners
             return ((IJoiner)this).Join(list, converter);
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="to"></param>
+        /// <param name="item1"></param>
+        /// <param name="restItems"></param>
+        /// <returns></returns>
         string IJoiner.Join<T>(Func<T, string> to, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
@@ -99,12 +177,27 @@ namespace Cosmos.Joiners
 
         #region AppendTo
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <returns></returns>
         StringBuilder IJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
         {
             CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetStringPredicate(Options), s => s, Options.GetReplacer<string>());
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="str1"></param>
+        /// <param name="restStrings"></param>
+        /// <returns></returns>
         StringBuilder IJoiner.AppendTo(StringBuilder builder, string str1, params string[] restStrings)
         {
             var list = new List<string>() { str1 };
@@ -112,18 +205,46 @@ namespace Cosmos.Joiners
             return ((IJoiner)this).AppendTo(builder, list);
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
             CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), converter.To, replaceFunc: Options.GetReplacer<T>());
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
         StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, Func<T, string> to)
         {
             CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), to, replaceFunc: Options.GetReplacer<T>());
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="converter"></param>
+        /// <param name="item1"></param>
+        /// <param name="restItems"></param>
+        /// <returns></returns>
         StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
@@ -131,6 +252,16 @@ namespace Cosmos.Joiners
             return ((IJoiner)this).AppendTo(builder, list, converter);
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="to"></param>
+        /// <param name="item1"></param>
+        /// <param name="restItems"></param>
+        /// <returns></returns>
         StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, Func<T, string> to, T item1, params T[] restItems)
         {
             var list = new List<T> { item1 };
@@ -142,11 +273,23 @@ namespace Cosmos.Joiners
 
         #region On
 
+        /// <summary>
+        /// On, create a new <see cref="Joiner"/> instance.<br />
+        /// On 操作，创建一个新 <see cref="Joiner"/> 实例。
+        /// </summary>
+        /// <param name="on"></param>
+        /// <returns></returns>
         public static IJoiner On(string on)
         {
             return new Joiner(on);
         }
 
+        /// <summary>
+        /// On, create a new <see cref="Joiner"/> instance.<br />
+        /// On 操作，创建一个新 <see cref="Joiner"/> 实例。
+        /// </summary>
+        /// <param name="on"></param>
+        /// <returns></returns>
         public static IJoiner On(char on)
         {
             return new Joiner($"{on}");

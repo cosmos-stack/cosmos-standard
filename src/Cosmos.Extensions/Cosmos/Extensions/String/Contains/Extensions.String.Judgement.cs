@@ -18,6 +18,12 @@ namespace Cosmos
         /// <param name="text">文本</param>
         public static bool ContainsNumber(string text) => StringJudgment.ContainsNumber(text);
 
+        /// <summary>
+        /// Contains ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsIgnoreCase(this string text, string toCheck)
         {
             if (toCheck.IsNullOrEmpty())
@@ -25,6 +31,12 @@ namespace Cosmos
             return text.IndexOfIgnoreCase(toCheck) >= 0;
         }
 
+        /// <summary>
+        /// Contains whole word
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsWholeWord(this string text, string toCheck)
         {
             if (text.IsNullOrEmpty())
@@ -42,6 +54,12 @@ namespace Cosmos
             return false;
         }
 
+        /// <summary>
+        /// Contains ant whole word
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsAnyWholeWord(this string text, params string[] toCheck)
         {
             if (text.IsNullOrEmpty())
@@ -62,6 +80,12 @@ namespace Cosmos
             return false;
         }
 
+        /// <summary>
+        /// Contains whole phrase
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsWholePhrase(this string text, string toCheck)
         {
             if (toCheck.IsNullOrEmpty())
@@ -87,6 +111,12 @@ namespace Cosmos
             return false;
         }
 
+        /// <summary>
+        /// Contains whole phrase any
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsWholePhraseAny(this string text, params string[] toCheck)
         {
             foreach (var phrase in toCheck)
@@ -96,6 +126,12 @@ namespace Cosmos
             return false;
         }
 
+        /// <summary>
+        /// Contains whole phrase all
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsWholePhraseAll(this string text, params string[] toCheck)
         {
             foreach (var phrase in toCheck)
@@ -105,6 +141,12 @@ namespace Cosmos
             return true;
         }
 
+        /// <summary>
+        /// Contains any ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsAnyIgnoreCase(this string text, params string[] toCheck)
         {
             if (toCheck == null || toCheck.Length == 0)
@@ -117,6 +159,12 @@ namespace Cosmos
             return false;
         }
 
+        /// <summary>
+        /// Contains all ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsAllIgnoreCase(this string text, params string[] toCheck)
         {
             if (toCheck == null || toCheck.Length == 0)
@@ -129,6 +177,12 @@ namespace Cosmos
             return true;
         }
 
+        /// <summary>
+        /// Contains onle this char
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool ContainsOnlyThisChar(this string text, char toCheck)
         {
             if (text.Length == 0)

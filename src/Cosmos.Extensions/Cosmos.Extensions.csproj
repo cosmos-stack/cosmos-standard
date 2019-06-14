@@ -32,8 +32,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Cosmos\RegexUtils\Internals\" />
-  </ItemGroup>
 </Project>

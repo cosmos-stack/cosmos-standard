@@ -7,6 +7,10 @@ namespace Cosmos
 {
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Trim all
+        /// </summary>
+        /// <param name="texts"></param>
         public static void TrimAll(this IList<string> texts)
         {
             for (var i = 0; i < texts.Count; i++)
@@ -15,6 +19,12 @@ namespace Cosmos
             }
         }
 
+        /// <summary>
+        /// Trim phrase
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="phrase"></param>
+        /// <returns></returns>
         public static string TrimPhrase(this string text, string phrase)
         {
             var res = TrimPhraseStart(text, phrase);
@@ -22,6 +32,12 @@ namespace Cosmos
             return res;
         }
 
+        /// <summary>
+        /// Trim phrase start
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="phrase"></param>
+        /// <returns></returns>
         public static string TrimPhraseStart(this string text, string phrase)
         {
             if (text.IsNullOrEmpty())
@@ -37,7 +53,12 @@ namespace Cosmos
 
             return text;
         }
-
+        /// <summary>
+        /// Trim phrase end
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="phrase"></param>
+        /// <returns></returns>
         public static string TrimPhraseEnd(this string text, string phrase)
         {
             if (text.IsNullOrEmpty())

@@ -244,9 +244,21 @@ namespace Cosmos
 
         #region IsAssignableFrom
 
+        /// <summary>
+        /// Is assignable from...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsAssignableFrom<T>(this object @this)
             => @this.GetType().IsAssignableFrom(typeof(T));
 
+        /// <summary>
+        /// Is assignable from...
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="targetType"></param>
+        /// <returns></returns>
         public static bool IsAssignableFrom(this object @this, Type targetType)
             => @this.GetType().IsAssignableFrom(targetType);
 

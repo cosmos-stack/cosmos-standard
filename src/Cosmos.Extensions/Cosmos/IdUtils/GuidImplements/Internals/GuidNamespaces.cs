@@ -10,6 +10,9 @@
 
 namespace Cosmos.IdUtils.GuidImplements.Internals
 {
+    /// <summary>
+    /// Guid namespace
+    /// </summary>
     public static class GuidNamespaces
     {
         /// <summary>

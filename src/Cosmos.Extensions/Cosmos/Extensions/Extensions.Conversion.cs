@@ -76,6 +76,7 @@ namespace Cosmos
         /// <returns>转化后的指定类型对象，转化失败时返回指定的默认值</returns>
         public static T CastTo<T>(this object value, T defaultValue)
         {
+            // ReSharper disable once RedundantTypeArgumentsOfMethod
             return Conversions.ObjectConversion.To<T>(value, defaultValue);
         }
 

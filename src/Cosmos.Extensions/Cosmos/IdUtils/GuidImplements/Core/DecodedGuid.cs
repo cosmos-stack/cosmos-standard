@@ -20,8 +20,16 @@ namespace Cosmos.IdUtils.GuidImplements.Core
 
         private readonly byte[] _littleEndianGuidBytes;
 
+        /// <summary>
+        /// Create a new <see cref="DecodedGuid"/> instance.
+        /// </summary>
+        /// <param name="guid"></param>
         public DecodedGuid(in Guid guid) : this(guid.ToByteArray()) { }
 
+        /// <summary>
+        /// Create a new <see cref="DecodedGuid"/> instance.
+        /// </summary>
+        /// <param name="littleEndianGuidBytes"></param>
         public DecodedGuid(byte[] littleEndianGuidBytes) => _littleEndianGuidBytes = littleEndianGuidBytes;
 
         /// <summary>

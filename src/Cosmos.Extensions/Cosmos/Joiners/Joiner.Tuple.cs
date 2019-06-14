@@ -9,12 +9,23 @@ namespace Cosmos.Joiners
     {
         #region SkipValueNulls
 
+        /// <summary>
+        /// Skip null<br />
+        /// 跳过 null
+        /// </summary>
+        /// <returns></returns>
         ITupleJoiner ITupleJoiner.SkipNulls()
         {
             Options.SetSkipTupleValueNulls();
             return this;
         }
 
+        /// <summary>
+        /// Skip null<br />
+        /// 跳过 null
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         ITupleJoiner ITupleJoiner.SkipNulls(SkipNullType type)
         {
             Options.SetSkipTupleValueNulls(type);
@@ -25,6 +36,15 @@ namespace Cosmos.Joiners
 
         #region UseForNull
 
+        /// <summary>
+        /// If null, then use the special value.<br />
+        /// 如果为 null，则使用指定的值来替代
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="tupleKeyFunc"></param>
+        /// <param name="tupleValueFunc"></param>
+        /// <returns></returns>
         ITupleJoiner ITupleJoiner.UseForNull<T1, T2>(Func<T1, T2, T1> tupleKeyFunc, Func<T1, T2, T2> tupleValueFunc)
         {
             Options.SetTupleReplace(tupleKeyFunc, tupleValueFunc);
@@ -35,6 +55,12 @@ namespace Cosmos.Joiners
 
         #region Join - Tuple
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         string ITupleJoiner.Join(IEnumerable<(string, string)> list)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
@@ -47,6 +73,14 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
         string ITupleJoiner.Join(IEnumerable<(string, string)> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
@@ -57,6 +91,16 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <returns></returns>
         string ITupleJoiner.Join<T1, T2>(IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             var middle = new List<string>();
@@ -66,6 +110,18 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <returns></returns>
         string ITupleJoiner.Join<T1, T2>(IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             var middle = new List<string>();
@@ -75,6 +131,13 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetTuplePredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="tuple1"></param>
+        /// <param name="restTuples"></param>
+        /// <returns></returns>
         string ITupleJoiner.Join((string, string) tuple1, params (string, string)[] restTuples)
         {
             var list = new List<(string, string)> { tuple1 };
@@ -82,6 +145,17 @@ namespace Cosmos.Joiners
             return ((ITupleJoiner)this).Join(list);
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <param name="tuple1"></param>
+        /// <param name="restTuples"></param>
+        /// <returns></returns>
         string ITupleJoiner.Join<T1, T2>(Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples)
         {
             var list = new List<(T1, T2)> { tuple1 };
@@ -125,6 +199,13 @@ namespace Cosmos.Joiners
 
         #region AppendTo
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <returns></returns>
         StringBuilder ITupleJoiner.AppendTo(StringBuilder builder, IEnumerable<(string, string)> list)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
@@ -136,6 +217,15 @@ namespace Cosmos.Joiners
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
         StringBuilder ITupleJoiner.AppendTo(StringBuilder builder, IEnumerable<(string, string)> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetTupleReplace<string, string, string, string>();
@@ -145,6 +235,14 @@ namespace Cosmos.Joiners
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="tuple1"></param>
+        /// <param name="restTuples"></param>
+        /// <returns></returns>
         StringBuilder ITupleJoiner.AppendTo(StringBuilder builder, (string, string) tuple1, params (string, string)[] restTuples)
         {
             var list = new List<(string, string)> { tuple1 };
@@ -152,6 +250,17 @@ namespace Cosmos.Joiners
             return ((ITupleJoiner)this).AppendTo(builder, list);
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <returns></returns>
         StringBuilder ITupleJoiner.AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             JoinToTupleString(
@@ -159,7 +268,20 @@ namespace Cosmos.Joiners
                 list, default, default, keyFunc, valueFunc, Options.GetTupleReplace<T1, T2>());
             return builder;
         }
-        
+
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <returns></returns>
         StringBuilder ITupleJoiner.AppendTo<T1, T2>(StringBuilder builder, IEnumerable<(T1, T2)> list, T1 defaultKey, T2 defaultValue, Func<T1, string> keyFunc, Func<T2, string> valueFunc)
         {
             JoinToTupleString(
@@ -168,6 +290,18 @@ namespace Cosmos.Joiners
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <param name="tuple1"></param>
+        /// <param name="restTuples"></param>
+        /// <returns></returns>
         StringBuilder ITupleJoiner.AppendTo<T1, T2>(StringBuilder builder, Func<T1, string> keyFunc, Func<T2, string> valueFunc, (T1, T2) tuple1, params (T1, T2)[] restTuples)
         {
             var list = new List<(T1, T2)> { tuple1 };

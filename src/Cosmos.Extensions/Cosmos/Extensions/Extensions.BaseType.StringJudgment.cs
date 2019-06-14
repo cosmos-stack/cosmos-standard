@@ -71,7 +71,13 @@ namespace Cosmos
         /// <param name="target"></param>
         /// <returns></returns>
         public static bool IsEmail(this string target) => StringJudgment.IsEmail(target);
-        
+
+        /// <summary>
+        /// One Absent Char
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static bool OneAbsentChar(this string text, string toCheck)
         {
             if (text.Length > 1
