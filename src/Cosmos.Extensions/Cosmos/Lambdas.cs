@@ -10,6 +10,10 @@ namespace Cosmos
     //A copy of https://github.com/dotnetcore/Util/blob/master/src/Util/Helpers/Lambda.cs
     //Author: 何镇汐
 
+    /// <summary>
+    /// Lambda Utils<br />
+    /// Lambda 工具集
+    /// </summary>
     public static class Lambdas
     {
 

@@ -14,12 +14,14 @@ namespace DeepCopy
         /// <inheritdoc />
         bool IEqualityComparer<object>.Equals(object x, object y)
         {
+            // ReSharper disable once RedundantNameQualifier
             return object.ReferenceEquals(x, y);
         }
 
         /// <inheritdoc />
         int IEqualityComparer<object>.GetHashCode(object obj)
         {
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             return obj == null ? 0 : RuntimeHelpers.GetHashCode(obj);
         }
     }

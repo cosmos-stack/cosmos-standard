@@ -124,6 +124,36 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToInt64(System.Object,System.Int64)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableInt64(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToFloat(System.Object,System.Single)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableFloat(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Single"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Conversions.NumericConversion.ToDouble(System.Object,System.Double)">
             <summary>
             Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/>.

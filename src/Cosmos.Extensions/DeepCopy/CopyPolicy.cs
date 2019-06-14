@@ -4,7 +4,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices.ComTypes;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable PossibleNullReferenceException
 
 namespace DeepCopy
 {
@@ -27,7 +29,7 @@ namespace DeepCopy
 
         public CopyPolicy()
         {
-            this.policies[typeof(object)] = Policy.Tracking; // we need to track
+            policies[typeof(object)] = Policy.Tracking; // we need to track
         }
 
         /// <summary>
@@ -66,9 +68,9 @@ namespace DeepCopy
                 if (fieldType.IsPointer || fieldType.IsByRef) return false;
 
                 var handle = fieldType.TypeHandle;
-                if (handle.Equals(this.intPtrTypeHandle)) return false;
-                if (handle.Equals(this.uIntPtrTypeHandle)) return false;
-                if (this.delegateType.IsAssignableFrom(fieldType)) return false;
+                if (handle.Equals(intPtrTypeHandle)) return false;
+                if (handle.Equals(uIntPtrTypeHandle)) return false;
+                if (delegateType.IsAssignableFrom(fieldType)) return false;
 
                 return true;
             }
@@ -81,7 +83,7 @@ namespace DeepCopy
         /// <returns>true if the provided type is immutable, otherwise false.</returns>
         public bool IsImmutable(Type type)
         {
-            return this.GetPolicy(type) == Policy.Immutable;
+            return GetPolicy(type) == Policy.Immutable;
         }
 
         public bool NeedsTracking(Type type)
@@ -97,7 +99,7 @@ namespace DeepCopy
             {
                 var copyableFields = GetCopyableFields(type);
                 var queue = new Queue<FieldInfo>(copyableFields);
-                var duplicateCheck = new HashSet<Type>(AssignableFromEqualityComparer.Instance) {type}; // add root
+                var duplicateCheck = new HashSet<Type>(AssignableFromEqualityComparer.Instance) { type }; // add root
                 while (queue.Count > 0)
                 {
                     var current = queue.Dequeue();
@@ -110,7 +112,7 @@ namespace DeepCopy
 
                     if (fieldPolicy == Policy.Tracking)
                     {
-                        this.policies[type] = Policy.Tracking;
+                        policies[type] = Policy.Tracking;
                         return true;
                     }
 
@@ -118,7 +120,7 @@ namespace DeepCopy
                     {
                         if (typeof(IEnumerable).IsAssignableFrom(fieldType)) // Rule 5: enumerable mutable fields need tracking
                         {
-                            this.policies[type] = Policy.Tracking;
+                            policies[type] = Policy.Tracking;
                             return true;
                         }
 
@@ -130,43 +132,43 @@ namespace DeepCopy
                     }
                     else
                     {
-                        this.policies[type] = Policy.Tracking; // Rule 4: one or more mutable fields of the same type
+                        policies[type] = Policy.Tracking; // Rule 4: one or more mutable fields of the same type
                         return true;
                     }
                 }
 
             }
 
-            return this.GetPolicy(type) == Policy.Tracking;
+            return GetPolicy(type) == Policy.Tracking;
         }
 
         private Policy GetPolicy(Type type)
         {
-            if (this.policies.TryGetValue(type, out var result))
+            if (policies.TryGetValue(type, out var result))
             {
                 return result;
             }
 
             if (type.GetCustomAttribute<ImmutableAttribute>(false) != null)
             {
-                return this.policies[type] = Policy.Immutable;
+                return policies[type] = Policy.Immutable;
             }
 
             // Rule 1: primitives and quasi primitves
             if (type.IsPrimitive || type.IsEnum || type.IsPointer || type == typeof(string))
             {
-                return this.policies[type] = Policy.Immutable;
+                return policies[type] = Policy.Immutable;
             }
 
             // covers interface and abstract type too
             if (!type.IsSealed)
             {
-                return this.policies[type] = Policy.Mutable;
+                return policies[type] = Policy.Mutable;
             }
 
             if (type.IsArray)
             {
-                return this.policies[type] = Policy.Mutable;
+                return policies[type] = Policy.Mutable;
             }
 
             // Rule 1,2
@@ -178,7 +180,7 @@ namespace DeepCopy
                     var fieldType = copyableField.FieldType;
                     if (GetPolicy(fieldType) != Policy.Immutable)
                     {
-                        return this.policies[type] = Policy.Mutable;
+                        return policies[type] = Policy.Mutable;
                     }
                 }
             }
@@ -190,18 +192,18 @@ namespace DeepCopy
                 {
                     if (!copyableField.IsInitOnly)
                     {
-                        return this.policies[type] = Policy.Mutable;
+                        return policies[type] = Policy.Mutable;
                     }
 
                     var fieldType = copyableField.FieldType;
                     if (GetPolicy(fieldType) != Policy.Immutable)
                     {
-                        return this.policies[type] = Policy.Mutable;
+                        return policies[type] = Policy.Mutable;
                     }
                 }
             }
 
-            return this.policies[type] = Policy.Immutable;
+            return policies[type] = Policy.Immutable;
         }
 
         /// <summary>

@@ -1,5 +1,8 @@
 ﻿namespace System
 {
+    /// <summary>
+    /// Base Type Extensions
+    /// </summary>
     public static partial class BaseTypeExtensions
     {
         #region SetDateTime(设置时间)
@@ -120,8 +123,7 @@
         /// <param name="dateTime">日期</param>
         public static string ToMillisecondString(this DateTime dateTime)
             => dateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
-
-
+        
         /// <summary>
         /// 获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
         /// </summary>
@@ -170,21 +172,55 @@
         public static DateTime ToLocalDateTime(this DateTimeOffset dateTimeUtc, TimeZoneInfo localTimeZone)
             => TimeZoneInfo.ConvertTime(dateTimeUtc, localTimeZone ?? TimeZoneInfo.Local).DateTime;
 
+        /// <summary>
+        /// Set time<br />
+        /// 设置时间
+        /// </summary>
+        /// <param name="current"></param>
+        /// <param name="hour"></param>
+        /// <returns></returns>
         public static DateTime SetTime(this DateTime current, int hour)
         {
             return SetTime(current, hour, 0, 0, 0);
         }
 
+        /// <summary>
+        /// Set time<br />
+        /// 设置时间
+        /// </summary>
+        /// <param name="current"></param>
+        /// <param name="hour"></param>
+        /// <param name="minute"></param>
+        /// <returns></returns>
         public static DateTime SetTime(this DateTime current, int hour, int minute)
         {
             return SetTime(current, hour, minute, 0, 0);
         }
 
+        /// <summary>
+        /// Set time<br />
+        /// 设置时间
+        /// </summary>
+        /// <param name="current"></param>
+        /// <param name="hour"></param>
+        /// <param name="minute"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
         public static DateTime SetTime(this DateTime current, int hour, int minute, int second)
         {
             return SetTime(current, hour, minute, second, 0);
         }
 
+        /// <summary>
+        /// Set time<br />
+        /// 设置时间
+        /// </summary>
+        /// <param name="current"></param>
+        /// <param name="hour"></param>
+        /// <param name="minute"></param>
+        /// <param name="second"></param>
+        /// <param name="millisecond"></param>
+        /// <returns></returns>
         public static DateTime SetTime(this DateTime current, int hour, int minute, int second, int millisecond)
         {
             return new DateTime(current.Year, current.Month, current.Day, hour, minute, second, millisecond);

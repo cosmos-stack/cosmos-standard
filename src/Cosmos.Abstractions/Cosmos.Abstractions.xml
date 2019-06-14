@@ -4,14 +4,180 @@
         <name>Cosmos.Abstractions</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Data.Context.IDbContext">
+            <summary>
+            DbContext Meta Interface<br />
+            DnContext 元接口
+            </summary>
+        </member>
+        <member name="T:Cosmos.Data.Context.IDbSet`1">
+            <summary>
+            DbSet Meta Interface<br />
+            DbSet 元接口
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:Cosmos.Disposables.IDisposableAction">
+            <summary>
+            Disposable action
+            </summary>
+        </member>
         <member name="M:Cosmos.Disposables.IDisposableAction.Invoke">
             <summary>
             Invoke the disposable action
             </summary>
         </member>
+        <member name="T:Cosmos.IObjectMapper">
+            <summary>
+            Object Mapper Meta Interface
+            </summary>
+        </member>
+        <member name="M:Cosmos.IObjectMapper.MapTo``2(``0)">
+            <summary>
+            Map to
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <param name="fromObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.IObjectMapper.MapTo``2(``0,``1)">
+            <summary>
+            Map to
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <param name="fromObject"></param>
+            <param name="toInstance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.IObjectSerializer`1">
+            <summary>
+            Object Serializer Meta Interface
+            </summary>
+            <typeparam name="TSerializedType"></typeparam>
+        </member>
+        <member name="M:Cosmos.IObjectSerializer`1.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.IObjectSerializer`1.Deserialize``1(`0)">
+            <summary>
+            Deserialize
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.IObjectSerializer`1.Deserialize(`0,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.IObjectSerializer">
+            <summary>
+            Object Serializer Meta Interface
+            </summary>
+        </member>
+        <member name="T:Cosmos.ITypeConverter`2">
+            <summary>
+            Type Converter Meta Interface
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+        </member>
+        <member name="M:Cosmos.ITypeConverter`2.To(`0)">
+            <summary>
+            To
+            </summary>
+            <param name="from"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Verba.IVerba">
+            <summary>
+            Verba Meta Interface
+            </summary>
+        </member>
         <member name="P:Cosmos.Verba.IVerba.VerbaName">
             <summary>
             Verba name
+            </summary>
+        </member>
+        <member name="T:Cosmos.Workflow.IDynamicElement">
+            <summary>
+            Dynamic Element Interface
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicElement.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="T:Cosmos.Workflow.IDynamicElementDesign">
+            <summary>
+            Dynamic Element Design Interface
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicElementDesign.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicElementDesign.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicElementDesign.DisplayTitle">
+            <summary>
+            Display Title
+            </summary>
+        </member>
+        <member name="T:Cosmos.Workflow.IDynamicForms">
+            <summary>
+            Dynamic Forms Interface
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicForms.Design">
+            <summary>
+            Dynamic Forms Design
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicForms.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="T:Cosmos.Workflow.IDynamicFormsDesign">
+            <summary>
+            Dynamic Forms Design Interface
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicFormsDesign.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicFormsDesign.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicFormsDesign.DisplayTitle">
+            <summary>
+            Display Title
+            </summary>
+        </member>
+        <member name="P:Cosmos.Workflow.IDynamicFormsDesign.Elements">
+            <summary>
+            Elements
             </summary>
         </member>
     </members>

@@ -21,11 +21,24 @@ namespace Cosmos
     /// </example>
     public static class EqualityHelper<T>
     {
+        /// <summary>
+        /// Create comparer
+        /// </summary>
+        /// <typeparam name="TV"></typeparam>
+        /// <param name="keySelector"></param>
+        /// <returns></returns>
         public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector)
         {
             return new CommonEqualityComparer<TV>(keySelector);
         }
 
+        /// <summary>
+        /// Create comparer
+        /// </summary>
+        /// <typeparam name="TV"></typeparam>
+        /// <param name="keySelector"></param>
+        /// <param name="comparer"></param>
+        /// <returns></returns>
         public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector, IEqualityComparer<TV> comparer)
         {
             return new CommonEqualityComparer<TV>(keySelector, comparer);
