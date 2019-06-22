@@ -342,7 +342,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateTime Of(int year, int month, int day)
         {
-            return new ChineseDateTime(new DateTime(year, month, day));
+            return new ChineseDateTime(DateTimeFactory.Create(year, month, day));
         }
 
         /// <summary>
@@ -358,7 +358,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second)
         {
-            return new ChineseDateTime(new DateTime(year, month, day, hour, minute, second));
+            return new ChineseDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second));
         }
 
         /// <summary>
@@ -375,7 +375,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second, int millisecond)
         {
-            return new ChineseDateTime(new DateTime(year, month, day, hour, minute, second, millisecond));
+            return new ChineseDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second, millisecond));
         }
 
         /// <summary>

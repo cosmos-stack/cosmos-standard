@@ -351,7 +351,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateInfo Of(int year, int month, int day)
         {
-            return new ChineseDateInfo(new DateInfo(year, month, day));
+            return new ChineseDateInfo(DateTimeFactory.Create(year, month, day));
         }
 
         /// <summary>
