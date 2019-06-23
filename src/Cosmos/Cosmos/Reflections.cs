@@ -7,14 +7,16 @@ using AspectCore.Extensions.Reflection;
 
 namespace Cosmos
 {
+    /// <summary>
+    /// Reflection Utilities.
+    /// </summary>
     public static class Reflections
     {
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T">Special typeInfo</typeparam>
+        /// <returns>Description of special typeInfo</returns>
         public static string GetDescription<T>()
         {
             return GetDescription(Types.Of<T>());
@@ -22,10 +24,9 @@ namespace Cosmos
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <param name="type">Special typeInfo</param>
+        /// <returns>Description of special typeInfo</returns>
         public static string GetDescription(Type type)
         {
             return GetDescription(type.GetTypeInfo());
@@ -33,22 +34,21 @@ namespace Cosmos
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static string GetDescription(TypeInfo type)
+        /// <param name="typeInfo">Special typeInfo</param>
+        /// <returns>Description of special typeInfo</returns>
+        public static string GetDescription(TypeInfo typeInfo)
         {
-            var attribute = GetAttribute<DescriptionAttribute>(type);
-            return attribute == null ? type.Name : attribute.Description;
+            var attribute = GetAttribute<DescriptionAttribute>(typeInfo);
+            return attribute == null ? typeInfo.Name : attribute.Description;
         }
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <typeparam name="T">类型</typeparam>
-        /// <param name="memberName">成员名称</param>
+        /// <typeparam name="T">Special typeInfo</typeparam>
+        /// <param name="memberName">Name of special member</param>
+        /// <returns>Description of special typeInfo</returns>
         public static string GetDescription<T>(string memberName)
         {
             return GetDescription(Types.Of<T>(), memberName);
@@ -56,10 +56,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <param name="type">类型</param>
-        /// <param name="memberName">成员名称</param>
+        /// <param name="type">Special typeInfo</param>
+        /// <param name="memberName">Name of special member</param>
+        /// <returns>Description of special typeInfo</returns>
         public static string GetDescription(Type type, string memberName)
         {
             return GetDescription(type.GetTypeInfo(), memberName);
@@ -67,28 +67,27 @@ namespace Cosmos
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <param name="typeinfo">类型</param>
-        /// <param name="memberName">成员名称</param>
-        public static string GetDescription(TypeInfo typeinfo, string memberName)
+        /// <param name="typeInfo">Special typeInfo</param>
+        /// <param name="memberName">Name of special member</param>
+        /// <returns>Description of special typeInfo</returns>
+        public static string GetDescription(TypeInfo typeInfo, string memberName)
         {
-            if (typeinfo == null)
+            if (typeInfo == null)
             {
                 return string.Empty;
             }
 
             return !string.IsNullOrWhiteSpace(memberName)
                 ? string.Empty
-                : GetDescription(typeinfo, typeinfo.GetField(memberName));
+                : GetDescription(typeInfo, typeInfo.GetField(memberName));
         }
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <param name="memberInfo"></param>
-        /// <returns></returns>
+        /// <param name="memberInfo">Special member</param>
+        /// <returns>Description of special member</returns>
         public static string GetDescription(MemberInfo memberInfo)
         {
             if (memberInfo == null)
@@ -99,10 +98,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <param name="type">类型</param>
-        /// <param name="field">成员</param>
+        /// <param name="type">Special typeInfo</param>
+        /// <param name="field">Special field</param>
+        /// <returns>Description of special field</returns>
         public static string GetDescription(Type type, FieldInfo field)
         {
             return GetDescription(type.GetTypeInfo(), field);
@@ -110,14 +109,13 @@ namespace Cosmos
 
         /// <summary>
         /// Get description
-        /// 获取描述
         /// </summary>
-        /// <param name="typeinfo">类型</param>
-        /// <param name="field">成员</param>
-        /// <returns></returns>
-        public static string GetDescription(TypeInfo typeinfo, FieldInfo field)
+        /// <param name="typeInfo">Special typeInfo</param>
+        /// <param name="field">Special field</param>
+        /// <returns>Description of special field</returns>
+        public static string GetDescription(TypeInfo typeInfo, FieldInfo field)
         {
-            if (typeinfo == null || field == null)
+            if (typeInfo == null || field == null)
             {
                 return string.Empty;
             }
@@ -128,10 +126,9 @@ namespace Cosmos
 
         /// <summary>
         /// Get display name
-        /// 获取显示名称
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T">Special typeInfo</typeparam>
+        /// <returns>Description of special typeInfo</returns>
         public static string GetDisplayName<T>()
         {
             return GetDisplayName(typeof(T));
@@ -139,10 +136,9 @@ namespace Cosmos
 
         /// <summary>
         /// Get display name
-        /// 获取显示名称
         /// </summary>
-        /// <param name="memberInfo"></param>
-        /// <returns></returns>
+        /// <param name="memberInfo">Special member</param>
+        /// <returns>Description of special member</returns>
         private static string GetDisplayName(MemberInfo memberInfo)
         {
             if (memberInfo == null)
@@ -157,11 +153,10 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// Get display name or description
-        /// 获取显示名称或描述，优先获取显示名称
+        /// Get display name or description, name first.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T">Special typeInfo</typeparam>
+        /// <returns>Name or description of special typeInfo</returns>
         public static string GetDescriptionOrDisplayName<T>()
         {
             var result = GetDisplayName<T>();
@@ -171,11 +166,10 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// Get display name or description
-        /// 获取显示名称或描述，优先获取显示名称
+        /// Get display name or description, name first.
         /// </summary>
-        /// <param name="memberInfo"></param>
-        /// <returns></returns>
+        /// <param name="memberInfo">Special member</param>
+        /// <returns>Name or description of special member</returns>
         public static string GetDescriptionOrDisplayName(MemberInfo memberInfo)
         {
             var result = GetDisplayName(memberInfo);
@@ -184,11 +178,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="fieldInfo"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="fieldInfo">Special field</param>
+        /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+        /// <returns>Attribute of special field</returns>
         public static TAttribute GetAttribute<TAttribute>(FieldInfo fieldInfo) where TAttribute : Attribute
         {
             return fieldInfo == null
@@ -198,11 +191,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="memberInfo"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="memberInfo">Special member</param>
+        /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
+        /// <returns>Attribute of special field</returns>
         public static TAttribute GetAttribute<TAttribute>(MemberInfo memberInfo) where TAttribute : Attribute
         {
             return memberInfo == null ? null : GetAttribute<TAttribute>(memberInfo.GetType());
@@ -210,11 +202,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="type"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="type">Special typeInfo</param>
+        /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+        /// <returns>Attribute of special typeInfo</returns>
         public static TAttribute GetAttribute<TAttribute>(Type type) where TAttribute : Attribute
         {
             return type == null ? null : GetAttribute<TAttribute>(type.GetTypeInfo());
@@ -222,11 +213,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="typeInfo">Special typeInfo</param>
+        /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+        /// <returns>Attribute of special typeInfo</returns>
         public static TAttribute GetAttribute<TAttribute>(TypeInfo typeInfo) where TAttribute : Attribute
         {
             return typeInfo == null ? null : typeInfo.GetReflector().GetCustomAttributes<TAttribute>().FirstOrDefault();
@@ -234,11 +224,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="fieldInfo"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="fieldInfo">Special field</param>
+        /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+        /// <returns>Attribute of special field</returns>
         public static TAttribute GetRequiredAttribute<TAttribute>(FieldInfo fieldInfo) where TAttribute : Attribute
         {
             return fieldInfo == null ? null : fieldInfo.GetReflector().GetCustomAttribute<TAttribute>();
@@ -246,11 +235,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="memberInfo"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="memberInfo">Special member</param>
+        /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+        /// <returns>Attribute of special member</returns>
         public static TAttribute GetRequiredAttribute<TAttribute>(MemberInfo memberInfo) where TAttribute : Attribute
         {
             return memberInfo == null ? null : GetRequiredAttribute<TAttribute>(memberInfo.GetType());
@@ -258,11 +246,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="type"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="type">Special typeInfo</param>
+        /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+        /// <returns>Attribute of special typeInfo</returns>
         public static TAttribute GetRequiredAttribute<TAttribute>(Type type) where TAttribute : Attribute
         {
             return type == null ? null : GetRequiredAttribute<TAttribute>(type.GetTypeInfo());
@@ -270,11 +257,10 @@ namespace Cosmos
 
         /// <summary>
         /// Get attribute
-        /// 获取特性
         /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <typeparam name="TAttribute"></typeparam>
-        /// <returns></returns>
+        /// <param name="typeInfo">Special typeInfo</param>
+        /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+        /// <returns>Attribute of special typeInfo</returns>
         public static TAttribute GetRequiredAttribute<TAttribute>(TypeInfo typeInfo) where TAttribute : Attribute
         {
             return typeInfo == null ? null : typeInfo.GetReflector().GetCustomAttribute<TAttribute>();

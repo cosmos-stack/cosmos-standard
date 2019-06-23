@@ -10,7 +10,7 @@ namespace Cosmos.Judgments
     public static class CollectionJudgment
     {
         /// <summary>
-        /// To judge whether the collection is null or not
+        /// To judge whether the collection is null or not.
         /// </summary>
         /// <param name="coll"></param>
         /// <returns></returns>
@@ -20,7 +20,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the collection is null or empty
+        /// To judge whether the collection is null or empty.
         /// </summary>
         /// <param name="coll"></param>
         /// <returns></returns>
@@ -33,7 +33,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the collection is null or empty
+        /// To judge whether the collection is null or empty.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="coll"></param>
@@ -44,7 +44,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether one collection contains specified count of elements at least
+        /// To judge whether one collection contains specified count of elements at least.
         /// </summary>
         /// <typeparam name="T">动态类型</typeparam>
         /// <param name="coll"></param>
@@ -56,7 +56,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether these two collections contain same count of elements
+        /// To judge whether these two collections contain same count of elements.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="leftCcoll"></param>

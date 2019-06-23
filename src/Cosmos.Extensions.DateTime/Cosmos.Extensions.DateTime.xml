@@ -1,0 +1,2255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions.DateTime</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.DateTimeOutOfRangeException">
+            <summary>
+            DateTime out of range exception.
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateTimeOutOfRangeException.#ctor">
+            <summary>
+            Create a new <see cref="T:Cosmos.DateTimeOutOfRangeException"/> instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateTimeOutOfRangeException.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Cosmos.DateTimeOutOfRangeException"/> instance.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.DateTimeOutOfRangeException.#ctor(System.Int64)">
+            <summary>
+            Create a new <see cref="T:Cosmos.DateTimeOutOfRangeException"/> instance.
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="M:Cosmos.DateTimeOutOfRangeException.#ctor(System.Int64,System.String)">
+            <summary>
+            Create a new <see cref="T:Cosmos.DateTimeOutOfRangeException"/> instance.
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.DateTimeOutOfRangeException.#ctor(System.Exception)">
+            <summary>
+            Create a new <see cref="T:Cosmos.DateTimeOutOfRangeException"/> instance.
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.DateTimeOutOfRangeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new <see cref="T:Cosmos.DateTimeOutOfRangeException"/> instance.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:Cosmos.Date.Chinese.ChineseAnimalHelper">
+            <summary>
+            Chinese Animal Helper<br />
+            中国生肖辅助类
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseAnimalHelper.Get(System.DateTime,System.Boolean)">
+            <summary>
+            Get<br />
+            获得生肖值
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Chinese.ChineseConstellationHelper">
+            <summary>
+            Chinese Constellation helper<br />
+            二十八星宿辅助类
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseConstellationHelper.Get(System.DateTime,System.Boolean)">
+            <summary>
+            Get Chinese Constellation<br />
+            获取二十八星宿
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseConstellationHelper.Get(Cosmos.Date.DateInfo,System.Boolean)">
+            <summary>
+            Get Chinese Constellation<br />
+            获取二十八星宿
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseConstellationHelper.Get(Cosmos.Date.Chinese.ChineseDateTime,System.Boolean)">
+            <summary>
+            Get Chinese Constellation<br />
+            获取二十八星宿
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseConstellationHelper.Get(Cosmos.Date.Chinese.ChineseDateInfo,System.Boolean)">
+            <summary>
+            Get Chinese Constellation<br />
+            获取二十八星宿
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Chinese.ChineseDateHelper">
+            <summary>
+            Chines Date Helper<br />
+            农历辅助类
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.GetChineseYear(System.DateTime,System.Boolean)">
+            <summary>
+            Gets Chinese Year<br />
+            获得农历年
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.GetSexagenaryYear(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Boolean)">
+            <summary>
+            Gets Chinese Sexagenary Year<br />
+            获得干支年
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.GetChineseMonth(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Boolean)">
+            <summary>
+            Gets Chinese Month<br />
+            获得农历月
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.GetChineseDay(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Boolean)">
+            <summary>
+            Gets Chinese Day<br />
+            获得农历日
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.GetChineseHour(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Boolean)">
+            <summary>
+            Gets Chinese Hour<br />
+            获得农历时辰
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.IsLeapYear(System.Globalization.ChineseLunisolarCalendar,System.DateTime)">
+            <summary>
+            Is special year a leap year<br />
+            指定年是否为闰年
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.IsLeapYear(System.Globalization.ChineseLunisolarCalendar,Cosmos.Date.DateInfo)">
+            <summary>
+            Is special year a leap year<br />
+            指定年是否为闰年
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.IsLeapMonth(System.Globalization.ChineseLunisolarCalendar,System.DateTime)">
+            <summary>
+            Is special month a leap month<br />
+            指定月是否为闰月
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.IsLeapMonth(System.Globalization.ChineseLunisolarCalendar,Cosmos.Date.DateInfo)">
+            <summary>
+            Is special month a leap month<br />
+            指定月是否为闰月
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.IsLeapDay(System.Globalization.ChineseLunisolarCalendar,System.DateTime)">
+            <summary>
+            Is special day a leap day<br />
+            指定日是否为闰日
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateHelper.IsLeapDay(System.Globalization.ChineseLunisolarCalendar,Cosmos.Date.DateInfo)">
+            <summary>
+            Is special day a leap day<br />
+            指定日是否为闰日
+            </summary>
+            <param name="calendar"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Chinese.ChineseDateInfo">
+            <summary>
+            Chinese Date Info<br />
+            中国农历日期
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.#ctor(System.DateTime)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.#ctor(Cosmos.Date.Chinese.ChineseDateTime)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.#ctor(Cosmos.Date.DateInfo)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/> 的新实例
+            </summary>
+            <param name="date"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.#ctor(System.DateTime,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.IsLeapYear">
+            <summary>
+            Is current year a leap year.<br />
+            当前年份是否为闰年
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.IsLeapMonth">
+            <summary>
+            Is current month a leap month.<br />
+            当前月份是否为闰月
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.IsLeapDay">
+            <summary>
+            Is current day a leap day.<br />
+            当前日份是否为闰日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.IsWeekend">
+            <summary>
+            Is current day weekend<br />
+            当天日期是否为周末
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.IsWorkDay">
+            <summary>
+            Is current day a work day<br />
+            当前日期是否为工作日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateInfo.ChineseYear">
+            <summary>
+            Gets Chinese year<br />
+            获取农历年份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetChineseYear(System.Boolean)">
+            <summary>
+            Gets Chinese year as string<br />
+            获取汉字农历年份
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetSexagenaryYear(System.Boolean)">
+            <summary>
+            Gets Chines Sexagenary Year<br />
+            获取干支年
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateInfo.ChineseMonth">
+            <summary>
+            Gets Chinese month.<br />
+            获取农历月份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetChineseMonth(System.Boolean)">
+            <summary>
+            Gets Chinese month as string.<br />
+            获取汉字农历月份
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateInfo.ChineseDay">
+            <summary>
+            Gets Chinese day.<br />
+            获取农历日份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetChineseDay(System.Boolean)">
+            <summary>
+            Gets Chinese day as string.<br />
+            获取汉字农历日份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetChineseDate(System.Boolean)">
+            <summary>
+            Gets Chinese date<br />
+            获取农历日期
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetChineseDateWithYear(System.Boolean)">
+            <summary>
+            Gets Chinese date with Chinese year<br />
+            获取农历日期（带年份）
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetChineseDateWithSexagenaryYear(System.Boolean)">
+            <summary>
+            Gets Chinese date with Chinese Sexagenary year<br />
+            获取农历日期（带干支年分）
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetSolarTerm(System.Boolean)">
+            <summary>
+            Gets solar term<br />
+            获取节气
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetLastSolarTerm(System.Boolean)">
+            <summary>
+            Gets last solar term<br />
+            获得上一个节气
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetLastSolarTerm(System.DateTime@,System.Boolean)">
+            <summary> 
+            Gets last solar term<br />
+            获得上一个节气和具体的公历时间
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetNextSolarTerm(System.Boolean)">
+            <summary>
+            Gets next solar term<br />
+            获得下一个节气
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetNextSolarTerm(System.DateTime@,System.Boolean)">
+            <summary>
+            Gets next solar term<br />
+            获得下一个节气和具体的公历时间
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.Tomorrow">
+            <summary>
+            Tomorrow<br />
+            明天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.Yesterday">
+            <summary>
+            Yesterday<br />
+            昨天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.AddDays(System.Int32)">
+            <summary>
+            Add days<br />
+            添加若干天
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.AddWorkDays(System.Int32)">
+            <summary>
+            Add work days<br />
+            添加若干工作日
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.AddMonths(System.Int32)">
+            <summary>
+            Add months<br />
+            添加月份
+            </summary>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetDaysInYear">
+            <summary>
+            Gets days in year.<br />
+            农历年中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetDaysInMonth">
+            <summary>
+            Gets days in month.<br />
+            农历月中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetDayOfYear">
+            <summary>
+            Calculates the day of the Chinese year in the special date.<br />
+            农历年中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetDayOfMonth">
+            <summary>
+            Calculates the day of the Chinese month in the special date.<br />
+            农历月中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.GetDayOfWeek">
+            <summary>
+            Calculates the day of the week in the special date.<br />
+            一周中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.ToDateTime">
+            <summary>
+            Convert to <see cref="T:System.DateTime"/><br />
+            转换为 <see cref="T:System.DateTime"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.op_Implicit(Cosmos.Date.Chinese.ChineseDateInfo)~Cosmos.Date.DateInfo">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/> to <see cref="T:Cosmos.Date.DateInfo"/>
+            </summary>
+            <param name="di"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.op_Implicit(Cosmos.Date.DateInfo)~Cosmos.Date.Chinese.ChineseDateInfo">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.DateInfo"/> to <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/>
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateInfo.InternalTime">
+            <summary>
+            Gets internal datetime
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.Of(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateInfo.OfLunar(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateInfo"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Chinese.ChineseDateTime">
+            <summary>
+            Chinese Date Time<br />
+            中国农历日期与时间
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.#ctor(System.DateTime)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.#ctor(System.DateTime,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.IsLeapYear">
+            <summary>
+            Is current year a leap year.<br />
+            当前年份是否为闰年
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.IsLeapMonth">
+            <summary>
+            Is current month a leap month.<br />
+            当前月份是否为闰月
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.IsLeapDay">
+            <summary>
+            Is current day a leap day.<br />
+            当前日份是否为闰日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.IsWeekend">
+            <summary>
+            Is current day weekend<br />
+            当天日期是否为周末
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.IsWorkDay">
+            <summary>
+            Is current day a work day<br />
+            当前日期是否为工作日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateTime.ChineseYear">
+            <summary>
+            Gets Chinese year<br />
+            获取农历年份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetChineseYear(System.Boolean)">
+            <summary>
+            Gets Chinese year as string<br />
+            获取汉字农历年份
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetSexagenaryYear(System.Boolean)">
+            <summary>
+            Gets Chines Sexagenary Year<br />
+            获取干支年
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateTime.ChineseMonth">
+            <summary>
+            Gets Chinese month.<br />
+            获取农历月份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetChineseMonth(System.Boolean)">
+            <summary>
+            Gets Chinese month as string.<br />
+            获取汉字农历月份
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateTime.ChineseDay">
+            <summary>
+            Gets Chinese day.<br />
+            获取农历日份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetChineseDay(System.Boolean)">
+            <summary>
+            Gets Chinese day as string.<br />
+            获取汉字农历日份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetChineseDate(System.Boolean)">
+            <summary>
+            Gets Chinese date<br />
+            获取农历日期
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetChineseDateWithYear(System.Boolean)">
+            <summary>
+            Gets Chinese date with Chinese year<br />
+            获取农历日期（带年份）
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetChineseDateWithSexagenaryYear(System.Boolean)">
+            <summary>
+            Gets Chinese date with Chinese Sexagenary year<br />
+            获取农历日期（带干支年分）
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetChineseTime(System.Boolean)">
+            <summary>
+            Gets Chinese Time<br />
+            获取农历时辰信息
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetSolarTerm(System.Boolean)">
+            <summary>
+            Gets solar term<br />
+            获取节气
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetLastSolarTerm(System.Boolean)">
+            <summary>
+            Gets last solar term<br />
+            获得上一个节气
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetLastSolarTerm(System.DateTime@,System.Boolean)">
+            <summary>
+            Gets last solar term<br />
+            获得上一个节气和具体的公历时间
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetNextSolarTerm(System.Boolean)">
+            <summary>
+            Gets next solar term<br />
+            获得下一个节气
+            </summary>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetNextSolarTerm(System.DateTime@,System.Boolean)">
+            <summary>
+            Gets next solar term<br />
+            获得下一个节气和具体的公历时间
+            </summary>
+            <param name="dt"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.Tomorrow">
+            <summary>
+            Tomorrow<br />
+            明天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.Yesterday">
+            <summary>
+            Yesterday<br />
+            昨天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.AddDays(System.Int32)">
+            <summary>
+            Add days<br />
+            添加若干天
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.AddWorkDays(System.Int32)">
+            <summary>
+            Add work days<br />
+            添加若干工作日
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.AddMonths(System.Int32)">
+            <summary>
+            Add months<br />
+            添加月份
+            </summary>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetDaysInYear">
+            <summary>
+            Gets days in year.<br />
+            农历年中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetDaysInMonth">
+            <summary>
+            Gets days in month.<br />
+            农历月中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetDayOfYear">
+            <summary>
+            Calculates the day of the Chinese year in the special date.<br />
+            农历年中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetDayOfMonth">
+            <summary>
+            Calculates the day of the Chinese month in the special date.<br />
+            农历月中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.GetDayOfWeek">
+            <summary>
+            Calculates the day of the week in the special date.<br />
+            一周中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.op_Implicit(Cosmos.Date.Chinese.ChineseDateTime)~System.DateTime">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> to <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="di"></param>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.op_Implicit(System.DateTime)~Cosmos.Date.Chinese.ChineseDateTime">
+            <summary>
+            Convert <see cref="T:System.DateTime"/> to <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/>
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateTime.InternalChineseLunisolarCalendar">
+            <summary>
+            Gets <see cref="T:System.Globalization.ChineseLunisolarCalendar"/> instance internal.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.Chinese.ChineseDateTime.InternalTime">
+            <summary>
+            Gets internal datetime
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.ToDateTime">
+            <summary>
+            Convert to <see cref="T:System.DateTime"/><br />
+            转换为 <see cref="T:System.DateTime"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.Of(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.Of(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.Of(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.OfLunar(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.OfLunar(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseDateTime.OfLunar(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Chinese.ChineseDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Chinese.ChineseSolarTermHelper">
+            <summary>
+            Chinese solar term helper<br />
+            中国二十四节气辅助类
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetName(Cosmos.Date.Chinese.ChineseSolarTerms,System.Boolean)">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.Chinese.ChineseSolarTerms"/> to Chinese name.<br />
+            将 <see cref="T:Cosmos.Date.Chinese.ChineseSolarTerms"/> 转换为中文名称。
+            </summary>
+            <param name="solarTerms"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetSolarTerm(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Boolean)">
+            <summary>
+            Gets solar term for special day.<br />
+            获取指定日期（公历）的节气。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetLastSolarTerm(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Boolean)">
+            <summary>
+            Gets last solar term<br />
+            获取指定日期（公历）的上一个节气。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetLastSolarTerm(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.DateTime@,System.Boolean)">
+            <summary>
+            Gets last solar term<br />
+            获取指定日期（公历）的上一个节气。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetNextSolarTerm(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Boolean)">
+            <summary>
+            Gets next solar term<br />
+            获取指定日期（公历）的下一个节气。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetNextSolarTerm(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.DateTime@,System.Boolean)">
+            <summary>
+            Gets next solar term<br />
+            获取指定日期（公历）的下一个节气。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetSolarTermEnum(System.Globalization.ChineseLunisolarCalendar,System.DateTime)">
+            <summary>
+            Get <see cref="T:Cosmos.Date.Chinese.ChineseSolarTerms"/> for special day.<br />
+            获取指定日期（公历）的节气枚举。
+            </summary>
+            <param name="calendar"></param>
+            <param name="targetDt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetLastSolarTermEnum(System.Globalization.ChineseLunisolarCalendar,System.DateTime)">
+            <summary>
+            Gets last <see cref="T:Cosmos.Date.Chinese.ChineseSolarTerms"/><br />
+            获取指定日期（公历）的上一个节气枚举。
+            </summary>
+            <param name="calendar"></param>
+            <param name="targetDt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetLastSolarTermEnum(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.DateTime@)">
+            <summary>
+            Gets last <see cref="T:Cosmos.Date.Chinese.ChineseSolarTerms"/><br />
+            获取指定日期（公历）的上一个节气枚举。
+            </summary>
+            <param name="calendar"></param>
+            <param name="targetDt"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetNextSolarTermEnum(System.Globalization.ChineseLunisolarCalendar,System.DateTime)">
+            <summary>
+            Gets next <see cref="T:Cosmos.Date.Chinese.ChineseSolarTerms"/><br />
+            获取指定日期（公历）的下一个节气枚举。
+            </summary>
+            <param name="calendar"></param>
+            <param name="targetDt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.GetNextSolarTermEnum(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.DateTime@)">
+            <summary>
+            Gets next <see cref="T:Cosmos.Date.Chinese.ChineseSolarTerms"/><br />
+            获取指定日期（公历）的下一个节气枚举。
+            </summary>
+            <param name="calendar"></param>
+            <param name="targetDt"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Chinese.ChineseSolarTermHelper.SolarTermFunc(System.Globalization.ChineseLunisolarCalendar,System.DateTime,System.Linq.Expressions.Expression{System.Func{System.Int32,System.Int32,System.Boolean}},System.DateTime@)">
+            <summary>
+            节气计算（当前年），返回指定条件的节气序及日期（公历）
+            </summary>
+            <param name="calendar"></param>
+            <param name="targetDt"></param>
+            <param name="func"></param>
+            <param name="dateTime"></param>
+            <returns>-1时即没找到</returns>
+        </member>
+        <member name="T:Cosmos.Date.Chinese.ChineseSolarTerms">
+            <summary>
+            Chinese Solar Terms<br />
+            农历二十四节气 <br />
+            Reference to: http://www.hjenglish.com/fanyi/p945691/
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.BeginningOfSpring">
+            <summary>
+            立春
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.RainWater">
+            <summary>
+            雨水
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.TheWakingOfInsects">
+            <summary>
+            惊蛰
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.VernalEquinox">
+            <summary>
+            春分
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.QingmingFestival">
+            <summary>
+            清明
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.GrainRain">
+            <summary>
+            谷雨
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.BeginningOfSummer">
+            <summary>
+            立夏
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.GrainFull">
+            <summary>
+            小满
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.GrainInEar">
+            <summary>
+            芒种
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.SummerSolstice">
+            <summary>
+            夏至
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.SlightHeat">
+            <summary>
+            小暑
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.GreatHeat">
+            <summary>
+            大暑
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.BeginningOfAutumn">
+            <summary>
+            立秋
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.TheLimitOfHeat">
+            <summary>
+            处暑
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.WhiteDew">
+            <summary>
+            白露
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.AutumnalEquinox">
+            <summary>
+            秋分
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.ColdDew">
+            <summary>
+            寒露
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.FrostsDescent">
+            <summary>
+            霜降
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.BeginningOfWinter">
+            <summary>
+            立冬
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.SlightSnow">
+            <summary>
+            小雪
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.GreatSnow">
+            <summary>
+            大雪
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.WinterSolstice">
+            <summary>
+            冬至
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.SlightCold">
+            <summary>
+            小寒
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Chinese.ChineseSolarTerms.GreatCold">
+            <summary>
+            大寒
+            </summary>
+        </member>
+        <member name="T:Cosmos.Date.ConstellationHelper">
+            <summary>
+            Constellation helper<br />
+            星座辅助类
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.ConstellationHelper.Get(System.DateTime)">
+            <summary>
+            Gets Constellation name<br />
+            获取星座名
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.DateInfo">
+            <summary>
+            DateInfo
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.#ctor(System.DateTime)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.DateInfo"/>.<br />
+            创建一个新的 <see cref="T:Cosmos.Date.DateInfo"/> 实例。
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.DateInfo"/>.<br />
+            创建一个新的 <see cref="T:Cosmos.Date.DateInfo"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+        </member>
+        <member name="P:Cosmos.Date.DateInfo.Year">
+            <summary>
+            Year<br />
+            年
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateInfo.Month">
+            <summary>
+            Month<br />
+            月份
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateInfo.Day">
+            <summary>
+            Day<br />
+            日
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.ToDateTime">
+            <summary>
+            Convert to <see cref="T:System.DateTime"/><br />
+            转换为 <see cref="T:System.DateTime"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.AddDays(System.Int32)">
+            <summary>
+            Add days<br />
+            添加天数
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.AddMonths(System.Int32)">
+            <summary>
+            Add months<br />
+            添加月份
+            </summary>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.AddYears(System.Int32)">
+            <summary>
+            Add years<br />
+            添加年份
+            </summary>
+            <param name="years"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.AddDuration(NodaTime.Duration)">
+            <summary>
+            Add duration<br />
+            添加一段时间段
+            </summary>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Implicit(Cosmos.Date.DateInfo)~System.DateTime">
+            <summary>
+            Convert <see cref="T:System.DateTime"/> to <see cref="T:Cosmos.Date.DateInfo"/><br />
+            将 <see cref="T:System.DateTime"/> 转换为 <see cref="T:Cosmos.Date.DateInfo"/>。
+            </summary>
+            <param name="di"></param>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Implicit(System.DateTime)~Cosmos.Date.DateInfo">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.DateInfo"/> to <see cref="T:System.DateTime"/><br />
+            将 <see cref="T:Cosmos.Date.DateInfo"/> 转换为 <see cref="T:System.DateTime"/>。
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.Equals(System.Object)">
+            <summary>
+            Equals<br />
+            相等
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.GetHashCode">
+            <summary>
+            Get hashcode<br />
+            获取哈希值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.DateTimeFactory">
+            <summary>
+            DateTime Factory<br />
+            时间工厂
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.Now">
+            <summary>
+            Now<br />
+            此刻
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.UtcNow">
+            <summary>
+            Now<br />
+            此刻
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.Create(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create <see cref="T:System.DateTime"/> by special date.<br />
+            根据指定的日期创建 <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.Create(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create <see cref="T:System.DateTime"/> by special date.<br />
+            根据指定的日期创建 <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.Create(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create <see cref="T:System.DateTime"/> by special date.<br />
+            根据指定的日期创建 <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.OffsetByWeek(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create <see cref="T:System.DateTime"/> by special year, month and offset info.<br />
+            根据指定的年月和偏移信息创建 <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="weekAtMonth"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.OffsetByWeek(System.Int32,System.Int32,System.Int32,System.DayOfWeek)">
+            <summary>
+            Create <see cref="T:System.DateTime"/> by special year, month and offset info.<br />
+            根据指定的年月和偏移信息创建 <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="weekAtMonth"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.FindLastDay(System.Int32,System.Int32,System.DayOfWeek)">
+            <summary>
+            Find the latest weekday for example Monday in a month.<br />
+            寻找一个月中的最后一个工作日（如周一）
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.FindNextDay(System.Int32,System.Int32,System.Int32,System.DayOfWeek)">
+            <summary>
+            Find the next weekday for example Monday from a special date.<br />
+            根据指定的日期，获得下一个工作日（如周一）
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.FindNextDay(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Find the next weekday for example Monday from a special date.<br />
+            根据指定的日期，获得下一个工作日（如周一）
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.FindDayBefore(System.Int32,System.Int32,System.Int32,System.DayOfWeek)">
+            <summary>
+            Find the next weekday for example Monday before a special date.<br />
+            根据指定的日期，获得上一个工作日（如周一）
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.FindDayBefore(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Find the next weekday for example Monday before a special date.<br />
+            根据指定的日期，获得上一个工作日（如周一）
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.FindDay(System.Int32,System.Int32,System.DayOfWeek,System.Int32)">
+            <summary>
+            Find for example the 3th Monday in a month.<br />
+            寻找指定的日期（如一个月的第三个周一）
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="dayOfWeek"></param>
+            <param name="occurrence"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.InfiniteFutureInfo">
+            <summary>
+            Infinite Future Info<br />
+            无限未来
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfiniteFutureInfo.Instance">
+            <summary>
+            Gets an <see cref="T:Cosmos.Date.InfiniteFutureInfo"/> instance.<br />
+            获得一个 <see cref="T:Cosmos.Date.InfiniteFutureInfo"/> 实例。
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfiniteFutureInfo.Year">
+            <summary>
+            Year<br />
+            年
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfiniteFutureInfo.Month">
+            <summary>
+            Month<br />
+            月
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfiniteFutureInfo.Day">
+            <summary>
+            Day<br />
+            日
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.InfiniteFutureInfo.ToDateTime">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.InfiniteFutureInfo"/> to <see cref="T:System.DateTime"/><br />
+            将 <see cref="T:Cosmos.Date.InfiniteFutureInfo"/> 转换为 <see cref="T:System.DateTime"/>。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.InfinitePastInfo">
+            <summary>
+            Infinite Past Info<br />
+            无限过去
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfinitePastInfo.Instance">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.InfinitePastInfo"/> instance.<br />
+            创建一个新的 <see cref="T:Cosmos.Date.InfinitePastInfo"/> 实例。
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfinitePastInfo.Year">
+            <summary>
+            Year.<br />
+            年
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfinitePastInfo.Month">
+            <summary>
+            Month<br />
+            月
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.InfinitePastInfo.Day">
+            <summary>
+            Day<br />
+            日
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.InfinitePastInfo.ToDateTime">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.InfinitePastInfo"/> to <see cref="T:System.DateTime"/><br />
+            将 <see cref="T:Cosmos.Date.InfinitePastInfo"/> 转换为 <see cref="T:System.DateTime"/>。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.PeriodDateBuilder">
+            <summary>
+            Period Date Builder<br />
+            时间段构造器
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.#ctor">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.PeriodDateBuilder"/> instance.<br />
+            构建一个新的 <see cref="T:Cosmos.Date.PeriodDateBuilder"/> 实例。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.#ctor(System.DateTime)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.PeriodDateBuilder"/> instance.<br />
+            构建一个新的 <see cref="T:Cosmos.Date.PeriodDateBuilder"/> 实例。
+            </summary>
+            <param name="from"></param>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.PeriodDateBuilder"/> instance.<br />
+            构建一个新的 <see cref="T:Cosmos.Date.PeriodDateBuilder"/> 实例。
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.#ctor(Cosmos.Date.DateInfo)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.PeriodDateBuilder"/> instance.<br />
+            构建一个新的 <see cref="T:Cosmos.Date.PeriodDateBuilder"/> 实例。
+            </summary>
+            <param name="from"></param>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.#ctor(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.PeriodDateBuilder"/> instance.<br />
+            构建一个新的 <see cref="T:Cosmos.Date.PeriodDateBuilder"/> 实例。
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.From(Cosmos.Date.DateInfo)">
+            <summary>
+            From<br />
+            时间起始于...
+            </summary>
+            <param name="from"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.To(Cosmos.Date.DateInfo)">
+            <summary>
+            To<br />
+            事件截止于...
+            </summary>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.From(System.DateTime)">
+            <summary>
+            From<br />
+            时间起始于...
+            </summary>
+            <param name="from"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.From(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            From<br />
+            时间起始于...
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.To(System.DateTime)">
+            <summary>
+            To<br />
+            事件截止于...
+            </summary>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.To(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            To<br />
+            事件截止于...
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.To(System.Int32)">
+            <summary>
+            To<br />
+            事件截止于...
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.To(NodaTime.Duration)">
+            <summary>
+            To<br />
+            事件截止于...
+            </summary>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateBuilder.Build">
+            <summary>
+            Build<br />
+            构建
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.DateInfoCache`1">
+            <summary>
+            DateInfo Cache
+            </summary>
+            <typeparam name="TDateInfo"></typeparam>
+        </member>
+        <member name="M:Cosmos.Date.DateInfoCache`1.#ctor(System.Func{`0,`0})">
+            <summary>
+            Create a new instance of DateInfoCache
+            </summary>
+            <param name="itemCreateFunc"></param>
+        </member>
+        <member name="M:Cosmos.Date.DateInfoCache`1.Count">
+            <summary>
+            Count
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfoCache`1.Add(`0)">
+            <summary>
+            Add
+            </summary>
+            <param name="date"></param>
+        </member>
+        <member name="M:Cosmos.Date.DateInfoCache`1.Contains(`0)">
+            <summary>
+            Contains
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfoCache`1.GetEnumerator">
+            <summary>
+            Get enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.DateInfoCache`1.IsInitialized">
+            <summary>
+            Is initialized
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateInfoCache`1.Get(System.Int32)">
+            <summary>
+            Gets cache
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.PeriodDateInfo">
+            <summary>
+            Period DateInfo<br />
+            时间段日期信息
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateInfo.#ctor(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.PeriodDateInfo"/> instance.<br />
+            创建一个新的 <see cref="T:Cosmos.Date.PeriodDateInfo"/> 实例。
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+        </member>
+        <member name="P:Cosmos.Date.PeriodDateInfo.From">
+            <summary>
+            From date<br />
+            时间起始于...
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.PeriodDateInfo.To">
+            <summary>
+            To date<br />
+            时间截止于...
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateInfo.Initialize">
+            <summary>
+            Initialize<br />
+            初始化
+            </summary>
+        </member>
+        <member name="T:Cosmos.Date.PeriodDateInfo`1">
+            <summary>
+            Period DateInfo<br />
+            时间段日期信息
+            </summary>
+            <typeparam name="TDateInfo"></typeparam>
+        </member>
+        <member name="F:Cosmos.Date.PeriodDateInfo`1._from">
+            <summary>
+            From
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.PeriodDateInfo`1._to">
+            <summary>
+            To
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.PeriodDateInfo`1._isInfiniteFuture">
+            <summary>
+            Is infinite future
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.PeriodDateInfo`1._cache">
+            <summary>
+            Cache
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateInfo`1.#ctor(`0,`0,System.Func{`0,`0})">
+            <summary>
+            Create a new <see cref="T:Cosmos.Date.PeriodDateInfo`1"/> instance.<br />
+            创建一个新的 <see cref="T:Cosmos.Date.PeriodDateInfo`1"/> 实例。
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="itemCreateFunc"></param>
+        </member>
+        <member name="P:Cosmos.Date.PeriodDateInfo`1.Length">
+            <summary>
+            Length of period date.<br />
+            时间段的长度
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.PeriodDateInfo`1.From">
+            <summary>
+            From date<br />
+            时间起始于...
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.PeriodDateInfo`1.To">
+            <summary>
+            To date<br />
+            时间截止于...
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateInfo`1.GetAllDates">
+            <summary>
+            Get all dates<br />
+            获取所有日期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.PeriodDateInfo`1.Initialize">
+            <summary>
+            Initialize<br />
+            初始化
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.PeriodDateInfo`1.Item(System.Int32)">
+            <summary>
+            Indexer<br />
+            索引器
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.ChineseSolarTermsExtensions">
+            <summary>
+            Chinese Solar Terms Extensions<br />
+            节气扩展
+            </summary>
+        </member>
+        <member name="M:Cosmos.ChineseSolarTermsExtensions.GetName(Cosmos.Date.Chinese.ChineseSolarTerms,System.Boolean)">
+            <summary>
+            Get Chinese name<br />
+            获取中文名称
+            </summary>
+            <param name="chineseSolarTerms"></param>
+            <param name="traditionalChineseCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ChineseSolarTermsExtensions.GetEnglishName(Cosmos.Date.Chinese.ChineseSolarTerms)">
+            <summary>
+            Get English name<br />
+            获取英文名称
+            </summary>
+            <param name="chineseSolarTerms"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.DateInfoExtensions">
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.AddDay(Cosmos.Date.DateInfo)">
+            <summary>
+            Add one day<br />
+            加一天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.AddMonth(Cosmos.Date.DateInfo)">
+            <summary>
+            Add one month<br />
+            加一个月
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.AddYear(Cosmos.Date.DateInfo)">
+            <summary>
+            Add one year<br />
+            加一年
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsNextMatched(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is the nextDay the day after current date.<br />
+            判断是否为第二天
+            </summary>
+            <param name="date"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.Tomorrow(Cosmos.Date.DateInfo)">
+            <summary>
+            Get tomorrow<br />
+            第二天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.Yesterday(Cosmos.Date.DateInfo)">
+            <summary>
+            Get yesterday<br />
+            前一天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsBetween(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,System.Boolean)">
+            <summary>
+            Is current date between <see cref="!:from"/> and <see cref="!:to"/>.<br />
+            判断当前日期是否在 from 和 to 之间
+            </summary>
+            <param name="date"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="includeBoundary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsDateBetweenWithBoundary(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is current date between <see cref="!:min"/> and <see cref="!:max"/> with boundary.<br />
+            判断当前日期是否在 min 和 max 之间，闭包区间。
+            </summary>
+            <param name="date"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsDateBetweenWithoutBoundary(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is current date between <see cref="!:min"/> and <see cref="!:max"/> without boundary.<br />
+            判断当前日期是否在 min 和 max 之间，开区间。
+            </summary>
+            <param name="date"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.Clone(Cosmos.Date.DateInfo)">
+            <summary>
+            Clone<br />
+            克隆
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetConstellationName(Cosmos.Date.DateInfo)">
+            <summary>
+            Gets Constellation name<br />
+            获取星座名
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetNextWeekdayInfo(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get next weekday.
+            </summary>
+            <param name="date"></param>
+            <param name="weekday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetPreviousWeekdayInfo(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get previous weekday.
+            </summary>
+            <param name="date"></param>
+            <param name="weekday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(System.DateTime)">
+            <summary>
+            Get first day of this month.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get first day (of week) of this month.
+            </summary>
+            <param name="date"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfMonth(System.DateTime)">
+            <summary>
+            Get last day of this month.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get last day (of week) of this month.
+            </summary>
+            <param name="date"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfWeek(System.DateTime)">
+            <summary>
+            Get last day of this week
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Get last day of this week
+            </summary>
+            <param name="date"></param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(System.DateTime)">
+            <summary>
+            Get last day of this week
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Get last day of this week
+            </summary>
+            <param name="date"></param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsLeapYear(Cosmos.Date.DateInfo)">
+            <summary>
+            Is special year a leap year.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsLeapYear(Cosmos.Date.DateInfo,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Is special year a leap year.
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsLeapMonth(Cosmos.Date.DateInfo)">
+            <summary>
+            Is special month a leap month.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsLeapMonth(Cosmos.Date.DateInfo,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Is special month a leap month.
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsLeapDay(Cosmos.Date.DateInfo)">
+            <summary>
+            Is special day a leap day.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsLeapDay(Cosmos.Date.DateInfo,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Is special day a leap day.
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.DateInfoAgoExtensions">
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateInfoAgoExtensions.ToAgo(Cosmos.Date.DateInfo)">
+            <summary>
+            To ago.<br />
+            转换为 Ago
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.DateTimeExtensions">
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.AddDuration(System.DateTime,NodaTime.Duration)">
+            <summary>
+            Add duration<br />
+            添加一段持续的时间
+            </summary>
+            <param name="date"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsBetween(System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Is current date between <see cref="!:from"/> and <see cref="!:to"/>.<br />
+            判断当前日期是否在 from 和 to 之间
+            </summary>
+            <param name="date"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="includeBoundary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsDateBetweenWithBoundary(System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Is current date between <see cref="!:min"/> and <see cref="!:max"/> with boundary.<br />
+            判断当前日期是否在 min 和 max 之间，闭包区间。
+            </summary>
+            <param name="date"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsDateBetweenWithBoundary(System.DateTime,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Is current date between <see cref="!:min"/> and <see cref="!:max"/> with boundary.<br />
+            判断当前日期是否在 min 和 max 之间，闭包区间。
+            </summary>
+            <param name="date"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsDateBetweenWithoutBoundary(System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Is current date between <see cref="!:min"/> and <see cref="!:max"/> without boundary.<br />
+            判断当前日期是否在 min 和 max 之间，开区间。
+            </summary>
+            <param name="date"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.Clone(System.DateTime)">
+            <summary>
+            Clone<br />
+            克隆
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.GetConstellationName(Cosmos.Date.DateInfo)">
+            <summary>
+            Gets Constellation name<br />
+            获取星座名
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.ElapsedTime(System.DateTime)">
+            <summary>
+            Elapsed Time<br />
+            计算此刻与指定时间之间的时间差
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.ElapsedMilliseconds(System.DateTime)">
+            <summary>
+            Elapsed Time<br />
+            计算此刻与指定时间之间的时间差（毫秒）
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsLeapYear(System.DateTime)">
+            <summary>
+            Is special year a leap year.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsLeapYear(System.DateTime,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Is special year a leap year.
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsLeapMonth(System.DateTime)">
+            <summary>
+            Is special month a leap month.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsLeapMonth(System.DateTime,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Is special month a leap month.
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsLeapDay(System.DateTime)">
+            <summary>
+            Is special day a leap day.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsLeapDay(System.DateTime,System.Globalization.ChineseLunisolarCalendar)">
+            <summary>
+            Is special day a leap day.
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.ToUtc(System.DateTime)">
+            <summary>
+            Convert to utc date<br />
+            转换为 UTC 时间
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.ToDateInfo(System.DateTime)">
+            <summary>
+            Convert <see cref="T:System.DateTime"/> to <see cref="T:Cosmos.Date.DateInfo"/>.<br />
+            将 <see cref="T:System.DateTime"/> 转换为 <see cref="T:Cosmos.Date.DateInfo"/>。
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.AgeExtensions">
+            <summary>
+            Age helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.AgeExtensions.ToCalculateAge(System.DateTime)">
+            <summary>
+            根据生日计算年纪
+            </summary>
+            <param name="birthday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.AgeExtensions.ToCalculateAge(System.DateTime,System.DateTime)">
+            <summary>
+            根据生日和参照时间，计算当时年纪
+            </summary>
+            <param name="birthday">     </param>
+            <param name="referenceDate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.AgoExtensions">
+            <summary>
+            Ago Helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.AgoExtensions.ToAgo(System.TimeSpan)">
+            <summary>
+            格式化时间间隔
+            </summary>
+            <param name="timeSpan">时间间隔</param>
+        </member>
+        <member name="M:Cosmos.AgoExtensions.ToAgo(System.DateTime)">
+            <summary>
+            格式化时间间隔
+            </summary>
+            <param name="date">對比的時間</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.DayOfWeekExtensions">
+            <summary>
+            DayOfWeek extensions<br />
+            DayOfWeek 扩展类
+            </summary>
+        </member>
+        <member name="M:Cosmos.DayOfWeekExtensions.ToInt(System.DayOfWeek)">
+            <summary>
+            Convert <see cref="T:System.DayOfWeek"/> to <see cref="T:System.Int32"/><br />
+            将 <see cref="T:System.DayOfWeek"/> 转换为 <see cref="T:System.Int32"/>。
+            </summary>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.InvalidDateTimeException">
+            <summary>
+            Invalid DateTime Exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.InvalidDateTimeException.#ctor">
+            <summary>
+            Create a new <see cref="T:Cosmos.InvalidDateTimeException"/> instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.InvalidDateTimeException.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Cosmos.InvalidDateTimeException"/> instance.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.InvalidDateTimeException.#ctor(System.Int64)">
+            <summary>
+            Create a new <see cref="T:Cosmos.InvalidDateTimeException"/> instance.
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="M:Cosmos.InvalidDateTimeException.#ctor(System.Int64,System.String)">
+            <summary>
+            Create a new <see cref="T:Cosmos.InvalidDateTimeException"/> instance.
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.InvalidDateTimeException.#ctor(System.Exception)">
+            <summary>
+            Create a new <see cref="T:Cosmos.InvalidDateTimeException"/> instance.
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.InvalidDateTimeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new <see cref="T:Cosmos.InvalidDateTimeException"/> instance.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+    </members>
+</doc>

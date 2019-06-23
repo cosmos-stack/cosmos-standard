@@ -5,6 +5,11 @@ namespace Cosmos
 {
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Is upper
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static bool IsUpper(this string text)
         {
             foreach (var ch in text)
@@ -17,6 +22,11 @@ namespace Cosmos
             return true;
         }
 
+        /// <summary>
+        /// Is lower
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static bool IsLower(this string text)
         {
             foreach (var ch in text)
@@ -29,6 +39,12 @@ namespace Cosmos
             return true;
         }
 
+        /// <summary>
+        /// Is same words
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="check"></param>
+        /// <returns></returns>
         public static bool IsSameWords(this string text, string check)
         {
             if (check.IsNullOrEmpty())

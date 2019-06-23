@@ -5,11 +5,15 @@ using System.Reflection;
 using Cosmos.Expressions;
 using Cosmos.Queries;
 
+// ReSharper disable once CheckNamespace
 namespace Cosmos
 {
     //A copy of https://github.com/dotnetcore/Util/blob/HEAD/src/Util/Extensions.Lambda.cs
     //Author: 何镇汐
-
+    
+    /// <summary>
+    /// Lambda extensions
+    /// </summary>
     public static class LambdaExtensions
     {
 
@@ -366,6 +370,7 @@ namespace Cosmos
         /// <param name="values">参数值列表</param>
         public static Expression Call(this Expression instance, string methodName, params Expression[] values)
         {
+            // ReSharper disable once AssignNullToNotNullAttribute
             return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName), values);
         }
 
@@ -378,7 +383,9 @@ namespace Cosmos
         public static Expression Call(this Expression instance, string methodName, params object[] values)
         {
             if (values == null || values.Length == 0)
+                // ReSharper disable once AssignNullToNotNullAttribute
                 return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName));
+            // ReSharper disable once AssignNullToNotNullAttribute
             return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName),
                 values.Select(Expression.Constant));
         }
@@ -394,7 +401,9 @@ namespace Cosmos
             params object[] values)
         {
             if (values == null || values.Length == 0)
+                // ReSharper disable once AssignNullToNotNullAttribute
                 return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName, paramTypes));
+            // ReSharper disable once AssignNullToNotNullAttribute
             return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName, paramTypes),
                 values.Select(Expression.Constant));
         }

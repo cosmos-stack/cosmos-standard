@@ -8,6 +8,12 @@ namespace Cosmos
 {
     public static partial class CharExtensions
     {
+        /// <summary>
+        /// To create a range from one to another
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="toCharacter"></param>
+        /// <returns></returns>
         public static IEnumerable<char> To(this char @this, char toCharacter)
         {
             var reverseRequired = @this > toCharacter;
@@ -25,6 +31,11 @@ namespace Cosmos
             return result;
         }
 
+        /// <summary>
+        /// Convert char to ascii value
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public static int ToAsciiValue(this char c)
         {
             int num;

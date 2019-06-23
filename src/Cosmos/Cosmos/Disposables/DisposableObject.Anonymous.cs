@@ -10,15 +10,34 @@
 
 namespace Cosmos.Disposables
 {
+    /// <summary>
+    /// Anonymous Disposable Object
+    /// </summary>
     public sealed class AnonymousDisposableObject : SingleDisposableObject<Action>
     {
+        /// <summary>
+        /// Create a new <see cref="AnonymousDisposableObject"/> instance.
+        /// </summary>
+        /// <param name="dispose"></param>
 
         public AnonymousDisposableObject(Action dispose) : base(dispose) { }
 
+        /// <summary>
+        /// Create a new <see cref="AnonymousDisposableObject"/> instance.
+        /// </summary>
+        /// <param name="disposableAction"></param>
         public AnonymousDisposableObject(DisposableAction disposableAction) : base(disposableAction?.InternalAction) { }
 
+        /// <summary>
+        /// Dispose.
+        /// </summary>
+        /// <param name="context"></param>
         protected override void Dispose(Action context) => context?.Invoke();
 
+        /// <summary>
+        /// Add dispose <see cref="Action"/>.
+        /// </summary>
+        /// <param name="dispose"></param>
         public void Add(Action dispose)
         {
             if (dispose == null)
@@ -27,6 +46,10 @@ namespace Cosmos.Disposables
                 dispose();
         }
 
+        /// <summary>
+        /// Add dispose <see cref="Action"/>.
+        /// </summary>
+        /// <param name="disposableAction"></param>
         public void Add(DisposableAction disposableAction)
         {
             Add(disposableAction?.InternalAction);

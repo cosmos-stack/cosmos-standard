@@ -7,6 +7,10 @@ using System.Text.RegularExpressions;
 
 namespace Cosmos.Splitters
 {
+    /// <summary>
+    /// Splitter<br />
+    /// 字符串分割器
+    /// </summary>
     public partial class Splitter : ISplitter
     {
         private readonly bool _regexMode;
@@ -60,6 +64,11 @@ namespace Cosmos.Splitters
 
         #region OmitEmptyStrings
 
+        /// <summary>
+        /// Omit empty string<br />
+        /// 移除空字符串
+        /// </summary>
+        /// <returns></returns>
         public ISplitter OmitEmptyStrings()
         {
             Options.SetOmitEmptyStrings();
@@ -70,11 +79,24 @@ namespace Cosmos.Splitters
 
         #region WithKeyValueSeparator
 
+        /// <summary>
+        /// With KeyValue separator<br />
+        /// 设置键值对分隔符
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <returns></returns>
         IMapSplitter ISplitter.WithKeyValueSeparator(string separator)
         {
             Options.SetMapSeparator(separator);
             return this;
         }
+
+        /// <summary>
+        /// With KeyValue separator<br />
+        /// 设置键值对分隔符
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <returns></returns>
         IMapSplitter ISplitter.WithKeyValueSeparator(char separator)
         {
             Options.SetMapSeparator(separator);
@@ -85,12 +107,23 @@ namespace Cosmos.Splitters
 
         #region TrimResults
 
+        /// <summary>
+        /// Trim results<br />
+        /// 修整结果两端
+        /// </summary>
+        /// <returns></returns>
         ISplitter ISplitter.TrimResults()
         {
             Options.SetTrimResults();
             return this;
         }
 
+        /// <summary>
+        /// Trim results<br />
+        /// 修整结果，按照指定的方法
+        /// </summary>
+        /// <param name="trimFunc"></param>
+        /// <returns></returns>
         ISplitter ISplitter.TrimResults(Func<string, string> trimFunc)
         {
             Options.SetTrimResults(trimFunc);
@@ -101,6 +134,12 @@ namespace Cosmos.Splitters
 
         #region Limit
 
+        /// <summary>
+        /// Limit<br />
+        /// 设置限制的值
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <returns></returns>
         ISplitter ISplitter.Limit(int limit)
         {
             Options.SetLimitLength(limit);
@@ -113,27 +152,91 @@ namespace Cosmos.Splitters
 
         private bool _doesUseInLimitedMode() => Options.LimitLength >= 0 && (!_regexMode || (_regexMode && _regexPattern == null));
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <param name="originalString"></param>
+        /// <returns></returns>
         IEnumerable<string> ISplitter.Split(string originalString)
             => InternalSplitToEnumerable(originalString, s => s);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
         IEnumerable<T> ISplitter.Split<T>(string originalString, IObjectSerializer serializer)
             => InternalSplitToEnumerable(originalString, serializer.Deserialize<T>);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         IEnumerable<T> ISplitter.Split<T>(string originalString, ITypeConverter<string, T> converter)
             => InternalSplitToEnumerable(originalString, converter.To);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="TMiddle"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
         IEnumerable<T> ISplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
             => InternalSplitToEnumerable(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
+        /// <summary>
+        /// Split to list<br />
+        /// 分割为列表
+        /// </summary>
+        /// <param name="originalString"></param>
+        /// <returns></returns>
         List<string> ISplitter.SplitToList(string originalString)
            => ((ISplitter)this).Split(originalString).ToList();
 
+        /// <summary>
+        /// Split to list<br />
+        /// 分割为列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
         List<T> ISplitter.SplitToList<T>(string originalString, IObjectSerializer serializer)
            => ((ISplitter)this).Split<T>(originalString, serializer).ToList();
 
+        /// <summary>
+        /// Split to list<br />
+        /// 分割为列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         List<T> ISplitter.SplitToList<T>(string originalString, ITypeConverter<string, T> converter)
            => ((ISplitter)this).Split(originalString, converter).ToList();
 
+        /// <summary>
+        /// Split to list<br />
+        /// 分割为列表
+        /// </summary>
+        /// <typeparam name="TMiddle"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
         List<T> ISplitter.SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
            => ((ISplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToList();
 
@@ -163,6 +266,13 @@ namespace Cosmos.Splitters
 
         #region On
 
+        /// <summary>
+        /// On, to create a new Splitter instance.<br />
+        /// On 操作，创建一个新的 Splitter 实例。
+        /// </summary>
+        /// <param name="on"></param>
+        /// <param name="on2"></param>
+        /// <returns></returns>
         public static ISplitter On(string on, params string[] on2)
         {
             var o = new string[(on2?.Length ?? 0) + 1];
@@ -172,11 +282,23 @@ namespace Cosmos.Splitters
             return new Splitter(o);
         }
 
+        /// <summary>
+        /// On, to create a new Splitter instance.<br />
+        /// On 操作，创建一个新的 Splitter 实例。
+        /// </summary>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
         public static ISplitter On(Regex pattern)
         {
             return new Splitter(pattern);
         }
 
+        /// <summary>
+        /// On, to create a new Splitter instance.<br />
+        /// On 操作，创建一个新的 Splitter 实例。
+        /// </summary>
+        /// <param name="separatorPattern"></param>
+        /// <returns></returns>
         public static ISplitter OnPattern(string separatorPattern)
         {
             return new Splitter(separatorPattern);
@@ -186,6 +308,12 @@ namespace Cosmos.Splitters
 
         #region FixedLength
 
+        /// <summary>
+        /// Fixed length<br />
+        /// 固定长度
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
         public static IFixedLengthSplitter FixedLength(int length)
         {
             if (length <= 0)

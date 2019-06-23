@@ -17,6 +17,14 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Cosmos.Extensions.Http.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Cosmos.Extensions.Http.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="System.Collections.Immutable" Version="1.6.0-preview5.19224.8" />
   </ItemGroup>
@@ -25,6 +33,13 @@
     <ProjectReference Include="..\..\..\..\src\Cosmos\Cosmos.csproj" />
     <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Jil\Cosmos.Serialization.Jil.csproj" />
     <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Protobuf\Cosmos.Serialization.Protobuf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

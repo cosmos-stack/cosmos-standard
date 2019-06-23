@@ -359,41 +359,93 @@ namespace Cosmos
             return @this.AddDays(-1);
         }
 
+        /// <summary>
+        /// Set time
+        /// </summary>
+        /// <param name="originalDate"></param>
+        /// <param name="hour"></param>
+        /// <param name="minute"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
         public static DateTime SetTime(this DateTime originalDate, int hour, int minute, int second)
         {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, second, originalDate.Millisecond);
         }
 
+        /// <summary>
+        /// Set hour
+        /// </summary>
+        /// <param name="originalDate"></param>
+        /// <param name="hour"></param>
+        /// <returns></returns>
         public static DateTime SetHour(this DateTime originalDate, int hour)
         {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, hour, originalDate.Minute, originalDate.Second, originalDate.Millisecond);
         }
 
+        /// <summary>
+        /// Set minute
+        /// </summary>
+        /// <param name="originalDate"></param>
+        /// <param name="minute"></param>
+        /// <returns></returns>
         public static DateTime SetMinute(this DateTime originalDate, int minute)
         {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, minute, originalDate.Second, originalDate.Millisecond);
         }
 
+        /// <summary>
+        /// Set second
+        /// </summary>
+        /// <param name="originalDate"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
         public static DateTime SetSecond(this DateTime originalDate, int second)
         {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, originalDate.Minute, second, originalDate.Millisecond);
         }
 
+        /// <summary>
+        /// Set date
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <returns></returns>
         public static DateTime SetDate(this DateTime value, int year, int month, int day)
         {
             return new DateTime(year, month, day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
 
+        /// <summary>
+        /// Set year
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public static DateTime SetYear(this DateTime value, int year)
         {
             return new DateTime(year, value.Month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
 
+        /// <summary>
+        /// Set month
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="month"></param>
+        /// <returns></returns>
         public static DateTime SetMonth(this DateTime value, int month)
         {
             return new DateTime(value.Year, month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
 
+        /// <summary>
+        /// Set day
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="day"></param>
+        /// <returns></returns>
         public static DateTime SetDay(this DateTime value, int day)
         {
             return new DateTime(value.Year, value.Month, day, value.Hour, value.Minute, value.Second, value.Millisecond);

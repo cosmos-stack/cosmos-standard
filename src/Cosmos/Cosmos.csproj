@@ -1,33 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\..\build\common.props" />
+  <Import Project="..\..\build\common.props" />
 
-    <PropertyGroup>
-      <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>7.2</LangVersion>
-        <RootNamespace />
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.2</LangVersion>
+    <RootNamespace />
+  </PropertyGroup>
 
-    <PropertyGroup>
-        <AssemblyName>Cosmos</AssemblyName>
-        <PackageId>Cosmos.Core</PackageId>
-        <Description>Cosmos base library</Description>
-        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    </PropertyGroup>
-    
-    <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+    <AssemblyName>Cosmos</AssemblyName>
+    <PackageId>Cosmos.Core</PackageId>
+    <Description>Cosmos base library</Description>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="AspectCore.Extensions.Reflection" Version="1.2.0" />
-        <PackageReference Include="Enums.NET" Version="2.3.2" />
-        <PackageReference Include="Humanizer.Core" Version="2.6.2" />
-        <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.6.2" />
-        <PackageReference Include="Humanizer.Core.zh-Hant" Version="2.6.2" />
-        <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview5.19224.8" />
-        <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
-    </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Cosmos.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Cosmos.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Extensions.Reflection" Version="1.2.0" />
+    <PackageReference Include="Enums.NET" Version="2.3.2" />
+    <PackageReference Include="Humanizer.Core" Version="2.6.2" />
+    <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.6.2" />
+    <PackageReference Include="Humanizer.Core.zh-Hant" Version="2.6.2" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview5.19224.8" />
+    <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
+  </ItemGroup>
 </Project>

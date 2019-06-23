@@ -17,12 +17,27 @@
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DocumentationFile>Cosmos.Extensions.MessagePack.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <DocumentationFile>Cosmos.Extensions.MessagePack.xml</DocumentationFile>
+    </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MessagePack" Version="1.7.3.7" />
   </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\..\..\..\LICENSE">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

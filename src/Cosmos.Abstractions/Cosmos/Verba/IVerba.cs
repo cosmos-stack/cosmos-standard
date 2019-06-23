@@ -1,5 +1,8 @@
 ﻿namespace Cosmos.Verba
 {
+    /// <summary>
+    /// Verba Meta Interface
+    /// </summary>
     public interface IVerba
     {
         /// <summary>

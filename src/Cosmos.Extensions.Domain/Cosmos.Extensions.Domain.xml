@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor">
+            <summary>
+            To describe what value has been changed
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.Core.IDomainObject">
+            <summary>
+            Interface of domain object
+            </summary>
+        </member>
+        <member name="F:Cosmos.Domain.EntityDescriptors.DeleteOperationTypes.LogicDelete">
+            <summary>
+            Logic delete, also named soft-delete.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Domain.EntityDescriptors.DeleteOperationTypes.Restore">
+            <summary>
+            Restore, be used to logic deleted entity.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Domain.EntityDescriptors.DeleteOperationTypes.PhysicalDelete">
+            <summary>
+            Physical delete, also named hard-delete.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.ICreatedTime">
+            <summary>
+            To flag that this entity include created time.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.IDeletable">
+            <summary>
+            To flag this entity can be mark as deleted.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.IExpireable">
+            <summary>
+            To flag this entity will be expired, include start time and end time.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.IKey`1">
+            <summary>
+            To flag this entity include Id property
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.ILockable">
+            <summary>
+            To flag this entity can be locked.
+            </summary>
+        </member>
+    </members>
+</doc>

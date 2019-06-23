@@ -9,7 +9,7 @@ namespace Cosmos.Judgments
     public static class GuidJudgment
     {
         /// <summary>
-        /// To judge whether the <see cref="Guid"/> is null or empty
+        /// To judge whether the <see cref="Guid"/> is null or empty.
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
@@ -19,7 +19,7 @@ namespace Cosmos.Judgments
         }
 
         /// <summary>
-        /// To judge whether the <see cref="Guid"/> is null or empty
+        /// To judge whether the <see cref="Guid"/> is null or empty.
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
@@ -35,7 +35,7 @@ namespace Cosmos.Judgments
                         "^({)?[0xA-Fa-f0-9]{3,10}(, {0,1}[0xA-Fa-f0-9]{3,6}){2},{0,1}({)([0xA-Fa-f0-9]{3,4}, {0,1}){7}[0xA-Fa-f0-9]{3,4}(}})$");
 
         /// <summary>
-        /// To judge whether the string is <see cref="Guid"/> or not
+        /// To judge whether the string is <see cref="Guid"/> or not.
         /// </summary>
         /// <param name="guidStr"></param>
         /// <returns></returns>

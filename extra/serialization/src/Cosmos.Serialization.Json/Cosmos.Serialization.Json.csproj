@@ -10,11 +10,19 @@
   
     <PropertyGroup>
         <AssemblyName>Cosmos.Serialization.Json</AssemblyName>
-        <PackageId>Cosmos.Serialization.Json</PackageId>
-        <Description>Nertosoft JSON serializer extension for Cosmos base library</Description>
+        <PackageId>Cosmos.Serialization.NewtonsoftJson</PackageId>
+        <Description>Newtonsoft JSON serializer extension for Cosmos base library</Description>
         <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
         <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DocumentationFile>Cosmos.Extensions.Json.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <DocumentationFile>Cosmos.Extensions.Json.xml</DocumentationFile>
     </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +32,13 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\..\..\..\LICENSE">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

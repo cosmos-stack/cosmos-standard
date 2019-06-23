@@ -1,7 +1,15 @@
 ﻿namespace System.IO
 {
+    /// <summary>
+    /// Stream extensions
+    /// </summary>
     public static class StreamExtensions
     {
+        /// <summary>
+        /// Read all bytes
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
         public static byte[] ReadAllBytes(this Stream stream)
         {
             long originalPosition = 0;

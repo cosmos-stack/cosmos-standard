@@ -1,0 +1,2918 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Conversions.Base64Conversion">
+            <summary>
+            Base64 Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64String(System.Byte[])">
+            <summary>
+            Convert from bytes to base64 <see cref="T:System.String"/>.
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from <see cref="T:System.String"/> to base64 <see cref="T:System.String"/>.
+            </summary>
+            <param name="str"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64String(System.String)">
+            <summary>
+            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base64String"></param>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base64String"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64UrlString(System.Byte[])">
+            <summary>
+            Convert from <see cref="T:System.String"/> to base64url <see cref="T:System.String"/>.
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64UrlString(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from <see cref="T:System.String"/> to base64url <see cref="T:System.String"/>.
+            </summary>
+            <param name="str"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64UrlString(System.String)">
+            <summary>
+            Convert from base64url <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base64UrlString"></param>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64UrlString(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from base64url <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base64UrlString"></param>
+            <param name="encoding"></param>
+        </member>
+        <member name="T:Cosmos.Conversions.BooleanConversion">
+            <summary>
+            Boolean Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.BooleanConversion.ToBoolean(System.Object)">
+            <summary>
+            Convert from <see cref="T:System.Object"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BooleanConversion.ToNullableBoolean(System.Object)">
+            <summary>
+            Convert from <see cref="T:System.Object"/> to nullable <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.GuidConversion">
+            <summary>
+            GUID Converter
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.GuidConversion.ToGuid(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.GuidConversion.ToNullableGuid(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.NumericConversion">
+            <summary>
+            Numeric Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToInt32(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableInt32(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToInt64(System.Object,System.Int64)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableInt64(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToFloat(System.Object,System.Single)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableFloat(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Single"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToDouble(System.Object,System.Double)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundDouble(System.Object,System.Int32,System.Double)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableDouble(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Double"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundNullableDouble(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Double"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundDecimal(System.Object,System.Int32,System.Decimal)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Decimal"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableDecimal(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundNullableDecimal(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Decimal"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.ObjectConversion">
+            <summary>
+            Object Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.ToString(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Type)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Type,System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetType"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Reflection.TypeInfo)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetTypeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Reflection.TypeInfo,System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetTypeInfo"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.To``1(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to a TTo instance.
+            </summary>
+            <typeparam name="TTo"></typeparam>
+            <param name="fromObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.To``1(System.Object,``0)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to a TTo instance.
+            </summary>
+            <typeparam name="TTo"></typeparam>
+            <param name="fromObj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.ToList``1(System.String,System.Char)">
+            <summary>
+            Convert from string to a TTo instances list.
+            </summary>
+            <typeparam name="TTo"></typeparam>
+            <param name="listStr"></param>
+            <param name="splitChar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.ToDateTime(System.Object,System.DateTime)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConversion.ToNullableDateTime(System.Object,System.Nullable{System.DateTime})">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.BinaryConversion">
+            <summary>
+            Binary Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BinaryConversion.ToDecimalism(System.String)">
+            <summary>
+            Convert from binary to decimalism.
+            </summary>
+            <example>in: 101110; out: 46</example>
+            <param name="bin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BinaryConversion.ToHexadecimal(System.String)">
+            <summary>
+            Convert from binary to hexadecimal.
+            </summary>
+            <example>in: 101110; out: 2E</example>
+            <param name="bin"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.BytesConversion">
+            <summary>
+            Bytes Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToAscii(System.Byte[])">
+            <summary>
+            Convert from bytes to ASCII <see cref="T:System.String"/>.
+            </summary>
+            <example>in: new byte[] {65, 66, 67}; out: ABC</example>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToBinary(System.Byte)">
+            <summary>
+            Convert from byte to binary.
+            </summary>
+            <example>in: (byte)128; out: 10000000</example>
+            <param name="byte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToDecimalism(System.Byte,System.Byte)">
+            <summary>
+            Convert high address 'h' and low address 'l' to decimalism.
+            </summary>
+            <example>in: (byte)65, (byte)66; out: 16706</example>
+            <example>in: (byte)66, (byte)65; out: 16961</example>
+            <param name="h">high address byte</param>
+            <param name="l">low address byte</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToDecimalism(System.Byte,System.Byte,System.Boolean)">
+            <summary>
+            Convert high address 'h' and low address 'l' to decimalism.
+            </summary>
+            <example>in: (byte)255, (byte)66; out: 65346</example>
+            <example>in: (byte)66, (byte)255; out: -190</example>
+            <param name="h">high address byte</param>
+            <param name="l">low address byte</param>
+            <param name="isRadix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToHexadecimal(System.Byte)">
+            <summary>
+            Convert from byte to hexadecimal.
+            </summary>
+            <example>in: (byte)128; out: 80</example>
+            <param name="byte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToHexadecimal(System.Byte[])">
+            <summary>
+            Convert from bytes to hexadecimal.
+            </summary>
+            <example>in: new byte[] {65, 66, 67}; out: 414243</example>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToHexadecimal(System.Byte,System.Byte)">
+            <summary>
+            Convert from high address 'h' and low address 'l' to hexadecimal.
+            </summary>
+            <example>in: (byte)65, (byte)66; out: 4142</example>
+            <example>in: (byte)66, (byte)65; out: 4241</example>
+            <param name="h">high address byte</param>
+            <param name="l">low address byte</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.DecimalismConversion">
+            <summary>
+            Decimalism Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.DecimalismConversion.ToBinary(System.Int32)">
+            <summary>
+            Convert from decimalism to binary.
+            </summary>
+            <example>in: 46; out: 101110</example>
+            <param name="dec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.DecimalismConversion.ToHexadecimal(System.Int32)">
+            <summary>
+            Convert from decimal to hexadecimal.
+            </summary>
+            <example>in: 46; out: 2E</example>
+            <param name="dec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.DecimalismConversion.ToHexadecimal(System.Int32,System.Int32)">
+            <summary>
+            Convert from decimal to hexadecimal.
+            </summary>
+            <example>in: 46, 4; out: 002E</example>
+            <param name="dec"></param>
+            <param name="formatLength"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.HexadecimalConversion">
+            <summary>
+            Hexadecimal Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToDecimalism(System.String)">
+            <summary>
+            Convert from hexadecimal to decimalism.
+            </summary>
+            <example>in: 2E; out: 46</example>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToBinary(System.String)">
+            <summary>
+            Convert from hexadecimal to binary.
+            </summary>
+            <example>in: 2E; out: 101110</example>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToBytes(System.String)">
+            <summary>
+            Convert from hexadecimal to bytes.
+            </summary>
+            <example>in: 2E3D; out: result[0] is 46, result[1] is 61</example>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToString(System.String,System.String)">
+            <summary>
+            Convert from hexadecimal to <see cref="T:System.String"/>.
+            </summary>
+            <param name="hex"></param>
+            <param name="encodingName">encoding name, default is "utf-8"</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.FromString(System.String,System.String)">
+            <summary>
+            Convert from <see cref="T:System.String"/> to hexadecimal.
+            </summary>
+            <example>in: A; out: 1000001</example>
+            <param name="str"></param>
+            <param name="encodingName">encoding name, default is "utf-8"</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.TypeConversion">
+            <summary>
+            Type conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.TypeConversion.ToNonNullableType(System.Type)">
+            <summary>
+            Convert nullable type to underlying type.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.TypeConversion.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+            <summary>
+            Convert nullable typeInfo to underlying typeInfo。
+            </summary>
+            <param name="typeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.TypeConversion.ToSafeNonNullableType(System.Type)">
+            <summary>
+            Convert nullable type to underlying type safety.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.TypeConversion.ToSafeNonNullableTypeInfo(System.Reflection.TypeInfo)">
+            <summary>
+            Convert nullable typeInfo to underlying typeInfo safety.
+            </summary>
+            <param name="typeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.CosmosException">
+            <summary>
+            Cosmos base exception
+            </summary>
+        </member>
+        <member name="F:Cosmos.CosmosException.EMPTY_FLAG">
+            <summary>
+            Empty flag
+            </summary>
+        </member>
+        <member name="F:Cosmos.CosmosException.DEFAULT_ERROR_MESSAGE">
+            <summary>
+            Default error message for cosmos exception
+            </summary>
+        </member>
+        <member name="F:Cosmos.CosmosException.DEFAULT_ERROR_CODE">
+            <summary>
+            Default error code for cosmos exception
+            </summary>
+        </member>
+        <member name="F:Cosmos.CosmosException.DEFAULT_EXTEND_ERROR_CODE">
+            <summary>
+            Default extend error code for cosmos exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.CosmosException.#ctor">
+            <summary>
+            Create a new cosmos exception instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.CosmosException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new cosmos exception instance.
+            </summary>
+            <param name="errorMessage"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.CosmosException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Create a new cosmos exception instance.
+            </summary>
+            <param name="errorMessage"></param>
+            <param name="flag"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.CosmosException.#ctor(System.Int64,System.String,System.Exception)">
+            <summary>
+            Create a new cosmos exception instance.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="errorMessage"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.CosmosException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Create a new cosmos exception instance.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.CosmosException.#ctor(System.Int64,System.String,System.String,System.Exception)">
+            <summary>
+            Create a new cosmos exception instance.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="errorMessage"></param>
+            <param name="flag"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.CosmosException.#ctor(Cosmos.CosmosExceptionOptions)">
+            <summary>
+            Create a new cosmos exception instance.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:Cosmos.CosmosException.Code">
+            <summary>
+            Error code
+            </summary>
+        </member>
+        <member name="P:Cosmos.CosmosException.Flag">
+            <summary>
+            Error flag
+            </summary>
+        </member>
+        <member name="P:Cosmos.CosmosException.ExtraData">
+            <summary>
+            Extra data
+            </summary>
+        </member>
+        <member name="M:Cosmos.CosmosException.GetFullMessage">
+            <summary>
+            Get full message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.CosmosExceptionOptions">
+            <summary>
+            Options for cosmos exception
+            </summary>
+        </member>
+        <member name="F:Cosmos.CosmosExceptionOptions.EMPTY_FLAG">
+            <summary>
+            Empty flag
+            </summary>
+        </member>
+        <member name="F:Cosmos.CosmosExceptionOptions.DEFAULT_ERROR_MESSAGE">
+            <summary>
+            Default error message
+            </summary>
+        </member>
+        <member name="F:Cosmos.CosmosExceptionOptions.DEFAULT_EXTEND_ERROR_CODE">
+            <summary>
+            Default extend error code
+            </summary>
+        </member>
+        <member name="P:Cosmos.CosmosExceptionOptions.Message">
+            <summary>
+            Gets for sets error message, default is <see cref="F:Cosmos.CosmosExceptionOptions.DEFAULT_ERROR_MESSAGE"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.CosmosExceptionOptions.Flag">
+            <summary>
+            Gets or sets error flag, default is <see cref="F:Cosmos.CosmosExceptionOptions.EMPTY_FLAG"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.CosmosExceptionOptions.ErrorCode">
+            <summary>
+            Gets or sets error code, default is <see cref="F:Cosmos.CosmosExceptionOptions.DEFAULT_EXTEND_ERROR_CODE"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.CosmosExceptionOptions.InnerException">
+            <summary>
+            Gets or sets inner exception.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableAction">
+            <summary>
+            Disable Action. <br />
+            When the derived class of this class is disposed, the specified <see cref="T:System.Action"/> will be executed.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction.#ctor(System.Action)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableAction"/> instance.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction.Invoke">
+            <summary>
+            Invoke the disposable action
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableActionField`1">
+            <summary>
+            Disposable Action Field
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableActionField`1.#ctor(System.Action{`0},`0)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableActionField`1"/> instance.
+            </summary>
+            <param name="action"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableActionField`1.IsEmpty">
+            <summary>
+            To flag this field is empty or not.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableActionField`1.TryGetAndUnset">
+            <summary>
+            Atomically retrieves this disposable action from the field, and sets such field to <c>null</c>. May return <c>null</c>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableActionField`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update context of disposable action stored in this field, Return <c>false</c> if the field is <c>null</c>. 
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableAction`1">
+            <summary>
+            Generic Disable Action. <br />
+            When the derived class of this class is disposed, the specified <see cref="T:System.Action`1"/> will be executed.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.#ctor(System.Action{`0},`0)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableAction`1"/> instance.
+            </summary>
+            <param name="action"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.#ctor(Cosmos.Disposables.DisposableAction{`0},System.Func{`0,`0})">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableAction`1"/> instance.
+            </summary>
+            <param name="originalDisposableAction"></param>
+            <param name="contextUpdater"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.Invoke">
+            <summary>
+            Invoke the disposable action with context
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.AnonymousDisposableObject">
+            <summary>
+            Anonymous Disposable Object
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.#ctor(System.Action)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AnonymousDisposableObject"/> instance.
+            </summary>
+            <param name="dispose"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.#ctor(Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AnonymousDisposableObject"/> instance.
+            </summary>
+            <param name="disposableAction"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Dispose(System.Action)">
+            <summary>
+            Dispose.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Add(System.Action)">
+            <summary>
+            Add dispose <see cref="T:System.Action"/>.
+            </summary>
+            <param name="dispose"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Add(Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Add dispose <see cref="T:System.Action"/>.
+            </summary>
+            <param name="disposableAction"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Create(System.Action)">
+            <summary>
+            Create a new disposable that executes dispose when disposed.
+            </summary>
+            <param name="dispose"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Create(Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Create a new disposable that executes dispose when disposed.
+            </summary>
+            <param name="disposableAction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.NoopDisposableObject">
+            <summary>
+            A disposable implement which does nothing when disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.NoopDisposableObject.Instance">
+            <summary>
+            Gets a <see cref="T:Cosmos.Disposables.NoopDisposableObject"/> cache.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableObject.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.SingleDisposableObject`1">
+            <summary>
+            Single Disposable Object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.#ctor(`0)">
+            <summary>
+            Create a single disposable object for such context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleDisposableObject`1.IsDisposeStarted">
+            <summary>
+            To flag this instance is currently disposing or has been disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleDisposableObject`1.IsDisposed">
+            <summary>
+            To flag this instance is disposed, which means finished disposing.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleDisposableObject`1.IsDisposing">
+            <summary>
+            To flag this instance is currently disposing, but not finished yet.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.Dispose(`0)">
+            <summary>
+            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.SingleDisposableObject`1.Dispose(`0)"/>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.SingleNonblockingDisposableObject`1">
+            <summary>
+            Single Nonblocking Disposable Object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.#ctor(`0)">
+            <summary>
+            Create a single nonblocking disposable object for such context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleNonblockingDisposableObject`1.IsDisposeStarted">
+            <summary>
+            To flag this instance is currently disposing or has been disposed.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose(`0)">
+            <summary>
+            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose(`0)"/>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Enums">
+            <summary>
+            Enum Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Enums.Of``1(System.Object)">
+            <summary>
+            Get instance <br />
+            获取实例
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <param name="member">
+            成员名或值,
+            范例:Enum1枚举有成员A=0,则传入"A"或"0"获取 Enum1.A
+            </param>
+        </member>
+        <member name="M:Cosmos.Enums.NameOf``1(System.Object)">
+            <summary>
+            Get name of member <br />
+            获取成员名
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <param name="member">
+            成员名、值、实例均可,
+            范例:Enum1枚举有成员A=0,则传入Enum1.A或0,获取成员名"A"
+            </param>
+        </member>
+        <member name="M:Cosmos.Enums.NameOf(System.Type,System.Object)">
+            <summary>
+            Get name of member <br />
+            获取成员名
+            </summary>
+            <param name="type">枚举类型</param>
+            <param name="member">成员名、值、实例均可</param>
+        </member>
+        <member name="M:Cosmos.Enums.NameOf(System.Reflection.TypeInfo,System.Object)">
+            <summary>
+            Get name of member <br />
+            获取成员名
+            </summary>
+            <param name="typeinfo">枚举类型</param>
+            <param name="member">成员名、值、实例均可</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Enums.ValueOf``1(System.Object)">
+            <summary>
+            Get value of member <br />
+            获取成员值
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <param name="member">
+            成员名、值、实例均可，
+            范例:Enum1枚举有成员A=0,可传入"A"、0、Enum1.A，获取值0
+            </param>
+        </member>
+        <member name="M:Cosmos.Enums.ValueOf(System.Type,System.Object)">
+            <summary>
+            Get value of member <br />
+            获取成员值
+            </summary>
+            <param name="type">枚举类型</param>
+            <param name="member">成员名、值、实例均可</param>
+        </member>
+        <member name="M:Cosmos.Enums.GetDescription``1(System.Object)">
+            <summary>
+            Get description via <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
+            获取描述，使用 <see cref="T:System.ComponentModel.DescriptionAttribute"/> 特性设置描述
+            </summary>
+            <typeparam name="T">枚举</typeparam>
+            <param name="member">成员名、值、实例均可</param>
+        </member>
+        <member name="M:Cosmos.Enums.GetDescription(System.Type,System.Object)">
+            <summary>
+            Get description via <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
+            获取描述，使用 <see cref="T:System.ComponentModel.DescriptionAttribute"/> 特性设置描述
+            </summary>
+            <param name="type">枚举类型</param>
+            <param name="member">成员名、值、实例均可</param>
+        </member>
+        <member name="M:Cosmos.Enums.GetDescription(System.Reflection.TypeInfo,System.Object)">
+            <summary>
+            Get description via <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
+            获取描述，使用 <see cref="T:System.ComponentModel.DescriptionAttribute"/> 特性设置描述
+            </summary>
+            <param name="typeInfo">枚举类型</param>
+            <param name="member">成员名、值、实例均可</param>
+        </member>
+        <member name="T:Cosmos.Judgments.AssertionJudgment">
+            <summary>
+            Assertion Judgment
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.AssertionJudgment.Require``1(System.Boolean,System.String)">
+            <summary>
+            Require.
+            </summary>
+            <typeparam name="TException">Special type T.</typeparam>
+            <param name="assertion">Predicate.</param>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="M:Cosmos.Judgments.AssertionJudgment.Require2``1(System.Boolean,System.Object[])">
+            <summary>
+            Require.
+            </summary>
+            <typeparam name="TException">Special type TException.</typeparam>
+            <param name="assertion">Predicate.</param>
+            <param name="exceptionParams">Parameters for exception.</param>
+        </member>
+        <member name="M:Cosmos.Judgments.AssertionJudgment.Require3``1(System.Boolean,Cosmos.CosmosExceptionOptions)">
+            <summary>
+            Require.
+            </summary>
+            <typeparam name="TException">Special type TException.</typeparam>
+            <param name="assertion">Predicate.</param>
+            <param name="options">Cosmos exception options.</param>
+        </member>
+        <member name="T:Cosmos.Judgments.CollectionJudgment">
+            <summary>
+            Collection Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.CollectionJudgment.IsNull(System.Collections.IEnumerable)">
+            <summary>
+            To judge whether the collection is null or not.
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.CollectionJudgment.IsNullOrEmpty(System.Collections.IEnumerable)">
+            <summary>
+            To judge whether the collection is null or empty.
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.CollectionJudgment.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To judge whether the collection is null or empty.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.CollectionJudgment.ContainsAtLeast``1(System.Collections.Generic.ICollection{``0},System.Int32)">
+            <summary>
+            To judge whether one collection contains specified count of elements at least.
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="coll"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.CollectionJudgment.ContainsEqualCount``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.ICollection{``0})">
+            <summary>
+            To judge whether these two collections contain same count of elements.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="leftCcoll"></param>
+            <param name="rightColl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Judgments.DateTimeJudgment">
+            <summary>
+            Datetime Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsToday(System.DateTime)">
+            <summary>
+            To judge whether the day is today.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsToday(System.Nullable{System.DateTime})">
+            <summary>
+            To judge whether the day is today.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsToday(System.DateTimeOffset)">
+            <summary>
+            To judge whether the day is today.
+            </summary>
+            <param name="dtOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsToday(System.Nullable{System.DateTimeOffset})">
+            <summary>
+            To judge whether the day is today.
+            </summary>
+            <param name="dtOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsWeekend(System.DateTime)">
+            <summary>
+            To judge whether the day is weekend.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsWeekend(System.Nullable{System.DateTime})">
+            <summary>
+            To judge whether the day is weekend.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsWeekday(System.DateTime)">
+            <summary>
+            To judge whether the day is weekday.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsWeekday(System.Nullable{System.DateTime})">
+            <summary>
+            To judge whether the day is weekday.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.DateTimeJudgment.IsValid(System.DateTime)">
+            <summary>
+            To judge whether the day is valid.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Judgments.GuidJudgment">
+            <summary>
+            Guid Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.GuidJudgment.IsNullOrEmpty(System.Guid)">
+            <summary>
+            To judge whether the <see cref="T:System.Guid"/> is null or empty.
+            </summary>
+            <param name="guid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.GuidJudgment.IsNullOrEmpty(System.Nullable{System.Guid})">
+            <summary>
+            To judge whether the <see cref="T:System.Guid"/> is null or empty.
+            </summary>
+            <param name="guid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.GuidJudgment.IsValid(System.String)">
+            <summary>
+            To judge whether the string is <see cref="T:System.Guid"/> or not.
+            </summary>
+            <param name="guidStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Judgments.NumericJudgment">
+            <summary>
+            Numeric Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsInt32(System.String)">
+            <summary>
+            To judge whether the string is integer or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsNumeric(System.String)">
+            <summary>
+            To judge whether the string is numeric or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsBetween(System.Int16,System.Int16,System.Int16)">
+            <summary>
+            To judge whether the short value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsBetween(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            To judge whether the int value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsBetween(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            To judge whether the long value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsBetween(System.Single,System.Single,System.Single)">
+            <summary>
+            To judge whether the float value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsBetween(System.Double,System.Double,System.Double)">
+            <summary>
+            To judge whether the double value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.NumericJudgment.IsBetween(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            To judge whether the decimal value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Judgments.QueryableJudgment">
+            <summary>
+            Queryable Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.QueryableJudgment.ContainsAtLeast``1(System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            To judge whether one queryable collection contains specified count of elements at least.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.QueryableJudgment.ContainsEqualCount``1(System.Linq.IQueryable{``0},System.Linq.IQueryable{``0})">
+            <summary>
+            To judge whether these two queryable collections contain same count of elements.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="targetQuery"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Judgments.RegexJudgment">
+            <summary>
+            Regex Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.RegexJudgment.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Indicates whether the regular expression specified in the Regex constructor finds a match in a specified input string.
+            </summary>
+            <param name="str"></param>
+            <param name="pattern"></param>
+            <param name="options">regex options, default is RegexOptions.IgnoreCase</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Judgments.StringJudgment">
+            <summary>
+            String Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.StartWithThese(System.String,System.String[])">
+            <summary>
+            To judge whether the string starts with the specified strings.
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.StartWithThese(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            To judge whether the string starts with the specified strings.
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.EndWithThese(System.String,System.String[])">
+            <summary>
+            To judge whether the string ends with the specified strings.
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.EndWithThese(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            To judge whether the string ends with the specified strings.
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.IsWebUrl(System.String)">
+            <summary>
+            To judge whether the string is web url or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.IsEmail(System.String)">
+            <summary>
+            TO judge whether the string is email or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.ContainsChineseCharacters(System.String)">
+            <summary>
+            To judge whether the string contains chinese characters or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.StringJudgment.ContainsNumber(System.String)">
+            <summary>
+            To judge whether the string contains number or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Judgments.TypeJudgment">
+            <summary>
+            Type Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Judgments.TypeJudgment.IsNumericType(System.Type)">
+            <summary>
+            To judge whether the type is number type or not.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.TypeJudgment.IsNumericType(System.Reflection.TypeInfo)">
+            <summary>
+            To judge whether the type is number type or not.
+            </summary>
+            <param name="typeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.TypeJudgment.IsNullableType(System.Type)">
+            <summary>
+            To judge whether the type is nullable type or not.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Judgments.TypeJudgment.IsNullableType(System.Reflection.TypeInfo)">
+            <summary>
+            To judge whether the type is nullable type or not.
+            </summary>
+            <param name="typeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.NumberConstants">
+            <summary>
+            Number constants
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.One">
+            <summary>
+            One
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.IntMax">
+            <summary>
+            Max value of Int32.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.IntMin">
+            <summary>
+            Min value of Int32.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.LongMax">
+            <summary>
+            Max value of Int64.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.LongMin">
+            <summary>
+            Min value of Int64.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.FloatMax">
+            <summary>
+            Max value of float.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.FloatMin">
+            <summary>
+            Min value of float.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.DoubleMax">
+            <summary>
+            Max value of double.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.DoubleMin">
+            <summary>
+            Min value of double.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.DecimalMax">
+            <summary>
+            Max value of decimal.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.DecimalMin">
+            <summary>
+            Min value of decimal.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.ShortMax">
+            <summary>
+            Max value of short.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.ShortMin">
+            <summary>
+            Min value of short.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.UshortMax">
+            <summary>
+            Max value of ushort.
+            </summary>
+        </member>
+        <member name="P:Cosmos.NumberConstants.UshortMin">
+            <summary>
+            Min value of ushort.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Queries.Operator">
+            <summary>
+            Operator
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.Equal">
+            <summary>
+            Equals
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.NotEqual">
+            <summary>
+            NotEqual
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.Greater">
+            <summary>
+            Greater
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.GreaterEqual">
+            <summary>
+            GreaterEqual
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.Less">
+            <summary>
+            Less
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.LessEqual">
+            <summary>
+            LessEqual
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.Starts">
+            <summary>
+            Starts
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.Ends">
+            <summary>
+            Ends
+            </summary>
+        </member>
+        <member name="F:Cosmos.Queries.Operator.Contains">
+            <summary>
+            Contains
+            </summary>
+        </member>
+        <member name="T:Cosmos.Reflections">
+            <summary>
+            Reflection Utilities.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription``1">
+            <summary>
+            Get description
+            </summary>
+            <typeparam name="T">Special typeInfo</typeparam>
+            <returns>Description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription(System.Type)">
+            <summary>
+            Get description
+            </summary>
+            <param name="type">Special typeInfo</param>
+            <returns>Description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription(System.Reflection.TypeInfo)">
+            <summary>
+            Get description
+            </summary>
+            <param name="typeInfo">Special typeInfo</param>
+            <returns>Description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription``1(System.String)">
+            <summary>
+            Get description
+            </summary>
+            <typeparam name="T">Special typeInfo</typeparam>
+            <param name="memberName">Name of special member</param>
+            <returns>Description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription(System.Type,System.String)">
+            <summary>
+            Get description
+            </summary>
+            <param name="type">Special typeInfo</param>
+            <param name="memberName">Name of special member</param>
+            <returns>Description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription(System.Reflection.TypeInfo,System.String)">
+            <summary>
+            Get description
+            </summary>
+            <param name="typeInfo">Special typeInfo</param>
+            <param name="memberName">Name of special member</param>
+            <returns>Description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription(System.Reflection.MemberInfo)">
+            <summary>
+            Get description
+            </summary>
+            <param name="memberInfo">Special member</param>
+            <returns>Description of special member</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription(System.Type,System.Reflection.FieldInfo)">
+            <summary>
+            Get description
+            </summary>
+            <param name="type">Special typeInfo</param>
+            <param name="field">Special field</param>
+            <returns>Description of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescription(System.Reflection.TypeInfo,System.Reflection.FieldInfo)">
+            <summary>
+            Get description
+            </summary>
+            <param name="typeInfo">Special typeInfo</param>
+            <param name="field">Special field</param>
+            <returns>Description of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDisplayName``1">
+            <summary>
+            Get display name
+            </summary>
+            <typeparam name="T">Special typeInfo</typeparam>
+            <returns>Description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDisplayName(System.Reflection.MemberInfo)">
+            <summary>
+            Get display name
+            </summary>
+            <param name="memberInfo">Special member</param>
+            <returns>Description of special member</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescriptionOrDisplayName``1">
+            <summary>
+            Get display name or description, name first.
+            </summary>
+            <typeparam name="T">Special typeInfo</typeparam>
+            <returns>Name or description of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetDescriptionOrDisplayName(System.Reflection.MemberInfo)">
+            <summary>
+            Get display name or description, name first.
+            </summary>
+            <param name="memberInfo">Special member</param>
+            <returns>Name or description of special member</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetAttribute``1(System.Reflection.FieldInfo)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="fieldInfo">Special field</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="memberInfo">Special member</param>
+            <typeparam name="TAttribute">Special typeInfo of member</typeparam>
+            <returns>Attribute of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetAttribute``1(System.Type)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="type">Special typeInfo</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetAttribute``1(System.Reflection.TypeInfo)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="typeInfo">Special typeInfo</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetRequiredAttribute``1(System.Reflection.FieldInfo)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="fieldInfo">Special field</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetRequiredAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="memberInfo">Special member</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special member</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetRequiredAttribute``1(System.Type)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="type">Special typeInfo</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special typeInfo</returns>
+        </member>
+        <member name="M:Cosmos.Reflections.GetRequiredAttribute``1(System.Reflection.TypeInfo)">
+            <summary>
+            Get attribute
+            </summary>
+            <param name="typeInfo">Special typeInfo</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special typeInfo</returns>
+        </member>
+        <member name="T:Cosmos.Singleton">
+            <summary>
+            Provide a unified singleton management portal.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Singleton.AllSingletons">
+            <summary>
+            All singleton objects
+            </summary>
+        </member>
+        <member name="T:Cosmos.Singleton`1">
+            <summary>
+            Provide a unified singleton management portal and a copy of itself.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Singleton`1.Instance">
+            <summary>
+            Singleton instance
+            </summary>
+        </member>
+        <member name="T:Cosmos.SingletonList`1">
+            <summary>
+            Provide a unified singleton management portal and a copy of itself.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.SingletonList`1.Instance">
+            <summary>
+            Get a singleton of the specified type T
+            </summary>
+        </member>
+        <member name="T:Cosmos.SingletonDictionary`2">
+            <summary>
+            Provide a unified singleton management portal and a copy of itself
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="P:Cosmos.SingletonDictionary`2.Instance">
+            <summary>
+            Get a singleton of the specified type T
+            </summary>
+        </member>
+        <member name="T:Cosmos.TimeStamp">
+            <summary>
+            Timestamp
+            </summary>
+        </member>
+        <member name="F:Cosmos.TimeStamp.m_timestamp">
+            <summary>
+            Timestamp
+            </summary>
+        </member>
+        <member name="F:Cosmos.TimeStamp.m_datetime">
+            <summary>
+            Datetime
+            </summary>
+        </member>
+        <member name="M:Cosmos.TimeStamp.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.TimeStamp"/>
+            </summary>
+        </member>
+        <member name="M:Cosmos.TimeStamp.#ctor(System.Int64)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.TimeStamp"/>
+            </summary>
+            <param name="timestamp"></param>
+        </member>
+        <member name="M:Cosmos.TimeStamp.#ctor(System.DateTime)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.TimeStamp"/>
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.TimeStamp.ToDateTime">
+            <summary>
+            Get the corresponding time based on the timestamp.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeStamp.ToTimestamp">
+            <summary>
+            Get timestamp
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Cosmos.TimeStamp.NowTimeStamp">
+            <summary>
+            Gets a Func for now
+            </summary>
+        </member>
+        <member name="F:Cosmos.TimeStamp.UtcNowTimeStamp">
+            <summary>
+            Gets a Func for utc_now
+            </summary>
+        </member>
+        <member name="T:Cosmos.NoRepeatTimeStampFactory">
+            <summary>
+            No repeat TimeStamp factory
+            </summary>
+        </member>
+        <member name="P:Cosmos.NoRepeatTimeStampFactory.IncrementMs">
+            <summary>
+            Increment milliseconds.
+            </summary>
+        </member>
+        <member name="M:Cosmos.NoRepeatTimeStampFactory.GetTimeStamp">
+            <summary>
+            Gets timestamp
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.NoRepeatTimeStampFactory.GetUtcTimeStamp">
+            <summary>
+            Gets timestamp
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.NoRepeatTimeStampFactory.GetTimeStampObject">
+            <summary>
+            Gets TimeStamp object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.NoRepeatTimeStampFactory.GetUtcTimeStampObject">
+            <summary>
+            Gets utc TimeStamp object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.NoRepeatTimeStampFactory.GetUnixTimeStampObject">
+            <summary>
+            Gets unix TimeStamp object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.NoRepeatTimeStampFactory.GetUtcUnixTimeStampObject">
+            <summary>
+            Gets utc unix TimeStamp object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.UnixTimeStamp">
+            <summary>
+            Unix timestamp
+            </summary>
+        </member>
+        <member name="M:Cosmos.UnixTimeStamp.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.UnixTimeStamp"/>
+            </summary>
+        </member>
+        <member name="M:Cosmos.UnixTimeStamp.#ctor(System.Int64)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.UnixTimeStamp"/>
+            </summary>
+            <param name="timestamp"></param>
+        </member>
+        <member name="M:Cosmos.UnixTimeStamp.#ctor(System.DateTime)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.UnixTimeStamp"/>
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.UnixTimeStamp.ToDateTime">
+            <summary>
+            根据 Unix 时间戳，获取对应时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.UnixTimeStamp.ToTimestamp">
+            <summary>
+            获取 Unix 时间戳
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Cosmos.UnixTimeStamp.NowUnixTimeStamp">
+            <summary>
+            Gets a func for unix now.
+            </summary>
+        </member>
+        <member name="F:Cosmos.UnixTimeStamp.UtcNowUnixTimeStamp">
+            <summary>
+            Gets a func for unix utc_now.
+            </summary>
+        </member>
+        <member name="T:Cosmos.TypeClass">
+            <summary>
+            Type clazz
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.ObjectClass">
+            <summary>
+            Gets clazz for object.
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.Int32Class">
+            <summary>
+            Gets clazz for int32
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.Int32NullableClass">
+            <summary>
+            Gets clazz for nullable int32
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.Int64Class">
+            <summary>
+            Gets clazz for int64
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.Int64NullableClass">
+            <summary>
+            Gets clazz for nullable int64
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.IntClass">
+            <summary>
+            Gets clazz for int
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.IntNullableClass">
+            <summary>
+            Gets clazz for nullable int
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.LongClass">
+            <summary>
+            Gets clazz for long
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.LongNullableClass">
+            <summary>
+            Gets clazz for nullable long
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.FloatClass">
+            <summary>
+            Gets clazz for float
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.FloatNullableClass">
+            <summary>
+            Gets clazz for nullable float
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.DoubleClass">
+            <summary>
+            Gets clazz for double
+            </summary>
+            <summary>
+            Gets clazz for nullable decimal
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.DoubleNullableClass">
+            <summary>
+            Gets clazz for nullable double
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.DecimalClass">
+            <summary>
+            Gets clazz for decimal
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.DecimalNullableClass">
+            <summary>
+            Gets clazz for nullable decimal
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.StringClass">
+            <summary>
+            Gets clazz for string
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.DateTimeClass">
+            <summary>
+            Gets clazz for DateTime
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.DateTimeNullableClass">
+            <summary>
+            Gets clazz for nullable DateTime
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.TimeSpanClass">
+            <summary>
+            Gets clazz for TimeSpan
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.TimeSpanNullableClass">
+            <summary>
+            Gets clazz for nullable TimeSpan
+            </summary>
+        </member>
+        <member name="T:Cosmos.TypeDefault">
+            <summary>
+            Default value for type
+            </summary>
+        </member>
+        <member name="M:Cosmos.TypeDefault.Of``1">
+            <summary>
+            Gets default value for type TValue.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.TypeDefault.Int">
+            <summary>
+            Gets default value for int;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.Long">
+            <summary>
+            Gets default value for long;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.Float">
+            <summary>
+            Gets default value for float;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.Double">
+            <summary>
+            Gets default value for double;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.Decimal">
+            <summary>
+            Gets default value for decimal;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.Char">
+            <summary>
+            Gets default value for char;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.String">
+            <summary>
+            Gets default value for string;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.StringEmpty">
+            <summary>
+            Gets empty value for string;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.DateTime">
+            <summary>
+            Gets default value for DateTime;
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeDefault.TimeSpan">
+            <summary>
+            Gets default value for TimeSpan;
+            </summary>
+        </member>
+        <member name="T:Cosmos.Types">
+            <summary>
+            Type Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Types.Of``1">
+            <summary>
+            Get type
+            </summary>
+            <typeparam name="T">Special type T</typeparam>
+        </member>
+        <member name="M:Cosmos.Types.Of(System.Object[])">
+            <summary>
+            Get types
+            </summary>
+            <param name="objColl">Object array</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.DefaultValue``1">
+            <summary>
+            Get default value of special type T.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsGenericImplementation(System.Type,System.Type)">
+            <summary>
+            To judge the given type is assignable to the generic type or not.
+            </summary>
+            <param name="type">The given type</param>
+            <param name="genericType">The generic type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsGenericImplementation``2">
+            <summary>
+            To judge the given type is assignable to the generic type or not.
+            </summary>
+            <typeparam name="TGot">The given type TGot</typeparam>
+            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.GetRawTypeFromGenericClass(System.Type,System.Type)">
+            <summary>
+            Get the original type. <br />
+            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
+            </summary>
+            <param name="type">The given type</param>
+            <param name="genericType">The generic type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.GetRawTypeFromGenericClass``2">
+            <summary>
+            Get the original type. <br />
+            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
+            </summary>
+            <typeparam name="TGot">The given type TGot</typeparam>
+            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.CreateInstance``1(System.Object[])">
+            <summary>
+            Create instance
+            </summary>
+            <typeparam name="TInstance">Special type you need to return.</typeparam>
+            <param name="args">Arguments for such type's constructor</param>
+            <returns>Instance of special type</returns>
+        </member>
+        <member name="M:Cosmos.Types.CreateInstance``1(System.Type,System.Object[])">
+            <summary>
+            Create instance
+            </summary>
+            <typeparam name="TInstance">Special type you need to return.</typeparam>
+            <param name="type">Special type</param>
+            <param name="args">Arguments for such type's constructor</param>
+            <returns>Instance of special type</returns>
+        </member>
+        <member name="M:Cosmos.Types.CreateInstance(System.Type,System.Object[])">
+            <summary>
+            Create instance
+            </summary>
+            <param name="type">Special type</param>
+            <param name="args">Arguments for such type's constructor</param>
+            <returns>Instance of special type</returns>
+        </member>
+        <member name="T:Cosmos.TypeScanner">
+            <summary>
+            Type Scanner <br />
+            类型扫描器
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeScanner.ScannedResultCache">
+            <summary>
+            Scanned result cache <br />
+            结果缓存
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeScanner.ScannedResultCached">
+            <summary>
+            Scanned result cached <br />
+            标记扫描结果是否已缓存
+            </summary>
+        </member>
+        <member name="M:Cosmos.TypeScanner.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
+            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            </summary>
+        </member>
+        <member name="M:Cosmos.TypeScanner.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
+            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            </summary>
+            <param name="scannerName"></param>
+        </member>
+        <member name="M:Cosmos.TypeScanner.#ctor(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
+            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            </summary>
+            <param name="baseType"></param>
+        </member>
+        <member name="M:Cosmos.TypeScanner.#ctor(System.String,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
+            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            </summary>
+            <param name="scannerName"></param>
+            <param name="baseType"></param>
+        </member>
+        <member name="P:Cosmos.TypeScanner.BaseType">
+            <summary>
+            Base type <br />
+            基础类型
+            </summary>
+        </member>
+        <member name="M:Cosmos.TypeScanner.Scan">
+            <summary>
+            Scan <br />
+            扫描
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TypeScanner.GetAssemblies">
+            <summary>
+            Get assemblies <br />
+            获取程序集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TypeScanner.GetSkipAssembliesNamespaces">
+            <summary>
+            Get skip assemblies' namespaces <br />
+            获取程序集的命名空间，以便跳过
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TypeScanner.GetLimitedAssembliesNamespaces">
+            <summary>
+            Get limited assemblies' namespaces <br />
+            获取程序集的命名空间，以便仅局限在这些命名空间中进行扫描
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TypeScanner.TypeFilter">
+            <summary>
+            Type filter <br />
+            类型过滤器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TypeScanner.Dispose">
+            <summary>
+            Dispose <br />
+            释放
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Boolean.DefaultBooleanVerba">
+            <summary>
+            Default global boolean verba
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Boolean.DefaultBooleanVerba.Instance">
+            <summary>
+            Get a default global boolean verba instance
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Boolean.DefaultBooleanVerba.VerbaName">
+            <summary>
+            Verba name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Boolean.DefaultBooleanVerba.TrueVerbaList">
+            <summary>
+            True alias list
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Boolean.DefaultBooleanVerba.FalseVerbaList">
+            <summary>
+            False alias list
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager">
+            <summary>
+            Global boolean verba manager
+            </summary>
+        </member>
+        <member name="M:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager.AddBooleanVerba(Cosmos.Verba.Boolean.IBooleanVerba)">
+            <summary>
+            Add boolean verba into <see cref="T:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager"/>
+            </summary>
+            <param name="verba"></param>
+        </member>
+        <member name="M:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager.Determining(System.String)">
+            <summary>
+            To determine the alas value is true, false or null.
+            </summary>
+            <param name="verbaAlias"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Verba.Boolean.IBooleanVerba">
+            <summary>
+            Interface for boolean verba
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Boolean.IBooleanVerba.TrueVerbaList">
+            <summary>
+            True alias list
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Boolean.IBooleanVerba.FalseVerbaList">
+            <summary>
+            False alias list
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Time.DefaultEnglishTimeVerba">
+            <summary>
+            Default English time verba
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.DefaultEnglishTimeVerba.USEnglish">
+            <summary>
+            USA English
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Instance">
+            <summary>
+            Get an english time verba instance
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.VerbaName">
+            <summary>
+            Verba name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.LanguageKeys">
+            <summary>
+            Language Keys
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Now">
+            <summary>
+            Now
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.JustNow">
+            <summary>
+            Just now
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Future">
+            <summary>
+            Future
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Yesterday">
+            <summary>
+            Yesterday
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Milliseconds">
+            <summary>
+            Milliseconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Seconds">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Minutes">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Hours">
+            <summary>
+            Hours
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Days">
+            <summary>
+            Days
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Weeks">
+            <summary>
+            Weeks
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Weekends">
+            <summary>
+            Weekends
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Weekdays">
+            <summary>
+            Weekdays
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Months">
+            <summary>
+            Months
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Season">
+            <summary>
+            Season
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Year">
+            <summary>
+            Year
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Ago">
+            <summary>
+            Ago
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.ComplexString">
+            <summary>
+            ComplexString
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.SpaceString">
+            <summary>
+            SpaceString
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba">
+            <summary>
+            Default Simplified Chinese time verba
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.SimplifiedChinese">
+            <summary>
+            Simplified Chinese
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Instance">
+            <summary>
+            Get a simplified chinese time verba instance
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.VerbaName">
+            <summary>
+            Verba name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.LanguageKeys">
+            <summary>
+            Language Keys
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Now">
+            <summary>
+            Now
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.JustNow">
+            <summary>
+            JustNow
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Future">
+            <summary>
+            Future
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Yesterday">
+            <summary>
+            Yesterday
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Milliseconds">
+            <summary>
+            Milliseconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Seconds">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Minutes">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Hours">
+            <summary>
+            Hours
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Days">
+            <summary>
+            Days
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Weeks">
+            <summary>
+            Weeks
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Weekends">
+            <summary>
+            Weekends
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Weekdays">
+            <summary>
+            Weekdays
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Months">
+            <summary>
+            Months
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Season">
+            <summary>
+            Season
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Year">
+            <summary>
+            Year
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Ago">
+            <summary>
+            Ago
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.ComplexString">
+            <summary>
+            ComplexString
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.SpaceString">
+            <summary>
+            SpaceString
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba">
+            <summary>
+            Default Traditional Chines time verba
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.TaiwanTraditionalChinese">
+            <summary>
+            China Taiwan Traditional Chinese
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.HongKongTraditionalChinese">
+            <summary>
+            China HongKong Traditional Chinese
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Instance">
+            <summary>
+            Get a traditional chinese time verba instance
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.VerbaName">
+            <summary>
+            Verba name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.LanguageKeys">
+            <summary>
+            Language Keys
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Now">
+            <summary>
+            Now
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.JustNow">
+            <summary>
+            Just Now
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Future">
+            <summary>
+            Future
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Yesterday">
+            <summary>
+            Yesterday
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Milliseconds">
+            <summary>
+            Milliseconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Seconds">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Minutes">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Hours">
+            <summary>
+            Hours
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Days">
+            <summary>
+            Days
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Weeks">
+            <summary>
+            Weeks
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Weekends">
+            <summary>
+            Weekends
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Weekdays">
+            <summary>
+            Weekdays
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Months">
+            <summary>
+            Months
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Season">
+            <summary>
+            Season
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Year">
+            <summary>
+            Year
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Ago">
+            <summary>
+            Ago
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.ComplexString">
+            <summary>
+            ComplexString
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.SpaceString">
+            <summary>
+            SpaceString
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Time.GlobalTimeVerbaManager">
+            <summary>
+            Global time verba manager
+            </summary>
+        </member>
+        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.AddTimeVerba(Cosmos.Verba.Time.ITimeVerba)">
+            <summary>
+            Add time verba into <see cref="T:Cosmos.Verba.Time.GlobalTimeVerbaManager"/>
+            </summary>
+            <param name="verba"></param>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.DefaultLanguageKey">
+            <summary>
+            Gets or sets default language key.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.CurrentLanguageKey">
+            <summary>
+            Gets current language key.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.GetVerba">
+            <summary>
+            Get <see cref="T:Cosmos.Verba.Time.ITimeVerba"/> from manager
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.GetVerba(System.String)">
+            <summary>
+            Get <see cref="T:Cosmos.Verba.Time.ITimeVerba"/> from manager
+            </summary>
+            <param name="languageKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.FromVerba(System.Func{Cosmos.Verba.Time.ITimeVerba,System.String})">
+            <summary>
+            Get value from <see cref="T:Cosmos.Verba.Time.ITimeVerba"/>
+            </summary>
+            <param name="verbaFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.FromVerba(System.String,System.Func{Cosmos.Verba.Time.ITimeVerba,System.String})">
+            <summary>
+            Get value from <see cref="T:Cosmos.Verba.Time.ITimeVerba"/>
+            </summary>
+            <param name="languageKey"></param>
+            <param name="verbaFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Now">
+            <summary>
+            Now <br />
+            现在言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Yesterday">
+            <summary>
+            Yesterday <br />
+            昨天言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Future">
+            <summary>
+            Future <br />
+            未来言词
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.GlobalTimeVerbaManager.Milliseconds">
+            <summary>
+            Milliseconds <br />
+            毫秒言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Seconds">
+            <summary>
+            Seconds <br />
+            秒钟言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Minutes">
+            <summary>
+            Minutes <br />
+            分钟言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Hours">
+            <summary>
+            小时言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Days">
+            <summary>
+            Days <br />
+            日言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Weeks">
+            <summary>
+            Weeks <br />
+            周言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Weekends">
+            <summary>
+            Weekends <br />
+            周末言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Weekdays">
+            <summary>
+            Weekdays <br />
+            工作日言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Months">
+            <summary>
+            Months <br />
+            月份言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Season">
+            <summary>
+            Season <br />
+            季节言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Year">
+            <summary>
+            Year <br />
+            年言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Ago">
+            <summary>
+            Ago <br />
+            之前言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.ComplexString">
+            <summary>
+            ComplexString <br />
+            单词复数言词
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.SpaceString">
+            <summary>
+            SpaceString <br />
+            单词间隔言词
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Time.ITimeVerba">
+            <summary>
+            Interface for time verba
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.LanguageKeys">
+            <summary>
+            Language Keys
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Now">
+            <summary>
+            Now <br />
+            现在
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.JustNow">
+            <summary>
+            Just Now <br />
+            刚刚
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Future">
+            <summary>
+            Future <br />
+            未来
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Yesterday">
+            <summary>
+            Yesterday <br />
+            昨天
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Milliseconds">
+            <summary>
+            Milliseconds <br />
+            毫秒
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Seconds">
+            <summary>
+            Seconds <br />
+            秒
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Minutes">
+            <summary>
+            Minutes <br />
+            分钟
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Hours">
+            <summary>
+            Hours <br />
+            小时
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Days">
+            <summary>
+            Days <br />
+            天
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Weeks">
+            <summary>
+            Weeks <br />
+            周
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Weekends">
+            <summary>
+            Weekends <br />
+            周末
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Weekdays">
+            <summary>
+            Weekdays <br />
+            工作日
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Months">
+            <summary>
+            Months <br />
+            月
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Season">
+            <summary>
+            Season <br />
+            季
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Year">
+            <summary>
+            Year <br />
+            年
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.Ago">
+            <summary>
+            Ago <br />
+            前
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.ComplexString">
+            <summary>
+            ComplexString <br />
+            复数后缀
+            </summary>
+        </member>
+        <member name="P:Cosmos.Verba.Time.ITimeVerba.SpaceString">
+            <summary>
+            SpaceString <br />
+            单词之间的空格符
+            </summary>
+        </member>
+        <member name="T:Cosmos.Verba.Time.TimeVerbaConstant">
+            <summary>
+            TIme verba constant
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneMinute">
+            <summary>
+            One minute <br />
+            一分钟
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoMinutes">
+            <summary>
+            Tow minutes <br />
+            两分钟
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneHour">
+            <summary>
+            One hour <br />
+            一小时
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoHours">
+            <summary>
+            Two hours <br />
+            两小时
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneDay">
+            <summary>
+            One day <br />
+            一天
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoDays">
+            <summary>
+            Two days <br />
+            两天
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneWeek">
+            <summary>
+            One week <br />
+            一周
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoWeeks">
+            <summary>
+            Two weeks <br />
+            两周
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneMonth">
+            <summary>
+            One month <br />
+            一月
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoMonths">
+            <summary>
+            Two months <br />
+            两月
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneYear">
+            <summary>
+            One year <br />
+            一年
+            </summary>
+        </member>
+        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoYears">
+            <summary>
+            Two years <br />
+            两年
+            </summary>
+        </member>
+    </members>
+</doc>

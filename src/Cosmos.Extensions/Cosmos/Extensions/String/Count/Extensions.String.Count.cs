@@ -8,6 +8,11 @@ namespace Cosmos
     /// </summary>
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Count lines
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static int CountLines(this string s)
         {
             int index = 0, lines = 0;
@@ -28,11 +33,23 @@ namespace Cosmos
             }
         }
 
+        /// <summary>
+        /// Count Occurrences
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int CountOccurrences(this string text, char toCheck)
         {
             return text.CountOccurrences(toCheck.ToString());
         }
 
+        /// <summary>
+        /// Count Occurrences
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int CountOccurrences(this string text, string toCheck)
         {
             if (toCheck.IsNullOrEmpty())

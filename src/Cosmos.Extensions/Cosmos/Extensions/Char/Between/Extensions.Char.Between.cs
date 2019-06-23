@@ -2,8 +2,18 @@
 
 namespace Cosmos
 {
+    /// <summary>
+    /// Char extensions
+    /// </summary>
     public static partial class CharExtensions
     {
+        /// <summary>
+        /// Is special char between min and max
+        /// </summary>
+        /// <param name="char"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static bool IsBetween(this char @char, char min, char max)
         {
             var (xiao, da) = Fix(min, max);

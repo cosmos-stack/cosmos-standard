@@ -7,6 +7,11 @@ namespace Cosmos
 {
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// To capital case
+        /// </summary>
+        /// <param name="original"></param>
+        /// <returns></returns>
         public static string ToCapitalCase(this string original)
         {
             var words = original.Split(' ');
@@ -27,11 +32,21 @@ namespace Cosmos
 
         }
 
+        /// <summary>
+        /// To all capitals
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         static bool AllCapitals(string input)
         {
             return input.ToCharArray().All(Char.IsUpper);
         }
 
+        /// <summary>
+        /// To camel case
+        /// </summary>
+        /// <param name="original"></param>
+        /// <returns></returns>
         public static string ToCamelCase(this string original)
         {
             if (original.Length <= 1)

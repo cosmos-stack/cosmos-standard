@@ -4,16 +4,31 @@ using System.Linq;
 
 namespace Cosmos.Splitters
 {
+    /// <summary>
+    /// Splitter<br />
+    /// 字符串分割器
+    /// </summary>
     public partial class Splitter : IFixedLengthSplitter
     {
         #region TrimResults
 
+        /// <summary>
+        /// Trim results<br />
+        /// 修整结果两端
+        /// </summary>
+        /// <returns></returns>
         IFixedLengthSplitter IFixedLengthSplitter.TrimResults()
         {
             Options.SetTrimResults();
             return this;
         }
 
+        /// <summary>
+        /// Trim results<br />
+        /// 修整结果，按照指定的方法
+        /// </summary>
+        /// <param name="trimFunc"></param>
+        /// <returns></returns>
         IFixedLengthSplitter IFixedLengthSplitter.TrimResults(Func<string, string> trimFunc)
         {
             Options.SetTrimResults(trimFunc);
@@ -24,6 +39,12 @@ namespace Cosmos.Splitters
 
         #region Limit
 
+        /// <summary>
+        /// Limit<br />
+        /// 设置限制的值
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <returns></returns>
         IFixedLengthSplitter IFixedLengthSplitter.Limit(int limit)
         {
             Options.SetLimitLength(limit);
@@ -34,12 +55,24 @@ namespace Cosmos.Splitters
 
         #region WithKeyValueSeparator
 
+        /// <summary>
+        /// With KeyValue separator<br />
+        /// 设置键值对分隔符
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <returns></returns>
         IMapSplitter IFixedLengthSplitter.WithKeyValueSeparator(string separator)
         {
             Options.SetMapSeparator(separator);
             return this;
         }
 
+        /// <summary>
+        /// With KeyValue separator<br />
+        /// 设置键值对分隔符
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <returns></returns>
         IMapSplitter IFixedLengthSplitter.WithKeyValueSeparator(char separator)
         {
             Options.SetMapSeparator(separator);
@@ -50,27 +83,91 @@ namespace Cosmos.Splitters
 
         #region Split - List - FixedLength
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <param name="originalString"></param>
+        /// <returns></returns>
         IEnumerable<string> IFixedLengthSplitter.Split(string originalString)
             => InternalSplitToEnumerable2(originalString, s => s);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
         IEnumerable<T> IFixedLengthSplitter.Split<T>(string originalString, IObjectSerializer serializer)
             => InternalSplitToEnumerable2(originalString, serializer.Deserialize<T>);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         IEnumerable<T> IFixedLengthSplitter.Split<T>(string originalString, ITypeConverter<string, T> converter)
             => InternalSplitToEnumerable2(originalString, converter.To);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="TMiddle"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
         IEnumerable<T> IFixedLengthSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
             => InternalSplitToEnumerable2(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <param name="originalString"></param>
+        /// <returns></returns>
         List<string> IFixedLengthSplitter.SplitToList(string originalString)
            => ((IFixedLengthSplitter)this).Split(originalString).ToList();
 
+        /// <summary>
+        /// Split to list<br />
+        /// 分割为列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
         List<T> IFixedLengthSplitter.SplitToList<T>(string originalString, IObjectSerializer serializer)
            => ((IFixedLengthSplitter)this).Split<T>(originalString, serializer).ToList();
 
+        /// <summary>
+        /// Split to list<br />
+        /// 分割为列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         List<T> IFixedLengthSplitter.SplitToList<T>(string originalString, ITypeConverter<string, T> converter)
            => ((IFixedLengthSplitter)this).Split(originalString, converter).ToList();
 
+        /// <summary>
+        /// Split to list<br />
+        /// 分割为列表
+        /// </summary>
+        /// <typeparam name="TMiddle"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
         List<T> IFixedLengthSplitter.SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
            => ((IFixedLengthSplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToList();
 

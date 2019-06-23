@@ -9,7 +9,7 @@ using Cosmos.Judgments;
 namespace Cosmos
 {
     /// <summary>
-    /// Safty value and nullable value extensions
+    /// Safety value and nullable value extensions
     /// </summary>
     public static class SafeAndNullableExtensions
     {

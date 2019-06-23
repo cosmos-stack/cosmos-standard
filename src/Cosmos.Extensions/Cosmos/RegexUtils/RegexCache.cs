@@ -18,6 +18,9 @@ using System.Text.RegularExpressions;
 
 namespace Cosmos.RegexUtils
 {
+    /// <summary>
+    /// Regex cache
+    /// </summary>
     public sealed class RegexCache
     {
         private bool _hasValue;

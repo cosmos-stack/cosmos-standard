@@ -10,7 +10,7 @@ namespace Cosmos.Conversions
     public static class TypeConversion
     {
         /// <summary>
-        /// Convert nullable type to underlying type
+        /// Convert nullable type to underlying type.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -20,20 +20,30 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert nullable typeinfo to underlying typeinfo
+        /// Convert nullable typeInfo to underlying typeInfo。
         /// </summary>
-        /// <param name="typeinfo"></param>
+        /// <param name="typeInfo"></param>
         /// <returns></returns>
-        public static TypeInfo ToNonNullableTypeInfo(TypeInfo typeinfo)
+        public static TypeInfo ToNonNullableTypeInfo(TypeInfo typeInfo)
         {
-            return Nullable.GetUnderlyingType(typeinfo.AsType()).GetTypeInfo();
+            return Nullable.GetUnderlyingType(typeInfo.AsType()).GetTypeInfo();
         }
 
+        /// <summary>
+        /// Convert nullable type to underlying type safety.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static Type ToSafeNonNullableType(Type type)
         {
             return TypeJudgment.IsNullableType(type) ? ToNonNullableType(type) : type;
         }
 
+        /// <summary>
+        /// Convert nullable typeInfo to underlying typeInfo safety.
+        /// </summary>
+        /// <param name="typeInfo"></param>
+        /// <returns></returns>
         public static TypeInfo ToSafeNonNullableTypeInfo(TypeInfo typeInfo)
         {
             return TypeJudgment.IsNullableType(typeInfo) ? ToNonNullableTypeInfo(typeInfo) : typeInfo;

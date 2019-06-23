@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -8,6 +9,12 @@ namespace Cosmos
     /// </summary>
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Diff chars' count
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int DiffCharsCount(this string text, string toCheck)
         {
             GuardParameterForDiffOnlyOneChar(text, toCheck);
@@ -21,6 +28,12 @@ namespace Cosmos
             return res;
         }
 
+        /// <summary>
+        /// Diff chars' count ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
         public static int DiffCharsCountIgnoreCase(this string text, string toCheck)
         {
             GuardParameterForDiffOnlyOneChar(text, toCheck);
@@ -34,6 +47,7 @@ namespace Cosmos
             return res;
         }
 
+        [SuppressMessage("ReSharper", "ParameterOnlyUsedForPreconditionCheck.Local")]
         private static void GuardParameterForDiffOnlyOneChar(string text, string check)
         {
             if (text.Length != check.Length)

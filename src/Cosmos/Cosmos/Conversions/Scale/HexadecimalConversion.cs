@@ -12,7 +12,7 @@ namespace Cosmos.Conversions.Scale
     public static class HexadecimalConversion
     {
         /// <summary>
-        /// Convert from hexadecimal to decimalism
+        /// Convert from hexadecimal to decimalism.
         /// </summary>
         /// <example>in: 2E; out: 46</example>
         /// <param name="hex"></param>
@@ -20,7 +20,7 @@ namespace Cosmos.Conversions.Scale
         public static int ToDecimalism(string hex) => Convert.ToInt32(hex, 16);
 
         /// <summary>
-        /// Convert from hexadecimal to binary
+        /// Convert from hexadecimal to binary.
         /// </summary>
         /// <example>in: 2E; out: 101110</example>
         /// <param name="hex"></param>
@@ -28,7 +28,7 @@ namespace Cosmos.Conversions.Scale
         public static string ToBinary(string hex) => DecimalismConversion.ToBinary(ToDecimalism(hex));
 
         /// <summary>
-        /// Convert from hexadecimal to bytes
+        /// Convert from hexadecimal to bytes.
         /// </summary>
         /// <example>in: 2E3D; out: result[0] is 46, result[1] is 61</example>
         /// <param name="hex"></param>
@@ -40,7 +40,7 @@ namespace Cosmos.Conversions.Scale
         }
 
         /// <summary>
-        /// Convert from hexadecimal to string
+        /// Convert from hexadecimal to <see cref="string"/>.
         /// </summary>
         /// <param name="hex"></param>
         /// <param name="encodingName">encoding name, default is "utf-8"</param>
@@ -66,7 +66,7 @@ namespace Cosmos.Conversions.Scale
         }
 
         /// <summary>
-        /// Convert from string to hexadecimal
+        /// Convert from <see cref="string"/> to hexadecimal.
         /// </summary>
         /// <example>in: A; out: 1000001</example>
         /// <param name="str"></param>

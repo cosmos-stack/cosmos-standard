@@ -7,6 +7,7 @@ namespace DeepCopy
     /// </summary>
     public sealed class CopyContext
     {
+        // ReSharper disable once InconsistentNaming
         private readonly Dictionary<object, object> copies = new Dictionary<object, object>(16, ReferenceEqualsComparer.Instance);
 
         /// <summary>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
 
+// ReSharper disable InconsistentNaming
+
 namespace Cosmos.Verba.Time
 {
     /// <summary>
@@ -62,6 +64,9 @@ namespace Cosmos.Verba.Time
             }
         }
 
+        /// <summary>
+        /// Gets or sets default language key.
+        /// </summary>
         public static string DefaultLanguageKey
         {
             get => m_defaultLanguageKey;
@@ -84,6 +89,9 @@ namespace Cosmos.Verba.Time
             }
         }
 
+        /// <summary>
+        /// Gets current language key.
+        /// </summary>
         public static string CurrentLanguageKey => DefaultLanguageKey;
 
         private static void RefreshLanguageKeyVerbaCache()
@@ -166,31 +174,37 @@ namespace Cosmos.Verba.Time
 
 
         /// <summary>
+        /// Now <br />
         /// 现在言词
         /// </summary>
         public static string Now => FromVerba(v => v.Now);
 
         /// <summary>
+        /// Yesterday <br />
         /// 昨天言词
         /// </summary>
         public static string Yesterday => FromVerba(v => v.Yesterday);
 
         /// <summary>
+        /// Future <br />
         /// 未来言词
         /// </summary>
         public static string Future => FromVerba(v => v.Future);
 
         /// <summary>
+        /// Milliseconds <br />
         /// 毫秒言词
         /// </summary>
         public static string Milliseconds = FromVerba(v => v.Milliseconds);
 
         /// <summary>
+        /// Seconds <br />
         /// 秒钟言词
         /// </summary>
         public static string Seconds => FromVerba(v => v.Seconds);
 
         /// <summary>
+        /// Minutes <br />
         /// 分钟言词
         /// </summary>
         public static string Minutes => FromVerba(v => v.Minutes);
@@ -201,51 +215,61 @@ namespace Cosmos.Verba.Time
         public static string Hours => FromVerba(v => v.Hours);
 
         /// <summary>
+        /// Days <br />
         /// 日言词
         /// </summary>
         public static string Days => FromVerba(v => v.Days);
 
         /// <summary>
+        /// Weeks <br />
         /// 周言词
         /// </summary>
         public static string Weeks => FromVerba(v => v.Weeks);
 
         /// <summary>
+        /// Weekends <br />
         /// 周末言词
         /// </summary>
         public static string Weekends => FromVerba(v => v.Weekends);
 
         /// <summary>
+        /// Weekdays <br />
         /// 工作日言词
         /// </summary>
         public static string Weekdays => FromVerba(v => v.Weekdays);
 
         /// <summary>
+        /// Months <br />
         /// 月份言词
         /// </summary>
         public static string Months => FromVerba(v => v.Months);
 
         /// <summary>
+        /// Season <br />
         /// 季节言词
         /// </summary>
         public static string Season => FromVerba(v => v.Season);
 
         /// <summary>
+        /// Year <br />
         /// 年言词
         /// </summary>
         public static string Year => FromVerba(v => v.Year);
 
         /// <summary>
+        /// Ago <br />
         /// 之前言词
         /// </summary>
         public static string Ago => FromVerba(v => v.Ago);
 
         /// <summary>
+        /// ComplexString <br />
         /// 单词复数言词
         /// </summary>
         public static string ComplexString => FromVerba(v => v.ComplexString);
 
         /// <summary>
+        /// SpaceString <br />
         /// 单词间隔言词
         /// </summary>
         public static string SpaceString => FromVerba(v => v.SpaceString);

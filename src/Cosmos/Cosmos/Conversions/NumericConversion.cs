@@ -8,7 +8,7 @@ namespace Cosmos.Conversions
     public static class NumericConversion
     {
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="int"/>
+        /// Convert from an <see cref="object"/> to <see cref="int"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="defaultRet"></param>
@@ -27,7 +27,7 @@ namespace Cosmos.Conversions
 
             try
             {
-                return Convert.ToInt32(ToDouble(obj, (double) defaultRet));
+                return Convert.ToInt32(ToDouble(obj, (double)defaultRet));
             }
             catch
             {
@@ -36,7 +36,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref="int"/>
+        /// Convert from an <see cref="object"/> to nullable <see cref="int"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -56,7 +56,92 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="double"/>
+        /// Convert from an <see cref="object"/> to <see cref="long"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="defaultRet"></param>
+        /// <returns></returns>
+        public static long ToInt64(object obj, long defaultRet = 0)
+        {
+            if (obj == null)
+            {
+                return defaultRet;
+            }
+
+            if (int.TryParse(obj.ToString(), out int ret))
+            {
+                return ret;
+            }
+
+            try
+            {
+                return Convert.ToInt64(ToDouble(obj, (double)defaultRet));
+            }
+            catch
+            {
+                return defaultRet;
+            }
+        }
+
+        /// <summary>
+        /// Convert from an <see cref="object"/> to nullable <see cref="long"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static long? ToNullableInt64(object obj)
+        {
+            if (obj == null)
+            {
+                return null;
+            }
+
+            if (long.TryParse(obj.ToString(), out long ret))
+            {
+                return ret;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Convert from an <see cref="object"/> to <see cref="float"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="defaultRet"></param>
+        /// <returns></returns>
+        public static float ToFloat(object obj, float defaultRet = 0F)
+        {
+            if (obj == null)
+            {
+                return defaultRet;
+            }
+
+            return float.TryParse(obj.ToString(), out float ret) ? ret : defaultRet;
+        }
+
+        /// <summary>
+        /// Convert from an <see cref="object"/> to nullable <see cref="float"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static float? ToNullableFloat(object obj)
+        {
+            if (obj == null)
+            {
+                return null;
+            }
+
+            if (float.TryParse(obj.ToString(), out float ret))
+            {
+                return ret;
+            }
+
+            return null;
+        }
+
+
+        /// <summary>
+        /// Convert from an <see cref="object"/> to <see cref="double"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="defaultRet"></param>
@@ -72,7 +157,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="double"/> with specified precision
+        /// Convert from an <see cref="object"/> to <see cref="double"/> with specified precision.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="digits"></param>
@@ -84,7 +169,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref="double"/>
+        /// Convert from an <see cref="object"/> to nullable <see cref="double"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -104,7 +189,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref="double"/> with specified precision
+        /// Convert from an <see cref="object"/> to nullable <see cref="double"/> with specified precision.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="digits"></param>
@@ -121,7 +206,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="decimal"/>
+        /// Convert from an <see cref="object"/> to <see cref="decimal"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="defaultRet"></param>
@@ -137,7 +222,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="decimal"/> with specified precision
+        /// Convert from an <see cref="object"/> to <see cref="decimal"/> with specified precision.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="digits"></param>
@@ -149,7 +234,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref="decimal"/>
+        /// Convert from an <see cref="object"/> to nullable <see cref="decimal"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -169,7 +254,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref="decimal"/> with specified precision
+        /// Convert from an <see cref="object"/> to nullable <see cref="decimal"/> with specified precision.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="digits"></param>

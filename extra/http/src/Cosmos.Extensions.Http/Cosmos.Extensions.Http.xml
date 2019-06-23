@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions.Http</name>
+    </assembly>
+    <members>
+        <member name="M:Cosmos.Html.Core.StreamEncoder.GetEncoding(System.String)">
+            <summary>   
+            取得一个文本文件的编码方式。如果无法在文件头部找到有效的前导符，Encoding.Default将被返回。   
+            </summary>   
+            <param name="fileName">文件名。</param>   
+            <returns></returns>   
+        </member>
+        <member name="M:Cosmos.Html.Core.StreamEncoder.GetEncoding(System.IO.FileStream)">
+            <summary>   
+            取得一个文本文件流的编码方式。   
+            </summary>   
+            <param name="stream">文本文件流。</param>   
+            <returns></returns>   
+        </member>
+        <member name="M:Cosmos.Html.Core.StreamEncoder.GetEncoding(System.String,System.Text.Encoding)">
+            <summary>   
+            取得一个文本文件的编码方式。   
+            </summary>   
+            <param name="fileName">文件名。</param>   
+            <param name="defaultEncoding">默认编码方式。当该方法无法从文件的头部取得有效的前导符时，将返回该编码方式。</param>   
+            <returns></returns>   
+        </member>
+        <member name="M:Cosmos.Html.Core.StreamEncoder.GetEncoding(System.IO.FileStream,System.Text.Encoding)">
+            <summary>   
+            取得一个文本文件流的编码方式。   
+            </summary>   
+            <param name="stream">文本文件流。</param>   
+            <param name="defaultEncoding">默认编码方式。当该方法无法从文件的头部取得有效的前导符时，将返回该编码方式。</param>   
+            <returns></returns>   
+        </member>
+        <member name="M:Cosmos.Html.Core.StreamEncoder.GetEncodingFromBytes(System.Byte[])">
+            <summary>
+            从字节数组中返回字符编码
+            </summary>
+            <param name="sen">字节数组</param>
+            <returns>编码结果</returns>
+        </member>
+        <member name="M:Cosmos.Html.Core.StreamEncoder.GetEncoding(System.IO.Stream)">
+            <summary>   
+            通过给定的文件流，判断文件的编码类型   
+            </summary>   
+            <param name="fs">文件流</param>   
+            <returns>文件的编码类型</returns>   
+        </member>
+        <member name="M:Cosmos.Html.Core.StreamEncoder.IsUtf8Bytes(System.Byte[])">
+            <summary>   
+            判断是否是不带 BOM 的 UTF8 格式   
+            </summary>   
+            <param name="data"></param>   
+            <returns></returns>   
+        </member>
+        <member name="P:Cosmos.Html.Elements.AElement.Href">
+            <summary>
+            链接地址
+            </summary>
+        </member>
+        <member name="P:Cosmos.Html.Elements.AElement.Text">
+            <summary>
+            链接文本
+            </summary>
+        </member>
+        <member name="P:Cosmos.Html.Elements.AElement.Img">
+            <summary>
+            链接的图片 
+            </summary>
+        </member>
+        <member name="P:Cosmos.Html.Elements.AElement.Html">
+            <summary>
+            整个连接Html
+            </summary>
+        </member>
+        <member name="P:Cosmos.Html.Elements.AElement.Type">
+            <summary>
+            A链接的类型 文本/图像
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.Elements.AType.Text">
+            <summary>
+            文本链接(默认)
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.Elements.AType.Img">
+            <summary>
+            图片链接
+            </summary>
+        </member>
+        <member name="P:Cosmos.Html.Elements.ImgElement.Src">
+            <summary>
+            图片网址
+            </summary>
+        </member>
+        <member name="P:Cosmos.Html.Elements.ImgElement.Html">
+            <summary>
+            图片标签Html
+            </summary>
+        </member>
+        <member name="T:Cosmos.Html.HtmlElementRule">
+            <summary>
+            Regex rule for html elements
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.AList">
+            <summary>
+            To match all a-flag
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.ImgList">
+            <summary>
+            To match all img-flag
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.Nscript">
+            <summary>
+            To match all Nscript-flag
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.Style">
+            <summary>
+            To match all style-flag
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.Script">
+            <summary>
+            To match all script-flag
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.Html">
+            <summary>
+            To match all html tags
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.NewLine">
+            <summary>
+            To match newline
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.Enconding">
+             <summary>
+            To match the encode of html page
+             </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.AllHtml">
+            <summary>
+            To match all html
+            </summary>
+        </member>
+        <member name="F:Cosmos.Html.HtmlElementRule.HtmlTitle">
+            <summary>
+            To match title-flag
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.DeleteAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a DELETE
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.GetAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a GET
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.PostAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a POST
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.PutAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a PUT
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpSettings">
+            <summary>
+            Settings for HTTP
+            </summary>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.IHttpClientPool">
+            <summary>
+            A pool implementation for HttpClient pool.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.IHttpClientPool.Get(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Gets a client for the specified <see cref="T:Cosmos.Http.HttpUtils.IRequestBuilder"/>
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.IHttpClientPool.Clear">
+            <summary>
+            Clears the pool, in case you need to.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.IRequestBuilder">
+            <summary>
+            A request for building request options before issuing.
+            </summary>
+        </member>
+    </members>
+</doc>

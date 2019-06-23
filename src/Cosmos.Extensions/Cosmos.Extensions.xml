@@ -1,0 +1,3289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.CaseFormat">
+            <summary>
+            Case format<br />
+            大小写格式化器
+            </summary>
+        </member>
+        <member name="M:Cosmos.CaseFormat.To(Cosmos.CaseFormat.Style,System.String)">
+            <summary>
+            To<br />
+            转换
+            </summary>
+            <param name="style"></param>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CaseFormat.To(Humanizer.IStringTransformer,System.String,System.String)">
+            <summary>
+            To<br />
+            转换
+            </summary>
+            <param name="transformer"></param>
+            <param name="sequence"></param>
+            <param name="joinOnStr"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.CaseFormat.LowerHyphen">
+            <summary>
+            Create a <see cref="T:Cosmos.CaseFormat"/> instance with a hyphen splitter.
+            </summary>
+        </member>
+        <member name="P:Cosmos.CaseFormat.LowerUnderscore">
+            <summary>
+            Create a <see cref="T:Cosmos.CaseFormat"/> instance with a lower underscore splitter.
+            </summary>
+        </member>
+        <member name="P:Cosmos.CaseFormat.UpperUnderscore">
+            <summary>
+            Create a <see cref="T:Cosmos.CaseFormat"/> instance with a upper underscore splitter.
+            </summary>
+        </member>
+        <member name="P:Cosmos.CaseFormat.Instance">
+            <summary>
+            Create a <see cref="T:Cosmos.CaseFormat"/> instance with a normal splitter.
+            </summary>
+        </member>
+        <member name="P:Cosmos.CaseFormat.Humanizer">
+            <summary>
+            Create a <see cref="T:Cosmos.CaseFormat"/> instance in humanizer mode.
+            </summary>
+        </member>
+        <member name="T:Cosmos.CaseFormat.Style">
+            <summary>
+            Case format style<be />
+            大小写格式化样式
+            </summary>
+        </member>
+        <member name="F:Cosmos.CaseFormat.Style.LOWER_CAMEL">
+            <summary>
+            Lower camel<br />
+            小写与驼峰
+            </summary>
+        </member>
+        <member name="F:Cosmos.CaseFormat.Style.LOWER_HYPHEN">
+            <summary>
+            Lower hyphen<br />
+            小写与横线
+            </summary>
+        </member>
+        <member name="F:Cosmos.CaseFormat.Style.LOWER_UNDERSCORE">
+            <summary>
+            Lower underscore<br />
+            小写与下划线
+            </summary>
+        </member>
+        <member name="F:Cosmos.CaseFormat.Style.UPPER_CAMEL">
+            <summary>
+            Upper camel<br />
+            大写与驼峰
+            </summary>
+        </member>
+        <member name="F:Cosmos.CaseFormat.Style.UPPER_UNDERSCORE">
+            <summary>
+            Upper underscore<br />
+            大写与下划线
+            </summary>
+        </member>
+        <member name="T:Cosmos.EqualityHelper`1">
+            <summary>
+            相等比较，用于快速创建<see cref="T:System.Collections.Generic.IEqualityComparer`1"/>的实例
+            </summary>
+            <example>
+            var equalityComparer1 = EqualityHelper[Person].CreateComparer(p => p.ID);
+            var equalityComparer2 = EqualityHelper[Person].CreateComparer(p => p.Name);
+            var equalityComparer3 = EqualityHelper[Person].CreateComparer(p => p.Birthday.Year);
+            </example>
+        </member>
+        <member name="T:Cosmos.Expressions.ParameterRebinder">
+            <summary>
+            参数重绑定操作
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.ParameterRebinder._map">
+            <summary>
+            参数字典
+            </summary>
+        </member>
+        <member name="M:Cosmos.Expressions.ParameterRebinder.#ctor(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression})">
+            <summary>
+            初始化参数重绑定操作
+            </summary>
+            <param name="map">参数字典</param>
+        </member>
+        <member name="M:Cosmos.Expressions.ParameterRebinder.ReplaceParameters(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression},System.Linq.Expressions.Expression)">
+            <summary>
+            替换参数
+            </summary>
+            <param name="map">参数字典</param>
+            <param name="exp">表达式</param>
+        </member>
+        <member name="M:Cosmos.Expressions.ParameterRebinder.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            访问参数
+            </summary>
+            <param name="parameterExpression">参数</param>
+        </member>
+        <member name="T:Cosmos.Expressions.PredicateExpressionBuilder`1">
+            <summary>
+            谓词表达式生成器
+            </summary>
+        </member>
+        <member name="M:Cosmos.Expressions.PredicateExpressionBuilder`1.#ctor">
+            <summary>
+            初始化谓词表达式生成器
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.PredicateExpressionBuilder`1._parameter">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.PredicateExpressionBuilder`1._result">
+            <summary>
+            结果表达式
+            </summary>
+        </member>
+        <member name="M:Cosmos.Expressions.PredicateExpressionBuilder`1.GetParameter">
+            <summary>
+            获取参数
+            </summary>
+        </member>
+        <member name="M:Cosmos.Expressions.PredicateExpressionBuilder`1.Append``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},Cosmos.Queries.Operator,System.Object)">
+            <summary>
+            添加表达式
+            </summary>
+            <param name="property">属性表达式</param>
+            <param name="operator">运算符</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.PredicateExpressionBuilder`1.Append(System.String,Cosmos.Queries.Operator,System.Object)">
+            <summary>
+            添加表达式
+            </summary>
+            <param name="property">属性名</param>
+            <param name="operator">运算符</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.PredicateExpressionBuilder`1.ToLambda">
+            <summary>
+            转换为Lambda表达式
+            </summary>
+        </member>
+        <member name="M:Cosmos.CollectionExtensions.Disorder``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            打乱一个集合的顺序
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.BaseTypeExtensions">
+            <summary>
+            DateTime Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetCountDaysOfMonth(System.DateTime)">
+            <summary>
+            获得本月的总天数
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetNextWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            获得下一个工作日
+            </summary>
+            <param name="date"></param>
+            <param name="weekday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetPreviousWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            获得上一个工作日
+            </summary>
+            <param name="date">   </param>
+            <param name="weekday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetTimeSpan(System.DateTime,System.DateTime)">
+            <summary>
+            获得两个时间的间隔
+            </summary>
+            <param name="fecha"></param>
+            <param name="endFecha">  </param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetFirstDayOfMonth(System.DateTime)">
+            <summary>
+            获得本月第一天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetFirstDayOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            获得本月第一个周几的日期
+            </summary>
+            <param name="date">     </param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetLastDayOfMonth(System.DateTime)">
+            <summary>
+            获得本月最后一天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetLastDayOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            获得本月最后一个指定的星期几
+            </summary>
+            <param name="date">     </param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetFirstDayOfWeek(System.DateTime)">
+            <summary>
+            获得本周第一天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetFirstDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            获得本周第一天
+            </summary>
+            <param name="date">       </param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetLastDayOfWeek(System.DateTime)">
+            <summary>
+            获得本周最后一天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetLastDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            获得本周最后一天
+            </summary>
+            <param name="date">       </param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            获得本周第一个工作日
+            </summary>
+            <param name="date">   </param>
+            <param name="weekday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetWeekday(System.DateTime,System.DayOfWeek,System.Globalization.CultureInfo)">
+            <summary>
+            获得本周第一个工作日
+            </summary>
+            <param name="date">       </param>
+            <param name="weekday">    </param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetMonthDiff(System.DateTime,System.DateTime)">
+            <summary>
+            Compute dateTime difference
+            </summary>
+            <param name="dt1"></param>
+            <param name="dt2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetTotalMonthDiff(System.DateTime,System.DateTime)">
+            <summary>
+            Compute dateTime difference precisely
+            </summary>
+            <param name="dt1"></param>
+            <param name="dt2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetWeekOfYear(System.DateTime)">
+            <summary>
+            获得指定日期所在的周是第几周
+            </summary>
+            <param name="datetime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetWeekOfYear(System.DateTime,System.Globalization.CalendarWeekRule)">
+            <summary>
+            获得指定日期所在的周是第几周
+            </summary>
+            <param name="datetime"></param>
+            <param name="weekrule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetWeekOfYear(System.DateTime,System.DayOfWeek)">
+            <summary>
+            获得指定日期所在的周是第几周
+            </summary>
+            <param name="datetime"></param>
+            <param name="firstDayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetWeekOfYear(System.DateTime,System.Globalization.CalendarWeekRule,System.DayOfWeek)">
+            <summary>
+            获得指定日期所在的周是第几周
+            </summary>
+            <param name="datetime"></param>
+            <param name="weekrule"></param>
+            <param name="firstDayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetEndOfDay(System.DateTime)">
+            <summary>
+            获取当前最后时间（即当天的 23:59:59:999）
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetEndOfMonth(System.DateTime)">
+            <summary>
+            获取当月最后时间（当月最后一天的 23:59:59.999）
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetEndOfWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            获取当周最后时间（当周最后一天的 23:59:59.999）
+            </summary>
+            <param name="dt"></param>
+            <param name="startDayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetEndOfYear(System.DateTime)">
+            <summary>
+            获取当年最后时间（当年最后一天的 23:59:59.999）
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.ToEpochTimeSpan(System.DateTime)">
+            <summary>
+            转换为 Epoch time span
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.Tomorrow(System.DateTime)">
+            <summary>
+            获得明天
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.Yesterday(System.DateTime)">
+            <summary>
+            获取昨天
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsToday(System.DateTime)">
+            <summary>
+            判断指定日期是否为今天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsToday(System.Nullable{System.DateTime})">
+            <summary>
+            判断指定日期是否为今天
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsToday(System.DateTimeOffset)">
+            <summary>
+            判断指定
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsToday(System.Nullable{System.DateTimeOffset})">
+            <summary>
+            判断指定
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsWeekday(System.DateTime)">
+            <summary>
+            判断是否为工作日
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsWeekday(System.Nullable{System.DateTime})">
+            <summary>
+            判断是否为工作日
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsWeekend(System.DateTime)">
+            <summary>
+            判断是否为周末
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsWeekend(System.Nullable{System.DateTime})">
+            <summary>
+            判断是否为周末
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsValid(System.DateTime)">
+            <summary>
+            判断时间是否合法
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsMorning(System.DateTime)">
+            <summary>
+            判断是否为上午
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsAfternoon(System.DateTime)">
+            <summary>
+            判断是否为下午
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsFuture(System.DateTime)">
+            <summary>
+            判断是否是未来
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsPast(System.DateTime)">
+            <summary>
+            判断是否为过去
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsDateEqual(System.DateTime,System.DateTime)">
+            <summary>
+            判断两天的日期是否相同
+            </summary>
+            <param name="date"></param>
+            <param name="dateToCompare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsTimeEqual(System.DateTime,System.DateTime)">
+            <summary>
+            判断两个时间是否相同
+            </summary>
+            <param name="time"></param>
+            <param name="timeToCompare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsNullOrEmpty(System.Nullable{System.Guid})">
+            <summary>
+            是否为空
+            </summary>
+            <param name="guid"> 值 </param>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IsNullOrEmpty(System.Guid)">
+            <summary>
+            是否为空
+            </summary>
+            <param name="guid"> 值 </param>
+        </member>
+        <member name="T:Cosmos.StringExtensions">
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+            <summary>
+            String extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsGuid(System.String)">
+            <summary>
+            判断指定字符串是否为 Guid
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            检查字符串是 null 还是 System.String.Empty 字符串
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsNotNullNorEmpty(System.String)">
+            <summary>
+            检查字符串不是 null 或 System.String.Empty 字符串
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            检查字符串是 null、空还是仅由空白字符组成
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsNotNullNorWhiteSpace(System.String)">
+            <summary>
+            检查字符串不是 null、空或由空白字符串组成
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsInt(System.String)">
+            <summary>
+            指示指定的字符串是否为 Int 类型
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsNumberic(System.String)">
+            <summary>
+            指示指定的字符串是否为数字
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsWebUrl(System.String)">
+            <summary>
+            判断是否为 Url 路径
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.IsEmail(System.String)">
+            <summary>
+            判断是否为 Email 地址
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ContainsChinese(System.String)">
+            <summary>
+            是否包含中文
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ContainsNumber(System.String)">
+            <summary>
+            是否包含数字
+            </summary>
+            <param name="text">文本</param>
+        </member>
+        <member name="M:Cosmos.StringExtensions.Split(System.String,System.String)">
+            <summary>
+            根据给定的 splitCode 对字符串进行切割
+            </summary>
+            <param name="string"></param>
+            <param name="separator">分隔符</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.StartsWith(System.String,System.String[])">
+            <summary>
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.StartsWith(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.EndsWith(System.String,System.String[])">
+            <summary>
+            确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.EndsWith(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.ConversionExtensions">
+            <summary>
+            Conversion extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo(System.Object,System.Type)">
+            <summary>
+            把对象类型转换为指定类型
+            </summary>
+            <param name="value"></param>
+            <param name="conversionType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo(System.Object,System.Type,System.Object)">
+            <summary>
+            把对象类型转换为指定类型
+            </summary>
+            <param name="value"></param>
+            <param name="conversionType"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo(System.Object,System.Reflection.TypeInfo)">
+            <summary>
+            把对象类型转换为指定类型
+            </summary>
+            <param name="value"></param>
+            <param name="conversionType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo(System.Object,System.Reflection.TypeInfo,System.Object)">
+            <summary>
+            把对象类型转换为指定类型
+            </summary>
+            <param name="value"></param>
+            <param name="conversionType"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo``1(System.Object)">
+            <summary>
+            把对象类型转化为指定类型，转化失败时返回指定的默认值
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="value">要转化的源对象</param>
+            <returns>转化后的指定类型对象，转化失败时返回指定的默认值</returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo``1(System.Object,``0)">
+            <summary>
+            把对象类型转化为指定类型，转化失败时返回指定的默认值
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="value">要转化的源对象</param>
+            <param name="defaultValue">转化失败返回的指定默认值</param>
+            <returns>转化后的指定类型对象，转化失败时返回指定的默认值</returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo``2(``0)">
+            <summary>
+            将变量按指定的转换前类型与转换后类型进行转换
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastTo``2(``0,``1)">
+            <summary>
+            将变量按指定的转换前类型与转换后类型进行转换
+            <para>如果转换失败，返回指定的默认值</para>
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToString(System.Int32,System.String)">
+            <summary>
+            将数字安全转换为字符串
+            <para>如果数字为零，则返回默认值</para>
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToString(System.Nullable{System.Int32},System.String)">
+            <summary>
+            将数字安全转换为字符串
+            <para>如果数字为空或为零，则返回默认值</para>
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToString(System.Decimal,System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToString(System.Double,System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToString``1(``0[],System.String,System.String)">
+            <summary>
+            用指定的字符串来指示其边界（输出为 String 结果）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+            <param name="format"></param>
+            <param name="delimiter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToString(System.Object)">
+            <summary>
+            通用对象转换为字符串
+            </summary>
+            <param name="object"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToDateTime(System.String,System.DateTime)">
+            <summary>
+            将字符串时间转换为时间
+            </summary>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToNullableDateTime(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            将字符串时间转换为可空时间
+            </summary>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToGuid(System.String)">
+            <summary>
+            将字符串转换为 Guid
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToGuid(System.String,System.Guid)">
+            <summary>
+            获取安全的 Guid 类型
+            </summary>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToEnum``1(System.String)">
+            <summary>
+            将指定的字符串转换为枚举
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToEnum``1(System.String,System.Boolean)">
+            <summary>
+            将指定的字符串转换为枚举
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="string">     </param>
+            <param name="ignorecase"> 是否区分大小写 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToEnum``1(System.String,``0)">
+            <summary>
+            将指定的字符串转换为枚举
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToEnum``1(System.String,``0,System.Boolean)">
+            <summary>
+            将指定的字符串转换为枚举
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <param name="ignorecase">是否区分大小写</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToInt(System.String)">
+            <summary>
+            将字符串转换为 Int
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToInt(System.String,System.Int32)">
+            <summary>
+            将字符串转换为 Int
+            </summary>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToDouble(System.String)">
+            <summary>
+            将字符串转换为 Double
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToDouble(System.String,System.Double)">
+            <summary>
+            将字符串转换为 Double
+            </summary>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToDecimal(System.String)">
+            <summary>
+            将字符串转换为 Decimal
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToDecimal(System.String,System.Decimal)">
+            <summary>
+            将字符串转换为 Decimal
+            </summary>
+            <param name="string"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Property(System.Linq.Expressions.Expression,System.String)">
+            <summary>
+            创建属性表达式
+            </summary>
+            <param name="expression">表达式</param>
+            <param name="propertyName">属性名,支持多级属性名，与句点分隔，范例：Customer.Name</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Property(System.Linq.Expressions.Expression,System.Reflection.MemberInfo)">
+            <summary>
+            创建属性表达式
+            </summary>
+            <param name="expression">表达式</param>
+            <param name="member">属性</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.And(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            与操作表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            与操作表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Or(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            或操作表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            或操作表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Value``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            获取lambda表达式的值
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Equal(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Equal(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.NotEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建不等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.NotEqual(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建不等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Greater(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建大于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Greater(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建大于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.GreaterEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建大于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.GreaterEqual(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建大于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Less(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建小于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Less(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建小于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.LessEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建小于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.LessEqual(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建小于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.StartsWith(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            头匹配
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.EndsWith(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            尾匹配
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Contains(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            模糊匹配
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Operation(System.Linq.Expressions.Expression,Cosmos.Queries.Operator,System.Object)">
+            <summary>
+            操作
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="operator">运算符</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Linq.Expressions.Expression[])">
+            <summary>
+            创建调用方法表达式
+            </summary>
+            <param name="instance">调用的实例</param>
+            <param name="methodName">方法名</param>
+            <param name="values">参数值列表</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Object[])">
+            <summary>
+            创建调用方法表达式
+            </summary>
+            <param name="instance">调用的实例</param>
+            <param name="methodName">方法名</param>
+            <param name="values">参数值列表</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Type[],System.Object[])">
+            <summary>
+            创建调用方法表达式
+            </summary>
+            <param name="instance">调用的实例</param>
+            <param name="methodName">方法名</param>
+            <param name="paramTypes">参数类型列表</param>
+            <param name="values">参数值列表</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            组合表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="first">左操作数</param>
+            <param name="second">右操作数</param>
+            <param name="merge">合并操作</param>
+        </member>
+        <member name="M:Cosmos.LambdaExtensions.ToLambda``1(System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression[])">
+            <summary>
+            创建Lambda表达式
+            </summary>
+            <typeparam name="TDelegate">委托类型</typeparam>
+            <param name="body">表达式</param>
+            <param name="parameters">参数列表</param>
+        </member>
+        <member name="T:Cosmos.RandomExtensions">
+            <summary>
+            随机数扩展方法
+            </summary>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextBool(System.Random)">
+            <summary>
+            随机返回 True 或 False
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextEnum``1(System.Random)">
+            <summary>
+            随机返回一个指定的枚举对象的成员
+            </summary>
+            <typeparam name="T"> 枚举 </typeparam>
+            <param name="random"></param>
+            <returns> 枚举对象的成员 </returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextBytes(System.Random,System.Int32)">
+            <summary>
+            用随机数填充指定字节数组的元素。
+            </summary>
+            <param name="random"></param>
+            <param name="length"> 字节长度 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextUInt16(System.Random)">
+            <summary>
+            随机返回一个无符号八位整数。
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextInt16(System.Random)">
+            <summary>
+            随机返回一个有符号十六位整数
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextFloat(System.Random)">
+            <summary>
+            随机返回一个单精度浮点数
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextDateTime(System.Random,System.DateTime,System.DateTime)">
+            <summary>
+            在指定范围内随机返回一个时间
+            </summary>
+            <param name="random">  </param>
+            <param name="minValue"> 时间起始 </param>
+            <param name="maxValue"> 时间截止 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.NextDateTime(System.Random)">
+            <summary>
+            随机返回一个时间
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RandomExtensions.OneOf``1(System.Random,``0[])">
+            <summary>
+            随机获得一个指定范围的结果
+            </summary>
+            <param name="this"></param>
+            <param name="values"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.ReflectionExtensions">
+            <summary>
+            Type extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.AttributeExists``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            To judge the attribute exists or not
+            </summary>
+            <typeparam name="T">要检查的特性类型</typeparam>
+            <param name="memberInfo">要检查的类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.AttributeNotExists``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            To judge the attribute dosn't exist or not
+            </summary>
+            <typeparam name="T">要检查的特性类型</typeparam>
+            <param name="memberInfo">要检查的类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>是否不存在</returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Get attribute from memberinfo
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Get attributes from memberinfo
+            </summary>
+            <typeparam name="T">特性类型</typeparam>
+            <param name="info">类型类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>存在返回第一个，不存在返回null</returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo)">
+            <summary>
+            Get Attributes from memberinfo
+            </summary>
+            <typeparam name="TAttribute"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Get attributes from memberinfo
+            </summary>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="info">类型类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>存在返回第一个，不存在返回 null</returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.GetFullName(System.Reflection.MethodInfo)">
+            <summary>
+            Get full name of method including type name and method name
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Reflection.MethodInfo)">
+            <summary>
+            To compute signature
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.ToNonNullableType(System.Type)">
+            <summary>
+            Get non-nullable inderlying <see cref="T:System.Type"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+            <summary>
+            Get non-nullable inderlying <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/>
+            </summary>
+            <param name="typeinfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)">
+            <summary>
+            Get object's <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/>
+            </summary>
+            <param name="object"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.ToTypeInfo(System.Type[])">
+            <summary>
+            Convert <see cref="T:System.Type"/> array to <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/> list
+            </summary>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            Gets property value
+            </summary>
+            <param name="object">Any <see cref="T:System.Object"/></param>
+            <param name="propertyName">Property name in this object</param>
+            <returns>Value of the specific property in this object</returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            Sets property value
+            </summary>
+            <param name="object"></param>
+            <param name="propertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Reflection.TypeInfo)">
+            <summary>
+            To compute signature
+            </summary>
+            <param name="typeinfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Type)">
+            <summary>
+            To compute signature
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType(System.Type,System.Type)">
+            <summary>
+            To judge the given type is assignable to the generic type or not
+            </summary>
+            <param name="givenType">给定类型</param>
+            <param name="genericType">泛型类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+            <summary>
+            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:genericType"/> or not
+            </summary>
+            <param name="givenType">给定类型</param>
+            <param name="genericType">泛型类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType``1(System.Type)">
+            <summary>
+            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
+            </summary>
+            <typeparam name="TGeneric">泛型类型</typeparam>
+            <param name="givenType">给定类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType``1(System.Reflection.TypeInfo)">
+            <summary>
+            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
+            </summary>
+            <typeparam name="TGeneric">泛型类型</typeparam>
+            <param name="givenType">给定类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor(System.Type,System.Type)">
+            <summary>
+            To judge the given type is assignable to the generic type or not
+            </summary>
+            <param name="givenType">给定类型</param>
+            <param name="genericType">泛型类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+            <summary>
+            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:genericType"/> or not
+            </summary>
+            <param name="givenType">给定类型</param>
+            <param name="genericType">泛型类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor``1(System.Type)">
+            <summary>
+            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
+            </summary>
+            <typeparam name="TGeneric">泛型类型</typeparam>
+            <param name="givenType">给定类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor``1(System.Reflection.TypeInfo)">
+            <summary>
+            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
+            </summary>
+            <typeparam name="TGeneric">泛型类型</typeparam>
+            <param name="givenType">给定类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+            <summary>
+            Find typeinfo from the given type's parameters' type
+            </summary>
+            <param name="definition"></param>
+            <param name="typeinfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.FindGenericType(System.Type,System.Type)">
+            <summary>
+            Find typeinfo from the given type's parameters' type
+            </summary>
+            <param name="definition"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsNumeric(System.Type)">
+            <summary>
+            判断指定类型是否为数值类型
+            </summary>
+            <param name="type">要检查的类型</param>
+            <returns>是否是数值类型</returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsNumeric(System.Reflection.TypeInfo)">
+            <summary>
+            判断指定类型是否为数值类型
+            </summary>
+            <param name="typeInfo">要检查的类型</param>
+            <returns>是否是数值类型</returns>
+        </member>
+        <member name="M:Cosmos.ReflectionExtensions.IsNullableType(System.Type)">
+            <summary>
+            指示类型是否为可空类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.SafeAndNullableExtensions">
+            <summary>
+            Safty value and nullable value extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeValue``1(System.Nullable{``0})">
+            <summary>
+            安全返回值
+            </summary>
+            <param name="value"> 可空值 </param>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeValue``1(System.Nullable{``0},``0)">
+            <summary>
+            安全返回值
+            <para>如果可空值真为空，则返回默认值</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeValue(System.String)">
+            <summary>
+            获取 Null安全 的字符串
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeString(System.Object)">
+            <summary>
+            安全获取字符串类型
+            </summary>
+            <param name="object"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeString(System.Object,System.String)">
+            <summary>
+            安全获取字符串类型
+            </summary>
+            <param name="object"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeDateTime(System.Object)">
+            <summary>
+            获取安全时间类型
+            </summary>
+            <param name="object"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeDateTime(System.Object,System.DateTime)">
+            <summary>
+            获取安全时间类型
+            </summary>
+            <param name="object"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeGuid(System.Object)">
+            <summary>
+            获取安全的 Guid 类型
+            </summary>
+            <param name="object"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeGuid(System.Object,System.Guid)">
+            <summary>
+            获取安全的 Guid 类型
+            </summary>
+            <param name="object"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeTrim(System.String)">
+            <summary>
+            安全移除空白字符
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeQueryable``1(System.Linq.IQueryable{``0})">
+            <summary>
+            安全获得 IQueryable 集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeQueryable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            安全获得 IQueryable 集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeQueryable(System.Linq.IQueryable)">
+            <summary>
+            安全获得 IQueryable 集合
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeQuertable(System.Collections.IEnumerable)">
+            <summary>
+            安全获得 IQueryable 集合
+            </summary>
+            <param name="enumerable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.ToNonNullableType(System.Type)">
+            <summary>
+            获取所给定的可空类型的不可空类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+            <summary>
+            获取所给定的可空类型的不可空类型
+            </summary>
+            <param name="typeinfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeInvoke(System.EventHandler,System.Object)">
+            <summary>
+            以给定参数安全执行事件
+            </summary>
+            <param name="hander"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeInvoke(System.EventHandler,System.Object,System.EventArgs)">
+            <summary>
+            以给定参数安全执行事件
+            </summary>
+            <param name="hander"></param>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Cosmos.SafeAndNullableExtensions.SafeInvoke``1(System.EventHandler{``0},System.Object,``0)">
+            <summary>
+            以给定参数安全执行事件
+            </summary>
+            <typeparam name="TEventArgs"></typeparam>
+            <param name="hander"></param>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Cosmos.ObjectExtensions.Copier`1.Copy(`0)">
+            <summary>
+            Deep copy by expression
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid">
+            <summary>
+            A <see cref="T:System.Guid"/> that has been decoded into its fields.
+            </summary>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.ToGuid">
+            <summary>
+            Converts the decoded GUID back to a <see cref="T:System.Guid"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.ToLittleEndianByteArray">
+            <summary>
+            Converts the decoded GUID to a binary little-endian representation.
+            </summary>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.ToBigEndianByteArray">
+            <summary>
+            Converts the decoded GUID to a binary big-endian representation.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Variant">
+            <summary>
+            Gets the 3-bit Variant field of the GUID.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version">
+            <summary>
+            Gets the 4-bit Version field of the GUID. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Variant"/> returns <see cref="F:Cosmos.IdUtils.GuidImplements.Internals.GuidVariant.Rfc4122"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Domain">
+            <summary>
+            Gets the Domain field of the security GUID. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.DceSecurity"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.LocalIdentifier">
+            <summary>
+            Gets the Local Identifier field of the security GUID. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.DceSecurity"/>
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Timestamp">
+            <summary>
+            Gets the 60-bit Timestamp field of the GUID. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.TimeBased"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.PartialTimestamp">
+            <summary>
+            Gets the 28-bit Timestamp field of the GUID; the lowest 32 bits of the returned value are always zero. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.DceSecurity"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.CreateTime">
+            <summary>
+            Gets the date and time that this GUID was created, in UTC. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.TimeBased"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.PartialCreateTime">
+            <summary>
+            Gets the approximate date and time that this GUID was created, in UTC. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.DceSecurity"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.ClockSequence">
+            <summary>
+            Gets the 14-bit Clock Sequence field of the GUID. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.TimeBased"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.PartialClockSequence">
+            <summary>
+            Gets the 6-bit Clock Sequence field of the GUID. The lowest 8 bits of the returned value are always 0. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.DceSecurity"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Node">
+            <summary>
+            Gets the 6-byte (48-bit) Node field of the GUID. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.TimeBased"/> or <see cref="F:Cosmos.IdUtils.GuidVersion.DceSecurity"/>.
+            </summary>
+        </member>
+        <member name="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.NodeIsMac">
+            <summary>
+            Returns <c>true</c> if the Node field is a MAC address; returns <c>false</c> if the Node field is a random value. This is only valid if <see cref="P:Cosmos.IdUtils.GuidImplements.Core.DecodedGuid.Version"/> returns <see cref="F:Cosmos.IdUtils.GuidVersion.TimeBased"/> or <see cref="F:Cosmos.IdUtils.GuidVersion.DceSecurity"/>.
+            </summary>
+        </member>
+        <member name="T:Cosmos.IdUtils.GuidImplements.Internals.DceDomain">
+            <summary>
+            Known values of DCE domains.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.DceDomain.Person">
+            <summary>
+            The principal domain. On POSIX machines, this is the POSIX UID domain.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.DceDomain.Group">
+            <summary>
+            The group domain. On POSIX machines, this is the POSIX GID domain.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.DceDomain.Organization">
+            <summary>
+            The organization domain.
+            </summary>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Internals.GuidExtensions.ToBigEndianByteArray(System.Guid@)">
+            <summary>
+            Returns a 16-element byte array that contains the value of the GUID, in big-endian format.
+            </summary>
+            <param name="guid">The GUID.</param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Internals.GuidExtensions.Decode(System.Guid@)">
+            <summary>
+            Decodes a GUID into its fields.
+            </summary>
+            <param name="guid">The GUID to decode.</param>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidNamespaces.Dns">
+            <summary>
+            For names that are fully-qualified domain names.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidNamespaces.Url">
+            <summary>
+            For names that are URLs.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidNamespaces.Oid">
+            <summary>
+            For names that are ISO OIDs.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidNamespaces.X500">
+            <summary>
+            For names that are X.500 DNs (in DER or a text output format).
+            </summary>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Internals.GuidUtility.Copy(System.Byte[])">
+            <summary>
+            Creates a new array that is a copy of the specified array.
+            </summary>
+            <param name="guid">The GUID, as a byte array.</param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Internals.GuidUtility.CopyWithEndianSwap(System.Byte[])">
+            <summary>
+            Creates a new array that is an endian conversion of the specified array, converting big-endian to little-endian or vice versa.
+            </summary>
+            <param name="guid">The GUID, as a byte array.</param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidImplements.Internals.GuidUtility.EndianSwap(System.Byte[])">
+            <summary>
+            Converts a big-endian GUID to a little-endian GUID, or vice versa. This method modifies the array in-place.
+            </summary>
+            <param name="guid">The GUID, as a byte array.</param>
+        </member>
+        <member name="T:Cosmos.IdUtils.GuidImplements.Internals.GuidVariant">
+            <summary>
+            Known values for the <see cref="T:System.Guid"/> Variant field.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidVariant.NcsBackwardCompatibility">
+            <summary>
+            Reserved for NCS backward compatibility.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidVariant.Rfc4122">
+            <summary>
+            A GUID conforming to RFC 4122.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidVariant.MicrosoftBackwardCompatibility">
+            <summary>
+            Reserved for Microsoft backward compatibility.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidImplements.Internals.GuidVariant.ReservedForFutureDefinition">
+            <summary>
+            Reserved for future definition.
+            </summary>
+        </member>
+        <member name="T:Cosmos.IdUtils.GuidVersion">
+            <summary>
+            Known values for the <see cref="T:System.Guid"/> Version field.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidVersion.TimeBased">
+            <summary>
+            Time-based (sequential) GUID.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidVersion.DceSecurity">
+            <summary>
+            DCE Security GUID with embedded POSIX UID/GID. See "DCE 1.1: Authentication and Security Services", Chapter 5 and "DCE 1.1: RPC", Appendix A.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidVersion.NameBasedMd5">
+            <summary>
+            Name-based GUID using the MD5 hashing algorithm.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidVersion.Random">
+            <summary>
+            Random GUID.
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.GuidVersion.NameBasedSha1">
+            <summary>
+            Name-based GUID using the SHA-1 hashing algorithm.
+            </summary>
+        </member>
+        <member name="T:Cosmos.IdUtils.RandomIdProvider">
+            <summary>
+            Random Id Provider
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.RandomIdProvider.ALLNUMBERS">
+            <summary>
+            All numbers from 0 to 9
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.RandomIdProvider.ALLWORDS">
+            <summary> 
+            1234567890qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM
+            </summary>
+        </member>
+        <member name="F:Cosmos.IdUtils.RandomIdProvider.SIMPLEWORDS">
+            <summary> 
+            2345678wertyuiopasdfghjkzxcvbnm23456780QWERTYUPASDFGHJKLZXCVBNM
+            </summary>
+        </member>
+        <member name="M:Cosmos.IdUtils.RandomIdProvider.Create(System.Int32,System.String)">
+            <summary> 
+            Create Random Id
+            </summary>
+            <param name="length">Length of random id you want to create</param>
+            <param name="dict">Random Charter Dictionary, 0-9a-zA-Z as default.</param>
+        </member>
+        <member name="M:Cosmos.IdUtils.RandomIdProvider.Create(System.String,System.String)">
+            <summary> 
+            Create Random Id
+            </summary>
+            <param name="format">Format of random id you want to create</param>
+            <param name="dict">Random Charter Dictionary, 0-9a-zA-Z as default.</param>
+        </member>
+        <member name="M:Cosmos.IdUtils.RandomId.#ctor(System.Int32,System.String)">
+            <summary> 构造函数
+            </summary>
+            <param name="length">生成Id长度</param>
+            <param name="dict">随机字符字典,默认字典为0-9a-zA-Z</param>
+        </member>
+        <member name="M:Cosmos.IdUtils.RandomId.#ctor(System.String,System.String)">
+            <summary> 构造函数
+            </summary>
+            <param name="format">生成Id格式</param>
+            <param name="dict">随机字符字典,默认字典为0-9a-zA-Z</param>
+        </member>
+        <member name="M:Cosmos.IdUtils.RandomId.Create">
+            <summary> 生成Id
+            </summary>
+        </member>
+        <member name="T:Cosmos.IdUtils.RandomNonceStrProvider">
+            <summary>
+            Random NonceStr Provider
+            </summary>
+        </member>
+        <member name="M:Cosmos.IdUtils.RandomNonceStrProvider.Create">
+            <summary>
+            Create random noncestr
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.IdUtils.RandomNonceStrProvider.Create(System.Int32)">
+            <summary>
+            Create random noncestr
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetMember(System.Linq.Expressions.Expression)">
+            <summary>
+            获取成员
+            </summary>
+            <param name="expression">表达式,范例：t => t.Name</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetMemberExpression(System.Linq.Expressions.Expression)">
+            <summary>
+            获取成员表达式
+            </summary>
+            <param name="expression">表达式</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetName(System.Linq.Expressions.Expression)">
+            <summary>
+            获取成员名称，范例：t => t.Name,返回 Name
+            </summary>
+            <param name="expression">表达式,范例：t => t.Name</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetMemberName(System.Linq.Expressions.MemberExpression)">
+            <summary>
+            获取成员名称
+            </summary>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetNames``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object[]}})">
+            <summary>
+            获取名称列表
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="expression">属性集合表达式,范例：t => new object[]{t.A,t.B}</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.AddName(System.Collections.Generic.List{System.String},System.Linq.Expressions.Expression)">
+            <summary>
+            添加名称
+            </summary>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetValue(System.Linq.Expressions.Expression)">
+            <summary>
+            获取值,范例：t => t.Name == "A",返回 A
+            </summary>
+            <param name="expression">表达式,范例：t => t.Name == "A"</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetMethodCallExpressionValue(System.Linq.Expressions.Expression)">
+            <summary>
+            获取方法调用表达式的值
+            </summary>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetMemberValue(System.Linq.Expressions.MemberExpression)">
+            <summary>
+            获取属性表达式的值
+            </summary>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetConstantExpressionValue(System.Linq.Expressions.Expression)">
+            <summary>
+            获取常量表达式的值
+            </summary>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetParameter(System.Linq.Expressions.Expression)">
+            <summary>
+            获取参数，范例：t.Name,返回 t
+            </summary>
+            <param name="expression">表达式，范例：t.Name</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetConditionCount(System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            获取查询条件个数
+            </summary>
+            <param name="expression">谓词表达式,范例1：t => t.Name == "A" ，结果1。
+            范例2：t => t.Name == "A" &amp;&amp; t.Age =1 ，结果2。</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetAttribute``1(System.Linq.Expressions.Expression)">
+            <summary>
+            获取特性
+            </summary>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="expression">属性表达式</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetAttribute``3(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            获取特性
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="propertyExpression">属性表达式</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetAttribute``2(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            获取特性
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="propertyExpression">属性表达式</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GetAttributes``3(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            获取特性列表
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="propertyExpression">属性表达式</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.Constant(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            获取常量表达式
+            </summary>
+            <param name="expression">表达式</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.Equal``1(System.String,System.Object)">
+            <summary>
+            创建等于运算lambda表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.CreateParameter``1">
+            <summary>
+            创建参数
+            </summary>
+        </member>
+        <member name="M:Cosmos.Lambdas.NotEqual``1(System.String,System.Object)">
+            <summary>
+            创建不等于运算lambda表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.Greater``1(System.String,System.Object)">
+            <summary>
+            创建大于运算lambda表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.GreaterEqual``1(System.String,System.Object)">
+            <summary>
+            创建大于等于运算lambda表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.Less``1(System.String,System.Object)">
+            <summary>
+            创建小于运算lambda表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.LessEqual``1(System.String,System.Object)">
+            <summary>
+            创建小于等于运算lambda表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.Starts``1(System.String,System.String)">
+            <summary>
+            调用StartsWith方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.Ends``1(System.String,System.String)">
+            <summary>
+            调用EndsWith方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.Contains``1(System.String,System.Object)">
+            <summary>
+            调用Contains方法
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Lambdas.ParsePredicate``1(System.String,System.Object,Cosmos.Queries.Operator)">
+            <summary>
+            解析为谓词表达式
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+            <param name="operator">运算符</param>
+        </member>
+        <member name="T:Cosmos.Numbers">
+            <summary>
+            Number Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numbers.GetMembersBetween(System.Int32,System.Int32)">
+            <summary>
+            Get members between min value and max value (include min and max).
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.GetMembersBetween(System.Int64,System.Int64)">
+            <summary>
+            Get members between min value and max value (include min and max).
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToInt(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToInt(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToLong(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToLong(System.Object,System.Int64)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToFloat(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToFloat(System.Object,System.Single)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDouble(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDouble(System.Object,System.Double)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDouble(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDouble(System.Object,System.Int32,System.Double)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDecimal(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDecimal(System.Object,System.Decimal)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Double"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDecimal(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Decimal"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToDecimal(System.Object,System.Int32,System.Decimal)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.Decimal"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToNullableInt(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToNullableLong(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToNullableFloat(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Single"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToNullableDouble(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Double"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToNullableDouble(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Double"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToNullableDecimal(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.ParseToNullableDecimal(System.Object,System.Int32)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.Decimal"/> with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsInt(System.String)">
+            <summary>
+            To judge whether the string is integer or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsNumeric(System.String)">
+            <summary>
+            To judge whether the string is numeric or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsBetween(System.Int16,System.Int16,System.Int16)">
+            <summary>
+            To judge whether the short value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsBetween(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            To judge whether the int value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsBetween(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            To judge whether the long value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsBetween(System.Single,System.Single,System.Single)">
+            <summary>
+            To judge whether the float value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsBetween(System.Double,System.Double,System.Double)">
+            <summary>
+            To judge whether the double value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numbers.IsBetween(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            To judge whether the decimal value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.RegexUtils.RegexCache.Get(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Gets the already cached value for a key, or calculates the value and stores it.
+            </summary>
+            <param name="pattern">The pattern used to create the regular expression.</param>
+            <param name="options">The options for regex.</param>
+            <returns>The calculated or cached value.</returns>
+        </member>
+        <member name="T:Cosmos.RegexUtils.Regexs">
+            <summary>
+            Regex Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.RegexUtils.Regexs.IsMatch(System.String,System.String)">
+            <summary>
+            验证输入与模式是否匹配
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="pattern">模式字符串</param>        
+        </member>
+        <member name="M:Cosmos.RegexUtils.Regexs.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            验证输入与模式是否匹配
+            </summary>
+            <param name="input">输入的字符串</param>
+            <param name="pattern">模式字符串</param>
+            <param name="options">筛选条件,比如是否忽略大小写</param>
+        </member>
+        <member name="T:Cosmos.RegexUtils.RegexTypes">
+            <summary>
+            This class is used to fake an enum. You'll be able to use it as an enum.
+            Note: type save enum, found on stackoverflow: http://stackoverflow.com/a/424414/603309
+            </summary>
+        </member>
+        <member name="P:Cosmos.RegexUtils.RegexVerbalExpressions.DefaultExpression">
+            <summary>
+            Returns a default instance of RegexVerbalExpressions
+            having the Multiline option enabled
+            </summary>
+        </member>
+        <member name="T:DeepCopy.CopierGenerator`1">
+            <summary>
+            Generates copy delegates.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopierGenerator`1.CreateCopier(System.Type)">
+            <summary>
+            Gets a copier for the provided type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>A copier for the provided type.</returns>
+        </member>
+        <member name="T:DeepCopy.CopyContext">
+            <summary>
+            Records details about copied objects.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopyContext.RecordCopy(System.Object,System.Object)">
+            <summary>
+            Records <paramref name="copy"/> as a copy of <paramref name="original"/>.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="copy">The copy of <paramref name="original"/>.</param>
+        </member>
+        <member name="M:DeepCopy.CopyContext.TryGetCopy(System.Object,System.Object@)">
+            <summary>
+            Returns the copy of <paramref name="original"/> if it has been copied or <see langword="null"/> if it has not yet been copied.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="result">The copied object.</param>
+            <returns>The copy of <paramref name="original"/> or <see langword="null"/> if no copy has been made.</returns>
+        </member>
+        <member name="M:DeepCopy.CopyContext.Reset">
+            <summary>
+            Resets this instance so that it can be reused.
+            </summary>
+        </member>
+        <member name="T:DeepCopy.CopyPolicy">
+            <summary>
+            Methods for determining the copyability of types and fields.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopyPolicy.GetCopyableFields(System.Type)">
+            <summary>
+            Returns a sorted list of the copyable fields of the provided type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>A sorted list of the fields of the provided type.</returns>
+        </member>
+        <member name="M:DeepCopy.CopyPolicy.IsImmutable(System.Type)">
+            <summary>
+            Returns true if the provided type is immutable, otherwise false.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>true if the provided type is immutable, otherwise false.</returns>
+        </member>
+        <member name="T:DeepCopy.CopyPolicy.FieldInfoComparer">
+            <summary>
+            A comparer for <see cref="T:System.Reflection.FieldInfo"/> which compares by name.
+            </summary>
+        </member>
+        <member name="P:DeepCopy.CopyPolicy.FieldInfoComparer.Instance">
+            <summary>
+            Gets the singleton instance of this class.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopyPolicy.FieldInfoComparer.Compare(System.Reflection.FieldInfo,System.Reflection.FieldInfo)">
+            <inheritdoc />
+        </member>
+        <member name="T:DeepCopy.DeepCopier">
+            <summary>
+            Methods for creating deep copies of objects.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.DeepCopier.Copy``1(``0)">
+            <summary>
+            Creates and returns a deep copy of the provided object.
+            </summary>
+            <typeparam name="T">The object type.</typeparam>
+            <param name="original">The object to copy.</param>
+            <returns>A deep copy of the provided object.</returns>
+        </member>
+        <member name="M:DeepCopy.DeepCopier.Copy``1(``0,DeepCopy.CopyContext)">
+            <summary>
+            Creates and returns a deep copy of the provided object.
+            </summary>
+            <typeparam name="T">The object type.</typeparam>
+            <param name="original">The object to copy.</param>
+            <param name="context">
+            The copy context, providing referential integrity between multiple calls to this method.
+            </param>
+            <returns>A deep copy of the provided object.</returns>
+        </member>
+        <member name="T:DeepCopy.DeepCopyDelegate`1">
+            <summary>
+            Deep copier delegate.
+            </summary>
+            <param name="original">Original object to be deep copied.</param>
+            <param name="context">The context.</param>
+            <returns>Deep copy of the original object.</returns>
+        </member>
+        <member name="T:DeepCopy.Immutable">
+            <summary>
+            Helper class for creating immutable values.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.Immutable.Create``1(``0)">
+            <summary>
+            Returns an immutable wrapper over the provided value.
+            </summary>
+            <typeparam name="T">The value type.</typeparam>
+            <param name="value">The value.</param>
+            <returns>An immutable wrapper over the provided value.</returns>
+        </member>
+        <member name="T:DeepCopy.Immutable`1">
+            <summary>
+            Wrapper class for creating immutable values.
+            </summary>
+            <typeparam name="T">The wrapped type.</typeparam>
+        </member>
+        <member name="M:DeepCopy.Immutable`1.#ctor(`0)">
+            <summary>
+            Initializes a new <see cref="T:DeepCopy.Immutable`1"/> instance.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:DeepCopy.Immutable`1.Value">
+            <summary>
+            Gets the value held by this instance.
+            </summary>
+        </member>
+        <member name="T:DeepCopy.ImmutableAttribute">
+            <summary>
+            The Immutable attribute indicates that instances of the marked class or struct are never modified
+            after they are created.
+            </summary>
+            <remarks>
+            Note that this implies that sub-objects are also not modified after the instance is created.
+            </remarks>
+        </member>
+        <member name="T:DeepCopy.MethodInfos">
+            <summary>
+            Holds references to methods which are used during copying.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.TryGetCopy">
+            <summary>
+            A reference to the <see cref="M:DeepCopy.CopyContext.TryGetCopy(System.Object,System.Object@)"/> method.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.RecordObject">
+            <summary>
+            A reference to the <see cref="M:DeepCopy.CopyContext.RecordCopy(System.Object,System.Object)"/> method.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.CopyInner">
+            <summary>
+            A reference to <see cref="M:DeepCopy.DeepCopier.Copy``1(``0,DeepCopy.CopyContext)"/>
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.GetUninitializedObject">
+            <summary>
+            A reference to a method which returns an uninitialized object of the provided type.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.GetTypeFromHandle">
+            <summary>
+            A reference to <see cref="M:System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)"/>.
+            </summary>
+        </member>
+        <member name="T:DeepCopy.ReferenceEqualsComparer">
+            <inheritdoc />
+        </member>
+        <member name="P:DeepCopy.ReferenceEqualsComparer.Instance">
+            <summary>
+            Gets an instance of this class.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.ReferenceEqualsComparer.System#Collections#Generic#IEqualityComparer{System#Object}#Equals(System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeepCopy.ReferenceEqualsComparer.System#Collections#Generic#IEqualityComparer{System#Object}#GetHashCode(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:System.BaseTypeExtensions">
+            <summary>
+            Base Type Extensions
+            </summary>
+            <summary>
+            Base Type Extensions
+            </summary>
+            <summary>
+            Base Type Extensions
+            </summary>
+            <summary>
+            Base Type Extensions
+            </summary>
+            <summary>
+            Base Type Extensions
+            </summary>
+            <summary>
+            Base Type Extensions
+            </summary>
+            <summary>
+            Base Type Extensions
+            </summary>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Copy(System.Array,System.Array,System.Int32)">
+            <summary>
+            Copy
+            </summary>
+            <param name="sourceArray"></param>
+            <param name="destinationArray"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Copy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
+            <summary>
+            Copy
+            </summary>
+            <param name="sourceArray"></param>
+            <param name="sourceIndex"></param>
+            <param name="destinationArray"></param>
+            <param name="destinationIndex"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Copy(System.Array,System.Array,System.Int64)">
+            <summary>
+            Copy
+            </summary>
+            <param name="sourceArray"></param>
+            <param name="destinationArray"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Copy(System.Array,System.Int64,System.Array,System.Int64,System.Int64)">
+            <summary>
+            Copy
+            </summary>
+            <param name="sourceArray"></param>
+            <param name="sourceIndex"></param>
+            <param name="destinationArray"></param>
+            <param name="destinationIndex"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ConstrainedCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
+            <summary>
+            Contained copy
+            </summary>
+            <param name="sourceArray"></param>
+            <param name="sourceIndex"></param>
+            <param name="destinationArray"></param>
+            <param name="destinationIndex"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Clear(System.Array,System.Int32,System.Int32)">
+            <summary>
+            Clear
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ClearAll(System.Array)">
+            <summary>
+            Clear all
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IndexOf(System.Array,System.Object)">
+            <summary>
+            Index of
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IndexOf(System.Array,System.Object,System.Int32)">
+            <summary>
+            Index of
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IndexOf(System.Array,System.Object,System.Int32,System.Int32)">
+            <summary>
+            Index of
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <param name="startIndex"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.LastIndexOf(System.Array,System.Object)">
+            <summary>
+            Last index of
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.LastIndexOf(System.Array,System.Object,System.Int32)">
+            <summary>
+            Last index of
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.LastIndexOf(System.Array,System.Object,System.Int32,System.Int32)">
+            <summary>
+            Last index of
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <param name="startIndex"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.WithinIndex(System.Array,System.Int32)">
+            <summary>
+            Within index
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.WithinIndex(System.Array,System.Int32,System.Int32)">
+            <summary>
+            Within index
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="dimension"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Reverse(System.Array)">
+            <summary>
+            Reverse
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Reverse(System.Array,System.Int32,System.Int32)">
+            <summary>
+            Reverse
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array,System.Array)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array,System.Int32,System.Int32)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array,System.Array,System.Int32,System.Int32)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+            <param name="items"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array,System.Collections.IComparer)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+            <param name="comparer"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array,System.Array,System.Collections.IComparer)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+            <param name="items"></param>
+            <param name="comparer"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array,System.Int32,System.Int32,System.Collections.IComparer)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="comparer"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Sort(System.Array,System.Array,System.Int32,System.Int32,System.Collections.IComparer)">
+            <summary>
+            Sort
+            </summary>
+            <param name="array"></param>
+            <param name="items"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="comparer"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.BinarySearch(System.Array,System.Object)">
+            <summary>
+            Binary Search
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.BinarySearch(System.Array,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Binary Search
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.BinarySearch(System.Array,System.Object,System.Collections.IComparer)">
+            <summary>
+            Binary Search
+            </summary>
+            <param name="array"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.BinarySearch(System.Array,System.Int32,System.Int32,System.Object,System.Collections.IComparer)">
+            <summary>
+            Binary Search
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.FindAll``1(``0[],System.Predicate{``0})">
+            <summary>
+            Find all
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="me"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.BlockCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
+            <summary>
+            Block copy
+            </summary>
+            <param name="src"></param>
+            <param name="srcOffset"></param>
+            <param name="dst"></param>
+            <param name="dstOffset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ByteLength(System.Array)">
+            <summary>
+            Gets length of byte.
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.GetByte(System.Array,System.Int32)">
+            <summary>
+            Gets byte
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetByte(System.Array,System.Int32,System.Byte)">
+            <summary>
+            Sets byte
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Max(System.Byte,System.Byte)">
+            <summary>
+            Gets max one.
+            </summary>
+            <param name="val1"></param>
+            <param name="val2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Min(System.Byte,System.Byte)">
+            <summary>
+            Gets min one.
+            </summary>
+            <param name="val1"></param>
+            <param name="val2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Resize(System.Byte[],System.Int32)">
+            <summary>
+            Resize
+            </summary>
+            <param name="this"></param>
+            <param name="newSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToBase64CharArray(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)">
+            <summary>
+            To base64 char array
+            </summary>
+            <param name="inArray"></param>
+            <param name="offsetIn"></param>
+            <param name="length"></param>
+            <param name="outArray"></param>
+            <param name="offsetOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToBase64CharArray(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32,System.Base64FormattingOptions)">
+            <summary>
+            To base64 char array
+            </summary>
+            <param name="inArray"></param>
+            <param name="offsetIn"></param>
+            <param name="length"></param>
+            <param name="outArray"></param>
+            <param name="offsetOut"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToBase64String(System.Byte[])">
+            <summary>
+            Convert byte[] to base64 string
+            </summary>
+            <param name="inArray"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToBase64String(System.Byte[],System.Base64FormattingOptions)">
+            <summary>
+            Convert byte[] to base64 string
+            </summary>
+            <param name="inArray"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToBase64String(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Convert byte[] to base64 string
+            </summary>
+            <param name="inArray"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToBase64String(System.Byte[],System.Int32,System.Int32,System.Base64FormattingOptions)">
+            <summary>
+            Convert byte[] to base64 string.
+            </summary>
+            <param name="inArray"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToMemoryStream(System.Byte[])">
+            <summary>
+            Convert byte[] to <see cref="T:System.IO.MemoryStream"/>
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.GetNumericValue(System.Char)">
+            <summary>
+            Get numeric value
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.GetUnicodeCategory(System.Char)">
+            <summary>
+            Get unicode category
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToLower(System.Char)">
+            <summary>
+            To Lower
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToLower(System.Char,System.Globalization.CultureInfo)">
+            <summary>
+            To Lower
+            </summary>
+            <param name="c"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToLowerInvariant(System.Char)">
+            <summary>
+            To Lower invariant
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsUpper(System.Char)">
+            <summary>
+            Is Upper
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToUpper(System.Char,System.Globalization.CultureInfo)">
+            <summary>
+            To Upper
+            </summary>
+            <param name="c"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToUpperInvariant(System.Char)">
+            <summary>
+            To Upper invariant
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToString(System.Char)">
+            <summary>
+            ToStrng
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ConvertToUtf32(System.Char,System.Char)">
+            <summary>
+            Convert to utf32
+            </summary>
+            <param name="highSurrogate"></param>
+            <param name="lowSurrogate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsSurrogate(System.Char)">
+            <summary>
+            Is Surrogate
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsSurrogatePair(System.Char,System.Char)">
+            <summary>
+            Is Surrogate Pair
+            </summary>
+            <param name="highSurrogate"></param>
+            <param name="lowSurrogate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsHighSurrogate(System.Char)">
+            <summary>
+            Is High Surrogate
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsLowSurrogate(System.Char)">
+            <summary>
+            Is Low Surrogate
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.Repeat(System.Char,System.Int32)">
+            <summary>
+            Repeat
+            </summary>
+            <param name="this"></param>
+            <param name="repeatCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.In(System.Char,System.Char[])">
+            <summary>
+            In
+            </summary>
+            <param name="this"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.NotIn(System.Char,System.Char[])">
+            <summary>
+            Not In
+            </summary>
+            <param name="this"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsWhiteSpace(System.Char)">
+            <summary>
+            Is WhiteSpace
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsControl(System.Char)">
+            <summary>
+            Is Control
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsDigit(System.Char)">
+            <summary>
+            Is Digit
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsLetter(System.Char)">
+            <summary>
+            Is Letter
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsLetterOrDigit(System.Char)">
+            <summary>
+            Is Letter or Digit
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsLower(System.Char)">
+            <summary>
+            Is Lower
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsNumber(System.Char)">
+            <summary>
+            Is Number
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsPunctuation(System.Char)">
+            <summary>
+            Is Punctuation
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsSeparator(System.Char)">
+            <summary>
+            Is Separator
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.IsSymbol(System.Char)">
+            <summary>
+            Is Symbol
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetDateTime(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设置时间
+            </summary>
+            <param name="date"></param>
+            <param name="hours"></param>
+            <param name="minutes"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetDateTime(System.DateTime,System.TimeSpan)">
+            <summary>
+            设置时间
+            </summary>
+            <param name="date"></param>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetDateTime(System.DateTimeOffset,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设置时间
+            </summary>
+            <param name="date"></param>
+            <param name="hours"></param>
+            <param name="minutes"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetDateTime(System.DateTimeOffset,System.TimeSpan)">
+            <summary>
+            设置时间
+            </summary>
+            <param name="date"></param>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetDateTime(System.DateTimeOffset,System.TimeSpan,System.TimeZoneInfo)">
+            <summary>
+            设置时间
+            </summary>
+            <param name="date"></param>
+            <param name="time"></param>
+            <param name="localTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToDateTimeString(System.DateTime,System.Boolean)">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+            <param name="isRemoveSecond">是否移除秒</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToDateTimeString(System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+            <param name="isRemoveSecond">是否移除秒</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToDateString(System.DateTime)">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToDateString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToTimeString(System.DateTime)">
+            <summary>
+            获取格式化字符串，不带年月日，格式："HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，不带年月日，格式："HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToMillisecondString(System.DateTime)">
+            <summary>
+            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToMillisecondString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToDateTimeOffset(System.DateTime)">
+            <summary>
+            将时间转换为时间点
+            </summary>
+            <param name="localDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            将时间转换为时间点
+            </summary>
+            <param name="localDateTime"></param>
+            <param name="localTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToLocalDateTime(System.DateTimeOffset)">
+            <summary>
+            将时间点转换为时间
+            </summary>
+            <param name="dateTimeUtc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
+            <summary>
+            将时间点转换为时间
+            </summary>
+            <param name="dateTimeUtc"></param>
+            <param name="localTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetTime(System.DateTime,System.Int32)">
+            <summary>
+            Set time<br />
+            设置时间
+            </summary>
+            <param name="current"></param>
+            <param name="hour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetTime(System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            Set time<br />
+            设置时间
+            </summary>
+            <param name="current"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetTime(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set time<br />
+            设置时间
+            </summary>
+            <param name="current"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.BaseTypeExtensions.SetTime(System.DateTime,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set time<br />
+            设置时间
+            </summary>
+            <param name="current"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.IO.StreamExtensions">
+            <summary>
+            Stream extensions
+            </summary>
+        </member>
+        <member name="M:System.IO.StreamExtensions.ReadAllBytes(System.IO.Stream)">
+            <summary>
+            Read all bytes
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

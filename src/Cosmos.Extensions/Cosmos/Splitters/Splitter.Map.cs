@@ -4,17 +4,33 @@ using System.Linq;
 
 namespace Cosmos.Splitters
 {
+    /// <summary>
+    /// Splitter<br />
+    /// 字符串分割器
+    /// </summary>
     public partial class Splitter : IMapSplitter
     {
 
         #region TrimResults
 
+        /// <summary>
+        /// Trim results<br />
+        /// 修整结果两端
+        /// </summary>
+        /// <returns></returns>
         IMapSplitter IMapSplitter.TrimResults()
         {
             Options.SetTrimResults(k => k.Trim(), v => v.Trim());
             return this;
         }
 
+        /// <summary>
+        /// Trim results<br />
+        /// 修整结果，按照指定的方法
+        /// </summary>
+        /// <param name="keyTrimFunc"></param>
+        /// <param name="valueTrimFunc"></param>
+        /// <returns></returns>
         IMapSplitter IMapSplitter.TrimResults(Func<string, string> keyTrimFunc, Func<string, string> valueTrimFunc)
         {
             Options.SetTrimResults(keyTrimFunc, valueTrimFunc);
@@ -25,6 +41,12 @@ namespace Cosmos.Splitters
 
         #region Limit
 
+        /// <summary>
+        /// Limit<br />
+        /// 设置限制的值
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <returns></returns>
         IMapSplitter IMapSplitter.Limit(int limit)
         {
             Options.SetLimitLength(limit);
@@ -35,27 +57,91 @@ namespace Cosmos.Splitters
 
         #region Split - KeyValuePair
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
         IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<T>(string originalString, IObjectSerializer serializer)
             => InternalSplitToKeyValuePair(originalString, serializer.Deserialize<T>);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<T>(string originalString, ITypeConverter<string, T> converter)
             => InternalSplitToKeyValuePair(originalString, converter.To);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <param name="originalString"></param>
+        /// <returns></returns>
         IEnumerable<KeyValuePair<string, string>> IMapSplitter.Split(string originalString)
             => InternalSplitToKeyValuePair(originalString, s => s);
 
+        /// <summary>
+        /// Split<br />
+        /// 分割
+        /// </summary>
+        /// <typeparam name="TMiddle"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
         IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
             => InternalSplitToKeyValuePair(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
+        /// <summary>
+        /// Split to dictionary<br />
+        /// 分割为字典
+        /// </summary>
+        /// <param name="originalString"></param>
+        /// <returns></returns>
         public Dictionary<string, string> SplitToDictionary(string originalString)
             => ((IMapSplitter)this).Split(originalString).ToDictionary(k => k.Key, v => v.Value);
 
+        /// <summary>
+        /// Split to dictionary<br />
+        /// 分割为字典
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
         public Dictionary<string, T> SplitToDictionary<T>(string originalString, IObjectSerializer serializer)
             => ((IMapSplitter)this).Split<T>(originalString, serializer).ToDictionary(k => k.Key, v => v.Value);
 
+        /// <summary>
+        /// Split to dictionary<br />
+        /// 分割为字典
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         public Dictionary<string, T> SplitToDictionary<T>(string originalString, ITypeConverter<string, T> converter)
             => ((IMapSplitter)this).Split(originalString, converter).ToDictionary(k => k.Key, v => v.Value);
 
+        /// <summary>
+        /// Split to dictionary<br />
+        /// 分割为字典
+        /// </summary>
+        /// <typeparam name="TMiddle"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalString"></param>
+        /// <param name="serializer"></param>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
         public Dictionary<string, T> SplitToDictionary<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
             => ((IMapSplitter)this).Split<TMiddle, T>(originalString, serializer, mapper).ToDictionary(k => k.Key, v => v.Value);
 

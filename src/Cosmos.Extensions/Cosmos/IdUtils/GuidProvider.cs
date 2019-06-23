@@ -3,10 +3,24 @@ using Cosmos.IdUtils.GuidImplements;
 
 namespace Cosmos.IdUtils
 {
+    /// <summary>
+    /// Guid provider
+    /// </summary>
     public static partial class GuidProvider
     {
+        /// <summary>
+        /// Create random style guid
+        /// </summary>
+        /// <returns></returns>
+        // ReSharper disable once RedundantArgumentDefaultValue
         public static Guid CreateRandom() => Create(GuidStyle.BasicStyle);
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="style"></param>
+        /// <param name="mode"></param>
+        /// <returns></returns>
         public static Guid Create(GuidStyle style = GuidStyle.BasicStyle, NoRepeatMode mode = NoRepeatMode.Off)
         {
             switch (style)
@@ -24,7 +38,7 @@ namespace Cosmos.IdUtils
                 case GuidStyle.UnixTimeStampStyle:
                     return UnixTimeStampStyleProvider.Create(mode);
 
-                case GuidStyle.LrgacySqlTimeStampStyle:
+                case GuidStyle.LegacySqlTimeStampStyle:
                     return mode == NoRepeatMode.On
                         ? CombImplements.InternalCombImplementProxy.LegacyWithNoRepeat.Create()
                         : CombImplements.InternalCombImplementProxy.Legacy.Create();
@@ -57,6 +71,12 @@ namespace Cosmos.IdUtils
             }
         }
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="secureTimestamp"></param>
+        /// <param name="style"></param>
+        /// <returns></returns>
         public static Guid Create(DateTime secureTimestamp, GuidStyle style = GuidStyle.TimeStampStyle)
         {
             switch (style)
@@ -73,7 +93,7 @@ namespace Cosmos.IdUtils
                 case GuidStyle.UnixTimeStampStyle:
                     return UnixTimeStampStyleProvider.Create(secureTimestamp);
 
-                case GuidStyle.LrgacySqlTimeStampStyle:
+                case GuidStyle.LegacySqlTimeStampStyle:
                     return CombImplements.InternalCombImplementProxy.Legacy.Create(secureTimestamp);
 
                 case GuidStyle.SqlTimeStampStyle:
@@ -99,6 +119,12 @@ namespace Cosmos.IdUtils
             }
         }
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="endianGuidBytes"></param>
+        /// <param name="style"></param>
+        /// <returns></returns>
         public static Guid Create(byte[] endianGuidBytes, GuidBytesStyle style)
         {
             switch (style)
@@ -115,6 +141,13 @@ namespace Cosmos.IdUtils
             }
         }
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="namespace"></param>
+        /// <param name="name"></param>
+        /// <param name="version"></param>
+        /// <returns></returns>
         public static Guid Create(Guid @namespace, byte[] name, GuidVersion version)
         {
             switch (version)

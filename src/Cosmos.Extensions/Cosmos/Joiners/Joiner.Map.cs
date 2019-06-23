@@ -9,12 +9,23 @@ namespace Cosmos.Joiners
     {
         #region SkipValueNulls
 
+        /// <summary>
+        /// Skip null<br />
+        /// 跳过 null
+        /// </summary>
+        /// <returns></returns>
         IMapJoiner IMapJoiner.SkipNulls()
         {
             Options.SetSkipValueNulls();
             return this;
         }
 
+        /// <summary>
+        /// Skip null<br />
+        /// 跳过 null
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         IMapJoiner IMapJoiner.SkipNulls(SkipNullType type)
         {
             Options.SetSkipValueNulls(type);
@@ -25,24 +36,56 @@ namespace Cosmos.Joiners
 
         #region UseForNull
 
+        /// <summary>
+        /// If null, then use the special value.<br />
+        /// 如果为 null，则使用指定的值来替代
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         IMapJoiner IMapJoiner.UseForNull(string key, string value)
         {
             Options.SetMapReplace<string, string, string, string>(k => key, s => value);
             return this;
         }
 
+        /// <summary>
+        /// If null, then use the special value.<br />
+        /// 如果为 null，则使用指定的值来替代
+        /// </summary>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <returns></returns>
         IMapJoiner IMapJoiner.UseForNull(Func<string, string> keyFunc, Func<string, string> valueFunc)
         {
             Options.SetMapReplace(keyFunc, valueFunc);
             return this;
         }
 
+        /// <summary>
+        /// If null, then use the special value.<br />
+        /// 如果为 null，则使用指定的值来替代
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         IMapJoiner IMapJoiner.UseForNull<T1, T2>(T1 key, T2 value)
         {
             Options.SetMapReplace<T1, T1, T2, T2>(t => key, t => value);
             return this;
         }
 
+        /// <summary>
+        /// If null, then use the special value.<br />
+        /// 如果为 null，则使用指定的值来替代
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <returns></returns>
         IMapJoiner IMapJoiner.UseForNull<T1, T2>(Func<T1, T1> keyFunc, Func<T2, T2> valueFunc)
         {
             Options.SetMapReplace(keyFunc, valueFunc);
@@ -53,12 +96,23 @@ namespace Cosmos.Joiners
 
         #region FromTuple
 
+        /// <summary>
+        /// Switch to tuple mode<br />
+        /// 切换为 Tuple 模式
+        /// </summary>
+        /// <returns></returns>
         ITupleJoiner IMapJoiner.FromTuple() => this;
 
         #endregion
 
         #region Join - KeyValuePair
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         string IMapJoiner.Join(IEnumerable<string> list)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
@@ -71,6 +125,14 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
         string IMapJoiner.Join(IEnumerable<string> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
@@ -81,6 +143,14 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         string IMapJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
@@ -93,6 +163,16 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         string IMapJoiner.Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
@@ -103,6 +183,14 @@ namespace Cosmos.Joiners
             return middle.JoinToString(_on, JoinerUtils.GetMapPredicate(Options));
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <param name="restStrings"></param>
+        /// <returns></returns>
         string IMapJoiner.Join(string str1, string str2, params string[] restStrings)
         {
             var list = new List<string> { str1, str2 };
@@ -110,6 +198,16 @@ namespace Cosmos.Joiners
             return ((IMapJoiner)this).Join(list);
         }
 
+        /// <summary>
+        /// Join<br />
+        /// 连接
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="converter"></param>
+        /// <param name="t1"></param>
+        /// <param name="t2"></param>
+        /// <param name="restTs"></param>
+        /// <returns></returns>
         string IMapJoiner.Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
         {
             var list = new List<T> { t1, t2 };
@@ -157,6 +255,13 @@ namespace Cosmos.Joiners
 
         #region AppendTo
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <returns></returns>
         StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
@@ -168,6 +273,15 @@ namespace Cosmos.Joiners
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
         StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue)
         {
             var replacer = Options.GetMapReplace<string, string, string, string>();
@@ -177,6 +291,15 @@ namespace Cosmos.Joiners
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <param name="restStrings"></param>
+        /// <returns></returns>
         StringBuilder IMapJoiner.AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings)
         {
             var list = new List<string> { str1, str2 };
@@ -184,6 +307,15 @@ namespace Cosmos.Joiners
             return ((IMapJoiner)this).AppendTo(builder, list);
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
@@ -195,6 +327,17 @@ namespace Cosmos.Joiners
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="list"></param>
+        /// <param name="defaultKey"></param>
+        /// <param name="defaultValue"></param>
+        /// <param name="converter"></param>
+        /// <returns></returns>
         StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
         {
             var replacer = Options.GetMapReplace<T, T, T, T>();
@@ -204,6 +347,17 @@ namespace Cosmos.Joiners
             return builder;
         }
 
+        /// <summary>
+        /// Append to...<br />
+        /// 附加到...
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="converter"></param>
+        /// <param name="t1"></param>
+        /// <param name="t2"></param>
+        /// <param name="restTs"></param>
+        /// <returns></returns>
         StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
         {
             var list = new List<T> { t1, t2 };

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 // ReSharper disable once CheckNamespace
@@ -17,8 +16,14 @@ namespace Cosmos
         /// <returns></returns>
         public static string[] Split(this string @string, string separator) => Regex.Split(@string, separator);
 
+        // ReSharper disable once InconsistentNaming
         private static readonly Regex mSplitWords = new Regex(@"\W+");
 
+        /// <summary>
+        /// Split in words
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static string[] SplitInWords(this string s)
         {
 
@@ -31,6 +36,12 @@ namespace Cosmos
             // \W+    one or more non-word characters together
         }
 
+        /// <summary>
+        /// Split in words longer than...
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="wordlength"></param>
+        /// <returns></returns>
         public static List<string> SplitInWordsLongerThan(this string s, int wordlength)
         {
             var res = new List<string>();
@@ -47,21 +58,43 @@ namespace Cosmos
             return res;
         }
 
+        /// <summary>
+        /// Split in lines
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static string[] SplitInLines(this string s)
         {
             return s.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
         }
 
+        /// <summary>
+        /// Split in lines
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static T[] SplitInLinesTyped<T>(this string s) where T : IComparable
         {
             return SplitTyped<T>(s, Environment.NewLine);
         }
 
+        /// <summary>
+        /// Split in lines and remove empty
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static string[] SplitInLinesRemoveEmptys(this string s)
         {
             return s.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
         }
 
+        /// <summary>
+        /// Split by index
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public static Tuple<string, string> SplitByIndex(this string text, int index)
         {
             if (text.IsNullOrEmpty())
@@ -76,6 +109,12 @@ namespace Cosmos
             return new Tuple<string, string>(text.Substring(0, index - 1), text.Substring(index - 1));
         }
 
+        /// <summary>
+        /// Split words by index
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public static Tuple<string, string> SplitWordsByIndex(this string text, int index)
         {
             var splitByIndex = text.SplitByIndex(index);
@@ -87,6 +126,13 @@ namespace Cosmos
             return res;
         }
 
+        /// <summary>
+        /// Split
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="me"></param>
+        /// <param name="delimiter"></param>
+        /// <returns></returns>
         public static T[] SplitTyped<T>(this string me, char delimiter) where T : IComparable
         {
             if (me.IsNullOrWhiteSpace())
@@ -94,7 +140,7 @@ namespace Cosmos
 
             me = me.Trim();
 
-            var parts = me.Split(new char[] { delimiter }, StringSplitOptions.RemoveEmptyEntries);
+            var parts = me.Split(new[] { delimiter }, StringSplitOptions.RemoveEmptyEntries);
 
             var res = new T[parts.Length];
 
@@ -105,6 +151,13 @@ namespace Cosmos
             return res;
         }
 
+        /// <summary>
+        /// Split
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="me"></param>
+        /// <param name="delimiter"></param>
+        /// <returns></returns>
         public static T[] SplitTyped<T>(this string me, string delimiter) where T : IComparable
         {
             if (me.IsNullOrWhiteSpace())

@@ -3,8 +3,17 @@ using Cosmos.IdUtils.GuidImplements;
 
 namespace Cosmos.IdUtils
 {
+    /// <summary>
+    /// Guid provider
+    /// </summary>
     public static partial class GuidProvider
     {
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="style"></param>
+        /// <param name="mode"></param>
+        /// <returns></returns>
         public static Guid Create(CombStyle style, NoRepeatMode mode = NoRepeatMode.Off)
         {
             switch (style)
@@ -20,7 +29,7 @@ namespace Cosmos.IdUtils
                         ? CombImplements.InternalCombImplementProxy.MsSqlWithNoRepeat.Create()
                         : CombImplements.InternalCombImplementProxy.MsSql.Create();
 
-                case CombStyle.LrgacySqlStyle:
+                case CombStyle.LegacySqlStyle:
                     return mode == NoRepeatMode.On
                         ? CombImplements.InternalCombImplementProxy.LegacyWithNoRepeat.Create()
                         : CombImplements.InternalCombImplementProxy.Legacy.Create();
@@ -35,6 +44,13 @@ namespace Cosmos.IdUtils
             }
         }
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="style"></param>
+        /// <param name="mode"></param>
+        /// <returns></returns>
         public static Guid Create(Guid value, CombStyle style, NoRepeatMode mode = NoRepeatMode.Off)
         {
             switch (style)
@@ -50,7 +66,7 @@ namespace Cosmos.IdUtils
                         ? CombImplements.InternalCombImplementProxy.MsSqlWithNoRepeat.Create(value)
                         : CombImplements.InternalCombImplementProxy.MsSql.Create(value);
 
-                case CombStyle.LrgacySqlStyle:
+                case CombStyle.LegacySqlStyle:
                     return mode == NoRepeatMode.On
                         ? CombImplements.InternalCombImplementProxy.LegacyWithNoRepeat.Create(value)
                         : CombImplements.InternalCombImplementProxy.Legacy.Create(value);
@@ -65,6 +81,12 @@ namespace Cosmos.IdUtils
             }
         }
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="secureTimestamp"></param>
+        /// <param name="style"></param>
+        /// <returns></returns>
         public static Guid Create(DateTime secureTimestamp, CombStyle style)
         {
             switch (style)
@@ -78,7 +100,7 @@ namespace Cosmos.IdUtils
                 case CombStyle.SqlStyle:
                     return CombImplements.InternalCombImplementProxy.MsSql.Create(secureTimestamp);
 
-                case CombStyle.LrgacySqlStyle:
+                case CombStyle.LegacySqlStyle:
                     return CombImplements.InternalCombImplementProxy.Legacy.Create(secureTimestamp);
 
                 case CombStyle.PostgreSqlStyle:
@@ -89,6 +111,13 @@ namespace Cosmos.IdUtils
             }
         }
 
+        /// <summary>
+        /// Create
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="secureTimestamp"></param>
+        /// <param name="style"></param>
+        /// <returns></returns>
         public static Guid Create(Guid value, DateTime secureTimestamp, CombStyle style)
         {
             switch (style)
@@ -102,7 +131,7 @@ namespace Cosmos.IdUtils
                 case CombStyle.SqlStyle:
                     return CombImplements.InternalCombImplementProxy.MsSql.Create(value, secureTimestamp);
 
-                case CombStyle.LrgacySqlStyle:
+                case CombStyle.LegacySqlStyle:
                     return CombImplements.InternalCombImplementProxy.Legacy.Create(value, secureTimestamp);
 
                 case CombStyle.PostgreSqlStyle:

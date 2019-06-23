@@ -12,54 +12,116 @@ using Cosmos.Disposables;
 
 namespace Cosmos.IdUtils
 {
+    /// <summary>
+    /// Snowflake Id worker
+    /// </summary>
     public class SnowflakeIdWorker
     {
         #region Constants
 
-        //基准时间
+        /// <summary>
+        /// 基准时间
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
         public const long TWEPOCH = 1288834974657L;
 
-        //机器标识位数
+        /// <summary>
+        /// 机器标识位数
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once ArrangeTypeMemberModifiers
+        // ReSharper disable once InconsistentNaming
         const int WORKER_ID_BITS = 5;
 
-        //数据标志位数
+        /// <summary>
+        /// 数据标志位数
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once ArrangeTypeMemberModifiers
+        // ReSharper disable once InconsistentNaming
         const int DATA_CENTER_ID_BITS = 5;
 
-        //序列号识位数
+        /// <summary>
+        /// 序列号识位数
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once ArrangeTypeMemberModifiers
+        // ReSharper disable once InconsistentNaming
         const int SEQUENCE_BITS = 12;
 
-        //机器ID最大值
+        /// <summary>
+        /// 机器ID最大值
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once ArrangeTypeMemberModifiers
+        // ReSharper disable once InconsistentNaming
         const long MAX_WORKER_ID = -1L ^ (-1L << WORKER_ID_BITS);
 
-        //数据标志ID最大值
+        /// <summary>
+        /// 数据标志ID最大值
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once ArrangeTypeMemberModifiers
+        // ReSharper disable once InconsistentNaming
         const long MAX_DATA_CENTER_ID = -1L ^ (-1L << DATA_CENTER_ID_BITS);
 
-        //序列号ID最大值
+        /// <summary>
+        /// 序列号ID最大值
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once InconsistentNaming
         private const long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
 
-        //机器ID偏左移12位
+        /// <summary>
+        /// 机器ID偏左移12位
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once InconsistentNaming
         private const int WORKER_ID_SHIFT = SEQUENCE_BITS;
 
-        //数据ID偏左移17位
+        /// <summary>
+        /// 数据ID偏左移17位
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
+        // ReSharper disable once InconsistentNaming
         private const int DATA_CENTER_ID_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS;
 
-        //时间毫秒左移22位
+        /// <summary>
+        /// 时间毫秒左移22位
+        /// </summary>
+        // ReSharper disable once IdentifierTypo
         public const int TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATA_CENTER_ID_BITS;
 
         #endregion
 
+        // ReSharper disable once RedundantDefaultMemberInitializer
         private long _sequence = 0L;
         private long _lastTimestamp = -1L;
 
+        /// <summary>
+        /// Worker Id
+        /// </summary>
         public long WorkerId { get; protected set; }
 
+        /// <summary>
+        /// Data center Id
+        /// </summary>
         public long DataCenterId { get; protected set; }
 
+        /// <summary>
+        /// Sequence
+        /// </summary>
         public long Sequence {
             get => _sequence;
             internal set => _sequence = value;
         }
 
+        /// <summary>
+        /// Create a new <see cref="SnowflakeIdWorker"/> instance.
+        /// </summary>
+        /// <param name="workerId"></param>
+        /// <param name="dataCenterId"></param>
+        /// <param name="sequence"></param>
         public SnowflakeIdWorker(long workerId, long dataCenterId, long sequence = 0L)
         {
             // 如果超出范围就抛出异常
@@ -76,6 +138,10 @@ namespace Cosmos.IdUtils
 
         readonly object _lock = new object();
 
+        /// <summary>
+        /// Next Id
+        /// </summary>
+        /// <returns></returns>
         public virtual long NextId()
         {
             lock (_lock)
@@ -110,7 +176,11 @@ namespace Cosmos.IdUtils
             }
         }
 
-        // 防止产生的时间比之前的时间还要小（由于NTP回拨等问题）,保持增量的趋势.
+        /// <summary>
+        /// 防止产生的时间比之前的时间还要小（由于NTP回拨等问题）,保持增量的趋势.
+        /// </summary>
+        /// <param name="lastTimestamp"></param>
+        /// <returns></returns>
         protected virtual long TilNextMillis(long lastTimestamp)
         {
             var timestamp = TimeGen();
@@ -121,7 +191,10 @@ namespace Cosmos.IdUtils
             return timestamp;
         }
 
-        // 获取当前的时间戳
+        /// <summary>
+        /// 获取当前的时间戳
+        /// </summary>
+        /// <returns></returns>
         protected virtual long TimeGen()
         {
             return TimeExtensions.CurrentTimeMillis();
@@ -136,6 +209,8 @@ namespace Cosmos.IdUtils
                 return _currentTimeFunc();
             }
 
+            // ReSharper disable once UnusedMember.Global
+            // ReSharper disable once UnusedMember.Local
             public static IDisposable StubCurrentTime(Func<long> func)
             {
                 _currentTimeFunc = func;
@@ -146,6 +221,8 @@ namespace Cosmos.IdUtils
                 });
             }
 
+            // ReSharper disable once UnusedMember.Global
+            // ReSharper disable once UnusedMember.Local
             public static IDisposable StubCurrentTime(long millis)
             {
                 _currentTimeFunc = () => millis;
