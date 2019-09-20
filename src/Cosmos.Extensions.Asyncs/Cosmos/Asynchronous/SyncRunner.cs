@@ -5,8 +5,16 @@ using Nito.AsyncEx.Synchronous;
 
 namespace Cosmos.Asynchronous
 {
+    /// <summary>
+    /// Sync runner
+    /// </summary>
     public static class SyncRunner
     {
+        /// <summary>
+        /// For asynchronous calling
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="cancellationToken"></param>
         public static void ForAsynchronousCalling(Task task, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (task == null)
@@ -15,11 +23,23 @@ namespace Cosmos.Asynchronous
             task.WaitAndUnwrapException(cancellationToken);
         }
 
+        /// <summary>
+        /// For asynchronous calling safety
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="cancellationToken"></param>
         public static void ForAsynchronousCallingSafety(Task task, CancellationToken cancellationToken = default(CancellationToken))
         {
             task?.WaitWithoutException(cancellationToken);
         }
 
+        /// <summary>
+        /// From asynchronous calling
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public static TResult FromAsynchronousCalling<TResult>(Task<TResult> task, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (task == null)
@@ -28,11 +48,26 @@ namespace Cosmos.Asynchronous
             return task.WaitAndUnwrapException(cancellationToken);
         }
 
+        /// <summary>
+        /// From asynchronous calling safety
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public static TResult FromAsynchronousCallingSafety<TResult>(Task<TResult> task, CancellationToken cancellationToken = default(CancellationToken))
         {
             return FromAsynchronousCallingSafety(task, default(TResult), cancellationToken);
         }
 
+        /// <summary>
+        /// From asynchronous calling safety
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="defaultValue"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public static TResult FromAsynchronousCallingSafety<TResult>(Task<TResult> task, TResult defaultValue, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (task == null)
