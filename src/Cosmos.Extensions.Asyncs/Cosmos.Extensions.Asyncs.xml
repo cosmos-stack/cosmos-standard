@@ -4,5 +4,161 @@
         <name>Cosmos.Extensions.Asyncs</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Asynchronous.Promise.Promises">
+            <summary>
+            Promises Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.Promise.Promises.Create``1">
+            <summary>
+            Create
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Asynchronous.SyncRunner">
+            <summary>
+            Sync runner
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCalling(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
+            <summary>
+            For asynchronous calling
+            </summary>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafety(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
+            <summary>
+            For asynchronous calling safety
+            </summary>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCalling``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Threading.Tasks.Task{``0},``0,System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="defaultValue"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Extensions.TaskCompletionSourceExtensions">
+            <summary>
+            TaskCompletionSource extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
+            <summary>
+            Try CompleteFromCompletedTask
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="taskCompletionSource"></param>
+            <param name="completedTask"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task})">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <param name="task"></param>
+            <param name="continuationAction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task,System.Object},System.Object)">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <param name="task"></param>
+            <param name="continuationAction"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0})">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="continuationFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,System.Object,``0},System.Object)">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="continuationFunc"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="continuationAction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0},System.Object},System.Object)">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="continuationAction"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},``1})">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TNewResult"></typeparam>
+            <param name="task"></param>
+            <param name="continuationFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},System.Object,``1},System.Object)">
+            <summary>
+            Continue With Synchronously
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TNewResult"></typeparam>
+            <param name="task"></param>
+            <param name="continuationFunc"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.TaskCompletionSourceExtensions.ToCancellationTokenSource(System.Threading.Tasks.Task)">
+            <summary>
+            To CancellationTokenSource
+            </summary>
+            <param name="task"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

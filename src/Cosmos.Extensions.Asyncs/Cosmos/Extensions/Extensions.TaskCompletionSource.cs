@@ -12,10 +12,20 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// TaskCompletionSource extensions
+    /// </summary>
     public static class TaskCompletionSourceExtensions
     {
         #region TryCompleteFromCompletedTask
 
+        /// <summary>
+        /// Try CompleteFromCompletedTask
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="taskCompletionSource"></param>
+        /// <param name="completedTask"></param>
+        /// <returns></returns>
         public static bool TryCompleteFromCompletedTask<TResult>(
             this TaskCompletionSource<TResult> taskCompletionSource,
             Task<TResult> completedTask)
@@ -26,6 +36,7 @@ namespace Cosmos.Extensions
             switch (completedTask.Status)
             {
                 case TaskStatus.Faulted:
+                    // ReSharper disable once PossibleNullReferenceException
                     return taskCompletionSource.TrySetException(completedTask.Exception.InnerExceptions);
 
                 case TaskStatus.Canceled:
@@ -43,6 +54,12 @@ namespace Cosmos.Extensions
 
         #region ContinueWithSynchronously
 
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="continuationAction"></param>
+        /// <returns></returns>
         public static Task ContinueWithSynchronously(this Task task, Action<Task> continuationAction)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -55,6 +72,13 @@ namespace Cosmos.Extensions
                 TaskScheduler.Default);
         }
 
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="continuationAction"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
         public static Task ContinueWithSynchronously(this Task task, Action<Task, object> continuationAction, object state)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -68,6 +92,13 @@ namespace Cosmos.Extensions
                 TaskScheduler.Default);
         }
 
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="continuationFunc"></param>
+        /// <returns></returns>
         public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, TResult> continuationFunc)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -80,6 +111,14 @@ namespace Cosmos.Extensions
                 TaskScheduler.Default);
         }
 
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="continuationFunc"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
         public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, object, TResult> continuationFunc, object state)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -93,6 +132,13 @@ namespace Cosmos.Extensions
                 TaskScheduler.Default);
         }
 
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="continuationAction"></param>
+        /// <returns></returns>
         public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>> continuationAction)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -105,6 +151,14 @@ namespace Cosmos.Extensions
                 TaskScheduler.Default);
         }
 
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="continuationAction"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
         public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>, object> continuationAction, object state)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -118,6 +172,14 @@ namespace Cosmos.Extensions
                 TaskScheduler.Default);
         }
 
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TNewResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="continuationFunc"></param>
+        /// <returns></returns>
         public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, TNewResult> continuationFunc)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -130,7 +192,15 @@ namespace Cosmos.Extensions
                 TaskScheduler.Default);
         }
 
-
+        /// <summary>
+        /// Continue With Synchronously
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TNewResult"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="continuationFunc"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
         public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, object, TNewResult> continuationFunc, object state)
         {
             if (task == null) throw new ArgumentNullException(nameof(task));
@@ -148,6 +218,11 @@ namespace Cosmos.Extensions
 
         #region ToCancellationTokenSource
 
+        /// <summary>
+        /// To CancellationTokenSource
+        /// </summary>
+        /// <param name="task"></param>
+        /// <returns></returns>
         public static CancellationTokenSource ToCancellationTokenSource(this Task task)
         {
             if (task == null)
