@@ -4,14 +4,40 @@ using System.Collections.Generic;
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
+    /// <summary>
+    /// Extensions for dictionary
+    /// </summary>
     public static partial class DictionaryExtensions
     {
-        public static Dictionary<TKey, List<TItem>> GroupByAsDictionary<TItem, TKey>(this IEnumerable<TItem> list, Func<TItem, TKey> keyFunc)
+        /// <summary>
+        /// Group by as dictionary
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="keyFunc"></param>
+        /// <typeparam name="TItem"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
+        public static Dictionary<TKey, List<TItem>> GroupByAsDictionary<TItem, TKey>(
+            this IEnumerable<TItem> list,
+            Func<TItem, TKey> keyFunc)
         {
             return GroupByAsDictionary(list, keyFunc, x => x);
         }
 
-        public static Dictionary<TKey, List<TValue>> GroupByAsDictionary<TItem, TKey, TValue>(this IEnumerable<TItem> list, Func<TItem, TKey> keyFunc, Func<TItem, TValue> valueFunc)
+        /// <summary>
+        /// Group by as dictionary
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <typeparam name="TItem"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
+        public static Dictionary<TKey, List<TValue>> GroupByAsDictionary<TItem, TKey, TValue>(
+            this IEnumerable<TItem> list,
+            Func<TItem, TKey> keyFunc,
+            Func<TItem, TValue> valueFunc)
         {
             var res = new Dictionary<TKey, List<TValue>>();
 
@@ -32,7 +58,20 @@ namespace Cosmos
             return res;
         }
 
-        public static Dictionary<TKey1, Dictionary<TKey2, List<TItem>>> GroupByAsDictionaryOfDictionaries<TItem, TKey1, TKey2>(this IEnumerable<TItem> list, Func<TItem, TKey1> keyFunc1, Func<TItem, TKey2> keyFunc2)
+        /// <summary>
+        /// Group by dictionary of dictonaries
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="keyFunc1"></param>
+        /// <param name="keyFunc2"></param>
+        /// <typeparam name="TItem"></typeparam>
+        /// <typeparam name="TKey1"></typeparam>
+        /// <typeparam name="TKey2"></typeparam>
+        /// <returns></returns>
+        public static Dictionary<TKey1, Dictionary<TKey2, List<TItem>>> GroupByAsDictionaryOfDictionaries<TItem, TKey1, TKey2>(
+            this IEnumerable<TItem> list,
+            Func<TItem, TKey1> keyFunc1,
+            Func<TItem, TKey2> keyFunc2)
         {
             var res = new Dictionary<TKey1, Dictionary<TKey2, List<TItem>>>();
 
@@ -59,7 +98,20 @@ namespace Cosmos
             return res;
         }
 
-        public static Dictionary<TKey, HashSet<TValue>> GroupByAsDictionaryHash<TItem, TKey, TValue>(this IEnumerable<TItem> list, Func<TItem, TKey> keyFunc, Func<TItem, TValue> valueFunc)
+        /// <summary>
+        /// Group by as dictionary hash
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="keyFunc"></param>
+        /// <param name="valueFunc"></param>
+        /// <typeparam name="TItem"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
+        public static Dictionary<TKey, HashSet<TValue>> GroupByAsDictionaryHash<TItem, TKey, TValue>(
+            this IEnumerable<TItem> list,
+            Func<TItem, TKey> keyFunc,
+            Func<TItem, TValue> valueFunc)
         {
             var res = new Dictionary<TKey, HashSet<TValue>>();
 

@@ -6,10 +6,13 @@ using System.Text;
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// Extensions of collection
+    /// </summary>
     public static partial class Extensions
     {
         /// <summary>
-        /// 添加或覆盖一个值
+        /// Add or override
         /// </summary>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
@@ -22,7 +25,7 @@ namespace Cosmos.Extensions
         }
 
         /// <summary>
-        /// 从字典中获取数据。若不存在，则向字典中添加一个 <see cref="TValue"/> 新实例并返回该实例。
+        /// Get or add new default instance
         /// </summary>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
@@ -41,7 +44,7 @@ namespace Cosmos.Extensions
         }
 
         /// <summary>
-        /// 从字典中获取数据。若不存在，则通过 <see cref="newValueCreator"/> 获得新值插入字典并返回该值。
+        /// Get or add
         /// </summary>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
@@ -59,7 +62,7 @@ namespace Cosmos.Extensions
         }
 
         /// <summary>
-        /// 从字典中获取数据。若不存在，则将指定的新值插入字典并返回该值。
+        /// Get or add
         /// </summary>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
@@ -76,7 +79,7 @@ namespace Cosmos.Extensions
         }
 
         /// <summary>
-        /// 从字典中获取数据。若不存在，则通过 <see cref="valueCalculator"/> 获得新值并返回，新值不会更新到字典内。
+        /// Get value
         /// </summary>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
@@ -93,7 +96,29 @@ namespace Cosmos.Extensions
         }
 
         /// <summary>
-        /// 从字典中获取数据。若不存在，则返回 <see cref="TValue"/> 的默认值，该默认值不会写入字典。
+        /// Get value
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="key"></param>
+        /// <param name="valueCalculator"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static TValue GetOrAddCalculatedInstance<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator)
+        {
+            if (dictionary == null)
+                throw new ArgumentNullException(nameof(dictionary));
+
+            if (dictionary.TryGetValue(key, out var res))
+                return res;
+
+            res = valueCalculator(key);
+            return dictionary[key] = res;
+        }
+
+        /// <summary>
+        /// Get value
         /// </summary>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
@@ -105,6 +130,13 @@ namespace Cosmos.Extensions
             return dictionary != null && dictionary.TryGetValue(key, out var res) ? res : default;
         }
 
+        /// <summary>
+        /// Add dictionary into another dictionary
+        /// </summary>
+        /// <param name="me"></param>
+        /// <param name="other"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TVal"></typeparam>
         public static void AddDictionary<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other)
         {
             foreach (var src in other)
@@ -113,6 +145,14 @@ namespace Cosmos.Extensions
             }
         }
 
+        /// <summary>
+        /// Set value
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
         public static void Set<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
 

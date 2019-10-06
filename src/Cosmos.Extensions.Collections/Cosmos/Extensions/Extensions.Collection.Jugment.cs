@@ -5,6 +5,9 @@ using Cosmos.Judgments;
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// Extensions of collection
+    /// </summary>
    public static class CollectionJudgmentExtensions
     {
         /// <summary>

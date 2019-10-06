@@ -3,8 +3,18 @@
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
+    /// <summary>
+    /// Extensions of list
+    /// </summary>
     public static partial class ListExtensions
     {
+        /// <summary>
+        /// Split in groups
+        /// </summary>
+        /// <param name="values"></param>
+        /// <param name="groupSize"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static IEnumerable<List<TSource>> SplitInGroups<TSource>(this IEnumerable<TSource> values, int groupSize)
         {
             if (values is List<TSource> asList && asList.Count <= groupSize)
@@ -29,6 +39,13 @@ namespace Cosmos
                 yield return currentList;
         }
 
+        /// <summary>
+        /// Split in groups remove duplicates
+        /// </summary>
+        /// <param name="values"></param>
+        /// <param name="groupSize"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static List<List<TSource>> SplitInGroupsRemovingDuplicates<TSource>(this IEnumerable<TSource> values, int groupSize)
         {
             var res = new List<List<TSource>>();
