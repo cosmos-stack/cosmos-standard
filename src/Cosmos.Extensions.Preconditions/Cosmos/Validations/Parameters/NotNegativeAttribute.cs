@@ -6,11 +6,23 @@ using Cosmos.Validations.Parameters.Internals;
 
 namespace Cosmos.Validations.Parameters
 {
+    /// <summary>
+    /// Not negative
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotNegativeAttribute : ParameterInterceptorAttribute
+    public class NotNegativeAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
+        /// <summary>
+        /// Message
+        /// </summary>
         public string Message { get; set; }
 
+        /// <summary>
+        /// Invoke
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="next"></param>
+        /// <returns></returns>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsIntType())
