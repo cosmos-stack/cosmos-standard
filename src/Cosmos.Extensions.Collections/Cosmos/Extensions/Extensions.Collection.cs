@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// Extensions of collection
+    /// </summary>
     public static partial class Extensions
     {
         /// <summary>

@@ -5,20 +5,42 @@ using System.Linq;
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
+    /// <summary>
+    /// Extensions of list
+    /// </summary>
     public static partial class ListExtensions
     {
+        /// <summary>
+        /// Select distinct sorted
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="valCalculator"></param>
+        /// <typeparam name="TObj"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static List<TResult> SelectDistinctSorted<TObj, TResult>(this IList<TObj> list, Func<TObj, TResult> valCalculator)
         {
             var res = new SortedList<TResult, TResult>(list.Count);
             return SelectDistinctSortedInternal(list, res, valCalculator);
         }
 
+        /// <summary>
+        /// Select distinct sorted ignore case
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public static List<string> SelectDistinctSortedIgnoreCase(this IList<string> list)
         {
             var res = new SortedList<string, string>(list.Count, StringComparer.OrdinalIgnoreCase);
             return SelectDistinctSortedInternal(list, res, str => str);
         }
 
+        /// <summary>
+        /// Select distinct sorted ignore case
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="valCalculator"></param>
+        /// <returns></returns>
         public static List<string> SelectDistinctSortedIgnoreCase(this IList<string> list, Func<string, string> valCalculator)
         {
             var res = new SortedList<string, string>(list.Count, StringComparer.OrdinalIgnoreCase);
@@ -37,6 +59,14 @@ namespace Cosmos
             return check.Values.ToList();
         }
 
+        /// <summary>
+        /// Select distinct un-sorted
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="valCalculator"></param>
+        /// <typeparam name="TObj"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static List<TResult> SelectDistinctUnSorted<TObj, TResult>(this IList<TObj> list, Func<TObj, TResult> valCalculator)
         {
             var res = new List<TResult>();

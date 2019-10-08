@@ -5,8 +5,17 @@ using System.Linq;
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
+    /// <summary>
+    /// Extensions for dictionary
+    /// </summary>
     public static partial class DictionaryExtensions
     {
+        /// <summary>
+        /// Select distinct sorted
+        /// </summary>
+        /// <param name="list"></param>
+        /// <typeparam name="TObj"></typeparam>
+        /// <returns></returns>
         public static List<TObj> SelectDistinctSorted<TObj>(this IList<TObj> list) where TObj : IComparable
         {
             var res = new SortedList<TObj, TObj>(list.Count);

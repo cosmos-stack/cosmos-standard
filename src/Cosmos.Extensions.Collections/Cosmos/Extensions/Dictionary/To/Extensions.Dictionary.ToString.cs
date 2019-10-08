@@ -4,8 +4,20 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace Cosmos
 {
+    /// <summary>
+    /// Extensions for dictionary
+    /// </summary>
     public static partial class DictionaryExtensions
     {
+        /// <summary>
+        /// To string
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="linker"></param>
+        /// <param name="separator"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
         public static string ToString<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, string linker, string separator)
         {
             if (dictionary == null) return string.Empty;
