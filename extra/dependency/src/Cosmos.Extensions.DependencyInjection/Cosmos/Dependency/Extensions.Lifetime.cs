@@ -2,8 +2,16 @@
 
 namespace Cosmos.Dependency
 {
+    /// <summary>
+    /// Lifetime extensions
+    /// </summary>
     public static class LifetimeExtensions
     {
+        /// <summary>
+        /// To Microsoft Lifetime
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static ServiceLifetime ToMsLifetime(this RegisterProxyLifetimeType type)
         {
             switch (type)

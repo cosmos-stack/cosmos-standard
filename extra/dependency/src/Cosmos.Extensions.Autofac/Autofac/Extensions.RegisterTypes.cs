@@ -3,8 +3,18 @@ using Cosmos.Dependency;
 
 namespace Autofac
 {
+    /// <summary>
+    /// Extensions for Autofac
+    /// </summary>
     public static class RegisterTypesExtensions
     {
+        /// <summary>
+        /// Register Proxy
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="bag"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static ContainerBuilder RegisterProxy(this ContainerBuilder services, RegisterProxyBag bag)
         {
             if (services == null)

@@ -3,8 +3,18 @@ using Cosmos.Dependency;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
+    /// <summary>
+    /// Extensions for Dependency Injection
+    /// </summary>
     public static class DependencyInjectionExtensions
     {
+        /// <summary>
+        /// Add Register Proxy
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="bag"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IServiceCollection AddRegisterProxy(this IServiceCollection services, RegisterProxyBag bag)
         {
             if (services == null)

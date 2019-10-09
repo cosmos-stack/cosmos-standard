@@ -2,8 +2,16 @@
 
 namespace Cosmos.Dependency
 {
+    /// <summary>
+    /// Extensions for lifetime
+    /// </summary>
     public static class LifetimeExtensions
     {
+        /// <summary>
+        /// To NCC AspectCore lifetime
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static Lifetime ToAspectCoreLifetime(this RegisterProxyLifetimeType type)
         {
             switch (type)
