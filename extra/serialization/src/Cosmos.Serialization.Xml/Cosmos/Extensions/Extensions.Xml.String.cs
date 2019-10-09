@@ -4,6 +4,9 @@ using Cosmos.Xml;
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// Xml extensions
+    /// </summary>
     public static partial class XmlExtensions
     {
         /// <summary>

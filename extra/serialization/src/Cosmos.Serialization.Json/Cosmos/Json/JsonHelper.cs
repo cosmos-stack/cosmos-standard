@@ -16,8 +16,21 @@ using NodaTime.Serialization.JsonNet;
 
 namespace Cosmos.Json
 {
+    /// <summary>
+    /// Newtonsoft Json Helper
+    /// </summary>
     public static class JsonHelper
     {
+        /// <summary>
+        /// Serialize
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="serializeFields"></param>
+        /// <param name="toLowerCamel"></param>
+        /// <param name="dateTimeFormat"></param>
+        /// <param name="withNodaTime"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static string Serialize<T>(T o, IEnumerable<string> serializeFields = null,
             bool toLowerCamel = false, string dateTimeFormat = null, bool withNodaTime = false)
         {
@@ -26,6 +39,17 @@ namespace Cosmos.Json
             return Serialize(o, settings, serializeFields, toLowerCamel, dateTimeFormat);
         }
 
+        /// <summary>
+        /// Serialize
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="settings"></param>
+        /// <param name="serializeFields"></param>
+        /// <param name="toLowerCamel"></param>
+        /// <param name="dateTimeFormat"></param>
+        /// <param name="withNodaTime"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static string Serialize<T>(T o, JsonSerializerSettings settings, IEnumerable<string> serializeFields = null,
             bool toLowerCamel = false, string dateTimeFormat = null, bool withNodaTime = false)
         {
@@ -38,6 +62,13 @@ namespace Cosmos.Json
             return JsonConvert.SerializeObject(o, settings);
         }
 
+        /// <summary>
+        /// Deserialize
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="withNodaTime"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T Deserialize<T>(string json, bool withNodaTime = false)
         {
             var settings = new JsonSerializerSettings();
@@ -45,6 +76,13 @@ namespace Cosmos.Json
             return string.IsNullOrWhiteSpace(json) ? default(T) : JsonConvert.DeserializeObject<T>(json, settings);
         }
 
+        /// <summary>
+        /// Deserialize
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="type"></param>
+        /// <param name="withNodaTime"></param>
+        /// <returns></returns>
         public static object Deserialize(string json, Type type, bool withNodaTime = false)
         {
             var settings = new JsonSerializerSettings();
@@ -52,6 +90,14 @@ namespace Cosmos.Json
             return string.IsNullOrWhiteSpace(json) ? null : JsonConvert.DeserializeObject(json, settings);
         }
 
+        /// <summary>
+        /// Deserialize
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="settings"></param>
+        /// <param name="withNodaTime"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T Deserialize<T>(string json, JsonSerializerSettings settings, bool withNodaTime = false)
         {
             settings = settings ?? new JsonSerializerSettings();
@@ -59,6 +105,14 @@ namespace Cosmos.Json
             return string.IsNullOrWhiteSpace(json) ? default(T) : JsonConvert.DeserializeObject<T>(json, settings);
         }
 
+        /// <summary>
+        /// Deserialize
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="settings"></param>
+        /// <param name="type"></param>
+        /// <param name="withNodaTime"></param>
+        /// <returns></returns>
         public static object Deserialize(string json, JsonSerializerSettings settings, Type type, bool withNodaTime = false)
         {
             settings = settings ?? new JsonSerializerSettings();

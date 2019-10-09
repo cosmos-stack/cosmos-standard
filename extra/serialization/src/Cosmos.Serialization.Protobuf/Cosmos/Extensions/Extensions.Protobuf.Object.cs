@@ -1,4 +1,5 @@
-﻿using Cosmos.Protobuf;
+﻿using System;
+using Cosmos.Protobuf;
 
 /*
  * Reference to:
@@ -10,11 +11,31 @@
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// ProtoBuf extensions
+    /// </summary>
     public static partial class Extensions
     {
+        /// <summary>
+        /// To ProtoBuf
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static byte[] ToProtoBuf<T>(this T obj)
         {
-            return ProtobufHelper.Serialize(obj);
+            return ProtoBufHelper.Serialize(obj);
+        }
+
+        /// <summary>
+        /// To ProtoBuf
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static byte[] ToProtoBuf(this object obj, Type type)
+        {
+            return ProtoBufHelper.Serialize(obj, type);
         }
     }
 }

@@ -45,9 +45,7 @@ namespace Cosmos.Json
         }
 
         protected override string ResolvePropertyName(string propertyName)
-        {
-            return _toLowerCaseCamel ? GetCamelCaseName(propertyName) : propertyName;
-        }
+            => _toLowerCaseCamel ? GetCamelCaseName(propertyName) : propertyName;
 
         private static string GetCamelCaseName(string s)
         {

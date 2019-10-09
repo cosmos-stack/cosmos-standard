@@ -3,12 +3,18 @@ using Cosmos.Protobuf;
 
 namespace Cosmos
 {
-    public class ProtobufObjectSerializer : IObjectSerializer<byte[]>
+    /// <summary>
+    /// ProtoBuf serializer
+    /// </summary>
+    public class ProtoBufObjectSerializer : IObjectSerializer<byte[]>
     {
-        public byte[] Serialize<T>(T o) => ProtobufHelper.Serialize(o);
+        /// <inheritdoc />
+        public byte[] Serialize<T>(T o) => ProtoBufHelper.Serialize(o);
 
-        public T Deserialize<T>(byte[] json) => ProtobufHelper.Deserialize<T>(json);
+        /// <inheritdoc />
+        public T Deserialize<T>(byte[] json) => ProtoBufHelper.Deserialize<T>(json);
 
-        public object Deserialize(byte[] json, Type type) => ProtobufHelper.Deserialize(json, type);
+        /// <inheritdoc />
+        public object Deserialize(byte[] json, Type type) => ProtoBufHelper.Deserialize(json, type);
     }
 }
