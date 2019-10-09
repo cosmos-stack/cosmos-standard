@@ -3,8 +3,18 @@ using Cosmos.Domain.EntityDescriptors;
 
 namespace Cosmos.Domain.Extensions
 {
+    /// <summary>
+    /// Entry extensions
+    /// </summary>
     public static class EntityExtensions
     {
+        /// <summary>
+        /// Append created time
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static TEntity AppendCreatedTime<TEntity, TKey>(this TEntity entity) where TEntity : EntityBase<TEntity, TKey>
         {
             // ReSharper disable once SuspiciousTypeConversion.Global
@@ -15,7 +25,15 @@ namespace Cosmos.Domain.Extensions
             return entity;
         }
 
-        public static TEntity AppendCreatingAduitedInfo<TEntity, TKey>(this TEntity entity, string deleteOperatorId) where TEntity : EntityBase<TEntity, TKey>
+        /// <summary>
+        /// Append creating audited info
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="deleteOperatorId"></param>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
+        public static TEntity AppendCreatingAuditedInfo<TEntity, TKey>(this TEntity entity, string deleteOperatorId) where TEntity : EntityBase<TEntity, TKey>
         {
             // ReSharper disable once SuspiciousTypeConversion.Global
             if (!(entity is ICreatingAudited target)) return entity;
@@ -27,7 +45,15 @@ namespace Cosmos.Domain.Extensions
             return entity;
         }
 
-        public static TEntity AppendUpdatingAduitedInfo<TEntity, TKey>(this TEntity entity, string deleteOperatorId) where TEntity : EntityBase<TEntity, TKey>
+        /// <summary>
+        /// Append creating audited info
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="deleteOperatorId"></param>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
+        public static TEntity AppendUpdatingAuditedInfo<TEntity, TKey>(this TEntity entity, string deleteOperatorId) where TEntity : EntityBase<TEntity, TKey>
         {
             // ReSharper disable once SuspiciousTypeConversion.Global
             if (!(entity is IUpdatingAudited target)) return entity;
@@ -39,6 +65,15 @@ namespace Cosmos.Domain.Extensions
             return entity;
         }
 
+        /// <summary>
+        /// Append deleted info
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="optType"></param>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public static TEntity AppendDeletedInfo<TEntity, TKey>(this TEntity entity, DeleteOperationTypes optType) where TEntity : EntityBase<TEntity, TKey>
         {
             // ReSharper disable once SuspiciousTypeConversion.Global

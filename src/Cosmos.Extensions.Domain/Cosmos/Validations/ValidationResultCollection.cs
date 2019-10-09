@@ -8,12 +8,18 @@ using FluentValidation.Results;
 
 namespace Cosmos.Validations
 {
+    /// <summary>
+    /// Validation result collection
+    /// </summary>
     public class ValidationResultCollection : IValidationResult
     {
         private const string UNAMED = "unamed";
         private readonly List<ValidationResult> _results;
         private readonly IDictionary<string, List<ValidationResult>> _resultsFlagedByStrategy;
 
+        /// <summary>
+        /// Create a new instance of <see cref="ValidationResultCollection"/>.
+        /// </summary>
         public ValidationResultCollection()
         {
             _results = new List<ValidationResult>();
@@ -21,6 +27,11 @@ namespace Cosmos.Validations
             UpdateResultFlagedByStrategy(UNAMED, new List<ValidationResult>());
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="ValidationResultCollection"/>.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ValidationResultCollection(ValidationResult result) : this()
         {
             if (result == null)
@@ -29,6 +40,12 @@ namespace Cosmos.Validations
             UpdateResultFlagedByStrategy(UNAMED, result);
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="ValidationResultCollection"/>.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="strategyName"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ValidationResultCollection(ValidationResult result, string strategyName) : this()
         {
             if (result == null)
@@ -37,6 +54,11 @@ namespace Cosmos.Validations
             UpdateResultFlagedByStrategy(strategyName, result);
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="ValidationResultCollection"/>.
+        /// </summary>
+        /// <param name="results"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ValidationResultCollection(IEnumerable<ValidationResult> results) : this()
         {
             if (results == null)
@@ -45,6 +67,12 @@ namespace Cosmos.Validations
             UpdateResultFlagedByStrategy(UNAMED, results.ToList());
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="ValidationResultCollection"/>.
+        /// </summary>
+        /// <param name="results"></param>
+        /// <param name="strategyName"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ValidationResultCollection(IEnumerable<ValidationResult> results, string strategyName) : this()
         {
             if (results == null)
@@ -53,6 +81,11 @@ namespace Cosmos.Validations
             UpdateResultFlagedByStrategy(strategyName, results.ToList());
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="ValidationResultCollection"/>.
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ValidationResultCollection(ValidationResultCollection collection) : this()
         {
             if (collection == null)
@@ -64,14 +97,19 @@ namespace Cosmos.Validations
             UpdateResultFlagedByStrategy(collection);
         }
 
+        /// <inheritdoc />
         public int Count => _results.Select(x => x.Errors.Count).Sum();
 
+        /// <inheritdoc />
         public bool IsValid => _results.All(result => result.IsValid);
 
+        /// <inheritdoc />
         public long ErrorCode { get; set; } = 1001;
 
+        /// <inheritdoc />
         public string Flag { get; set; } = "__EMPTY_FLG";
 
+        /// <inheritdoc />
         public void Add(ValidationResult result)
         {
             if (result == null)
@@ -79,6 +117,7 @@ namespace Cosmos.Validations
             _results.Add(result);
         }
 
+        /// <inheritdoc />
         public void AddRange(IEnumerable<ValidationResult> results)
         {
             if (results == null)
@@ -86,6 +125,7 @@ namespace Cosmos.Validations
             _results.AddRange(results);
         }
 
+        /// <inheritdoc />
         public string ToMessage()
         {
             if (IsValid)
@@ -109,6 +149,7 @@ namespace Cosmos.Validations
             return sb;
         }
 
+        /// <inheritdoc />
         public IEnumerator<ValidationResult> GetEnumerator()
         {
             return _results.GetEnumerator();
@@ -119,6 +160,7 @@ namespace Cosmos.Validations
             return GetEnumerator();
         }
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return ToMessage();

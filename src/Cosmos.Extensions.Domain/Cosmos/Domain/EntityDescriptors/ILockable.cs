@@ -5,6 +5,9 @@ namespace Cosmos.Domain.EntityDescriptors
     /// </summary>
     public interface ILockable
     {
-        bool IsLocaked { get; set; }
+        /// <summary>
+        /// Is locked
+        /// </summary>
+        bool IsLocked { get; set; }
     }
 }

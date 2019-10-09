@@ -7,6 +7,9 @@ namespace Cosmos.Domain.EntityDescriptors
     /// </summary>
     public interface ICreatedTime
     {
+        /// <summary>
+        /// Created time
+        /// </summary>
         DateTime CreatedTime { get; set; }
     }
 }

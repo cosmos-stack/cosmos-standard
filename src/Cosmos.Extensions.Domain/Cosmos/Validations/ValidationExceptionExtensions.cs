@@ -4,8 +4,19 @@ using Cosmos.Validations.Abstractions;
 
 namespace Cosmos.Validations
 {
+    /// <summary>
+    /// Validation exception extensions
+    /// </summary>
     public static class ValidationExceptionExtensions
     {
+        /// <summary>
+        /// To exception
+        /// </summary>
+        /// <param name="resultCollection"></param>
+        /// <param name="appendAction"></param>
+        /// <typeparam name="TException"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static TException ToException<TException>(this ValidationResultCollection resultCollection,
             Action<TException, ValidationResultCollection> appendAction = null)
             where TException : CosmosException, new()
@@ -22,6 +33,15 @@ namespace Cosmos.Validations
             return exception;
         }
 
+        /// <summary>
+        /// To exception
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="appendAction"></param>
+        /// <typeparam name="TException"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static TException ToException<TException>(
             this IValidationResult result,
             Action<TException, ValidationResultCollection> appendAction = null)
@@ -52,6 +72,12 @@ namespace Cosmos.Validations
             return exception;
         }
 
+        /// <summary>
+        /// Taise exception
+        /// </summary>
+        /// <param name="resultCollection"></param>
+        /// <param name="appendAction"></param>
+        /// <typeparam name="TException"></typeparam>
         public static void RaiseException<TException>(this ValidationResultCollection resultCollection,
             Action<TException, ValidationResultCollection> appendAction = null)
             where TException : CosmosException, new()
