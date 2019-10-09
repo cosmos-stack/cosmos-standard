@@ -17,28 +17,68 @@ using ProtoBuf;
 
 namespace Cosmos.Http.HttpUtils
 {
+    /// <summary>
+    /// Http Send Extensions
+    /// </summary>
     public static class HttpSendExtensions
     {
+        /// <summary>
+        /// Send content
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
         public static IRequestBuilder SendContent(this IRequestBuilder builder, HttpContent content)
         {
             builder.Message.Content = content;
             return builder;
         }
 
+        /// <summary>
+        /// Send from
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="form"></param>
+        /// <returns></returns>
         public static IRequestBuilder SendForm(this IRequestBuilder builder, NameValueCollection form)
             => SendContent(builder, new FormUrlEncodedContent(form.AllKeys.ToDictionary(k => k, v => form[v])));
 
+        /// <summary>
+        /// Send html
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="html"></param>
+        /// <returns></returns>
         public static IRequestBuilder SendHtml(this IRequestBuilder builder, string html)
             => SendContent(builder, new StringContent(html, Encoding.UTF8, "text/html"));
 
+        /// <summary>
+        /// Send plain text
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static IRequestBuilder SendPlaintext(this IRequestBuilder builder, string text)
             => SendContent(builder, new StringContent(text, Encoding.UTF8, "application/x-www-form-urlencoded"));
 
         #region JSON
 
+        /// <summary>
+        /// Send json
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static IRequestBuilder SendJson(this IRequestBuilder builder, object obj)
             => SendJson(builder, obj, Options.Default);
 
+        /// <summary>
+        /// Send json
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="obj"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public static IRequestBuilder SendJson(this IRequestBuilder builder, object obj, Options options)
             => builder.SendContent(new StringContent(JSON.Serialize(obj, options), Encoding.UTF8, "application/json"));
 
@@ -46,6 +86,12 @@ namespace Cosmos.Http.HttpUtils
 
         #region Protobuf
 
+        /// <summary>
+        /// Send ProtoBuf
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static IRequestBuilder SendProtobuf(this IRequestBuilder builder, object obj)
         {
             using (var output = new MemoryStream())
@@ -64,5 +110,6 @@ namespace Cosmos.Http.HttpUtils
         }
 
         #endregion
+
     }
 }

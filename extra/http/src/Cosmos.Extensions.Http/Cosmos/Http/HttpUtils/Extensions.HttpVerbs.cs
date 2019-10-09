@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Http.HttpUtils
 {
+    /// <summary>
+    /// Http Verbs Extensions
+    /// </summary>
     public static class HttpVerbsExtensions
     {
         /// <summary>
@@ -22,7 +25,7 @@ namespace Cosmos.Http.HttpUtils
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public static Task<HttpCallResponse<T>> DeleteAsync<T>(this IRequestBuilder<T> builder, CancellationToken cancellationToken = default)
-            => StackHttp.SendAsync(builder, HttpMethod.Delete, cancellationToken);
+            => FluentHttp.SendAsync(builder, HttpMethod.Delete, cancellationToken);
 
         /// <summary>
         /// Issue the request as a GET
@@ -32,7 +35,7 @@ namespace Cosmos.Http.HttpUtils
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public static Task<HttpCallResponse<T>> GetAsync<T>(this IRequestBuilder<T> builder, CancellationToken cancellationToken = default)
-            => StackHttp.SendAsync(builder, HttpMethod.Get, cancellationToken);
+            => FluentHttp.SendAsync(builder, HttpMethod.Get, cancellationToken);
 
         /// <summary>
         /// Issue the request as a POST
@@ -42,7 +45,7 @@ namespace Cosmos.Http.HttpUtils
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public static Task<HttpCallResponse<T>> PostAsync<T>(this IRequestBuilder<T> builder, CancellationToken cancellationToken = default)
-            => StackHttp.SendAsync(builder, HttpMethod.Post, cancellationToken);
+            => FluentHttp.SendAsync(builder, HttpMethod.Post, cancellationToken);
 
         /// <summary>
         /// Issue the request as a PUT
@@ -52,6 +55,6 @@ namespace Cosmos.Http.HttpUtils
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public static Task<HttpCallResponse<T>> PutAsync<T>(this IRequestBuilder<T> builder, CancellationToken cancellationToken = default)
-            => StackHttp.SendAsync(builder, HttpMethod.Put, cancellationToken);
+            => FluentHttp.SendAsync(builder, HttpMethod.Put, cancellationToken);
     }
 }

@@ -16,40 +16,80 @@ using Cosmos.Http.HttpUtils.Internals;
 
 namespace Cosmos.Http.HttpUtils
 {
+    /// <summary>
+    /// Http Modifier Extensions
+    /// </summary>
     public static class HttpModifierExtensions
     {
+        /// <summary>
+        /// With timeout
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="timeout"></param>
+        /// <returns></returns>
         public static IRequestBuilder WithTimeout(this IRequestBuilder builder, TimeSpan timeout)
         {
             builder.Timeout = timeout;
             return builder;
         }
 
+        /// <summary>
+        /// Without error logging
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public static IRequestBuilder WithoutErrorLogging(this IRequestBuilder builder)
         {
             builder.LogErrors = false;
             return builder;
         }
 
+        /// <summary>
+        /// Without logging
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="ignoredStatusCodes"></param>
+        /// <returns></returns>
         public static IRequestBuilder WithoutLogging(this IRequestBuilder builder, IEnumerable<HttpStatusCode> ignoredStatusCodes)
         {
             builder.IgnoreResponseStatuses = ignoredStatusCodes;
             return builder;
         }
 
-        private static readonly ConcurrentDictionary<HttpStatusCode, ImmutableHashSet<HttpStatusCode>> _ignoreCache = new ConcurrentDictionary<HttpStatusCode, ImmutableHashSet<HttpStatusCode>>();
+        private static readonly ConcurrentDictionary<HttpStatusCode, ImmutableHashSet<HttpStatusCode>> _ignoreCache =
+            new ConcurrentDictionary<HttpStatusCode, ImmutableHashSet<HttpStatusCode>>();
 
+        /// <summary>
+        /// Without logging
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="ignoredStatusCode"></param>
+        /// <returns></returns>
         public static IRequestBuilder WithoutLogging(this IRequestBuilder builder, HttpStatusCode ignoredStatusCode)
         {
             builder.IgnoreResponseStatuses = _ignoreCache.GetOrAdd(ignoredStatusCode, ImmutableHashSet.Create);
             return builder;
         }
 
+        /// <summary>
+        /// On exception
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="beforeLogHandler"></param>
+        /// <returns></returns>
         public static IRequestBuilder OnException(this IRequestBuilder builder, EventHandler<HttpExceptionArgs> beforeLogHandler)
         {
             builder.BeforeExceptionLog += beforeLogHandler;
             return builder;
         }
 
+        /// <summary>
+        /// Add header
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static IRequestBuilder AddHeader(this IRequestBuilder builder, string name, string value)
         {
             if (!string.IsNullOrEmpty(name))
@@ -68,6 +108,12 @@ namespace Cosmos.Http.HttpUtils
             return builder;
         }
 
+        /// <summary>
+        /// Add Header
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="headers"></param>
+        /// <returns></returns>
         public static IRequestBuilder AddHeaders(this IRequestBuilder builder, IDictionary<string, string> headers)
         {
             if (headers == null)

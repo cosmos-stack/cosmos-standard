@@ -39,7 +39,7 @@ namespace Cosmos.Http.HttpUtils
         {
             Message = new HttpRequestMessage { RequestUri = new Uri(uri, UriKind.RelativeOrAbsolute) };
             Settings = settings;
-            Timeout = (settings ?? StackHttp.DefaultSettings).DefaultTimeout;
+            Timeout = (settings ?? FluentHttp.DefaultSettings).DefaultTimeout;
 
             _callerName = callerName;
             _callerFile = callerFile;

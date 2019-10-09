@@ -14,13 +14,25 @@ using System.Net.Http.Headers;
 
 namespace Cosmos.Http.HttpUtils
 {
+    /// <summary>
+    /// Default http client pool
+    /// </summary>
     public class DefaultHttpClientPool : IHttpClientPool
     {
         private readonly ConcurrentDictionary<HttpClientCacheKey, HttpClient> _clientPool = new ConcurrentDictionary<HttpClientCacheKey, HttpClient>();
         private HttpSettings Settings { get; set; }
 
+        /// <summary>
+        /// Create a new instance of <see cref="DefaultHttpClientPool"/>
+        /// </summary>
+        /// <param name="settings"></param>
         public DefaultHttpClientPool(HttpSettings settings) => Settings = settings;
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public HttpClient Get(IRequestBuilder builder)
         {
             return _clientPool.GetOrAdd(new HttpClientCacheKey(builder.Timeout), CreateHttpClient);
@@ -28,7 +40,7 @@ namespace Cosmos.Http.HttpUtils
 
         private HttpClient CreateHttpClient(HttpClientCacheKey options)
         {
-            var handler = new HttpClientHandler { UseCookies = false };
+            var handler = new HttpClientHandler {UseCookies = false};
             if (handler.SupportsAutomaticDecompression)
                 handler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
 
@@ -51,6 +63,9 @@ namespace Cosmos.Http.HttpUtils
             return client;
         }
 
+        /// <summary>
+        /// Clear
+        /// </summary>
         public void Clear()
         {
             _clientPool.Clear();

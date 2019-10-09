@@ -18,16 +18,31 @@ using Cosmos.Http.HttpUtils.Internals;
 
 namespace Cosmos.Http.HttpUtils
 {
-    public static class StackHttp
+    /// <summary>
+    /// StackOverflow fluent http
+    /// </summary>
+    public static class FluentHttp
     {
+        /// <summary>
+        /// Default settings
+        /// </summary>
         public static HttpSettings DefaultSettings { get; } = new HttpSettings();
 
+        /// <summary>
+        /// Request
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="settings"></param>
+        /// <param name="callerName"></param>
+        /// <param name="callerFile"></param>
+        /// <param name="callerLine"></param>
+        /// <returns></returns>
         public static IRequestBuilder Request(
             string uri,
             HttpSettings settings = null,
-            [CallerMemberName]string callerName = null,
-            [CallerFilePath]string callerFile = null,
-            [CallerLineNumber]int callerLine = 0) => new HttpBuilder(uri, settings, callerName, callerFile, callerLine);
+            [CallerMemberName] string callerName = null,
+            [CallerFilePath] string callerFile = null,
+            [CallerLineNumber] int callerLine = 0) => new HttpBuilder(uri, settings, callerName, callerFile, callerLine);
 
         private static readonly FieldInfo stackTraceString = typeof(Exception).GetField("_stackTraceString", BindingFlags.Instance | BindingFlags.NonPublic);
 
@@ -54,7 +69,7 @@ namespace Cosmos.Http.HttpUtils
                             if (!response.IsSuccessStatusCode && !builder.Inner.IgnoreResponseStatuses.Contains(response.StatusCode))
                             {
                                 exception = new HttpClientException(
-                                    $"Response code was {(int)response.StatusCode} ({response.StatusCode}) from {response.RequestMessage.RequestUri}: {response.ReasonPhrase}",
+                                    $"Response code was {(int) response.StatusCode} ({response.StatusCode}) from {response.RequestMessage.RequestUri}: {response.ReasonPhrase}",
                                     response.StatusCode,
                                     response.RequestMessage.RequestUri);
 

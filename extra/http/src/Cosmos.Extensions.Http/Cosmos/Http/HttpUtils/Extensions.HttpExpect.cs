@@ -16,14 +16,32 @@ using ProtoBuf;
 
 namespace Cosmos.Http.HttpUtils
 {
+    /// <summary>
+    /// Http Expect Extensions
+    /// </summary>
     public static class HttpExpectExtensions
     {
+        /// <summary>
+        /// Expect Http Success
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public static IRequestBuilder<bool> ExpectHttpSuccess(this IRequestBuilder builder)
             => builder.WithHandler(responseMessage => Task.FromResult(responseMessage.IsSuccessStatusCode));
 
+        /// <summary>
+        /// Expect Byte Array
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public static IRequestBuilder<byte[]> ExpectByteArray(this IRequestBuilder builder)
             => builder.WithHandler(responseMessage => responseMessage.Content.ReadAsByteArrayAsync());
 
+        /// <summary>
+        /// Expect String
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public static IRequestBuilder<string> ExpectString(this IRequestBuilder builder)
             => builder.WithHandler(async responseMessage =>
             {
@@ -35,7 +53,7 @@ namespace Cosmos.Http.HttpUtils
                     }
                 }
             });
-        
+
         #region JSON
 
         public static IRequestBuilder<T> ExpectJson<T>(this IRequestBuilder builder)
@@ -86,5 +104,6 @@ namespace Cosmos.Http.HttpUtils
             });
 
         #endregion
+
     }
 }

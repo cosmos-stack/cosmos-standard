@@ -14,11 +14,11 @@ namespace Cosmos.Http.HttpUtils.Internals
     {
         public static HttpSettings GetSettings<T>(this IRequestBuilder<T> builder) => GetSettings(builder.Inner);
 
-        public static HttpSettings GetSettings(this IRequestBuilder builder) => builder.Settings ?? StackHttp.DefaultSettings;
+        public static HttpSettings GetSettings(this IRequestBuilder builder) => builder.Settings ?? FluentHttp.DefaultSettings;
 
         public static T AddLoggedData<T>(this T ex, string key, object value) where T : Exception
         {
-            ex.Data[StackHttp.DefaultSettings.ErrorDataPrefix + key] = value?.ToString() ?? "";
+            ex.Data[FluentHttp.DefaultSettings.ErrorDataPrefix + key] = value?.ToString() ?? "";
             return ex;
         }
     }
