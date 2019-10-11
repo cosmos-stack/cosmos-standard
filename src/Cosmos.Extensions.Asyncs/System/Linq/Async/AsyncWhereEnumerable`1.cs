@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,24 +21,47 @@ using System.Threading.Tasks;
 
 namespace System.Linq.Async
 {
+    /// <summary>
+    /// Async Where Enumerable
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsyncWhereEnumerable<T> : IEnumerable<T>
     {
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
         public AsyncWhereEnumerable(Task<IEnumerable<T>> source)
         {
             SourceTask = source;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
         public AsyncWhereEnumerable(IEnumerable<T> source)
         {
             Source = source;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
         public AsyncWhereEnumerable(IEnumerable<T> source, CancellationToken cancellationToken)
         {
             Source = source;
             CancellationToken = cancellationToken;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
         public AsyncWhereEnumerable(IEnumerable<T> source, Func<T, Task<bool>> predicate, CancellationToken cancellationToken)
         {
             CancellationToken = cancellationToken;
@@ -48,6 +72,12 @@ namespace System.Linq.Async
             StartPredicateConcurrently = LinqAsyncManager.DefaultValue.StartPredicateConcurrently;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
         public AsyncWhereEnumerable(IEnumerable<T> source, Func<T, int, Task<bool>> predicate, CancellationToken cancellationToken)
         {
             CancellationToken = cancellationToken;
@@ -58,6 +88,12 @@ namespace System.Linq.Async
             StartPredicateConcurrently = LinqAsyncManager.DefaultValue.StartPredicateConcurrently;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
         public AsyncWhereEnumerable(Task<IEnumerable<T>> source, Func<T, Task<bool>> predicate, CancellationToken cancellationToken)
         {
             CancellationToken = cancellationToken;
@@ -68,6 +104,12 @@ namespace System.Linq.Async
             StartPredicateConcurrently = LinqAsyncManager.DefaultValue.StartPredicateConcurrently;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
         public AsyncWhereEnumerable(Task<IEnumerable<T>> source, Func<T, int, Task<bool>> predicate, CancellationToken cancellationToken)
         {
             CancellationToken = cancellationToken;
@@ -82,18 +124,32 @@ namespace System.Linq.Async
 
         private Func<T, int, Task<bool>> Predicate2 { get; }
 
+        /// <summary>
+        /// Start Predicate Concurrently
+        /// </summary>
         public bool StartPredicateConcurrently { get; set; }
 
+        /// <summary>
+        /// Order By Predicate Completion
+        /// </summary>
         public bool OrderByPredicateCompletion { get; set; }
 
+        /// <summary>
+        /// Skip Filter Predicate
+        /// </summary>
         public bool SkipFilterPredicate { get; set; }
 
         private Task<IEnumerable<T>> SourceTask { get; }
 
         private IEnumerable<T> Source { get; set; }
 
+        /// <summary>
+        /// CancellationToken
+        /// </summary>
         public CancellationToken CancellationToken { get; set; }
 
+        /// <inheritdoc />
+        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public IEnumerator<T> GetEnumerator()
         {
             IEnumerator<T> enumerator;
@@ -173,6 +229,12 @@ namespace System.Linq.Async
             return GetEnumerator();
         }
 
+        /// <summary>
+        /// Create from...
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public static AsyncWhereEnumerable<T> CreateFrom(IEnumerable<T> source, CancellationToken cancellationToken)
         {
             return new AsyncWhereEnumerable<T>(source, cancellationToken);

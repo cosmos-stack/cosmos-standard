@@ -22,41 +22,105 @@ namespace System.Linq
 {
     public static partial class PredicateAsyncExtensions
     {
+        /// <summary>
+        /// Skip while async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> SkipWhileAsync<TSource>(this IEnumerable<TSource> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereEnumerable(source, predicate, Enumerable.SkipWhile, cancellationToken);
         }
 
+        /// <summary>
+        /// Skip while async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> SkipWhileAsync<TSource>(this IEnumerable<TSource> source, Func<TSource, int, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereEnumerable(source, predicate, Enumerable.SkipWhile, cancellationToken);
         }
 
+        /// <summary>
+        /// Skip while
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> SkipWhile<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereTaskEnumerable(source, predicate, Enumerable.SkipWhile, cancellationToken);
         }
 
+        /// <summary>
+        /// Skip while
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> SkipWhile<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, int, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereTaskEnumerable(source, predicate, Enumerable.SkipWhile, cancellationToken);
         }
 
+        /// <summary>
+        /// Where async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> WhereAsync<TSource>(this IEnumerable<TSource> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereEnumerable(source, predicate, Enumerable.Where, cancellationToken);
         }
 
+        /// <summary>
+        /// Where async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> WhereAsync<TSource>(this IEnumerable<TSource> source, Func<TSource, int, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereEnumerable(source, predicate, Enumerable.Where, cancellationToken);
         }
 
+        /// <summary>
+        /// Where
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> Where<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereTaskEnumerable(source, predicate, Enumerable.Where, cancellationToken);
         }
 
+        /// <summary>
+        /// Where
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> Where<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, int, Task<bool>> predicate, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromWhereTaskEnumerable(source, predicate, Enumerable.Where, cancellationToken);

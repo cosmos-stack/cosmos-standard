@@ -21,6 +21,14 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Take async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="count"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TSource>> TakeAsync<TSource>(
             this IEnumerable<TSource> source, int count,
             CancellationToken cancellationToken = default)
@@ -28,6 +36,14 @@ namespace System.Linq
             return Task.Factory.FromEnumerable(source, count, Enumerable.Take, cancellationToken);
         }
 
+        /// <summary>
+        /// Take while async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TSource>> TakeWhileAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
@@ -36,6 +52,14 @@ namespace System.Linq
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.TakeWhile, cancellationToken);
         }
 
+        /// <summary>
+        /// Take while async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TSource>> TakeWhileAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int, bool> predicate,

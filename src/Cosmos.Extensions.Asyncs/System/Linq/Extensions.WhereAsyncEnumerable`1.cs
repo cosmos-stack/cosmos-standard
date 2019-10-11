@@ -21,22 +21,38 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Order By Predicate Completion
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="value"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> OrderByPredicateCompletion<TSource>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             bool value = true,
             CancellationToken cancellationToken = default)
         {
-            var sourceState = (AsyncWhereEnumerable<TSource>)source.AsyncState;
+            var sourceState = (AsyncWhereEnumerable<TSource>) source.AsyncState;
             sourceState.OrderByPredicateCompletion = value;
             return source;
         }
 
+        /// <summary>
+        /// Start Predicate Concurrently
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="value"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<AsyncWhereEnumerable<TSource>> StartPredicateConcurrently<TSource>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             bool value = true,
             CancellationToken cancellationToken = default)
         {
-            var sourceState = (AsyncWhereEnumerable<TSource>)source.AsyncState;
+            var sourceState = (AsyncWhereEnumerable<TSource>) source.AsyncState;
             sourceState.StartPredicateConcurrently = value;
             return source;
         }

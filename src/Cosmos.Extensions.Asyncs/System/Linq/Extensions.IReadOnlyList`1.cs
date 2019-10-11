@@ -21,6 +21,13 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// As enumerable
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TSource>> AsEnumerable<TSource>(
             this Task<IReadOnlyList<TSource>> source,
             CancellationToken cancellationToken = default)

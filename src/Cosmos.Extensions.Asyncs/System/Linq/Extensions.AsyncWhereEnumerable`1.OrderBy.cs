@@ -6,6 +6,7 @@
 // Copyright (c) 2015 ZZZ Projects. All rights reserved.
 
 using System.Collections.Generic;
+using System.Linq.Async;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,10 +18,19 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq.Async
+namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Order by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static Task<IOrderedEnumerable<TSource>> OrderBy<TSource, TKey>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -29,6 +39,16 @@ namespace System.Linq.Async
             return Task.Factory.FromTaskEnumerable(source, keySelector, Enumerable.OrderBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Order by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="comparer"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static Task<IOrderedEnumerable<TSource>> OrderBy<TSource, TKey>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -38,6 +58,15 @@ namespace System.Linq.Async
             return Task.Factory.FromTaskEnumerable(source, keySelector, comparer, Enumerable.OrderBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Order by descending
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static Task<IOrderedEnumerable<TSource>> OrderByDescending<TSource, TKey>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector, 
@@ -46,6 +75,16 @@ namespace System.Linq.Async
             return Task.Factory.FromTaskEnumerable(source, keySelector, Enumerable.OrderByDescending, cancellationToken);
         }
 
+        /// <summary>
+        /// Order by descending
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="comparer"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static Task<IOrderedEnumerable<TSource>> OrderByDescending<TSource, TKey>(
             this Task<AsyncWhereEnumerable<TSource>> source, 
             Func<TSource, TKey> keySelector, 

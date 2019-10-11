@@ -15,6 +15,9 @@
 
 namespace System.Linq.Async
 {
+    /// <summary>
+    /// Linq Async Manager
+    /// </summary>
     public static class LinqAsyncManager
     {
         static LinqAsyncManager()
@@ -23,9 +26,19 @@ namespace System.Linq.Async
             DefaultValue.StartPredicateConcurrently = false;
         }
 
+        /// <summary>
+        /// Default value
+        /// </summary>
         public static class DefaultValue
         {
+            /// <summary>
+            /// Order By Predicate Completion
+            /// </summary>
             public static bool OrderByPredicateCompletion { get; set; }
+
+            /// <summary>
+            /// Start Predicate Concurrently
+            /// </summary>
             public static bool StartPredicateConcurrently { get; set; }
         }
     }

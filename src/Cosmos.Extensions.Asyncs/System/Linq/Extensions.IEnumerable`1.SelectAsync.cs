@@ -21,14 +21,32 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Select async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="selector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> SelectAsync<TSource, TResult>(
-          this IEnumerable<TSource> source,
-          Func<TSource, TResult> selector,
-          CancellationToken cancellationToken = default)
+            this IEnumerable<TSource> source,
+            Func<TSource, TResult> selector,
+            CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Select, cancellationToken);
         }
 
+        /// <summary>
+        /// Select async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="selector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> SelectAsync<TSource, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, int, TResult> selector,
@@ -37,6 +55,15 @@ namespace System.Linq
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Select, cancellationToken);
         }
 
+        /// <summary>
+        /// Select many async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="selector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> SelectManyAsync<TSource, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, IEnumerable<TResult>> selector,
@@ -45,6 +72,15 @@ namespace System.Linq
             return Task.Factory.FromEnumerable(source, selector, Enumerable.SelectMany, cancellationToken);
         }
 
+        /// <summary>
+        /// Select many async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="selector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> SelectManyAsync<TSource, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, int, IEnumerable<TResult>> selector,
@@ -53,6 +89,17 @@ namespace System.Linq
             return Task.Factory.FromEnumerable(source, selector, Enumerable.SelectMany, cancellationToken);
         }
 
+        /// <summary>
+        /// Select many async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="collectionSelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TCollection"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> SelectManyAsync<TSource, TCollection, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, int, IEnumerable<TCollection>> collectionSelector,
@@ -62,6 +109,17 @@ namespace System.Linq
             return Task.Factory.FromEnumerable(source, collectionSelector, resultSelector, Enumerable.SelectMany, cancellationToken);
         }
 
+        /// <summary>
+        /// Select many async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="collectionSelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TCollection"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> SelectManyAsync<TSource, TCollection, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, IEnumerable<TCollection>> collectionSelector,

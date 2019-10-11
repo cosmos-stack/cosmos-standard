@@ -6,7 +6,6 @@
 // Copyright (c) 2015 ZZZ Projects. All rights reserved.
 
 using System.Collections;
-using System.Linq.Async;
 using System.Threading;
 
 /*
@@ -19,16 +18,30 @@ using System.Threading;
 
 namespace System.Linq
 {
+    /// <summary>
+    /// Async Enumerable
+    /// </summary>
     public class AsyncEnumerable : IEnumerable
     {
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncEnumerable"/>.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
         public AsyncEnumerable(IEnumerable source, CancellationToken cancellationToken)
         {
             CancellationToken = cancellationToken;
             Source = source;
         }
 
+        /// <summary>
+        /// CancellationToken
+        /// </summary>
         public CancellationToken CancellationToken { get; set; }
 
+        /// <summary>
+        /// Source
+        /// </summary>
         public IEnumerable Source { get; set; }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -36,6 +49,12 @@ namespace System.Linq
             return new AsyncEnumerator(Source.GetEnumerator(), CancellationToken);
         }
 
+        /// <summary>
+        /// Create from...
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public static AsyncEnumerable CreateFrom(IEnumerable source, CancellationToken cancellationToken)
         {
             return new AsyncEnumerable(source, cancellationToken);
