@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cosmos.Verba.Time
 {
     /// <summary>
     /// Default English time verba
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public class DefaultEnglishTimeVerba : ITimeVerba
     {
         /// <summary>
         /// USA English
         /// </summary>
         // ReSharper disable once InconsistentNaming
-        public const string USEnglish = "en_US";
+        public const string USEnglish = "en-US";
 
         static DefaultEnglishTimeVerba()
         {

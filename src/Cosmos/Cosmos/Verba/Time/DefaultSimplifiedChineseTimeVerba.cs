@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cosmos.Verba.Time
 {
     /// <summary>
     /// Default Simplified Chinese time verba
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public class DefaultSimplifiedChineseTimeVerba : ITimeVerba
     {
         /// <summary>
         /// Simplified Chinese
         /// </summary>
-        public const string SimplifiedChinese = "zh_CN";
+        public const string SimplifiedChinese = "zh-CN";
 
         static DefaultSimplifiedChineseTimeVerba()
         {

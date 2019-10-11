@@ -85,7 +85,7 @@ namespace Cosmos.Conversions
             var sb = new StringBuilder();
             foreach (var c in base64UrlString)
             {
-                if ((int)c >= 128) continue;
+                if (c >= 128) continue;
                 var k = BASE64[c];
                 if (k == '=') continue;
                 sb.Append(k);

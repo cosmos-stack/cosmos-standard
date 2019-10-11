@@ -10,7 +10,7 @@ namespace Cosmos
 {
     /// <summary>
     /// Type Scanner <br />
-    /// 类型扫描器
+    /// 绫诲瀷鎵弿
     /// </summary>
     public abstract class TypeScanner : IDisposable
     {
@@ -21,48 +21,42 @@ namespace Cosmos
         private readonly AnonymousDisposableObject _anonymousDisposableObject;
 
         /// <summary>
-        /// Scanned result cache <br />
-        /// 结果缓存
+        /// Scanned result cache
         /// </summary>
         protected List<Type> ScannedResultCache { get; private set; } = new List<Type>();
 
         /// <summary>
-        /// Scanned result cached <br />
-        /// 标记扫描结果是否已缓存
+        /// Scanned result cached
         /// </summary>
         protected bool ScannedResultCached { get; private set; }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/> <br />
-        /// 创建 <see cref="TypeScanner"/> 新实例
+        /// Create a new instance of <see cref="TypeScanner"/>
         /// </summary>
         protected TypeScanner() : this(string.Empty) { }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/> <br />
-        /// 创建 <see cref="TypeScanner"/> 新实例
+        /// Create a new instance of <see cref="TypeScanner"/>
         /// </summary>
         /// <param name="scannerName"></param>
         protected TypeScanner(string scannerName)
         {
             _anonymousDisposableObject = AnonymousDisposableObject.Create(() =>
-             {
-                 ScannedResultCache.Clear();
-                 ScannedResultCache = null;
-                 ScannedResultCached = false;
-             });
+            {
+                ScannedResultCache.Clear();
+                ScannedResultCache = null;
+                ScannedResultCached = false;
+            });
         }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/> <br />
-        /// 创建 <see cref="TypeScanner"/> 新实例
+        /// Create a new instance of <see cref="TypeScanner"/>
         /// </summary>
         /// <param name="baseType"></param>
         protected TypeScanner(Type baseType) : this(string.Empty, baseType) { }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/> <br />
-        /// 创建 <see cref="TypeScanner"/> 新实例
+        /// Create a new instance of <see cref="TypeScanner"/>
         /// </summary>
         /// <param name="scannerName"></param>
         /// <param name="baseType"></param>
@@ -72,14 +66,13 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// Base type <br />
-        /// 基础类型
+        /// Base type 
         /// </summary>
         protected Type BaseType { get; }
 
         /// <summary>
         /// Scan <br />
-        /// 扫描
+        /// 扫锟斤拷
         /// </summary>
         /// <returns></returns>
         public virtual IEnumerable<Type> Scan()
@@ -113,29 +106,25 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// Get assemblies <br />
-        /// 获取程序集
+        /// Get assemblies
         /// </summary>
         /// <returns></returns>
         protected virtual Assembly[] GetAssemblies() => AppDomain.CurrentDomain.GetAssemblies();
 
         /// <summary>
-        /// Get skip assemblies' namespaces <br />
-        /// 获取程序集的命名空间，以便跳过
+        /// Get skip assemblies' namespaces
         /// </summary>
         /// <returns></returns>
         protected virtual string GetSkipAssembliesNamespaces() => DEFAULT_SKIP_ASSEMBLIES;
 
         /// <summary>
-        /// Get limited assemblies' namespaces <br />
-        /// 获取程序集的命名空间，以便仅局限在这些命名空间中进行扫描
+        /// Get limited assemblies' namespaces 
         /// </summary>
         /// <returns></returns>
         protected virtual string GetLimitedAssembliesNamespaces() => string.Empty;
 
         /// <summary>
-        /// Type filter <br />
-        /// 类型过滤器
+        /// Type filter 
         /// </summary>
         /// <returns></returns>
         protected abstract Func<Type, bool> TypeFilter();
@@ -153,8 +142,7 @@ namespace Cosmos
         }
 
         /// <summary>
-        /// Dispose <br />
-        /// 释放
+        /// Dispose
         /// </summary>
         public void Dispose()
         {

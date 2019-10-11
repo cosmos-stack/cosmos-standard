@@ -8,6 +8,7 @@ namespace Cosmos.Verba.Time
     /// <summary>
     /// Global time verba manager
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public static class GlobalTimeVerbaManager
     {
         private static readonly ConcurrentDictionary<string, ITimeVerba> m_timeVerbaDict;

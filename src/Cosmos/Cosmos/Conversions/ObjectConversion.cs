@@ -56,7 +56,7 @@ namespace Cosmos.Conversions
             {
                 if (fromObjType.Name.ToLower() == "guid")
                 {
-                    return (object)GuidConversion.ToGuid(fromObj);
+                    return GuidConversion.ToGuid(fromObj);
                 }
 
                 if (fromObjType.GetTypeInfo().IsEnum)
@@ -113,7 +113,7 @@ namespace Cosmos.Conversions
         /// <returns></returns>
         public static TTo To<TTo>(object fromObj)
         {
-            return To<TTo>(fromObj, default(TTo));
+            return To<TTo>(fromObj, default);
         }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace Cosmos.Conversions
                 return defaultRet;
             }
 
-            return DateTime.TryParse(obj.ToString(), out DateTime ret) ? ret : defaultRet;
+            return DateTime.TryParse(obj.ToString(), out var ret) ? ret : defaultRet;
         }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace Cosmos.Conversions
                 return defaultRet;
             }
 
-            return DateTime.TryParse(obj.ToString(), out DateTime result) ? result : defaultRet;
+            return DateTime.TryParse(obj.ToString(), out var result) ? result : defaultRet;
         }
     }
 }
