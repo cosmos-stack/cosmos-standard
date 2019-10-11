@@ -29,7 +29,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
 
     internal class MsSqlCombProvider : BaseProvider
     {
-        private const int EmbedAtIndex = 10;
+        private const int EMBED_AT_INDEX = 10;
 
         public MsSqlCombProvider(IDateStrategy strategy,
             InternalTimeStampProvider customTimeStampProvider = null,
@@ -41,7 +41,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
             var gbytes = value.ToByteArray();
             var dbytes = _dateTimeStrategy.DateTimeToBytes(timestamp);
 
-            dbytes.Copy(0, gbytes, EmbedAtIndex, _dateTimeStrategy.NumDateBytes);
+            dbytes.Copy(0, gbytes, EMBED_AT_INDEX, _dateTimeStrategy.NumDateBytes);
 
             return new Guid(gbytes);
         }
@@ -51,7 +51,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
             var gbytes = value.ToByteArray();
             var dbytes = new byte[_dateTimeStrategy.NumDateBytes];
 
-            gbytes.Copy(EmbedAtIndex, dbytes, 0, _dateTimeStrategy.NumDateBytes);
+            gbytes.Copy(EMBED_AT_INDEX, dbytes, 0, _dateTimeStrategy.NumDateBytes);
 
             return _dateTimeStrategy.BytesToDateTime(dbytes);
         }

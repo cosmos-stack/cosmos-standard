@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace Cosmos.CharMatchers
 {
+    /// <summary>
+    /// Char matcher
+    /// </summary>
     public partial class CharMatcher : ICharMatcher
     {
         private MatchingPredicateOptions Options { get; set; } = new MatchingPredicateOptions();

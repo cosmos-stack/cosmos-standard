@@ -23,6 +23,7 @@ namespace Cosmos.IdUtils
         /// 基准时间
         /// </summary>
         // ReSharper disable once IdentifierTypo
+        // ReSharper disable once InconsistentNaming
         public const long TWEPOCH = 1288834974657L;
 
         /// <summary>
@@ -90,6 +91,7 @@ namespace Cosmos.IdUtils
         /// 时间毫秒左移22位
         /// </summary>
         // ReSharper disable once IdentifierTypo
+        // ReSharper disable once InconsistentNaming
         public const int TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATA_CENTER_ID_BITS;
 
         #endregion

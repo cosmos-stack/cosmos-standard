@@ -39,20 +39,21 @@ namespace Cosmos
         public static int ToAsciiValue(this char c)
         {
             int num;
-            int num2 = Convert.ToInt32(c);
+            var num2 = Convert.ToInt32(c);
             if (num2 < 0x80)
             {
                 return num2;
             }
 
             byte[] buffer;
-            Encoding fileIOEncoding = Encoding.UTF8;
+            // ReSharper disable once InconsistentNaming
+            var fileIOEncoding = Encoding.UTF8;
 
-            char[] chars = new char[] { c };
+            char[] chars = { c };
             if (fileIOEncoding.GetMaxByteCount(1) == 1)
             {
                 buffer = new byte[1];
-                int num3 = fileIOEncoding.GetBytes(chars, 0, 1, buffer, 0);
+                var num3 = fileIOEncoding.GetBytes(chars, 0, 1, buffer, 0);
                 return buffer[0];
             }
             buffer = new byte[2];
