@@ -63,7 +63,7 @@ namespace Cosmos.Extensions
             while (left.MoveNext()) yield return left.Current;
             yield return last;
         }
-        
+
         /// <summary>
         /// 将多层的集合展开并整理为单层集合
         /// </summary>
@@ -101,6 +101,13 @@ namespace Cosmos.Extensions
             return Flatten(inputs.Cast<object>(), o => (enumerate(o) ?? new object[0]).Cast<object>());
         }
 
+        /// <summary>
+        /// First based on...
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="order"></param>
+        /// <typeparam name="TItem"></typeparam>
+        /// <returns></returns>
         public static TItem FirstBasedOn<TItem>(this IList<TItem> list, Func<TItem, IComparable> order) where TItem : class
         {
             if (!list.Any()) return default;
@@ -120,6 +127,13 @@ namespace Cosmos.Extensions
             return first;
         }
 
+        /// <summary>
+        /// Last based on...
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="order"></param>
+        /// <typeparam name="TItem"></typeparam>
+        /// <returns></returns>
         public static TItem LastBasedOn<TItem>(this List<TItem> list, Func<TItem, IComparable> order)
         {
             if (!list.Any()) return default;
@@ -139,6 +153,14 @@ namespace Cosmos.Extensions
             return last;
         }
 
+        /// <summary>
+        /// Count distinct
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="valCalculator"></param>
+        /// <typeparam name="TObj"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static int CountDistinct<TObj, TResult>(this IList<TObj> list, Func<TObj, TResult> valCalculator)
         {
             var check = new HashSet<TResult>();
@@ -152,6 +174,13 @@ namespace Cosmos.Extensions
             return check.Count;
         }
 
+        /// <summary>
+        /// Move to first
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="element"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
         public static List<TSource> MoveToFirst<TSource>(this List<TSource> source, TSource element)
         {
             if (!source.Contains(element))
