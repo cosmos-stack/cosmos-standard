@@ -4,5 +4,110 @@
         <name>Cosmos.Serialization.MessagePack</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Extensions.Extensions">
+            <summary>
+            MessagePack extensions
+            </summary>
+            <summary>
+            MessagePack extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromMessagePack``1(System.Byte[])">
+            <summary>
+            From MessagePack
+            </summary>
+            <param name="bytes"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToMessagePack``1(``0)">
+            <summary>
+            To MessagePack
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.MessagePackObjectSerializer">
+            <summary>
+            MessagePack Serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.MessagePackObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.MessagePackObjectSerializer.Deserialize``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.MessagePackObjectSerializer.Deserialize(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.MessagePack.MessagePackHelper">
+            <summary>
+            MessagePack helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="bytes"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="bytes"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.JsonBytesToString(System.Byte[])">
+            <summary>
+            Json bytes to string
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.JsonStringToBytes(System.String)">
+            <summary>
+            Json string to bytes
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.JsonObjectToString``1(``0)">
+            <summary>
+            Json Object to string
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.JsonObjectToBytes``1(``0)">
+            <summary>
+            Json object to bytes
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.MessagePack.MessagePackHelper.JsonStringToObject``1(System.String)">
+            <summary>
+            Json string to object
+            </summary>
+            <param name="json"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
     </members>
 </doc>

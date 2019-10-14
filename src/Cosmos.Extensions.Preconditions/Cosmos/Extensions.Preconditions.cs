@@ -40,7 +40,6 @@ namespace Cosmos
         /// <summary>
         /// 检查集合是否为空
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>

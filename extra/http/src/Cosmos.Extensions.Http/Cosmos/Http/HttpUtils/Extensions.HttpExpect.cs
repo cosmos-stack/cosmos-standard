@@ -56,9 +56,22 @@ namespace Cosmos.Http.HttpUtils
 
         #region JSON
 
+        /// <summary>
+        /// Expect json
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IRequestBuilder<T> ExpectJson<T>(this IRequestBuilder builder)
             => ExpectJson<T>(builder, Options.Default);
 
+        /// <summary>
+        /// Expect json
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="options"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IRequestBuilder<T> ExpectJson<T>(this IRequestBuilder builder, Options options)
             => builder.WithHandler(JsonHandler<T>.WithOptions(builder, options));
 
@@ -91,6 +104,12 @@ namespace Cosmos.Http.HttpUtils
 
         #region Protobuf
 
+        /// <summary>
+        /// Expect protobuf
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IRequestBuilder<T> ExpectProtobuf<T>(this IRequestBuilder builder)
             => builder.WithHandler(async responseMessage =>
             {

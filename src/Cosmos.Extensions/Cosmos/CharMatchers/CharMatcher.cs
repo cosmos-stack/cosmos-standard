@@ -26,21 +26,41 @@ namespace Cosmos.CharMatchers
 
         #region Factory
 
+        /// <summary>
+        /// Is
+        /// </summary>
+        /// <param name="match"></param>
+        /// <returns></returns>
         public static IIsModeCharMatcher Is(char match)
         {
             return new CharMatcher(match, MatchingMode.TRUE);
         }
 
+        /// <summary>
+        /// Is not
+        /// </summary>
+        /// <param name="match"></param>
+        /// <returns></returns>
         public static IIsNotModeCharMatcher IsNot(char match)
         {
             return new CharMatcher(match, MatchingMode.FALSE);
         }
 
+        /// <summary>
+        /// Any of
+        /// </summary>
+        /// <param name="sequence"></param>
+        /// <returns></returns>
         public static ICharMatcher AnyOf(string sequence)
         {
             return new CharMatcher(sequence, MatchingMode.TRUE);
         }
 
+        /// <summary>
+        /// None of
+        /// </summary>
+        /// <param name="sequence"></param>
+        /// <returns></returns>
         public static ICharMatcher NoneOf(string sequence)
         {
             return new CharMatcher(sequence, MatchingMode.FALSE);
@@ -50,6 +70,10 @@ namespace Cosmos.CharMatchers
 
         #region Static getter
 
+        /// <summary>
+        /// Whitespace
+        /// </summary>
+        // ReSharper disable once InconsistentNaming
         public static IIsModeCharMatcher WHITESPACE => Is(' ');
 
         #endregion
@@ -58,6 +82,7 @@ namespace Cosmos.CharMatchers
 
         private class MatchingPredicateOptions
         {
+
             #region NOT
 
             public bool Not { get; set; }
@@ -105,9 +130,16 @@ namespace Cosmos.CharMatchers
 
         private static class MatchingMode
         {
+            // ReSharper disable once InconsistentNaming
             public static bool TRUE { get; } = true;
+
+            // ReSharper disable once InconsistentNaming
             public static bool FALSE { get; } = false;
+
+            // ReSharper disable once InconsistentNaming
             public static string AND { get; } = "AND";
+
+            // ReSharper disable once InconsistentNaming
             public static string OR { get; } = "OR";
 
             public static bool IsAndMode(string mode)

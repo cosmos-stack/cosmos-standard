@@ -90,6 +90,628 @@
             大写与下划线
             </summary>
         </member>
+        <member name="T:Cosmos.CharMatchers.CharMatcher">
+            <summary>
+            Char matcher
+            </summary>
+            <summary>
+            Char matcher
+            </summary>
+            <summary>
+            Char matcher
+            </summary>
+            <summary>
+            Char matcher
+            </summary>
+            <summary>
+            Char matcher
+            </summary>
+        </member>
+        <member name="T:Cosmos.CharMatchers.IAnyOfModeCharMatcher">
+            <summary>
+            Interface to flag 'AnyOf' mode of char matcher
+            </summary>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.Negate">
+            <summary>
+            Negate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.InRange(System.Char,System.Char)">
+            <summary>
+            In range
+            </summary>
+            <param name="startInclusive"></param>
+            <param name="endInclusive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.ForPredicate(System.Func{System.Char,System.Boolean})">
+            <summary>
+            for predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.MatchesAnyOf(System.String)">
+            <summary>
+            Matches any of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.MatchesAllOf(System.String)">
+            <summary>
+            Matches all of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.MatchesNoneOf(System.String)">
+            <summary>
+            Matches none of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.IndexIn(System.String)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.IndexIn(System.String,System.Int32)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.LastIndexIn(System.String)">
+            <summary>
+            Last index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.CountIn(System.String)">
+            <summary>
+            Count in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.RemoveFrom(System.String)">
+            <summary>
+            Remove from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.RetainFrom(System.String)">
+            <summary>
+            Retain from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.ReplaceFrom(System.String,System.Char)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.ReplaceFrom(System.String,System.String)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.TrimFrom(System.String)">
+            <summary>
+            Trim from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.TrimLeadingForm(System.String)">
+            <summary>
+            Trim leading from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.TrimTrailingFrom(System.String)">
+            <summary>
+            Trim trailing from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.CollapseFrom(System.String,System.Char)">
+            <summary>
+            Collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.TrimAndCollapseFrom(System.String,System.Char)">
+            <summary>
+            Trim and collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IAnyOfModeCharMatcher.Apply(System.Char)">
+            <summary>
+            Apply
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.CharMatchers.ICharMatcher">
+            <summary>
+            Interface for char matcher
+            </summary>
+        </member>
+        <member name="T:Cosmos.CharMatchers.IIsModeCharMatcher">
+            <summary>
+            Interface to flag 'Is' mode of char matcher
+            </summary>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.Negate">
+            <summary>
+            Negate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.InRange(System.Char,System.Char)">
+            <summary>
+            In range
+            </summary>
+            <param name="startInclusive"></param>
+            <param name="endInclusive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.ForPredicate(System.Func{System.Char,System.Boolean})">
+            <summary>
+            For predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.MatchesAnyOf(System.String)">
+            <summary>
+            Matches any of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.MatchesAllOf(System.String)">
+            <summary>
+            Matches all of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.MatchesNoneOf(System.String)">
+            <summary>
+            Matches none of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.IndexIn(System.String)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.IndexIn(System.String,System.Int32)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.LastIndexIn(System.String)">
+            <summary>
+            Last index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.CountIn(System.String)">
+            <summary>
+            Count in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.RemoveFrom(System.String)">
+            <summary>
+            Remove from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.RetainFrom(System.String)">
+            <summary>
+            Retain from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.ReplaceFrom(System.String,System.Char)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.ReplaceFrom(System.String,System.String)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.TrimFrom(System.String)">
+            <summary>
+            Trim from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.TrimLeadingForm(System.String)">
+            <summary>
+            Trim leading from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.TrimTrailingFrom(System.String)">
+            <summary>
+            Trim trailing from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.CollapseFrom(System.String,System.Char)">
+            <summary>
+            Collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.TrimAndCollapseFrom(System.String,System.Char)">
+            <summary>
+            Trim and collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsModeCharMatcher.Apply(System.Char)">
+            <summary>
+            Apply
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.CharMatchers.IIsNotModeCharMatcher">
+            <summary>
+            Interface to flag 'Not' mode of char matcher
+            </summary>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.Negate">
+            <summary>
+            Negate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.InRange(System.Char,System.Char)">
+            <summary>
+            In range
+            </summary>
+            <param name="startInclusive"></param>
+            <param name="endInclusive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.ForPredicate(System.Func{System.Char,System.Boolean})">
+            <summary>
+            For predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.MatchesAnyOf(System.String)">
+            <summary>
+            Matches any of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.MatchesAllOf(System.String)">
+            <summary>
+            Matches all of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.MatchesNoneOf(System.String)">
+            <summary>
+            Matches none of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.IndexIn(System.String)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.IndexIn(System.String,System.Int32)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.LastIndexIn(System.String)">
+            <summary>
+            Last index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.CountIn(System.String)">
+            <summary>
+            Count in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.RemoveFrom(System.String)">
+            <summary>
+            Remove from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.RetainFrom(System.String)">
+            <summary>
+            Retain from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.ReplaceFrom(System.String,System.Char)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.ReplaceFrom(System.String,System.String)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.TrimFrom(System.String)">
+            <summary>
+            Trim from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.TrimLeadingForm(System.String)">
+            <summary>
+            Trim trailing from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.TrimTrailingFrom(System.String)">
+            <summary>
+            Trim trailing from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.CollapseFrom(System.String,System.Char)">
+            <summary>
+            Collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.TrimAndCollapseFrom(System.String,System.Char)">
+            <summary>
+            Trim and collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.IIsNotModeCharMatcher.Apply(System.Char)">
+            <summary>
+            Apply
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.CharMatchers.INoneOfModeCharMatcher">
+            <summary>
+            Interface to flag 'None' mode of char matcher
+            </summary>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.Negate">
+            <summary>
+            Negate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.InRange(System.Char,System.Char)">
+            <summary>
+            In range
+            </summary>
+            <param name="startInclusive"></param>
+            <param name="endInclusive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.ForPredicate(System.Func{System.Char,System.Boolean})">
+            <summary>
+            For predicate
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.MatchesAnyOf(System.String)">
+            <summary>
+            Matches any of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.MatchesAllOf(System.String)">
+            <summary>
+            Matches all of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.MatchesNoneOf(System.String)">
+            <summary>
+            Matches none of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.IndexIn(System.String)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.IndexIn(System.String,System.Int32)">
+            <summary>
+            Index in
+            </summary>
+            <param name="sequence"></param>
+            <param name="startIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.LastIndexIn(System.String)">
+            <summary>
+            Last index in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.CountIn(System.String)">
+            <summary>
+            Count in
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.RemoveFrom(System.String)">
+            <summary>
+            Remove from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.RetainFrom(System.String)">
+            <summary>
+            Retain from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.ReplaceFrom(System.String,System.Char)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.ReplaceFrom(System.String,System.String)">
+            <summary>
+            Replace from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.TrimFrom(System.String)">
+            <summary>
+            Trim from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.TrimLeadingForm(System.String)">
+            <summary>
+            Trim leading from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.TrimTrailingFrom(System.String)">
+            <summary>
+            Trim trailing from
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.CollapseFrom(System.String,System.Char)">
+            <summary>
+            Collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.TrimAndCollapseFrom(System.String,System.Char)">
+            <summary>
+            Trim and collapse from
+            </summary>
+            <param name="sequence"></param>
+            <param name="replacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.INoneOfModeCharMatcher.Apply(System.Char)">
+            <summary>
+            Apply
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Dependency.RegisterProxyBag">
             <summary>
             Register proxy bag
@@ -389,6 +1011,99 @@
             <summary>
             转换为Lambda表达式
             </summary>
+        </member>
+        <member name="T:Cosmos.Expressions.ExpressionExtensions">
+            <summary>
+            Expression extensions
+            </summary>
+            <summary>
+            Expression extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Get PropertyInfo
+            </summary>
+            <param name="expression"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfo``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Get PropertyInfo
+            </summary>
+            <param name="source"></param>
+            <param name="expression"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfos``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Get PropertyInfos
+            </summary>
+            <param name="source"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfos``1(``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Get PropertyInfos
+            </summary>
+            <param name="source"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfos``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Get PropertyInfos
+            </summary>
+            <param name="expressions"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo)">
+            <summary>
+            Create get property expression
+            </summary>
+            <param name="propertyInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Create get property expression
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="parameterExpression"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo)">
+            <summary>
+            Create get property lambda expression
+            </summary>
+            <param name="propertyInfo"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Create get property lambda expression
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="parameterExpression"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:Cosmos.CharExtensions">
             <summary>
@@ -2855,277 +3570,6 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.ReflectionExtensions">
-            <summary>
-            Type extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.AttributeExists``1(System.Reflection.MemberInfo,System.Boolean)">
-            <summary>
-            To judge the attribute exists or not
-            </summary>
-            <typeparam name="T">要检查的特性类型</typeparam>
-            <param name="memberInfo">要检查的类型成员</param>
-            <param name="inherit">是否从继承中查找</param>
-            <returns>是否存在</returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.AttributeNotExists``1(System.Reflection.MemberInfo,System.Boolean)">
-            <summary>
-            To judge the attribute dosn't exist or not
-            </summary>
-            <typeparam name="T">要检查的特性类型</typeparam>
-            <param name="memberInfo">要检查的类型成员</param>
-            <param name="inherit">是否从继承中查找</param>
-            <returns>是否不存在</returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
-            <summary>
-            Get attribute from memberinfo
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="info"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
-            <summary>
-            Get attributes from memberinfo
-            </summary>
-            <typeparam name="T">特性类型</typeparam>
-            <param name="info">类型类型成员</param>
-            <param name="inherit">是否从继承中查找</param>
-            <returns>存在返回第一个，不存在返回null</returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo)">
-            <summary>
-            Get Attributes from memberinfo
-            </summary>
-            <typeparam name="TAttribute"></typeparam>
-            <param name="info"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
-            <summary>
-            Get attributes from memberinfo
-            </summary>
-            <typeparam name="TAttribute">特性类型</typeparam>
-            <param name="info">类型类型成员</param>
-            <param name="inherit">是否从继承中查找</param>
-            <returns>存在返回第一个，不存在返回 null</returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetFullName(System.Reflection.MethodInfo)">
-            <summary>
-            Get full name of method including type name and method name
-            </summary>
-            <param name="method"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Reflection.MethodInfo)">
-            <summary>
-            To compute signature
-            </summary>
-            <param name="method"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToNonNullableType(System.Type)">
-            <summary>
-            Get non-nullable inderlying <see cref="T:System.Type"/>
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
-            <summary>
-            Get non-nullable inderlying <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/>
-            </summary>
-            <param name="typeinfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)">
-            <summary>
-            Get object's <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/>
-            </summary>
-            <param name="object"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToTypeInfo(System.Type[])">
-            <summary>
-            Convert <see cref="T:System.Type"/> array to <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/> list
-            </summary>
-            <param name="types"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetPropertyValue(System.Object,System.String)">
-            <summary>
-            Gets property value
-            </summary>
-            <param name="object">Any <see cref="T:System.Object"/></param>
-            <param name="propertyName">Property name in this object</param>
-            <returns>Value of the specific property in this object</returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
-            <summary>
-            Sets property value
-            </summary>
-            <param name="object"></param>
-            <param name="propertyName"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Reflection.TypeInfo)">
-            <summary>
-            To compute signature
-            </summary>
-            <param name="typeinfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Type)">
-            <summary>
-            To compute signature
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType(System.Type,System.Type)">
-            <summary>
-            To judge the given type is assignable to the generic type or not
-            </summary>
-            <param name="givenType">给定类型</param>
-            <param name="genericType">泛型类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
-            <summary>
-            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:genericType"/> or not
-            </summary>
-            <param name="givenType">给定类型</param>
-            <param name="genericType">泛型类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType``1(System.Type)">
-            <summary>
-            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
-            </summary>
-            <typeparam name="TGeneric">泛型类型</typeparam>
-            <param name="givenType">给定类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType``1(System.Reflection.TypeInfo)">
-            <summary>
-            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
-            </summary>
-            <typeparam name="TGeneric">泛型类型</typeparam>
-            <param name="givenType">给定类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor(System.Type,System.Type)">
-            <summary>
-            To judge the given type is assignable to the generic type or not
-            </summary>
-            <param name="givenType">给定类型</param>
-            <param name="genericType">泛型类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
-            <summary>
-            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:genericType"/> or not
-            </summary>
-            <param name="givenType">给定类型</param>
-            <param name="genericType">泛型类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor``1(System.Type)">
-            <summary>
-            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
-            </summary>
-            <typeparam name="TGeneric">泛型类型</typeparam>
-            <param name="givenType">给定类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor``1(System.Reflection.TypeInfo)">
-            <summary>
-            To judge the <see cref="!:givenType"/> is assignable to the <see cref="!:TGeneric"/> or not
-            </summary>
-            <typeparam name="TGeneric">泛型类型</typeparam>
-            <param name="givenType">给定类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
-            <summary>
-            Find typeinfo from the given type's parameters' type
-            </summary>
-            <param name="definition"></param>
-            <param name="typeinfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.FindGenericType(System.Type,System.Type)">
-            <summary>
-            Find typeinfo from the given type's parameters' type
-            </summary>
-            <param name="definition"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableFrom``1(System.Object)">
-            <summary>
-            Is assignable from...
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="this"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableFrom(System.Object,System.Type)">
-            <summary>
-            Is assignable from...
-            </summary>
-            <param name="this"></param>
-            <param name="targetType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNumeric(System.Type)">
-            <summary>
-            判断指定类型是否为数值类型
-            </summary>
-            <param name="type">要检查的类型</param>
-            <returns>是否是数值类型</returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNumeric(System.Reflection.TypeInfo)">
-            <summary>
-            判断指定类型是否为数值类型
-            </summary>
-            <param name="typeInfo">要检查的类型</param>
-            <returns>是否是数值类型</returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNullableType(System.Type)">
-            <summary>
-            指示类型是否为可空类型
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsDefined``1(System.Type)">
-            <summary>
-            Is defined special attribute
-            </summary>
-            <typeparam name="TAttribute"></typeparam>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNotDefined``1(System.Type)">
-            <summary>
-            Is not defined special attribute
-            </summary>
-            <typeparam name="TAttribute"></typeparam>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReflectionExtensions.CreateInstance``1(System.Type,System.Object[])">
-            <summary>
-            Create instance
-            </summary>
-            <typeparam name="TTypeInstance"></typeparam>
-            <param name="type"></param>
-            <param name="args"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.SafeAndNullableExtensions">
             <summary>
             Safety value and nullable value extensions
@@ -3395,6 +3839,21 @@
             <param name="source"></param>
             <param name="list"></param>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.RegexExtensions">
+            <summary>
+            Regex extensons
+            </summary>
+        </member>
+        <member name="M:Cosmos.RegexExtensions.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
+            <summary>
+            Get group value
+            </summary>
+            <param name="match"></param>
+            <param name="group"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="T:Cosmos.StringBuilderExtensions">
             <summary>
@@ -4178,48 +4637,6 @@
         <member name="M:Cosmos.IdUtils.ITraceIdMaker.CreateId">
             <summary>
             Create Id
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.InstanceScanner`1">
-            <summary>
-            Instance Scanner<br />
-            实例扫描器
-            </summary>
-            <typeparam name="TClass"></typeparam>
-        </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor">
-            <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
-            </summary>
-        </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor(System.String)">
-            <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
-            </summary>
-            <param name="scannerName"></param>
-        </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor(System.Type)">
-            <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
-            </summary>
-            <param name="baseType"></param>
-        </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor(System.String,System.Type)">
-            <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
-            </summary>
-            <param name="scannerName"></param>
-            <param name="baseType"></param>
-        </member>
-        <member name="M:Cosmos.InstanceScanner`1.ScanAndReturnInstances">
-            <summary>
-            Scan, and return instances.<br />
-            扫描，并返回实例。
             </summary>
             <returns></returns>
         </member>

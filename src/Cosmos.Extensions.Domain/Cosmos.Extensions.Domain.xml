@@ -4,14 +4,524 @@
         <name>Cosmos.Extensions.Domain</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Domain.AggregateRoot`2">
+            <summary>
+            Aggregate Root
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.AggregateRoot`2.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.AggregateRoot`2"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.AggregateRoot`2.#ctor(`1)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.AggregateRoot`2"/>.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="P:Cosmos.Domain.AggregateRoot`2.Version">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Domain.ExpirableAggregateRoot`2">
+            <summary>
+            Expireable aggregate root
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableAggregateRoot`2.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ExpirableAggregateRoot`2"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableAggregateRoot`2.#ctor(`1)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ExpirableAggregateRoot`2"/>.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="P:Cosmos.Domain.ExpirableAggregateRoot`2.Version">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor">
             <summary>
             To describe what value has been changed
             </summary>
         </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor"/>.
+            </summary>
+            <param name="propertyName"></param>
+            <param name="description"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="P:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor.PropertyName">
+            <summary>
+            Property name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor.ValueBeforeChange">
+            <summary>
+            Value before change
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor.ValueAfterChange">
+            <summary>
+            Value after change
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptor.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection">
+            <summary>
+            Changed value descriptor collection
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.#ctor(Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection"/>.
+            </summary>
+            <param name="descriptors"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.#ctor(System.Collections.Generic.IEnumerable{Cosmos.Domain.ChangeTracking.ChangedValueDescriptor})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection"/>.
+            </summary>
+            <param name="descriptors"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.Add(Cosmos.Domain.ChangeTracking.ChangedValueDescriptor)">
+            <summary>
+            Add descriptor
+            </summary>
+            <param name="descriptor"></param>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.Add(System.String,System.String,System.String,System.String)">
+            <summary>
+            Add property name, description, old-value and new-value
+            </summary>
+            <param name="propertyName"></param>
+            <param name="description"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.AddRange(System.Collections.Generic.IEnumerable{Cosmos.Domain.ChangeTracking.ChangedValueDescriptor})">
+            <summary>
+            Add a set of descriptors
+            </summary>
+            <param name="descriptors"></param>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.Populate(System.Collections.Generic.IEnumerable{Cosmos.Domain.ChangeTracking.ChangedValueDescriptor})">
+            <summary>
+            Populate descriptors
+            </summary>
+            <param name="descriptors"></param>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.FlushCache">
+            <summary>
+            Flush cache
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Domain.ChangeTracking.ChangeTrackingContext">
+            <summary>
+            Change tracking context
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ChangeTracking.ChangeTrackingContext"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.#ctor(Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ChangeTracking.ChangeTrackingContext"/>.
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.Add``1(System.String,System.String,``0,``0)">
+            <summary>
+            Add property name, description, value before changed and value after changed
+            </summary>
+            <param name="propertyName"></param>
+            <param name="description"></param>
+            <param name="valueBeforeChange"></param>
+            <param name="valueAfterChange"></param>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.Add``1(Cosmos.Domain.ChangeTracking.IChangeTrackable{``0},``0)">
+            <summary>
+            Add
+            </summary>
+            <param name="leftObj"></param>
+            <param name="rightObj"></param>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.Add``3(System.Linq.Expressions.Expression{System.Func{``0,``1}},``2)">
+            <summary>
+            Add
+            </summary>
+            <param name="expression"></param>
+            <param name="newValue"></param>
+            <typeparam name="TObject"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.Add``1(System.Collections.Generic.IEnumerable{Cosmos.Domain.ChangeTracking.IChangeTrackable{``0}},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Add
+            </summary>
+            <param name="leftObjs"></param>
+            <param name="rightObjs"></param>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.Populate(Cosmos.Domain.ChangeTracking.ChangedValueDescriptorCollection)">
+            <summary>
+            Populate
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.FlushCache">
+            <summary>
+            Flush cache
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.GetChangedValueDescriptor">
+            <summary>
+            Get changed value descriptor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.Output">
+            <summary>
+            Output
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.ChangeTrackingContext.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Domain.ChangeTracking.IChangeTrackable`1">
+            <summary>
+            Interface for change trackable
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.ChangeTracking.IChangeTrackable`1.GetChanges(`0)">
+            <summary>
+            Get changes
+            </summary>
+            <param name="otherObj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Domain.Core.DescriptionContext">
+            <summary>
+            Description context
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DescriptionContext.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.Core.DescriptionContext"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DescriptionContext.Add(System.String)">
+            <summary>
+            Add desctiption
+            </summary>
+            <param name="description"></param>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DescriptionContext.Add``1(System.String,``0)">
+            <summary>
+            Add name and value pair
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DescriptionContext.FlushCache">
+            <summary>
+            Flush cache
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DescriptionContext.Output">
+            <summary>
+            Output
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DescriptionContext.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Domain.Core.DomainObject`1">
+            <summary>
+            Domain object
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.Core.DomainObject`1"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.SetValidateHandler(Cosmos.Validations.Abstractions.IValidationHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddStrategy(Cosmos.Validations.Abstractions.IValidateStrategy{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddStrategyList(System.Collections.Generic.IEnumerable{Cosmos.Validations.Abstractions.IValidateStrategy{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.Validate">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddChanges(`0)">
+            <summary>
+            Add changed
+            </summary>
+            <param name="newObj"></param>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddChange``2(System.Linq.Expressions.Expression{System.Func{`0,``0}},``1)">
+            <summary>
+            Add changes
+            </summary>
+            <param name="expression"></param>
+            <param name="newValue"></param>
+            <typeparam name="TProperty"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddChange``1(System.String,System.String,``0,``0)">
+            <summary>
+            Add change
+            </summary>
+            <param name="propertyName"></param>
+            <param name="description"></param>
+            <param name="valueBeforeChange"></param>
+            <param name="valueAfterChange"></param>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddChange(Cosmos.Domain.ChangeTracking.IChangeTrackable{`0},`0)">
+            <summary>
+            Add change
+            </summary>
+            <param name="objectBeforeChangeTrackable"></param>
+            <param name="objectAfterChange"></param>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddChange(System.Collections.Generic.IEnumerable{Cosmos.Domain.ChangeTracking.IChangeTrackable{`0}},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Add change
+            </summary>
+            <param name="leftObjs"></param>
+            <param name="rightObjs"></param>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.GetChanges(`0)">
+            <summary>
+            Get changes
+            </summary>
+            <param name="newObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddDescription">
+            <summary>
+            Add description
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddDescription(System.String)">
+            <summary>
+            Add description
+            </summary>
+            <param name="description"></param>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.AddDescription``1(System.String,``0)">
+            <summary>
+            Add description
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.Core.DomainObject`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Domain.Core.IAggregateRoot">
+            <summary>
+            Interface for aggregate root
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.Core.IAggregateRoot`1">
+            <summary>
+            Interface for aggregate root
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="T:Cosmos.Domain.Core.IAggregateRoot`2">
+            <summary>
+            Interface for aggregate root
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
         <member name="T:Cosmos.Domain.Core.IDomainObject">
             <summary>
             Interface of domain object
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.Core.IEntity">
+            <summary>
+            Interface for entity
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.Core.IEntity.Init">
+            <summary>
+            Init
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.Core.IEntity`1">
+            <summary>
+            Interface for entity
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="T:Cosmos.Domain.Core.IEntity`2">
+            <summary>
+            Interface for entity
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="T:Cosmos.Domain.EntityBase`2">
+            <summary>
+            Entity base
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.EntityBase`2"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.#ctor(`1)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.EntityBase`2"/>.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="P:Cosmos.Domain.EntityBase`2.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.op_Equality(Cosmos.Domain.EntityBase{`0,`1},Cosmos.Domain.EntityBase{`0,`1})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.op_Inequality(Cosmos.Domain.EntityBase{`0,`1},Cosmos.Domain.EntityBase{`0,`1})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.GenerateKey">
+            <summary>
+            Generate key
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityBase`2.GenerateCombKey">
+            <summary>
+            Generate combkey
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Domain.ExpirableEntityBase`2">
+            <summary>
+            Expirable entity base
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ExpirableEntityBase`2"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.#ctor(`1)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Domain.ExpirableEntityBase`2"/>.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="P:Cosmos.Domain.ExpirableEntityBase`2.ExpireLimitedFromTime">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Domain.ExpirableEntityBase`2.ExpireLimitedToTime">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.RaiseExceptionIfTimeInvalid">
+            <summary>
+            Raise exception if time is invalid
+            </summary>
+            <exception cref="T:System.IndexOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.IsStart">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.IsExpired">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.IsActive">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.IsStart(System.DateTime)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.IsExpired(System.DateTime)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Domain.ExpirableEntityBase`2.IsActive(System.DateTime)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.DeleteOperationTypes">
+            <summary>
+            Delete operation types
             </summary>
         </member>
         <member name="F:Cosmos.Domain.EntityDescriptors.DeleteOperationTypes.LogicDelete">
@@ -29,9 +539,29 @@
             Physical delete, also named hard-delete.
             </summary>
         </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.IAudited">
+            <summary>
+            Interface for audited
+            </summary>
+        </member>
         <member name="T:Cosmos.Domain.EntityDescriptors.ICreatedTime">
             <summary>
             To flag that this entity include created time.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.ICreatedTime.CreatedTime">
+            <summary>
+            Created time
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.ICreatingAudited">
+            <summary>
+            Interface for created audited
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.ICreatingAudited.CreatedOperatorId">
+            <summary>
+            Created-operator id
             </summary>
         </member>
         <member name="T:Cosmos.Domain.EntityDescriptors.IDeletable">
@@ -39,10 +569,64 @@
             To flag this entity can be mark as deleted.
             </summary>
         </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.IDeletable.IsDeleted">
+            <summary>
+            Is deleted
+            </summary>
+        </member>
         <member name="T:Cosmos.Domain.EntityDescriptors.IExpireable">
             <summary>
             To flag this entity will be expired, include start time and end time.
             </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.IExpireable.ExpireLimitedFromTime">
+            <summary>
+            Expire limited from...
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.IExpireable.ExpireLimitedToTime">
+            <summary>
+            Expire limited to...
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.EntityDescriptors.IExpireable.IsStart">
+            <summary>
+            Is start
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityDescriptors.IExpireable.IsStart(System.DateTime)">
+            <summary>
+            Is start
+            </summary>
+            <param name="targetTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityDescriptors.IExpireable.IsExpired">
+            <summary>
+            Is expired
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityDescriptors.IExpireable.IsExpired(System.DateTime)">
+            <summary>
+            Is expired
+            </summary>
+            <param name="targetTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityDescriptors.IExpireable.IsActive">
+            <summary>
+            Is active
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.EntityDescriptors.IExpireable.IsActive(System.DateTime)">
+            <summary>
+            Is active
+            </summary>
+            <param name="targetTime"></param>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Domain.EntityDescriptors.IKey`1">
             <summary>
@@ -50,10 +634,560 @@
             </summary>
             <typeparam name="TKey"></typeparam>
         </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.IKey`1.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
         <member name="T:Cosmos.Domain.EntityDescriptors.ILockable">
             <summary>
             To flag this entity can be locked.
             </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.ILockable.IsLocked">
+            <summary>
+            Is locked
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.IUpdatingAudited">
+            <summary>
+            Interface for updating audited
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.IUpdatingAudited.LastUpdatedTime">
+            <summary>
+            Last updated time
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.IUpdatingAudited.LastUpdatedOperatorId">
+            <summary>
+            Last updated-operator id
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityDescriptors.IVersionable">
+            <summary>
+            Interface for versionable
+            </summary>
+        </member>
+        <member name="P:Cosmos.Domain.EntityDescriptors.IVersionable.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.EntityMapIgnoreScanningAttribute">
+            <summary>
+            Entity map ignore scanning
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.Extensions.EntityExtensions">
+            <summary>
+            Entry extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Domain.Extensions.EntityExtensions.AppendCreatedTime``2(``0)">
+            <summary>
+            Append created time
+            </summary>
+            <param name="entity"></param>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.Extensions.EntityExtensions.AppendCreatingAuditedInfo``2(``0,System.String)">
+            <summary>
+            Append creating audited info
+            </summary>
+            <param name="entity"></param>
+            <param name="deleteOperatorId"></param>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.Extensions.EntityExtensions.AppendUpdatingAuditedInfo``2(``0,System.String)">
+            <summary>
+            Append creating audited info
+            </summary>
+            <param name="entity"></param>
+            <param name="deleteOperatorId"></param>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.Extensions.EntityExtensions.AppendDeletedInfo``2(``0,Cosmos.Domain.EntityDescriptors.DeleteOperationTypes)">
+            <summary>
+            Append deleted info
+            </summary>
+            <param name="entity"></param>
+            <param name="optType"></param>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:Cosmos.Domain.Services.Abstractions.IDomainService">
+            <summary>
+            Interface for domain service
+            </summary>
+        </member>
+        <member name="T:Cosmos.Domain.Services.Abstractions.IEntryApiServiceBase`2">
+            <summary>
+            Interface for entry api service
+            </summary>
+            <typeparam name="TParams"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:Cosmos.Domain.Services.Abstractions.IEntryApiServiceBase`2.Execute(`0)">
+            <summary>
+            Execute
+            </summary>
+            <param name="params"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Domain.Services.Abstractions.IEntryApiServiceBase`2.ExecuteAsync(`0)">
+            <summary>
+            Execute async
+            </summary>
+            <param name="params"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidatable">
+            <summary>
+            Interface for Validatabble
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidatable`1">
+            <summary>
+            Interface for Validatabble
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidatable`1.SetValidateHandler(Cosmos.Validations.Abstractions.IValidationHandler)">
+            <summary>
+            Set validate handler
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidatable`1.AddStrategy(Cosmos.Validations.Abstractions.IValidateStrategy{`0})">
+            <summary>
+            Add strategy
+            </summary>
+            <param name="strategy"></param>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidatable`1.AddStrategyList(System.Collections.Generic.IEnumerable{Cosmos.Validations.Abstractions.IValidateStrategy{`0}})">
+            <summary>
+            Add strategy list
+            </summary>
+            <param name="strategies"></param>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidatable`1.Validate">
+            <summary>
+            Validate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidateStrategy">
+            <summary>
+            Interface for validate strategy
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Abstractions.IValidateStrategy.StrategyName">
+            <summary>
+            Strategy Name
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidateStrategy`1">
+            <summary>
+            Interface for validate strategy
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidateStrategy`1.Validate(`0)">
+            <summary>
+            Validate
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidationHandler">
+            <summary>
+            Interface validation handler
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidationHandler.Handle(Cosmos.Validations.ValidationResultCollection)">
+            <summary>
+            Handler
+            </summary>
+            <param name="results"></param>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidationResult">
+            <summary>
+            Interface for validation result
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Abstractions.IValidationResult.Count">
+            <summary>
+            Count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Abstractions.IValidationResult.IsValid">
+            <summary>
+            Is valid
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Abstractions.IValidationResult.ErrorCode">
+            <summary>
+            Error code
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Abstractions.IValidationResult.Flag">
+            <summary>
+            Flag
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidationResult.Add(FluentValidation.Results.ValidationResult)">
+            <summary>
+            Add validated result
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidationResult.AddRange(System.Collections.Generic.IEnumerable{FluentValidation.Results.ValidationResult})">
+            <summary>
+            Add a set of validated results
+            </summary>
+            <param name="results"></param>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidationResult.ToMessage">
+            <summary>
+            To message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidator">
+            <summary>
+            Interface for validator
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validations.Abstractions.IValidator`1">
+            <summary>
+            Interface for validator
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidator`1.Validate(Cosmos.Validations.Abstractions.IValidateStrategy{`0})">
+            <summary>
+            Validate
+            </summary>
+            <param name="strategy"></param>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidator`1.Validate(System.Collections.Generic.IEnumerable{Cosmos.Validations.Abstractions.IValidateStrategy{`0}})">
+            <summary>
+            Validate
+            </summary>
+            <param name="strategies"></param>
+        </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidator`1.GetValidationResult">
+            <summary>
+            Get validation result
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.ValidateStrategy`1">
+            <summary>
+            Abstract validate strategy
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.ValidateStrategy`1.#ctor(System.String)">
+            <summary>
+            ValidateStrategy
+            </summary>
+            <param name="name"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:Cosmos.Validations.ValidateStrategy`1.StrategyName">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Validations.ValidationActivator">
+            <summary>
+            Validate activator
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationActivator.Validate``1(``0)">
+            <summary>
+            Validate
+            </summary>
+            <param name="instance"></param>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationActivator.Validate``1(``0,Cosmos.Validations.Abstractions.IValidateStrategy{``0})">
+            <summary>
+            Validate
+            </summary>
+            <param name="instance"></param>
+            <param name="strategy"></param>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationActivator.Validate``1(``0,Cosmos.Validations.Abstractions.IValidateStrategy{``0},Cosmos.Validations.Abstractions.IValidationHandler)">
+            <summary>
+            Validate
+            </summary>
+            <param name="instance"></param>
+            <param name="strategy"></param>
+            <param name="handler"></param>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationActivator.Validate``1(``0,System.Collections.Generic.IEnumerable{Cosmos.Validations.Abstractions.IValidateStrategy{``0}})">
+            <summary>
+            Validate
+            </summary>
+            <param name="instance"></param>
+            <param name="strategies"></param>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationActivator.Validate``1(``0,System.Collections.Generic.IEnumerable{Cosmos.Validations.Abstractions.IValidateStrategy{``0}},Cosmos.Validations.Abstractions.IValidationHandler)">
+            <summary>
+            Validate
+            </summary>
+            <param name="instance"></param>
+            <param name="strategies"></param>
+            <param name="handler"></param>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.ValidationContext`1">
+            <summary>
+            Validation context
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.#ctor(`0)">
+            <summary>
+            Create a new instance of <see><cref>ValidationContext</cref></see>.
+            </summary>
+            <param name="instanceToValidate"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.AddStrategy(Cosmos.Validations.Abstractions.IValidateStrategy{`0})">
+            <summary>
+            Add strategy
+            </summary>
+            <param name="strategy"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.SetHandler(System.Action{Cosmos.Validations.ValidationHandleOperation})">
+            <summary>
+            Set handler
+            </summary>
+            <param name="action"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.RaiseException``1(System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            Raise exception
+            </summary>
+            <param name="appendAction"></param>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.Validate">
+            <summary>
+            Validate
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.ValidateAndRaise``1(System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            Validate and raise
+            </summary>
+            <param name="appendAction"></param>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.GetValidationResultCollection">
+            <summary>
+            Get validation result collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Validations.ValidationContext`1.IsValid">
+            <summary>
+            Is valid
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validations.ValidationExceptionExtensions">
+            <summary>
+            Validation exception extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ToException``1(Cosmos.Validations.ValidationResultCollection,System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            To exception
+            </summary>
+            <param name="resultCollection"></param>
+            <param name="appendAction"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ToException``1(Cosmos.Validations.Abstractions.IValidationResult,System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            To exception
+            </summary>
+            <param name="result"></param>
+            <param name="appendAction"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.RaiseException``1(Cosmos.Validations.ValidationResultCollection,System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            Taise exception
+            </summary>
+            <param name="resultCollection"></param>
+            <param name="appendAction"></param>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="T:Cosmos.Validations.ValidationHandleExceptions">
+            <summary>
+            Validation handler exceptions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationHandleExceptions.Handle(Cosmos.Validations.ValidationResultCollection)">
+            <summary>
+            Handle
+            </summary>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationHandleExceptions.HandleAll(Cosmos.Validations.ValidationHandleOperation,Cosmos.Validations.Abstractions.IValidationHandler)">
+            <summary>
+            Handle all
+            </summary>
+            <param name="op"></param>
+            <param name="handler"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationHandleExceptions.HandleForSuccess(Cosmos.Validations.ValidationHandleOperation,Cosmos.Validations.Abstractions.IValidationHandler)">
+            <summary>
+            Handle for success
+            </summary>
+            <param name="op"></param>
+            <param name="handler"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationHandleExceptions.HandleForFailure(Cosmos.Validations.ValidationHandleOperation,Cosmos.Validations.Abstractions.IValidationHandler)">
+            <summary>
+            Handle for faliure
+            </summary>
+            <param name="op"></param>
+            <param name="handler"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationHandleExceptions.HandleForStrategy(Cosmos.Validations.ValidationHandleOperation,System.String,Cosmos.Validations.Abstractions.IValidationHandler)">
+            <summary>
+            Handle for strategy
+            </summary>
+            <param name="op"></param>
+            <param name="name"></param>
+            <param name="handler"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Validations.ValidationHandleOperation">
+            <summary>
+            Validation handle operation
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationHandleOperation.#ctor(Cosmos.Validations.ValidationResultCollection)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationHandleOperation"/>.
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationHandleOperation.RaiseException``1(System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            Raise exception
+            </summary>
+            <param name="appendAction"></param>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="T:Cosmos.Validations.ValidationResultCollection">
+            <summary>
+            Validation result collection
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationResultCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.#ctor(FluentValidation.Results.ValidationResult)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationResultCollection"/>.
+            </summary>
+            <param name="result"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.#ctor(FluentValidation.Results.ValidationResult,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationResultCollection"/>.
+            </summary>
+            <param name="result"></param>
+            <param name="strategyName"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.#ctor(System.Collections.Generic.IEnumerable{FluentValidation.Results.ValidationResult})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationResultCollection"/>.
+            </summary>
+            <param name="results"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.#ctor(System.Collections.Generic.IEnumerable{FluentValidation.Results.ValidationResult},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationResultCollection"/>.
+            </summary>
+            <param name="results"></param>
+            <param name="strategyName"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.#ctor(Cosmos.Validations.ValidationResultCollection)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationResultCollection"/>.
+            </summary>
+            <param name="collection"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:Cosmos.Validations.ValidationResultCollection.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validations.ValidationResultCollection.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validations.ValidationResultCollection.ErrorCode">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validations.ValidationResultCollection.Flag">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.Add(FluentValidation.Results.ValidationResult)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.AddRange(System.Collections.Generic.IEnumerable{FluentValidation.Results.ValidationResult})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.ToMessage">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.ToString">
+            <inheritdoc />
         </member>
     </members>
 </doc>

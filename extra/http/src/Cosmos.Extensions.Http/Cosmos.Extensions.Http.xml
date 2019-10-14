@@ -4,6 +4,11 @@
         <name>Cosmos.Extensions.Http</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Html.Core.StreamEncoder">
+            <summary>
+            Stream Encoder
+            </summary>
+        </member>
         <member name="M:Cosmos.Html.Core.StreamEncoder.GetEncoding(System.String)">
             <summary>   
             取得一个文本文件的编码方式。如果无法在文件头部找到有效的前导符，Encoding.Default将被返回。   
@@ -55,6 +60,11 @@
             <param name="data"></param>   
             <returns></returns>   
         </member>
+        <member name="T:Cosmos.Html.Elements.AElement">
+            <summary>
+            A
+            </summary>
+        </member>
         <member name="P:Cosmos.Html.Elements.AElement.Href">
             <summary>
             链接地址
@@ -80,6 +90,11 @@
             A链接的类型 文本/图像
             </summary>
         </member>
+        <member name="T:Cosmos.Html.Elements.AType">
+            <summary>
+            A type
+            </summary>
+        </member>
         <member name="F:Cosmos.Html.Elements.AType.Text">
             <summary>
             文本链接(默认)
@@ -88,6 +103,11 @@
         <member name="F:Cosmos.Html.Elements.AType.Img">
             <summary>
             图片链接
+            </summary>
+        </member>
+        <member name="T:Cosmos.Html.Elements.ImgElement">
+            <summary>
+            Img
             </summary>
         </member>
         <member name="P:Cosmos.Html.Elements.ImgElement.Src">
@@ -155,6 +175,183 @@
             To match title-flag
             </summary>
         </member>
+        <member name="T:Cosmos.Http.HttpUtils.DefaultHttpClientPool">
+            <summary>
+            Default http client pool
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.DefaultHttpClientPool.#ctor(Cosmos.Http.HttpUtils.HttpSettings)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.DefaultHttpClientPool"/>
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.DefaultHttpClientPool.Get(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Get
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.DefaultHttpClientPool.Clear">
+            <summary>
+            Clear
+            </summary>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpExpectExtensions">
+            <summary>
+            Http Expect Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpExpectExtensions.ExpectHttpSuccess(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect Http Success
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpExpectExtensions.ExpectByteArray(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect Byte Array
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpExpectExtensions.ExpectString(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect String
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpModifierExtensions">
+            <summary>
+            Http Modifier Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithTimeout(Cosmos.Http.HttpUtils.IRequestBuilder,System.TimeSpan)">
+            <summary>
+            With timeout
+            </summary>
+            <param name="builder"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithoutErrorLogging(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Without error logging
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithoutLogging(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Generic.IEnumerable{System.Net.HttpStatusCode})">
+            <summary>
+            Without logging
+            </summary>
+            <param name="builder"></param>
+            <param name="ignoredStatusCodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithoutLogging(Cosmos.Http.HttpUtils.IRequestBuilder,System.Net.HttpStatusCode)">
+            <summary>
+            Without logging
+            </summary>
+            <param name="builder"></param>
+            <param name="ignoredStatusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.OnException(Cosmos.Http.HttpUtils.IRequestBuilder,System.EventHandler{Cosmos.Http.HttpUtils.HttpExceptionArgs})">
+            <summary>
+            On exception
+            </summary>
+            <param name="builder"></param>
+            <param name="beforeLogHandler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.AddHeader(Cosmos.Http.HttpUtils.IRequestBuilder,System.String,System.String)">
+            <summary>
+            Add header
+            </summary>
+            <param name="builder"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.AddHeaders(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Add Header
+            </summary>
+            <param name="builder"></param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpSendExtensions">
+            <summary>
+            Http Send Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendContent(Cosmos.Http.HttpUtils.IRequestBuilder,System.Net.Http.HttpContent)">
+            <summary>
+            Send content
+            </summary>
+            <param name="builder"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendForm(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Send from
+            </summary>
+            <param name="builder"></param>
+            <param name="form"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendHtml(Cosmos.Http.HttpUtils.IRequestBuilder,System.String)">
+            <summary>
+            Send html
+            </summary>
+            <param name="builder"></param>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendPlaintext(Cosmos.Http.HttpUtils.IRequestBuilder,System.String)">
+            <summary>
+            Send plain text
+            </summary>
+            <param name="builder"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendJson(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object)">
+            <summary>
+            Send json
+            </summary>
+            <param name="builder"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendJson(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object,Jil.Options)">
+            <summary>
+            Send json
+            </summary>
+            <param name="builder"></param>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendProtobuf(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object)">
+            <summary>
+            Send ProtoBuf
+            </summary>
+            <param name="builder"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpVerbsExtensions">
+            <summary>
+            Http Verbs Extensions
+            </summary>
+        </member>
         <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.DeleteAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
             <summary>
             Issue the request as a DELETE
@@ -191,9 +388,224 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Http.HttpUtils.FluentHttp">
+            <summary>
+            StackOverflow fluent http
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.FluentHttp.DefaultSettings">
+            <summary>
+            Default settings
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.FluentHttp.Request(System.String,Cosmos.Http.HttpUtils.HttpSettings,System.String,System.String,System.Int32)">
+            <summary>
+            Request
+            </summary>
+            <param name="uri"></param>
+            <param name="settings"></param>
+            <param name="callerName"></param>
+            <param name="callerFile"></param>
+            <param name="callerLine"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpCallResponse">
+            <summary>
+            Http Call Response
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpCallResponse.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpCallResponse.RequestUri">
+            <summary>
+            Request Uri
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpCallResponse.RawRequest">
+            <summary>
+            Raw request
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpCallResponse.RawResponse">
+            <summary>
+            Raw response
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpCallResponse.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpCallResponse.StatusCode">
+            <summary>
+            Status code
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse.#ctor(System.Net.Http.HttpRequestMessage,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.HttpCallResponse"/>.
+            </summary>
+            <param name="request"></param>
+            <param name="error"></param>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse.#ctor(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.HttpCallResponse"/>.
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse.#ctor(System.Net.Http.HttpResponseMessage,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.HttpCallResponse"/>.
+            </summary>
+            <param name="response"></param>
+            <param name="error"></param>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse.Create``1(System.Net.Http.HttpRequestMessage,System.Exception)">
+            <summary>
+            Create
+            </summary>
+            <param name="request"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse.Create``1(System.Net.Http.HttpResponseMessage,System.Exception)">
+            <summary>
+            Create
+            </summary>
+            <param name="response"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse.Create``1(System.Net.Http.HttpResponseMessage,``0)">
+            <summary>
+            Create
+            </summary>
+            <param name="response"></param>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpCallResponse`1">
+            <summary>
+            Http Call Response
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse`1.#ctor(System.Net.Http.HttpResponseMessage,`0)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.HttpCallResponse"/>.
+            </summary>
+            <param name="response"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse`1.#ctor(System.Net.Http.HttpRequestMessage,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.HttpCallResponse"/>.
+            </summary>
+            <param name="request"></param>
+            <param name="error"></param>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpCallResponse`1.#ctor(System.Net.Http.HttpResponseMessage,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.HttpCallResponse"/>.
+            </summary>
+            <param name="response"></param>
+            <param name="error"></param>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpCallResponse`1.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpClientException">
+            <summary>
+            Http Client Exception
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpClientException.StatusCode">
+            <summary>
+            Status code
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpClientException.Uri">
+            <summary>
+            Uri
+            </summary>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.HttpExceptionArgs">
+            <summary>
+            Http Exception Args
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpExceptionArgs.Builder">
+            <summary>
+            Builder
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpExceptionArgs.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpExceptionArgs.AbortLogging">
+            <summary>
+            Abort logging
+            </summary>
+        </member>
         <member name="T:Cosmos.Http.HttpUtils.HttpSettings">
             <summary>
             Settings for HTTP
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpSettings.UserAgent">
+            <summary>
+            User agent
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpSettings.ErrorDataPrefix">
+            <summary>
+            Error data prefix
+            </summary>
+        </member>
+        <member name="E:Cosmos.Http.HttpUtils.HttpSettings.BeforeSend">
+            <summary>
+            Before Send
+            </summary>
+        </member>
+        <member name="E:Cosmos.Http.HttpUtils.HttpSettings.Exception">
+            <summary>
+            Exception
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpSettings.ProfileRequest">
+            <summary>
+            Profile request
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpSettings.ProfileGeneral">
+            <summary>
+            Profile general
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpSettings.ClientPool">
+            <summary>
+            Client pool
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.HttpSettings.DefaultTimeout">
+            <summary>
+            Default timeout
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.HttpSettings.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Http.HttpUtils.HttpSettings"/>.
             </summary>
         </member>
         <member name="T:Cosmos.Http.HttpUtils.IHttpClientPool">
@@ -216,6 +628,66 @@
         <member name="T:Cosmos.Http.HttpUtils.IRequestBuilder">
             <summary>
             A request for building request options before issuing.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.IRequestBuilder.Settings">
+            <summary>
+            Settings
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.IRequestBuilder.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.IRequestBuilder.LogErrors">
+            <summary>
+            Log errors
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.IRequestBuilder.IgnoreResponseStatuses">
+            <summary>
+            Ignore response status
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.IRequestBuilder.Timeout">
+            <summary>
+            Timeout
+            </summary>
+        </member>
+        <member name="E:Cosmos.Http.HttpUtils.IRequestBuilder.BeforeExceptionLog">
+            <summary>
+            Before exception log
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.IRequestBuilder.OnBeforeExceptionLog(Cosmos.Http.HttpUtils.HttpExceptionArgs)">
+            <summary>
+            On before exception log
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Cosmos.Http.HttpUtils.IRequestBuilder.WithHandler``1(System.Func{System.Net.Http.HttpResponseMessage,System.Threading.Tasks.Task{``0}})">
+            <summary>
+            With handler
+            </summary>
+            <param name="handler"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpUtils.IRequestBuilder`1">
+            <summary>
+            Generic interface for request builder
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.IRequestBuilder`1.Inner">
+            <summary>
+            Inner
+            </summary>
+        </member>
+        <member name="P:Cosmos.Http.HttpUtils.IRequestBuilder`1.Handler">
+            <summary>
+            Handler
             </summary>
         </member>
     </members>

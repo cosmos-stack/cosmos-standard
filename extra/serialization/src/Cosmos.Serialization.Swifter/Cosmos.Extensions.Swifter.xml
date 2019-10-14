@@ -4,5 +4,188 @@
         <name>Cosmos.Serialization.Swifter</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Extensions.Extensions">
+            <summary>
+            SwiftJson extensions
+            </summary>
+            <summary>
+            SwiftJson extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToSwifterJson``1(``0)">
+            <summary>
+            ToSwifterJson
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToSwifterJson``1(``0,Swifter.Json.JsonFormatterOptions)">
+            <summary>
+            ToSwifterJson
+            </summary>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToSwifterJson``1(``0,System.Action{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            ToSwifterJson
+            </summary>
+            <param name="obj"></param>
+            <param name="optionAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson``1(System.String)">
+            <summary>
+            From SwiftJson
+            </summary>
+            <param name="str"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson``1(System.String,Swifter.Json.JsonFormatterOptions)">
+            <summary>
+            From SwiftJson
+            </summary>
+            <param name="str"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson``1(System.String,System.Action{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From SwiftJson
+            </summary>
+            <param name="str"></param>
+            <param name="optionAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson(System.String,System.Type)">
+            <summary>
+            From SwiftJson
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson(System.String,System.Type,Swifter.Json.JsonFormatterOptions)">
+            <summary>
+            From SwiftJson
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson(System.String,System.Type,System.Action{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From SwiftJson
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <param name="optionAct"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.SwifterObjectSerializer">
+            <summary>
+            SwiftJson Serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.SwifterObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.SwifterObjectSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.SwifterObjectSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Swifter.SwifterHelper">
+            <summary>
+            SwiftJson Helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Serialize``1(``0,Swifter.Json.JsonFormatterOptions)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Serialize``1(``0,System.Action{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="optionAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize``1(System.String)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize``1(System.String,Swifter.Json.JsonFormatterOptions)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize``1(System.String,System.Action{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="optionAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize(System.String,System.Type,Swifter.Json.JsonFormatterOptions)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize(System.String,System.Type,System.Action{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="optionAct"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
