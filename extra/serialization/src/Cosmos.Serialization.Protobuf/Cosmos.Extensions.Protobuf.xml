@@ -4,5 +4,124 @@
         <name>Cosmos.Serialization.Protobuf</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Extensions.Extensions">
+            <summary>
+            ProtoBuf extensions
+            </summary>
+            <summary>
+            ProtoBuf extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromProtoBuf``1(System.Byte[])">
+            <summary>
+            From ProtoBuf
+            </summary>
+            <param name="bytes"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromProtoBuf(System.Byte[],System.Type)">
+            <summary>
+            From ProtoBuf
+            </summary>
+            <param name="bytes"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToProtoBuf``1(``0)">
+            <summary>
+            To ProtoBuf
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToProtoBuf(System.Object,System.Type)">
+            <summary>
+            To ProtoBuf
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.ProtoBufObjectSerializer">
+            <summary>
+            ProtoBuf serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.ProtoBufObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.ProtoBufObjectSerializer.Deserialize``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.ProtoBufObjectSerializer.Deserialize(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Protobuf.ProtoBufHelper">
+            <summary>
+            ProtoBuf helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Protobuf.ProtoBufHelper.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Protobuf.ProtoBufHelper.Serialize(System.Object,System.Type)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Protobuf.ProtoBufHelper.Serialize(System.IO.Stream,System.Object)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="dest"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Cosmos.Protobuf.ProtoBufHelper.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="bytes"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Protobuf.ProtoBufHelper.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="bytes"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Protobuf.ProtoBufHelper.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Protobuf.ProtoBufHelper.Deserialize(System.IO.Stream,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ProtoBuf.Meta.SerializerBuilder">
+            <summary>
+            Serializer builder
+            </summary>
+        </member>
     </members>
 </doc>

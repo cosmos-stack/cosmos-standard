@@ -4,6 +4,14 @@
         <name>Cosmos.Serialization.Xml</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Extensions.XmlExtensions">
+            <summary>
+            Xml extensions
+            </summary>
+            <summary>
+            Xml extensions
+            </summary>
+        </member>
         <member name="M:Cosmos.Extensions.XmlExtensions.ToXml``1(``0,System.Text.Encoding)">
             <summary>
             Serialize object to xml
@@ -27,6 +35,52 @@
             Deserialize the xml to object.
             </summary>
             <param name="str"></param>
+            <param name="type"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.XmlObjectSerializer">
+            <summary>
+            Xml Serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.XmlObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.XmlObjectSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.XmlObjectSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Xml.XmlHelper">
+            <summary>
+            Xml Helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Xml.XmlHelper.Serialize``1(``0,System.Text.Encoding)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="t"></param>
+            <param name="encoding"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Xml.XmlHelper.Deserialize``1(System.String,System.Text.Encoding)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="xml"></param>
+            <param name="encoding"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Xml.XmlHelper.Deserialize(System.String,System.Type,System.Text.Encoding)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="xml"></param>
             <param name="type"></param>
             <param name="encoding"></param>
             <returns></returns>

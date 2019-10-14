@@ -20,14 +20,14 @@ namespace Cosmos.Conversions
                 return defaultRet;
             }
 
-            if (int.TryParse(obj.ToString(), out int ret))
+            if (int.TryParse(obj.ToString(), out var ret))
             {
                 return ret;
             }
 
             try
             {
-                return Convert.ToInt32(ToDouble(obj, (double)defaultRet));
+                return Convert.ToInt32(ToDouble(obj, defaultRet));
             }
             catch
             {
@@ -47,7 +47,7 @@ namespace Cosmos.Conversions
                 return null;
             }
 
-            if (int.TryParse(obj.ToString(), out int ret))
+            if (int.TryParse(obj.ToString(), out var ret))
             {
                 return ret;
             }
@@ -68,14 +68,14 @@ namespace Cosmos.Conversions
                 return defaultRet;
             }
 
-            if (int.TryParse(obj.ToString(), out int ret))
+            if (int.TryParse(obj.ToString(), out var ret))
             {
                 return ret;
             }
 
             try
             {
-                return Convert.ToInt64(ToDouble(obj, (double)defaultRet));
+                return Convert.ToInt64(ToDouble(obj, defaultRet));
             }
             catch
             {
@@ -95,7 +95,7 @@ namespace Cosmos.Conversions
                 return null;
             }
 
-            if (long.TryParse(obj.ToString(), out long ret))
+            if (long.TryParse(obj.ToString(), out var ret))
             {
                 return ret;
             }
@@ -116,7 +116,7 @@ namespace Cosmos.Conversions
                 return defaultRet;
             }
 
-            return float.TryParse(obj.ToString(), out float ret) ? ret : defaultRet;
+            return float.TryParse(obj.ToString(), out var ret) ? ret : defaultRet;
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Cosmos.Conversions
                 return null;
             }
 
-            if (float.TryParse(obj.ToString(), out float ret))
+            if (float.TryParse(obj.ToString(), out var ret))
             {
                 return ret;
             }
@@ -153,7 +153,7 @@ namespace Cosmos.Conversions
                 return defaultRet;
             }
 
-            return double.TryParse(obj.ToString(), out double ret) ? ret : defaultRet;
+            return double.TryParse(obj.ToString(), out var ret) ? ret : defaultRet;
         }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace Cosmos.Conversions
                 return null;
             }
 
-            if (double.TryParse(obj.ToString(), out double ret))
+            if (double.TryParse(obj.ToString(), out var ret))
             {
                 return ret;
             }
@@ -218,7 +218,7 @@ namespace Cosmos.Conversions
                 return defaultRet;
             }
 
-            return decimal.TryParse(obj.ToString(), out decimal ret) ? ret : defaultRet;
+            return decimal.TryParse(obj.ToString(), out var ret) ? ret : defaultRet;
         }
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace Cosmos.Conversions
                 return null;
             }
 
-            if (decimal.TryParse(obj.ToString(), out decimal ret))
+            if (decimal.TryParse(obj.ToString(), out var ret))
             {
                 return ret;
             }

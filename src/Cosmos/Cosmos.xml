@@ -2071,94 +2071,82 @@
         <member name="T:Cosmos.TypeScanner">
             <summary>
             Type Scanner <br />
-            类型扫描器
+            类型扫描
             </summary>
         </member>
         <member name="P:Cosmos.TypeScanner.ScannedResultCache">
             <summary>
-            Scanned result cache <br />
-            结果缓存
+            Scanned result cache
             </summary>
         </member>
         <member name="P:Cosmos.TypeScanner.ScannedResultCached">
             <summary>
-            Scanned result cached <br />
-            标记扫描结果是否已缓存
+            Scanned result cached
             </summary>
         </member>
         <member name="M:Cosmos.TypeScanner.#ctor">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
-            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/>
             </summary>
         </member>
         <member name="M:Cosmos.TypeScanner.#ctor(System.String)">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
-            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/>
             </summary>
             <param name="scannerName"></param>
         </member>
         <member name="M:Cosmos.TypeScanner.#ctor(System.Type)">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
-            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/>
             </summary>
             <param name="baseType"></param>
         </member>
         <member name="M:Cosmos.TypeScanner.#ctor(System.String,System.Type)">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.TypeScanner"/> <br />
-            创建 <see cref="T:Cosmos.TypeScanner"/> 新实例
+            Create a new instance of <see cref="T:Cosmos.TypeScanner"/>
             </summary>
             <param name="scannerName"></param>
             <param name="baseType"></param>
         </member>
         <member name="P:Cosmos.TypeScanner.BaseType">
             <summary>
-            Base type <br />
-            基础类型
+            Base type 
             </summary>
         </member>
         <member name="M:Cosmos.TypeScanner.Scan">
             <summary>
             Scan <br />
-            扫描
+            ɨ��
             </summary>
             <returns></returns>
         </member>
         <member name="M:Cosmos.TypeScanner.GetAssemblies">
             <summary>
-            Get assemblies <br />
-            获取程序集
+            Get assemblies
             </summary>
             <returns></returns>
         </member>
         <member name="M:Cosmos.TypeScanner.GetSkipAssembliesNamespaces">
             <summary>
-            Get skip assemblies' namespaces <br />
-            获取程序集的命名空间，以便跳过
+            Get skip assemblies' namespaces
             </summary>
             <returns></returns>
         </member>
         <member name="M:Cosmos.TypeScanner.GetLimitedAssembliesNamespaces">
             <summary>
-            Get limited assemblies' namespaces <br />
-            获取程序集的命名空间，以便仅局限在这些命名空间中进行扫描
+            Get limited assemblies' namespaces 
             </summary>
             <returns></returns>
         </member>
         <member name="M:Cosmos.TypeScanner.TypeFilter">
             <summary>
-            Type filter <br />
-            类型过滤器
+            Type filter 
             </summary>
             <returns></returns>
         </member>
         <member name="M:Cosmos.TypeScanner.Dispose">
             <summary>
-            Dispose <br />
-            释放
+            Dispose
             </summary>
         </member>
         <member name="T:Cosmos.Verba.Boolean.DefaultBooleanVerba">

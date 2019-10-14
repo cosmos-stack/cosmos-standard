@@ -28,7 +28,7 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
 
     internal class UnixDateTimeStrategy : IDateStrategy
     {
-        private const long TicksPerMillisecond = 10_000;
+        private const long TICKS_PER_MILLISECOND = 10_000;
         public int NumDateBytes { get; } = 6;
 
         public DateTime MinDateTimeValue { get; } = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -64,8 +64,8 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
             return FromUnixTimeMillseconds(ms);
         }
 
-        private long ToUnixTmeMillseconds(DateTime timestamp) => (timestamp.Ticks - MinDateTimeValue.Ticks) / TicksPerMillisecond;
+        private long ToUnixTmeMillseconds(DateTime timestamp) => (timestamp.Ticks - MinDateTimeValue.Ticks) / TICKS_PER_MILLISECOND;
 
-        private DateTime FromUnixTimeMillseconds(long ms) => MinDateTimeValue.AddTicks(ms * TicksPerMillisecond);
+        private DateTime FromUnixTimeMillseconds(long ms) => MinDateTimeValue.AddTicks(ms * TICKS_PER_MILLISECOND);
     }
 }

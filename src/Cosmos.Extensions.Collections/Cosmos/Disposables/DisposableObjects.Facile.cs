@@ -4,18 +4,29 @@ using System.Linq;
 
 namespace Cosmos.Disposables
 {
+    /// <summary>
+    /// Facile Disposable Objects
+    /// </summary>
     public abstract class FacileDisposableObjects : IDisposable
     {
         private bool _disposed;
         private readonly CollectionDisposableObjects _collectionDisposableObjects;
         private readonly Dictionary<string, AnonymousDisposableObject> _anonymousDisposableObjects;
 
+        /// <summary>
+        /// Create a new instance of <see cref="FacileDisposableObjects"/>.
+        /// </summary>
         protected FacileDisposableObjects()
         {
             _collectionDisposableObjects = CollectionDisposableObjects.Create();
             _anonymousDisposableObjects = new Dictionary<string, AnonymousDisposableObject>();
         }
 
+        /// <summary>
+        /// Add disposable object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <typeparam name="TDisposableObj"></typeparam>
         protected void AddDisposableObject<TDisposableObj>(TDisposableObj obj) where TDisposableObj : class, IDisposable
         {
             if (obj != null)
@@ -24,6 +35,10 @@ namespace Cosmos.Disposables
             }
         }
 
+        /// <summary>
+        /// Add a set of disposable objects
+        /// </summary>
+        /// <param name="objs"></param>
         protected void AddDisposableObjects(params object[] objs)
         {
             foreach (var obj in objs.Select(x => x as IDisposable).Where(o => o != null))
@@ -32,6 +47,11 @@ namespace Cosmos.Disposables
             }
         }
 
+        /// <summary>
+        /// Add disposable action
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="action"></param>
         protected void AddDisposableAction(string name, Action action)
         {
             CheckDisposed();
@@ -42,6 +62,11 @@ namespace Cosmos.Disposables
             }
         }
 
+        /// <summary>
+        /// Add disposable action
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="disposableAction"></param>
         protected void AddDisposableAction(string name, DisposableAction disposableAction)
         {
             CheckDisposed();
@@ -52,6 +77,11 @@ namespace Cosmos.Disposables
             }
         }
 
+        /// <summary>
+        /// Add disposable action
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="anonymous"></param>
         protected void AddDisposableAction(string name, AnonymousDisposableObject anonymous)
         {
             CheckDisposed();
@@ -62,12 +92,20 @@ namespace Cosmos.Disposables
             }
         }
 
+        /// <summary>
+        /// Contains disposable action
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         protected bool ContainDisposableAction(string name)
         {
             return _anonymousDisposableObjects.ContainsKey(name);
         }
 
-
+        /// <summary>
+        /// Remove disposable action
+        /// </summary>
+        /// <param name="name"></param>
         protected void RemoveDisposableAction(string name)
         {
             CheckDisposed();
@@ -78,6 +116,9 @@ namespace Cosmos.Disposables
             }
         }
 
+        /// <summary>
+        /// Clear all disposable actions
+        /// </summary>
         protected void ClearDisposableActions()
         {
             CheckDisposed();
@@ -87,12 +128,19 @@ namespace Cosmos.Disposables
 
         private void InternalClearDisposableActions() => _anonymousDisposableObjects.Clear();
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
             if (_disposed)

@@ -19,18 +19,34 @@ using System.Threading;
 
 namespace System.Linq
 {
+    /// <summary>
+    /// Async ordered enumerable
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsyncOrderedEnumerable<T> : IOrderedEnumerable<T>
     {
+        /// <summary>
+        /// Create a new instance of <see cref="AsyncOrderedEnumerable{T}"/>.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
         public AsyncOrderedEnumerable(IOrderedEnumerable<T> source, CancellationToken cancellationToken)
         {
             CancellationToken = cancellationToken;
             Source = source;
         }
 
+        /// <summary>
+        /// CancellationToken
+        /// </summary>
         public CancellationToken CancellationToken { get; set; }
 
+        /// <summary>
+        /// Source
+        /// </summary>
         public IOrderedEnumerable<T> Source { get; set; }
 
+        /// <inheritdoc />
         public IEnumerator<T> GetEnumerator()
         {
             return new AsyncEnumerator<T>(Source.GetEnumerator(), CancellationToken);
@@ -41,11 +57,18 @@ namespace System.Linq
             return new AsyncEnumerator<T>(Source.GetEnumerator(), CancellationToken);
         }
 
+        /// <inheritdoc />
         public IOrderedEnumerable<T> CreateOrderedEnumerable<TKey>(Func<T, TKey> keySelector, IComparer<TKey> comparer, bool descending)
         {
             return Source.CreateOrderedEnumerable(keySelector, comparer, descending);
         }
 
+        /// <summary>
+        /// Create from...
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public static AsyncOrderedEnumerable<T> CreateFrom(IOrderedEnumerable<T> source, CancellationToken cancellationToken)
         {
             return new AsyncOrderedEnumerable<T>(source, cancellationToken);

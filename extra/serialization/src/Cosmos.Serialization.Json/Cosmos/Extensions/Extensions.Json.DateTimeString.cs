@@ -3,6 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// Newtonsoft Json Extensions
+    /// </summary>
     public static partial class Extensions
     {
         /// <summary>

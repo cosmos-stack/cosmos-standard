@@ -4,6 +4,9 @@ using System.Runtime.Serialization;
 
 namespace Cosmos.Http.HttpUtils
 {
+    /// <summary>
+    /// Http Client Exception
+    /// </summary>
     public class HttpClientException : CosmosException
     {
         private const string FLAG = "CosmosHttpClient";
@@ -37,8 +40,14 @@ namespace Cosmos.Http.HttpUtils
             Uri = uri;
         }
 
+        /// <summary>
+        /// Status code
+        /// </summary>
         public HttpStatusCode? StatusCode { get; }
 
+        /// <summary>
+        /// Uri
+        /// </summary>
         public Uri Uri { get; }
     }
 }

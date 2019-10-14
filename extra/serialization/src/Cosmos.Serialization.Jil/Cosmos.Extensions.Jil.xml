@@ -4,5 +4,158 @@
         <name>Cosmos.Serialization.Jil</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Extensions.Extensions">
+            <summary>
+            JilJson extensions
+            </summary>
+            <summary>
+            JilJson extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToJil``1(``0,Jil.Options)">
+            <summary>
+            To Jil
+            </summary>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToJil``1(``0,System.Action{Jil.Options})">
+            <summary>
+            To Jil
+            </summary>
+            <param name="obj"></param>
+            <param name="optionsAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromJil``1(System.String,Jil.Options)">
+            <summary>
+            From Jil
+            </summary>
+            <param name="json"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromJil``1(System.String,System.Action{Jil.Options})">
+            <summary>
+            From Jil
+            </summary>
+            <param name="json"></param>
+            <param name="optionsAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromJil(System.String,System.Type,Jil.Options)">
+            <summary>
+            From Jil
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromJil(System.String,System.Type,System.Action{Jil.Options})">
+            <summary>
+            From Jil
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="optionsAct"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.JilObjectSerializer">
+            <summary>
+            Jil serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.JilObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.JilObjectSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.JilObjectSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Jil.JilHelper">
+            <summary>
+            JilJson helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Serialize``1(``0,Jil.Options)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Serialize``1(``0,System.Action{Jil.Options})">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="optionAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Deserialize``1(System.String,Jil.Options)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Deserialize``1(System.String,System.Action{Jil.Options})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="optionAct"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Deserialize(System.String,System.Type,Jil.Options)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Deserialize(System.String,System.Type,System.Action{Jil.Options})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="optionAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Deserialize(System.IO.TextReader,System.Type,Jil.Options)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Jil.JilHelper.Deserialize(System.IO.TextReader,System.Type,System.Action{Jil.Options})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="optionAct"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

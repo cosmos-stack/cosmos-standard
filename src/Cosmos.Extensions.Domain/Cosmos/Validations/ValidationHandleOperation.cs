@@ -5,10 +5,17 @@ using FluentValidation.Results;
 
 namespace Cosmos.Validations
 {
+    /// <summary>
+    /// Validation handle operation
+    /// </summary>
     public sealed class ValidationHandleOperation
     {
         private readonly ValidationResultCollection _collection;
 
+        /// <summary>
+        /// Create a new instance of <see cref="ValidationHandleOperation"/>.
+        /// </summary>
+        /// <param name="collection"></param>
         public ValidationHandleOperation(ValidationResultCollection collection)
         {
             _collection = collection ?? throw new ArgumentNullException(nameof(collection));
@@ -38,6 +45,11 @@ namespace Cosmos.Validations
             handler.Handle(coll);
         }
 
+        /// <summary>
+        /// Raise exception
+        /// </summary>
+        /// <param name="appendAction"></param>
+        /// <typeparam name="TException"></typeparam>
         public void RaiseException<TException>(Action<TException, ValidationResultCollection> appendAction = null)
             where TException : CosmosException, new()
         {

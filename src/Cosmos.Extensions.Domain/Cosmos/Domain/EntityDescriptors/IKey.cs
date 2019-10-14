@@ -6,6 +6,9 @@
     /// <typeparam name="TKey"></typeparam>
     public interface IKey<out TKey>
     {
+        /// <summary>
+        /// Id
+        /// </summary>
         TKey Id { get; }
     }
 }

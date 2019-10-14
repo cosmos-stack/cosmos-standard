@@ -28,8 +28,8 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
 
     internal class SqlDateTimeStrategy : IDateStrategy
     {
-        private const double TicksPerDay = 86_400d * 300d;
-        private const double TicksPerMillisecond = 3d / 10d;
+        private const double TICKS_PER_DAY = 86_400d * 300d;
+        private const double TICKS_PER_MILLISECOND = 3d / 10d;
 
         public int NumDateBytes { get; } = 6;
 
@@ -39,7 +39,7 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
 
         public byte[] DateTimeToBytes(DateTime timestamp)
         {
-            var ticks = (int) (timestamp.TimeOfDay.TotalMilliseconds * TicksPerMillisecond);
+            var ticks = (int) (timestamp.TimeOfDay.TotalMilliseconds * TICKS_PER_MILLISECOND);
             var days = (ushort) (timestamp - MinDateTimeValue).TotalDays;
             var tickBytes = BitConverter.GetBytes(ticks);
             var dayBytes = BitConverter.GetBytes(days);
@@ -77,13 +77,13 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
             {
                 throw new ArgumentException("Not a COMB, time component is negative.");
             }
-            else if (ticks > TicksPerDay)
+            else if (ticks > TICKS_PER_DAY)
             {
                 throw new ArgumentException("Not a COMB, time component exceeds 24 hours.");
             }
 
             // ReSharper disable once RedundantCast
-            return MinDateTimeValue.AddDays(days).AddMilliseconds((double) ticks / TicksPerMillisecond);
+            return MinDateTimeValue.AddDays(days).AddMilliseconds((double) ticks / TICKS_PER_MILLISECOND);
         }
     }
 }

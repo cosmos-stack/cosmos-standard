@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cosmos.Verba.Boolean
 {
     /// <summary>
     /// Default global boolean verba
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public class DefaultBooleanVerba : IBooleanVerba
     {
         static DefaultBooleanVerba()

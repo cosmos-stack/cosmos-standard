@@ -1,18 +1,47 @@
-﻿using Cosmos.Swifter;
+﻿using System;
+using Cosmos.Swifter;
 using Swifter.Json;
 
 namespace Cosmos.Extensions
 {
+    /// <summary>
+    /// SwiftJson extensions
+    /// </summary>
     public static partial class Extensions
     {
-        public static string ToSwifterJson<T>(this T obj, string dateTimeFormat = null)
+        /// <summary>
+        /// ToSwifterJson
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string ToSwifterJson<T>(this T obj)
         {
-            return SwifterHelper.Serialize(obj, dateTimeFormat);
+            return SwifterHelper.Serialize(obj);
         }
 
-        public static string ToSwifterJson<T>(this T obj, JsonFormatterOptions options, string dateTimeFormat = null)
+        /// <summary>
+        /// ToSwifterJson
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="options"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string ToSwifterJson<T>(this T obj, JsonFormatterOptions options)
         {
-            return SwifterHelper.Serialize(obj, options, dateTimeFormat);
+            return SwifterHelper.Serialize(obj, options);
+        }
+
+        /// <summary>
+        /// ToSwifterJson
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="optionAct"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string ToSwifterJson<T>(this T obj, Action<JsonFormatterOptions> optionAct)
+        {
+            return SwifterHelper.Serialize(obj, optionAct);
         }
     }
 }

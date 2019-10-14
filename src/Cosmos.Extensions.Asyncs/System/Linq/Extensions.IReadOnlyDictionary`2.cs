@@ -21,6 +21,14 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// As enumerable
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<KeyValuePair<TKey, TValue>>> AsEnumerable<TKey, TValue>(
             this Task<IReadOnlyDictionary<TKey, TValue>> source, 
             CancellationToken cancellationToken = default)

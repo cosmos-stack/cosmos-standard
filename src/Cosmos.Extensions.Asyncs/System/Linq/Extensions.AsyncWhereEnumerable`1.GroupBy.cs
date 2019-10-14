@@ -22,6 +22,15 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<IGrouping<TKey, TSource>>> GroupBy<TSource, TKey>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -30,6 +39,16 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="comparer"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<IGrouping<TKey, TSource>>> GroupBy<TSource, TKey>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -39,6 +58,17 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="elementSelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TElement"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<IGrouping<TKey, TElement>>> GroupBy<TSource, TKey, TElement>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -48,6 +78,18 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="elementSelector"></param>
+        /// <param name="comparer"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TElement"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<IGrouping<TKey, TElement>>> GroupBy<TSource, TKey, TElement>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -58,6 +100,17 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> GroupBy<TSource, TKey, TResult>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -67,6 +120,19 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, resultSelector, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="elementSelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TElement"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> GroupBy<TSource, TKey, TElement, TResult>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -77,6 +143,18 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, resultSelector, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="comparer"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> GroupBy<TSource, TKey, TResult>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -87,6 +165,20 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, resultSelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group by
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="elementSelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="comparer"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TElement"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> GroupBy<TSource, TKey, TElement, TResult>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             Func<TSource, TKey> keySelector,
@@ -98,6 +190,20 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, resultSelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
+        /// <summary>
+        /// Group join
+        /// </summary>
+        /// <param name="outer"></param>
+        /// <param name="inner"></param>
+        /// <param name="outerKeySelector"></param>
+        /// <param name="innerKeySelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TOuter"></typeparam>
+        /// <typeparam name="TInner"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> GroupJoin<TOuter, TInner, TKey, TResult>(
             this Task<AsyncWhereEnumerable<TOuter>> outer,
             IEnumerable<TInner> inner,
@@ -109,6 +215,21 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(outer, inner, outerKeySelector, innerKeySelector, resultSelector, Enumerable.GroupJoin, cancellationToken);
         }
 
+        /// <summary>
+        /// Group join
+        /// </summary>
+        /// <param name="outer"></param>
+        /// <param name="inner"></param>
+        /// <param name="outerKeySelector"></param>
+        /// <param name="innerKeySelector"></param>
+        /// <param name="resultSelector"></param>
+        /// <param name="comparer"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TOuter"></typeparam>
+        /// <typeparam name="TInner"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> GroupJoin<TOuter, TInner, TKey, TResult>(
             this Task<AsyncWhereEnumerable<TOuter>> outer,
             IEnumerable<TInner> inner,

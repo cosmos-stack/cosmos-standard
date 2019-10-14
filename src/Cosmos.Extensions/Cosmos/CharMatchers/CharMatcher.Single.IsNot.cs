@@ -2,6 +2,9 @@ using System;
 
 namespace Cosmos.CharMatchers
 {
+    /// <summary>
+    /// Char matcher
+    /// </summary>
     public partial class CharMatcher : IIsNotModeCharMatcher
     {
         #region Negate

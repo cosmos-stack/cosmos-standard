@@ -480,6 +480,297 @@
              <param name="argumentName"></param>
              <param name="message"></param>
         </member>
+        <member name="T:Cosmos.Extensions.FluentValidationExtensions">
+            <summary>
+            Extensions for fluent validation
+            </summary>
+            <summary>
+            Extensions for fluent validation
+            </summary>
+            <summary>
+            Extensions for fluent validation
+            </summary>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to zero.
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.Double},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.String},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanZero``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanZero``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanZero``1(FluentValidation.IRuleBuilder{``0,System.Double},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanZero``1(FluentValidation.IRuleBuilder{``0,System.String},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to zero.
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.Double},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualToZero``1(FluentValidation.IRuleBuilder{``0,System.String},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanZero``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanZero``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanZero``1(FluentValidation.IRuleBuilder{``0,System.Double},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanZero``1(FluentValidation.IRuleBuilder{``0,System.String},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than zero
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.Int32,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.Int64,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.Double},System.Double,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.String},System.String,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than or equal to ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThan``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.Int32,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThan``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.Int64,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThan``1(FluentValidation.IRuleBuilder{``0,System.Double},System.Double,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfLessThan``1(FluentValidation.IRuleBuilder{``0,System.String},System.String,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if less than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.Int32,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to ....
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.Int64,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.Double},System.Double,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThanOrEqualTo``1(FluentValidation.IRuleBuilder{``0,System.String},System.String,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than or equal to ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThan``1(FluentValidation.IRuleBuilder{``0,System.Int32},System.Int32,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThan``1(FluentValidation.IRuleBuilder{``0,System.Int64},System.Int64,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThan``1(FluentValidation.IRuleBuilder{``0,System.Double},System.Double,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfGreaterThan``1(FluentValidation.IRuleBuilder{``0,System.String},System.String,System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if greater than ...
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="value"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Extensions.FluentValidationExtensions.RaiseExceptionIfEmpty``1(FluentValidation.IRuleBuilder{``0,System.String},System.ValueTuple{System.Int64,System.String,System.String})">
+            <summary>
+            Raise exception if empty
+            </summary>
+            <param name="ruleBuilder"></param>
+            <param name="error"></param>
+            <typeparam name="T"></typeparam>
+        </member>
         <member name="T:Cosmos.Preconditions">
             <summary>
             Arguments checking
@@ -574,6 +865,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotInvalidDate(System.Nullable{System.DateTime},System.String,System.String)">
             <summary>
@@ -582,6 +874,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotInPast(System.DateTime,System.String,System.String)">
             <summary>
@@ -591,6 +884,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotInPast(System.Nullable{System.DateTime},System.String,System.String)">
             <summary>
@@ -600,6 +894,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotInFuture(System.DateTime,System.String,System.String)">
             <summary>
@@ -609,6 +904,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotInFuture(System.Nullable{System.DateTime},System.String,System.String)">
             <summary>
@@ -618,6 +914,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotNegative(System.TimeSpan,System.String,System.String)">
             <summary>
@@ -626,6 +923,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotNegative(System.Nullable{System.TimeSpan},System.String,System.String)">
             <summary>
@@ -634,6 +932,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.TimeSpan,System.String,System.String)">
             <summary>
@@ -642,6 +941,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotNegativeOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
             <summary>
@@ -650,6 +950,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.Preconditions.IsNotNegative(System.Int32,System.String,System.String)">
             <summary>
@@ -910,6 +1211,336 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.BetweenAttribute">
+            <summary>
+            Between, alias of <see cref="T:Cosmos.Validations.Parameters.NotOutOfRangeAttribute"/>
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation">
+            <summary>
+            Parameter type validation
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.#ctor(System.Boolean,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation"/>
+            </summary>
+            <param name="result"></param>
+            <param name="parameterType"></param>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.Result">
+            <summary>
+            Result
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.ParameterType">
+            <summary>
+            Parameter type
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.op_Implicit(Cosmos.Validations.Parameters.Internals.ParameterTypeValidation)~System.Boolean">
+            <summary>
+            Convert instance of <see cref="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.MustIntAttribute">
+            <summary>
+            Must
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustIntAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustIntAttribute.MayBeNullable">
+            <summary>
+            May be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.MustIntAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.MustIntTypeAttribute">
+            <summary>
+            Must in type...
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustIntTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustIntTypeAttribute.MayBeNullable">
+            <summary>
+            My be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.MustIntTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.MustLongTypeAttribute">
+            <summary>
+            Must long
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustLongTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustLongTypeAttribute.MayBeNullable">
+            <summary>
+            My be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.MustLongTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.MustNumericTypeAttribute">
+            <summary>
+            Music numeric type
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustNumericTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustNumericTypeAttribute.MayBeNullable">
+            <summary>
+            My be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.MustNumericTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.MustStringTypeAttribute">
+            <summary>
+            Must string type
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.MustStringTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.MustStringTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotBlankAttribute">
+            <summary>
+            Not blank
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotInFutureAttribute">
+            <summary>
+            Not in future
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotInFutureAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotInFutureAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotInPastAttribute">
+            <summary>
+            /Not in past
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotInPastAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotInPastAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotNegativeAttribute">
+            <summary>
+            Not negative
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotNegativeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotNegativeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotNegativeOrZeroAttribute">
+            <summary>
+            Not negative or zero
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotNegativeOrZeroAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotNegativeOrZeroAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotNullAttribute">
+            <summary>
+            Not null
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotNullAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotNullAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotOutOfLengthAttribute">
+            <summary>
+            Not out of length
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotOutOfLengthAttribute.Message">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotOutOfLengthAttribute.Length">
+            <summary>
+            Length
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotOutOfLengthAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotOutOfRangeAttribute">
+            <summary>
+            Not out of range
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotOutOfRangeAttribute.Message">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotOutOfRangeAttribute.Min">
+            <summary>
+            Min
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotOutOfRangeAttribute.Max">
+            <summary>
+            Max
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotOutOfRangeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NotWhiteSpaceAttribute">
+            <summary>
+            Not whitespace
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.NotWhiteSpaceAttribute.Message">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.NotWhiteSpaceAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.NumberOnlyAttribute">
+            <summary>
+            Number only
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.ValidDateAttribute">
+            <summary>
+            Valid date
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.ValidDateAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.Parameters.ValidDateAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

@@ -4,5 +4,31 @@
         <name>Cosmos.Extensions.AspectCoreInjector</name>
     </assembly>
     <members>
+        <member name="T:AspectCore.Injector.AspectCoreInjectorExtensions">
+            <summary>
+            Extensions for NCC AspectCore
+            </summary>
+        </member>
+        <member name="M:AspectCore.Injector.AspectCoreInjectorExtensions.RegisterProxy(AspectCore.Injector.IServiceContainer,Cosmos.Dependency.RegisterProxyBag)">
+            <summary>
+            Register Proxy
+            </summary>
+            <param name="services"></param>
+            <param name="bag"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Dependency.LifetimeExtensions">
+            <summary>
+            Extensions for lifetime
+            </summary>
+        </member>
+        <member name="M:Cosmos.Dependency.LifetimeExtensions.ToAspectCoreLifetime(Cosmos.Dependency.RegisterProxyLifetimeType)">
+            <summary>
+            To NCC AspectCore lifetime
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

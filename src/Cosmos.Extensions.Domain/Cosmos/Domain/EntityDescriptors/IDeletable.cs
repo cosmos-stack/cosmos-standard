@@ -5,6 +5,9 @@
     /// </summary>
     public interface IDeletable
     {
+        /// <summary>
+        /// Is deleted
+        /// </summary>
         bool IsDeleted { get; set; }
     }
 }

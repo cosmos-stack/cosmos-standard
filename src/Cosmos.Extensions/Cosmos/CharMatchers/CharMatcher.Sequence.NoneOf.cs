@@ -3,6 +3,9 @@ using System.Text;
 
 namespace Cosmos.CharMatchers
 {
+    /// <summary>
+    /// Char matcher
+    /// </summary>
     public partial class CharMatcher : INoneOfModeCharMatcher
     {
         #region Negate

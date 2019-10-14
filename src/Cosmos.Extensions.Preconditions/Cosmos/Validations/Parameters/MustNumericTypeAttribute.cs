@@ -6,12 +6,28 @@ using Cosmos.Validations.Parameters.Internals;
 
 namespace Cosmos.Validations.Parameters
 {
-    public class MustNumericTypeAttribute : ParameterInterceptorAttribute
+    /// <summary>
+    /// Music numeric type
+    /// </summary>
+    public class MustNumericTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
+        /// <summary>
+        /// Message
+        /// </summary>
         public string Message { get; set; }
 
+        /// <summary>
+        /// My be nullable
+        /// </summary>
         public bool MayBeNullable { get; set; }
 
+        /// <summary>
+        /// Invoke
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="next"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             var condition = MayBeNullable

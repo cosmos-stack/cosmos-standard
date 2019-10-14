@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cosmos.Verba.Time
 {
     /// <summary>
     /// Interface for time verba
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public interface ITimeVerba : IVerba
     {
         /// <summary>

@@ -10,6 +10,7 @@ namespace Cosmos.Verba.Boolean
     /// <summary>
     /// Global boolean verba manager
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public static class GlobalBooleanVerbaManager
     {
         private static readonly ConcurrentDictionary<string, IBooleanVerba> m_booleanVerbaDict;

@@ -1,21 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cosmos.Verba.Time
 {
     /// <summary>
     /// Default Traditional Chines time verba
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public class DefaultTraditionalChineseTimeVerba : ITimeVerba
     {
         /// <summary>
         /// China Taiwan Traditional Chinese
         /// </summary>
-        public const string TaiwanTraditionalChinese = "zh_TW";
+        public const string TaiwanTraditionalChinese = "zh-TW";
 
         /// <summary>
         /// China HongKong Traditional Chinese
         /// </summary>
-        public const string HongKongTraditionalChinese = "zh_HK";
+        public const string HongKongTraditionalChinese = "zh-HK";
 
         static DefaultTraditionalChineseTimeVerba()
         {

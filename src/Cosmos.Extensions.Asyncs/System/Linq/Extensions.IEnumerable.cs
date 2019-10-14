@@ -22,6 +22,13 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Cast to
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> Cast<TResult>(
             this Task<IEnumerable> source,
             CancellationToken cancellationToken = default)
@@ -29,6 +36,13 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, Enumerable.Cast<TResult>, cancellationToken);
         }
 
+        /// <summary>
+        /// Cast to async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> CastAsync<TResult>(
             this IEnumerable source,
             CancellationToken cancellationToken = default)
@@ -36,6 +50,13 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, Enumerable.Cast<TResult>, cancellationToken);
         }
 
+        /// <summary>
+        /// Of type
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> OfType<TResult>(
             this Task<IEnumerable> source,
             CancellationToken cancellationToken = default)
@@ -43,6 +64,13 @@ namespace System.Linq
             return Task.Factory.FromTaskEnumerable(source, Enumerable.OfType<TResult>, cancellationToken);
         }
 
+        /// <summary>
+        /// Of type async
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Task<IEnumerable<TResult>> OfTypeAsync<TResult>(
             this IEnumerable source,
             CancellationToken cancellationToken = default)

@@ -26,7 +26,7 @@
     </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LitJson" Version="0.14.0-alpha0003" />
+    <PackageReference Include="LitJson" Version="0.14.1" />
   </ItemGroup>
 
     <ItemGroup>

@@ -4,5 +4,80 @@
         <name>Cosmos.Serialization.Lit</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Extensions.Extensions">
+            <summary>
+            LitJson extensions
+            </summary>
+            <summary>
+            LitJson extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.ToLitJson``1(``0)">
+            <summary>
+            To LitJson
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromLitJson``1(System.String)">
+            <summary>
+            From LitJson
+            </summary>
+            <param name="str"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Extensions.Extensions.FromLitJson(System.String,System.Type)">
+            <summary>
+            From LitJson
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.LitObjectSerializer">
+            <summary>
+            LitJson Serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.LitObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.LitObjectSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.LitObjectSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Lit.LitHelper">
+            <summary>
+            Lit Helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Lit.LitHelper.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Lit.LitHelper.Deserialize``1(System.String)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Lit.LitHelper.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

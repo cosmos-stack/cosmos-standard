@@ -6,8 +6,18 @@ using System.Xml.Serialization;
 
 namespace Cosmos.Xml
 {
+    /// <summary>
+    /// Xml Helper
+    /// </summary>
     public static class XmlHelper
     {
+        /// <summary>
+        /// Serialize
+        /// </summary>
+        /// <param name="t"></param>
+        /// <param name="encoding"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static string Serialize<T>(T t, Encoding encoding = null)
         {
             if (t == null) return
@@ -28,6 +38,13 @@ namespace Cosmos.Xml
             }
         }
 
+        /// <summary>
+        /// Serialize
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <param name="encoding"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T Deserialize<T>(string xml, Encoding encoding = null)
         {
             if (string.IsNullOrWhiteSpace(xml))
@@ -42,6 +59,13 @@ namespace Cosmos.Xml
             }
         }
 
+        /// <summary>
+        /// Deserialize
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <param name="type"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         public static object Deserialize(string xml, Type type, Encoding encoding = null)
         {
             if (string.IsNullOrWhiteSpace(xml))

@@ -86,6 +86,17 @@
             Object Serializer Meta Interface
             </summary>
         </member>
+        <member name="T:Cosmos.IOperationResult`1">
+            <summary>
+            Opt result
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.IOperationResult`1.Result">
+            <summary>
+            Operation result
+            </summary>
+        </member>
         <member name="T:Cosmos.ITypeConverter`2">
             <summary>
             Type Converter Meta Interface
@@ -99,6 +110,16 @@
             </summary>
             <param name="from"></param>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validations.Parameters.IValidationParameter">
+            <summary>
+            Validation parameter
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.Parameters.IValidationParameter.Message">
+            <summary>
+            Message
+            </summary>
         </member>
         <member name="T:Cosmos.Verba.IVerba">
             <summary>

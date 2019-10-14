@@ -40,6 +40,6 @@ namespace Cosmos
         /// <param name="listParams"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IReadOnlyList<T> CreateReadOnlyList<T>(params IEnumerable<T>[] listParams) => CreateList<T>(listParams);
+        public static IReadOnlyList<T> CreateReadOnlyList<T>(params IEnumerable<T>[] listParams) => CreateList(listParams);
     }
 }

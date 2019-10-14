@@ -7,7 +7,7 @@ namespace Cosmos
     /// <summary>
     /// Extensions for hshtable 
     /// </summary>
-    public static partial class HashtableExtensions
+    public static class HashtableExtensions
     {
         /// <summary>
         /// To HashSet ignore duplicates

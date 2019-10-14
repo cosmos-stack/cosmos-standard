@@ -14,9 +14,12 @@ using System.Reflection;
 
 namespace ProtoBuf.Meta
 {
+    /// <summary>
+    /// Serializer builder
+    /// </summary>
     public static class SerializerBuilder
     {
-        private const BindingFlags Flags = BindingFlags.FlattenHierarchy | BindingFlags.Public |
+        private const BindingFlags FLAGS = BindingFlags.FlattenHierarchy | BindingFlags.Public |
                                            BindingFlags.NonPublic | BindingFlags.Instance;
 
         private static readonly ConcurrentDictionary<Type, HashSet<Type>> SubTypes = new ConcurrentDictionary<Type, HashSet<Type>>();
@@ -25,8 +28,7 @@ namespace ProtoBuf.Meta
 
         internal static void Build<T>(RuntimeTypeModel runtimeTypeModel)
         {
-            var type = typeof(T);
-            Build(runtimeTypeModel, type);
+            Build(runtimeTypeModel, typeof(T));
         }
 
         internal static void Build(RuntimeTypeModel runtimeTypeModel, Type type)
@@ -44,7 +46,7 @@ namespace ProtoBuf.Meta
                 }
 
                 var meta = runtimeTypeModel.Add(type, false);
-                var fields = type.GetFields(Flags);
+                var fields = type.GetFields(FLAGS);
 
                 meta.Add(fields.Select(x => x.Name).ToArray());
                 meta.UseConstructor = false;

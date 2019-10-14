@@ -13,11 +13,21 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Http.HttpUtils
 {
+    /// <summary>
+    /// Generic interface for request builder
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IRequestBuilder<T>
     {
+        /// <summary>
+        /// Inner
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         IRequestBuilder Inner { get; }
 
+        /// <summary>
+        /// Handler
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         Func<HttpResponseMessage, Task<T>> Handler { get; }
     }

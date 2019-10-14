@@ -5,6 +5,7 @@ namespace Cosmos.Verba.Time
     /// <summary>
     /// TIme verba constant
     /// </summary>
+    [Obsolete("将会被 Cosmos.I18N 取代")]
     public static class TimeVerbaConstant
     {
         /// <summary>

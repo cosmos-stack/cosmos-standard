@@ -22,6 +22,12 @@ namespace System.Linq
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Order by completion
+        /// </summary>
+        /// <param name="tasks"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Task<T>[] OrderByCompletion<T>(this IEnumerable<Task<T>> tasks)
         {
             //Credit to: https://github.com/NeoLegends/AsyncLinq

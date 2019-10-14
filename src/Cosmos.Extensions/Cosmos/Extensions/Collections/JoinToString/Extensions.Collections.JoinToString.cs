@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Cosmos.Joiners;
 
@@ -39,7 +38,7 @@ namespace Cosmos
         /// <returns></returns>
         public static string JoinToString(this IEnumerable<string> list, Func<string, bool> predicate, Func<string, string> replaceFunc = null)
         {
-            return JoinToString<string>(list, ",", predicate, s => s, replaceFunc);
+            return JoinToString(list, ",", predicate, s => s, replaceFunc);
         }
 
         /// <summary>
@@ -52,7 +51,7 @@ namespace Cosmos
         /// <returns></returns>
         public static string JoinToString(this IEnumerable<string> list, string delimiter, Func<string, bool> predicate, Func<string, string> replaceFunc = null)
         {
-            return JoinToString<string>(list, delimiter, predicate, s => s, replaceFunc);
+            return JoinToString(list, delimiter, predicate, s => s, replaceFunc);
         }
 
         /// <summary>
@@ -199,7 +198,7 @@ namespace Cosmos
 
             var sb = new StringBuilder();
 
-            CommonJoinUtils.JoinToString<T, StringBuilder>(sb, (c, s) => c.Append(s), list, delimiter, predicate, to, replaceFunc);
+            CommonJoinUtils.JoinToString(sb, (c, s) => c.Append(s), list, delimiter, predicate, to, replaceFunc);
 
             return sb.ToString();
         }

@@ -15,48 +15,45 @@ namespace Cosmos
         /// <param name="values"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static List<TSource> RemoveDuplicates<TSource>(this IList<TSource> values)
+        public static IEnumerable<TSource> RemoveDuplicates<TSource>(this IList<TSource> values)
         {
-            var res = new List<TSource>(values.Count);
             var duplicateCheck = new HashSet<TSource>();
 
-            foreach (var value in values)
+            return values.RemoveWhere(item =>
             {
-                if (duplicateCheck.Contains(value))
-                    continue;
+                if (duplicateCheck.Contains(item))
+                    return true;
 
-                duplicateCheck.Add(value);
-                res.Add(value);
-            }
-
-            return res;
+                duplicateCheck.Add(item);
+                return false;
+            });
         }
 
         /// <summary>
         /// Remove buplicates
         /// </summary>
         /// <param name="values"></param>
-        /// <param name="dupliCheck"></param>
+        /// <param name="duplicatePredicate"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TCheck"></typeparam>
         /// <returns></returns>
-        public static List<TSource> RemoveDuplicates<TSource, TCheck>(this IList<TSource> values, Func<TSource, TCheck> dupliCheck)
+        public static IEnumerable<TSource> RemoveDuplicates<TSource, TCheck>(this IList<TSource> values, Func<TSource, TCheck> duplicatePredicate)
         {
-            var duplicateCheck = new HashSet<TCheck>();
-            var res = new List<TSource>(values.Count);
+            if (duplicatePredicate == null)
+                throw new ArgumentNullException(nameof(duplicatePredicate));
 
-            foreach (var value in values)
+            var duplicateCheck = new HashSet<TCheck>();
+
+            return values.RemoveWhere(item =>
             {
-                var val = dupliCheck(value);
+                var val = duplicatePredicate(item);
 
                 if (duplicateCheck.Contains(val))
-                    continue;
+                    return true;
 
                 duplicateCheck.Add(val);
-                res.Add(value);
-            }
-
-            return res;
+                return false;
+            });
         }
 
         /// <summary>
@@ -64,22 +61,74 @@ namespace Cosmos
         /// </summary>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static List<string> RemoveDuplicatesIgnoreCase(this IList<string> values)
+        public static IEnumerable<string> RemoveDuplicatesIgnoreCase(this IList<string> values)
         {
             var duplicateCheck = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            var res = new List<string>(values.Count);
-            foreach (var value in values)
+
+            return values.RemoveWhere(item =>
             {
-                if (duplicateCheck.Contains(value))
-                {
+                if (duplicateCheck.Contains(item))
+                    return true;
+
+                duplicateCheck.Add(item);
+                return false;
+            });
+        }
+
+        /// <summary>
+        /// Remove where...
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IEnumerable<T> RemoveWhere<T>(this IList<T> source, Func<T, bool> predicate)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
+            for (var i = source.Count - 1; i >= 0; --i)
+            {
+                var item = source[i];
+
+                if (!predicate.Invoke(item))
                     continue;
-                }
 
-                duplicateCheck.Add(value);
-                res.Add(value);
+                source.RemoveAt(i);
+
+                yield return item;
             }
+        }
 
-            return res;
+        /// <summary>
+        /// Safe remove range
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="index"></param>
+        /// <param name="count"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IEnumerable<T> SafeRemoveRange<T>(this List<T> source, int index, int count)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            if (index < 0 || count < 0)
+                return source;
+
+            if (index >= source.Count)
+                return source;
+
+            count = Math.Min(count, source.Count) - index;
+            
+            source.RemoveRange(index, count);
+
+            return source;
         }
     }
 }

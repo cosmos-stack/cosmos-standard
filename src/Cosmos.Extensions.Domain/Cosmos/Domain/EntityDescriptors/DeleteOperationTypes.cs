@@ -1,5 +1,8 @@
 namespace Cosmos.Domain.EntityDescriptors
 {
+    /// <summary>
+    /// Delete operation types
+    /// </summary>
     public enum DeleteOperationTypes
     {
         /// <summary>

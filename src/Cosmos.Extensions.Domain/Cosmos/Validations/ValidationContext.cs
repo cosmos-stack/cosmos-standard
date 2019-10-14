@@ -5,20 +5,33 @@ using Cosmos.Validations.Abstractions;
 
 namespace Cosmos.Validations
 {
+    /// <summary>
+    /// Validation context
+    /// </summary>
+    /// <typeparam name="TObject"></typeparam>
     public class ValidationContext<TObject>
         where TObject : class, IValidatable<TObject>
     {
         private TObject Instance { get; set; }
         private List<IValidateStrategy<TObject>> ValidateStrategyList { get; }
-        private ValidationResultCollection _resultCollection { get; set; }
+        private ValidationResultCollection ResultCollection { get; set; }
         private Action<ValidationHandleOperation> Handle { get; set; }
 
+        /// <summary>
+        /// Create a new instance of <see><cref>ValidationContext</cref></see>.
+        /// </summary>
+        /// <param name="instanceToValidate"></param>
         public ValidationContext(TObject instanceToValidate)
         {
             Instance = instanceToValidate;
             ValidateStrategyList = new List<IValidateStrategy<TObject>>();
         }
 
+        /// <summary>
+        /// Add strategy
+        /// </summary>
+        /// <param name="strategy"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AddStrategy(IValidateStrategy<TObject> strategy)
         {
             if (strategy == null)
@@ -37,6 +50,11 @@ namespace Cosmos.Validations
                 AddStrategy(strategy);
         }
 
+        /// <summary>
+        /// Set handler
+        /// </summary>
+        /// <param name="action"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void SetHandler(Action<ValidationHandleOperation> action)
         {
             if (action == null)
@@ -52,20 +70,33 @@ namespace Cosmos.Validations
             }
         }
 
+        /// <summary>
+        /// Raise exception
+        /// </summary>
+        /// <param name="appendAction"></param>
+        /// <typeparam name="TException"></typeparam>
         public void RaiseException<TException>(Action<TException, ValidationResultCollection> appendAction = null)
             where TException : CosmosException, new()
         {
-            if (_resultCollection != null && !_resultCollection.IsValid)
-                _resultCollection.RaiseException(appendAction);
+            if (ResultCollection != null && !ResultCollection.IsValid)
+                ResultCollection.RaiseException(appendAction);
         }
 
+        /// <summary>
+        /// Validate
+        /// </summary>
         public void Validate()
         {
             var tempList = ValidateStrategyList.Select(strategy => strategy.Validate(Instance)).ToList();
-            _resultCollection = new ValidationResultCollection(tempList);
-            Handle?.Invoke(_resultCollection.Handle());
+            ResultCollection = new ValidationResultCollection(tempList);
+            Handle?.Invoke(ResultCollection.Handle());
         }
 
+        /// <summary>
+        /// Validate and raise
+        /// </summary>
+        /// <param name="appendAction"></param>
+        /// <typeparam name="TException"></typeparam>
         public void ValidateAndRaise<TException>(Action<TException, ValidationResultCollection> appendAction = null)
             where TException : CosmosException, new()
         {
@@ -73,12 +104,18 @@ namespace Cosmos.Validations
             RaiseException(appendAction);
         }
 
+        /// <summary>
+        /// Get validation result collection.
+        /// </summary>
+        /// <returns></returns>
         public ValidationResultCollection GetValidationResultCollection()
         {
-            return _resultCollection;
+            return ResultCollection;
         }
 
-
-        public bool IsValid => _resultCollection?.IsValid ?? true;
+        /// <summary>
+        /// Is valid
+        /// </summary>
+        public bool IsValid => ResultCollection?.IsValid ?? true;
     }
 }

@@ -3,8 +3,18 @@ using Cosmos.Dependency;
 
 namespace AspectCore.Injector
 {
+    /// <summary>
+    /// Extensions for NCC AspectCore
+    /// </summary>
     public static class AspectCoreInjectorExtensions
     {
+        /// <summary>
+        /// Register Proxy
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="bag"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IServiceContainer RegisterProxy(this IServiceContainer services, RegisterProxyBag bag)
         {
             if (services == null)

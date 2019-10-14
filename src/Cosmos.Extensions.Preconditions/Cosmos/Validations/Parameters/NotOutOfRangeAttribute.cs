@@ -6,15 +6,31 @@ using Cosmos.Validations.Parameters.Internals;
 
 namespace Cosmos.Validations.Parameters
 {
+    /// <summary>
+    /// Not out of range
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotOutOfRangeAttribute : ParameterInterceptorAttribute
+    public class NotOutOfRangeAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
+        /// <inheritdoc />
         public string Message { get; set; }
 
+        /// <summary>
+        /// Min
+        /// </summary>
         public decimal Min { get; set; }
 
+        /// <summary>
+        /// Max
+        /// </summary>
         public decimal Max { get; set; }
 
+        /// <summary>
+        /// Invoke
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="next"></param>
+        /// <returns></returns>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsIntType())

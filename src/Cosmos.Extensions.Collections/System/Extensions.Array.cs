@@ -6,7 +6,7 @@ namespace System
     /// <summary>
     /// Extensions
     /// </summary>
-    public static partial class Extensions
+    public static class Extensions
     {
         /// <summary>
         /// Contains
