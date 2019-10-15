@@ -76,6 +76,58 @@ namespace Cosmos
 
         #endregion
 
+        #region Gets/Sets PropertyInfo
+
+        /// <summary>
+        /// Get properties
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="accessType"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        public static IEnumerable<PropertyInfo> GetProperties(this Type type, PropertyAccessType accessType)
+        {
+            if (type == null)
+                throw new ArgumentNullException(nameof(type));
+
+            switch (accessType)
+            {
+                case PropertyAccessType.Getters:
+                    return type.GetPropertiesWithPublicInstanceGetters();
+
+                case PropertyAccessType.Setters:
+                    return type.GetPropertiesWithPublicInstanceSetters();
+
+                default:
+                    throw new InvalidOperationException("Invalid operation for unknown access type");
+            }
+        }
+
+        /// <summary>
+        /// Get properties
+        /// </summary>
+        /// <param name="accessType"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<PropertyInfo> GetProperties<T>(PropertyAccessType accessType) => typeof(T).GetProperties(accessType);
+
+        private static IEnumerable<PropertyInfo> GetPropertiesWithPublicInstanceSetters(this Type type)
+        {
+            // Get the properties.
+            return type.GetRuntimeProperties().Where(p => p.SetMethod != null && !p.SetMethod.IsStatic && p.SetMethod.IsPublic);
+        }
+
+        private static IEnumerable<PropertyInfo> GetPropertiesWithPublicInstanceGetters(this Type type)
+        {
+            // Get the properties.
+            // NOTE: Used to be
+            //return type.GetTypeInfo().GetProperties(BindingFlags.Instance | BindingFlags.Public).
+            return type.GetRuntimeProperties().Where(p => p.GetMethod != null && !p.GetMethod.IsStatic && p.GetMethod.IsPublic);
+        }
+
+        #endregion
+
         #region ToComputeSignature
 
         /// <summary>
@@ -257,10 +309,28 @@ namespace Cosmos
         /// Is assignable from...
         /// </summary>
         /// <param name="this"></param>
-        /// <param name="targetType"></param>
+        /// <param name="from"></param>
         /// <returns></returns>
-        public static bool IsAssignableFrom(this object @this, Type targetType)
-            => @this.GetType().IsAssignableFrom(targetType);
+        public static bool IsAssignableFrom(this object @this, Type from)
+            => @this.GetType().IsAssignableFrom(from);
+
+        /// <summary>
+        /// Is assignable from...
+        /// </summary>
+        /// <param name="to"></param>
+        /// <param name="from"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsAssignableFrom(this Type to, Type from)
+        {
+            if (from == null) throw new ArgumentNullException(nameof(from));
+            if (to == null) throw new ArgumentNullException(nameof(to));
+
+            var fromTypeInfo = from.GetTypeInfo();
+            var toTypeInfo = to.GetTypeInfo();
+
+            return toTypeInfo.IsAssignableFrom(fromTypeInfo);
+        }
 
         #endregion
 
