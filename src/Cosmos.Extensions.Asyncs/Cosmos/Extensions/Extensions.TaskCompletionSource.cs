@@ -10,7 +10,8 @@ using System.Threading.Tasks;
  *          MIT
  */
 
-namespace Cosmos.Extensions
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Asynchronous
 {
     /// <summary>
     /// TaskCompletionSource extensions

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Cosmos.Http.HttpUtils;
 using Cosmos.Http.HttpUtils.Internals;
 using Jil;
 using ProtoBuf;
@@ -14,7 +15,8 @@ using ProtoBuf;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Http
 {
     /// <summary>
     /// Http Expect Extensions

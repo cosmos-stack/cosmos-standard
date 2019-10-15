@@ -729,6 +729,11 @@
             Anonymous Disposable Object
             </summary>
         </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.#ctor">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AnonymousDisposableObject"/> instance.
+            </summary>
+        </member>
         <member name="M:Cosmos.Disposables.AnonymousDisposableObject.#ctor(System.Action)">
             <summary>
             Create a new <see cref="T:Cosmos.Disposables.AnonymousDisposableObject"/> instance.

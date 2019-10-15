@@ -5,6 +5,7 @@ using System.Collections.Immutable;
 using System.Net;
 using System.Net.Http.Headers;
 using Cosmos.Http.HttpUtils.Internals;
+using Cosmos.Http.HttpUtils;
 
 /*
  * Reference to:
@@ -14,7 +15,8 @@ using Cosmos.Http.HttpUtils.Internals;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Http
 {
     /// <summary>
     /// Http Modifier Extensions

@@ -94,6 +94,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Tests.GuavaTests", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-verba", "src-verba", "{54639486-95C8-4CA4-B938-C74C190816BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Reflection", "src\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj", "{5542C90C-367D-4327-BB7A-A01ACA2A2949}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -212,6 +214,10 @@ Global
 		{0CB6F0EB-576A-4416-8223-F3865A7970BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CB6F0EB-576A-4416-8223-F3865A7970BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CB6F0EB-576A-4416-8223-F3865A7970BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5542C90C-367D-4327-BB7A-A01ACA2A2949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5542C90C-367D-4327-BB7A-A01ACA2A2949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5542C90C-367D-4327-BB7A-A01ACA2A2949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5542C90C-367D-4327-BB7A-A01ACA2A2949}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -251,6 +257,7 @@ Global
 		{FAEB44ED-DAED-4417-911E-567C9EE79453} = {87D7302C-14EA-46B4-9324-0E42E39C100D}
 		{BAD239AF-A603-47C5-B088-1C97A09BC67F} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 		{0CB6F0EB-576A-4416-8223-F3865A7970BE} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
+		{5542C90C-367D-4327-BB7A-A01ACA2A2949} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D68A6AF5-79FE-4679-AD20-67D6CFCF75B4}

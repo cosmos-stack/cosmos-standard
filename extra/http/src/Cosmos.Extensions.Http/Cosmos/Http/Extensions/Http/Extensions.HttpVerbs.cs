@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Cosmos.Http.HttpUtils;
 
 /*
  * Reference to:
@@ -10,7 +11,8 @@ using System.Threading.Tasks;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Http
 {
     /// <summary>
     /// Http Verbs Extensions

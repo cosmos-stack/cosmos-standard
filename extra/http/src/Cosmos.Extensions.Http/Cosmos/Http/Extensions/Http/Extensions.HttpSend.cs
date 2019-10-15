@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Text;
 using Jil;
 using ProtoBuf;
+using Cosmos.Http.HttpUtils;
+using Newtonsoft.Json;
 
 /*
  * Reference to:
@@ -15,7 +17,8 @@ using ProtoBuf;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Http
 {
     /// <summary>
     /// Http Send Extensions
@@ -64,7 +67,7 @@ namespace Cosmos.Http.HttpUtils
         #region JSON
 
         /// <summary>
-        /// Send json
+        /// Send json by Jil
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="obj"></param>
@@ -73,7 +76,7 @@ namespace Cosmos.Http.HttpUtils
             => SendJson(builder, obj, Options.Default);
 
         /// <summary>
-        /// Send json
+        /// Send json by Jil
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="obj"></param>
@@ -81,6 +84,16 @@ namespace Cosmos.Http.HttpUtils
         /// <returns></returns>
         public static IRequestBuilder SendJson(this IRequestBuilder builder, object obj, Options options)
             => builder.SendContent(new StringContent(JSON.Serialize(obj, options), Encoding.UTF8, "application/json"));
+
+        /// <summary>
+        /// Send json by Newtonsoft.Json
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="obj"></param>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static IRequestBuilder SendJson(this IRequestBuilder builder, object obj, JsonSerializerSettings settings)
+            => builder.SendContent(new StringContent(JsonConvert.SerializeObject(obj, settings), Encoding.UTF8, "application/json"));
 
         #endregion
 
@@ -92,7 +105,7 @@ namespace Cosmos.Http.HttpUtils
         /// <param name="builder"></param>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static IRequestBuilder SendProtobuf(this IRequestBuilder builder, object obj)
+        public static IRequestBuilder SendProtoBuf(this IRequestBuilder builder, object obj)
         {
             using (var output = new MemoryStream())
             {
