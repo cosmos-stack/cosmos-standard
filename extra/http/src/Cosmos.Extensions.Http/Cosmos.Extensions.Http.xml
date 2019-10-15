@@ -175,6 +175,553 @@
             To match title-flag
             </summary>
         </member>
+        <member name="T:Cosmos.Http.HttpClientExtensions">
+            <summary>
+            HttpClient extensions
+            </summary>
+            <summary>
+            HttpClient extensions
+            </summary>
+            <summary>
+            HttpClient extensions
+            </summary>
+            <summary>
+            HttpClient extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.DeleteJsonAsync``1(System.Net.Http.HttpClient,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Delete json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.DeleteJsonAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializerSettings,System.Threading.CancellationToken)">
+            <summary>
+            Delete json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializerSettings"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TResponse"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.DeleteJsonAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializer,System.Threading.CancellationToken)">
+            <summary>
+            Delete json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializer"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TResponse"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.DeleteJsonAsync``1(System.Net.Http.HttpClient,System.String,Jil.Options,System.Threading.CancellationToken)">
+            <summary>
+            Delete json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TResponse"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.GetJsonAsync``1(System.Net.Http.HttpClient,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.GetJsonAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializerSettings,System.Threading.CancellationToken)">
+            <summary>
+            Get json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializerSettings"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.GetJsonAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializer,System.Threading.CancellationToken)">
+            <summary>
+            Get json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializer"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.GetStreamAsync(System.Net.Http.HttpClient,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get stream async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="requestUri"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.GetStreamAsync(System.Net.Http.HttpClient,System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Get stream async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="requestUri"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.GetStreamAsync(System.Net.Http.HttpClient,System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Get stream async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="requestUri"></param>
+            <param name="disposeHttpClient"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.GetStreamAsync(System.Net.Http.HttpClient,System.Uri,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Get stream async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="requestUri"></param>
+            <param name="disposeHttpClient"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.SetCompression(System.Net.Http.HttpClientHandler)">
+            <summary>
+            Set compression
+            </summary>
+            <param name="handler"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializerSettings,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializerSettings"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializer,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializer"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializer,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializer"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonForHttpResponseMessageAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializerSettings,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json for HttpResponseMessage async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializerSettings"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonForHttpResponseMessageAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializer,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json for HttpResponseMessage async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializer"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Http.HttpHeaderExtensions">
+            <summary>
+            Extensions of Http header
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpHeaderExtensions.TryGetValue(System.Net.Http.Headers.HttpHeaders,System.String,System.String@)">
+            <summary>
+            Try get value from http headers
+            </summary>
+            <param name="headers"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Http.HttpResponseMessageExtensions">
+            <summary>
+            HttpResponseMessage extensions
+            </summary>
+            <summary>
+            HttpResponseMessage extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpResponseMessageExtensions.SetBasicHttpAuthentication(System.Net.Http.HttpRequestMessage,System.String,System.String)">
+            <summary>
+            Set basic http authentication
+            </summary>
+            <param name="message"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpResponseMessageExtensions.ToObjectAsync``1(System.Net.Http.HttpResponseMessage,System.Threading.CancellationToken)">
+            <summary>
+            To Object async
+            </summary>
+            <param name="httpResponseMessage"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpResponseMessageExtensions.ToObjectAsync``1(System.Net.Http.HttpResponseMessage,Newtonsoft.Json.JsonSerializerSettings,System.Threading.CancellationToken)">
+            <summary>
+            To Object async
+            </summary>
+            <param name="httpResponseMessage"></param>
+            <param name="jsonSerializerSettings"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpResponseMessageExtensions.ToObjectAsync``1(System.Net.Http.HttpResponseMessage,Newtonsoft.Json.JsonSerializer,System.Threading.CancellationToken)">
+            <summary>
+            To Object async
+            </summary>
+            <param name="httpResponseMessage"></param>
+            <param name="jsonSerializer"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Http.HttpResponseMessageExtensions.ToObjectAsync``1(System.Net.Http.HttpResponseMessage,Jil.Options,System.Threading.CancellationToken)">
+            <summary>
+            To object async
+            </summary>
+            <param name="httpResponseMessage"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Http.HttpExpectExtensions">
+            <summary>
+            Http Expect Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpExpectExtensions.ExpectHttpSuccess(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect Http Success
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpExpectExtensions.ExpectByteArray(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect Byte Array
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpExpectExtensions.ExpectString(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect String
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpExpectExtensions.ExpectJson``1(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect json
+            </summary>
+            <param name="builder"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpExpectExtensions.ExpectJson``1(Cosmos.Http.HttpUtils.IRequestBuilder,Jil.Options)">
+            <summary>
+            Expect json
+            </summary>
+            <param name="builder"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpExpectExtensions.ExpectProtobuf``1(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Expect protobuf
+            </summary>
+            <param name="builder"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpModifierExtensions">
+            <summary>
+            Http Modifier Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpModifierExtensions.WithTimeout(Cosmos.Http.HttpUtils.IRequestBuilder,System.TimeSpan)">
+            <summary>
+            With timeout
+            </summary>
+            <param name="builder"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpModifierExtensions.WithoutErrorLogging(Cosmos.Http.HttpUtils.IRequestBuilder)">
+            <summary>
+            Without error logging
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpModifierExtensions.WithoutLogging(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Generic.IEnumerable{System.Net.HttpStatusCode})">
+            <summary>
+            Without logging
+            </summary>
+            <param name="builder"></param>
+            <param name="ignoredStatusCodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpModifierExtensions.WithoutLogging(Cosmos.Http.HttpUtils.IRequestBuilder,System.Net.HttpStatusCode)">
+            <summary>
+            Without logging
+            </summary>
+            <param name="builder"></param>
+            <param name="ignoredStatusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpModifierExtensions.OnException(Cosmos.Http.HttpUtils.IRequestBuilder,System.EventHandler{Cosmos.Http.HttpUtils.HttpExceptionArgs})">
+            <summary>
+            On exception
+            </summary>
+            <param name="builder"></param>
+            <param name="beforeLogHandler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpModifierExtensions.AddHeader(Cosmos.Http.HttpUtils.IRequestBuilder,System.String,System.String)">
+            <summary>
+            Add header
+            </summary>
+            <param name="builder"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpModifierExtensions.AddHeaders(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Add Header
+            </summary>
+            <param name="builder"></param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpSendExtensions">
+            <summary>
+            Http Send Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendContent(Cosmos.Http.HttpUtils.IRequestBuilder,System.Net.Http.HttpContent)">
+            <summary>
+            Send content
+            </summary>
+            <param name="builder"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendForm(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Send from
+            </summary>
+            <param name="builder"></param>
+            <param name="form"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendHtml(Cosmos.Http.HttpUtils.IRequestBuilder,System.String)">
+            <summary>
+            Send html
+            </summary>
+            <param name="builder"></param>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendPlaintext(Cosmos.Http.HttpUtils.IRequestBuilder,System.String)">
+            <summary>
+            Send plain text
+            </summary>
+            <param name="builder"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendJson(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object)">
+            <summary>
+            Send json by Jil
+            </summary>
+            <param name="builder"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendJson(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object,Jil.Options)">
+            <summary>
+            Send json by Jil
+            </summary>
+            <param name="builder"></param>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendJson(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Send json by Newtonsoft.Json
+            </summary>
+            <param name="builder"></param>
+            <param name="obj"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpSendExtensions.SendProtoBuf(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object)">
+            <summary>
+            Send ProtoBuf
+            </summary>
+            <param name="builder"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpVerbsExtensions">
+            <summary>
+            Http Verbs Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpVerbsExtensions.DeleteAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a DELETE
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpVerbsExtensions.GetAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a GET
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpVerbsExtensions.PostAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a POST
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Http.HttpVerbsExtensions.PutAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
+            <summary>
+            Issue the request as a PUT
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Http.HttpMessageHandlerFactory">
+            <summary>
+            Http message handler factory
+            </summary>
+        </member>
+        <member name="M:Cosmos.Http.HttpMessageHandlerFactory.CreateDefaultMessageHandler">
+            <summary>
+            Create default message handler
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Http.HttpUtils.DefaultHttpClientPool">
             <summary>
             Default http client pool
@@ -197,196 +744,6 @@
             <summary>
             Clear
             </summary>
-        </member>
-        <member name="T:Cosmos.Http.HttpUtils.HttpExpectExtensions">
-            <summary>
-            Http Expect Extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpExpectExtensions.ExpectHttpSuccess(Cosmos.Http.HttpUtils.IRequestBuilder)">
-            <summary>
-            Expect Http Success
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpExpectExtensions.ExpectByteArray(Cosmos.Http.HttpUtils.IRequestBuilder)">
-            <summary>
-            Expect Byte Array
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpExpectExtensions.ExpectString(Cosmos.Http.HttpUtils.IRequestBuilder)">
-            <summary>
-            Expect String
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Http.HttpUtils.HttpModifierExtensions">
-            <summary>
-            Http Modifier Extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithTimeout(Cosmos.Http.HttpUtils.IRequestBuilder,System.TimeSpan)">
-            <summary>
-            With timeout
-            </summary>
-            <param name="builder"></param>
-            <param name="timeout"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithoutErrorLogging(Cosmos.Http.HttpUtils.IRequestBuilder)">
-            <summary>
-            Without error logging
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithoutLogging(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Generic.IEnumerable{System.Net.HttpStatusCode})">
-            <summary>
-            Without logging
-            </summary>
-            <param name="builder"></param>
-            <param name="ignoredStatusCodes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.WithoutLogging(Cosmos.Http.HttpUtils.IRequestBuilder,System.Net.HttpStatusCode)">
-            <summary>
-            Without logging
-            </summary>
-            <param name="builder"></param>
-            <param name="ignoredStatusCode"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.OnException(Cosmos.Http.HttpUtils.IRequestBuilder,System.EventHandler{Cosmos.Http.HttpUtils.HttpExceptionArgs})">
-            <summary>
-            On exception
-            </summary>
-            <param name="builder"></param>
-            <param name="beforeLogHandler"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.AddHeader(Cosmos.Http.HttpUtils.IRequestBuilder,System.String,System.String)">
-            <summary>
-            Add header
-            </summary>
-            <param name="builder"></param>
-            <param name="name"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpModifierExtensions.AddHeaders(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            Add Header
-            </summary>
-            <param name="builder"></param>
-            <param name="headers"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Http.HttpUtils.HttpSendExtensions">
-            <summary>
-            Http Send Extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendContent(Cosmos.Http.HttpUtils.IRequestBuilder,System.Net.Http.HttpContent)">
-            <summary>
-            Send content
-            </summary>
-            <param name="builder"></param>
-            <param name="content"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendForm(Cosmos.Http.HttpUtils.IRequestBuilder,System.Collections.Specialized.NameValueCollection)">
-            <summary>
-            Send from
-            </summary>
-            <param name="builder"></param>
-            <param name="form"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendHtml(Cosmos.Http.HttpUtils.IRequestBuilder,System.String)">
-            <summary>
-            Send html
-            </summary>
-            <param name="builder"></param>
-            <param name="html"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendPlaintext(Cosmos.Http.HttpUtils.IRequestBuilder,System.String)">
-            <summary>
-            Send plain text
-            </summary>
-            <param name="builder"></param>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendJson(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object)">
-            <summary>
-            Send json
-            </summary>
-            <param name="builder"></param>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendJson(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object,Jil.Options)">
-            <summary>
-            Send json
-            </summary>
-            <param name="builder"></param>
-            <param name="obj"></param>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpSendExtensions.SendProtobuf(Cosmos.Http.HttpUtils.IRequestBuilder,System.Object)">
-            <summary>
-            Send ProtoBuf
-            </summary>
-            <param name="builder"></param>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Http.HttpUtils.HttpVerbsExtensions">
-            <summary>
-            Http Verbs Extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.DeleteAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
-            <summary>
-            Issue the request as a DELETE
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="builder"></param>
-            <param name="cancellationToken"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.GetAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
-            <summary>
-            Issue the request as a GET
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="builder"></param>
-            <param name="cancellationToken"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.PostAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
-            <summary>
-            Issue the request as a POST
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="builder"></param>
-            <param name="cancellationToken"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Http.HttpUtils.HttpVerbsExtensions.PutAsync``1(Cosmos.Http.HttpUtils.IRequestBuilder{``0},System.Threading.CancellationToken)">
-            <summary>
-            Issue the request as a PUT
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="builder"></param>
-            <param name="cancellationToken"></param>
-            <returns></returns>
         </member>
         <member name="T:Cosmos.Http.HttpUtils.FluentHttp">
             <summary>

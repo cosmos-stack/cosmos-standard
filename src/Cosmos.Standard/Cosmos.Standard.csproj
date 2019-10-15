@@ -15,6 +15,7 @@
         <ProjectReference Include="..\Cosmos.Extensions.DateTime\Cosmos.Extensions.DateTime.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Domain\Cosmos.Extensions.Domain.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Preconditions\Cosmos.Extensions.Preconditions.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
         <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
     </ItemGroup>

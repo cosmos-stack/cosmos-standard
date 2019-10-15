@@ -27,11 +27,16 @@
 
   <ItemGroup>
     <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
+    <PackageReference Include="System.Reactive" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Cosmos.Extensions\Cosmos.Extensions.csproj" />
     <ProjectReference Include="..\..\..\..\src\Cosmos\Cosmos.csproj" />
     <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Jil\Cosmos.Serialization.Jil.csproj" />
+    <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Json\Cosmos.Serialization.Json.csproj" />
     <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Protobuf\Cosmos.Serialization.Protobuf.csproj" />
   </ItemGroup>
 

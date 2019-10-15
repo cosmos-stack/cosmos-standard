@@ -32,6 +32,11 @@
             Collection disposable objects
             </summary>
         </member>
+        <member name="F:Cosmos.Disposables.CollectionDisposableObjects._count">
+            <summary>
+            Count
+            </summary>
+        </member>
         <member name="M:Cosmos.Disposables.CollectionDisposableObjects.#ctor(System.IDisposable[])">
             <summary>
             Create a new instance of <see cref="T:Cosmos.Disposables.CollectionDisposableObjects"/>.
@@ -43,6 +48,11 @@
             Create a new instance of <see cref="T:Cosmos.Disposables.CollectionDisposableObjects"/>.
             </summary>
             <param name="disposables"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.CollectionDisposableObjects.Count">
+            <summary>
+            Count
+            </summary>
         </member>
         <member name="M:Cosmos.Disposables.CollectionDisposableObjects.Dispose(System.Collections.Immutable.ImmutableQueue{System.IDisposable})">
             <inheritdoc />

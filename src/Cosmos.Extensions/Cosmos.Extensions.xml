@@ -107,6 +107,39 @@
             Char matcher
             </summary>
         </member>
+        <member name="M:Cosmos.CharMatchers.CharMatcher.Is(System.Char)">
+            <summary>
+            Is
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.CharMatcher.IsNot(System.Char)">
+            <summary>
+            Is not
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.CharMatcher.AnyOf(System.String)">
+            <summary>
+            Any of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.CharMatchers.CharMatcher.NoneOf(System.String)">
+            <summary>
+            None of
+            </summary>
+            <param name="sequence"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.CharMatchers.CharMatcher.WHITESPACE">
+            <summary>
+            Whitespace
+            </summary>
+        </member>
         <member name="T:Cosmos.CharMatchers.IAnyOfModeCharMatcher">
             <summary>
             Interface to flag 'AnyOf' mode of char matcher

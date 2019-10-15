@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj" />
     <ProjectReference Include="..\..\src\Cosmos.Extensions\Cosmos.Extensions.csproj" />
     <ProjectReference Include="..\..\src\Cosmos\Cosmos.csproj" />
     <ProjectReference Include="..\Cosmos.Test.ScannerTest1\Cosmos.Test.ScannerTest1.csproj" />
