@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// Extensions for dictionary

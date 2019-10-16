@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// Extensions of list

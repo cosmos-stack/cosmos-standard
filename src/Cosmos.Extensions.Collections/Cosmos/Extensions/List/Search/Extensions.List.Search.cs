@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// Extensions of list

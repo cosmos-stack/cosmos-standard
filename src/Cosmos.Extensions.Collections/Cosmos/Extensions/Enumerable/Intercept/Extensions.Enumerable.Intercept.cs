@@ -1,28 +1,35 @@
 using System;
 using System.Collections.Generic;
-using Cosmos.Collections.Internals;
+using System.Linq;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Collections
 {
     /// <summary>
-    /// ReadOnly collection extensions
+    /// Enumerable extensions
     /// </summary>
-    public static partial class ReadOnlyCollectionExtensions
+    public static partial class EnumerableExtensions
     {
         /// <summary>
-        /// Append
+        /// Intercept
         /// </summary>
         /// <param name="source"></param>
-        /// <param name="item"></param>
+        /// <param name="action"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyCollection<T> Append<T>(this IReadOnlyCollection<T> source, T item)
+        public static IEnumerable<T> Intercept<T>(this IEnumerable<T> source, Action<T> action)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
-            return new AppendedReadOnlyCollection<T>(source, item);
+            if (action == null)
+                throw new ArgumentNullException(nameof(action));
+
+            return source.Select(t =>
+            {
+                action(t);
+                return t;
+            });
         }
     }
 }

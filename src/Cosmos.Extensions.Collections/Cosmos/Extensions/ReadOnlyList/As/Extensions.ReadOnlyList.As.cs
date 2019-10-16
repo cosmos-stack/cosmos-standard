@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cosmos.Collections.Internals;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// ReadOnly list extensions

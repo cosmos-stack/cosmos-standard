@@ -4,7 +4,7 @@ using System.Linq;
 using Cosmos.Collections;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// Set extensions

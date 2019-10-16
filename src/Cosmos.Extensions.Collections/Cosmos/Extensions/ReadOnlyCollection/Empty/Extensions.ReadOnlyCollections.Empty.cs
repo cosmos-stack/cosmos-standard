@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// ReadOnly collection extensions

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Cosmos.Judgments;
 
-namespace Cosmos.Extensions
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Collections
 {
     /// <summary>
     /// Extensions of collection
