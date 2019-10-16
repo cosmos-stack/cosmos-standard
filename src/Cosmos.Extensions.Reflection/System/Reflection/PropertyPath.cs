@@ -12,20 +12,16 @@ namespace System.Reflection
 
         internal PropertyPath(PropertyPath root)
         {
-            // If the root is null, assign the path.
             if (root == null)
             {
-                // Assign path.
                 _path = new Queue<PropertyInfo>();
-
-                // Set the root.
                 Root = this;
             }
             else
-                // Root is root.
+            {
                 Root = root;
+            }
 
-            // Root must not be null.
             Debug.Assert(Root != null);
         }
 
@@ -48,10 +44,9 @@ namespace System.Reflection
         /// <exception cref="ArgumentNullException"></exception>
         protected void Append(PropertyInfo property)
         {
-            // Validate parameters.
-            if (property == null) throw new ArgumentNullException(nameof(property));
+            if (property == null)
+                throw new ArgumentNullException(nameof(property));
 
-            // Push.
             Root._path.Enqueue(property);
         }
 
@@ -60,10 +55,6 @@ namespace System.Reflection
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static PropertyPath<T> Of<T>()
-        {
-            // Create a new instance.
-            return new PropertyPath<T>();
-        }
+        public static PropertyPath<T> Of<T>() => new PropertyPath<T>();
     }
 }
