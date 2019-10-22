@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cosmos.Kooboo;
+using System.Threading.Tasks;
+using Cosmos.Serialization.Json.Kooboo;
 
-namespace Cosmos
+namespace Cosmos.Serialization
 {
     /// <summary>
     /// Kooboo Serializer
@@ -19,5 +18,14 @@ namespace Cosmos
 
         /// <inheritdoc />
         public object Deserialize(string json, Type type) => KoobooJsonHelper.Deserialize(json, type);
+        
+        /// <inheritdoc />
+        public Task<string> SerializeAsync<T>(T o)=> KoobooJsonHelper.SerializeAsync(o);
+
+        /// <inheritdoc />
+        public Task<T> DeserializeAsync<T>(string data) => KoobooJsonHelper.DeserializeAsync<T>(data);
+
+        /// <inheritdoc />
+        public Task<object> DeserializeAsync(string data, Type type) => KoobooJsonHelper.DeserializeAsync(data, type);
     }
 }
