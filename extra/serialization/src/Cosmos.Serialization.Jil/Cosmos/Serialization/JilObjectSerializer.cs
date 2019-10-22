@@ -1,7 +1,8 @@
 ﻿using System;
-using Cosmos.Jil;
+using System.Threading.Tasks;
+using Cosmos.Serialization.Json.Jil;
 
-namespace Cosmos
+namespace Cosmos.Serialization
 {
     /// <summary>
     /// Jil serializer
@@ -16,5 +17,14 @@ namespace Cosmos
 
         /// <inheritdoc />
         public object Deserialize(string json, Type type) => JilHelper.Deserialize(json, type);
+
+        /// <inheritdoc />
+        public Task<string> SerializeAsync<T>(T o)=> JilHelper.SerializeAsync(o);
+
+        /// <inheritdoc />
+        public Task<T> DeserializeAsync<T>(string data) => JilHelper.DeserializeAsync<T>(data);
+
+        /// <inheritdoc />
+        public Task<object> DeserializeAsync(string data, Type type) => JilHelper.DeserializeAsync(data, type);
     }
 }
