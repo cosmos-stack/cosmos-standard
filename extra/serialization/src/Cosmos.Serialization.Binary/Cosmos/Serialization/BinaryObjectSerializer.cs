@@ -1,25 +1,30 @@
 using System;
+using System.Threading.Tasks;
+using Cosmos.Serialization.Binary;
 
 namespace Cosmos.Serialization
 {
     /// <summary>
     /// Binary object serializer
     /// </summary>
-    public class BinaryObjectSerializer: IObjectSerializer<byte[]>
+    public class BinaryObjectSerializer : IObjectSerializer<byte[]>
     {
-        public byte[] Serialize<T>(T o)
-        {
-            throw new NotImplementedException();
-        }
+        /// <inheritdoc />
+        public byte[] Serialize<T>(T o) => BinaryHelper.Serialize(o);
 
-        public T Deserialize<T>(byte[] json)
-        {
-            throw new NotImplementedException();
-        }
+        /// <inheritdoc />
+        public T Deserialize<T>(byte[] data) => BinaryHelper.Deserialize<T>(data);
 
-        public object Deserialize(byte[] json, Type type)
-        {
-            throw new NotImplementedException();
-        }
+        /// <inheritdoc />
+        public object Deserialize(byte[] data, Type type) => BinaryHelper.Deserialize(data);
+
+        /// <inheritdoc />
+        public Task<byte[]> SerializeAsync<T>(T o) => BinaryHelper.SerializeAsync(o);
+
+        /// <inheritdoc />
+        public Task<T> DeserializeAsync<T>(byte[] data) => BinaryHelper.DeserializeAsync<T>(data);
+
+        /// <inheritdoc />
+        public Task<object> DeserializeAsync(byte[] data, Type type) => BinaryHelper.DeserializeAsync(data);
     }
 }

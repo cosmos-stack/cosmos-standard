@@ -9,6 +9,24 @@
             Binary object serializer
             </summary>
         </member>
+        <member name="M:Cosmos.Serialization.BinaryObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.BinaryObjectSerializer.Deserialize``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.BinaryObjectSerializer.Deserialize(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.BinaryObjectSerializer.SerializeAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.BinaryObjectSerializer.DeserializeAsync``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.BinaryObjectSerializer.DeserializeAsync(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Serialization.Binary.BinaryHelper">
             <summary>
             Binary helper
