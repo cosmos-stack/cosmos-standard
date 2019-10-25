@@ -2,14 +2,13 @@
 
     <Import Project="..\..\build\common.props" />
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>7.2</LangVersion>
-        <RootNamespace />
-  </PropertyGroup>
-  
     <PropertyGroup>
-        <AssemblyName>Cosmos.Serialization.Json</AssemblyName>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>8.0</LangVersion>
+        <RootNamespace />
+    </PropertyGroup>
+
+    <PropertyGroup>
         <PackageId>Cosmos.Serialization.NewtonsoftJson</PackageId>
         <Description>Newtonsoft JSON serializer extension for Cosmos base library</Description>
         <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
@@ -18,27 +17,27 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-      <DocumentationFile>Cosmos.Extensions.Json.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Extensions.NewtonsoftJson.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <DocumentationFile>Cosmos.Extensions.Json.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Extensions.NewtonsoftJson.xml</DocumentationFile>
     </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta2" />
-    <PackageReference Include="NodaTime.Serialization.JsonNet" Version="2.2.0" />
-  </ItemGroup>
-
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta2" />
+        <PackageReference Include="NodaTime.Serialization.JsonNet" Version="2.2.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="..\..\..\..\LICENSE">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
 
 </Project>

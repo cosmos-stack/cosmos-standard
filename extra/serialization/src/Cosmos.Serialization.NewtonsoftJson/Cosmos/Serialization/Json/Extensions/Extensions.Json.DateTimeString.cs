@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Extensions
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Serialization.Json
 {
     /// <summary>
     /// Newtonsoft Json Extensions

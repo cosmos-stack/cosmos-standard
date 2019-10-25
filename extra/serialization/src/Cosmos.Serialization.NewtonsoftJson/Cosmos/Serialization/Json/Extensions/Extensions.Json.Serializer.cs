@@ -5,7 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Cosmos.Extensions
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Serialization.Json
 {
     /// <summary>
     /// Newtonsoft Json Extensions
@@ -22,7 +23,6 @@ namespace Cosmos.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static string SerializeToString<TRequest>(this JsonSerializer serializer, TRequest request)
         {
-            // Validate parameters.
             if (serializer == null)
                 throw new ArgumentNullException(nameof(serializer));
             if (request == null)
@@ -73,8 +73,8 @@ namespace Cosmos.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static async Task<MemoryStream> SerializeToMemoryStreamAsync<TRequest>(this JsonSerializer serializer, TRequest request,
-            CancellationToken cancellationToken)
+        public static async Task<MemoryStream> SerializeToMemoryStreamAsync<TRequest>(
+            this JsonSerializer serializer, TRequest request, CancellationToken cancellationToken)
         {
             if (serializer == null)
                 throw new ArgumentNullException(nameof(serializer));
