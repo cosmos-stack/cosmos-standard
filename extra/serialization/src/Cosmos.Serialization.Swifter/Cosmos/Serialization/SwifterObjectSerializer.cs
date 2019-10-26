@@ -1,7 +1,8 @@
 ﻿using System;
-using Cosmos.Swifter;
+using System.Threading.Tasks;
+using Cosmos.Serialization.Json.Swifter;
 
-namespace Cosmos
+namespace Cosmos.Serialization
 {
     /// <summary>
     /// SwiftJson Serializer
@@ -16,5 +17,14 @@ namespace Cosmos
 
         /// <inheritdoc />
         public object Deserialize(string json, Type type) => SwifterHelper.Deserialize(json, type);
+
+        /// <inheritdoc />
+        public Task<string> SerializeAsync<T>(T o)=> SwifterHelper.SerializeAsync(o);
+
+        /// <inheritdoc />
+        public Task<T> DeserializeAsync<T>(string data) => SwifterHelper.DeserializeAsync<T>(data);
+
+        /// <inheritdoc />
+        public Task<object> DeserializeAsync(string data, Type type) => SwifterHelper.DeserializeAsync(data, type);
     }
 }

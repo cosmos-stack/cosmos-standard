@@ -4,120 +4,288 @@
         <name>Cosmos.Serialization.Swifter</name>
     </assembly>
     <members>
-        <member name="T:Cosmos.Extensions.Extensions">
+        <member name="T:Cosmos.Serialization.Json.Extensions">
             <summary>
             SwiftJson extensions
             </summary>
             <summary>
             SwiftJson extensions
             </summary>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.ToSwifterJson``1(``0)">
             <summary>
-            ToSwifterJson
+            SwiftJson extensions
             </summary>
-            <param name="obj"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.ToSwifterJson``1(``0,Swifter.Json.JsonFormatterOptions)">
             <summary>
-            ToSwifterJson
+            SwiftJson extensions
+            </summary>
+            <summary>
+            SwiftJson extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.ToSwifterBytes``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            To Swifter bytes
             </summary>
             <param name="obj"></param>
             <param name="options"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Extensions.Extensions.ToSwifterJson``1(``0,System.Action{Swifter.Json.JsonFormatterOptions})">
+        <member name="M:Cosmos.Serialization.Json.Extensions.ToSwifterBytesAsync``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
-            ToSwifterJson
+            To Swifter bytes async
             </summary>
             <param name="obj"></param>
-            <param name="optionAct"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson``1(System.String)">
-            <summary>
-            From SwiftJson
-            </summary>
-            <param name="str"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson``1(System.String,Swifter.Json.JsonFormatterOptions)">
-            <summary>
-            From SwiftJson
-            </summary>
-            <param name="str"></param>
             <param name="options"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson``1(System.String,System.Action{Swifter.Json.JsonFormatterOptions})">
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterBytes``1(System.Byte[],System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
-            From SwiftJson
+            From Swifter bytes 
             </summary>
-            <param name="str"></param>
-            <param name="optionAct"></param>
+            <param name="data"></param>
+            <param name="options"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson(System.String,System.Type)">
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterBytes(System.Byte[],System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
-            From SwiftJson
+            From Swifter bytes 
             </summary>
-            <param name="str"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson(System.String,System.Type,Swifter.Json.JsonFormatterOptions)">
-            <summary>
-            From SwiftJson
-            </summary>
-            <param name="str"></param>
+            <param name="data"></param>
             <param name="type"></param>
             <param name="options"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Extensions.Extensions.FromSwifterJson(System.String,System.Type,System.Action{Swifter.Json.JsonFormatterOptions})">
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterBytesAsync``1(System.Byte[],System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From Swifter bytes async
+            </summary>
+            <param name="data"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterBytesAsync(System.Byte[],System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From Swifter bytes async
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.ToSwifterJson``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            To SwifterJson
+            </summary>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.ToSwifterJson``1(``0,System.IO.TextWriter,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            To SwifterJson
+            </summary>
+            <param name="obj"></param>
+            <param name="textWriter"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.ToSwifterJsonAsync``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            To SwifterJson
+            </summary>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.ToSwifterJsonAsync``1(``0,System.IO.TextWriter,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            To SwifterJson
+            </summary>
+            <param name="obj"></param>
+            <param name="textWriter"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterPack``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterPackTo``1(``0,System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterPackBy(System.IO.Stream,System.Object,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterPackAsync``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterPackToAsync``1(``0,System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterPackByAsync(System.IO.Stream,System.Object,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter pack by async
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterUnpack``1(System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterUnpack(System.IO.Stream,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterUnpackAsync``1(System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.SwifterUnpackAsync(System.IO.Stream,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Swifter unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterJson``1(System.String,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
             From SwiftJson
             </summary>
-            <param name="str"></param>
-            <param name="type"></param>
-            <param name="optionAct"></param>
+            <param name="json"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.SwifterObjectSerializer">
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterJson(System.String,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
-            SwiftJson Serializer
+            From SwiftJson
             </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
         </member>
-        <member name="M:Cosmos.SwifterObjectSerializer.Serialize``1(``0)">
-            <inheritdoc />
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterJsonAsync``1(System.String,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From SwiftJson async
+            </summary>
+            <param name="json"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
         </member>
-        <member name="M:Cosmos.SwifterObjectSerializer.Deserialize``1(System.String)">
-            <inheritdoc />
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterJsonAsync(System.String,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From SwiftJson async
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
         </member>
-        <member name="M:Cosmos.SwifterObjectSerializer.Deserialize(System.String,System.Type)">
-            <inheritdoc />
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifter``1(System.IO.TextReader,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From Swifter
+            </summary>
+            <param name="reader"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
         </member>
-        <member name="T:Cosmos.Swifter.SwifterHelper">
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifter(System.IO.TextReader,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From Swifter
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterAsync``1(System.IO.TextReader,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From Swifter async
+            </summary>
+            <param name="reader"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Extensions.FromSwifterAsync(System.IO.TextReader,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            From Swifter async
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.Json.Swifter.SwifterHelper">
+            <summary>
+            SwiftJson Helper
+            </summary>
+            <summary>
+            SwiftJson Helper
+            </summary>
+            <summary>
+            SwiftJson Helper
+            </summary>
             <summary>
             SwiftJson Helper
             </summary>
         </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Serialize``1(``0)">
-            <summary>
-            Serialize
-            </summary>
-            <param name="o"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Serialize``1(``0,Swifter.Json.JsonFormatterOptions)">
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.SerializeAsync``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
             Serialize
             </summary>
@@ -126,24 +294,25 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Serialize``1(``0,System.Action{Swifter.Json.JsonFormatterOptions})">
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.SerializeToBytesAsync``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Serialize to bytes
+            </summary>
+            <param name="o"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.SerializeAsync``1(``0,System.IO.TextWriter,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
             Serialize
             </summary>
             <param name="o"></param>
-            <param name="optionAct"></param>
+            <param name="output"></param>
+            <param name="options"></param>
             <typeparam name="T"></typeparam>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize``1(System.String)">
-            <summary>
-            Deserialize
-            </summary>
-            <param name="json"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize``1(System.String,Swifter.Json.JsonFormatterOptions)">
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeAsync``1(System.String,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
             Deserialize
             </summary>
@@ -152,24 +321,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize``1(System.String,System.Action{Swifter.Json.JsonFormatterOptions})">
-            <summary>
-            Deserialize
-            </summary>
-            <param name="json"></param>
-            <param name="optionAct"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize(System.String,System.Type)">
-            <summary>
-            Deserialize
-            </summary>
-            <param name="json"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize(System.String,System.Type,Swifter.Json.JsonFormatterOptions)">
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeAsync(System.String,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
             Deserialize
             </summary>
@@ -178,14 +330,238 @@
             <param name="options"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Swifter.SwifterHelper.Deserialize(System.String,System.Type,System.Action{Swifter.Json.JsonFormatterOptions})">
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeFromBytesAsync``1(System.Byte[],System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize from bytes
+            </summary>
+            <param name="data"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeFromBytesAsync(System.Byte[],System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize from bytes
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeAsync``1(System.IO.TextReader,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="reader"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeAsync(System.IO.TextReader,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.PackAsync``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Pack async
+            </summary>
+            <param name="o"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.PackAsync``1(``0,System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Pack async
+            </summary>
+            <param name="o"></param>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.UnpackAsync``1(System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.UnpackAsync(System.IO.Stream,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="type"></param>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Serialize``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.SerializeToBytes``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Serialize to bytes
+            </summary>
+            <param name="o"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Serialize``1(``0,System.IO.TextWriter,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="output"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Deserialize``1(System.String,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Deserialize(System.String,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
             <summary>
             Deserialize
             </summary>
             <param name="json"></param>
             <param name="type"></param>
-            <param name="optionAct"></param>
+            <param name="options"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeFromBytes``1(System.Byte[],System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize from bytes
+            </summary>
+            <param name="data"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.DeserializeFromBytes(System.Byte[],System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize from bytes
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Deserialize``1(System.IO.TextReader,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="reader"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Deserialize(System.IO.TextReader,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Pack``1(``0,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Pack``1(``0,System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Pack
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Unpack``1(System.IO.Stream,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Swifter.SwifterHelper.Unpack(System.IO.Stream,System.Type,System.Nullable{Swifter.Json.JsonFormatterOptions})">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.Json.Swifter.SwifterJsonManager">
+            <summary>
+            SwifterJson manager
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Json.Swifter.SwifterJsonManager.DefaultEncoding">
+            <summary>
+            Gets or sets default encoding
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Json.Swifter.SwifterJsonManager.DefaultOptions">
+            <summary>
+            Gets or sets default json formatter options
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Json.Swifter.SwifterJsonManager.DefaltDeserializeOptions">
+            <summary>
+            gets for sets default json deserialize formatter options
+            </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.SwifterObjectSerializer">
+            <summary>
+            SwiftJson Serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.SwifterObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.SwifterObjectSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.SwifterObjectSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.SwifterObjectSerializer.SerializeAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.SwifterObjectSerializer.DeserializeAsync``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.SwifterObjectSerializer.DeserializeAsync(System.String,System.Type)">
+            <inheritdoc />
         </member>
     </members>
 </doc>
