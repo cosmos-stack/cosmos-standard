@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\..\build\common.props" />
+    <Import Project="..\..\build\common.props"/>
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>7.2</LangVersion>
-        <RootNamespace />
-  </PropertyGroup>
-  
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>8.0</LangVersion>
+        <RootNamespace/>
+    </PropertyGroup>
+
     <PropertyGroup>
         <AssemblyName>Cosmos.Serialization.Xml</AssemblyName>
         <PackageId>Cosmos.Serialization.Xml</PackageId>
@@ -18,22 +18,22 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-      <DocumentationFile>Cosmos.Extensions.Xml.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Extensions.Xml.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <DocumentationFile>Cosmos.Extensions.Xml.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Extensions.Xml.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="..\..\..\..\LICENSE">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
+        <None Include="..\..\..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
 
 </Project>
