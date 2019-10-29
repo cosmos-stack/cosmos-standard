@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Cosmos.Serialization.MessagePack.MsgPackCli</name>
+        <name>Cosmos.Serialization.MsgPackCli</name>
     </assembly>
     <members>
         <member name="T:Cosmos.Serialization.MessagePack.Extensions">
@@ -212,7 +212,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper">
+        <member name="T:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper">
             <summary>
             MessagePack-Cli helper
             </summary>
@@ -226,7 +226,7 @@
             MessagePack-Cli helper
             </summary>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.SerializeAsync``1(``0)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.SerializeAsync``1(``0)">
             <summary>
             Serialize
             </summary>
@@ -234,7 +234,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.SerializeAsync(System.Object,System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.SerializeAsync(System.Object,System.Type)">
             <summary>
             Serialize
             </summary>
@@ -242,7 +242,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.DeserializeAsync``1(System.Byte[])">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.DeserializeAsync``1(System.Byte[])">
             <summary>
             Deserialize
             </summary>
@@ -250,7 +250,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.DeserializeAsync(System.Byte[],System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.DeserializeAsync(System.Byte[],System.Type)">
             <summary>
             Deserialize
             </summary>
@@ -258,7 +258,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync``1(``0)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.PackAsync``1(``0)">
             <summary>
             Pack async
             </summary>
@@ -266,7 +266,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync``1(``0,System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.PackAsync``1(``0,System.IO.Stream)">
             <summary>
             Pack async
             </summary>
@@ -274,7 +274,7 @@
             <param name="stream"></param>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync(System.Object,System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.PackAsync(System.Object,System.Type)">
             <summary>
             Pack async
             </summary>
@@ -282,7 +282,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync(System.Object,System.Type,System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.PackAsync(System.Object,System.Type,System.IO.Stream)">
             <summary>
             Pack async
             </summary>
@@ -290,7 +290,7 @@
             <param name="type"></param>
             <param name="stream"></param>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.UnpackAsync``1(System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.UnpackAsync``1(System.IO.Stream)">
             <summary>
             Unpack async
             </summary>
@@ -298,7 +298,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.UnpackAsync(System.IO.Stream,System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.UnpackAsync(System.IO.Stream,System.Type)">
             <summary>
             Unpack async
             </summary>
@@ -306,7 +306,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Serialize``1(``0)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Serialize``1(``0)">
             <summary>
             Serialize
             </summary>
@@ -314,7 +314,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Serialize(System.Object,System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Serialize(System.Object,System.Type)">
             <summary>
             Serialize
             </summary>
@@ -322,7 +322,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Deserialize``1(System.Byte[])">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Deserialize``1(System.Byte[])">
             <summary>
             Deserialize
             </summary>
@@ -330,7 +330,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Deserialize(System.Byte[],System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Deserialize(System.Byte[],System.Type)">
             <summary>
             Deserialize
             </summary>
@@ -338,7 +338,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack``1(``0)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Pack``1(``0)">
             <summary>
             Pack
             </summary>
@@ -346,7 +346,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack``1(``0,System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Pack``1(``0,System.IO.Stream)">
             <summary>
             Pack
             </summary>
@@ -354,7 +354,7 @@
             <param name="stream"></param>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack(System.Object,System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Pack(System.Object,System.Type)">
             <summary>
             Pack
             </summary>
@@ -362,7 +362,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack(System.Object,System.Type,System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Pack(System.Object,System.Type,System.IO.Stream)">
             <summary>
             Pack
             </summary>
@@ -370,7 +370,7 @@
             <param name="type"></param>
             <param name="stream"></param>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Unpack``1(System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Unpack``1(System.IO.Stream)">
             <summary>
             Unpack
             </summary>
@@ -378,7 +378,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Unpack(System.IO.Stream,System.Type)">
+        <member name="M:Cosmos.Serialization.MsgPackCli.MsgPackCliHelper.Unpack(System.IO.Stream,System.Type)">
             <summary>
             Unpack
             </summary>
