@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// MsgPack-cli object serializer
     /// </summary>
-    public class MsgPackCliObjectSerializer : IObjectSerializer<byte[]>
+    public class MsgPackCliObjectSerializer : IMessagePackSerializer
     {
 
         /// <inheritdoc />
@@ -18,7 +18,7 @@ namespace Cosmos.Serialization
 
         /// <inheritdoc />
         public object Deserialize(byte[] data, Type type) => MsgPackCliHelper.Deserialize(data, type);
-        
+
         /// <inheritdoc />
         public Task<byte[]> SerializeAsync<T>(T o) => MsgPackCliHelper.SerializeAsync(o);
 

@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// LitJson Serializer
     /// </summary>
-    public class LitObjectSerializer : IObjectSerializer
+    public class LitObjectSerializer : IJsonSerializer
     {
         /// <inheritdoc />
         public string Serialize<T>(T o) => LitHelper.Serialize(o);

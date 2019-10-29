@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// ZeroFormatter serializer
     /// </summary>
-    public class ZeroFormatterObjectSerializer:IObjectSerializer<byte[]>
+    public class ZeroFormatterObjectSerializer : IZeroFormatterSerializer
     {
         /// <inheritdoc />
         public byte[] Serialize<T>(T o) => ZeroFormatterHelper.Serialize(o);
@@ -17,7 +17,7 @@ namespace Cosmos.Serialization
 
         /// <inheritdoc />
         public object Deserialize(byte[] data, Type type) => ZeroFormatterHelper.Deserialize(data, type);
-        
+
         /// <inheritdoc />
         public Task<byte[]> SerializeAsync<T>(T o) => ZeroFormatterHelper.SerializeAsync(o);
 

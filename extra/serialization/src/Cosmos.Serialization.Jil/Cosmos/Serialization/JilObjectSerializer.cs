@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// Jil serializer
     /// </summary>
-    public class JilObjectSerializer : IObjectSerializer
+    public class JilObjectSerializer : IJsonSerializer
     {
         /// <inheritdoc />
         public string Serialize<T>(T o) => JilHelper.Serialize(o);

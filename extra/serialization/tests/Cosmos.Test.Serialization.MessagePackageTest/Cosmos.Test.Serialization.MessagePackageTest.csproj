@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Cosmos.Serialization.MessagePack.Neuecc\Cosmos.Serialization.MessagePack.Neuecc.csproj" />
+      <ProjectReference Include="..\..\src\Cosmos.Serialization.MessagePack\Cosmos.Serialization.MessagePack.csproj" />
     </ItemGroup>
 
 </Project>

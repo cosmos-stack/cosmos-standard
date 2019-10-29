@@ -8,7 +8,7 @@ namespace Cosmos.Serialization
     /// Kooboo Serializer
     /// </summary>
     // ReSharper disable once IdentifierTypo
-    public class KoobooObjectSerializer : IObjectSerializer
+    public class KoobooObjectSerializer : IJsonSerializer
     {
         /// <inheritdoc />
         public string Serialize<T>(T o) => KoobooJsonHelper.Serialize(o);

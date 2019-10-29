@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// Newtonsoft Json Serializer
     /// </summary>
-    public class NewtonsoftJsonSerializer : IObjectSerializer
+    public class NewtonsoftJsonSerializer : IJsonSerializer
     {
         /// <inheritdoc />
         public string Serialize<T>(T o) => JsonHelper.Serialize(o);

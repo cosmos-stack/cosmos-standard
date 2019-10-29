@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// Neuecc's MessagePack Serializer
     /// </summary>
-    public class NeueccMessagePackObjectSerializer : IObjectSerializer<byte[]>
+    public class NeueccMessagePackObjectSerializer : IMessagePackSerializer
     {
         /// <inheritdoc />
         public byte[] Serialize<T>(T o) => NeueccMsgPackHelper.Serialize(o);
@@ -17,7 +17,7 @@ namespace Cosmos.Serialization
 
         /// <inheritdoc />
         public object Deserialize(byte[] data, Type type) => NeueccMsgPackHelper.Deserialize(data, type);
-        
+
         /// <inheritdoc />
         public Task<byte[]> SerializeAsync<T>(T o) => NeueccMsgPackHelper.SerializeAsync(o);
 

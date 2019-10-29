@@ -3054,221 +3054,10 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.JTokenConversionExtensions">
+        <member name="T:Cosmos.IO.StreamConversionExtensions">
             <summary>
-            JToken conversion extensions
+            Conversion extensions
             </summary>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToInt(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To int
-            </summary>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToInt(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To int
-            </summary>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToLong(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To long
-            </summary>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToLong(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To long
-            </summary>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToDouble(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To double
-            </summary>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToDouble(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To double
-            </summary>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToFloat(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To float
-            </summary>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToFloat(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To float
-            </summary>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToList``1(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To list
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToList``1(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To list
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToEnumerable``1(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To enumerable
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToEnumerable``1(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To enumerable
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToDictionary``2(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To dictionary
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="K"></typeparam>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToDictionary``2(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To dictionary
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="K"></typeparam>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToDateTime(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To dateime
-            </summary>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToDateTime(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To datetime
-            </summary>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToGuid(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            To guid
-            </summary>
-            <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.ToGuid(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            To guid
-            </summary>
-            <param name="token"></param>
-            <param name="sectionName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetToken(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets token
-            </summary>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetString(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets string
-            </summary>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetBool(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets bool
-            </summary>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetInt(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets int
-            </summary>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetDouble(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets double
-            </summary>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetList``1(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets list
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetDictionary``2(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets dictionary
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.JTokenConversionExtensions.GetObject``1(Newtonsoft.Json.Linq.JToken,System.String)">
-            <summary>
-            Gets object
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="token"></param>
-            <param name="key"></param>
-            <returns></returns>
         </member>
         <member name="T:Cosmos.ExceptionExtensions">
             <summary>
@@ -6644,7 +6433,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.Split``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.Split``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split
             </summary>
@@ -6662,7 +6451,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.Split``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.Split``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split
             </summary>
@@ -6680,7 +6469,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.SplitToList``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.SplitToList``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split to list
             </summary>
@@ -6698,7 +6487,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.SplitToList``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.IFixedLengthSplitter.SplitToList``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split to list
             </summary>
@@ -6742,7 +6531,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IMapSplitter.Split``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.IMapSplitter.Split``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split
             </summary>
@@ -6760,7 +6549,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IMapSplitter.Split``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.IMapSplitter.Split``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split
             </summary>
@@ -6778,7 +6567,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IMapSplitter.SplitToDictionary``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.IMapSplitter.SplitToDictionary``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split to dictionary
             </summary>
@@ -6796,7 +6585,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.IMapSplitter.SplitToDictionary``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.IMapSplitter.SplitToDictionary``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split to dictionary
             </summary>
@@ -6859,7 +6648,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.ISplitter.Split``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.ISplitter.Split``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split
             </summary>
@@ -6877,7 +6666,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.ISplitter.Split``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.ISplitter.Split``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split
             </summary>
@@ -6895,7 +6684,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.ISplitter.SplitToList``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.ISplitter.SplitToList``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split to list
             </summary>
@@ -6913,7 +6702,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.ISplitter.SplitToList``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.ISplitter.SplitToList``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split to list
             </summary>
@@ -6992,7 +6781,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#Split``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#Split``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split<br />
             分割
@@ -7012,7 +6801,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#Split``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#Split``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split<br />
             分割
@@ -7032,7 +6821,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#SplitToList``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#SplitToList``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split to list<br />
             分割为列表
@@ -7052,7 +6841,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#SplitToList``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#ISplitter#SplitToList``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split to list<br />
             分割为列表
@@ -7144,7 +6933,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#Split``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#Split``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split<br />
             分割
@@ -7164,7 +6953,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#Split``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#Split``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split<br />
             分割
@@ -7184,7 +6973,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#SplitToList``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#SplitToList``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split to list<br />
             分割为列表
@@ -7204,7 +6993,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#SplitToList``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IFixedLengthSplitter#SplitToList``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split to list<br />
             分割为列表
@@ -7240,7 +7029,7 @@
             <param name="limit"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IMapSplitter#Split``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IMapSplitter#Split``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split<br />
             分割
@@ -7268,7 +7057,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IMapSplitter#Split``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.Splitter.Cosmos#Splitters#IMapSplitter#Split``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split<br />
             分割
@@ -7288,7 +7077,7 @@
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.SplitToDictionary``1(System.String,Cosmos.IObjectSerializer)">
+        <member name="M:Cosmos.Splitters.Splitter.SplitToDictionary``1(System.String,Cosmos.Serialization.IObjectSerializer)">
             <summary>
             Split to dictionary<br />
             分割为字典
@@ -7308,7 +7097,7 @@
             <param name="converter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Splitters.Splitter.SplitToDictionary``2(System.String,Cosmos.IObjectSerializer,Cosmos.IObjectMapper)">
+        <member name="M:Cosmos.Splitters.Splitter.SplitToDictionary``2(System.String,Cosmos.Serialization.IObjectSerializer,Cosmos.IObjectMapper)">
             <summary>
             Split to dictionary<br />
             分割为字典

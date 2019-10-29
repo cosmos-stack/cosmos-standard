@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// Xml Serializer
     /// </summary>
-    public class XmlObjectSerializer : IObjectSerializer
+    public class XmlObjectSerializer : IXmlSerializer
     {
         /// <inheritdoc />
         public string Serialize<T>(T o) => XmlHelper.Serialize(o);

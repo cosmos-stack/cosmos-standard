@@ -7,7 +7,7 @@ namespace Cosmos.Serialization
     /// <summary>
     /// Utf8Json object serializer
     /// </summary>
-    public class Utf8JsonObjectSerializer : IObjectSerializer
+    public class Utf8JsonObjectSerializer : IJsonSerializer
     {
         /// <inheritdoc />
         public string Serialize<T>(T o) => Utf8JsonHelper.Serialize(o);
