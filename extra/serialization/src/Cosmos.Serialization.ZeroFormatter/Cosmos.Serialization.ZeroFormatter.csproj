@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\build\common.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>8.0</LangVersion>
+        <RootNamespace />
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Serialization.ZeroFormatter</AssemblyName>
+        <PackageId>Cosmos.Serialization.ZeroFormatter</PackageId>
+        <Description>ZeroFormatter serializer extension for Cosmos base library</Description>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.ZeroFormatter.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.ZeroFormatter.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ZeroFormatter" Version="1.6.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+
+</Project>
