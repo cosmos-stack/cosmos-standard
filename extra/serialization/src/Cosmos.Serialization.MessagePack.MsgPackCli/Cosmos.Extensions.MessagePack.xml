@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Serialization.MsgPackCli</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Serialization.MessagePack.Extensions">
+            <summary>
+            MessagePack extensions
+            </summary>
+            <summary>
+            MessagePack extensions
+            </summary>
+            <summary>
+            MessagePack extensions
+            </summary>
+            <summary>
+            MessagePack extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.FromMsgPack``1(System.Byte[])">
+            <summary>
+            From message pack
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.FromMsgPack(System.Byte[],System.Type)">
+            <summary>
+            From message pack
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.FromMsgPackAsync``1(System.Byte[])">
+            <summary>
+            From message pack async
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.FromMsgPackAsync(System.Byte[],System.Type)">
+            <summary>
+            From message pack async
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPack``1(``0)">
+            <summary>
+            To message pack
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPack(System.Object,System.Type)">
+            <summary>
+            To message pack
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPackAsync``1(``0)">
+            <summary>
+            To message pack async
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPackAsync(System.Object,System.Type)">
+            <summary>
+            To message pack async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackTo``1(``0,System.IO.Stream)">
+            <summary>
+            Pack to
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackTo(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackBy``1(System.IO.Stream,``0)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackBy(System.IO.Stream,System.Object,System.Type)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackToAsync``1(``0,System.IO.Stream)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackToAsync(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackByAsync``1(System.IO.Stream,``0)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.PackByAsync(System.IO.Stream,System.Object,System.Type)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.Unpack``1(System.IO.Stream)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.Unpack(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.UnpackAsync``1(System.IO.Stream)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.UnpackAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPackStream``1(``0)">
+            <summary>
+            To stream
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPackStream(System.Object,System.Type)">
+            <summary>
+            To stream
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPackStreamAsync``1(``0)">
+            <summary>
+            To stream
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.Extensions.ToMsgPackStreamAsync(System.Object,System.Type)">
+            <summary>
+            To stream
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper">
+            <summary>
+            MessagePack-Cli helper
+            </summary>
+            <summary>
+            MessagePack-Cli helper
+            </summary>
+            <summary>
+            MessagePack-Cli helper
+            </summary>
+            <summary>
+            MessagePack-Cli helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.SerializeAsync``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.SerializeAsync(System.Object,System.Type)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.DeserializeAsync``1(System.Byte[])">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.DeserializeAsync(System.Byte[],System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync``1(``0)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync``1(``0,System.IO.Stream)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync(System.Object,System.Type)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.PackAsync(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.UnpackAsync``1(System.IO.Stream)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.UnpackAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Serialize(System.Object,System.Type)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack``1(``0)">
+            <summary>
+            Pack
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack``1(``0,System.IO.Stream)">
+            <summary>
+            Pack
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack(System.Object,System.Type)">
+            <summary>
+            Pack
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Pack(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Unpack``1(System.IO.Stream)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.MessagePack.MsgPackCli.MsgPackCliHelper.Unpack(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.MsgPackCliObjectSerializer">
+            <summary>
+            MsgPack-cli object serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.MsgPackCliObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.MsgPackCliObjectSerializer.Deserialize``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.MsgPackCliObjectSerializer.Deserialize(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.MsgPackCliObjectSerializer.SerializeAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.MsgPackCliObjectSerializer.DeserializeAsync``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.MsgPackCliObjectSerializer.DeserializeAsync(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
