@@ -18,11 +18,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <DocumentationFile>Cosmos.Extensions.Swifter.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Serialization.Swifter.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <DocumentationFile>Cosmos.Extensions.Swifter.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Serialization.Swifter.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
