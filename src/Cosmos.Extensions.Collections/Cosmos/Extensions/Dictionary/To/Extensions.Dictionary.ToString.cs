@@ -2,7 +2,7 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// Extensions for dictionary

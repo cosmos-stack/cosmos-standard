@@ -10,6 +10,7 @@ using System.Reflection;
  *          Author: Mutuduxf
  *          Url:    https://github.com/Mutuduxf/Zaabee.Serializers
  *          MIT
+ *     https://github.com/Mutuduxf/Zaabee.Serializers/blob/master/Zaabee.Protobuf/Zaabee.Protobuf/SerializerBuilder.cs
  */
 
 namespace ProtoBuf.Meta
@@ -19,36 +20,48 @@ namespace ProtoBuf.Meta
     /// </summary>
     public static class SerializerBuilder
     {
-        private const BindingFlags FLAGS = BindingFlags.FlattenHierarchy | BindingFlags.Public |
-                                           BindingFlags.NonPublic | BindingFlags.Instance;
+        private const BindingFlags Flags = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
 
         private static readonly ConcurrentDictionary<Type, HashSet<Type>> SubTypes = new ConcurrentDictionary<Type, HashSet<Type>>();
         private static readonly ConcurrentBag<Type> BuiltTypes = new ConcurrentBag<Type>();
         private static readonly Type ObjectType = typeof(object);
 
-        internal static void Build<T>(RuntimeTypeModel runtimeTypeModel)
+        /// <summary>
+        /// Build
+        /// </summary>
+        /// <param name="runtimeTypeModel"></param>
+        /// <typeparam name="T"></typeparam>
+        public static void Build<T>(RuntimeTypeModel runtimeTypeModel)
         {
             Build(runtimeTypeModel, typeof(T));
         }
 
-        internal static void Build(RuntimeTypeModel runtimeTypeModel, Type type)
+        /// <summary>
+        /// Build
+        /// </summary>
+        /// <param name="runtimeTypeModel"></param>
+        /// <param name="type"></param>
+        public static void Build(RuntimeTypeModel runtimeTypeModel, Type type)
         {
             if (BuiltTypes.Contains(type))
                 return;
 
             lock (type)
             {
+                if (BuiltTypes.Contains(type))
+                    return;
+                
                 if (runtimeTypeModel.CanSerialize(type))
                 {
                     if (type.IsGenericType)
-                        BuildGenerics(runtimeTypeModel, type);
+                        BuildGenerics(runtimeTypeModel,type);
                     return;
                 }
 
                 var meta = runtimeTypeModel.Add(type, false);
-                var fields = type.GetFields(FLAGS);
+                var fields = type.GetFields(Flags);
 
-                meta.Add(fields.Select(x => x.Name).ToArray());
+                meta.Add(fields.Select(m => m.Name).ToArray());
                 meta.UseConstructor = false;
 
                 BuildBaseClasses(runtimeTypeModel, type);

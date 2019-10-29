@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
     /// ReadOnly dictionary extensions
@@ -105,7 +105,7 @@ namespace Cosmos
             if (dictionaries == null)
                 throw new ArgumentNullException(nameof(dictionaries));
             value = default;
-
+            
             foreach (var dictionary in dictionaries)
                 if (dictionary.TryGetValue(key, out value))
                     return true;

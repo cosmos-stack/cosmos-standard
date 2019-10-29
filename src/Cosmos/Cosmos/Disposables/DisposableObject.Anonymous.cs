@@ -18,8 +18,12 @@ namespace Cosmos.Disposables
         /// <summary>
         /// Create a new <see cref="AnonymousDisposableObject"/> instance.
         /// </summary>
-        /// <param name="dispose"></param>
+        public AnonymousDisposableObject() : this(() => { }) { }
 
+        /// <summary>
+        /// Create a new <see cref="AnonymousDisposableObject"/> instance.
+        /// </summary>
+        /// <param name="dispose"></param>
         public AnonymousDisposableObject(Action dispose) : base(dispose) { }
 
         /// <summary>

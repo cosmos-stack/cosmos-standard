@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Serialization.ZeroFormatter</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Serialization.ZeroFormatterObjectSerializer">
+            <summary>
+            ZeroFormatter serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatterObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatterObjectSerializer.Deserialize``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatterObjectSerializer.Deserialize(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatterObjectSerializer.SerializeAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatterObjectSerializer.DeserializeAsync``1(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatterObjectSerializer.DeserializeAsync(System.Byte[],System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions">
+            <summary>
+            ZeroFormatter extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.FromZeroFormatter``1(System.Byte[])">
+            <summary>
+            From ZeroFormatter 
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.FromZeroFormatter(System.Byte[],System.Type)">
+            <summary>
+            From ZeroFormatter 
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.FromZeroFormatterAsync``1(System.Byte[])">
+            <summary>
+            From ZeroFormatter async
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.FromZeroFormatterAsync(System.Byte[],System.Type)">
+            <summary>
+            From ZeroFormatter async
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToZeroFormatter``1(``0)">
+            <summary>
+            To ZeroFormatter
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToZeroFormatter(System.Object,System.Type)">
+            <summary>
+            o ZeroFormatter
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToZeroFormatterAsync``1(``0)">
+            <summary>
+            To ZeroFormatter async
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToZeroFormatterAsync(System.Object,System.Type)">
+            <summary>
+            To ZeroFormatter async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackTo``1(``0,System.IO.Stream)">
+            <summary>
+            Pack to
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackTo(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackBy``1(System.IO.Stream,``0)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackBy(System.IO.Stream,System.Object,System.Type)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.Unpack``1(System.IO.Stream)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.Unpack(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackToAsync``1(``0,System.IO.Stream)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackToAsync(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackByAsync``1(System.IO.Stream,``0)">
+            <summary>
+            Pack by async
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.PackByAsync(System.IO.Stream,System.Object,System.Type)">
+            <summary>
+            Pack by async
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.UnpackAsync``1(System.IO.Stream)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.UnpackAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToStream``1(``0)">
+            <summary>
+            To stream
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToStream(System.Object,System.Type)">
+            <summary>
+            To stream
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToStreamAsync``1(``0)">
+            <summary>
+            To stream async
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterExtensions.ToStreamAsync(System.Object,System.Type)">
+            <summary>
+            To stream async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper">
+            <summary>
+            ZeroFormatter helper
+            </summary>
+            <summary>
+            ZeroFormatter helper
+            </summary>
+            <summary>
+            ZeroFormatter helper
+            </summary>
+            <summary>
+            ZeroFormatter helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.SerializeAsync``1(``0)">
+            <summary>
+            Serialize async
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.SerializeAsync(System.Object,System.Type)">
+            <summary>
+            Serialize async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.DeserializeAsync``1(System.Byte[])">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="bytes"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.DeserializeAsync(System.Byte[],System.Type)">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="bytes"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.PackAsync``1(``0)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.PackAsync``1(``0,System.IO.Stream)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="o"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.PackAsync(System.Type,System.Object)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.PackAsync(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.UnpackAsync``1(System.IO.Stream)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.UnpackAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Serialize(System.Object,System.Type)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="bytes"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="bytes"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Pack``1(``0)">
+            <summary>
+            Pack
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Pack``1(``0,System.IO.Stream)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Pack(System.Object,System.Type)">
+            <summary>
+            Pack
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Pack(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Unpack``1(System.IO.Stream)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ZeroFormatter.ZeroFormatterHelper.Unpack(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

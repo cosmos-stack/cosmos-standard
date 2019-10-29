@@ -51,41 +51,6 @@
             <param name="toInstance"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.IObjectSerializer`1">
-            <summary>
-            Object Serializer Meta Interface
-            </summary>
-            <typeparam name="TSerializedType"></typeparam>
-        </member>
-        <member name="M:Cosmos.IObjectSerializer`1.Serialize``1(``0)">
-            <summary>
-            Serialize
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="o"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.IObjectSerializer`1.Deserialize``1(`0)">
-            <summary>
-            Deserialize
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="json"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.IObjectSerializer`1.Deserialize(`0,System.Type)">
-            <summary>
-            Deserialize
-            </summary>
-            <param name="json"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.IObjectSerializer">
-            <summary>
-            Object Serializer Meta Interface
-            </summary>
-        </member>
         <member name="T:Cosmos.IOperationResult`1">
             <summary>
             Opt result
@@ -110,6 +75,90 @@
             </summary>
             <param name="from"></param>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.IJsonSerializer">
+            <summary>
+            Interface of Json serializer
+            </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.IMessagePackSerializer">
+            <summary>
+            Interface of MessagePack serializer
+            </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.IObjectSerializer`1">
+            <summary>
+            Object Serializer Meta Interface
+            </summary>
+            <typeparam name="TSerializedType"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.Deserialize``1(`0)">
+            <summary>
+            Deserialize
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.Deserialize(`0,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.SerializeAsync``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.DeserializeAsync``1(`0)">
+            <summary>
+            Deserialize
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.DeserializeAsync(`0,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.IObjectSerializer">
+            <summary>
+            Object Serializer Meta Interface
+            </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.IProtobufSerializer">
+            <summary>
+            Interface of Protobuf serializer
+            </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.IXmlSerializer">
+            <summary>
+            Interface of XML serializer
+            </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.IZeroFormatterSerializer">
+            <summary>
+            Interface of ZeroFormatter serializer
+            </summary>
         </member>
         <member name="T:Cosmos.Validations.Parameters.IValidationParameter">
             <summary>

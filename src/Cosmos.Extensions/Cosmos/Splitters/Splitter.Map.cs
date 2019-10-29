@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cosmos.Serialization;
 
 namespace Cosmos.Splitters
 {

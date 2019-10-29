@@ -2,12 +2,12 @@
 
     <Import Project="..\..\build\common.props" />
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>7.2</LangVersion>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>8.0</LangVersion>
         <RootNamespace />
-  </PropertyGroup>
-  
+    </PropertyGroup>
+
     <PropertyGroup>
         <AssemblyName>Cosmos.Serialization.Lit</AssemblyName>
         <PackageId>Cosmos.Serialization.LitJson</PackageId>
@@ -18,26 +18,30 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-      <DocumentationFile>Cosmos.Extensions.Lit.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Extensions.Lit.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <DocumentationFile>Cosmos.Extensions.Lit.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Extensions.Lit.xml</DocumentationFile>
     </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="LitJson" Version="0.14.1" />
-  </ItemGroup>
-
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+        <PackageReference Include="LitJson" Version="0.15.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="..\..\..\..\LICENSE">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Cosmos\Serialization\Json" />
     </ItemGroup>
 
 </Project>

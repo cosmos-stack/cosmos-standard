@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
+namespace Cosmos.Collections
 {
     /// <summary>
-    /// Extensions for hshtable 
+    /// Extensions for HashSet 
     /// </summary>
     public static class HashtableExtensions
     {

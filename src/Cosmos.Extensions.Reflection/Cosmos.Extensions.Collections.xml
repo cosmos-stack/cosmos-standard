@@ -378,43 +378,37 @@
         </member>
         <member name="T:Cosmos.InstanceScanner`1">
             <summary>
-            Instance Scanner<br />
-            实例扫描器
+            Instance Scanner
             </summary>
             <typeparam name="TClass"></typeparam>
         </member>
         <member name="M:Cosmos.InstanceScanner`1.#ctor">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
+            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
             </summary>
         </member>
         <member name="M:Cosmos.InstanceScanner`1.#ctor(System.String)">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
+            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
             </summary>
             <param name="scannerName"></param>
         </member>
         <member name="M:Cosmos.InstanceScanner`1.#ctor(System.Type)">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
+            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
             </summary>
             <param name="baseType"></param>
         </member>
         <member name="M:Cosmos.InstanceScanner`1.#ctor(System.String,System.Type)">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.<br />
-            创建一个新的 <see cref="T:Cosmos.InstanceScanner`1"/> 实例。
+            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
             </summary>
             <param name="scannerName"></param>
             <param name="baseType"></param>
         </member>
         <member name="M:Cosmos.InstanceScanner`1.ScanAndReturnInstances">
             <summary>
-            Scan, and return instances.<br />
-            扫描，并返回实例。
+            Scan, and return instances.
             </summary>
             <returns></returns>
         </member>

@@ -1,0 +1,537 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Serialization.Utf8Json</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Serialization.Json.Utf8JsonExtensions">
+            <summary>
+            Utf8Json extensions
+            </summary>
+            <summary>
+            Utf8Json extensions
+            </summary>
+            <summary>
+            Utf8Json extensions
+            </summary>
+            <summary>
+            Utf8Json extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8JsonBytes``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json bytes
+            </summary>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8JsonBytesAsync``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json bytes async
+            </summary>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8JsonBytes``1(System.Byte[],Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json bytes 
+            </summary>
+            <param name="data"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8JsonBytes(System.Byte[],System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json bytes 
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8JsonBytesAsync``1(System.Byte[],Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json bytes async
+            </summary>
+            <param name="data"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8JsonBytesAsync(System.Byte[],System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json bytes async
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8Json``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json
+            </summary>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8Json(System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8Json(System.Object,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8JsonAsync``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json async
+            </summary>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8JsonAsync(System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json async
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.ToUtf8JsonAsync(System.Object,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            To Utf8Json async
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonPack``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonPackTo``1(``0,System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonPackBy(System.IO.Stream,System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonPackAsync``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonPackToAsync``1(``0,System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonPackByAsync(System.IO.Stream,System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json pack by async
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="resolver"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonUnpack``1(System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonUnpack(System.IO.Stream,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonUnpackAsync``1(System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.Utf8JsonUnpackAsync(System.IO.Stream,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Utf8Json unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8Json``1(System.String,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json
+            </summary>
+            <param name="json"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8Json(System.String,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8JsonAsync``1(System.String,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json async
+            </summary>
+            <param name="json"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8JsonExtensions.FromUtf8JsonAsync(System.String,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            From Utf8Json async
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper">
+            <summary>
+            Utf8Json helper
+            </summary>
+            <summary>
+            Utf8Json helper
+            </summary>
+            <summary>
+            Utf8Json helper
+            </summary>
+            <summary>
+            Utf8Json helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeAsync``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize async
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeAsync(System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize async
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeAsync(System.Object,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize async
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeToBytesAsync``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize to bytes async
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeToBytesAsync(System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize to bytes async
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeToBytesAsync(System.Object,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize to bytes async
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.DeserializeAsync``1(System.String,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="json"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.DeserializeAsync(System.String,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.DeserializeFromBytesAsync``1(System.Byte[],Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="data"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.DeserializeFromBytesAsync(System.Byte[],System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.PackAsync``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.PackAsync``1(``0,System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.UnpackAsync``1(System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.UnpackAsync(System.IO.Stream,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Serialize``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Serialize(System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Serialize(System.Object,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeToBytes``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize to bytes
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeToBytes(System.Object,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize to bytes
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.SerializeToBytes(System.Object,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Serialize to bytes
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Deserialize``1(System.String,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Deserialize(System.String,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.DeserializeFromBytes``1(System.Byte[],Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.DeserializeFromBytes(System.Byte[],System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Pack``1(``0,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Pack``1(``0,System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Pack
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Unpack``1(System.IO.Stream,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Json.Utf8Json.Utf8JsonHelper.Unpack(System.IO.Stream,System.Type,Utf8Json.IJsonFormatterResolver)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <param name="resolver"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.Utf8JsonObjectSerializer">
+            <summary>
+            Utf8Json object serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.Utf8JsonObjectSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.Utf8JsonObjectSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.Utf8JsonObjectSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.Utf8JsonObjectSerializer.SerializeAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.Utf8JsonObjectSerializer.DeserializeAsync``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.Utf8JsonObjectSerializer.DeserializeAsync(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
