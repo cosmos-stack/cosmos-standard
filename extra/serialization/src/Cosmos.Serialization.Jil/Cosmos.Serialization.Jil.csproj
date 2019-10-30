@@ -18,11 +18,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <DocumentationFile>Cosmos.Extensions.Jil.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Serialization.Jil.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <DocumentationFile>Cosmos.Extensions.Jil.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Serialization.Jil.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

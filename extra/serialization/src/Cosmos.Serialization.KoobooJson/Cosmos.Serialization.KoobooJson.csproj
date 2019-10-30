@@ -18,11 +18,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <DocumentationFile>Cosmos.Extensions.KoobooJson.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Serialization.KoobooJson.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <DocumentationFile>Cosmos.Extensions.KoobooJson.xml</DocumentationFile>
+        <DocumentationFile>Cosmos.Serialization.KoobooJson.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

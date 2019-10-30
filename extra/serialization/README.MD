@@ -6,12 +6,17 @@ Cosmos.Serialization provides several serializers and extensions:
 
 - Cosmos.Serialization.Xml
 - Cosmos.Serialization.Jil
-- Cosmos.Serialization.Json
 - Cosmos.Serialization.KoobooJson
-- Cosmos.Serialization.Lit
-- Cosmos.Serialization.Swifter
+- Cosmos.Serialization.Lit *(Cosmos.Serialization.LitJson)*
+- Cosmos.Serialization.NewtonsoftJson
+- Cosmos.Serialization.MicrosoftJson
+- Cosmos.Serialization.Swifter *(Cosmos.Serialization.SwifterJson)*
+- Cosmos.Serialization.Utf8Json
+- Cosmos.Serialization.Binary
 - Cosmos.Serialization.Protobuf
+- Cosmos.Serialization.MsgPackCli
 - Cosmos.Serialization.MessagePack
+- Cosmos.Serialization.ZeroFormatter
 
 ---
 
