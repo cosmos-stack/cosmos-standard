@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cosmos.Date.Chinese
 {
@@ -10,13 +8,17 @@ namespace Cosmos.Date.Chinese
     /// </summary>
     public static class ChineseAnimalHelper
     {
-        private static readonly string[] ANIMALS = { "鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪" };
-        private static readonly string[] ANIMALZ = { "鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊", "猴", "雞", "狗", "豬" };
-        private const int AnimalStartYear = 1900; //1900年为鼠年
+        // ReSharper disable once InconsistentNaming
+        private static readonly string[] ANIMALS = {"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"};
+
+        // ReSharper disable once InconsistentNaming
+        private static readonly string[] ANIMALZ = {"鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊", "猴", "雞", "狗", "豬"};
+
+        private const int ANIMAL_START_YEAR = 1900; //1900年为鼠年
 
         private static int Index(DateTime dt)
         {
-            var offset = dt.Year - AnimalStartYear;
+            var offset = dt.Year - ANIMAL_START_YEAR;
             return (offset % 12);
         }
 

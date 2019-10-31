@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using Cosmos.Date;
 using Cosmos.Date.Chinese;
 
 // ReSharper disable once CheckNamespace

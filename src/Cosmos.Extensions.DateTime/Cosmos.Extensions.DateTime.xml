@@ -1188,6 +1188,11 @@
             <param name="duration"></param>
             <returns></returns>
         </member>
+        <member name="P:Cosmos.Date.DateInfo.DayOfWeek">
+            <summary>
+            Gets day of week
+            </summary>
+        </member>
         <member name="M:Cosmos.Date.DateInfo.op_Implicit(Cosmos.Date.DateInfo)~System.DateTime">
             <summary>
             Convert <see cref="T:System.DateTime"/> to <see cref="T:Cosmos.Date.DateInfo"/><br />
@@ -1201,6 +1206,118 @@
             将 <see cref="T:Cosmos.Date.DateInfo"/> 转换为 <see cref="T:System.DateTime"/>。
             </summary>
             <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Addition(Cosmos.Date.DateInfo,System.TimeSpan)">
+            <summary>
+            +
+            </summary>
+            <param name="d"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Subtraction(Cosmos.Date.DateInfo,System.TimeSpan)">
+            <summary>
+            -
+            </summary>
+            <param name="d"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_GreaterThan(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            &gt;
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_GreaterThan(Cosmos.Date.DateInfo,System.DateTime)">
+            <summary>
+            &gt;
+            </summary>
+            <param name="d"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_LessThan(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            &lt;
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_LessThan(Cosmos.Date.DateInfo,System.DateTime)">
+            <summary>
+            &lt;
+            </summary>
+            <param name="d"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_GreaterThanOrEqual(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            &gt;=
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_GreaterThanOrEqual(Cosmos.Date.DateInfo,System.DateTime)">
+            <summary>
+            &gt;=
+            </summary>
+            <param name="d"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_LessThanOrEqual(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            &lt;=
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_LessThanOrEqual(Cosmos.Date.DateInfo,System.DateTime)">
+            <summary>
+            &lt;=
+            </summary>
+            <param name="d"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Equality(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            ==
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Equality(Cosmos.Date.DateInfo,System.DateTime)">
+            <summary>
+            ==
+            </summary>
+            <param name="d"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Inequality(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            !=
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateInfo.op_Inequality(Cosmos.Date.DateInfo,System.DateTime)">
+            <summary>
+            !=
+            </summary>
+            <param name="d"></param>
+            <param name="dt"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Date.DateInfo.Equals(System.Object)">
             <summary>
@@ -1273,6 +1390,23 @@
             <param name="second"></param>
             <param name="millisecond"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeFactory.Create(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.DateTimeKind)">
+            <summary>
+            Create <see cref="T:System.DateTime"/> by special date.<br />
+            根据指定的日期创建 <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <param name="kind"></param>
+            <returns></returns>
+            <exception cref="T:Cosmos.DateTimeOutOfRangeException"></exception>
+            <exception cref="T:Cosmos.InvalidDateTimeException"></exception>
         </member>
         <member name="M:Cosmos.Date.DateTimeFactory.OffsetByWeek(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -1357,6 +1491,377 @@
             <param name="occurrence"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Date.DateTimeSpan">
+            <summary>
+            DateTime span
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeSpan.DaysPerYear">
+            <summary>
+            Days per year
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Months">
+            <summary>
+            Months
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Years">
+            <summary>
+            Years
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.TimeSpan">
+            <summary>
+            Time span
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Equals(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+            <c>true</c> if the current object is equal to the other parameter; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Add(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Adds two <see cref="T:Cosmos.Date.DateTimeSpan"/> according operator +.
+            </summary>
+            <param name="number">The number to add to this <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <returns>The result of the addition.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Add(System.TimeSpan)">
+            <summary>
+            Returns a new <see cref="T:Cosmos.Date.DateTimeSpan"/> that adds the value of the specified <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/> to the value of this instance.
+            </summary>
+            <param name="timeSpan">The <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/> to add to this <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <returns>The result of the addition.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Subtract(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Subtracts the number according operator -.
+            </summary>
+            <param name="dateTimeSpan">The matrix to subtract from this <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Subtract(System.TimeSpan)">
+            <summary>
+            Returns a new <see cref="T:Cosmos.Date.DateTimeSpan"/> that subtracts the value of the specified <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/> to the value of this instance.
+            </summary>
+            <param name="timeSpan">The <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/> to subtract from this <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Addition(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator +
+            </summary>
+            <param name="left">The left hand <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <param name="right">The right hand <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <returns>The result of the addition.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Addition(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Overload of the operator +
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Addition(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator +
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Subtraction(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator -
+            </summary>
+            <param name="left">The left hand <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <param name="right">The right hand <see cref="T:Cosmos.Date.DateTimeSpan"/>.</param>
+            <returns>The result of the subtraction.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Subtraction(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator -
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Subtraction(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Overload of the operator -
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Equality(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Equals operator.
+            </summary>
+            <param name="left">The left hand side.</param>
+            <param name="right">The right hand side.</param>
+            <returns><c>true</c> is <paramref name="left"/> is equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Equality(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Equals operator.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Equality(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Equals operator.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Inequality(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Not Equals operator.
+            </summary>
+            <param name="left">The left hand side.</param>
+            <param name="right">The right hand side.</param>
+            <returns><c>true</c> is <paramref name="left"/> is not equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Inequality(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Not Equals operator.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Inequality(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Not Equals operator.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_UnaryNegation(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator -
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_LessThan(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &lt;
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_LessThan(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Overload of the operator &lt;
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_LessThan(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &lt;
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_LessThanOrEqual(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &lt; or equals to
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_LessThanOrEqual(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Overload of the operator &lt; or equals to
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_LessThanOrEqual(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &lt; or equals to
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_GreaterThan(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &gt;
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_GreaterThan(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Overload of the operator &gt;
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_GreaterThan(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &gt;
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_GreaterThanOrEqual(Cosmos.Date.DateTimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &gt; or equals to
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_GreaterThanOrEqual(Cosmos.Date.DateTimeSpan,System.TimeSpan)">
+            <summary>
+            Overload of the operator &gt; or equals to
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_GreaterThanOrEqual(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Overload of the operator &gt; or equals to
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Implicit(Cosmos.Date.DateTimeSpan)~System.TimeSpan">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Cosmos.Date.DateTimeSpan"/> to <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/>.
+            </summary>
+            <param name="dateTimeSpan">The DateTimeSpan.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.op_Implicit(System.TimeSpan)~Cosmos.Date.DateTimeSpan">
+            <summary>
+            Performs an implicit conversion from a <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/> to <see cref="T:Cosmos.Date.DateTimeSpan"/>.
+            </summary>
+            <param name="timeSpan">The <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/> that will be converted.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Ticks">
+            <summary>
+            Gets the number of ticks that represent the value of the current <see cref="P:Cosmos.Date.DateTimeSpan.TimeSpan"/> structure.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Days">
+            <summary>
+            Gets days
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Hours">
+            <summary>
+            Gets Hours
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Milliseconds">
+            <summary>
+            Gets milliseconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Minutes">
+            <summary>
+            Gets minutes
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.Seconds">
+            <summary>
+            Gets seconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.TotalDays">
+            <summary>
+            Total days
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.TotalHours">
+            <summary>
+            Total hours
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.TotalMilliseconds">
+            <summary>
+            Total milliseconds
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.TotalMinutes">
+            <summary>
+            Total minutes
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.DateTimeSpan.TotalSeconds">
+            <summary>
+            Total seconds
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.CompareTo(System.TimeSpan)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.CompareTo(System.Object)">
+            <summary>
+            Compare to
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.CompareTo(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Compare to
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeSpan.Negate">
+            <summary>
+            Negate
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Date.InfiniteFutureInfo">
             <summary>
             Infinite Future Info<br />
@@ -1430,6 +1935,521 @@
             将 <see cref="T:Cosmos.Date.InfinitePastInfo"/> 转换为 <see cref="T:System.DateTime"/>。
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Islamic.IslamicDateInfo">
+            <summary>
+            Islamic Date<br />
+            伊斯兰历日期
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.#ctor(System.DateTime)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.#ctor(Cosmos.Date.Islamic.IslamicDateTime)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.#ctor(Cosmos.Date.DateInfo)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> 的新实例
+            </summary>
+            <param name="date"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.#ctor(System.DateTime,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.#ctor(Cosmos.Date.DateInfo,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> 的新实例
+            </summary>
+            <param name="date"></param>
+            <param name="calendar"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.IsLeepYear">
+            <summary>
+            Is current year a leap year.<br />
+            当前年份是否为闰年
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.IsWeekend">
+            <summary>
+            Is current day weekend<br />
+            当天日期是否为周末
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.IsWorkDay">
+            <summary>
+            Is current day a work day<br />
+            当前日期是否为工作日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateInfo.IslamicYear">
+            <summary>
+            Gets Islamic year<br />
+            获取伊斯兰历年份
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateInfo.IslamicMonth">
+            <summary>
+            Gets Islamic month.<br />
+            获取伊斯兰历月份
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateInfo.IslamicDay">
+            <summary>
+            Gets Islamic day.<br />
+            获取伊斯兰农历日份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.GetIslamicMonths">
+            <summary>
+            Gets Islamic month.<br />
+            获取伊斯兰农历月份
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.Tomorrow">
+            <summary>
+            Tomorrow<br />
+            明天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.Yesterday">
+            <summary>
+            Yesterday<br />
+            昨天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.AddDays(System.Int32)">
+            <summary>
+            Add days<br />
+            添加若干天
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.AddMonths(System.Int32)">
+            <summary>
+            Add months<br />
+            添加月份
+            </summary>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.GetDaysInYear">
+            <summary>
+            Gets days in year.<br />
+            伊斯兰历年中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.GetDaysInMonth">
+            <summary>
+            Gets days in month.<br />
+            伊斯兰历月中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.GetDayOfYear">
+            <summary>
+            Calculates the day of the Islamic year in the special date.<br />
+            伊斯兰历年中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.GetDayOfMonth">
+            <summary>
+            Calculates the day of the Islamic month in the special date.<br />
+            伊斯兰历月中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.GetDayOfWeek">
+            <summary>
+            Calculates the day of the week in the special date.<br />
+            一周中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.ToDateTime">
+            <summary>
+            Convert to <see cref="T:System.DateTime"/><br />
+            转换为 <see cref="T:System.DateTime"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.op_Implicit(Cosmos.Date.Islamic.IslamicDateInfo)~Cosmos.Date.DateInfo">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> to <see cref="T:Cosmos.Date.DateInfo"/>
+            </summary>
+            <param name="di"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.op_Implicit(Cosmos.Date.DateInfo)~Cosmos.Date.Islamic.IslamicDateInfo">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.DateInfo"/> to <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/>
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateInfo.InternalTime">
+            <summary>
+            Gets internal datetime
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.Of(System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateInfo.OfLunar(System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateInfo"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Islamic.IslamicDateTime">
+            <summary>
+            Islamic Date Time<br />
+            伊斯兰历日期与时间
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.#ctor(System.DateTime)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.#ctor(System.DateTime,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance for <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 的新实例
+            </summary>
+            <param name="dt"></param>
+            <param name="calendar"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.IsLeepYear">
+            <summary>
+            Is current year a leap year.<br />
+            当前年份是否为闰年
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.IsWeekend">
+            <summary>
+            Is current day weekend<br />
+            当天日期是否为周末
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.IsWorkDay">
+            <summary>
+            Is current day a work day<br />
+            当前日期是否为工作日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateTime.IslamicYear">
+            <summary>
+            Gets Islamic year<br />
+            获取伊斯兰历年份
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateTime.IslamicMonth">
+            <summary>
+            Gets Islamic month.<br />
+            获取伊斯兰历月份
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateTime.IslamicDay">
+            <summary>
+            Gets Islamic day.<br />
+            获取伊斯兰农历日份
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.GetIslamicMonths">
+            <summary>
+            Gets Islamic month.<br />
+            获取伊斯兰农历月份
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.Tomorrow">
+            <summary>
+            Tomorrow<br />
+            明天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.Yesterday">
+            <summary>
+            Yesterday<br />
+            昨天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.AddDays(System.Int32)">
+            <summary>
+            Add days<br />
+            添加若干天
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.AddMonths(System.Int32)">
+            <summary>
+            Add months<br />
+            添加月份
+            </summary>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.GetDaysInYear">
+            <summary>
+            Gets days in year.<br />
+            伊斯兰历年中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.GetDaysInMonth">
+            <summary>
+            Gets days in month.<br />
+            伊斯兰历月中共有几天
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.GetDayOfYear">
+            <summary>
+            Calculates the day of the Islamic year in the special date.<br />
+            伊斯兰历年中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.GetDayOfMonth">
+            <summary>
+            Calculates the day of the Islamic month in the special date.<br />
+            伊斯兰历月中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.GetDayOfWeek">
+            <summary>
+            Calculates the day of the week in the special date.<br />
+            一周中的第几天 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.op_Implicit(Cosmos.Date.Islamic.IslamicDateTime)~System.DateTime">
+            <summary>
+            Convert <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> to <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="di"></param>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.op_Implicit(System.DateTime)~Cosmos.Date.Islamic.IslamicDateTime">
+            <summary>
+            Convert <see cref="T:System.DateTime"/> to <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/>
+            </summary>
+            <param name="dt"></param>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateTime.InternalCalendarSystem">
+            <summary>
+            Gets <see cref="T:NodaTime.CalendarSystem"/> instance internal.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateTime.InternalTime">
+            <summary>
+            Gets internal datetime
+            </summary>
+        </member>
+        <member name="P:Cosmos.Date.Islamic.IslamicDateTime.InternalLocalTime">
+            <summary>
+            Gets internal local datetime
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.ToDateTime">
+            <summary>
+            Convert to <see cref="T:System.DateTime"/><br />
+            转换为 <see cref="T:System.DateTime"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.Of(System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.Of(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.Of(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.OfIslamic(System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.OfLunar(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.Islamic.IslamicDateTime.OfLunar(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,NodaTime.CalendarSystem)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/><br />
+            创建一个新的 <see cref="T:Cosmos.Date.Islamic.IslamicDateTime"/> 实例。
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.Islamic.IslamicMonths">
+            <summary>
+            Islamic / Hijri Months
+            </summary>
+            <remarks>
+            Reference to:
+                https://en.wikipedia.org/wiki/Islamic_calendar
+            </remarks>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.Muharram">
+            <summary>
+            Muharram/Mohram
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.Saphar">
+            <summary>
+            Saphar/Safar
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.RabiAlAwwal">
+            <summary>
+            Rabi al-Awwal
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.RabiAlThani">
+            <summary>
+            Rabi al-Thani (Rabī’ al-Ākhir)
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.JomadaAlAwwel">
+            <summary>
+            Jomada Al Awwel/Jumada al-Ula
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.JomadaAlThani">
+            <summary>
+            Jomada Al Thani/Jumada al-Akhirah
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.Rajab">
+            <summary>
+            Rajab/Rojab
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.Shaban">
+            <summary>
+            Sha'ban/Shaban
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.Ramadan">
+            <summary>
+            Ramadan
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.Shawwal">
+            <summary>
+            Shawwal
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.DulQaDah">
+            <summary>
+            Dul Qa'dah/Zulqiddah
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.Islamic.IslamicMonths.DulHijjah">
+            <summary>
+            Dul Hijjah/Zulhijjah
+            </summary>
         </member>
         <member name="T:Cosmos.Date.PeriodDateBuilder">
             <summary>
@@ -1704,6 +2724,31 @@
             <param name="index"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Date.RoundTo">
+            <summary>
+            Used for rounding precision
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.RoundTo.Second">
+            <summary>
+            Second precision.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.RoundTo.Minute">
+            <summary>
+            Minute precision.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.RoundTo.Hour">
+            <summary>
+            Hour precision.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.RoundTo.Day">
+            <summary>
+            Day precision.
+            </summary>
+        </member>
         <member name="T:Cosmos.ChineseSolarTermsExtensions">
             <summary>
             Chinese Solar Terms Extensions<br />
@@ -1752,13 +2797,41 @@
             DateInfo Extensions<br />
             DateInfo 扩展方法
             </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
+            <summary>
+            DateInfo Extensions<br />
+            DateInfo 扩展方法
+            </summary>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.AddDay(Cosmos.Date.DateInfo)">
             <summary>
             Add one day<br />
             加一天
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.AddWeeks(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Add weeks
+            </summary>
+            <param name="d"></param>
+            <param name="weeks"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.AddMonth(Cosmos.Date.DateInfo)">
@@ -1766,7 +2839,15 @@
             Add one month<br />
             加一个月
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.AddQuarters(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Add quarters
+            </summary>
+            <param name="d"></param>
+            <param name="quarters"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.AddYear(Cosmos.Date.DateInfo)">
@@ -1774,7 +2855,7 @@
             Add one year<br />
             加一年
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsNextMatched(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
@@ -1782,7 +2863,7 @@
             Is the nextDay the day after current date.<br />
             判断是否为第二天
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
             <param name="next"></param>
             <returns></returns>
         </member>
@@ -1791,7 +2872,7 @@
             Get tomorrow<br />
             第二天
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.Yesterday(Cosmos.Date.DateInfo)">
@@ -1799,15 +2880,61 @@
             Get yesterday<br />
             前一天
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.AddBusinessDays(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Add business days<br />
+            添加指定个数量的工作日
+            </summary>
+            <param name="d"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.SubtractBusinessDays(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Subtract business days<br />
+            减去指定个数量的工作日
+            </summary>
+            <param name="d"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.BeginningOfWeek(Cosmos.Date.DateInfo)">
+            <summary>
+            Beginning of week, same as 'GetFirstDayInfoOfWeek'.
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.BeginningOfMonth(Cosmos.Date.DateInfo)">
+            <summary>
+            Beginning of month, same as 'GetLastDayInfoOfMonth'.
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.BeginningOfQuarter(Cosmos.Date.DateInfo)">
+            <summary>
+            Beginning of quarter, same as 'GetFirstDayInfoOfQuarter'.
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.BeginningOfYear(Cosmos.Date.DateInfo)">
+            <summary>
+            Beginning of year, same as 'GetFirstDayInfoOfYear'.
+            </summary>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsBetween(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,System.Boolean)">
             <summary>
-            Is current date between <see cref="!:from"/> and <see cref="!:to"/>.<br />
+            Is current date between <paramref name="from"/> and <paramref name="to"/>.<br />
             判断当前日期是否在 from 和 to 之间
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
             <param name="from"></param>
             <param name="to"></param>
             <param name="includeBoundary"></param>
@@ -1815,20 +2942,20 @@
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsDateBetweenWithBoundary(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
             <summary>
-            Is current date between <see cref="!:min"/> and <see cref="!:max"/> with boundary.<br />
+            Is current date between <paramref name="min"/> and <paramref name="max"/> with boundary.<br />
             判断当前日期是否在 min 和 max 之间，闭包区间。
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
             <param name="min"></param>
             <param name="max"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsDateBetweenWithoutBoundary(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
             <summary>
-            Is current date between <see cref="!:min"/> and <see cref="!:max"/> without boundary.<br />
+            Is current date between <paramref name="min"/> and <paramref name="max"/> without boundary.<br />
             判断当前日期是否在 min 和 max 之间，开区间。
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
             <param name="min"></param>
             <param name="max"></param>
             <returns></returns>
@@ -1838,7 +2965,7 @@
             Clone<br />
             克隆
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.GetConstellationName(Cosmos.Date.DateInfo)">
@@ -1846,14 +2973,50 @@
             Gets Constellation name<br />
             获取星座名
             </summary>
-            <param name="dt"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.EndOfWeek(Cosmos.Date.DateInfo)">
+            <summary>
+            End of week, same as 'GetLastDayInfoOfWeek'.
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.EndOfMonth(Cosmos.Date.DateInfo)">
+            <summary>
+            End of month, same as 'GetLastDayInfoOfMonth'.
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.EndOfQuarter(Cosmos.Date.DateInfo)">
+            <summary>
+            End of quarter, same as 'GetLastDayInfoOfQuarter'.
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.EndOfYear(Cosmos.Date.DateInfo)">
+            <summary>
+            End of year, same as 'GetLastDayOfYear'.
+            </summary>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.GetNextWeekdayInfo(System.DateTime,System.DayOfWeek)">
             <summary>
             Get next weekday.
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
+            <param name="weekday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetNextWeekdayInfo(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Get next weekday.
+            </summary>
+            <param name="d"></param>
             <param name="weekday"></param>
             <returns></returns>
         </member>
@@ -1861,26 +3024,56 @@
             <summary>
             Get previous weekday.
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
             <param name="weekday"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(System.DateTime)">
+        <member name="M:Cosmos.DateInfoExtensions.GetPreviousWeekdayInfo(Cosmos.Date.DateInfo,System.DayOfWeek)">
             <summary>
-            Get first day of this month.
+            Get previous weekday.
+            </summary>
+            <param name="d"></param>
+            <param name="weekday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(System.DateTime)">
+            <summary>
+            Get last day of this week
             </summary>
             <param name="dt"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(System.DateTime,System.DayOfWeek)">
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(Cosmos.Date.DateInfo)">
             <summary>
-            Get first day (of week) of this month.
+            Get last day of this week
             </summary>
-            <param name="date"></param>
-            <param name="dayOfWeek"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Get last day of this week
+            </summary>
+            <param name="dt"></param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(Cosmos.Date.DateInfo,System.Globalization.CultureInfo)">
+            <summary>
+            Get last day of this week
+            </summary>
+            <param name="d"></param>
+            <param name="cultureInfo"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfMonth(System.DateTime)">
+            <summary>
+            Get last day of this month.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfMonth(Cosmos.Date.DateInfo)">
             <summary>
             Get last day of this month.
             </summary>
@@ -1891,7 +3084,75 @@
             <summary>
             Get last day (of week) of this month.
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfMonth(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Get last day (of week) of this month.
+            </summary>
+            <param name="d"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfQuarter(System.DateTime)">
+            <summary>
+            Gets last day info of quarter
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfQuarter(Cosmos.Date.DateInfo)">
+            <summary>
+            Gets last day info of quarter
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfQuarter(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets last day info of quarter
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfQuarter(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Gets last day info of quarter
+            </summary>
+            <param name="d"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfYear(System.DateTime)">
+            <summary>
+            Get last day info of year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfYear(Cosmos.Date.DateInfo)">
+            <summary>
+            Get last day info of year
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfYear(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get last day info of year
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfYear(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Get last day info of year
+            </summary>
+            <param name="d"></param>
             <param name="dayOfWeek"></param>
             <returns></returns>
         </member>
@@ -1899,44 +3160,185 @@
             <summary>
             Get last day of this week
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfWeek(Cosmos.Date.DateInfo)">
+            <summary>
+            Get last day of this week
+            </summary>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfWeek(System.DateTime,System.Globalization.CultureInfo)">
             <summary>
             Get last day of this week
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
             <param name="cultureInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(System.DateTime)">
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfWeek(Cosmos.Date.DateInfo,System.Globalization.CultureInfo)">
             <summary>
             Get last day of this week
             </summary>
-            <param name="date"></param>
+            <param name="d"></param>
+            <param name="cultureInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.DateInfoExtensions.GetLastDayInfoOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(System.DateTime)">
             <summary>
-            Get last day of this week
+            Get first day of this month.
             </summary>
-            <param name="date"></param>
-            <param name="cultureInfo"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(Cosmos.Date.DateInfo)">
+            <summary>
+            Get first day of this month.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get first day (of week) of this month.
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfMonth(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Get first day (of week) of this month.
+            </summary>
+            <param name="d"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfQuarter(System.DateTime)">
+            <summary>
+            Gets first day info of quarter
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfQuarter(Cosmos.Date.DateInfo)">
+            <summary>
+            Gets first day info of quarter
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfQuarter(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets first day info of quarter
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfQuarter(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Gets first day info of quarter
+            </summary>
+            <param name="d"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfYear(System.DateTime)">
+            <summary>
+            Gets first day of year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfYear(Cosmos.Date.DateInfo)">
+            <summary>
+            Gets first day of year
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfYear(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets first day of year
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.GetFirstDayInfoOfYear(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Gets first day of year
+            </summary>
+            <param name="d"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.SetDate(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="d"></param>
+            <param name="year"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.SetDate(Cosmos.Date.DateInfo,System.Int32,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="d"></param>
+            <param name="year"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.SetDate(Cosmos.Date.DateInfo,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="d"></param>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.SetYear(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="d"></param>
+            <param name="year"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.SetMonth(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="d"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.SetDay(Cosmos.Date.DateInfo,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="d"></param>
+            <param name="day"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsLeapYear(Cosmos.Date.DateInfo)">
             <summary>
             Is special year a leap year.
             </summary>
-            <param name="dt"></param>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsLeapYear(Cosmos.Date.DateInfo,System.Globalization.ChineseLunisolarCalendar)">
             <summary>
             Is special year a leap year.
             </summary>
-            <param name="dt"></param>
+            <param name="d"></param>
             <param name="calendar"></param>
             <returns></returns>
         </member>
@@ -1944,14 +3346,14 @@
             <summary>
             Is special month a leap month.
             </summary>
-            <param name="dt"></param>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsLeapMonth(Cosmos.Date.DateInfo,System.Globalization.ChineseLunisolarCalendar)">
             <summary>
             Is special month a leap month.
             </summary>
-            <param name="dt"></param>
+            <param name="d"></param>
             <param name="calendar"></param>
             <returns></returns>
         </member>
@@ -1959,15 +3361,143 @@
             <summary>
             Is special day a leap day.
             </summary>
-            <param name="dt"></param>
+            <param name="d"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateInfoExtensions.IsLeapDay(Cosmos.Date.DateInfo,System.Globalization.ChineseLunisolarCalendar)">
             <summary>
             Is special day a leap day.
             </summary>
-            <param name="dt"></param>
+            <param name="d"></param>
             <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.NextYear(Cosmos.Date.DateInfo)">
+            <summary>
+            Next year
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.PreviousYear(Cosmos.Date.DateInfo)">
+            <summary>
+            Previous Year
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.NextDay(Cosmos.Date.DateInfo)">
+            <summary>
+            Next day, same as 'Tomorrow'
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.PreviousDay(Cosmos.Date.DateInfo)">
+            <summary>
+            Previous Day, same aa 'Yesterday'
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.Next(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Next, same as 'GetNextWeekdayInfo'
+            </summary>
+            <param name="d"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.Previous(Cosmos.Date.DateInfo,System.DayOfWeek)">
+            <summary>
+            Previous, same as 'GetPreviousWeekdayInfo'
+            </summary>
+            <param name="d"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.WeekAfter(Cosmos.Date.DateInfo)">
+            <summary>
+            Week after
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.WeekBefore(Cosmos.Date.DateInfo)">
+            <summary>
+            Week before
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IncreaseTime(Cosmos.Date.DateInfo,System.TimeSpan)">
+            <summary>
+            Increase time
+            </summary>
+            <param name="d"></param>
+            <param name="toAdd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.DecreaseTime(Cosmos.Date.DateInfo,System.TimeSpan)">
+            <summary>
+            Decrease time
+            </summary>
+            <param name="d"></param>
+            <param name="toSubtract"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsBefore(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is before
+            </summary>
+            <param name="d"></param>
+            <param name="toCompareWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsAfter(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is after
+            </summary>
+            <param name="d"></param>
+            <param name="toCompareWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsInFuture(Cosmos.Date.DateInfo)">
+            <summary>
+            Is in future
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsInPast(Cosmos.Date.DateInfo)">
+            <summary>
+            Is in past
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsSameDay(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is same day
+            </summary>
+            <param name="d"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsSameMonth(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is same month
+            </summary>
+            <param name="d"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateInfoExtensions.IsSameYear(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
+            <summary>
+            Is same year
+            </summary>
+            <param name="d"></param>
+            <param name="date"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.DateInfoAgoExtensions">
@@ -1981,7 +3511,727 @@
             To ago.<br />
             转换为 Ago
             </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.DateTimeOffsetExtensions">
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+            <summary>
+            DateTimeOffset Extensions<br />
+            DateTimeOffset 扩展方法
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.AddDateTimeSpan(System.DateTimeOffset,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Add DateTmeSpan
+            </summary>
+            <param name="dto"></param>
+            <param name="timeSpan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SubtractDateTimeSpan(System.DateTimeOffset,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Subtract DateTmeSpan
+            </summary>
+            <param name="dto"></param>
+            <param name="timeSpan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.AddBusinessDays(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Add business day
+            </summary>
+            <param name="dto"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SubtractBusinessDays(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Subtract business day
+            </summary>
+            <param name="dto"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.At(System.DateTimeOffset,System.Int32,System.Int32)">
+            <summary>
+            At
+            </summary>
+            <param name="dto"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.At(System.DateTimeOffset,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            At
+            </summary>
+            <param name="dto"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.At(System.DateTimeOffset,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            At
+            </summary>
+            <param name="dto"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.BeginningOfDay(System.DateTimeOffset)">
+            <summary>
+            Beginning of day
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.ReplaceOffsetFromDateTimeZoneLeniently(System.DateTimeOffset,NodaTime.DateTimeZone)">
+            <summary>
+            Replace offset from DateTimeZone leniently
+            </summary>
+            <param name="dto"></param>
+            <param name="dateTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.ReplaceOffsetFromDateTimeZoneStrictly(System.DateTimeOffset,NodaTime.DateTimeZone)">
+            <summary>
+            Replace offset from DateTimeZone strictly
+            </summary>
+            <param name="dto"></param>
+            <param name="dateTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.EndOfDay(System.DateTimeOffset)">
+            <summary>
+            End of day
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.FirstDayOfYear(System.DateTimeOffset)">
+            <summary>
+            First day of year
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.FirstDayOfQuarter(System.DateTimeOffset)">
+            <summary>
+            First day of quarter
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.FirstDayOfMonth(System.DateTimeOffset)">
+            <summary>
+            First day of month
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.FirstDayOfWeek(System.DateTimeOffset)">
+            <summary>
+            First day of week
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.LastDayOfYear(System.DateTimeOffset)">
+            <summary>
+            Last day of year
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.LastDayOfQuarter(System.DateTimeOffset)">
+            <summary>
+            Last day of quarter
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.LastDayOfMonth(System.DateTimeOffset)">
+            <summary>
+            Last day of month
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.LastDayOfWeek(System.DateTimeOffset)">
+            <summary>
+            Last day of week
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.WeekAfter(System.DateTimeOffset)">
+            <summary>
+            Gets week after
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.WeekBefore(System.DateTimeOffset)">
+            <summary>
+            Gets week before
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.Midnight(System.DateTimeOffset)">
+            <summary>
+            Midnight
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.Noon(System.DateTimeOffset)">
+            <summary>
+            Noon
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetTime(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="originalDate"></param>
+            <param name="hour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetTime(System.DateTimeOffset,System.Int32,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="originalDate"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetTime(System.DateTimeOffset,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="originalDate"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetTime(System.DateTimeOffset,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="originalDate"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetHour(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set hour
+            </summary>
+            <param name="originalDate"></param>
+            <param name="hour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetMinute(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set minute
+            </summary>
+            <param name="originalDate"></param>
+            <param name="minute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetSecond(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set second
+            </summary>
+            <param name="originalDate"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetMillisecond(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set millisecond
+            </summary>
+            <param name="originalDate"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetDate(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="value"></param>
+            <param name="year"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetDate(System.DateTimeOffset,System.Int32,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="value"></param>
+            <param name="year"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetDate(System.DateTimeOffset,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="value"></param>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetYear(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set year
+            </summary>
+            <param name="value"></param>
+            <param name="year"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetMonth(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set month
+            </summary>
+            <param name="value"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.SetDay(System.DateTimeOffset,System.Int32)">
+            <summary>
+            Set day
+            </summary>
+            <param name="value"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.NextYear(System.DateTimeOffset)">
+            <summary>
+            Next year
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.PreviousYear(System.DateTimeOffset)">
+            <summary>
+            Previous year
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.NextMonth(System.DateTimeOffset)">
+            <summary>
+            Next month
+            </summary>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.PreviousMonth(System.DateTimeOffset)">
+            <summary>
+            Previous month
+            </summary>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.NextDay(System.DateTimeOffset)">
+            <summary>
+            Next day
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.PreviousDay(System.DateTimeOffset)">
+            <summary>
+            Previous day
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.Next(System.DateTimeOffset,System.DayOfWeek)">
+            <summary>
+            Next
+            </summary>
+            <param name="start"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.Previous(System.DateTimeOffset,System.DayOfWeek)">
+            <summary>
+            Previous
+            </summary>
+            <param name="start"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IncreaseTime(System.DateTimeOffset,System.TimeSpan)">
+            <summary>
+            Increase Time
+            </summary>
+            <param name="startDate"></param>
+            <param name="toAdd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.DecreaseTime(System.DateTimeOffset,System.TimeSpan)">
+            <summary>
+            Decrease Time
+            </summary>
+            <param name="startDate"></param>
+            <param name="toSubtract"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IsBefore(System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            Is before
+            </summary>
+            <param name="current"></param>
+            <param name="toCompareWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IsAfter(System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            Is after
+            </summary>
+            <param name="current"></param>
+            <param name="toCompareWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IsInFuture(System.DateTimeOffset)">
+            <summary>
+            Is in future
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IsInPast(System.DateTimeOffset)">
+            <summary>
+            Is in past
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IsSameDay(System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            Is same day
+            </summary>
+            <param name="current"></param>
             <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IsSameMonth(System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            Is same month
+            </summary>
+            <param name="current"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.IsSameYear(System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            Is same year
+            </summary>
+            <param name="current"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeOffsetExtensions.Round(System.DateTimeOffset,Cosmos.Date.RoundTo)">
+            <summary>
+            Round
+            </summary>
+            <param name="dateTime"></param>
+            <param name="rt"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:Cosmos.DateTimeSpanExtensions">
+            <summary>
+            DateTimeSpan Extensions<br />
+            DateTimeSpan 扩展方法
+            </summary>
+            <summary>
+            DateTimeSpan Extensions<br />
+            DateTimeSpan 扩展方法
+            </summary>
+            <summary>
+            DateTimeSpan Extensions<br />
+            DateTimeSpan 扩展方法
+            </summary>
+            <summary>
+            DateTimeSpan Extensions<br />
+            DateTimeSpan 扩展方法
+            </summary>
+            <summary>
+            DateTimeSpan Extensions<br />
+            DateTimeSpan 扩展方法
+            </summary>
+            <summary>
+            DateTimeSpan Extensions<br />
+            DateTimeSpan 扩展方法
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Ago(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Ago
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Ago(Cosmos.Date.DateTimeSpan,System.DateTime)">
+            <summary>
+            Ago
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.OffsetAgo(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            DateTimeOffset Ago
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Ago(Cosmos.Date.DateTimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset Ago
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Before(Cosmos.Date.DateTimeSpan,System.DateTime)">
+            <summary>
+            Before
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Before(Cosmos.Date.DateTimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset Before
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.FromNow(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            From now
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.From(Cosmos.Date.DateTimeSpan,System.DateTime)">
+            <summary>
+            From
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.OffsetFromNow(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            DateTimeOffset from now
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.From(Cosmos.Date.DateTimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset from
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Years(System.Int32)">
+            <summary>
+            Create timespan value for given number of years.
+            </summary>
+            <param name="years"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Quarters(System.Int32)">
+            <summary>
+            Create timespan value for given number of quarters
+            </summary>
+            <param name="quarters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Months(System.Int32)">
+            <summary>
+            Create timespan value for given number of months.
+            </summary>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Weeks(System.Int32)">
+            <summary>
+            Create timespan value for given number of weeks.
+            </summary>
+            <param name="weeks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Weeks(System.Double)">
+            <summary>
+            Create timespan value for given number of weeks.
+            </summary>
+            <param name="weeks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Days(System.Int32)">
+            <summary>
+            Create timespan value for given number of days.
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Days(System.Double)">
+            <summary>
+            Create timespan value for given number of days.
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Hours(System.Int32)">
+            <summary>
+            Create timespan value for given number of hours.
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Hours(System.Double)">
+            <summary>
+            Create timespan value for given number of hours.
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Minutes(System.Int32)">
+            <summary>
+            Create timespan value for given number of minutes.
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Minutes(System.Double)">
+            <summary>
+            Create timespan value for given number of minutes.
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Seconds(System.Int32)">
+            <summary>
+            Create timespan value for given number of seconds.
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Seconds(System.Double)">
+            <summary>
+            Create timespan value for given number of seconds.
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Milliseconds(System.Int32)">
+            <summary>
+            Create timespan value for given number of milliseconds.
+            </summary>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Milliseconds(System.Double)">
+            <summary>
+            Create timespan value for given number of milliseconds.
+            </summary>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Ticks(System.Int32)">
+            <summary>
+            Create timespan value for given number of ticks.
+            </summary>
+            <param name="ticks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Ticks(System.Int64)">
+            <summary>
+            Create timespan value for given number of ticks.
+            </summary>
+            <param name="ticks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Since(Cosmos.Date.DateTimeSpan,System.DateTime)">
+            <summary>
+            Since
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.Since(Cosmos.Date.DateTimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset since
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeSpanExtensions.ToDisplayString(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            To display string
+            </summary>
+            <param name="ts"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.DateTimeExtensions">
@@ -2010,25 +4260,192 @@
             DateTime 扩展方法
             </summary>
             <summary>
+            DateTime extensions
+            </summary>
+            <summary>
             DateTime Extensions<br />
             DateTime 扩展方法
             </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+            <summary>
+            DateTime Extensions<br />
+            DateTime 扩展方法
+            </summary>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.AddWeeks(System.DateTime,System.Int32)">
+            <summary>
+            Add weeks.
+            </summary>
+            <param name="dt"></param>
+            <param name="weeks"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.AddQuarters(System.DateTime,System.Int32)">
+            <summary>
+            Add quarters
+            </summary>
+            <param name="dt"></param>
+            <param name="quarters"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.DateTimeExtensions.AddDuration(System.DateTime,NodaTime.Duration)">
             <summary>
             Add duration<br />
             添加一段持续的时间
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
             <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.AddBusinessDays(System.DateTime,System.Int32)">
+            <summary>
+            Add business days<br />
+            添加指定个数量的工作日
+            </summary>
+            <param name="dt"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SubtractBusinessDays(System.DateTime,System.Int32)">
+            <summary>
+            Subtract business days<br />
+            减去指定个数量的工作日
+            </summary>
+            <param name="dt"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.At(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            At
+            </summary>
+            <param name="dt"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.At(System.DateTime,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            At
+            </summary>
+            <param name="dt"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfDay(System.DateTime)">
+            <summary>
+            Beginning of day
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfDay(System.DateTime,System.Int32)">
+            <summary>
+            Beginning of day
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfWeek(System.DateTime)">
+            <summary>
+            Beginning of week
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfWeek(System.DateTime,System.Int32)">
+            <summary>
+            Beginning of week
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfMonth(System.DateTime)">
+            <summary>
+            Beginning of month
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfMonth(System.DateTime,System.Int32)">
+            <summary>
+            Beginning of month
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfQuarter(System.DateTime)">
+            <summary>
+            Beginning of quarter
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfQuarter(System.DateTime,System.Int32)">
+            <summary>
+            Beginning of quarter
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfYear(System.DateTime)">
+            <summary>
+            Beginning of year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.BeginningOfYear(System.DateTime,System.Int32)">
+            <summary>
+            Beginning of year
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateTimeExtensions.IsBetween(System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
             <summary>
-            Is current date between <see cref="!:from"/> and <see cref="!:to"/>.<br />
+            Is current date between <paramref name="from"/> and <paramref to="to"/>.<br />
             判断当前日期是否在 from 和 to 之间
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
             <param name="from"></param>
             <param name="to"></param>
             <param name="includeBoundary"></param>
@@ -2036,30 +4453,30 @@
         </member>
         <member name="M:Cosmos.DateTimeExtensions.IsDateBetweenWithBoundary(System.DateTime,System.DateTime,System.DateTime)">
             <summary>
-            Is current date between <see cref="!:min"/> and <see cref="!:max"/> with boundary.<br />
+            Is current date between <paramref name="min"/> and <paramref name="max"/> with boundary.<br />
             判断当前日期是否在 min 和 max 之间，闭包区间。
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
             <param name="min"></param>
             <param name="max"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateTimeExtensions.IsDateBetweenWithBoundary(System.DateTime,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
             <summary>
-            Is current date between <see cref="!:min"/> and <see cref="!:max"/> with boundary.<br />
+            Is current date between <paramref name="min"/> and <paramref name="max"/> with boundary.<br />
             判断当前日期是否在 min 和 max 之间，闭包区间。
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
             <param name="min"></param>
             <param name="max"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateTimeExtensions.IsDateBetweenWithoutBoundary(System.DateTime,System.DateTime,System.DateTime)">
             <summary>
-            Is current date between <see cref="!:min"/> and <see cref="!:max"/> without boundary.<br />
+            Is current date between <paramref name="min"/> and <paramref name="max"/> without boundary.<br />
             判断当前日期是否在 min 和 max 之间，开区间。
             </summary>
-            <param name="date"></param>
+            <param name="dt"></param>
             <param name="min"></param>
             <param name="max"></param>
             <returns></returns>
@@ -2080,6 +4497,24 @@
             <param name="dt"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.DateTimeExtensions.ApplyDateTimeZoneLeniently(System.DateTime,NodaTime.DateTimeZone)">
+            <summary>
+            Apply DateTimeZone leniently
+            </summary>
+            <param name="dt"></param>
+            <param name="dateTimeZone"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.ApplyDateTimeZoneStrictly(System.DateTime,NodaTime.DateTimeZone)">
+            <summary>
+            Apply DateTimeZone strictly
+            </summary>
+            <param name="dt"></param>
+            <param name="dateTimeZone"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.DateTimeExtensions.ElapsedTime(System.DateTime)">
             <summary>
             Elapsed Time<br />
@@ -2094,6 +4529,272 @@
             计算此刻与指定时间之间的时间差（毫秒）
             </summary>
             <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfDay(System.DateTime)">
+            <summary>
+            End of day
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfDay(System.DateTime,System.Int32)">
+            <summary>
+            End of day (timezone-adjusted)
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfWeek(System.DateTime)">
+            <summary>
+            End of week
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfWeek(System.DateTime,System.Int32)">
+            <summary>
+            End of week
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfMonth(System.DateTime)">
+            <summary>
+            End of month
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfMonth(System.DateTime,System.Int32)">
+            <summary>
+            End of month
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfQuarter(System.DateTime)">
+            <summary>
+            End of quarter
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfQuarter(System.DateTime,System.Int32)">
+            <summary>
+            End of quarter
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfYear(System.DateTime)">
+            <summary>
+            End of year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.EndOfYear(System.DateTime,System.Int32)">
+            <summary>
+            End of year
+            </summary>
+            <param name="dt"></param>
+            <param name="timeZoneOffset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.FirstDayOfYear(System.DateTime)">
+            <summary>
+            Gets first day of year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.FirstDayOfQuarter(System.DateTime)">
+            <summary>
+            Gets first day of quarter
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            Gets first day of month
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.FirstDayOfWeek(System.DateTime)">
+            <summary>
+            Gets first day of week
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.LastDayOfYear(System.DateTime)">
+            <summary>
+            Gets last day of year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.LastDayOfQuarter(System.DateTime)">
+            <summary>
+            Gets last day of quarter
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Gets last day of month
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.LastDayOfWeek(System.DateTime)">
+            <summary>
+            Gets last day of week
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetTime(System.DateTime,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="hour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetTime(System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetTime(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetTime(System.DateTime,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetHour(System.DateTime,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="hour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetMinute(System.DateTime,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="minute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetSecond(System.DateTime,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetMillisecond(System.DateTime,System.Int32)">
+            <summary>
+            Set time
+            </summary>
+            <param name="dt"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.Midnight(System.DateTime)">
+            <summary>
+            Midnight
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.Noon(System.DateTime)">
+            <summary>
+            Noon
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetDate(System.DateTime,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="dt"></param>
+            <param name="year"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetDate(System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="dt"></param>
+            <param name="year"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetDate(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="dt"></param>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetYear(System.DateTime,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="dt"></param>
+            <param name="year"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetMonth(System.DateTime,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="dt"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.SetDay(System.DateTime,System.Int32)">
+            <summary>
+            Set date
+            </summary>
+            <param name="dt"></param>
+            <param name="day"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.DateTimeExtensions.IsLeapYear(System.DateTime)">
@@ -2140,6 +4841,157 @@
             <param name="dt"></param>
             <param name="calendar"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.NextYear(System.DateTime)">
+            <summary>
+            Next year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.PreviousYear(System.DateTime)">
+            <summary>
+            Previous Year
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.PreviousMonth(System.DateTime)">
+            <summary>
+            Gets previous month
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.NextMonth(System.DateTime)">
+            <summary>
+            Gets next month
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.NextDay(System.DateTime)">
+            <summary>
+            Next day
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.PreviousDay(System.DateTime)">
+            <summary>
+            Previous Day
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.Next(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Next
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.Previous(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Previous
+            </summary>
+            <param name="dt"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.WeekAfter(System.DateTime)">
+            <summary>
+            Week after
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.WeekBefore(System.DateTime)">
+            <summary>
+            Week before
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IncreaseTime(System.DateTime,System.TimeSpan)">
+            <summary>
+            Increase time
+            </summary>
+            <param name="dt"></param>
+            <param name="toAdd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.DecreaseTime(System.DateTime,System.TimeSpan)">
+            <summary>
+            Decrease time
+            </summary>
+            <param name="dt"></param>
+            <param name="toSubtract"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsBefore(System.DateTime,System.DateTime)">
+            <summary>
+            Is before
+            </summary>
+            <param name="dt"></param>
+            <param name="toCompareWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsAfter(System.DateTime,System.DateTime)">
+            <summary>
+            Is after
+            </summary>
+            <param name="dt"></param>
+            <param name="toCompareWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsInFuture(System.DateTime)">
+            <summary>
+            Is in future
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsInPast(System.DateTime)">
+            <summary>
+            Is in past
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsSameDay(System.DateTime,System.DateTime)">
+            <summary>
+            Is same day
+            </summary>
+            <param name="dt"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsSameMonth(System.DateTime,System.DateTime)">
+            <summary>
+            Is same month
+            </summary>
+            <param name="dt"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.IsSameYear(System.DateTime,System.DateTime)">
+            <summary>
+            Is same year
+            </summary>
+            <param name="dt"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DateTimeExtensions.Round(System.DateTime,Cosmos.Date.RoundTo)">
+            <summary>
+            Rounds <paramref name="dt"/> to the nearest <see cref="T:Cosmos.Date.RoundTo"/>.
+            </summary>
+            <param name="dt"></param>
+            <param name="rt"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Cosmos.DateTimeExtensions.ToUtc(System.DateTime)">
             <summary>
@@ -2207,6 +5059,811 @@
             将 <see cref="T:System.DayOfWeek"/> 转换为 <see cref="T:System.Int32"/>。
             </summary>
             <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.DurationExtensions">
+            <summary>
+            Duration extensions
+            </summary>
+            <summary>
+            Duration extensions
+            </summary>
+            <summary>
+            Duration extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.AsDuration(System.TimeSpan)">
+            <summary>
+            As duration
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.AsDuration(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            As duration
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationMilliseconds(System.Int64)">
+            <summary>
+            From milliseconds
+            </summary>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationMilliseconds(System.Double)">
+            <summary>
+            From milliseconds
+            </summary>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationSeconds(System.Int64)">
+            <summary>
+            From seconds
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationSeconds(System.Double)">
+            <summary>
+            From seconds
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationMinutes(System.Int64)">
+            <summary>
+            From minutes
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationMinutes(System.Double)">
+            <summary>
+            From minutes
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationHours(System.Int32)">
+            <summary>
+            From minutes
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationHours(System.Double)">
+            <summary>
+            From minutes
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationDays(System.Int32)">
+            <summary>
+            From days
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationDays(System.Double)">
+            <summary>
+            From days
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.DurationExtensions.DurationWeeks(System.Int32)">
+            <summary>
+            From weeks
+            </summary>
+            <param name="weeks"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.InstantExtensions">
+            <summary>
+            Instant extensions
+            </summary>
+            <summary>
+            Instant extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddNanoseconds(NodaTime.Instant,System.Int64)">
+            <summary>
+            Add nanoseconds
+            </summary>
+            <param name="i"></param>
+            <param name="nanoseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddMilliseconds(NodaTime.Instant,System.Int64)">
+            <summary>
+            Add milliseconds
+            </summary>
+            <param name="i"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddMilliseconds(NodaTime.Instant,System.Double)">
+            <summary>
+            Add milliseconds
+            </summary>
+            <param name="i"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddSeconds(NodaTime.Instant,System.Int64)">
+            <summary>
+            Add seconds
+            </summary>
+            <param name="i"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddSeconds(NodaTime.Instant,System.Double)">
+            <summary>
+            Add seconds
+            </summary>
+            <param name="i"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddMinutes(NodaTime.Instant,System.Int64)">
+            <summary>
+            Add Minutes
+            </summary>
+            <param name="i"></param>
+            <param name="minutes"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddMinutes(NodaTime.Instant,System.Double)">
+            <summary>
+            Add Minutes
+            </summary>
+            <param name="i"></param>
+            <param name="minutes"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddHours(NodaTime.Instant,System.Int32)">
+            <summary>
+            Add hours
+            </summary>
+            <param name="i"></param>
+            <param name="hours"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddHours(NodaTime.Instant,System.Double)">
+            <summary>
+            Add hours
+            </summary>
+            <param name="i"></param>
+            <param name="hours"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddDays(NodaTime.Instant,System.Int32)">
+            <summary>
+            Add days
+            </summary>
+            <param name="i"></param>
+            <param name="days"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddDays(NodaTime.Instant,System.Double)">
+            <summary>
+            Add days
+            </summary>
+            <param name="i"></param>
+            <param name="days"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddTimeSpan(NodaTime.Instant,System.TimeSpan)">
+            <summary>
+            Add TimeSpan
+            </summary>
+            <param name="i"></param>
+            <param name="ts"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.AddTimeSpan(NodaTime.Instant,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Add DateTimeSpan
+            </summary>
+            <param name="i"></param>
+            <param name="ts"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusMilliseconds(NodaTime.Instant,System.Int64)">
+            <summary>
+            Add milliseconds
+            </summary>
+            <param name="i"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusMilliseconds(NodaTime.Instant,System.Double)">
+            <summary>
+            Add milliseconds
+            </summary>
+            <param name="i"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusSeconds(NodaTime.Instant,System.Int64)">
+            <summary>
+            Add seconds
+            </summary>
+            <param name="i"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusSeconds(NodaTime.Instant,System.Double)">
+            <summary>
+            Add seconds
+            </summary>
+            <param name="i"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusMinutes(NodaTime.Instant,System.Int64)">
+            <summary>
+            Add Minutes
+            </summary>
+            <param name="i"></param>
+            <param name="minutes"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusMinutes(NodaTime.Instant,System.Double)">
+            <summary>
+            Add Minutes
+            </summary>
+            <param name="i"></param>
+            <param name="minutes"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusHours(NodaTime.Instant,System.Int32)">
+            <summary>
+            Add hours
+            </summary>
+            <param name="i"></param>
+            <param name="hours"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusHours(NodaTime.Instant,System.Double)">
+            <summary>
+            Add hours
+            </summary>
+            <param name="i"></param>
+            <param name="hours"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusDays(NodaTime.Instant,System.Int32)">
+            <summary>
+            Add days
+            </summary>
+            <param name="i"></param>
+            <param name="days"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusDays(NodaTime.Instant,System.Double)">
+            <summary>
+            Add days
+            </summary>
+            <param name="i"></param>
+            <param name="days"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusTimeSpan(NodaTime.Instant,System.TimeSpan)">
+            <summary>
+            Add TimeSpan
+            </summary>
+            <param name="i"></param>
+            <param name="ts"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.InstantExtensions.PlusTimeSpan(NodaTime.Instant,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Add DateTimeSpan
+            </summary>
+            <param name="i"></param>
+            <param name="ts"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.LocalDateTimeExtensions">
+            <summary>
+            LocalDateTime extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddNanoseconds(NodaTime.LocalDateTime,System.Int64)">
+            <summary>
+            Add nanoseconds
+            </summary>
+            <param name="lt"></param>
+            <param name="nanoseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddMilliseconds(NodaTime.LocalDateTime,System.Int64)">
+            <summary>
+            Add milliseconds
+            </summary>
+            <param name="lt"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddSeconds(NodaTime.LocalDateTime,System.Int64)">
+            <summary>
+            Add seconds
+            </summary>
+            <param name="lt"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddMinutes(NodaTime.LocalDateTime,System.Int64)">
+            <summary>
+            Add minutes
+            </summary>
+            <param name="lt"></param>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddHours(NodaTime.LocalDateTime,System.Int64)">
+            <summary>
+            Add hours
+            </summary>
+            <param name="lt"></param>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddDays(NodaTime.LocalDateTime,System.Int32)">
+            <summary>
+            Add days
+            </summary>
+            <param name="ld"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddWeeks(NodaTime.LocalDateTime,System.Int32)">
+            <summary>
+            Add weeks
+            </summary>
+            <param name="ld"></param>
+            <param name="weeks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddMonths(NodaTime.LocalDateTime,System.Int32)">
+            <summary>
+            Add months
+            </summary>
+            <param name="ld"></param>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddQuarters(NodaTime.LocalDateTime,System.Int32)">
+            <summary>
+            Add quarters
+            </summary>
+            <param name="ld"></param>
+            <param name="quarters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.AddYears(NodaTime.LocalDateTime,System.Int32)">
+            <summary>
+            Add years
+            </summary>
+            <param name="ld"></param>
+            <param name="years"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.Add(NodaTime.LocalDateTime,System.TimeSpan)">
+            <summary>
+            Add TimeSpan
+            </summary>
+            <param name="lt"></param>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.Add(NodaTime.LocalDateTime,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Add DateTimeSpan
+            </summary>
+            <param name="lt"></param>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateTimeExtensions.Add(NodaTime.LocalDateTime,NodaTime.Period)">
+            <summary>
+            Add period
+            </summary>
+            <param name="ts"></param>
+            <param name="period"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.LocalDateExtensions">
+            <summary>
+            LocalDate extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.LocalDateExtensions.AddDays(NodaTime.LocalDate,System.Int32)">
+            <summary>
+            Add days
+            </summary>
+            <param name="ld"></param>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateExtensions.AddWeeks(NodaTime.LocalDate,System.Int32)">
+            <summary>
+            Add weeks
+            </summary>
+            <param name="ld"></param>
+            <param name="weeks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateExtensions.AddMonths(NodaTime.LocalDate,System.Int32)">
+            <summary>
+            Add months
+            </summary>
+            <param name="ld"></param>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateExtensions.AddQuarters(NodaTime.LocalDate,System.Int32)">
+            <summary>
+            Add quarters
+            </summary>
+            <param name="ld"></param>
+            <param name="quarters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateExtensions.AddYears(NodaTime.LocalDate,System.Int32)">
+            <summary>
+            Add years
+            </summary>
+            <param name="ld"></param>
+            <param name="years"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalDateExtensions.Add(NodaTime.LocalDate,NodaTime.Period)">
+            <summary>
+            Add period
+            </summary>
+            <param name="ts"></param>
+            <param name="period"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.LocalTimeExtensions">
+            <summary>
+            LocalTime extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.AddNanoseconds(NodaTime.LocalTime,System.Int64)">
+            <summary>
+            Add nanoseconds
+            </summary>
+            <param name="lt"></param>
+            <param name="nanoseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.AddMilliseconds(NodaTime.LocalTime,System.Int64)">
+            <summary>
+            Add milliseconds
+            </summary>
+            <param name="lt"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.AddSeconds(NodaTime.LocalTime,System.Int64)">
+            <summary>
+            Add seconds
+            </summary>
+            <param name="lt"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.AddMinutes(NodaTime.LocalTime,System.Int64)">
+            <summary>
+            Add minutes
+            </summary>
+            <param name="lt"></param>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.AddHours(NodaTime.LocalTime,System.Int64)">
+            <summary>
+            Add hours
+            </summary>
+            <param name="lt"></param>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.Add(NodaTime.LocalTime,System.TimeSpan)">
+            <summary>
+            Add TimeSpan
+            </summary>
+            <param name="lt"></param>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.Add(NodaTime.LocalTime,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Add DateTimeSpan
+            </summary>
+            <param name="lt"></param>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.LocalTimeExtensions.Add(NodaTime.LocalTime,NodaTime.Period)">
+            <summary>
+            Add period
+            </summary>
+            <param name="ts"></param>
+            <param name="period"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.PeriodExtensions">
+            <summary>
+            Period extensions
+            </summary>
+            <summary>
+            Period extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.AsPeriod(System.TimeSpan)">
+            <summary>
+            From TimeSpan
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.AsPeriod(Cosmos.Date.DateTimeSpan)">
+            <summary>
+            From DateTimeSpan
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.AsPeriod(NodaTime.Duration)">
+            <summary>
+            From duration
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodNanoseconds(System.Int64)">
+            <summary>
+            From nanoseconds
+            </summary>
+            <param name="nanoseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodMilliseconds(System.Int64)">
+            <summary>
+            From Milliseconds
+            </summary>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodSeconds(System.Int64)">
+            <summary>
+            From seconds
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodMinutes(System.Int64)">
+            <summary>
+            From Minutes
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodHours(System.Int64)">
+            <summary>
+            From hours
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodDays(System.Int32)">
+            <summary>
+            From days
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodWeeks(System.Int32)">
+            <summary>
+            From weeks
+            </summary>
+            <param name="weeks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodMonths(System.Int32)">
+            <summary>
+            From months
+            </summary>
+            <param name="months"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.FromQuarters(System.Int32)">
+            <summary>
+            From quarters
+            </summary>
+            <param name="quarters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.PeriodExtensions.PeriodYears(System.Int32)">
+            <summary>
+            From years
+            </summary>
+            <param name="years"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.TimeSpanExtensions">
+            <summary>
+            TimeSpan extensions
+            </summary>
+            <summary>
+            TimeSpan extensions
+            </summary>
+            <summary>
+            TimeSpan extensions
+            </summary>
+            <summary>
+            TimeSpan extensions
+            </summary>
+            <summary>
+            TimeSpan extensions
+            </summary>
+            <summary>
+            TimeSpan extensions
+            </summary>
+            <summary>
+            TimeSpan extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.AddFluentTimeSpan(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Adds the given <see cref="T:Cosmos.Date.DateTimeSpan"/> from a <see cref="T:System.TimeSpan"/> and returns resulting <see cref="T:Cosmos.Date.DateTimeSpan"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.SubtractFluentTimeSpan(System.TimeSpan,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            Subtracts the given <see cref="T:Cosmos.Date.DateTimeSpan"/> from a <see cref="T:System.TimeSpan"/> and returns resulting <see cref="T:Cosmos.Date.DateTimeSpan"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Ago(System.TimeSpan)">
+            <summary>
+            Ago
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Ago(System.TimeSpan,System.DateTime)">
+            <summary>
+            Ago
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.OffsetAgo(System.TimeSpan)">
+            <summary>
+            DateTimeOffset Ago
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Ago(System.TimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset Ago
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Before(System.TimeSpan,System.DateTime)">
+            <summary>
+            Before
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Before(System.TimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset Before
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.FromNow(System.TimeSpan)">
+            <summary>
+            From now
+            </summary>
+            <param name="from"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.From(System.TimeSpan,System.DateTime)">
+            <summary>
+            From
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.OffsetFromNow(System.TimeSpan)">
+            <summary>
+            DateTimeOffset from now
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.From(System.TimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset from
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Round(System.TimeSpan,Cosmos.Date.RoundTo)">
+            <summary>
+            Round
+            </summary>
+            <param name="ts"></param>
+            <param name="rt"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Since(System.TimeSpan,System.DateTime)">
+            <summary>
+            Since
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.Since(System.TimeSpan,System.DateTimeOffset)">
+            <summary>
+            DateTimeOffset since
+            </summary>
+            <param name="ts"></param>
+            <param name="originalValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TimeSpanExtensions.ToDisplayString(System.TimeSpan)">
+            <summary>
+            To display string
+            </summary>
+            <param name="ts"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.InvalidDateTimeException">

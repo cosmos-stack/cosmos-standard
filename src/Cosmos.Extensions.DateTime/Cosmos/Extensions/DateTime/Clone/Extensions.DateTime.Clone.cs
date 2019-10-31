@@ -15,9 +15,6 @@ namespace Cosmos
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static DateTime Clone(this DateTime dt)
-        {
-            return new DateTime(dt.Ticks, dt.Kind);
-        }
+        public static DateTime Clone(this DateTime dt) => new DateTime(dt.Ticks, dt.Kind);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using FluentDateTime;
 using NodaTime;
 
 namespace Cosmos.Date
@@ -40,7 +39,8 @@ namespace Cosmos.Date
         /// Year<br />
         /// 年
         /// </summary>
-        public virtual int Year {
+        public virtual int Year
+        {
             get => _internalDateTime.Year;
             set => _internalDateTime = _internalDateTime.SetYear(value);
         }
@@ -49,7 +49,8 @@ namespace Cosmos.Date
         /// Month<br />
         /// 月份
         /// </summary>
-        public virtual int Month {
+        public virtual int Month
+        {
             get => _internalDateTime.Month;
             set => _internalDateTime = _internalDateTime.SetMonth(DateChecker.CheckMonth(value));
         }
@@ -58,7 +59,8 @@ namespace Cosmos.Date
         /// Day<br />
         /// 日
         /// </summary>
-        public virtual int Day {
+        public virtual int Day
+        {
             get => _internalDateTime.Day;
             set => _internalDateTime = _internalDateTime.SetDay(value);
         }
@@ -69,6 +71,18 @@ namespace Cosmos.Date
         /// </summary>
         /// <returns></returns>
         public virtual DateTime ToDateTime() => _internalDateTime.Clone();
+
+        /// <summary>
+        /// Convert to <see cref="LocalDate"/>.
+        /// </summary>
+        /// <returns></returns>
+        public LocalDate ToLocalDate() => LocalDate.FromDateTime(_internalDateTime);
+
+        /// <summary>
+        /// Convert to <see cref="LocalDateTime"/>.
+        /// </summary>
+        /// <returns></returns>
+        public LocalDateTime ToLocalDateTime() => LocalDateTime.FromDateTime(_internalDateTime);
 
         internal DateTime DateTimeRef => _internalDateTime;
 
@@ -90,7 +104,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public DateInfo AddDays(int days)
         {
-            _internalDateTime = _internalDateTime.AddDays(days);
+            _internalDateTime += days.Days();
             return this;
         }
 
@@ -102,7 +116,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public DateInfo AddMonths(int months)
         {
-            _internalDateTime = _internalDateTime.AddMonths(months);
+            _internalDateTime += months.Months();
             return this;
         }
 
@@ -114,7 +128,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public DateInfo AddYears(int years)
         {
-            _internalDateTime = _internalDateTime.AddYears(years);
+            _internalDateTime += years.Years();
             return this;
         }
 
@@ -129,6 +143,11 @@ namespace Cosmos.Date
             _internalDateTime = _internalDateTime.AddDuration(duration);
             return this;
         }
+
+        /// <summary>
+        /// Gets day of week
+        /// </summary>
+        public DayOfWeek DayOfWeek => DateTimeRef.DayOfWeek;
 
         /// <summary>
         /// Convert <see cref="DateTime"/> to <see cref="DateInfo"/><br />
@@ -148,6 +167,216 @@ namespace Cosmos.Date
         public static implicit operator DateInfo(DateTime dt)
         {
             return new DateInfo(dt);
+        }
+
+        /// <summary>
+        /// +
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static DateInfo operator +(DateInfo d, TimeSpan t)
+        {
+            return new DateInfo(d._internalDateTime + t);
+        }
+
+        /// <summary>
+        /// -
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static DateInfo operator -(DateInfo d, TimeSpan t)
+        {
+            return new DateInfo(d._internalDateTime - t);
+        }
+
+        /// <summary>
+        /// &gt;
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public static bool operator >(DateInfo d1, DateInfo d2)
+        {
+            if (d1 == null || d2 == null)
+                return false;
+            if (d1.Year > d2.Year)
+                return true;
+            if (d1.Year < d2.Year)
+                return false;
+            if (d1.Month > d2.Month)
+                return true;
+            if (d1.Month < d2.Month)
+                return false;
+            return d1.Day > d2.Day;
+        }
+
+        /// <summary>
+        /// &gt;
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static bool operator >(DateInfo d, DateTime dt)
+        {
+            if (d == null)
+                return false;
+            if (d.Year > dt.Year)
+                return true;
+            if (d.Year < dt.Year)
+                return false;
+            if (d.Month > dt.Month)
+                return true;
+            if (d.Month < dt.Month)
+                return false;
+            return d.Day > dt.Day;
+        }
+
+        /// <summary>
+        /// &lt;
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public static bool operator <(DateInfo d1, DateInfo d2)
+        {
+            if (d1 == null || d2 == null)
+                return false;
+            if (d1.Year < d2.Year)
+                return true;
+            if (d1.Year > d2.Year)
+                return false;
+            if (d1.Month < d2.Month)
+                return true;
+            if (d1.Month > d2.Month)
+                return false;
+            return d1.Day < d2.Day;
+        }
+
+        /// <summary>
+        /// &lt;
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static bool operator <(DateInfo d, DateTime dt)
+        {
+            if (d == null)
+                return false;
+            if (d.Year < dt.Year)
+                return true;
+            if (d.Year > dt.Year)
+                return false;
+            if (d.Month < dt.Month)
+                return true;
+            if (d.Month > dt.Month)
+                return false;
+            return d.Day < dt.Day;
+        }
+
+        /// <summary>
+        /// &gt;=
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public static bool operator >=(DateInfo d1, DateInfo d2)
+        {
+            if (d1 == null || d2 == null)
+                return false;
+            return !(d1 < d2);
+        }
+
+        /// <summary>
+        /// &gt;=
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static bool operator >=(DateInfo d, DateTime dt)
+        {
+            if (d == null)
+                return false;
+            return !(d < dt);
+        }
+
+        /// <summary>
+        /// &lt;=
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public static bool operator <=(DateInfo d1, DateInfo d2)
+        {
+            if (d1 == null || d2 == null)
+                return false;
+            return !(d1 > d2);
+        }
+
+        /// <summary>
+        /// &lt;=
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static bool operator <=(DateInfo d, DateTime dt)
+        {
+            if (d == null)
+                return false;
+            return !(d > dt);
+        }
+
+        /// <summary>
+        /// ==
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public static bool operator ==(DateInfo d1, DateInfo d2)
+        {
+            if (d1 == null || d2 == null)
+                return false;
+            return d1.Year == d2.Year && d1.Month == d2.Month && d1.Day == d2.Day;
+        }
+
+        /// <summary>
+        /// ==
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static bool operator ==(DateInfo d, DateTime dt)
+        {
+            if (d == null)
+                return false;
+            return d.Year == dt.Year && d.Month == dt.Month && d.Day == dt.Day;
+        }
+
+        /// <summary>
+        /// !=
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
+        public static bool operator !=(DateInfo d1, DateInfo d2)
+        {
+            if (d1 == null || d2 == null)
+                return false;
+            return !(d1 == d2);
+        }
+
+        /// <summary>
+        /// !=
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static bool operator !=(DateInfo d, DateTime dt)
+        {
+            if (d == null)
+                return false;
+            return !(d == dt);
         }
 
         /// <summary>
@@ -176,7 +405,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return $"year={Year}&month={Month}&day={Day}".GetHashCode();
+            return Day.GetHashCode() ^ Month.GetHashCode() ^ Year.GetHashCode();
         }
     }
 }

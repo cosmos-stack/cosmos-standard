@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using Cosmos.Date;
 using Cosmos.Date.Chinese;
 
@@ -15,46 +14,46 @@ namespace Cosmos
         /// <summary>
         /// Is special year a leap year.
         /// </summary>
-        /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public static bool IsLeapYear(this DateInfo dt) => ChineseDateHelper.IsLeapYear(null, dt);
+        public static bool IsLeapYear(this DateInfo d) => ChineseDateHelper.IsLeapYear(null, d);
 
         /// <summary>
         /// Is special year a leap year.
         /// </summary>
-        /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <param name="calendar"></param>
         /// <returns></returns>
-        public static bool IsLeapYear(this DateInfo dt, ChineseLunisolarCalendar calendar) => ChineseDateHelper.IsLeapYear(calendar, dt);
+        public static bool IsLeapYear(this DateInfo d, ChineseLunisolarCalendar calendar) => ChineseDateHelper.IsLeapYear(calendar, d);
 
         /// <summary>
         /// Is special month a leap month.
         /// </summary>
-        /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public static bool IsLeapMonth(this DateInfo dt) => ChineseDateHelper.IsLeapMonth(null, dt);
+        public static bool IsLeapMonth(this DateInfo d) => ChineseDateHelper.IsLeapMonth(null, d);
 
         /// <summary>
         /// Is special month a leap month.
         /// </summary>
-        /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <param name="calendar"></param>
         /// <returns></returns>
-        public static bool IsLeapMonth(this DateInfo dt, ChineseLunisolarCalendar calendar) => ChineseDateHelper.IsLeapMonth(calendar, dt);
+        public static bool IsLeapMonth(this DateInfo d, ChineseLunisolarCalendar calendar) => ChineseDateHelper.IsLeapMonth(calendar, d);
 
         /// <summary>
         /// Is special day a leap day.
         /// </summary>
-        /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public static bool IsLeapDay(this DateInfo dt) => ChineseDateHelper.IsLeapDay(null, dt);
+        public static bool IsLeapDay(this DateInfo d) => ChineseDateHelper.IsLeapDay(null, d);
 
         /// <summary>
         /// Is special day a leap day.
         /// </summary>
-        /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <param name="calendar"></param>
         /// <returns></returns>
-        public static bool IsLeapDay(this DateInfo dt, ChineseLunisolarCalendar calendar) => ChineseDateHelper.IsLeapDay(calendar, dt);
+        public static bool IsLeapDay(this DateInfo d, ChineseLunisolarCalendar calendar) => ChineseDateHelper.IsLeapDay(calendar, d);
     }
 }

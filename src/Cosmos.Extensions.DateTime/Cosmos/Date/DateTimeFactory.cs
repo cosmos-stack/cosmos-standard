@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cosmos.Date
 {
@@ -92,6 +90,37 @@ namespace Cosmos.Date
             try
             {
                 return new DateTime(year, month, day, hour, minute, second, millisecond);
+            }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                throw new DateTimeOutOfRangeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}.{millisecond}' out of range.", exception);
+            }
+            catch (Exception exception)
+            {
+                throw new InvalidDateTimeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}.{millisecond}' is invalid.", exception);
+            }
+        }
+        
+        /// <summary>
+        /// Create <see cref="DateTime"/> by special date.<br />
+        /// 根据指定的日期创建 <see cref="DateTime"/>
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="hour"></param>
+        /// <param name="minute"></param>
+        /// <param name="second"></param>
+        /// <param name="millisecond"></param>
+        /// <param name="kind"></param>
+        /// <returns></returns>
+        /// <exception cref="DateTimeOutOfRangeException"></exception>
+        /// <exception cref="InvalidDateTimeException"></exception>
+        public static DateTime Create(int year, int month, int day, int hour, int minute, int second, int millisecond, DateTimeKind kind)
+        {
+            try
+            {
+                return new DateTime(year, month, day, hour, minute, second, millisecond, kind);
             }
             catch (ArgumentOutOfRangeException exception)
             {

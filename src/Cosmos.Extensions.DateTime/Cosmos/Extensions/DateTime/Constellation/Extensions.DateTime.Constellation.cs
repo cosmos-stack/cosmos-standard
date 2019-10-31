@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using Cosmos.Date;
-using Cosmos.Date.Chinese;
+﻿using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
