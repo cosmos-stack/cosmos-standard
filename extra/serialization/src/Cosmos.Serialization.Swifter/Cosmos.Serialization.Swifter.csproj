@@ -33,15 +33,4 @@
         <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <None Include="..\..\..\..\LICENSE">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Cosmos\Serialization\Json"/>
-    </ItemGroup>
-
 </Project>
