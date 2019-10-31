@@ -171,6 +171,9 @@ namespace Cosmos.Disposables
             }
         }
 
+        /// <summary>
+        /// Facile Disposable Objects
+        /// </summary>
         ~FacileDisposableObjects()
         {
             Dispose(false);

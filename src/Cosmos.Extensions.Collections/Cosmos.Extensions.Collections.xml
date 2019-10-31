@@ -4,6 +4,18 @@
         <name>Cosmos.Extensions.Collections</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Collections.EnumerableProxy`1">
+            <summary>
+            Enumerable proxy
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableProxy`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableProxy`1.GetEnumerator">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Collections.SetAddRangeResult`1">
             <summary>
             Set and range result
@@ -26,6 +38,1476 @@
             <summary>
             Addod or not...
             </summary>
+        </member>
+        <member name="T:Cosmos.Collections.DictionaryExtensions">
+            <summary>
+            Extensions for dictionary
+            </summary>
+            <summary>
+            Extensions for dictionary
+            </summary>
+            <summary>
+            Extensions for dictionary
+            </summary>
+            <summary>
+            Extensions for dictionary
+            </summary>
+            <summary>
+            Extensions for dictionary
+            </summary>
+            <summary>
+            Extensions for dictionary
+            </summary>
+            <summary>
+            Extensions for dictionary
+            </summary>
+            <summary>
+            Extensions for dictionary
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.AddDictionary``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.Dictionary{``0,``1})">
+            <summary>
+            Add dictionary into another dictionary
+            </summary>
+            <param name="me"></param>
+            <param name="other"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TVal"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Get value or default
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Get value or default
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0,``1)">
+            <summary>
+            Get value or default cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0)">
+            <summary>
+            Get value or default cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.AddOrOverride``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            Add or override
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.TryGetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Try get value
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0,``1@)">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.TryGetValueCascading``2(``0,``1@,System.Collections.Generic.IDictionary{``0,``1}[])">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="dictionaries"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0)">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.TryGetValueCascading``2(``0,System.Collections.Generic.IDictionary{``0,``1}[])">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="key"></param>
+            <param name="dictionaries"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetOrAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            Get or add
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetOrAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1})">
+            <summary>
+            Get or add
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="newValueCreator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetOrAddNewInstance``2(System.Collections.Generic.Dictionary{``0,``1},``0)">
+            <summary>
+            Get or add new default instance
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetOrCalculate``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1})">
+            <summary>
+            Get value
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="valueCalculator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GetOrAddCalculatedInstance``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1})">
+            <summary>
+            Get value
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="valueCalculator"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.Set``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            Set value
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GroupByAsDictionary``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Group by as dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GroupByAsDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+            Group by as dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GroupByAsDictionaryOfDictionaries``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+            Group by dictionary of dictonaries
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc1"></param>
+            <param name="keyFunc2"></param>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.GroupByAsDictionaryHash``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+            Group by as dictionary hash
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.WrapInReadOnlyDictionary``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Wrap in readonly dictionary
+            </summary>
+            <param name="dictionary"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.SelectDistinctSorted``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Select distinct sorted
+            </summary>
+            <param name="list"></param>
+            <typeparam name="TObj"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToDictionary``2(System.Collections.Generic.IList{``1},System.Func{``1,``0})">
+            <summary>
+            To dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TItem"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToDictionary``3(System.Collections.Generic.IList{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+            To dictionary
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToDictionary``2(System.Collections.Hashtable)">
+            <summary>
+            To dictionary
+            </summary>
+            <param name="hash"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToDictionaryIgnoringDuplicateKeys``3(System.Collections.Generic.IList{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+            To dictionary ignore duplicate keys
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToSortedArrayByValue``1(System.Collections.Generic.Dictionary{``0,System.Int32})">
+            <summary>
+            To sorted array by value
+            </summary>
+            <param name="list"></param>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToSortedArrayByKey``2(System.Collections.Generic.Dictionary{``0,``1})">
+            <summary>
+            To sorted array by key
+            </summary>
+            <param name="list"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToTuple``2(System.Collections.Generic.Dictionary{``0,``1})">
+            <summary>
+            To tuple...
+            </summary>
+            <param name="me"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.ToString``2(System.Collections.Generic.Dictionary{``0,``1},System.String,System.String)">
+            <summary>
+            To string
+            </summary>
+            <param name="dictionary"></param>
+            <param name="linker"></param>
+            <param name="separator"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.EnumerableExtensions">
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0[])">
+            <summary>
+            Append
+            </summary>
+            <param name="source"></param>
+            <param name="items"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.AsReadOnly``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            将集合转换为只读集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.AsEnumerableProxy``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            As enumerable proxy
+            </summary>
+            <param name="enumerable"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.AsNullables``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            As Nullables
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Chunk``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Chunk
+            </summary>
+            <param name="source"></param>
+            <param name="size"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.CountDistinct``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
+            <summary>
+            Count distinct
+            </summary>
+            <param name="list"></param>
+            <param name="valCalculator"></param>
+            <typeparam name="TObj"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ForEachItem``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            对集合内每一项元素都进行一次操作
+            </summary>
+            <param name="enumerable"></param>
+            <param name="action"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.FirstBasedOn``1(System.Collections.Generic.IList{``0},System.Func{``0,System.IComparable})">
+            <summary>
+            First based on...
+            </summary>
+            <param name="list"></param>
+            <param name="order"></param>
+            <typeparam name="TItem"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.LastBasedOn``1(System.Collections.Generic.List{``0},System.Func{``0,System.IComparable})">
+            <summary>
+            Last based on...
+            </summary>
+            <param name="list"></param>
+            <param name="order"></param>
+            <typeparam name="TItem"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.NullIfEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Null if empty
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Harvest``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Harvest
+            </summary>
+            <param name="source"></param>
+            <param name="harvester"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Harvest``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Harvest
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <param name="harvester"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Index of
+            </summary>
+            <param name="source"></param>
+            <param name="item"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Index of
+            </summary>
+            <param name="source"></param>
+            <param name="item"></param>
+            <param name="equalityComparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Intercept``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Intercept
+            </summary>
+            <param name="source"></param>
+            <param name="action"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.In``1(``0,``0[])">
+            <summary>
+            In
+            </summary>
+            <param name="item"></param>
+            <param name="items"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.In``1(``0,System.Collections.Generic.IEqualityComparer{``0},``0[])">
+            <summary>
+            In
+            </summary>
+            <param name="item"></param>
+            <param name="equalityComparer"></param>
+            <param name="items"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.In``1(``0,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            In
+            </summary>
+            <param name="item"></param>
+            <param name="items"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.In``1(``0,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            In
+            </summary>
+            <param name="item"></param>
+            <param name="items"></param>
+            <param name="equalityComparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Merge``1(System.Collections.Generic.IEnumerator{``0},System.Collections.Generic.IEnumerator{``0})">
+            <summary>
+            将两个具有相同种类的元素的集合合并
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"> </param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Merge``1(System.Collections.Generic.IEnumerator{``0},``0)">
+            <summary>
+            将一个元素添加到一个具有相同种类的元素的集合内
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="last"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.MoveToFirst``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            Move to first
+            </summary>
+            <param name="source"></param>
+            <param name="element"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.TakeLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Take last
+            </summary>
+            <param name="source"></param>
+            <param name="count"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            将多层的集合展开并整理为单层集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="inputs">   </param>
+            <param name="enumerate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.Flatten(System.Collections.IEnumerable,System.Func{System.Object,System.Collections.IEnumerable})">
+            <summary>
+            将多层的集合展开并整理为单层集合
+            </summary>
+            <param name="inputs"></param>
+            <param name="enumerate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            To dictionary
+            </summary>
+            <param name="source"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            To dictionary
+            </summary>
+            <param name="source"></param>
+            <param name="equalityComparer"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To hashset
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            To hashset
+            </summary>
+            <param name="source"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToIndexedSequence``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To index sequence
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToSafeArray``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To safe array
+            </summary>
+            <param name="source"></param>
+            <typeparam name="TElement"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToReadOnlyCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To readonly collection
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0})">
+            <summary>
+            To readonly dictionary
+            </summary>
+            <param name="source"></param>
+            <param name="keySelector"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            To readonly dictionary
+            </summary>
+            <param name="source"></param>
+            <param name="keySelector"></param>
+            <param name="comparer"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToReadOnlyDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            To readonly dictionary
+            </summary>
+            <param name="source"></param>
+            <param name="keySelector"></param>
+            <param name="elementSelector"></param>
+            <param name="comparer"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToReadOnlyDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+            To readonly dictionary
+            </summary>
+            <param name="source"></param>
+            <param name="keySelector"></param>
+            <param name="elementSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            To readonly dictionary
+            </summary>
+            <param name="source"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            To readonly dictionary
+            </summary>
+            <param name="source"></param>
+            <param name="comparer"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Collections.EnumeratorExtensions">
+            <summary>
+            Enumerator Extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.EnumeratorExtensions.ToEnumerable``1(System.Collections.Generic.IEnumerator{``0})">
+            <summary>
+            To Enumerable
+            </summary>
+            <param name="enumerator"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumeratorExtensions.ToEnumerableAfter``1(System.Collections.Generic.IEnumerator{``0})">
+            <summary>
+            To Enumerable After
+            </summary>
+            <param name="enumerator"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Collections.CollectionJudgmentExtensions">
+            <summary>
+            Extensions of collection
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudgmentExtensions.IsNull(System.Collections.IEnumerable)">
+            <summary>
+            判断集合是否为空
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudgmentExtensions.IsNullOrEmpty(System.Collections.IEnumerable)">
+            <summary>
+            判断集合是否为空
+            </summary>
+            <param name="source">要处理的集合</param>
+            <returns>为空返回 True，不为空返回 False</returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudgmentExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            判断集合是否为空
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="source">要处理的集合</param>
+            <returns>为空返回 True，不为空返回 False</returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudgmentExtensions.ContainsAtLeast``1(System.Collections.Generic.ICollection{``0},System.Int32)">
+            <summary>
+            检查一个集合是否拥有指定数量的成员
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="enumeration"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudgmentExtensions.ContainsEqualCount``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.ICollection{``0})">
+            <summary>
+            检查两个集合是否拥有相等数量的成员
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="that"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudgmentExtensions.ContainsAtLeast``1(System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            检查一个集合是否拥有指定数量的成员
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="enumeration"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudgmentExtensions.ContainsEqualCount``1(System.Linq.IQueryable{``0},System.Linq.IQueryable{``0})">
+            <summary>
+            检查两个集合是否拥有相等数量的成员
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="that"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.HashtableExtensions">
+            <summary>
+            Extensions for HashSet 
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSetIgnoringDuplicates``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            To HashSet ignore duplicates
+            </summary>
+            <param name="list"></param>
+            <typeparam name="TItem"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To HashSet
+            </summary>
+            <param name="list"></param>
+            <typeparam name="TItem"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
+            <summary>
+            To HashSet
+            </summary>
+            <param name="list"></param>
+            <param name="ignoreDup"></param>
+            <typeparam name="TItem"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSet``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            To HashSet
+            </summary>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.ListExtensions">
+            <summary>
+            Extensions of list
+            </summary>
+            <summary>
+            Extensions of list
+            </summary>
+            <summary>
+            Extensions of list
+            </summary>
+            <summary>
+            Extensions of list
+            </summary>
+            <summary>
+            Extensions of list
+            </summary>
+            <summary>
+            Extensions of list
+            </summary>
+            <summary>
+            Extensions of list
+            </summary>
+            <summary>
+            Extensions of list
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.WrapInReadOnlyCollection``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Wrap in readonly connection
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.RemoveDuplicates``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Remove deplicates
+            </summary>
+            <param name="values"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.RemoveDuplicates``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
+            <summary>
+            Remove buplicates
+            </summary>
+            <param name="values"></param>
+            <param name="duplicatePredicate"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TCheck"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.RemoveDuplicatesIgnoreCase(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Remove duplicates ignore case
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.RemoveWhere``1(System.Collections.Generic.IList{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Remove where...
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.SafeRemoveRange``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)">
+            <summary>
+            Safe remove range
+            </summary>
+            <param name="source"></param>
+            <param name="index"></param>
+            <param name="count"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Func{``0,``1},``1)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},System.Int32,System.Int32,``0)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},System.Int32,System.Int32,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.SelectDistinctSorted``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
+            <summary>
+            Select distinct sorted
+            </summary>
+            <param name="list"></param>
+            <param name="valCalculator"></param>
+            <typeparam name="TObj"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Select distinct sorted ignore case
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IList{System.String},System.Func{System.String,System.String})">
+            <summary>
+            Select distinct sorted ignore case
+            </summary>
+            <param name="list"></param>
+            <param name="valCalculator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.SelectDistinctUnSorted``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
+            <summary>
+            Select distinct un-sorted
+            </summary>
+            <param name="list"></param>
+            <param name="valCalculator"></param>
+            <typeparam name="TObj"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.ShuffleInPlace``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Shuffle in place
+            </summary>
+            <param name="items"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.ShuffleInPlace``1(System.Collections.Generic.IList{``0},System.Int32)">
+            <summary>
+            Shuffle in place
+            </summary>
+            <param name="items"></param>
+            <param name="times"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.ShuffleToNewList``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Shuffle to new list
+            </summary>
+            <param name="items"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.ShuffleToNewList``1(System.Collections.Generic.IList{``0},System.Int32)">
+            <summary>
+            Shuffle to new list
+            </summary>
+            <param name="items"></param>
+            <param name="times"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.SplitInGroups``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Split in groups
+            </summary>
+            <param name="values"></param>
+            <param name="groupSize"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.SplitInGroupsRemovingDuplicates``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Split in groups remove duplicates
+            </summary>
+            <param name="values"></param>
+            <param name="groupSize"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.ToSortedArray``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})">
+            <summary>
+            To sorted array
+            </summary>
+            <param name="source"></param>
+            <param name="comparer"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.ToSortedArray``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To sorted array
+            </summary>
+            <param name="source"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ListExtensions.ToStringList``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            To string list
+            </summary>
+            <param name="me"></param>
+            <param name="stringConverter"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.ReadOnlyCollectionExtensions">
+            <summary>
+            ReadOnly collection extensions
+            </summary>
+            <summary>
+            ReadOnly collection extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyCollectionExtensions.Append``1(System.Collections.Generic.IReadOnlyCollection{``0},``0)">
+            <summary>
+            Append
+            </summary>
+            <param name="source"></param>
+            <param name="item"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyCollectionExtensions.Empty``1">
+            <summary>
+            Gets empty readonly collection.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.ReadOnlyDictionaryExtensions">
+            <summary>
+            ReadOnly dictionary extensions
+            </summary>
+            <summary>
+            ReadOnly dictionary extensions
+            </summary>
+            <summary>
+            ReadOnly dictionary extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.Cast``4(System.Collections.Generic.IReadOnlyDictionary{``0,``1})">
+            <summary>
+            Cast
+            </summary>
+            <param name="source"></param>
+            <typeparam name="TFromKey"></typeparam>
+            <typeparam name="TFromValue"></typeparam>
+            <typeparam name="TToKey"></typeparam>
+            <typeparam name="TToValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.Empty``2">
+            <summary>
+            Gets empty readonly dictionary
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0,``1)">
+            <summary>
+            Get value or default
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0)">
+            <summary>
+            Get value or default
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0,``1)">
+            <summary>
+            Get value or default cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0)">
+            <summary>
+            Get value or default cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.TryGetValue``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0)">
+            <summary>
+            Try get value
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0,``1@)">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(``0,``1@,System.Collections.Generic.IReadOnlyDictionary{``0,``1}[])">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="dictionaries"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0)">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="dictionaries"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(``0,System.Collections.Generic.IReadOnlyDictionary{``0,``1}[])">
+            <summary>
+            Try get value cascading
+            </summary>
+            <param name="key"></param>
+            <param name="dictionaries"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.ReadOnlyListExtensions">
+            <summary>
+            ReadOnly list extensions
+            </summary>
+            <summary>
+            ReadOnly list extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.AsList``1(System.Collections.Generic.IReadOnlyList{``0})">
+            <summary>
+            As list
+            </summary>
+            <param name="list"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},``0)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Func{``0,``1},``1)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,``0)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1)">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
+            <summary>
+            Binary search
+            </summary>
+            <param name="list"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="map"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:Cosmos.Collections.SetExtensions">
+            <summary>
+            Set extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.SetExtensions.AddRange``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Add range
+            </summary>
+            <param name="set"></param>
+            <param name="items"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:Cosmos.Disposables.CollectionDisposableObjects">
             <summary>
@@ -199,6 +1681,11 @@
             </summary>
             <param name="disposing"></param>
         </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.Finalize">
+            <summary>
+            Facile Disposable Objects
+            </summary>
+        </member>
         <member name="T:Cosmos.EnumerableFactory">
             <summary>
             Enumerable factory
@@ -319,1145 +1806,6 @@
             <param name="listParams"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
-        </member>
-        <member name="T:Cosmos.DictionaryExtensions">
-            <summary>
-            Extensions for dictionary
-            </summary>
-            <summary>
-            Extensions for dictionary
-            </summary>
-            <summary>
-            Extensions for dictionary
-            </summary>
-            <summary>
-            Extensions for dictionary
-            </summary>
-            <summary>
-            Extensions for dictionary
-            </summary>
-            <summary>
-            Extensions for dictionary
-            </summary>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
-            <summary>
-            Get value or default
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
-            <summary>
-            Get value or default
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0,``1)">
-            <summary>
-            Get value or default cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0)">
-            <summary>
-            Get value or default cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.TryGetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
-            <summary>
-            Try get value
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0,``1@)">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.TryGetValueCascading``2(``0,``1@,System.Collections.Generic.IDictionary{``0,``1}[])">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="key"></param>
-            <param name="value"></param>
-            <param name="dictionaries"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0)">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.TryGetValueCascading``2(``0,System.Collections.Generic.IDictionary{``0,``1}[])">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="key"></param>
-            <param name="dictionaries"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GroupByAsDictionary``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
-            <summary>
-            Group by as dictionary
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GroupByAsDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
-            <summary>
-            Group by as dictionary
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <param name="valueFunc"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GroupByAsDictionaryOfDictionaries``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
-            <summary>
-            Group by dictionary of dictonaries
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc1"></param>
-            <param name="keyFunc2"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey1"></typeparam>
-            <typeparam name="TKey2"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.GroupByAsDictionaryHash``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
-            <summary>
-            Group by as dictionary hash
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <param name="valueFunc"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.WrapInReadOnlyDictionary``2(System.Collections.Generic.IDictionary{``0,``1})">
-            <summary>
-            Wrap in readonly dictionary
-            </summary>
-            <param name="dictionary"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.SelectDistinctSorted``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            Select distinct sorted
-            </summary>
-            <param name="list"></param>
-            <typeparam name="TObj"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToDictionary``2(System.Collections.Generic.IList{``1},System.Func{``1,``0})">
-            <summary>
-            To dictionary
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToDictionary``3(System.Collections.Generic.IList{``0},System.Func{``0,``1},System.Func{``0,``2})">
-            <summary>
-            To dictionary
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <param name="valueFunc"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToDictionary``2(System.Collections.Hashtable)">
-            <summary>
-            To dictionary
-            </summary>
-            <param name="hash"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToDictionaryIgnoringDuplicateKeys``3(System.Collections.Generic.IList{``0},System.Func{``0,``1},System.Func{``0,``2})">
-            <summary>
-            To dictionary ignore duplicate keys
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <param name="valueFunc"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToSortedArrayByValue``1(System.Collections.Generic.Dictionary{``0,System.Int32})">
-            <summary>
-            To sorted array by value
-            </summary>
-            <param name="list"></param>
-            <typeparam name="TKey"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToSortedArrayByKey``2(System.Collections.Generic.Dictionary{``0,``1})">
-            <summary>
-            To sorted array by key
-            </summary>
-            <param name="list"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToTuple``2(System.Collections.Generic.Dictionary{``0,``1})">
-            <summary>
-            To tuple...
-            </summary>
-            <param name="me"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.DictionaryExtensions.ToString``2(System.Collections.Generic.Dictionary{``0,``1},System.String,System.String)">
-            <summary>
-            To string
-            </summary>
-            <param name="dictionary"></param>
-            <param name="linker"></param>
-            <param name="separator"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.ArrayExtensions">
-            <summary>
-            Extensions of array
-            </summary>
-        </member>
-        <member name="M:Cosmos.ArrayExtensions.ToSafeArray``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To safe array
-            </summary>
-            <param name="source"></param>
-            <typeparam name="TElement"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Extensions.Extensions">
-            <summary>
-            Extensions of collection
-            </summary>
-            <summary>
-            Extensions of collection
-            </summary>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.ForEachItem``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
-            <summary>
-            对集合内每一项元素都进行一次操作
-            </summary>
-            <param name="enumerable"></param>
-            <param name="action"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.AsReadOnly``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            将集合转换为只读集合
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="enumerable"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.Merge``1(System.Collections.Generic.IEnumerator{``0},System.Collections.Generic.IEnumerator{``0})">
-            <summary>
-            将两个具有相同种类的元素的集合合并
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="left"> </param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.Merge``1(System.Collections.Generic.IEnumerator{``0},``0)">
-            <summary>
-            将一个元素添加到一个具有相同种类的元素的集合内
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="left"></param>
-            <param name="last"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})">
-            <summary>
-            将多层的集合展开并整理为单层集合
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="inputs">   </param>
-            <param name="enumerate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.Flatten(System.Collections.IEnumerable,System.Func{System.Object,System.Collections.IEnumerable})">
-            <summary>
-            将多层的集合展开并整理为单层集合
-            </summary>
-            <param name="inputs"></param>
-            <param name="enumerate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.FirstBasedOn``1(System.Collections.Generic.IList{``0},System.Func{``0,System.IComparable})">
-            <summary>
-            First based on...
-            </summary>
-            <param name="list"></param>
-            <param name="order"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.LastBasedOn``1(System.Collections.Generic.List{``0},System.Func{``0,System.IComparable})">
-            <summary>
-            Last based on...
-            </summary>
-            <param name="list"></param>
-            <param name="order"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.CountDistinct``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
-            <summary>
-            Count distinct
-            </summary>
-            <param name="list"></param>
-            <param name="valCalculator"></param>
-            <typeparam name="TObj"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.MoveToFirst``1(System.Collections.Generic.List{``0},``0)">
-            <summary>
-            Move to first
-            </summary>
-            <param name="source"></param>
-            <param name="element"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.AddOrOverride``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
-            <summary>
-            Add or override
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.GetOrAddNewInstance``2(System.Collections.Generic.Dictionary{``0,``1},``0)">
-            <summary>
-            Get or add new default instance
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.GetOrAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1})">
-            <summary>
-            Get or add
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="newValueCreator"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.GetOrAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
-            <summary>
-            Get or add
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.GetOrCalculate``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1})">
-            <summary>
-            Get value
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="valueCalculator"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.GetOrAddCalculatedInstance``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1})">
-            <summary>
-            Get value
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="valueCalculator"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.GetOrDefault``2(System.Collections.Generic.Dictionary{``0,``1},``0)">
-            <summary>
-            Get value
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.AddDictionary``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.Dictionary{``0,``1})">
-            <summary>
-            Add dictionary into another dictionary
-            </summary>
-            <param name="me"></param>
-            <param name="other"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TVal"></typeparam>
-        </member>
-        <member name="M:Cosmos.Extensions.Extensions.Set``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
-            <summary>
-            Set value
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-        </member>
-        <member name="T:Cosmos.Extensions.CollectionJudgmentExtensions">
-            <summary>
-            Extensions of collection
-            </summary>
-        </member>
-        <member name="M:Cosmos.Extensions.CollectionJudgmentExtensions.IsNull(System.Collections.IEnumerable)">
-            <summary>
-            判断集合是否为空
-            </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.CollectionJudgmentExtensions.IsNullOrEmpty(System.Collections.IEnumerable)">
-            <summary>
-            判断集合是否为空
-            </summary>
-            <param name="source">要处理的集合</param>
-            <returns>为空返回 True，不为空返回 False</returns>
-        </member>
-        <member name="M:Cosmos.Extensions.CollectionJudgmentExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            判断集合是否为空
-            </summary>
-            <typeparam name="T">动态类型</typeparam>
-            <param name="source">要处理的集合</param>
-            <returns>为空返回 True，不为空返回 False</returns>
-        </member>
-        <member name="M:Cosmos.Extensions.CollectionJudgmentExtensions.ContainsAtLeast``1(System.Collections.Generic.ICollection{``0},System.Int32)">
-            <summary>
-            检查一个集合是否拥有指定数量的成员
-            </summary>
-            <typeparam name="T">动态类型</typeparam>
-            <param name="enumeration"></param>
-            <param name="count"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.CollectionJudgmentExtensions.ContainsEqualCount``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.ICollection{``0})">
-            <summary>
-            检查两个集合是否拥有相等数量的成员
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="this"></param>
-            <param name="that"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.CollectionJudgmentExtensions.ContainsAtLeast``1(System.Linq.IQueryable{``0},System.Int32)">
-            <summary>
-            检查一个集合是否拥有指定数量的成员
-            </summary>
-            <typeparam name="T">动态类型</typeparam>
-            <param name="enumeration"></param>
-            <param name="count"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Extensions.CollectionJudgmentExtensions.ContainsEqualCount``1(System.Linq.IQueryable{``0},System.Linq.IQueryable{``0})">
-            <summary>
-            检查两个集合是否拥有相等数量的成员
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="this"></param>
-            <param name="that"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.HashtableExtensions">
-            <summary>
-            Extensions for hshtable 
-            </summary>
-        </member>
-        <member name="M:Cosmos.HashtableExtensions.ToHashSetIgnoringDuplicates``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            To HashSet ignore duplicates
-            </summary>
-            <param name="list"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.HashtableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To HashSet
-            </summary>
-            <param name="list"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.HashtableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
-            <summary>
-            To HashSet
-            </summary>
-            <param name="list"></param>
-            <param name="ignoreDup"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.HashtableExtensions.ToHashSet``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
-            <summary>
-            To HashSet
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.ListExtensions">
-            <summary>
-            Extensions of list
-            </summary>
-            <summary>
-            Extensions of list
-            </summary>
-            <summary>
-            Extensions of list
-            </summary>
-            <summary>
-            Extensions of list
-            </summary>
-            <summary>
-            Extensions of list
-            </summary>
-            <summary>
-            Extensions of list
-            </summary>
-            <summary>
-            Extensions of list
-            </summary>
-            <summary>
-            Extensions of list
-            </summary>
-        </member>
-        <member name="M:Cosmos.ListExtensions.WrapInReadOnlyCollection``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            Wrap in readonly connection
-            </summary>
-            <param name="source"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ListExtensions.RemoveDuplicates``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            Remove deplicates
-            </summary>
-            <param name="values"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.RemoveDuplicates``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
-            <summary>
-            Remove buplicates
-            </summary>
-            <param name="values"></param>
-            <param name="duplicatePredicate"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TCheck"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.RemoveDuplicatesIgnoreCase(System.Collections.Generic.IList{System.String})">
-            <summary>
-            Remove duplicates ignore case
-            </summary>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.RemoveWhere``1(System.Collections.Generic.IList{``0},System.Func{``0,System.Boolean})">
-            <summary>
-            Remove where...
-            </summary>
-            <param name="source"></param>
-            <param name="predicate"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ListExtensions.SafeRemoveRange``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)">
-            <summary>
-            Safe remove range
-            </summary>
-            <param name="source"></param>
-            <param name="index"></param>
-            <param name="count"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},``0)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Func{``0,``1},``1)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},System.Int32,System.Int32,``0)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},``0,System.Collections.Generic.IComparer{``0})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``1(System.Collections.Generic.IList{``0},System.Int32,System.Int32,``0,System.Collections.Generic.IComparer{``0})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.BinarySearch``2(System.Collections.Generic.IList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.ListExtensions.SelectDistinctSorted``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
-            <summary>
-            Select distinct sorted
-            </summary>
-            <param name="list"></param>
-            <param name="valCalculator"></param>
-            <typeparam name="TObj"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IList{System.String})">
-            <summary>
-            Select distinct sorted ignore case
-            </summary>
-            <param name="list"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IList{System.String},System.Func{System.String,System.String})">
-            <summary>
-            Select distinct sorted ignore case
-            </summary>
-            <param name="list"></param>
-            <param name="valCalculator"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.SelectDistinctUnSorted``2(System.Collections.Generic.IList{``0},System.Func{``0,``1})">
-            <summary>
-            Select distinct un-sorted
-            </summary>
-            <param name="list"></param>
-            <param name="valCalculator"></param>
-            <typeparam name="TObj"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.ShuffleInPlace``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            Shuffle in place
-            </summary>
-            <param name="items"></param>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Cosmos.ListExtensions.ShuffleInPlace``1(System.Collections.Generic.IList{``0},System.Int32)">
-            <summary>
-            Shuffle in place
-            </summary>
-            <param name="items"></param>
-            <param name="times"></param>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Cosmos.ListExtensions.ShuffleToNewList``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            Shuffle to new list
-            </summary>
-            <param name="items"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.ShuffleToNewList``1(System.Collections.Generic.IList{``0},System.Int32)">
-            <summary>
-            Shuffle to new list
-            </summary>
-            <param name="items"></param>
-            <param name="times"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.SplitInGroups``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
-            <summary>
-            Split in groups
-            </summary>
-            <param name="values"></param>
-            <param name="groupSize"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.SplitInGroupsRemovingDuplicates``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
-            <summary>
-            Split in groups remove duplicates
-            </summary>
-            <param name="values"></param>
-            <param name="groupSize"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.ToSortedArray``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})">
-            <summary>
-            To sorted array
-            </summary>
-            <param name="source"></param>
-            <param name="comparer"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.ToSortedArray``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To sorted array
-            </summary>
-            <param name="source"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ListExtensions.ToStringList``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
-            <summary>
-            To string list
-            </summary>
-            <param name="me"></param>
-            <param name="stringConverter"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.ReadOnlyCollectionExtensions">
-            <summary>
-            ReadOnly collection extensions
-            </summary>
-            <summary>
-            ReadOnly collection extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.ReadOnlyCollectionExtensions.Append``1(System.Collections.Generic.IReadOnlyCollection{``0},``0)">
-            <summary>
-            Append
-            </summary>
-            <param name="source"></param>
-            <param name="item"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyCollectionExtensions.Empty``1">
-            <summary>
-            Gets empty readonly collection.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.ReadOnlyDictionaryExtensions">
-            <summary>
-            ReadOnly dictionary extensions
-            </summary>
-            <summary>
-            ReadOnly dictionary extensions
-            </summary>
-            <summary>
-            ReadOnly dictionary extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.Cast``4(System.Collections.Generic.IReadOnlyDictionary{``0,``1})">
-            <summary>
-            Cast
-            </summary>
-            <param name="source"></param>
-            <typeparam name="TFromKey"></typeparam>
-            <typeparam name="TFromValue"></typeparam>
-            <typeparam name="TToKey"></typeparam>
-            <typeparam name="TToValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.Empty``2">
-            <summary>
-            Gets empty readonly dictionary
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0,``1)">
-            <summary>
-            Get value or default
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0)">
-            <summary>
-            Get value or default
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0,``1)">
-            <summary>
-            Get value or default cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0)">
-            <summary>
-            Get value or default cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.TryGetValue``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0)">
-            <summary>
-            Try get value
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0,``1@)">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(``0,``1@,System.Collections.Generic.IReadOnlyDictionary{``0,``1}[])">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="key"></param>
-            <param name="value"></param>
-            <param name="dictionaries"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0)">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="dictionaries"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyDictionaryExtensions.TryGetValueCascading``2(``0,System.Collections.Generic.IReadOnlyDictionary{``0,``1}[])">
-            <summary>
-            Try get value cascading
-            </summary>
-            <param name="key"></param>
-            <param name="dictionaries"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.ReadOnlyListExtensions">
-            <summary>
-            ReadOnly list extensions
-            </summary>
-            <summary>
-            ReadOnly list extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.AsList``1(System.Collections.Generic.IReadOnlyList{``0})">
-            <summary>
-            As list
-            </summary>
-            <param name="list"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},``0)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Func{``0,``1},``1)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,``0)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1)">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},``0,System.Collections.Generic.IComparer{``0})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``1(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,``0,System.Collections.Generic.IComparer{``0})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ReadOnlyListExtensions.BinarySearch``2(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,System.Func{``0,``1},``1,System.Collections.Generic.IComparer{``1})">
-            <summary>
-            Binary search
-            </summary>
-            <param name="list"></param>
-            <param name="index"></param>
-            <param name="length"></param>
-            <param name="map"></param>
-            <param name="value"></param>
-            <param name="comparer"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="T:Cosmos.SetExtensions">
-            <summary>
-            Set extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.SetExtensions.AddRange``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Add range
-            </summary>
-            <param name="set"></param>
-            <param name="items"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:System.Extensions">
             <summary>
