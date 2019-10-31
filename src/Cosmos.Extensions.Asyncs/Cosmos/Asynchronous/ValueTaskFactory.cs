@@ -14,6 +14,5 @@ namespace Cosmos.Asynchronous
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static ValueTask<T> FromResult<T>(T result) => new ValueTask<T>(result);
-
     }
 }

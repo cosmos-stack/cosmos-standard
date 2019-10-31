@@ -7,7 +7,7 @@ namespace Cosmos
     /// Chinese Solar Terms Extensions<br />
     /// 节气扩展
     /// </summary>
-    public static partial class ChineseSolarTermsExtensions
+    public static class ChineseSolarTermsExtensions
     {
         /// <summary>
         /// Get Chinese name<br />
@@ -16,10 +16,8 @@ namespace Cosmos
         /// <param name="chineseSolarTerms"></param>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public static string GetName(this ChineseSolarTerms chineseSolarTerms, bool traditionalChineseCharacters = false)
-        {
-            return ChineseSolarTermHelper.GetName(chineseSolarTerms, traditionalChineseCharacters);
-        }
+        public static string GetName(this ChineseSolarTerms chineseSolarTerms, bool traditionalChineseCharacters = false) =>
+            ChineseSolarTermHelper.GetName(chineseSolarTerms, traditionalChineseCharacters);
 
         /// <summary>
         /// Get English name<br />
@@ -27,9 +25,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="chineseSolarTerms"></param>
         /// <returns></returns>
-        public static string GetEnglishName(this ChineseSolarTerms chineseSolarTerms)
-        {
-            return Enums.GetDescription<ChineseSolarTerms>(chineseSolarTerms);
-        }
+        public static string GetEnglishName(this ChineseSolarTerms chineseSolarTerms) =>
+            Enums.GetDescription<ChineseSolarTerms>(chineseSolarTerms);
     }
 }

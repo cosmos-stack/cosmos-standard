@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using Cosmos.Date;
-using Cosmos.Date.Chinese;
+﻿using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -16,8 +13,8 @@ namespace Cosmos
         /// Gets Constellation name<br />
         /// 获取星座名
         /// </summary>
-        /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public static string GetConstellationName(this DateInfo dt) => ConstellationHelper.Get(dt);
+        public static string GetConstellationName(this DateInfo d) => ConstellationHelper.Get(d);
     }
 }

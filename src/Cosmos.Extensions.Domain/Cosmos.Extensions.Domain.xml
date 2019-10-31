@@ -977,6 +977,13 @@
             <param name="strategy"></param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="M:Cosmos.Validations.ValidationContext`1.AddStrategyList(System.Collections.Generic.IEnumerable{Cosmos.Validations.Abstractions.IValidateStrategy{`0}})">
+            <summary>
+            Add strategy list
+            </summary>
+            <param name="strategies"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Validations.ValidationContext`1.SetHandler(System.Action{Cosmos.Validations.ValidationHandleOperation})">
             <summary>
             Set handler

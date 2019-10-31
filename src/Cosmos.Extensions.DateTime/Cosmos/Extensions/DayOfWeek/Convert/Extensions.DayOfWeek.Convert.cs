@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using Cosmos.Date;
-using Cosmos.Date.Chinese;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -10,7 +7,7 @@ namespace Cosmos
     /// DayOfWeek extensions<br />
     /// DayOfWeek 扩展类
     /// </summary>
-    public static partial class DayOfWeekExtensions
+    public static class DayOfWeekExtensions
     {
         /// <summary>
         /// Convert <see cref="DayOfWeek"/> to <see cref="int"/><br />

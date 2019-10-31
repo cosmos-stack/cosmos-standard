@@ -14,13 +14,13 @@ namespace Cosmos
         /// Clone<br />
         /// 克隆
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public static DateInfo Clone(this DateInfo date)
+        public static DateInfo Clone(this DateInfo d)
         {
-            if (date == null)
-                throw new ArgumentNullException(nameof(date));
-            return new DateInfo(date.DateTimeRef);
+            if (d == null)
+                throw new ArgumentNullException(nameof(d));
+            return new DateInfo(d.DateTimeRef);
         }
     }
 }

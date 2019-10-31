@@ -41,6 +41,11 @@ namespace Cosmos.Validations
             ValidateStrategyList.Add(strategy);
         }
 
+        /// <summary>
+        /// Add strategy list
+        /// </summary>
+        /// <param name="strategies"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AddStrategyList(IEnumerable<IValidateStrategy<TObject>> strategies)
         {
             if (strategies == null)

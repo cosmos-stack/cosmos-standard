@@ -1,43 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\build\common.props" />
+    <Import Project="..\..\build\common.props"/>
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>7.2</LangVersion>
-    <RootNamespace />
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>8.0</LangVersion>
+        <RootNamespace/>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <AssemblyName>Cosmos.Extensions.AspectCoreInjector</AssemblyName>
-    <PackageId>Cosmos.Extensions.AspectCoreInjector</PackageId>
-    <Description>Extensions of IOC component AspectCore-Framework inner Injector Container for Cosmos base library</Description>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.AspectCoreInjector</AssemblyName>
+        <PackageId>Cosmos.Extensions.AspectCoreInjector</PackageId>
+        <Description>Extensions of IOC component AspectCore-Framework inner Injector Container for Cosmos base library</Description>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.AspectCoreInjector.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.AspectCoreInjector.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.AspectCoreInjector.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.AspectCoreInjector.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AspectCore.Abstractions" Version="1.3.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AspectCore.Abstractions" Version="1.3.0"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Cosmos.Standard\Cosmos.Standard.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Standard\Cosmos.Standard.csproj"/>
+    </ItemGroup>
 
 </Project>

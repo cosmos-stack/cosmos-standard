@@ -1,5 +1,6 @@
 ﻿using System;
 using Cosmos.Date;
+using NodaTime;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos
@@ -25,5 +26,26 @@ namespace Cosmos
         /// <param name="date"></param>
         /// <returns></returns>
         public static DateInfo ToDateInfo(this DateTime date) => new DateInfo(date);
+
+        /// <summary>
+        /// Convert <see cref="DateTime"/> to <see cref="LocalDateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public static LocalDateTime ToLocalDateTime(this DateTime dateTime) => LocalDateTime.FromDateTime(dateTime);
+
+        /// <summary>
+        /// Convert <see cref="DateTime"/> to <see cref="LocalDate"/>.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static LocalDate ToLocalDate(this DateTime date) => LocalDate.FromDateTime(date);
+
+        /// <summary>
+        /// Convert <see cref="DateTime"/> to <see cref="LocalTime"/>.
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static LocalTime ToLocalTime(this DateTime t) => new LocalTime(t.Hour, t.Minute, t.Second, t.Millisecond);
     }
 }

@@ -10,63 +10,63 @@ namespace Cosmos
     public static partial class DateTimeExtensions
     {
         /// <summary>
-        /// Is current date between <see cref="from"/> and <see cref="to"/>.<br />
+        /// Is current date between <paramref name="from"/> and <paramref to="to"/>.<br />
         /// 判断当前日期是否在 from 和 to 之间
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="dt"></param>
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <param name="includeBoundary"></param>
         /// <returns></returns>
-        public static bool IsBetween(this DateTime date, DateTime from, DateTime to, bool includeBoundary = true)
+        public static bool IsBetween(this DateTime dt, DateTime from, DateTime to, bool includeBoundary = true)
         {
             return includeBoundary
-                ? date >= from && date <= to
-                : date > @from && date < to;
+                ? dt >= from && dt <= to
+                : dt > @from && dt < to;
         }
 
         /// <summary>
-        /// Is current date between <see cref="min"/> and <see cref="max"/> with boundary.<br />
+        /// Is current date between <paramref name="min"/> and <paramref name="max"/> with boundary.<br />
         /// 判断当前日期是否在 min 和 max 之间，闭包区间。
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="dt"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static bool IsDateBetweenWithBoundary(this DateTime date, DateTime min, DateTime max)
-            => date.IsBetween(min, max.AddDays(+1), false);
+        public static bool IsDateBetweenWithBoundary(this DateTime dt, DateTime min, DateTime max)
+            => dt.IsBetween(min, max.AddDays(+1), false);
 
         /// <summary>
-        /// Is current date between <see cref="min"/> and <see cref="max"/> with boundary.<br />
+        /// Is current date between <paramref name="min"/> and <paramref name="max"/> with boundary.<br />
         /// 判断当前日期是否在 min 和 max 之间，闭包区间。
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="dt"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static bool IsDateBetweenWithBoundary(this DateTime date, DateTime? min, DateTime? max)
+        public static bool IsDateBetweenWithBoundary(this DateTime dt, DateTime? min, DateTime? max)
         {
             if (min.HasValue && max.HasValue)
-                return date.IsDateBetweenWithBoundary(min.Value, max.Value);
+                return dt.IsDateBetweenWithBoundary(min.Value, max.Value);
 
             if (min.HasValue)
-                return date >= min.Value;
+                return dt >= min.Value;
 
             if (max.HasValue)
-                return date < max.Value.AddDays(+1);
+                return dt < max.Value.AddDays(+1);
 
             return true;
         }
 
         /// <summary>
-        /// Is current date between <see cref="min"/> and <see cref="max"/> without boundary.<br />
+        /// Is current date between <paramref name="min"/> and <paramref name="max"/> without boundary.<br />
         /// 判断当前日期是否在 min 和 max 之间，开区间。
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="dt"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static bool IsDateBetweenWithoutBoundary(this DateTime date, DateTime min, DateTime max)
-            => date.IsBetween(min, max, false);
+        public static bool IsDateBetweenWithoutBoundary(this DateTime dt, DateTime min, DateTime max)
+            => dt.IsBetween(min, max, false);
     }
 }

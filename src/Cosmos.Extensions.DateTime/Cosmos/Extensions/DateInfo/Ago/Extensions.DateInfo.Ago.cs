@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
@@ -16,11 +14,10 @@ namespace Cosmos
         /// To ago.<br />
         /// 转换为 Ago
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public static string ToAgo(this DateInfo date)
-        {
-            return (DateTime.Now - date).ToAgo();
-        }
+#pragma warning disable 618
+        public static string ToAgo(this DateInfo d) => (DateTime.Now - d).ToAgo();
+#pragma warning restore 618
     }
 }

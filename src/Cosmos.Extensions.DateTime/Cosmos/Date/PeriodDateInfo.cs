@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Cosmos.Date
+﻿namespace Cosmos.Date
 {
     /// <summary>
     /// Period DateInfo<br />
@@ -27,17 +25,6 @@ namespace Cosmos.Date
         /// 时间截止于...
         /// </summary>
         public override DateInfo To => _to.Clone();
-
-        private static class PeriodChecker
-        {
-            public static void CheckFromAndTo(DateInfo from, DateInfo to)
-            {
-                if (from == null) throw new ArgumentNullException(nameof(from));
-                if (to == null) throw new ArgumentNullException(nameof(to));
-                if (from.DateTimeRef > to.DateTimeRef)
-                    throw new ArgumentException("FromDateInfo cannot be greater than ToDateInfo.");
-            }
-        }
 
         private static DateInfo Next(DateInfo date) => date.AddDay();
 

@@ -46,7 +46,7 @@ namespace Cosmos.Disposables
         public bool IsDisposing => IsDisposeStarted && !IsDisposed;
 
         /// <summary>
-        /// The actual disposal method, call only once from <see cref="Dispose"/>
+        /// The actual disposal method, call only once from <seealso cref="Dispose"/>.
         /// </summary>
         /// <param name="context"></param>
         protected abstract void Dispose(T context);

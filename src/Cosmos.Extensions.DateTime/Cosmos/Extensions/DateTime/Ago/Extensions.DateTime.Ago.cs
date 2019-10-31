@@ -16,6 +16,7 @@ namespace Cosmos
         /// 格式化时间间隔
         /// </summary>
         /// <param name="timeSpan">时间间隔</param>
+        [Obsolete("将会被 Cosmos.I18N 取代")]
         public static string ToAgo(this TimeSpan timeSpan)
         {
             if (timeSpan < TimeSpan.Zero)
@@ -91,6 +92,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="date">對比的時間</param>
         /// <returns></returns>
+        [Obsolete("将会被 Cosmos.I18N 取代")]
         public static string ToAgo(this DateTime date)
         {
             return (DateTime.Now - date).ToAgo();

@@ -2,7 +2,7 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -12,8 +12,8 @@
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <RootNamespace></RootNamespace>
-    <LangVersion>7.2</LangVersion>
+    <LangVersion>8.0</LangVersion>
+    <RootNamespace />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -27,15 +27,10 @@
   <ItemGroup>
     <PackageReference Include="Nito.AsyncEx" Version="5.0.0" />
     <PackageReference Include="RSG.Promise" Version="3.0.1" />
-    <PackageReference Include="System.Interactive.Async" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Cosmos\Extensions\ReadOnlyDictionary" />
   </ItemGroup>
 
 </Project>
