@@ -345,6 +345,19 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonAsync``1(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializerSettings,``0,System.Threading.CancellationToken)">
+            <summary>
+            Post json async
+            </summary>
+            <param name="httpClient"></param>
+            <param name="uri"></param>
+            <param name="jsonSerializerSettings"></param>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TRequest"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Http.HttpClientExtensions.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,Newtonsoft.Json.JsonSerializerSettings,``0,System.Threading.CancellationToken)">
             <summary>
             Post json async

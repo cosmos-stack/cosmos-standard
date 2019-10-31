@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Cosmos.Extensions;
+using Cosmos.Serialization.Json;
 using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
@@ -59,6 +59,17 @@ namespace Cosmos.Http
             return httpClient.PostJsonAsync<TRequest, TResult>(uri, JsonSerializer.CreateDefault(), request, cancellationToken);
         }
 
+        /// <summary>
+        /// Post json async
+        /// </summary>
+        /// <param name="httpClient"></param>
+        /// <param name="uri"></param>
+        /// <param name="jsonSerializerSettings"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Task PostJsonAsync<TRequest>(this HttpClient httpClient, string uri,
             JsonSerializerSettings jsonSerializerSettings, TRequest request, CancellationToken cancellationToken)
         {
