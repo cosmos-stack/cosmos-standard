@@ -106,7 +106,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime Next(this DateTime dt, DayOfWeek dayOfWeek)
+        public static DateTime NextDayOfWeek(this DateTime dt, DayOfWeek dayOfWeek)
         {
             do
             {
@@ -122,7 +122,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime Previous(this DateTime dt, DayOfWeek dayOfWeek)
+        public static DateTime PreviousDayOfWeek(this DateTime dt, DayOfWeek dayOfWeek)
         {
             do
             {

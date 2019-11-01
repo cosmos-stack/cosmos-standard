@@ -66,7 +66,7 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo Next(this DateInfo d, DayOfWeek dayOfWeek) => d.GetNextWeekdayInfo(dayOfWeek);
+        public static DateInfo NextDayOfWeek(this DateInfo d, DayOfWeek dayOfWeek) => d.GetNextWeekdayInfo(dayOfWeek);
 
         /// <summary>
         /// Previous, same as 'GetPreviousWeekdayInfo'
@@ -74,7 +74,7 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo Previous(this DateInfo d, DayOfWeek dayOfWeek) => d.GetPreviousWeekdayInfo(dayOfWeek);
+        public static DateInfo PreviousDayOfWeek(this DateInfo d, DayOfWeek dayOfWeek) => d.GetPreviousWeekdayInfo(dayOfWeek);
 
         /// <summary>
         /// Week after

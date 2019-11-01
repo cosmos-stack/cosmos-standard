@@ -100,35 +100,95 @@ namespace Cosmos
         public static LocalDate PreviousDay(this LocalDate ld) => ld.AddDays(-1);
 
         /// <summary>
-        /// Next
+        /// Returns the next date with the specified day-of-week
         /// </summary>
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
         public static LocalDate Next(this LocalDate ld, DayOfWeek dayOfWeek)
         {
-            do
-            {
-                ld = ld.NextDay();
-            } while (ld.DayOfWeek != NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek));
-
-            return ld;
+            var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
+            return DateAdjusters.Next(dow)(ld);
         }
 
         /// <summary>
-        /// Previous
+        /// Returns the next date with the specified day-of-week
+        /// </summary>
+        /// <param name="ld"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static LocalDate Next(this LocalDate ld, IsoDayOfWeek dayOfWeek)
+        {
+            return DateAdjusters.Next(dayOfWeek)(ld);
+        }
+
+        /// <summary>
+        /// Returns the next date with the specified day-of-week, or the original date, if the day is already correct.
+        /// </summary>
+        /// <param name="ld"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static LocalDate NextOrSame(this LocalDate ld, DayOfWeek dayOfWeek)
+        {
+            var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
+            return DateAdjusters.NextOrSame(dow)(ld);
+        }
+
+        /// <summary>
+        /// Returns the next date with the specified day-of-week, or the original date, if the day is already correct.
+        /// </summary>
+        /// <param name="ld"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static LocalDate NextOrSame(this LocalDate ld, IsoDayOfWeek dayOfWeek)
+        {
+            return DateAdjusters.NextOrSame(dayOfWeek)(ld);
+        }
+
+        /// <summary>
+        /// Returns the previous date with the specified day-of-week
         /// </summary>
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
         public static LocalDate Previous(this LocalDate ld, DayOfWeek dayOfWeek)
         {
-            do
-            {
-                ld = ld.PreviousDay();
-            } while (ld.DayOfWeek != NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek));
+            var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
+            return DateAdjusters.Previous(dow)(ld);
+        }
 
-            return ld;
+        /// <summary>
+        /// Returns the previous date with the specified day-of-week
+        /// </summary>
+        /// <param name="ld"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static LocalDate Previous(this LocalDate ld, IsoDayOfWeek dayOfWeek)
+        {
+            return DateAdjusters.Previous(dayOfWeek)(ld);
+        }
+
+        /// <summary>
+        /// Returns the previous date with the specified day-of-week, or the original date, if the day is already correct.
+        /// </summary>
+        /// <param name="ld"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static LocalDate PreviousOrSame(this LocalDate ld, DayOfWeek dayOfWeek)
+        {
+            var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
+            return DateAdjusters.PreviousOrSame(dow)(ld);
+        }
+
+        /// <summary>
+        /// Returns the previous date with the specified day-of-week, or the original date, if the day is already correct.
+        /// </summary>
+        /// <param name="ld"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static LocalDate PreviousOrSame(this LocalDate ld, IsoDayOfWeek dayOfWeek)
+        {
+            return DateAdjusters.PreviousOrSame(dayOfWeek)(ld);
         }
 
         /// <summary>

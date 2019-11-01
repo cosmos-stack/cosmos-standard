@@ -111,7 +111,7 @@ namespace Cosmos
             {
                 ldt = ldt.NextDay();
             } while (ldt.DayOfWeek != NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek));
-
+            
             return ldt;
         }
 

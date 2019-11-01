@@ -54,7 +54,7 @@ namespace Cosmos
         /// <param name="month"></param>
         /// <returns></returns>
         public static LocalDate SetMonth(this LocalDate ld, int month) =>
-            new LocalDate(ld.Era, ld.Year, month, ld.Day, ld.Calendar);
+            DateAdjusters.Month(month)(ld);
 
         /// <summary>
         /// Set date
@@ -63,6 +63,6 @@ namespace Cosmos
         /// <param name="day"></param>
         /// <returns></returns>
         public static LocalDate SetDay(this LocalDate ld, int day) =>
-            new LocalDate(ld.Era, ld.Year, ld.Month, day, ld.Calendar);
+            DateAdjusters.DayOfMonth(day)(ld);
     }
 }
