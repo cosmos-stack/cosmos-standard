@@ -1266,7 +1266,7 @@
             <param name="context"></param>
             <param name="next"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
         </member>
         <member name="T:Cosmos.Validations.Parameters.MustIntTypeAttribute">
             <summary>
@@ -1290,7 +1290,7 @@
             <param name="context"></param>
             <param name="next"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
         </member>
         <member name="T:Cosmos.Validations.Parameters.MustLongTypeAttribute">
             <summary>
@@ -1314,7 +1314,7 @@
             <param name="context"></param>
             <param name="next"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
         </member>
         <member name="T:Cosmos.Validations.Parameters.MustNumericTypeAttribute">
             <summary>
@@ -1338,7 +1338,7 @@
             <param name="context"></param>
             <param name="next"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
         </member>
         <member name="T:Cosmos.Validations.Parameters.MustStringTypeAttribute">
             <summary>
@@ -1357,7 +1357,7 @@
             <param name="context"></param>
             <param name="next"></param>
             <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
         </member>
         <member name="T:Cosmos.Validations.Parameters.NotBlankAttribute">
             <summary>

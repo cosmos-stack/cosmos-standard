@@ -88,7 +88,7 @@ namespace Cosmos
         /// <returns></returns>
         public static string ToFullUnwrappedString(this Exception ex)
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             if (ex is CosmosException cosmosException)
             {
                 sb.AppendLine(cosmosException.GetFullMessage());

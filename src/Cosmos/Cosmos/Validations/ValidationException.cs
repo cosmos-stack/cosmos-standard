@@ -202,6 +202,9 @@ namespace Cosmos.Validations
         public IEnumerable<string> ValidationMessage => _validationMessage;
 
         /// <inheritdoc />
+        public override string GetFullMessage() => ToString();
+
+        /// <inheritdoc />
         public override string ToString()
         {
             var sb = new StringBuilder();

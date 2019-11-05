@@ -862,6 +862,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Validations.Abstractions.IValidationResult.ToValidationMessages">
+            <summary>
+            To valdation messages
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Validations.Abstractions.IValidator">
             <summary>
             Interface for validator
@@ -1036,6 +1042,15 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ToException(Cosmos.Validations.ValidationResultCollection,System.Action{Cosmos.Validations.ValidationException,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            To exception
+            </summary>
+            <param name="resultCollection"></param>
+            <param name="appendAction"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ToException``1(Cosmos.Validations.Abstractions.IValidationResult,System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
             <summary>
             To exception
@@ -1047,13 +1062,31 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.ArgumentException"></exception>
         </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ToException(Cosmos.Validations.Abstractions.IValidationResult,System.Action{Cosmos.Validations.ValidationException,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            To exception
+            </summary>
+            <param name="result"></param>
+            <param name="appendAction"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
         <member name="M:Cosmos.Validations.ValidationExceptionExtensions.RaiseException``1(Cosmos.Validations.ValidationResultCollection,System.Action{``0,Cosmos.Validations.ValidationResultCollection})">
             <summary>
-            Taise exception
+            Raise exception
             </summary>
             <param name="resultCollection"></param>
             <param name="appendAction"></param>
             <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.RaiseException(Cosmos.Validations.ValidationResultCollection,System.Action{Cosmos.Validations.ValidationException,Cosmos.Validations.ValidationResultCollection})">
+            <summary>
+            Raise exception
+            </summary>
+            <param name="resultCollection"></param>
+            <param name="appendAction"></param>
+            <exception cref="T:Cosmos.Validations.ValidationException"></exception>
         </member>
         <member name="T:Cosmos.Validations.ValidationHandleExceptions">
             <summary>
@@ -1188,6 +1221,9 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Validations.ValidationResultCollection.ToMessage">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.ValidationResultCollection.ToValidationMessages">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Validations.ValidationResultCollection.GetEnumerator">
