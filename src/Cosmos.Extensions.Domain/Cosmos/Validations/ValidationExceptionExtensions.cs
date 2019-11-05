@@ -1,5 +1,4 @@
 ﻿using System;
-using AspectCore.Extensions.Reflection;
 using Cosmos.Validations.Abstractions;
 
 namespace Cosmos.Validations
@@ -26,7 +25,34 @@ namespace Cosmos.Validations
                 throw new ArgumentNullException(nameof(resultCollection));
             }
 
-            var exception = NewBasicException<TException>(resultCollection);
+            if (typeof(TException) == typeof(ValidationException))
+            {
+                return ToException(resultCollection, (e, c) => appendAction?.Invoke(e as TException, c)) as TException;
+            }
+
+            var exception = CreateBasicException<TException>(resultCollection);
+
+            appendAction?.Invoke(exception, resultCollection);
+
+            return exception;
+        }
+
+        /// <summary>
+        /// To exception
+        /// </summary>
+        /// <param name="resultCollection"></param>
+        /// <param name="appendAction"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static ValidationException ToException(this ValidationResultCollection resultCollection,
+            Action<ValidationException, ValidationResultCollection> appendAction = null)
+        {
+            if (resultCollection == null)
+            {
+                throw new ArgumentNullException(nameof(resultCollection));
+            }
+
+            var exception = CreatValidationException(resultCollection);
 
             appendAction?.Invoke(exception, resultCollection);
 
@@ -58,14 +84,41 @@ namespace Cosmos.Validations
             }
         }
 
-        private static TException NewBasicException<TException>(IValidationResult result)
+        /// <summary>
+        /// To exception
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="appendAction"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static ValidationException ToException(this IValidationResult result,
+            Action<ValidationException, ValidationResultCollection> appendAction = null)
+        {
+            switch (result)
+            {
+                case ValidationResultCollection fluentResult:
+                    return ToException(fluentResult, appendAction);
+                case null:
+                    throw new ArgumentNullException(nameof(result));
+                default:
+                    throw new ArgumentException("ValidationResultCollection's type is invalid.");
+            }
+        }
+
+        private static TException CreateBasicException<TException>(IValidationResult result)
             where TException : CosmosException, new()
         {
-            var type = typeof(TException);
-            var exception = (TException) Activator.CreateInstance(type);
-            type.GetField("Message").GetReflector().SetValue(exception, result.ToMessage());
-            type.GetField("Code").GetReflector().SetValue(exception, result.ErrorCode);
-            type.GetField("Flag").GetReflector().SetValue(exception, result.Flag);
+            var exception = Types.CreateInstance<TException>(result.ErrorCode, result.ToMessage(), result.Flag);
+
+            exception.ExtraData.Add("ValidationResultCollection", result);
+
+            return exception;
+        }
+
+        private static ValidationException CreatValidationException(IValidationResult result)
+        {
+            var exception = new ValidationException(result.ErrorCode, result.ToMessage(), result.ToValidationMessages(), result.Flag);
 
             exception.ExtraData.Add("ValidationResultCollection", result);
 
@@ -73,7 +126,7 @@ namespace Cosmos.Validations
         }
 
         /// <summary>
-        /// Taise exception
+        /// Raise exception
         /// </summary>
         /// <param name="resultCollection"></param>
         /// <param name="appendAction"></param>
@@ -81,6 +134,18 @@ namespace Cosmos.Validations
         public static void RaiseException<TException>(this ValidationResultCollection resultCollection,
             Action<TException, ValidationResultCollection> appendAction = null)
             where TException : CosmosException, new()
+        {
+            throw resultCollection.ToException(appendAction);
+        }
+
+        /// <summary>
+        /// Raise exception
+        /// </summary>
+        /// <param name="resultCollection"></param>
+        /// <param name="appendAction"></param>
+        /// <exception cref="ValidationException"></exception>
+        public static void RaiseException(this ValidationResultCollection resultCollection,
+            Action<ValidationException, ValidationResultCollection> appendAction = null)
         {
             throw resultCollection.ToException(appendAction);
         }

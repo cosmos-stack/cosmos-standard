@@ -16,7 +16,7 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void CheckNull(this string argument, string argumentName, string message = null)
         {
-            AssertionJudgment.Require2<ArgumentNullException>(
+            AssertionJudgment.Require2Validation<ArgumentNullException>(
                 !string.IsNullOrWhiteSpace(argument),
                 argumentName, $"{nameof(argument)} can not be null or white space.");
         }

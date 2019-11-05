@@ -17,7 +17,7 @@ namespace Cosmos
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void IsNotInvalidDate(DateTime argument, string argumentName, string message = null)
         {
-            AssertionJudgment.Require2<ArgumentException>(
+            AssertionJudgment.Require2Validation<ArgumentInvalidException>(
                 DateTimeJudgment.IsValid(argument),
                 message ?? $"{nameof(argument)} is invalid datetime value.", argumentName);
         }
@@ -44,7 +44,7 @@ namespace Cosmos
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void IsNotInPast(DateTime argument, string argumentName, string message = null)
         {
-            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+            AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument <= DateTime.UtcNow,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be in past.");
         }
@@ -72,7 +72,7 @@ namespace Cosmos
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void IsNotInFuture(DateTime argument, string argumentName, string message = null)
         {
-            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+            AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument <= DateTime.UtcNow,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be in future.");
         }
@@ -99,7 +99,7 @@ namespace Cosmos
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void IsNotNegative(TimeSpan argument, string argumentName, string message = null)
         {
-            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+            AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument >= TimeSpan.Zero,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be negative.");
         }
@@ -125,7 +125,7 @@ namespace Cosmos
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void IsNotNegativeOrZero(TimeSpan argument, string argumentName, string message = null)
         {
-            AssertionJudgment.Require2<ArgumentOutOfRangeException>(
+            AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument > TimeSpan.Zero,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
         }

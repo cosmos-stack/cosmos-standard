@@ -67,7 +67,7 @@ namespace Cosmos
         /// <param name="message"></param>
         public static void CheckNull<TKey, TValue>(this KeyValuePair<TKey, TValue> argument, string argumentName, string message = null)
         {
-            AssertionJudgment.Require2<ArgumentNullException>(
+            AssertionJudgment.Require2Validation<ArgumentNullException>(
                 !string.IsNullOrWhiteSpace(argument.ToString()),
                 argumentName, message ?? $"{nameof(argument)} contains nothing.");
         }

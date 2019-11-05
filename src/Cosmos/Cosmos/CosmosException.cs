@@ -100,7 +100,7 @@ namespace Cosmos
         /// <param name="options"></param>
         protected CosmosException(CosmosExceptionOptions options) : base(options.Message, options.InnerException)
         {
-            ExtraData = new Dictionary<string, object>();
+            ExtraData = options.ExtraErrors;
             Code = options.ErrorCode;
             Flag = options.Flag;
         }
