@@ -220,6 +220,235 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Disposables.AsynchronousDisposableAction">
+            <summary>
+            Asynchronous Disable Action. <br />
+            When the derived class of this class is disposed, the specified <see cref="T:System.Action"/> will be executed async.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction.#ctor(System.Action)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AsynchronousDisposableAction"/> instance.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction.InvokeAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousDisposableActionField`1">
+            <summary>
+            Asynchronous Disposable Action Field
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableActionField`1.#ctor(System.Action{`0},`0)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AsynchronousDisposableActionField`1"/> instance.
+            </summary>
+            <param name="action"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousDisposableActionField`1.IsEmpty">
+            <summary>
+            To flag this field is empty or not.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableActionField`1.TryGetAndUnset">
+            <summary>
+            Atomically retrieves this disposable action from the field, and sets such field to <c>null</c>. May return <c>null</c>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableActionField`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update context of disposable action stored in this field, Return <c>false</c> if the field is <c>null</c>. 
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousDisposableAction`1">
+            <summary>
+            Asynchronous Generic Disable Action. <br />
+            When the derived class of this class is disposed, the specified <see cref="T:System.Action`1"/> will be executed async.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction`1.#ctor(System.Action{`0},`0)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AsynchronousDisposableAction`1"/> instance.
+            </summary>
+            <param name="action"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction`1.#ctor(Cosmos.Disposables.AsynchronousDisposableAction{`0},System.Func{`0,`0})">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AsynchronousDisposableAction`1"/> instance.
+            </summary>
+            <param name="originalDisposableAction"></param>
+            <param name="contextUpdater"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction`1.InvokeAsync">
+            <summary>
+            Invoke the disposable action async with context
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction`1.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject">
+            <summary>
+            AsAnonymous Disposable Object
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.#ctor">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject"/> instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.#ctor(System.Action)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject"/> instance.
+            </summary>
+            <param name="dispose"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.#ctor(Cosmos.Disposables.AsynchronousDisposableAction)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject"/> instance.
+            </summary>
+            <param name="disposableAction"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Dispose(System.Action)">
+            <summary>
+            Dispose.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Add(System.Action)">
+            <summary>
+            Add dispose <see cref="T:System.Action"/>.
+            </summary>
+            <param name="dispose"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Add(Cosmos.Disposables.AsynchronousDisposableAction)">
+            <summary>
+            Add dispose <see cref="T:System.Action"/>.
+            </summary>
+            <param name="disposableAction"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Create(System.Action)">
+            <summary>
+            Create a new disposable that executes dispose when disposed.
+            </summary>
+            <param name="dispose"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Create(Cosmos.Disposables.AsynchronousDisposableAction)">
+            <summary>
+            Create a new disposable that executes dispose when disposed.
+            </summary>
+            <param name="disposableAction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousNoopDisposableObject">
+            <summary>
+            An asynchronous disposable implement which does nothing when disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousNoopDisposableObject.Instance">
+            <summary>
+            Gets a <see cref="T:Cosmos.Disposables.AsynchronousNoopDisposableObject"/> cache.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousNoopDisposableObject.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousSingleDisposableObject`1">
+            <summary>
+            Asynchronous Single Disposable Object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.#ctor(`0)">
+            <summary>
+            Create a asynchronous single disposable object for such context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.IsDisposeStarted">
+            <summary>
+            To flag this instance is currently disposing or has been disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.IsDisposed">
+            <summary>
+            To flag this instance is disposed, which means finished disposing.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.IsDisposing">
+            <summary>
+            To flag this instance is currently disposing, but not finished yet.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose(`0)">
+            <summary>
+            The actual disposal method, call only once from <seealso cref="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose(`0)"/>.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1">
+            <summary>
+            Asynchronous Single Nonblocking Disposable Object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.#ctor(`0)">
+            <summary>
+            Create a single nonblocking disposable object for such context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.IsDisposeStarted">
+            <summary>
+            To flag this instance is currently disposing or has been disposed.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose(`0)">
+            <summary>
+            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose(`0)"/>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
         <member name="T:System.IO.StreamWithState`1">
             <summary>
             Stream with state

@@ -17,6 +17,16 @@
             </summary>
             <typeparam name="TEntity"></typeparam>
         </member>
+        <member name="T:Cosmos.Disposables.IAsynchronousDisposableAction">
+            <summary>
+            Asynchronous Disposable action
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.IAsynchronousDisposableAction.InvokeAsync">
+            <summary>
+            Invoke the disposable action async
+            </summary>
+        </member>
         <member name="T:Cosmos.Disposables.IDisposableAction">
             <summary>
             Disposable action
