@@ -6,6 +6,8 @@ using Cosmos.Serialization.Json.MicrosoftJson;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Serialization.Json
 {
+    using MS = MicrosoftJsonHelper;
+
     /// <summary>
     /// Microsoft System.Text.Json extensions
     /// </summary>
@@ -18,10 +20,8 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static string ToMicrosoftJson<T>(this T obj, JsonSerializerOptions options = null)
-        {
-            return MicrosoftJsonHelper.Serialize(obj, options);
-        }
+        public static string ToMicrosoftJson<T>(this T obj, JsonSerializerOptions options = null) => MS.Serialize(obj, options);
+
 
         /// <summary>
         /// To Microsoft System.Text.Json
@@ -30,9 +30,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<string> ToMicrosoftJsonAsync<T>(this T obj, JsonSerializerOptions options = null)
-        {
-            return MicrosoftJsonHelper.SerializeAsync(obj, options);
-        }
+        public static Task<string> ToMicrosoftJsonAsync<T>(this T obj, JsonSerializerOptions options = null) => MS.SerializeAsync(obj, options);
+
     }
 }

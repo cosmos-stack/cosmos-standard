@@ -128,10 +128,8 @@ namespace Cosmos.Serialization.Json.Jil
         {
             if (string.IsNullOrWhiteSpace(json))
                 return null;
-            using (var reader = new StringReader(json))
-            {
-                return Deserialize(reader, type, options ?? JilManager.DefaultOptions);
-            }
+            using var reader = new StringReader(json);
+            return Deserialize(reader, type, options ?? JilManager.DefaultOptions);
         }
 
         /// <summary>
@@ -145,10 +143,8 @@ namespace Cosmos.Serialization.Json.Jil
         {
             if (string.IsNullOrWhiteSpace(json))
                 return null;
-            using (var reader = new StringReader(json))
-            {
-                return Deserialize(reader, type, optionAct);
-            }
+            using var reader = new StringReader(json);
+            return Deserialize(reader, type, optionAct);
         }
 
         /// <summary>

@@ -16,10 +16,10 @@ namespace Cosmos.Serialization.MessagePack.Neuecc
         /// <returns></returns>
         public static byte[] Serialize<T>(T t)
         {
-            if (t == null)
-                return new byte[0];
+            return t == null
+                ? new byte[0]
+                : MessagePackSerializer.Serialize(t);
 
-            return MessagePackSerializer.Serialize(t);
         }
 
         /// <summary>
@@ -30,12 +30,12 @@ namespace Cosmos.Serialization.MessagePack.Neuecc
         /// <returns></returns>
         public static byte[] Serialize(object obj, Type type)
         {
-            if(obj is null)
-                return new byte[0];
+            return obj is null
+                ? new byte[0]
+                : MessagePackSerializer.NonGeneric.Serialize(type, obj);
 
-            return MessagePackSerializer.NonGeneric.Serialize(type, obj);
         }
-        
+
         /// <summary>
         /// Deserialize
         /// </summary>

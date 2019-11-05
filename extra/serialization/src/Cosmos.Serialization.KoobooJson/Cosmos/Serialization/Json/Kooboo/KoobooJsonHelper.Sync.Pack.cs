@@ -40,7 +40,7 @@ namespace Cosmos.Serialization.Json.Kooboo
             if (o is null)
                 return;
 
-            var bytes = KoobooJsonHelper.SerializeToBytes(o, option);
+            var bytes = SerializeToBytes(o, option);
 
             stream.Write(bytes, 0, bytes.Length);
         }
@@ -56,7 +56,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         {
             return stream is null
                 ? default
-                : KoobooJsonHelper.Deserialize<T>(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), option);
+                : Deserialize<T>(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), option);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         {
             return stream is null
                 ? default
-                : KoobooJsonHelper.Deserialize(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), type, option);
+                : Deserialize(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), type, option);
         }
 
         private static byte[] StreamToBytes(Stream stream)

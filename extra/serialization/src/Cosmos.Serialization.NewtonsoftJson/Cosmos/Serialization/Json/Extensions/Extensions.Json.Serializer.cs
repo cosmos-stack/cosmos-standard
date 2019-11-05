@@ -28,15 +28,11 @@ namespace Cosmos.Serialization.Json
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
-            using (var stringWriter = new StringWriter(CultureInfo.InvariantCulture))
-            {
-                using (var jsonWriter = new JsonTextWriter(stringWriter))
-                {
-                    serializer.Serialize(jsonWriter, request);
-                    jsonWriter.Flush();
-                    return stringWriter.ToString();
-                }
-            }
+            using var stringWriter = new StringWriter(CultureInfo.InvariantCulture);
+            using var jsonWriter = new JsonTextWriter(stringWriter);
+            serializer.Serialize(jsonWriter, request);
+            jsonWriter.Flush();
+            return stringWriter.ToString();
         }
 
         /// <summary>
@@ -54,13 +50,10 @@ namespace Cosmos.Serialization.Json
             if (string.IsNullOrWhiteSpace(json))
                 throw new ArgumentNullException(nameof(json));
 
-            using (var stringReader = new StringReader(json))
-            {
-                using (var jsonReader = new JsonTextReader(stringReader))
-                {
-                    return serializer.Deserialize<TResponse>(jsonReader);
-                }
-            }
+            using var stringReader = new StringReader(json);
+            using var jsonReader = new JsonTextReader(stringReader);
+            return serializer.Deserialize<TResponse>(jsonReader);
+
         }
 
         /// <summary>
@@ -81,26 +74,20 @@ namespace Cosmos.Serialization.Json
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
-            using (var stream = new MemoryStream())
-            {
-                using (TextWriter textWriter = new StreamWriter(stream))
-                {
-                    using (var jsonWriter = new JsonTextWriter(textWriter))
-                    {
-                        serializer.Serialize(jsonWriter, request);
+            using var stream = new MemoryStream();
+            using TextWriter textWriter = new StreamWriter(stream);
+            using var jsonWriter = new JsonTextWriter(textWriter);
+            serializer.Serialize(jsonWriter, request);
 
-                        await jsonWriter.FlushAsync(cancellationToken).ConfigureAwait(false);
-                        await textWriter.FlushAsync().ConfigureAwait(false);
+            await jsonWriter.FlushAsync(cancellationToken).ConfigureAwait(false);
+            await textWriter.FlushAsync().ConfigureAwait(false);
 
-                        stream.Position = 0;
+            stream.Position = 0;
 
-                        if (!stream.TryGetBuffer(out ArraySegment<byte> buffer))
-                            throw new InvalidOperationException($"The call to {nameof(stream.TryGetBuffer)} returned false.");
+            if (!stream.TryGetBuffer(out ArraySegment<byte> buffer))
+                throw new InvalidOperationException($"The call to {nameof(stream.TryGetBuffer)} returned false.");
 
-                        return new MemoryStream(buffer.Array, buffer.Offset, buffer.Count);
-                    }
-                }
-            }
+            return new MemoryStream(buffer.Array, buffer.Offset, buffer.Count);
         }
     }
 }

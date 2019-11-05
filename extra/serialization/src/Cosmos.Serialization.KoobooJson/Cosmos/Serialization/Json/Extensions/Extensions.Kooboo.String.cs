@@ -6,6 +6,8 @@ using Cosmos.Serialization.Json.Kooboo;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Serialization.Json
 {
+    using K = KoobooJsonHelper;
+
     /// <summary>
     /// KoobooJson extensions
     /// </summary>
@@ -18,10 +20,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromKoobooJson<T>(this string json, JsonDeserializeOption option = null)
-        {
-            return KoobooJsonHelper.Deserialize<T>(json, option);
-        }
+        public static T FromKoobooJson<T>(this string json, JsonDeserializeOption option = null) => K.Deserialize<T>(json, option);
 
         /// <summary>
         /// From KoobooJson
@@ -30,10 +29,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="optionAct"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromKoobooJson<T>(this string json, Action<JsonDeserializeOption> optionAct)
-        {
-            return KoobooJsonHelper.Deserialize<T>(json, optionAct);
-        }
+        public static T FromKoobooJson<T>(this string json, Action<JsonDeserializeOption> optionAct) => K.Deserialize<T>(json, optionAct);
 
         /// <summary>
         /// From KoobooJson
@@ -42,10 +38,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="option"></param>
         /// <returns></returns>
-        public static object FromKoobooJson(this string json, Type type, JsonDeserializeOption option = null)
-        {
-            return KoobooJsonHelper.Deserialize(json, type, option);
-        }
+        public static object FromKoobooJson(this string json, Type type, JsonDeserializeOption option = null) => K.Deserialize(json, type, option);
 
         /// <summary>
         /// From KoobooJson
@@ -54,10 +47,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="optionAct"></param>
         /// <returns></returns>
-        public static object FromKoobooJson(this string json, Type type, Action<JsonDeserializeOption> optionAct)
-        {
-            return KoobooJsonHelper.Deserialize(json, type, optionAct);
-        }
+        public static object FromKoobooJson(this string json, Type type, Action<JsonDeserializeOption> optionAct) => K.Deserialize(json, type, optionAct);
 
         /// <summary>
         /// From KoobooJson async
@@ -66,10 +56,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromKoobooJsonAsync<T>(this string json, JsonDeserializeOption option = null)
-        {
-            return KoobooJsonHelper.DeserializeAsync<T>(json, option);
-        }
+        public static Task<T> FromKoobooJsonAsync<T>(this string json, JsonDeserializeOption option = null) => K.DeserializeAsync<T>(json, option);
 
         /// <summary>
         /// From KoobooJson async
@@ -78,10 +65,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="optionAct"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromKoobooJsonAsync<T>(this string json, Action<JsonDeserializeOption> optionAct)
-        {
-            return KoobooJsonHelper.DeserializeAsync<T>(json, optionAct);
-        }
+        public static Task<T> FromKoobooJsonAsync<T>(this string json, Action<JsonDeserializeOption> optionAct) => K.DeserializeAsync<T>(json, optionAct);
 
         /// <summary>
         /// From KoobooJson async
@@ -90,10 +74,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="option"></param>
         /// <returns></returns>
-        public static Task<object> FromKoobooJsonAsync(this string json, Type type, JsonDeserializeOption option = null)
-        {
-            return KoobooJsonHelper.DeserializeAsync(json, type, option);
-        }
+        public static Task<object> FromKoobooJsonAsync(this string json, Type type, JsonDeserializeOption option = null) => K.DeserializeAsync(json, type, option);
 
         /// <summary>
         /// From KoobooJson async
@@ -102,9 +83,6 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="optionAct"></param>
         /// <returns></returns>
-        public static Task<object> FromKoobooJsonAsync(this string json, Type type, Action<JsonDeserializeOption> optionAct)
-        {
-            return KoobooJsonHelper.DeserializeAsync(json, type, optionAct);
-        }
+        public static Task<object> FromKoobooJsonAsync(this string json, Type type, Action<JsonDeserializeOption> optionAct) => K.DeserializeAsync(json, type, optionAct);
     }
 }

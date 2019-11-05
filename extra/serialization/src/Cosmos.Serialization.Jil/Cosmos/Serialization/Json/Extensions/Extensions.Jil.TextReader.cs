@@ -19,10 +19,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromJil<T>(this TextReader reader, Options options = null)
-        {
-            return JilHelper.Deserialize<T>(reader, options);
-        }
+        public static T FromJil<T>(this TextReader reader, Options options = null) => JilHelper.Deserialize<T>(reader, options);
 
         /// <summary>
         /// From Jil
@@ -31,10 +28,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="optionsAct"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromJil<T>(this TextReader reader, Action<Options> optionsAct)
-        {
-            return JilHelper.Deserialize<T>(reader, optionsAct);
-        }
+        public static T FromJil<T>(this TextReader reader, Action<Options> optionsAct) => JilHelper.Deserialize<T>(reader, optionsAct);
 
         /// <summary>
         /// From Jil
@@ -43,10 +37,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static object FromJil(this TextReader reader, Type type, Options options = null)
-        {
-            return JilHelper.Deserialize(reader, type, options);
-        }
+        public static object FromJil(this TextReader reader, Type type, Options options = null) => JilHelper.Deserialize(reader, type, options);
 
         /// <summary>
         /// From Jil
@@ -55,10 +46,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="optionsAct"></param>
         /// <returns></returns>
-        public static object FromJil(this TextReader reader, Type type, Action<Options> optionsAct)
-        {
-            return JilHelper.Deserialize(reader, type, optionsAct);
-        }
+        public static object FromJil(this TextReader reader, Type type, Action<Options> optionsAct) => JilHelper.Deserialize(reader, type, optionsAct);
 
 
         /// <summary>
@@ -68,10 +56,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromJilAsync<T>(this TextReader reader, Options options = null)
-        {
-            return JilHelper.DeserializeAsync<T>(reader, options);
-        }
+        public static Task<T> FromJilAsync<T>(this TextReader reader, Options options = null) => JilHelper.DeserializeAsync<T>(reader, options);
 
         /// <summary>
         /// From Jil async
@@ -80,10 +65,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="optionsAct"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromJilAsync<T>(this TextReader reader, Action<Options> optionsAct)
-        {
-            return JilHelper.DeserializeAsync<T>(reader, optionsAct);
-        }
+        public static Task<T> FromJilAsync<T>(this TextReader reader, Action<Options> optionsAct) => JilHelper.DeserializeAsync<T>(reader, optionsAct);
 
         /// <summary>
         /// From Jil async
@@ -92,10 +74,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static Task<object> FromJilAsync(this TextReader reader, Type type, Options options = null)
-        {
-            return JilHelper.DeserializeAsync(reader, type, options);
-        }
+        public static Task<object> FromJilAsync(this TextReader reader, Type type, Options options = null) => JilHelper.DeserializeAsync(reader, type, options);
 
         /// <summary>
         /// From Jil async
@@ -104,9 +83,6 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="optionsAct"></param>
         /// <returns></returns>
-        public static Task<object> FromJilAsync(this TextReader reader, Type type, Action<Options> optionsAct)
-        {
-            return JilHelper.DeserializeAsync(reader, type, optionsAct);
-        }
+        public static Task<object> FromJilAsync(this TextReader reader, Type type, Action<Options> optionsAct) => JilHelper.DeserializeAsync(reader, type, optionsAct);
     }
 }

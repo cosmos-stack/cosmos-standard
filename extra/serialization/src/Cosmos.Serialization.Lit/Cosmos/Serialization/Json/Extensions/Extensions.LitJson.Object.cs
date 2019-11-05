@@ -15,10 +15,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="o"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static string ToLitJson<T>(this T o)
-        {
-            return LitHelper.Serialize(o);
-        }
+        public static string ToLitJson<T>(this T o) => LitHelper.Serialize(o);
 
         /// <summary>
         /// To LitJson async
@@ -26,9 +23,6 @@ namespace Cosmos.Serialization.Json
         /// <param name="o"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<string> ToLitJsonAsync<T>(this T o)
-        {
-            return LitHelper.SerializeAsync(o);
-        }
+        public static Task<string> ToLitJsonAsync<T>(this T o) => LitHelper.SerializeAsync(o);
     }
 }

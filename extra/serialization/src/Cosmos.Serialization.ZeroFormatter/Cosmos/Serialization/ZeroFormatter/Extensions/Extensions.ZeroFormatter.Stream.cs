@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Serialization.ZeroFormatter
 {
+    using Z = ZeroFormatterHelper;
+
     public static partial class ZeroFormatterExtensions
     {
         /// <summary>
@@ -13,10 +15,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="t"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream ToStream<T>(this T t)
-        {
-            return ZeroFormatterHelper.Pack(t);
-        }
+        public static Stream ToStream<T>(this T t) => Z.Pack(t);
 
         /// <summary>
         /// To stream
@@ -24,10 +23,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Stream ToStream(this object obj, Type type)
-        {
-            return ZeroFormatterHelper.Pack(obj, type);
-        }
+        public static Stream ToStream(this object obj, Type type) => Z.Pack(obj, type);
 
 
         /// <summary>
@@ -36,10 +32,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="t"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> ToStreamAsync<T>(this T t)
-        {
-            return await ZeroFormatterHelper.PackAsync(t);
-        }
+        public static async Task<Stream> ToStreamAsync<T>(this T t) => await Z.PackAsync(t);
 
         /// <summary>
         /// To stream async
@@ -47,9 +40,6 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static async Task<Stream> ToStreamAsync(this object obj, Type type)
-        {
-            return await ZeroFormatterHelper.PackAsync(type, obj);
-        }
+        public static async Task<Stream> ToStreamAsync(this object obj, Type type) => await Z.PackAsync(type, obj);
     }
 }

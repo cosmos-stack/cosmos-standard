@@ -20,10 +20,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (t == null)
                 return new byte[0];
 
-            using (var stream = await PackAsync(t))
-            {
-                return await StreamToBytesAsync(stream);
-            }
+            using var stream = await PackAsync(t);
+            return await StreamToBytesAsync(stream);
         }
 
         /// <summary>
@@ -37,10 +35,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (obj is null)
                 return new byte[0];
 
-            using (var stream = await PackAsync(obj, type))
-            {
-                return await StreamToBytesAsync(stream);
-            }
+            using var stream = await PackAsync(obj, type);
+            return await StreamToBytesAsync(stream);
         }
 
         /// <summary>
@@ -54,10 +50,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (data is null || data.Length == 0)
                 return default;
 
-            using (var ms = new MemoryStream(data))
-            {
-                return await UnpackAsync<T>(ms);
-            }
+            using var ms = new MemoryStream(data);
+            return await UnpackAsync<T>(ms);
         }
 
         /// <summary>
@@ -71,10 +65,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (data is null || data.Length == 0)
                 return null;
 
-            using (var ms = new MemoryStream(data))
-            {
-                return await UnpackAsync(ms, type);
-            }
+            using var ms = new MemoryStream(data);
+            return await UnpackAsync(ms, type);
         }
     }
 }

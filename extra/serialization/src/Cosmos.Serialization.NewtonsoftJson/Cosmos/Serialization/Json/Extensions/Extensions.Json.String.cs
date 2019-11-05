@@ -70,7 +70,5 @@ namespace Cosmos.Serialization.Json
         {
             return JsonHelper.DeserializeAsync(json, type, settings, withNodaTime);
         }
-
-
     }
 }

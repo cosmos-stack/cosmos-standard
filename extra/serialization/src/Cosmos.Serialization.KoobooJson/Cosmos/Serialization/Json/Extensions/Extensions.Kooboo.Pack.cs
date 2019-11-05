@@ -7,6 +7,8 @@ using Cosmos.Serialization.Json.Kooboo;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Serialization.Json
 {
+    using K = KoobooJsonHelper;
+
     /// <summary>
     /// KoobooJson extensions
     /// </summary>
@@ -19,10 +21,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream KoobooPack<T>(this T obj, JsonSerializerOption options = null)
-        {
-            return KoobooJsonHelper.Pack(obj, options);
-        }
+        public static Stream KoobooPack<T>(this T obj, JsonSerializerOption options = null) => K.Pack(obj, options);
 
         /// <summary>
         /// Kooboo pack to
@@ -31,10 +30,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="stream"></param>
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
-        public static void KoobooPackTo<T>(this T obj, Stream stream, JsonSerializerOption options = null)
-        {
-            KoobooJsonHelper.Pack(obj, stream, options);
-        }
+        public static void KoobooPackTo<T>(this T obj, Stream stream, JsonSerializerOption options = null) => K.Pack(obj, stream, options);
 
         /// <summary>
         /// Kooboo pack by
@@ -42,10 +38,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="stream"></param>
         /// <param name="obj"></param>
         /// <param name="options"></param>
-        public static void KoobooPackBy(this Stream stream, object obj, JsonSerializerOption options = null)
-        {
-            KoobooJsonHelper.Pack(obj, stream, options);
-        }
+        public static void KoobooPackBy(this Stream stream, object obj, JsonSerializerOption options = null) => K.Pack(obj, stream, options);
 
         /// <summary>
         /// Kooboo pack to
@@ -54,10 +47,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<Stream> KoobooPackAsync<T>(this T obj, JsonSerializerOption options = null)
-        {
-            return KoobooJsonHelper.PackAsync(obj, options);
-        }
+        public static Task<Stream> KoobooPackAsync<T>(this T obj, JsonSerializerOption options = null) => K.PackAsync(obj, options);
 
         /// <summary>
         /// Kooboo pack to
@@ -66,10 +56,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="stream"></param>
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
-        public static Task KoobooPackToAsync<T>(this T obj, Stream stream, JsonSerializerOption options = null)
-        {
-            return KoobooJsonHelper.PackAsync(obj, stream, options);
-        }
+        public static Task KoobooPackToAsync<T>(this T obj, Stream stream, JsonSerializerOption options = null) => K.PackAsync(obj, stream, options);
 
         /// <summary>
         /// Kooboo pack by async
@@ -77,10 +64,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="stream"></param>
         /// <param name="obj"></param>
         /// <param name="options"></param>
-        public static Task KoobooPackByAsync(this Stream stream, object obj, JsonSerializerOption options = null)
-        {
-            return KoobooJsonHelper.PackAsync(obj, stream, options);
-        }
+        public static Task KoobooPackByAsync(this Stream stream, object obj, JsonSerializerOption options = null) => K.PackAsync(obj, stream, options);
 
         /// <summary>
         /// Kooboo unpack
@@ -89,10 +73,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T KoobooUnpack<T>(this Stream stream, JsonDeserializeOption options = null)
-        {
-            return KoobooJsonHelper.Unpack<T>(stream, options);
-        }
+        public static T KoobooUnpack<T>(this Stream stream, JsonDeserializeOption options = null) => K.Unpack<T>(stream, options);
 
         /// <summary>
         /// Kooboo unpack
@@ -101,10 +82,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static object KoobooUnpack(this Stream stream, Type type, JsonDeserializeOption options = null)
-        {
-            return KoobooJsonHelper.Unpack(stream, type, options);
-        }
+        public static object KoobooUnpack(this Stream stream, Type type, JsonDeserializeOption options = null) => K.Unpack(stream, type, options);
 
         /// <summary>
         /// Kooboo unpack async
@@ -113,10 +91,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> KoobooUnpackAsync<T>(this Stream stream, JsonDeserializeOption options = null)
-        {
-            return await KoobooJsonHelper.UnpackAsync<T>(stream, options);
-        }
+        public static async Task<T> KoobooUnpackAsync<T>(this Stream stream, JsonDeserializeOption options = null) => await K.UnpackAsync<T>(stream, options);
 
         /// <summary>
         /// Kooboo unpack async
@@ -125,9 +100,6 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static async Task<object> KoobooUnpackAsync(this Stream stream, Type type, JsonDeserializeOption options = null)
-        {
-            return await KoobooJsonHelper.UnpackAsync(stream, type, options);
-        }
+        public static async Task<object> KoobooUnpackAsync(this Stream stream, Type type, JsonDeserializeOption options = null) => await K.UnpackAsync(stream, type, options);
     }
 }

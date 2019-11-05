@@ -28,11 +28,9 @@ namespace Cosmos.Serialization.Json
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
-            using (var stringWriter = new StringWriter(CultureInfo.InvariantCulture))
-            {
-                JSON.Serialize(request, stringWriter, options);
-                return stringWriter.ToString();
-            }
+            using var stringWriter = new StringWriter(CultureInfo.InvariantCulture);
+            JSON.Serialize(request, stringWriter, options);
+            return stringWriter.ToString();
         }
 
         /// <summary>
@@ -50,10 +48,8 @@ namespace Cosmos.Serialization.Json
             if (string.IsNullOrWhiteSpace(json))
                 throw new ArgumentNullException(nameof(json));
 
-            using (var stringReader = new StringReader(json))
-            {
-                return JSON.Deserialize<TResponse>(stringReader, options);
-            }
+            using var stringReader = new StringReader(json);
+            return JSON.Deserialize<TResponse>(stringReader, options);
         }
 
         /// <summary>
@@ -74,22 +70,19 @@ namespace Cosmos.Serialization.Json
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
-            using (var stream = new MemoryStream())
-            {
-                using (TextWriter textWriter = new StreamWriter(stream))
-                {
-                    JSON.Serialize(request, textWriter, options);
+            using var stream = new MemoryStream();
+            using TextWriter textWriter = new StreamWriter(stream);
+            JSON.Serialize(request, textWriter, options);
 
-                    await textWriter.FlushAsync().ConfigureAwait(false);
-                    
-                    stream.Position = 0;
-                    
-                    if (!stream.TryGetBuffer(out ArraySegment<byte> buffer))
-                        throw new InvalidOperationException($"The call to {nameof(stream.TryGetBuffer)} returned false.");
+            await textWriter.FlushAsync().ConfigureAwait(false);
 
-                    return new MemoryStream(buffer.Array, buffer.Offset, buffer.Count);
-                }
-            }
+            stream.Position = 0;
+
+            if (!stream.TryGetBuffer(out ArraySegment<byte> buffer))
+                throw new InvalidOperationException($"The call to {nameof(stream.TryGetBuffer)} returned false.");
+
+            return new MemoryStream(buffer.Array, buffer.Offset, buffer.Count);
+
         }
     }
 }

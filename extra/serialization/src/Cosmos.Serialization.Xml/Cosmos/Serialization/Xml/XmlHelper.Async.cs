@@ -36,10 +36,8 @@ namespace Cosmos.Serialization.Xml
 
             encoding ??= XmlManager.DefaultEncoding;
 
-            using (var stream = Pack(o, type))
-            {
-                return encoding.GetString(await StreamToBytesAsync(stream));
-            }
+            using var stream = Pack(o, type);
+            return encoding.GetString(await StreamToBytesAsync(stream));
         }
 
         /// <summary>
@@ -64,10 +62,8 @@ namespace Cosmos.Serialization.Xml
             if (o is null)
                 return new byte[0];
 
-            using (var stream = Pack(o, type))
-            {
-                return await StreamToBytesAsync(stream);
-            }
+            using var stream = Pack(o, type);
+            return await StreamToBytesAsync(stream);
         }
 
         /// <summary>
@@ -98,10 +94,8 @@ namespace Cosmos.Serialization.Xml
 
             encoding ??= XmlManager.DefaultEncoding;
 
-            using (var memoryStream = new MemoryStream(encoding.GetBytes(xml)))
-            {
-                return await UnpackAsync(memoryStream, type);
-            }
+            using var memoryStream = new MemoryStream(encoding.GetBytes(xml));
+            return await UnpackAsync(memoryStream, type);
         }
 
         /// <summary>
@@ -128,10 +122,8 @@ namespace Cosmos.Serialization.Xml
             if (data is null || data.Length == 0)
                 return null;
 
-            using (var memoryStream = new MemoryStream(data))
-            {
-                return await UnpackAsync(memoryStream, type);
-            }
+            using var memoryStream = new MemoryStream(data);
+            return await UnpackAsync(memoryStream, type);
         }
     }
 }

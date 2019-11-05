@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 
 namespace Cosmos.Serialization.Binary
@@ -15,10 +14,8 @@ namespace Cosmos.Serialization.Binary
         /// <returns></returns>
         public static byte[] Serialize(object obj)
         {
-            using (var stream = Pack(obj))
-            {
-                return StreamToBytes(stream);
-            }
+            using var stream = Pack(obj);
+            return StreamToBytes(stream);
         }
 
         /// <summary>
@@ -40,10 +37,8 @@ namespace Cosmos.Serialization.Binary
         public static object Deserialize(byte[] bytes)
         {
             if (bytes is null || bytes.Length is 0) return default;
-            using (var ms = new MemoryStream(bytes))
-            {
-                return Unpack(ms);
-            }
+            using var ms = new MemoryStream(bytes);
+            return Unpack(ms);
         }
     }
 }

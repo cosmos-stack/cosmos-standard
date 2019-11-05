@@ -17,10 +17,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="str"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static T FromXml<T>(this string str, Encoding encoding = null)
-        {
-            return XmlHelper.Deserialize<T>(str, encoding);
-        }
+        public static T FromXml<T>(this string str, Encoding encoding = null) => XmlHelper.Deserialize<T>(str, encoding);
 
         /// <summary>
         /// Deserialize the xml to object.
@@ -29,10 +26,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="type"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static object FromXml(this string str, Type type, Encoding encoding = null)
-        {
-            return XmlHelper.Deserialize(str, type, encoding);
-        }
+        public static object FromXml(this string str, Type type, Encoding encoding = null) => XmlHelper.Deserialize(str, type, encoding);
 
         /// <summary>
         /// Deserialize the xml to generic instance async.
@@ -41,10 +35,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="str"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static Task<T> FromXmlAsync<T>(this string str, Encoding encoding = null)
-        {
-            return XmlHelper.DeserializeAsync<T>(str, encoding);
-        }
+        public static Task<T> FromXmlAsync<T>(this string str, Encoding encoding = null) => XmlHelper.DeserializeAsync<T>(str, encoding);
 
         /// <summary>
         /// Deserialize the xml to object async.
@@ -53,9 +44,6 @@ namespace Cosmos.Serialization.Xml
         /// <param name="type"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static Task<object> FromXmlAsync(this string str, Type type, Encoding encoding = null)
-        {
-            return XmlHelper.DeserializeAsync(str, type, encoding);
-        }
+        public static Task<object> FromXmlAsync(this string str, Type type, Encoding encoding = null) => XmlHelper.DeserializeAsync(str, type, encoding);
     }
 }

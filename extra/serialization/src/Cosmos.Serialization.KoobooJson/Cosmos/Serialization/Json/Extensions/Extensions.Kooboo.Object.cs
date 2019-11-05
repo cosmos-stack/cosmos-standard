@@ -6,6 +6,8 @@ using Cosmos.Serialization.Json.Kooboo;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Serialization.Json
 {
+    using K = KoobooJsonHelper;
+
     /// <summary>
     /// KoobooJson extensions
     /// </summary>
@@ -18,11 +20,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static string ToKoobooJson<T>(this T obj, JsonSerializerOption option = null)
-        {
-            return KoobooJsonHelper.Serialize(obj, option);
-        }
-
+        public static string ToKoobooJson<T>(this T obj, JsonSerializerOption option = null) => K.Serialize(obj, option);
 
         /// <summary>
         /// To KoobooJson
@@ -31,10 +29,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="optionAct"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static string ToKoobooJson<T>(this T obj, Action<JsonSerializerOption> optionAct)
-        {
-            return KoobooJsonHelper.Serialize(obj, optionAct);
-        }
+        public static string ToKoobooJson<T>(this T obj, Action<JsonSerializerOption> optionAct) => K.Serialize(obj, optionAct);
 
         /// <summary>
         /// To KoobooJson async
@@ -43,10 +38,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<string> ToKoobooJsonAsync<T>(this T obj, JsonSerializerOption option = null)
-        {
-            return KoobooJsonHelper.SerializeAsync(obj, option);
-        }
+        public static Task<string> ToKoobooJsonAsync<T>(this T obj, JsonSerializerOption option = null) => K.SerializeAsync(obj, option);
 
 
         /// <summary>
@@ -56,9 +48,6 @@ namespace Cosmos.Serialization.Json
         /// <param name="optionAct"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<string> ToKoobooJsonAsync<T>(this T obj, Action<JsonSerializerOption> optionAct)
-        {
-            return KoobooJsonHelper.SerializeAsync(obj, optionAct);
-        }
+        public static Task<string> ToKoobooJsonAsync<T>(this T obj, Action<JsonSerializerOption> optionAct) => K.SerializeAsync(obj, optionAct);
     }
 }

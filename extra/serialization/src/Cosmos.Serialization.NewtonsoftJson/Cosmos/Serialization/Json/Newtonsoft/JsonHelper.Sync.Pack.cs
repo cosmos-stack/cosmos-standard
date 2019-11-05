@@ -40,7 +40,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft
             if (o is null)
                 return;
 
-            var bytes = JsonHelper.SerializeToBytes(o, settings, withNodaTime);
+            var bytes = SerializeToBytes(o, settings, withNodaTime);
 
             stream.Write(bytes, 0, bytes.Length);
         }
@@ -57,7 +57,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft
         {
             return stream is null
                 ? default
-                : JsonHelper.Deserialize<T>(JsonManager.DefaultEncoding.GetString(StreamToBytes(stream)), settings, withNodaTime);
+                : Deserialize<T>(JsonManager.DefaultEncoding.GetString(StreamToBytes(stream)), settings, withNodaTime);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft
         {
             return stream is null
                 ? default
-                : JsonHelper.Deserialize(JsonManager.DefaultEncoding.GetString(StreamToBytes(stream)), type, settings, withNodaTime);
+                : Deserialize(JsonManager.DefaultEncoding.GetString(StreamToBytes(stream)), type, settings, withNodaTime);
         }
 
         private static byte[] StreamToBytes(Stream stream)
