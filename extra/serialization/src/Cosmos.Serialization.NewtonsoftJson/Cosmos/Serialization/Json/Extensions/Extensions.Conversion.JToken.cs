@@ -17,7 +17,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static int ToInt(this JToken token)
         {
-            return token?.ToObject<int>() ?? default(int);
+            return token?.ToObject<int>() ?? default;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static int ToInt(this JToken token, string sectionName)
         {
-            return token[sectionName]?.ToObject<int>() ?? default(int);
+            return token[sectionName]?.ToObject<int>() ?? default;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static long ToLong(this JToken token)
         {
-            return token?.ToObject<long>() ?? default(long);
+            return token?.ToObject<long>() ?? default;
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static long ToLong(this JToken token, string sectionName)
         {
-            return token[sectionName]?.ToObject<long>() ?? default(long);
+            return token[sectionName]?.ToObject<long>() ?? default;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static double ToDouble(this JToken token)
         {
-            return token?.ToObject<double>() ?? default(double);
+            return token?.ToObject<double>() ?? default;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static double ToDouble(this JToken token, string sectionName)
         {
-            return token[sectionName]?.ToObject<double>() ?? default(double);
+            return token[sectionName]?.ToObject<double>() ?? default;
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static float ToFloat(this JToken token)
         {
-            return token?.ToObject<float>() ?? default(float);
+            return token?.ToObject<float>() ?? default;
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Cosmos.Serialization.Json
         /// <returns></returns>
         public static float ToFloat(this JToken token, string sectionName)
         {
-            return token[sectionName]?.ToObject<float>() ?? default(float);
+            return token[sectionName]?.ToObject<float>() ?? default;
         }
 
         /// <summary>

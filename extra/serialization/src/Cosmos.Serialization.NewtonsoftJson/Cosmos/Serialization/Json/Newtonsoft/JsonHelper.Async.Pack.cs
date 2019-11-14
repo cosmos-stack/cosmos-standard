@@ -41,7 +41,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft
             if (o is null)
                 return;
 
-            var bytes = await JsonHelper.SerializeToBytesAsync(o, settings, withNodaTime);
+            var bytes = await SerializeToBytesAsync(o, settings, withNodaTime);
 
             await stream.WriteAsync(bytes, 0, bytes.Length);
         }
@@ -58,7 +58,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft
         {
             return stream is null
                 ? default
-                : await JsonHelper.DeserializeAsync<T>(JsonManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), settings, withNodaTime);
+                : await DeserializeAsync<T>(JsonManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), settings, withNodaTime);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft
         {
             return stream is null
                 ? default
-                : await JsonHelper.DeserializeAsync(JsonManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), type, settings, withNodaTime);
+                : await DeserializeAsync(JsonManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), type, settings, withNodaTime);
         }
 
         private static async Task<byte[]> StreamToBytesAsync(Stream stream)

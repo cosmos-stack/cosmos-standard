@@ -640,6 +640,11 @@
             Gets or sets inner exception.
             </summary>
         </member>
+        <member name="P:Cosmos.CosmosExceptionOptions.ExtraErrors">
+            <summary>
+            Gets or sets extra errors
+            </summary>
+        </member>
         <member name="T:Cosmos.Disposables.DisposableAction">
             <summary>
             Disable Action. <br />
@@ -653,14 +658,10 @@
             <param name="action"></param>
         </member>
         <member name="M:Cosmos.Disposables.DisposableAction.Invoke">
-            <summary>
-            Invoke the disposable action
-            </summary>
+            <inheritdoc />
         </member>
         <member name="M:Cosmos.Disposables.DisposableAction.Dispose">
-            <summary>
-            Dispose
-            </summary>
+            <inheritdoc />
         </member>
         <member name="T:Cosmos.Disposables.DisposableActionField`1">
             <summary>
@@ -980,6 +981,14 @@
             <typeparam name="TException">Special type TException.</typeparam>
             <param name="assertion">Predicate.</param>
             <param name="exceptionParams">Parameters for exception.</param>
+        </member>
+        <member name="M:Cosmos.Judgments.AssertionJudgment.Require2Validation``1(System.Boolean,System.Object[])">
+            <summary>
+            Require.
+            </summary>
+            <param name="assertion"></param>
+            <param name="exceptionParams"></param>
+            <typeparam name="TException"></typeparam>
         </member>
         <member name="M:Cosmos.Judgments.AssertionJudgment.Require3``1(System.Boolean,Cosmos.CosmosExceptionOptions)">
             <summary>
@@ -2154,6 +2163,408 @@
             Dispose
             </summary>
         </member>
+        <member name="T:Cosmos.Validations.ValidationExceptionExtensions">
+            <summary>
+            Validation exception extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentNullException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+            <exception cref="T:Cosmos.Validations.ValidationException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentOutOfRangeException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentInvalidException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="T:Cosmos.Validations.ValidationErrors">
+            <summary>
+            Validation Error Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Null(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Null(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Null(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Null(System.ArgumentNullException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.NullAndRaise">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.NullAndRaise(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.NullAndRaise(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.NullAndRaise(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.NullAndRaise(System.ArgumentNullException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="exception"></param>
+            <exception cref="T:Cosmos.Validations.ValidationException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRange(System.String,System.Object,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="actualValue"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRange(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRange(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRange(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRange(System.ArgumentOutOfRangeException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRangeAndRaise">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRangeAndRaise(System.String,System.Object,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="actualValue"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRangeAndRaise(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRangeAndRaise(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRangeAndRaise(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.OutOfRangeAndRaise(System.ArgumentOutOfRangeException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Invalid(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Invalid(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Invalid(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.Invalid(System.ArgumentInvalidException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.InvalidAndRaise">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.InvalidAndRaise(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.InvalidAndRaise(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.InvalidAndRaise(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationErrors.InvalidAndRaise(System.ArgumentInvalidException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="exception"></param>
+            <exception cref="T:Cosmos.Validations.ValidationException"></exception>
+        </member>
+        <member name="T:Cosmos.Validations.ValidationException">
+            <summary>
+            Validation exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="flag"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.String,System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="flag"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Int64,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="info"></param>
+            <param name="streamingContext"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.#ctor(Cosmos.CosmosExceptionOptions)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validations.ValidationException"/>.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validations.ValidationException.ValidationMessage">
+            <summary>
+            Gets validation message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.GetFullMessage">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validations.ValidationException.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Verba.Boolean.DefaultBooleanVerba">
             <summary>
             Default global boolean verba
@@ -2906,6 +3317,35 @@
             Two years <br />
             两年
             </summary>
+        </member>
+        <member name="T:System.ArgumentInvalidException">
+            <summary>
+            The exception that is thrown when a invalid parameter is passed to a method that does not accept it as a valid argument.
+            </summary>
+        </member>
+        <member name="M:System.ArgumentInvalidException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ArgumentInvalidException"></see> class.
+            </summary>
+        </member>
+        <member name="M:System.ArgumentInvalidException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Initializes a new instance of the <see cref="T:System.ArgumentInvalidException"></see> class with serialized data.</summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">An object that describes the source or destination of the serialized data.</param>
+        </member>
+        <member name="M:System.ArgumentInvalidException.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:System.ArgumentInvalidException"></see> class with the name of the parameter that causes this exception.</summary>
+            <param name="paramName">The name of the parameter that caused the exception.</param>
+        </member>
+        <member name="M:System.ArgumentInvalidException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance of the <see cref="T:System.ArgumentInvalidException"></see> class with a specified error message and the exception that is the cause of this exception.</summary>
+            <param name="message">The error message that explains the reason for this exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:System.ArgumentInvalidException.#ctor(System.String,System.String)">
+            <summary>Initializes an instance of the <see cref="T:System.ArgumentInvalidException"></see> class with a specified error message and the name of the parameter that causes this exception.</summary>
+            <param name="paramName">The name of the parameter that caused the exception.</param>
+            <param name="message">A message that describes the error.</param>
         </member>
     </members>
 </doc>

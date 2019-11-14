@@ -13,19 +13,13 @@ namespace Cosmos.Serialization.ProtoBuf
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static byte[] ToProtoBytes(this object obj)
-        {
-            return ProtobufHelper.Serialize(obj);
-        }
+        public static byte[] ToProtoBytes(this object obj) => ProtobufHelper.Serialize(obj);
 
         /// <summary>
         /// To ProtoBuf async
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static Task<byte[]> ToProtoBytesAsync(this object obj)
-        {
-            return ProtobufHelper.SerializeAsync(obj);
-        }
+        public static Task<byte[]> ToProtoBytesAsync(this object obj) => ProtobufHelper.SerializeAsync(obj);
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using Cosmos.Validations;
 
 namespace Cosmos.Judgments
 {
@@ -38,6 +40,29 @@ namespace Cosmos.Judgments
 
             var exception = Types.CreateInstance<TException>(exceptionParams);
             throw exception;
+        }
+
+        /// <summary>
+        /// Require.
+        /// </summary>
+        /// <param name="assertion"></param>
+        /// <param name="exceptionParams"></param>
+        /// <typeparam name="TException"></typeparam>
+        [SuppressMessage("ReSharper", "InconsistentNaming")]
+        public static void Require2Validation<TException>(bool assertion, params object[] exceptionParams) where TException : Exception
+        {
+            if (assertion)
+                return;
+
+            var exception = Types.CreateInstance<TException>(exceptionParams);
+
+            throw exception switch
+            {
+                ArgumentNullException __exception_01 => (Exception) ValidationErrors.Null(__exception_01),
+                ArgumentOutOfRangeException __exception_02 => ValidationErrors.OutOfRange(__exception_02),
+                ArgumentInvalidException __exception_03 => ValidationErrors.Invalid(__exception_03),
+                _ => exception
+            };
         }
 
         /// <summary>

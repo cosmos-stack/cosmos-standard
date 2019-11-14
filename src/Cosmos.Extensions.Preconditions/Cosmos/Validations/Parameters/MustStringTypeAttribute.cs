@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
+using Cosmos.Judgments;
 using Cosmos.Validations.Parameters.Internals;
 
 namespace Cosmos.Validations.Parameters
@@ -22,11 +23,13 @@ namespace Cosmos.Validations.Parameters
         /// <param name="context"></param>
         /// <param name="next"></param>
         /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentInvalidException"></exception>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
-            if (context.Parameter.Type.IsNot(TypeClass.StringClass))
-                throw new ArgumentException(Message, context.Parameter.Name);
+
+            AssertionJudgment.Require2Validation<ArgumentInvalidException>(
+                context.Parameter.Type.Is(TypeClass.StringClass),
+                Message, context.Parameter.Name);
             return next(context);
         }
     }

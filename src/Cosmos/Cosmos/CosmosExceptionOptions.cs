@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Cosmos
 {
@@ -43,5 +42,10 @@ namespace Cosmos
         /// Gets or sets inner exception.
         /// </summary>
         public Exception InnerException { get; set; }
+
+        /// <summary>
+        /// Gets or sets extra errors
+        /// </summary>
+        public Dictionary<string, object> ExtraErrors { get; set; } = new Dictionary<string, object>();
     }
 }

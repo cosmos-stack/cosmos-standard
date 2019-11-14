@@ -16,10 +16,7 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="data"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromMsgPack<T>(this byte[] data)
-        {
-            return MsgPackCliHelper.Deserialize<T>(data);
-        }
+        public static T FromMsgPack<T>(this byte[] data) => MsgPackCliHelper.Deserialize<T>(data);
 
         /// <summary>
         /// From message pack
@@ -27,10 +24,7 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="data"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object FromMsgPack(this byte[] data, Type type)
-        {
-            return MsgPackCliHelper.Deserialize(data, type);
-        }
+        public static object FromMsgPack(this byte[] data, Type type) => MsgPackCliHelper.Deserialize(data, type);
 
         /// <summary>
         /// From message pack async
@@ -38,10 +32,7 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="data"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromMsgPackAsync<T>(this byte[] data)
-        {
-            return MsgPackCliHelper.DeserializeAsync<T>(data);
-        }
+        public static Task<T> FromMsgPackAsync<T>(this byte[] data) => MsgPackCliHelper.DeserializeAsync<T>(data);
 
         /// <summary>
         /// From message pack async
@@ -49,9 +40,6 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="data"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Task<object> FromMsgPackAsync(this byte[] data, Type type)
-        {
-            return MsgPackCliHelper.DeserializeAsync(data, type);
-        }
+        public static Task<object> FromMsgPackAsync(this byte[] data, Type type) => MsgPackCliHelper.DeserializeAsync(data, type);
     }
 }

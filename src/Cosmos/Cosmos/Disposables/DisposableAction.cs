@@ -19,14 +19,10 @@ namespace Cosmos.Disposables
             _action = action;
         }
 
-        /// <summary>
-        /// Invoke the disposable action
-        /// </summary>
+        /// <inheritdoc />
         public void Invoke() => _action?.Invoke();
 
-        /// <summary>
-        /// Dispose
-        /// </summary>
+        /// <inheritdoc />
         public void Dispose()
         {
             Invoke();

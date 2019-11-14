@@ -10,7 +10,7 @@ namespace Cosmos.Serialization.Binary
 
         public static BinaryFormatter GetBinaryFormatter()
         {
-            return _binaryFormatter ?? (_binaryFormatter = new BinaryFormatter());
+            return _binaryFormatter ??= new BinaryFormatter();
         }
     }
 }

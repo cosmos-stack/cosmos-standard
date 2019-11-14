@@ -45,5 +45,11 @@ namespace Cosmos.Validations.Abstractions
         /// </summary>
         /// <returns></returns>
         string ToMessage();
+
+        /// <summary>
+        /// To valdation messages
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<string> ToValidationMessages();
     }
 }

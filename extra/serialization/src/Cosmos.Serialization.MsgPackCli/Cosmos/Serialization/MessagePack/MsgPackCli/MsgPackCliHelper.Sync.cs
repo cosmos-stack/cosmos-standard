@@ -19,10 +19,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (t == null)
                 return new byte[0];
 
-            using (var stream = Pack(t))
-            {
-                return StreamToBytes(stream);
-            }
+            using var stream = Pack(t);
+            return StreamToBytes(stream);
         }
 
         /// <summary>
@@ -36,10 +34,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (obj is null)
                 return new byte[0];
 
-            using (var stream = Pack(obj, type))
-            {
-                return StreamToBytes(stream);
-            }
+            using var stream = Pack(obj, type);
+            return StreamToBytes(stream);
         }
 
         /// <summary>
@@ -53,10 +49,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (data is null || data.Length == 0)
                 return default;
 
-            using (var ms = new MemoryStream(data))
-            {
-                return Unpack<T>(ms);
-            }
+            using var ms = new MemoryStream(data);
+            return Unpack<T>(ms);
         }
 
         /// <summary>
@@ -70,10 +64,8 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             if (data is null || data.Length == 0)
                 return null;
 
-            using (var ms = new MemoryStream(data))
-            {
-                return Unpack(ms, type);
-            }
+            using var ms = new MemoryStream(data);
+            return Unpack(ms, type);
         }
     }
 }

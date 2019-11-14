@@ -187,7 +187,7 @@ namespace Cosmos
             => Types.IsGenericImplementation(givenType, genericType);
 
         /// <summary>
-        /// To judge the <see cref="givenType"/> is assignable to the <see cref="genericType"/> or not
+        /// To judge the <paramref name="givenType"/> is assignable to the <paramref name="genericType"/> or not
         /// </summary>
         /// <param name="givenType">给定类型</param>
         /// <param name="genericType">泛型类型</param>
@@ -196,7 +196,7 @@ namespace Cosmos
             => Types.IsGenericImplementation(genericType, genericType);
 
         /// <summary>
-        /// To judge the <see cref="givenType"/> is assignable to the <see cref="TGeneric"/> or not
+        /// To judge the <paramref name="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
         /// </summary>
         /// <typeparam name="TGeneric">泛型类型</typeparam>
         /// <param name="givenType">给定类型</param>
@@ -205,7 +205,7 @@ namespace Cosmos
             => Types.IsGenericImplementation(givenType, typeof(TGeneric));
 
         /// <summary>
-        /// To judge the <see cref="givenType"/> is assignable to the <see cref="TGeneric"/> or not
+        /// To judge the <paramref name="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
         /// </summary>
         /// <typeparam name="TGeneric">泛型类型</typeparam>
         /// <param name="givenType">给定类型</param>
@@ -223,7 +223,7 @@ namespace Cosmos
             => Types.IsGenericImplementation(givenType, genericType);
 
         /// <summary>
-        /// To judge the <see cref="givenType"/> is assignable to the <see cref="genericType"/> or not
+        /// To judge the <paramref name="givenType"/> is assignable to the <paramref name="genericType"/> or not
         /// </summary>
         /// <param name="givenType">给定类型</param>
         /// <param name="genericType">泛型类型</param>
@@ -232,7 +232,7 @@ namespace Cosmos
             => Types.IsGenericImplementation(genericType, genericType);
 
         /// <summary>
-        /// To judge the <see cref="givenType"/> is assignable to the <see cref="TGeneric"/> or not
+        /// To judge the <paramref name="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
         /// </summary>
         /// <typeparam name="TGeneric">泛型类型</typeparam>
         /// <param name="givenType">给定类型</param>
@@ -241,7 +241,7 @@ namespace Cosmos
             => Types.IsGenericImplementation(givenType, typeof(TGeneric));
 
         /// <summary>
-        /// To judge the <see cref="givenType"/> is assignable to the <see cref="TGeneric"/> or not
+        /// To judge the <paramref nae="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
         /// </summary>
         /// <typeparam name="TGeneric">泛型类型</typeparam>
         /// <param name="givenType">给定类型</param>

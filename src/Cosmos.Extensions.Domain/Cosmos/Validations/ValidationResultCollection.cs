@@ -13,9 +13,9 @@ namespace Cosmos.Validations
     /// </summary>
     public class ValidationResultCollection : IValidationResult
     {
-        private const string UNAMED = "unamed";
+        private const string NONAME = "unamed";
         private readonly List<ValidationResult> _results;
-        private readonly IDictionary<string, List<ValidationResult>> _resultsFlagedByStrategy;
+        private readonly IDictionary<string, List<ValidationResult>> _resultsFlaggedByStrategy;
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationResultCollection"/>.
@@ -23,8 +23,8 @@ namespace Cosmos.Validations
         public ValidationResultCollection()
         {
             _results = new List<ValidationResult>();
-            _resultsFlagedByStrategy = new Dictionary<string, List<ValidationResult>>();
-            UpdateResultFlagedByStrategy(UNAMED, new List<ValidationResult>());
+            _resultsFlaggedByStrategy = new Dictionary<string, List<ValidationResult>>();
+            UpdateResultFlaggedByStrategy(NONAME, new List<ValidationResult>());
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Cosmos.Validations
             if (result == null)
                 throw new ArgumentNullException(nameof(result));
             _results.Add(result);
-            UpdateResultFlagedByStrategy(UNAMED, result);
+            UpdateResultFlaggedByStrategy(NONAME, result);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Cosmos.Validations
             if (result == null)
                 throw new ArgumentNullException(nameof(result));
             _results.Add(result);
-            UpdateResultFlagedByStrategy(strategyName, result);
+            UpdateResultFlaggedByStrategy(strategyName, result);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Cosmos.Validations
             if (results == null)
                 throw new ArgumentNullException(nameof(results));
             _results.AddRange(results);
-            UpdateResultFlagedByStrategy(UNAMED, results.ToList());
+            UpdateResultFlaggedByStrategy(NONAME, results.ToList());
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Cosmos.Validations
             if (results == null)
                 throw new ArgumentNullException(nameof(results));
             _results.AddRange(results);
-            UpdateResultFlagedByStrategy(strategyName, results.ToList());
+            UpdateResultFlaggedByStrategy(strategyName, results.ToList());
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace Cosmos.Validations
             ErrorCode = collection.ErrorCode;
             Flag = collection.Flag;
             _results = collection._results;
-            UpdateResultFlagedByStrategy(collection);
+            UpdateResultFlaggedByStrategy(collection);
         }
 
         /// <inheritdoc />
@@ -128,23 +128,46 @@ namespace Cosmos.Validations
         /// <inheritdoc />
         public string ToMessage()
         {
+            var builder = new StringBuilder();
+
             if (IsValid)
-                return string.Empty;
+                builder.Append("No errors were found during verification.");
+            else if (Count == 1)
+                builder.Append("An error was found during verification, please check the details.");
+            else
+                builder.Append($"{Count} errors were found during verification, please check the details.");
 
-            var sb = new StringBuilder();
-            sb.AppendLine($"Code: {ErrorCode}");
-            sb.AppendLine($"Flag: {Flag}");
-            foreach (var result in _results)
-                sb.Append(GetErrorString(result));
+            builder.AppendLine();
+            builder.Append($" (code: {ErrorCode}, Flag: {Flag})");
 
-            return sb.ToString();
+            return builder.ToString();
         }
 
-        private StringBuilder GetErrorString(ValidationResult result)
+        /// <inheritdoc />
+        public IEnumerable<string> ToValidationMessages()
         {
+            return IsValid ? Enumerable.Empty<string>() : __getErrorStringList();
+
+            // ReSharper disable once InconsistentNaming
+            IEnumerable<string> __getErrorStringList()
+            {
+                foreach (var error in _results.SelectMany(result => result.Errors))
+                {
+                    yield return $"{error.PropertyName}, {error.ErrorMessage}";
+                }
+            }
+        }
+
+        private StringBuilder GetErrorString(int spaceCount = 0)
+        {
+            var space = Strings.Repeat(' ', spaceCount);
+
             var sb = new StringBuilder();
-            foreach (var error in result.Errors)
-                sb.AppendLine($"{error.PropertyName}, {error.ErrorMessage}");
+
+            foreach (var error in _results.SelectMany(result => result.Errors))
+            {
+                sb.AppendLine($"{space}{error.PropertyName}, {error.ErrorMessage}");
+            }
 
             return sb;
         }
@@ -163,38 +186,46 @@ namespace Cosmos.Validations
         /// <inheritdoc />
         public override string ToString()
         {
-            return ToMessage();
+            var builder = new StringBuilder();
+
+            builder.AppendLine(ToMessage());
+            builder.AppendLine("Detail(s):");
+
+            builder.Append(GetErrorString(6));
+            builder.AppendLine();
+
+            return builder.ToString();
         }
 
-        private void UpdateResultFlagedByStrategy(ValidationResultCollection coll)
+        private void UpdateResultFlaggedByStrategy(ValidationResultCollection coll)
         {
-            foreach (var set in coll._resultsFlagedByStrategy)
+            foreach (var set in coll._resultsFlaggedByStrategy)
             {
-                UpdateResultFlagedByStrategy(set.Key, set.Value);
+                UpdateResultFlaggedByStrategy(set.Key, set.Value);
             }
         }
 
-        private void UpdateResultFlagedByStrategy(string name, List<ValidationResult> results)
+        private void UpdateResultFlaggedByStrategy(string name, List<ValidationResult> results)
         {
-            if (_resultsFlagedByStrategy.ContainsKey(name))
+            if (_resultsFlaggedByStrategy.ContainsKey(name))
             {
-                _resultsFlagedByStrategy[name].AddRange(results);
+                _resultsFlaggedByStrategy[name].AddRange(results);
             }
             else
             {
-                _resultsFlagedByStrategy.Add(name, results);
+                _resultsFlaggedByStrategy.Add(name, results);
             }
         }
 
-        private void UpdateResultFlagedByStrategy(string name, ValidationResult result)
+        private void UpdateResultFlaggedByStrategy(string name, ValidationResult result)
         {
-            if (_resultsFlagedByStrategy.ContainsKey(name))
+            if (_resultsFlaggedByStrategy.ContainsKey(name))
             {
-                _resultsFlagedByStrategy[name].Add(result);
+                _resultsFlaggedByStrategy[name].Add(result);
             }
             else
             {
-                _resultsFlagedByStrategy.Add(name, new List<ValidationResult> {result});
+                _resultsFlaggedByStrategy.Add(name, new List<ValidationResult> {result});
             }
         }
 
@@ -209,9 +240,9 @@ namespace Cosmos.Validations
         internal ValidationResultCollection Filter(string strategyName)
         {
             if (string.IsNullOrWhiteSpace(strategyName))
-                strategyName = UNAMED;
+                strategyName = NONAME;
 
-            return _resultsFlagedByStrategy.TryGetValue(strategyName, out var ret)
+            return _resultsFlaggedByStrategy.TryGetValue(strategyName, out var ret)
                 ? new ValidationResultCollection(ret)
                 : null;
         }

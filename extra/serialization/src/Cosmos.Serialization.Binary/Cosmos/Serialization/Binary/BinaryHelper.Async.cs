@@ -15,10 +15,8 @@ namespace Cosmos.Serialization.Binary
         /// <returns></returns>
         public static async Task<byte[]> SerializeAsync(object obj)
         {
-            using (var stream = await PackAsync(obj))
-            {
-                return await StreamToBytesAsync(stream);
-            }
+            using var stream = await PackAsync(obj);
+            return await StreamToBytesAsync(stream);
         }
 
         /// <summary>
@@ -42,10 +40,8 @@ namespace Cosmos.Serialization.Binary
             if (bytes is null || bytes.Length is 0)
                 return default;
 
-            using (var ms = new MemoryStream(bytes))
-            {
-                return await UnpackAsync(ms);
-            }
+            using var ms = new MemoryStream(bytes);
+            return await UnpackAsync(ms);
         }
     }
 }

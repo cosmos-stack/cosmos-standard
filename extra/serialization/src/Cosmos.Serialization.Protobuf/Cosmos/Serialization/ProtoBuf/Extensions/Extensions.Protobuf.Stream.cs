@@ -14,19 +14,13 @@ namespace Cosmos.Serialization.ProtoBuf
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static Stream ToProtoStream(this object obj)
-        {
-            return ProtobufHelper.Pack(obj);
-        }
+        public static Stream ToProtoStream(this object obj) => ProtobufHelper.Pack(obj);
 
         /// <summary>
         /// To ProtoBuf stream async
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static async Task<Stream> ToStreamAsync(this object obj)
-        {
-            return await ProtobufHelper.PackAsync(obj);
-        }
+        public static async Task<Stream> ToStreamAsync(this object obj) => await ProtobufHelper.PackAsync(obj);
     }
 }

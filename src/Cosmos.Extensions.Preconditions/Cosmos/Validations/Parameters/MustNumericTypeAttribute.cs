@@ -27,14 +27,14 @@ namespace Cosmos.Validations.Parameters
         /// <param name="context"></param>
         /// <param name="next"></param>
         /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentInvalidException"></exception>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             var condition = MayBeNullable
                 ? TypeJudgment.IsNumericType(context.Parameter.Type)
                 : TypeJudgment.IsNumericType(context.Parameter.Type) && !TypeJudgment.IsNullableType(context.Parameter.Type);
-            if (condition)
-                throw new ArgumentException(Message, context.Parameter.Name);
+            AssertionJudgment.Require2Validation<ArgumentInvalidException>(condition,
+                Message, context.Parameter.Name);
             return next(context);
         }
     }

@@ -139,10 +139,8 @@ namespace Cosmos.Serialization.Json.Jil
             if (string.IsNullOrWhiteSpace(json))
                 return null;
 
-            using (var reader = new StringReader(json))
-            {
-                return await Task.Run(() => JSON.Deserialize(reader, type, options ?? JilManager.DefaultOptions));
-            }
+            using var reader = new StringReader(json);
+            return await Task.Run(() => JSON.Deserialize(reader, type, options ?? JilManager.DefaultOptions));
         }
 
         /// <summary>

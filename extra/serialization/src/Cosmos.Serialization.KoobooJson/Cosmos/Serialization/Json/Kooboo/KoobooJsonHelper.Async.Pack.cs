@@ -41,11 +41,11 @@ namespace Cosmos.Serialization.Json.Kooboo
             if (o is null)
                 return;
 
-            var bytes = await KoobooJsonHelper.SerializeToBytesAsync(o, option);
+            var bytes = await SerializeToBytesAsync(o, option);
 
             await stream.WriteAsync(bytes, 0, bytes.Length);
         }
-        
+
         /// <summary>
         /// Unpack async
         /// </summary>
@@ -57,7 +57,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         {
             return stream is null
                 ? default
-                : await KoobooJsonHelper.DeserializeAsync<T>(KoobooManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), option);
+                : await DeserializeAsync<T>(KoobooManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), option);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         {
             return stream is null
                 ? default
-                : await KoobooJsonHelper.DeserializeAsync(KoobooManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), type, option);
+                : await DeserializeAsync(KoobooManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), type, option);
         }
 
         private static async Task<byte[]> StreamToBytesAsync(Stream stream)

@@ -10,6 +10,7 @@ namespace Cosmos
         /// <summary>
         /// Property set and property get methods require a special set of attributes.
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         private const MethodAttributes PROPERTY_GET_SET_METHOD_ATTRIBUTES = MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.HideBySig;
 
         /// <summary>

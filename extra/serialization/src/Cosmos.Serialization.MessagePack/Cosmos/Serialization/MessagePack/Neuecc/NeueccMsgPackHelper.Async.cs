@@ -21,11 +21,9 @@ namespace Cosmos.Serialization.MessagePack.Neuecc
             if (t == null)
                 return new byte[0];
 
-            using (var ms = new MemoryStream())
-            {
-                await MessagePackSerializer.SerializeAsync(ms, t);
-                return await StreamToBytesAsync(ms);
-            }
+            using var ms = new MemoryStream();
+            await MessagePackSerializer.SerializeAsync(ms, t);
+            return await StreamToBytesAsync(ms);
         }
 
         /// <summary>
@@ -53,10 +51,8 @@ namespace Cosmos.Serialization.MessagePack.Neuecc
             if (data is null || data.Length == 0)
                 return default;
 
-            using (var ms = new MemoryStream(data))
-            {
-                return await MessagePackSerializer.DeserializeAsync<T>(ms);
-            }
+            using var ms = new MemoryStream(data);
+            return await MessagePackSerializer.DeserializeAsync<T>(ms);
         }
 
         /// <summary>

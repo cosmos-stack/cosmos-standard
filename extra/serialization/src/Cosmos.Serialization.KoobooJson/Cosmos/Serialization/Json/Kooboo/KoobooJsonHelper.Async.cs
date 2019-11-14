@@ -160,7 +160,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="data"></param>
         /// <param name="option"></param>
         /// <returns></returns>
-        public async static Task<T> DeserializeFromBytesAsync<T>(byte[] data, JsonDeserializeOption option = null)
+        public static async Task<T> DeserializeFromBytesAsync<T>(byte[] data, JsonDeserializeOption option = null)
         {
             return data is null || data.Length is 0
                 ? default

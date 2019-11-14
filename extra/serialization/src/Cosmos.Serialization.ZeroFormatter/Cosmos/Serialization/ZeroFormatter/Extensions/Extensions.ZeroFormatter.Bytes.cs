@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Serialization.ZeroFormatter
 {
+    using Z = ZeroFormatterHelper;
+
     /// <summary>
     /// ZeroFormatter extensions
     /// </summary>
@@ -15,10 +17,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="data"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromZeroFormatter<T>(this byte[] data)
-        {
-            return ZeroFormatterHelper.Deserialize<T>(data);
-        }
+        public static T FromZeroFormatter<T>(this byte[] data) => Z.Deserialize<T>(data);
 
         /// <summary>
         /// From ZeroFormatter 
@@ -26,10 +25,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="data"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object FromZeroFormatter(this byte[] data, Type type)
-        {
-            return ZeroFormatterHelper.Deserialize(data, type);
-        }
+        public static object FromZeroFormatter(this byte[] data, Type type) => Z.Deserialize(data, type);
 
         /// <summary>
         /// From ZeroFormatter async
@@ -37,10 +33,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="data"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromZeroFormatterAsync<T>(this byte[] data)
-        {
-            return ZeroFormatterHelper.DeserializeAsync<T>(data);
-        }
+        public static Task<T> FromZeroFormatterAsync<T>(this byte[] data) => Z.DeserializeAsync<T>(data);
 
         /// <summary>
         /// From ZeroFormatter async
@@ -48,9 +41,6 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="data"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Task<object> FromZeroFormatterAsync(this byte[] data, Type type)
-        {
-            return ZeroFormatterHelper.DeserializeAsync(data, type);
-        }
+        public static Task<object> FromZeroFormatterAsync(this byte[] data, Type type) => Z.DeserializeAsync(data, type);
     }
 }

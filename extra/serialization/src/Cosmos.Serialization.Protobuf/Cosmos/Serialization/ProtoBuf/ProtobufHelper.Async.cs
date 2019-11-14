@@ -19,10 +19,8 @@ namespace Cosmos.Serialization.ProtoBuf
             if (obj is null)
                 return new byte[0];
 
-            using (var stream = await PackAsync(obj))
-            {
-                return await StreamToBytesAsync(stream);
-            }
+            using var stream = await PackAsync(obj);
+            return await StreamToBytesAsync(stream);
         }
 
         /// <summary>
@@ -50,10 +48,8 @@ namespace Cosmos.Serialization.ProtoBuf
             if (data is null || data.Length == 0)
                 return default;
 
-            using (var ms = new MemoryStream(data))
-            {
-                return await UnpackAsync(ms, type);
-            }
+            using var ms = new MemoryStream(data);
+            return await UnpackAsync(ms, type);
         }
     }
 }

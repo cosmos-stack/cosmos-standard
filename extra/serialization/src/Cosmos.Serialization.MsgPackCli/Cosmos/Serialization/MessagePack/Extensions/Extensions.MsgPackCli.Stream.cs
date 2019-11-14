@@ -17,10 +17,7 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="t"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream ToMsgPackStream<T>(this T t)
-        {
-            return MsgPackCliHelper.Pack(t);
-        }
+        public static Stream ToMsgPackStream<T>(this T t) => MsgPackCliHelper.Pack(t);
 
         /// <summary>
         /// To stream
@@ -28,10 +25,7 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Stream ToMsgPackStream(this object obj, Type type)
-        {
-            return MsgPackCliHelper.Pack(obj, type);
-        }
+        public static Stream ToMsgPackStream(this object obj, Type type) => MsgPackCliHelper.Pack(obj, type);
 
         /// <summary>
         /// To stream
@@ -39,10 +33,7 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="t"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> ToMsgPackStreamAsync<T>(this T t)
-        {
-            return await MsgPackCliHelper.PackAsync(t);
-        }
+        public static async Task<Stream> ToMsgPackStreamAsync<T>(this T t) => await MsgPackCliHelper.PackAsync(t);
 
         /// <summary>
         /// To stream
@@ -50,9 +41,6 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static async Task<Stream> ToMsgPackStreamAsync(this object obj, Type type)
-        {
-            return await MsgPackCliHelper.PackAsync(obj, type);
-        }
+        public static async Task<Stream> ToMsgPackStreamAsync(this object obj, Type type) => await MsgPackCliHelper.PackAsync(obj, type);
     }
 }
