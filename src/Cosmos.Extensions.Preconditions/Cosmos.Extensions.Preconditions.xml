@@ -1217,32 +1217,34 @@
         </member>
         <member name="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation">
             <summary>
-            Parameter type validation
+            Parameter type validation<br />
+            参数类型验证
             </summary>
         </member>
         <member name="M:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.#ctor(System.Boolean,System.Type)">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation"/>
+            Create a new instance of <see cref="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation"/><br />
+            创建一个参数类型验证实例
             </summary>
             <param name="result"></param>
             <param name="parameterType"></param>
         </member>
         <member name="P:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.Result">
-            <summary>
-            Result
-            </summary>
+            <inheritdoc />
         </member>
         <member name="P:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.ParameterType">
             <summary>
-            Parameter type
+            Gets parameter type<br />
+            获取参数类型
             </summary>
         </member>
         <member name="M:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation.op_Implicit(Cosmos.Validations.Parameters.Internals.ParameterTypeValidation)~System.Boolean">
             <summary>
-            Convert instance of <see cref="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation"/> to <see cref="T:System.Boolean"/>.
+            Convert instance of <see cref="T:Cosmos.Validations.Parameters.Internals.ParameterTypeValidation"/> to <see cref="T:System.Boolean"/>.<br />
+            隐式转换为布尔值
             </summary>
-            <param name="result"></param>
-            <returns></returns>
+            <param name="result">被转换的参数类型验证对象</param>
+            <returns>返回布尔值结果</returns>
         </member>
         <member name="T:Cosmos.Validations.Parameters.MustIntAttribute">
             <summary>

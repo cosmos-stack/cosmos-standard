@@ -15,249 +15,297 @@
             DbSet Meta Interface<br />
             DbSet 元接口
             </summary>
-            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TEntity">指定的实体类型</typeparam>
         </member>
         <member name="T:Cosmos.Disposables.IAsynchronousDisposableAction">
             <summary>
-            Asynchronous Disposable action
+            Asynchronous Disposable action<br />
+            异步释放 Action 接口
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.IAsynchronousDisposableAction.InvokeAsync">
             <summary>
-            Invoke the disposable action async
+            Invoke the disposable action async<br />
+            执行异步释放工作
             </summary>
         </member>
         <member name="T:Cosmos.Disposables.IDisposableAction">
             <summary>
-            Disposable action
+            Disposable action<br />
+            同步释放 Action 接口
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.IDisposableAction.Invoke">
             <summary>
-            Invoke the disposable action
+            Invoke the disposable action<br />
+            执行同步释放工作
             </summary>
         </member>
         <member name="T:Cosmos.IObjectMapper">
             <summary>
-            Object Mapper Meta Interface
+            Object Mapper Meta Interface<br />
+            对象映射元接口
             </summary>
         </member>
         <member name="M:Cosmos.IObjectMapper.MapTo``2(``0)">
             <summary>
-            Map to
+            Map to<br />
+            映射至……
             </summary>
-            <typeparam name="TFrom"></typeparam>
-            <typeparam name="TTo"></typeparam>
-            <param name="fromObject"></param>
-            <returns></returns>
+            <typeparam name="TFrom">从何种类型开始映射</typeparam>
+            <typeparam name="TTo">映射至何种类型</typeparam>
+            <param name="fromObject">被映射的对象</param>
+            <returns>映射结果</returns>
         </member>
         <member name="M:Cosmos.IObjectMapper.MapTo``2(``0,``1)">
             <summary>
-            Map to
+            Map to<br />
+            映射至……
             </summary>
-            <typeparam name="TFrom"></typeparam>
-            <typeparam name="TTo"></typeparam>
-            <param name="fromObject"></param>
-            <param name="toInstance"></param>
-            <returns></returns>
+            <typeparam name="TFrom">从何种类型开始映射</typeparam>
+            <typeparam name="TTo">映射至何种类型</typeparam>
+            <param name="fromObject">被映射的对象</param>
+            <param name="toInstance">映射至的对象</param>
+            <returns>映射结果，将返回 <paramref name="toInstance"/> 实例</returns>
         </member>
         <member name="T:Cosmos.IOperationResult`1">
             <summary>
-            Opt result
+            Opt result<br />
+            操作结果接口
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">指定的操作结果的类型</typeparam>
         </member>
         <member name="P:Cosmos.IOperationResult`1.Result">
             <summary>
-            Operation result
+            Gets operation result<br />
+            获取操作结果
             </summary>
         </member>
         <member name="T:Cosmos.ITypeConverter`2">
             <summary>
-            Type Converter Meta Interface
+            Type Converter Meta Interface<br />
+            类型转换元接口
             </summary>
-            <typeparam name="TFrom"></typeparam>
-            <typeparam name="TTo"></typeparam>
+            <typeparam name="TFrom">自何类型开始转换</typeparam>
+            <typeparam name="TTo">转换至何类型</typeparam>
         </member>
         <member name="M:Cosmos.ITypeConverter`2.To(`0)">
             <summary>
-            To
+            To<br />
+            类型转换至……
             </summary>
-            <param name="from"></param>
-            <returns></returns>
+            <param name="from">被转换的对象</param>
+            <returns>类型转换的结果</returns>
         </member>
         <member name="T:Cosmos.Serialization.IJsonSerializer">
             <summary>
-            Interface of Json serializer
+            Interface of Json serializer<br />
+            Json 序列化器接口
             </summary>
         </member>
         <member name="T:Cosmos.Serialization.IMessagePackSerializer">
             <summary>
-            Interface of MessagePack serializer
+            Interface of MessagePack serializer<br />
+            MessagePack 序列化器接口
             </summary>
         </member>
         <member name="T:Cosmos.Serialization.IObjectSerializer`1">
             <summary>
-            Object Serializer Meta Interface
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
             </summary>
-            <typeparam name="TSerializedType"></typeparam>
+            <typeparam name="TSerializedType">指定的目标序列化类型</typeparam>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.Serialize``1(``0)">
             <summary>
-            Serialize
+            Serialize<br />
+            序列化
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="o"></param>
-            <returns></returns>
+            <typeparam name="T">指定的序列化对象类型</typeparam>
+            <param name="o">被序列化对象</param>
+            <returns>序列化结果</returns>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.Deserialize``1(`0)">
             <summary>
-            Deserialize
+            Deserialize<br />
+            反序列化
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="data"></param>
-            <returns></returns>
+            <typeparam name="T">指定的被序列化对象类型</typeparam>
+            <param name="data">被反序列化对象</param>
+            <returns>反序列化结果</returns>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.Deserialize(`0,System.Type)">
             <summary>
-            Deserialize
+            Deserialize<br />
+            反序列化
             </summary>
-            <param name="data"></param>
-            <param name="type"></param>
-            <returns></returns>
+            <param name="data">被反序列化对象</param>
+            <param name="type">指定的被序列化对象类型</param>
+            <returns>反序列化结果</returns>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.SerializeAsync``1(``0)">
             <summary>
-            Serialize
+            Serialize async<br />
+            异步序列化
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="o"></param>
-            <returns></returns>
+            <typeparam name="T">指定的序列化对象类型</typeparam>
+            <param name="o">被序列化对象</param>
+            <returns>序列化结果</returns>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.DeserializeAsync``1(`0)">
             <summary>
-            Deserialize
+            Deserialize async<br />
+            异步反序列化
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="data"></param>
-            <returns></returns>
+            <typeparam name="T">指定的被序列化对象类型</typeparam>
+            <param name="data">被反序列化对象</param>
+            <returns>反序列化结果</returns>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.DeserializeAsync(`0,System.Type)">
             <summary>
-            Deserialize
+            Deserialize async<br />
+            异步反序列化
             </summary>
-            <param name="data"></param>
-            <param name="type"></param>
-            <returns></returns>
+            <param name="data">被反序列化对象</param>
+            <param name="type">指定的被序列化对象类型</param>
+            <returns>反序列化结果</returns>
         </member>
         <member name="T:Cosmos.Serialization.IObjectSerializer">
             <summary>
-            Object Serializer Meta Interface
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
             </summary>
         </member>
         <member name="T:Cosmos.Serialization.IProtobufSerializer">
             <summary>
-            Interface of Protobuf serializer
+            Interface of Protobuf serializer<br />
+            Google ProtoBuf 序列化器接口
             </summary>
         </member>
         <member name="T:Cosmos.Serialization.IXmlSerializer">
             <summary>
-            Interface of XML serializer
+            Interface of XML serializer<br />
+            XML 序列化器接口
             </summary>
         </member>
         <member name="T:Cosmos.Serialization.IZeroFormatterSerializer">
             <summary>
-            Interface of ZeroFormatter serializer
+            Interface of ZeroFormatter serializer<br />
+            ZeroFormatter 序列化器接口
             </summary>
         </member>
         <member name="T:Cosmos.Validations.Parameters.IValidationParameter">
             <summary>
-            Validation parameter
+            Validation parameter<br />
+            验证参数
             </summary>
         </member>
         <member name="P:Cosmos.Validations.Parameters.IValidationParameter.Message">
             <summary>
-            Message
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="T:Cosmos.Verba.IVerba">
             <summary>
-            Verba Meta Interface
+            Verba Meta Interface<br />
+            Cosmos Verba 元接口<br />
+            本接口将在下阶段被 Cosmos.I18N 取代<br />
+            在第二阶段，将基于 Cosmos.I18N 推出独立的 Cosmos.Verba
             </summary>
         </member>
         <member name="P:Cosmos.Verba.IVerba.VerbaName">
             <summary>
-            Verba name
+            Gets verba name<br />
+            获取 Verba 名称
             </summary>
         </member>
         <member name="T:Cosmos.Workflow.IDynamicElement">
             <summary>
-            Dynamic Element Interface
+            Dynamic Element Interface<br />
+            动态元素接口<br />
+            本接口用于 Cosmos.Walker
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicElement.Id">
             <summary>
-            Id
+            Id<br />
+            编号
             </summary>
         </member>
         <member name="T:Cosmos.Workflow.IDynamicElementDesign">
             <summary>
-            Dynamic Element Design Interface
+            Dynamic Element Design Interface<br />
+            动态元素设计接口<br />
+            本接口用于 Cosmos.Walker 与 Cosmos.Flower
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicElementDesign.Id">
             <summary>
-            Id
+            Id<br />
+            编号
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicElementDesign.Name">
             <summary>
-            Name
+            Name<br />
+            名称
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicElementDesign.DisplayTitle">
             <summary>
-            Display Title
+            Display Title<br />
+            用于显示的标题
             </summary>
         </member>
         <member name="T:Cosmos.Workflow.IDynamicForms">
             <summary>
-            Dynamic Forms Interface
+            Dynamic Forms Interface<br />
+            动态表单接口<br />
+            本接口用于 Cosmos.Walker 与 Cosmos.Flower
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicForms.Design">
             <summary>
-            Dynamic Forms Design
+            Dynamic Forms Design<br />
+            动态表单设计稿
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicForms.Title">
             <summary>
-            Title
+            Title<br />
+            动态表单标题
             </summary>
         </member>
         <member name="T:Cosmos.Workflow.IDynamicFormsDesign">
             <summary>
-            Dynamic Forms Design Interface
+            Dynamic Forms Design Interface<br />
+            动态表单设计稿接口<br />
+            本接口用于 Cosmos.Walker 和 Cosmos.Flower
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicFormsDesign.Id">
             <summary>
-            Id
+            Id<br />
+            编号
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicFormsDesign.Name">
             <summary>
-            Name
+            Name<br />
+            名称
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicFormsDesign.DisplayTitle">
             <summary>
-            Display Title
+            Display Title<br />
+            用于展示的标题
             </summary>
         </member>
         <member name="P:Cosmos.Workflow.IDynamicFormsDesign.Elements">
             <summary>
-            Elements
+            Elements<br />
+            元素集合
             </summary>
         </member>
     </members>

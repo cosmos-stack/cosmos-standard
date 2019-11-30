@@ -1,12 +1,14 @@
 namespace Cosmos.Validations.Parameters
 {
     /// <summary>
-    /// Validation parameter
+    /// Validation parameter<br />
+    /// 验证参数
     /// </summary>
     public interface IValidationParameter
     {
         /// <summary>
-        /// Message
+        /// Gets or sets message<br />
+        /// 消息
         /// </summary>
         string Message { get; set; }
     }

@@ -752,7 +752,7 @@ namespace Cosmos.Date
         }
 
         /// <summary>
-        /// Performs an implicit conversion from a <see cref="period"/> to <see cref="DateTimeSpan"/>.
+        /// Performs an implicit conversion from a <see cref="Period"/> to <see cref="DateTimeSpan"/>.
         /// </summary>
         /// <param name="period">The <see cref="Period"/> that will be converted.</param>
         /// <returns>The result of the conversion.</returns>
