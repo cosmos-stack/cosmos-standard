@@ -1,40 +1,46 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\build\common.props" />
+    <Import Project="..\..\build\common.ns20-net461-net451.props"/>
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
-    <RootNamespace />
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp3.0;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <AssemblyName>Cosmos.Extensions.Http</AssemblyName>
-    <PackageId>Cosmos.Extensions.Http</PackageId>
-    <Description>Http extensions for Cosmos base library</Description>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Http</AssemblyName>
+        <PackageId>Cosmos.Extensions.Http</PackageId>
+        <Description>Http extensions for Cosmos base library</Description>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.Http.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.Http.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.Http.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.Http.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
-    <PackageReference Include="System.Reactive" Version="4.2.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="System.Collections.Immutable" Version="1.6.0"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Cosmos.Standard\Cosmos.Standard.csproj" />
-    <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Jil\Cosmos.Serialization.Jil.csproj" />
-    <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.NewtonsoftJson\Cosmos.Serialization.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Protobuf\Cosmos.Serialization.Protobuf.csproj" />
-  </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.0' OR 
+                          '$(TargetFramework)'=='netstandard2.1' OR
+                          '$(TargetFramework)'=='netstandard2.0' OR
+                          '$(TargetFramework)'=='net461'">
+        <PackageReference Include="System.Reactive" Version="4.2.0"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'=='net451'">
+        <PackageReference Include="System.Reactive" Version="3.1.1"/>
+        <PackageReference Include="System.Net.Http" Version="4.3.4"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Standard\Cosmos.Standard.csproj"/>
+        <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Jil\Cosmos.Serialization.Jil.csproj"/>
+        <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.NewtonsoftJson\Cosmos.Serialization.NewtonsoftJson.csproj"/>
+        <ProjectReference Include="..\..\..\serialization\src\Cosmos.Serialization.Protobuf\Cosmos.Serialization.Protobuf.csproj"/>
+    </ItemGroup>
 
 </Project>

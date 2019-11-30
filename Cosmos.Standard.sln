@@ -20,6 +20,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{83D0F22B
 	ProjectSection(SolutionItems) = preProject
 		build\common.props = build\common.props
 		build\version.props = build\version.props
+		build\misc.props = build\misc.props
+		build\package.props = build\package.props
+		build\common.net461-net451.props = build\common.net461-net451.props
+		build\common.net461.props = build\common.net461.props
+		build\common.ns20-net451.props = build\common.ns20-net451.props
+		build\common.ns20-net461-net451.props = build\common.ns20-net461-net451.props
+		build\common.ns20-net461.props = build\common.ns20-net461.props
+		build\common.ns20.props = build\common.ns20.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos", "src\Cosmos\Cosmos.csproj", "{8FE469B4-1086-4708-8CF4-5CCF6645EB20}"
@@ -90,8 +98,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Tests.DateTimeTests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Tests.GuavaTests", "test\Cosmos.Tests.GuavaTests\Cosmos.Tests.GuavaTests.csproj", "{0CB6F0EB-576A-4416-8223-F3865A7970BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-verba", "src-verba", "{54639486-95C8-4CA4-B938-C74C190816BE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Reflection", "src\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj", "{5542C90C-367D-4327-BB7A-A01ACA2A2949}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Serialization.MicrosoftJson", "extra\serialization\src\Cosmos.Serialization.MicrosoftJson\Cosmos.Serialization.MicrosoftJson.csproj", "{F1F0FF53-D295-41FA-83DB-3BC0952362F8}"
@@ -136,17 +142,38 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.Serialization.M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F8932762-6701-4DD4-84F4-FC06CBED066E}"
 ProjectSection(SolutionItems) = preProject
-	extra\dependency\build\common.props = extra\dependency\build\common.props
+	extra\dependency\build\common.net461-net451.props = extra\dependency\build\common.net461-net451.props
+	extra\dependency\build\common.net461.props = extra\dependency\build\common.net461.props
+	extra\dependency\build\common.ns20-net451.props = extra\dependency\build\common.ns20-net451.props
+	extra\dependency\build\common.ns20-net461-net451.props = extra\dependency\build\common.ns20-net461-net451.props
+	extra\dependency\build\common.ns20-net461.props = extra\dependency\build\common.ns20-net461.props
+	extra\dependency\build\common.ns20.props = extra\dependency\build\common.ns20.props
+	extra\dependency\build\misc.props = extra\dependency\build\misc.props
+	extra\dependency\build\package.props = extra\dependency\build\package.props
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{0A45A6AA-B899-4FED-9027-F350A122B015}"
 ProjectSection(SolutionItems) = preProject
-	extra\http\build\common.props = extra\http\build\common.props
+	extra\http\build\common.ns20-net451.props = extra\http\build\common.ns20-net451.props
+	extra\http\build\package.props = extra\http\build\package.props
+	extra\http\build\misc.props = extra\http\build\misc.props
+	extra\http\build\common.ns20-net461.props = extra\http\build\common.ns20-net461.props
+	extra\http\build\common.ns20-net461-net451.props = extra\http\build\common.ns20-net461-net451.props
+	extra\http\build\common.net461-net451.props = extra\http\build\common.net461-net451.props
+	extra\http\build\common.net461.props = extra\http\build\common.net461.props
+	extra\http\build\common.ns20.props = extra\http\build\common.ns20.props
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{61FD55B4-1F7B-43DE-8126-15D926E633BE}"
 ProjectSection(SolutionItems) = preProject
-	extra\serialization\build\common.props = extra\serialization\build\common.props
+	extra\serialization\build\misc.props = extra\serialization\build\misc.props
+	extra\serialization\build\common.ns20.props = extra\serialization\build\common.ns20.props
+	extra\serialization\build\package.props = extra\serialization\build\package.props
+	extra\serialization\build\common.ns20-net461.props = extra\serialization\build\common.ns20-net461.props
+	extra\serialization\build\common.ns20-net451.props = extra\serialization\build\common.ns20-net451.props
+	extra\serialization\build\common.net461-net451.props = extra\serialization\build\common.net461-net451.props
+	extra\serialization\build\common.net461.props = extra\serialization\build\common.net461.props
+	extra\serialization\build\common.ns20-net461-net451.props = extra\serialization\build\common.ns20-net461-net451.props
 EndProjectSection
 EndProject
 Global

@@ -3,7 +3,7 @@
 	<Import Project="version.props" />
 
 	<PropertyGroup Label="Build">
-		<TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+		<TargetFrameworks>net461;net451</TargetFrameworks>
 	</PropertyGroup>
 
 	<Import Project="package.props" />

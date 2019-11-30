@@ -1,13 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="..\..\build\common.props" />
+
+    <Import Project="..\..\build\common.ns20-net461-net451.props" />
+
     <PropertyGroup>
         <AssemblyName>Cosmos.Standard</AssemblyName>
         <PackageId>Cosmos.Standard</PackageId>
         <Description>Cosmos standard library</Description>
-        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-        <LangVersion>7.2</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj" />
