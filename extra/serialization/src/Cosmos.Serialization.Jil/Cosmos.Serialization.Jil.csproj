@@ -1,11 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\..\build\common.props"/>
+    <Import Project="..\..\build\common.ns20-net461-net451.props"/>
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-        <LangVersion>8.0</LangVersion>
-        <RootNamespace/>
+        <TargetFrameworks>netcoreapp3.0;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -25,8 +23,15 @@
         <DocumentationFile>Cosmos.Serialization.Jil.xml</DocumentationFile>
     </PropertyGroup>
 
-    <ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.0' OR 
+                          '$(TargetFramework)'=='netstandard2.1' OR
+                          '$(TargetFramework)'=='netstandard2.0' OR
+                          '$(TargetFramework)'=='net461'">
         <PackageReference Include="Jil" Version="3.0.0-alpha"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'=='net451'">
+        <PackageReference Include="Jil" Version="2.17.0"/>
     </ItemGroup>
 
     <ItemGroup>

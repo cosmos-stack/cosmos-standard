@@ -77,10 +77,20 @@ namespace Cosmos.Serialization.Json
             await textWriter.FlushAsync().ConfigureAwait(false);
 
             stream.Position = 0;
-
+#if NET451
+            ArraySegment<byte> buffer;
+            try
+            {
+                buffer = new ArraySegment<byte>(stream.GetBuffer());
+            }
+            catch
+            {
+                throw new InvalidOperationException($"The call to {nameof(stream.GetBuffer)} returned false.");
+            }
+#else
             if (!stream.TryGetBuffer(out ArraySegment<byte> buffer))
                 throw new InvalidOperationException($"The call to {nameof(stream.TryGetBuffer)} returned false.");
-
+#endif
             return new MemoryStream(buffer.Array, buffer.Offset, buffer.Count);
 
         }

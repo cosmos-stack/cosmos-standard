@@ -1,19 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="..\..\build\common.props" />
+
+    <Import Project="..\..\build\common.ns20-net461-net451.props"/>
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
         <AssemblyName>Cosmos.Extensions.Reflection</AssemblyName>
         <PackageId>Cosmos.Extensions.Reflection</PackageId>
         <Description>Cosmos reflection extension library</Description>
-        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-        <LangVersion>8.0</LangVersion>
-        <RootNamespace />
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -26,7 +22,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
-        <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
     </ItemGroup>
 
     <ItemGroup>

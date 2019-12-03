@@ -1,11 +1,4 @@
 <Project>
-
-	<Import Project="..\..\..\build\version.props" />
-
-	<PropertyGroup Label="Build">
-		<TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-	</PropertyGroup>
-
 	<PropertyGroup Label="Package">
 		<Product>Cosmos.Extensions</Product>
 		<Authors>AlexLEWIS;dotnetcore;StarrySky;Cosmos</Authors>
@@ -16,10 +9,4 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageTags>StarrySky;Cosmos;Standard;Serialization;Framework</PackageTags>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<None Include="..\..\..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
-		<None Include="..\..\..\..\msic\images\icon.png" Pack="true" Visible="false" PackagePath=""/>
-	</ItemGroup>
-
 </Project>

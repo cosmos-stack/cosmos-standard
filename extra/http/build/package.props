@@ -1,0 +1,12 @@
+<Project>
+	<PropertyGroup Label="Package">
+		<Product>Cosmos.Extensions</Product>
+		<Authors>AlexLEWIS;dotnetcore;StarrySky;Cosmos</Authors>
+		<RepositoryUrl>https://github.com/cosmos-loops/Standard</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/cosmos-loops/Standard/tree/master/extra/http</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageTags>StarrySky;Cosmos;Standard;Http;Framework</PackageTags>
+	</PropertyGroup>
+</Project>
