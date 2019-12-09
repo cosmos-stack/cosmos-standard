@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions of list
     /// </summary>
-    public static partial class ListExtensions
-    {
+    public static partial class ListExtensions {
         /// <summary>
         /// Binary search
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, T value)
-        {
+        public static int BinarySearch<T>(this IList<T> list, T value) {
             return list.BinarySearch(t => t, value);
         }
 
@@ -30,8 +27,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, Func<TSource, TValue> map, TValue value)
-        {
+        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, Func<TSource, TValue> map, TValue value) {
             return list.BinarySearch(map, value, Comparer<TValue>.Default);
         }
 
@@ -44,8 +40,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, int index, int length, T value)
-        {
+        public static int BinarySearch<T>(this IList<T> list, int index, int length, T value) {
             return list.BinarySearch(index, length, t => t, value);
         }
 
@@ -60,8 +55,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value)
-        {
+        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value) {
             return list.BinarySearch(index, length, map, value, Comparer<TValue>.Default);
         }
 
@@ -73,8 +67,7 @@ namespace Cosmos.Collections
         /// <param name="comparer"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, T value, IComparer<T> comparer)
-        {
+        public static int BinarySearch<T>(this IList<T> list, T value, IComparer<T> comparer) {
             return list.BinarySearch(0, list.Count, t => t, value, comparer);
         }
 
@@ -88,8 +81,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer)
-        {
+        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer) {
             return list.BinarySearch(0, list.Count, map, value, comparer);
         }
 
@@ -104,8 +96,7 @@ namespace Cosmos.Collections
         /// <param name="comparer"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, int index, int length, T value, IComparer<T> comparer)
-        {
+        public static int BinarySearch<T>(this IList<T> list, int index, int length, T value, IComparer<T> comparer) {
             return list.BinarySearch(index, length, t => t, value, comparer);
         }
 
@@ -124,8 +115,7 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer)
-        {
+        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer) {
             if (list == null)
                 throw new ArgumentNullException(nameof(list));
             if (map == null)
@@ -147,8 +137,7 @@ namespace Cosmos.Collections
             var high = index + length - 1;
 
             // While low < high.
-            while (low <= high)
-            {
+            while (low <= high) {
                 // The midpoint.
                 var midpoint = low + ((high - low) >> 1);
 

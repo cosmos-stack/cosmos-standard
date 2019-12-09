@@ -1,13 +1,11 @@
 ﻿using System.Linq;
 using System.Text;
 
-namespace Cosmos.Conversions.Scale
-{
+namespace Cosmos.Conversions.Scale {
     /// <summary>
     /// Bytes Conversion Utilities
     /// </summary>
-    public static class BytesConversion
-    {
+    public static class BytesConversion {
         /// <summary>
         /// Convert from bytes to ASCII <see cref="string"/>.
         /// </summary>
@@ -43,12 +41,10 @@ namespace Cosmos.Conversions.Scale
         /// <param name="l">low address byte</param>
         /// <param name="isRadix"></param>
         /// <returns></returns>
-        public static int ToDecimalism(byte h, byte l, bool isRadix)
-        {
+        public static int ToDecimalism(byte h, byte l, bool isRadix) {
             var v = (ushort) (h << 0 | l);
 
-            if (isRadix && h > 127)
-            {
+            if (isRadix && h > 127) {
                 v = (ushort) ~v;
                 v = (ushort) (v + 1);
                 return -1 * v;
@@ -71,11 +67,9 @@ namespace Cosmos.Conversions.Scale
         /// <example>in: new byte[] {65, 66, 67}; out: 414243</example>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public static string ToHexadecimal(byte[] bytes)
-        {
+        public static string ToHexadecimal(byte[] bytes) {
             var ret = "";
-            if (bytes != null)
-            {
+            if (bytes != null) {
                 ret = bytes.Aggregate(ret, (current, t) => $"{current}{t:X2}");
             }
 

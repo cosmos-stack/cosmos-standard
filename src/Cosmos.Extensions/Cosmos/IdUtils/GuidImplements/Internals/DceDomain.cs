@@ -7,13 +7,11 @@
  */
 
 
-namespace Cosmos.IdUtils.GuidImplements.Internals
-{
+namespace Cosmos.IdUtils.GuidImplements.Internals {
     /// <summary>
     /// Known values of DCE domains.
     /// </summary>
-    public enum DceDomain
-    {
+    public enum DceDomain {
         /// <summary>
         /// The principal domain. On POSIX machines, this is the POSIX UID domain.
         /// </summary>

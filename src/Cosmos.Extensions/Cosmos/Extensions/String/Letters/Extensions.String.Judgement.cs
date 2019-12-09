@@ -1,11 +1,10 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+
+namespace Cosmos {
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StringExtensions
-    {
+    public static partial class StringExtensions {
         /// <summary>
         /// Include Letters
         /// </summary>
@@ -25,8 +24,7 @@ namespace Cosmos
         public static bool IncludeLetters(this string text, int minCount) //ver
         {
             var count = 0;
-            foreach (var car in text)
-            {
+            foreach (var car in text) {
                 if (char.IsLetter(car))
                     count++;
 

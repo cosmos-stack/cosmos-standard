@@ -1,14 +1,12 @@
 ﻿using Cosmos.Date.Chinese;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Chinese Solar Terms Extensions<br />
     /// 节气扩展
     /// </summary>
-    public static class ChineseSolarTermsExtensions
-    {
+    public static class ChineseSolarTermsExtensions {
         /// <summary>
         /// Get Chinese name<br />
         /// 获取中文名称

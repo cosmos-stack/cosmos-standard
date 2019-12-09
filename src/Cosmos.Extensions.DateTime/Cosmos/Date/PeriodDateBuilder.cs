@@ -1,14 +1,12 @@
 ﻿using System;
 using NodaTime;
 
-namespace Cosmos.Date
-{
+namespace Cosmos.Date {
     /// <summary>
     /// Period Date Builder<br />
     /// 时间段构造器
     /// </summary>
-    public class PeriodDateBuilder
-    {
+    public class PeriodDateBuilder {
         /// <summary>
         /// Create a new <see cref="PeriodDateBuilder"/> instance.<br />
         /// 构建一个新的 <see cref="PeriodDateBuilder"/> 实例。
@@ -43,8 +41,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
-        public PeriodDateBuilder(DateInfo from, DateInfo to)
-        {
+        public PeriodDateBuilder(DateInfo from, DateInfo to) {
             _diFrom = from ?? throw new ArgumentNullException(nameof(from));
             _diTo = to ?? throw new ArgumentNullException(nameof(to));
         }
@@ -58,8 +55,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="from"></param>
         /// <returns></returns>
-        public PeriodDateBuilder From(DateInfo from)
-        {
+        public PeriodDateBuilder From(DateInfo from) {
             _diFrom = from;
             return this;
         }
@@ -70,8 +66,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="to"></param>
         /// <returns></returns>
-        public PeriodDateBuilder To(DateInfo to)
-        {
+        public PeriodDateBuilder To(DateInfo to) {
             _diTo = to;
             return this;
         }
@@ -133,8 +128,7 @@ namespace Cosmos.Date
         /// 构建
         /// </summary>
         /// <returns></returns>
-        public PeriodDateInfo Build()
-        {
+        public PeriodDateInfo Build() {
             var instance = new PeriodDateInfo(_diFrom, _diTo);
 
             return instance;

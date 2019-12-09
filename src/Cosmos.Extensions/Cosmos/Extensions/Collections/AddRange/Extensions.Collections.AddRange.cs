@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Collection extensions
     /// </summary>
-    public static partial class CollectionExtensions
-    {
+    public static partial class CollectionExtensions {
         /// <summary>
         /// Add range
         /// </summary>
@@ -15,17 +13,14 @@ namespace Cosmos
         /// <param name="source"></param>
         /// <param name="collection"></param>
         /// <param name="limit"></param>
-        public static void AddRange<T>(this List<T> source, IEnumerable<T> collection, int limit)
-        {
-            if (limit <= 0)
-            {
+        public static void AddRange<T>(this List<T> source, IEnumerable<T> collection, int limit) {
+            if (limit <= 0) {
                 source.AddRange(collection);
                 return;
             }
 
             var counter = 0;
-            foreach (var item in collection)
-            {
+            foreach (var item in collection) {
                 if (counter >= limit)
                     break;
 

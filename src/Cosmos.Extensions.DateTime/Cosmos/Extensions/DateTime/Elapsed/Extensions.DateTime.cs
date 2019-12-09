@@ -1,14 +1,12 @@
 ﻿using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions<br />
     /// DateTime 扩展方法
     /// </summary>
-    public static partial class DateTimeExtensions
-    {
+    public static partial class DateTimeExtensions {
         /// <summary>
         /// Elapsed Time<br />
         /// 计算此刻与指定时间之间的时间差
@@ -23,6 +21,6 @@ namespace Cosmos
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static int ElapsedMilliseconds(this DateTime dt) => (int)(DateTime.Now - dt).TotalMilliseconds;
+        public static int ElapsedMilliseconds(this DateTime dt) => (int) (DateTime.Now - dt).TotalMilliseconds;
     }
 }

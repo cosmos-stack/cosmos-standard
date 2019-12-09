@@ -3,18 +3,16 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace DeepCopy
-{
+namespace DeepCopy {
     /// <summary>
     /// Holds references to methods which are used during copying.
     /// </summary>
-    internal sealed class MethodInfos
-    {
+    internal sealed class MethodInfos {
         /// <summary>
         /// A reference to the <see cref="CopyContext.TryGetCopy"/> method.
         /// </summary>
         public readonly MethodInfo TryGetCopy;
-        
+
         /// <summary>
         /// A reference to the <see cref="CopyContext.RecordCopy"/> method.
         /// </summary>
@@ -40,9 +38,8 @@ namespace DeepCopy
 
         public readonly MethodInfo CopyArrayRank2Shallow;
         public readonly MethodInfo CopyArrayRank2;
-        
-        public MethodInfos()
-        {
+
+        public MethodInfos() {
             GetUninitializedObject = GetFuncCall(() => FormatterServices.GetUninitializedObject(typeof(int)));
             GetTypeFromHandle = GetFuncCall(() => Type.GetTypeFromHandle(typeof(Type).TypeHandle));
             CopyInner = GetFuncCall(() => DeepCopier.Copy(default(object), default(CopyContext))).GetGenericMethodDefinition();
@@ -55,16 +52,14 @@ namespace DeepCopy
             CopyArrayRank2Shallow = GetFuncCall(() => ArrayCopier.CopyArrayRank2Shallow(default(object[,]), default(CopyContext))).GetGenericMethodDefinition();
             CopyArrayRank2 = GetFuncCall(() => ArrayCopier.CopyArrayRank2(default(object[,]), default(CopyContext))).GetGenericMethodDefinition();
 
-            MethodInfo GetActionCall<T>(Expression<Action<T>> expression)
-            {
+            MethodInfo GetActionCall<T>(Expression<Action<T>> expression) {
                 return (expression.Body as MethodCallExpression)?.Method
-                       ?? throw new ArgumentException("Expression type unsupported.");
+                    ?? throw new ArgumentException("Expression type unsupported.");
             }
 
-            MethodInfo GetFuncCall<T>(Expression<Func<T>> expression)
-            {
+            MethodInfo GetFuncCall<T>(Expression<Func<T>> expression) {
                 return (expression.Body as MethodCallExpression)?.Method
-                       ?? throw new ArgumentException("Expression type unsupported.");
+                    ?? throw new ArgumentException("Expression type unsupported.");
             }
         }
     }

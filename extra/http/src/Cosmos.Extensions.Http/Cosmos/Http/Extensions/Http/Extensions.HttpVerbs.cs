@@ -12,13 +12,11 @@ using Cosmos.Http.HttpUtils;
  */
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// Http Verbs Extensions
     /// </summary>
-    public static class HttpVerbsExtensions
-    {
+    public static class HttpVerbsExtensions {
         /// <summary>
         /// Issue the request as a DELETE
         /// </summary>

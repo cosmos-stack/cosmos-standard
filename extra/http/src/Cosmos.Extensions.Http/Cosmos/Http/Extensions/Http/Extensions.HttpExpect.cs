@@ -16,13 +16,11 @@ using ProtoBuf;
  */
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// Http Expect Extensions
     /// </summary>
-    public static class HttpExpectExtensions
-    {
+    public static class HttpExpectExtensions {
         /// <summary>
         /// Expect Http Success
         /// </summary>
@@ -45,12 +43,9 @@ namespace Cosmos.Http
         /// <param name="builder"></param>
         /// <returns></returns>
         public static IRequestBuilder<string> ExpectString(this IRequestBuilder builder)
-            => builder.WithHandler(async responseMessage =>
-            {
-                using (var responseStream = await responseMessage.Content.ReadAsStreamAsync())
-                {
-                    using (var streamReader = new StreamReader(responseStream))
-                    {
+            => builder.WithHandler(async responseMessage => {
+                using (var responseStream = await responseMessage.Content.ReadAsStreamAsync()) {
+                    using (var streamReader = new StreamReader(responseStream)) {
                         return await streamReader.ReadToEndAsync();
                     }
                 }
@@ -77,20 +72,13 @@ namespace Cosmos.Http
         public static IRequestBuilder<T> ExpectJson<T>(this IRequestBuilder builder, Options options)
             => builder.WithHandler(JsonHandler<T>.WithOptions(builder, options));
 
-        private static class JsonHandler<T>
-        {
-            internal static Func<HttpResponseMessage, Task<T>> WithOptions(IRequestBuilder builder, Options options)
-            {
-                return async responseMessage =>
-                {
-                    using (var responseStream = await responseMessage.Content.ReadAsStreamAsync())
-                    {
-                        using (var streamReader = new StreamReader(responseStream))
-                        {
-                            using (builder.GetSettings().ProfileGeneral?.Invoke("Descrialize: JOSN"))
-                            {
-                                if (responseStream.Length == 0)
-                                {
+        private static class JsonHandler<T> {
+            internal static Func<HttpResponseMessage, Task<T>> WithOptions(IRequestBuilder builder, Options options) {
+                return async responseMessage => {
+                    using (var responseStream = await responseMessage.Content.ReadAsStreamAsync()) {
+                        using (var streamReader = new StreamReader(responseStream)) {
+                            using (builder.GetSettings().ProfileGeneral?.Invoke("Descrialize: JOSN")) {
+                                if (responseStream.Length == 0) {
                                     return default;
                                 }
 
@@ -113,12 +101,9 @@ namespace Cosmos.Http
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static IRequestBuilder<T> ExpectProtobuf<T>(this IRequestBuilder builder)
-            => builder.WithHandler(async responseMessage =>
-            {
-                using (var responseStream = await responseMessage.Content.ReadAsStreamAsync())
-                {
-                    using (builder.GetSettings().ProfileGeneral?.Invoke("Deserialize: Protobuf"))
-                    {
+            => builder.WithHandler(async responseMessage => {
+                using (var responseStream = await responseMessage.Content.ReadAsStreamAsync()) {
+                    using (builder.GetSettings().ProfileGeneral?.Invoke("Deserialize: Protobuf")) {
                         return Serializer.Deserialize<T>(responseStream);
                     }
                 }

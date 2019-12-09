@@ -1,10 +1,8 @@
-﻿namespace Cosmos.Html.Elements
-{
+﻿namespace Cosmos.Html.Elements {
     /// <summary>
     /// Img
     /// </summary>
-    public class ImgElement
-    {
+    public class ImgElement {
         /// <summary>
         /// 图片网址
         /// </summary>

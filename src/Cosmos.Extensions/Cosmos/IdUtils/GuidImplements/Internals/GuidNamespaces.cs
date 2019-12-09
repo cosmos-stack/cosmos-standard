@@ -8,13 +8,11 @@
  *      MIT
  */
 
-namespace Cosmos.IdUtils.GuidImplements.Internals
-{
+namespace Cosmos.IdUtils.GuidImplements.Internals {
     /// <summary>
     /// Guid namespace
     /// </summary>
-    public static class GuidNamespaces
-    {
+    public static class GuidNamespaces {
         /// <summary>
         /// For names that are fully-qualified domain names.
         /// </summary>

@@ -1,21 +1,18 @@
 using System;
 using ZeroFormatter;
 
-namespace Cosmos.Serialization.ZeroFormatter
-{
+namespace Cosmos.Serialization.ZeroFormatter {
     /// <summary>
     /// ZeroFormatter helper
     /// </summary>
-    public static partial class ZeroFormatterHelper
-    {
+    public static partial class ZeroFormatterHelper {
         /// <summary>
         /// Serialize
         /// </summary>
         /// <param name="o"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static byte[] Serialize<T>(T o)
-        {
+        public static byte[] Serialize<T>(T o) {
             return o is null
                 ? new byte[0]
                 : ZeroFormatterSerializer.Serialize(o);
@@ -27,8 +24,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static byte[] Serialize(object obj, Type type)
-        {
+        public static byte[] Serialize(object obj, Type type) {
             return obj is null
                 ? new byte[0]
                 : ZeroFormatterSerializer.NonGeneric.Serialize(type, obj);
@@ -40,8 +36,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="bytes"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Deserialize<T>(byte[] bytes)
-        {
+        public static T Deserialize<T>(byte[] bytes) {
             return bytes is null || bytes.Length == 0
                 ? default
                 : ZeroFormatterSerializer.Deserialize<T>(bytes);
@@ -53,8 +48,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="bytes"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object Deserialize(byte[] bytes, Type type)
-        {
+        public static object Deserialize(byte[] bytes, Type type) {
             return bytes is null || bytes.Length == 0
                 ? null
                 : ZeroFormatterSerializer.NonGeneric.Deserialize(type, bytes);

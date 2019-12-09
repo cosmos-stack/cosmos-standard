@@ -1,14 +1,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace System.IO
-{
+namespace System.IO {
     /// <summary>
     /// Stream with state
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class StreamWithState<T> : Stream
-    {
+    public class StreamWithState<T> : Stream {
         private readonly Stream _stream;
 
         /// <summary>
@@ -16,8 +14,7 @@ namespace System.IO
         /// </summary>
         /// <param name="stream"></param>
         /// <param name="state"></param>
-        public StreamWithState(Stream stream, T state)
-        {
+        public StreamWithState(Stream stream, T state) {
             // Validate parameters.
             _stream = stream ?? throw new ArgumentNullException(nameof(stream));
 
@@ -58,8 +55,7 @@ namespace System.IO
         public override long Length => _stream.Length;
 
         /// <inheritdoc />
-        public override long Position
-        {
+        public override long Position {
             get => _stream.Position;
             set => _stream.Position = value;
         }
@@ -82,8 +78,7 @@ namespace System.IO
         public override int ReadByte() => _stream.ReadByte();
 
         /// <inheritdoc />
-        public override int ReadTimeout
-        {
+        public override int ReadTimeout {
             get => _stream.ReadTimeout;
             set => _stream.ReadTimeout = value;
         }
@@ -95,15 +90,13 @@ namespace System.IO
         public override void WriteByte(byte value) => _stream.WriteByte(value);
 
         /// <inheritdoc />
-        public override int WriteTimeout
-        {
+        public override int WriteTimeout {
             get => _stream.WriteTimeout;
             set => _stream.WriteTimeout = value;
         }
 
         /// <inheritdoc />
-        protected override void Dispose(bool disposing)
-        {
+        protected override void Dispose(bool disposing) {
             // Call the base.
             base.Dispose(disposing);
 

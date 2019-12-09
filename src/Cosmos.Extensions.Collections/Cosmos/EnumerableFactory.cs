@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Enumerable factory
     /// </summary>
-    public static class EnumerableFactory
-    {
+    public static class EnumerableFactory {
         /// <summary>
         /// Create list
         /// </summary>
@@ -20,13 +18,10 @@ namespace Cosmos
         /// <param name="listParams"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<T> CreateList<T>(params IEnumerable<T>[] listParams)
-        {
+        public static List<T> CreateList<T>(params IEnumerable<T>[] listParams) {
             var ret = CreateList<T>();
-            if (listParams != null)
-            {
-                foreach (var list in listParams)
-                {
+            if (listParams != null) {
+                foreach (var list in listParams) {
                     ret.AddRange(list);
                 }
             }

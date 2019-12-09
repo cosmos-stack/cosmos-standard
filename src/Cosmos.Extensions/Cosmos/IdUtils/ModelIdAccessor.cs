@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Model Id Accessor
     /// </summary>
-    public sealed class ModelIdAccessor
-    {
+    public sealed class ModelIdAccessor {
         private NoRepeatTimeStampFactory _factory = new NoRepeatTimeStampFactory();
         private int Index { get; set; }
         private DateTime Now { get; set; }
@@ -16,8 +14,7 @@ namespace Cosmos.IdUtils
         /// <summary>
         /// Create a new <see cref="ModelIdAccessor"/> instance.
         /// </summary>
-        public ModelIdAccessor()
-        {
+        public ModelIdAccessor() {
             Now = _factory.GetTimeStamp();
         }
 
@@ -25,12 +22,10 @@ namespace Cosmos.IdUtils
         /// Get next index
         /// </summary>
         /// <returns></returns>
-        public int GetNextIndex()
-        {
+        public int GetNextIndex() {
             int ix;
 
-            lock (_lockObj)
-            {
+            lock (_lockObj) {
                 ix = Index;
                 Index = Index + 1;
             }

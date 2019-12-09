@@ -2,13 +2,11 @@
 using System.Threading.Tasks;
 using Cosmos.Serialization.Xml;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Xml Serializer
     /// </summary>
-    public class XmlObjectSerializer : IXmlSerializer
-    {
+    public class XmlObjectSerializer : IXmlSerializer {
         /// <inheritdoc />
         public string Serialize<T>(T o) => XmlHelper.Serialize(o);
 

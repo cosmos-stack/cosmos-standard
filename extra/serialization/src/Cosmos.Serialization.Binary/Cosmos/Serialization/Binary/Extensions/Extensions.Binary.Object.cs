@@ -2,13 +2,11 @@ using System.IO;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Binary
-{
+namespace Cosmos.Serialization.Binary {
     /// <summary>
     /// Binary extensions
     /// </summary>
-    public static partial class BinaryExtensions
-    {
+    public static partial class BinaryExtensions {
         /// <summary>
         /// To bytes
         /// </summary>

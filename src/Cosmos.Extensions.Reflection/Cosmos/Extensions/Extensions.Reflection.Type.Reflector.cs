@@ -2,10 +2,8 @@ using System;
 using AspectCore.Extensions.Reflection;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class ReflectionExtensions
-    {
+namespace Cosmos {
+    public static partial class ReflectionExtensions {
         /// <summary>
         /// Is defined special attribute
         /// </summary>

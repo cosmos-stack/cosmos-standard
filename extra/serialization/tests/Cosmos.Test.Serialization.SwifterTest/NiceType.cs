@@ -1,7 +1,5 @@
-namespace Cosmos.Test.Serialization.SwifterTest
-{
-    public enum NiceType
-    {
+namespace Cosmos.Test.Serialization.SwifterTest {
+    public enum NiceType {
         Yes,
         No
     }

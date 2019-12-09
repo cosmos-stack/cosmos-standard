@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Cosmos.Conversions.Scale
-{
+namespace Cosmos.Conversions.Scale {
     /// <summary>
     /// Binary Conversion Utilities
     /// </summary>
-    public static class BinaryConversion
-    {
+    public static class BinaryConversion {
         /// <summary>
         /// Convert from binary to decimalism.
         /// </summary>

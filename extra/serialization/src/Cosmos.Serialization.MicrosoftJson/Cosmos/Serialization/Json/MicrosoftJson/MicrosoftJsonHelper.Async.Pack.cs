@@ -3,13 +3,11 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Cosmos.Serialization.Json.MicrosoftJson
-{
+namespace Cosmos.Serialization.Json.MicrosoftJson {
     /// <summary>
     /// Microsoft System.Text.Json helper
     /// </summary>
-    public static partial class MicrosoftJsonHelper
-    {
+    public static partial class MicrosoftJsonHelper {
         /// <summary>
         /// Pack async
         /// </summary>
@@ -17,8 +15,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync<T>(T o, JsonSerializerOptions options = null)
-        {
+        public static async Task<Stream> PackAsync<T>(T o, JsonSerializerOptions options = null) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -36,8 +33,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="stream"></param>
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
-        public static async Task PackAsync<T>(T t, Stream stream, JsonSerializerOptions options = null)
-        {
+        public static async Task PackAsync<T>(T t, Stream stream, JsonSerializerOptions options = null) {
             if (t == null || !stream.CanWrite)
                 return;
 
@@ -53,8 +49,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream, JsonSerializerOptions options = null)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream, JsonSerializerOptions options = null) {
             return stream == null
                 ? default
                 : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream), options);
@@ -67,15 +62,13 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static async Task<object> UnpackAsync(Stream stream, Type type, JsonSerializerOptions options = null)
-        {
+        public static async Task<object> UnpackAsync(Stream stream, Type type, JsonSerializerOptions options = null) {
             return stream == null
                 ? null
                 : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type, options);
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

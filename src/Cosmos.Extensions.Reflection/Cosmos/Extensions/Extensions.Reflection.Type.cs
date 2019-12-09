@@ -6,13 +6,11 @@ using System.Text;
 using AspectCore.Extensions.Reflection;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Type extensions
     /// </summary>
-    public static partial class ReflectionExtensions
-    {
+    public static partial class ReflectionExtensions {
 
         #region ToNonNullableType
 
@@ -86,13 +84,11 @@ namespace Cosmos
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static IEnumerable<PropertyInfo> GetProperties(this Type type, PropertyAccessType accessType)
-        {
+        public static IEnumerable<PropertyInfo> GetProperties(this Type type, PropertyAccessType accessType) {
             if (type == null)
                 throw new ArgumentNullException(nameof(type));
 
-            switch (accessType)
-            {
+            switch (accessType) {
                 case PropertyAccessType.Getters:
                     return type.GetPropertiesWithPublicInstanceGetters();
 
@@ -112,14 +108,12 @@ namespace Cosmos
         /// <returns></returns>
         public static IEnumerable<PropertyInfo> GetProperties<T>(PropertyAccessType accessType) => typeof(T).GetProperties(accessType);
 
-        private static IEnumerable<PropertyInfo> GetPropertiesWithPublicInstanceSetters(this Type type)
-        {
+        private static IEnumerable<PropertyInfo> GetPropertiesWithPublicInstanceSetters(this Type type) {
             // Get the properties.
             return type.GetRuntimeProperties().Where(p => p.SetMethod != null && !p.SetMethod.IsStatic && p.SetMethod.IsPublic);
         }
 
-        private static IEnumerable<PropertyInfo> GetPropertiesWithPublicInstanceGetters(this Type type)
-        {
+        private static IEnumerable<PropertyInfo> GetPropertiesWithPublicInstanceGetters(this Type type) {
             // Get the properties.
             // NOTE: Used to be
             //return type.GetTypeInfo().GetProperties(BindingFlags.Instance | BindingFlags.Public).
@@ -135,17 +129,14 @@ namespace Cosmos
         /// </summary>
         /// <param name="typeinfo"></param>
         /// <returns></returns>
-        public static string ToComputeSignature(this TypeInfo typeinfo)
-        {
+        public static string ToComputeSignature(this TypeInfo typeinfo) {
             var sb = new StringBuilder();
-            if (typeinfo.IsGenericType)
-            {
+            if (typeinfo.IsGenericType) {
                 sb.Append(typeinfo.GetGenericTypeDefinition().FullName)
-                    .Append("[");
+                  .Append("[");
 
                 var genericArgs = typeinfo.GetGenericArguments().ToTypeInfo().ToList();
-                for (var i = 0; i < genericArgs.Count; i++)
-                {
+                for (var i = 0; i < genericArgs.Count; i++) {
                     sb.Append(genericArgs[i].ToComputeSignature());
                     if (i != genericArgs.Count - 1)
                         sb.Append(", ");
@@ -153,8 +144,7 @@ namespace Cosmos
 
                 sb.Append("]");
             }
-            else
-            {
+            else {
                 if (!string.IsNullOrEmpty(typeinfo.FullName))
                     sb.Append(typeinfo.FullName);
                 else if (!string.IsNullOrEmpty(typeinfo.Name))
@@ -259,18 +249,14 @@ namespace Cosmos
         /// <param name="definition"></param>
         /// <param name="typeinfo"></param>
         /// <returns></returns>
-        public static TypeInfo FindGenericTypeInfo(this TypeInfo definition, TypeInfo typeinfo)
-        {
+        public static TypeInfo FindGenericTypeInfo(this TypeInfo definition, TypeInfo typeinfo) {
             var objectTypeInfo = typeof(object).GetTypeInfo();
-            while (typeinfo != null && typeinfo != objectTypeInfo)
-            {
+            while (typeinfo != null && typeinfo != objectTypeInfo) {
                 if (typeinfo.IsGenericType && typeinfo.GetGenericTypeDefinition().GetTypeInfo() == definition)
                     return typeinfo;
 
-                if (definition.IsInterface)
-                {
-                    foreach (var type in typeinfo.GetInterfaces())
-                    {
+                if (definition.IsInterface) {
+                    foreach (var type in typeinfo.GetInterfaces()) {
                         var typeinfo2 = FindGenericTypeInfo(definition, type.GetTypeInfo());
                         if (typeinfo2 != null)
                             return typeinfo2;
@@ -321,8 +307,7 @@ namespace Cosmos
         /// <param name="from"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static bool IsAssignableFrom(this Type to, Type from)
-        {
+        public static bool IsAssignableFrom(this Type to, Type from) {
             if (from == null) throw new ArgumentNullException(nameof(from));
             if (to == null) throw new ArgumentNullException(nameof(to));
 

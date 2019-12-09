@@ -2,14 +2,12 @@ using System;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTimeSpan Extensions<br />
     /// DateTimeSpan 扩展方法
     /// </summary>
-    public static partial class DateTimeSpanExtensions
-    {
+    public static partial class DateTimeSpanExtensions {
         /// <summary>
         /// Create timespan value for given number of years.
         /// </summary>

@@ -2,14 +2,12 @@ using System;
 using System.Globalization;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions<br />
     /// DateTime 扩展方法
     /// </summary>
-    public static partial class DateTimeExtensions
-    {
+    public static partial class DateTimeExtensions {
         /// <summary>
         /// Gets first day of year
         /// </summary>
@@ -22,8 +20,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static DateTime FirstDayOfQuarter(this DateTime dt)
-        {
+        public static DateTime FirstDayOfQuarter(this DateTime dt) {
             var currentQuarter = (dt.Month - 1) / 3 + 1;
             var firstDay = new DateTime(dt.Year, 3 * currentQuarter - 2, 1);
 
@@ -42,8 +39,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static DateTime FirstDayOfWeek(this DateTime dt)
-        {
+        public static DateTime FirstDayOfWeek(this DateTime dt) {
             var currentCulture = CultureInfo.CurrentCulture;
             var firstDayOfWeek = currentCulture.DateTimeFormat.FirstDayOfWeek;
             var offset = dt.DayOfWeek - firstDayOfWeek < 0 ? 7 : 0;
@@ -64,8 +60,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static DateTime LastDayOfQuarter(this DateTime dt)
-        {
+        public static DateTime LastDayOfQuarter(this DateTime dt) {
             var currentQuarter = (dt.Month - 1) / 3 + 1;
             var firstDay = dt.SetDate(dt.Year, 3 * currentQuarter - 2, 1);
             return firstDay.SetMonth(firstDay.Month + 2).LastDayOfMonth();
@@ -85,6 +80,6 @@ namespace Cosmos
         /// <returns></returns>
         public static DateTime LastDayOfWeek(this DateTime dt) => dt.FirstDayOfWeek().AddDays(6);
 
- 
+
     }
 }

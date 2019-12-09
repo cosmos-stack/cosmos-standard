@@ -2,14 +2,12 @@ using System;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions<br />
     /// DateTime 扩展方法
     /// </summary>
-    public static partial class DateTimeExtensions
-    {
+    public static partial class DateTimeExtensions {
         /// <summary>
         /// Set time
         /// </summary>

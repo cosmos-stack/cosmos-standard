@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions for dictionary
     /// </summary>
-    public static partial class DictionaryExtensions
-    {
+    public static partial class DictionaryExtensions {
         /// <summary>
         /// Add dictionary into another dictionary
         /// </summary>
@@ -16,10 +14,8 @@ namespace Cosmos.Collections
         /// <param name="other"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TVal"></typeparam>
-        public static void AddDictionary<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other)
-        {
-            foreach (var src in other)
-            {
+        public static void AddDictionary<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other) {
+            foreach (var src in other) {
                 me.Add(src.Key, src.Value);
             }
         }

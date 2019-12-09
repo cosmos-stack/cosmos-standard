@@ -1,9 +1,7 @@
 using System;
 
-namespace Cosmos.IdUtils.GuidImplements
-{
-    internal static class TimeStampStyleProvider
-    {
+namespace Cosmos.IdUtils.GuidImplements {
+    internal static class TimeStampStyleProvider {
         public static Guid Create()
             => Create(NoRepeatMode.Off);
 
@@ -19,8 +17,7 @@ namespace Cosmos.IdUtils.GuidImplements
         public static Guid Create(DateTime secureTimestamp)
             => Create(Guid.NewGuid(), secureTimestamp);
 
-        public static Guid Create(Guid value, DateTime secureTimestamp)
-        {
+        public static Guid Create(Guid value, DateTime secureTimestamp) {
             byte[] guidArray = value.ToByteArray();
             DateTime basedTime = new DateTime(1_900, 1, 1);
 

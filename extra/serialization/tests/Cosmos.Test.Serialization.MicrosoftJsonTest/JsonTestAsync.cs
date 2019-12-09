@@ -4,13 +4,10 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.MicrosoftJsonTest
-{
-    public class JsonTestAsync
-    {
+namespace Cosmos.Test.Serialization.MicrosoftJsonTest {
+    public class JsonTestAsync {
         [Fact]
-        public async Task BasicJsonTest()
-        {
+        public async Task BasicJsonTest() {
             var model = CreateNiceModel();
             var json1 = await model.ToMicrosoftJsonAsync();
             var back1 = await json1.FromMicrosoftJsonAsync<NiceModel>();
@@ -26,8 +23,7 @@ namespace Cosmos.Test.Serialization.MicrosoftJsonTest
         }
 
         [Fact]
-        public async Task OptionalJsonTest()
-        {
+        public async Task OptionalJsonTest() {
             var model = CreateNiceModel();
 
             var options = new JsonSerializerOptions {AllowTrailingCommas = true, MaxDepth = 3};
@@ -47,10 +43,8 @@ namespace Cosmos.Test.Serialization.MicrosoftJsonTest
         }
 
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

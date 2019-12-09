@@ -1,13 +1,11 @@
 ﻿using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StringExtensions
-    {
+    public static partial class StringExtensions {
         /// <summary>
         /// Evaluate Similarity
         /// </summary>
@@ -15,8 +13,7 @@ namespace Cosmos
         /// <param name="toCheck"></param>
         /// <param name="similarityMinimal"></param>
         /// <returns></returns>
-        public static double EvaluateSimilarity(this string text, string toCheck, double similarityMinimal)
-        {
+        public static double EvaluateSimilarity(this string text, string toCheck, double similarityMinimal) {
             const int diffFound = 0;
             return EvaluateSimilarity(text, toCheck, similarityMinimal, diffFound);
         }
@@ -31,8 +28,7 @@ namespace Cosmos
         /// <param name="similarityMinimal"></param>
         /// <param name="diffFound"></param>
         /// <returns></returns>
-        public static double EvaluateSimilarity(this string text, string toCheck, double similarityMinimal, int diffFound)
-        {
+        public static double EvaluateSimilarity(this string text, string toCheck, double similarityMinimal, int diffFound) {
             //if you have too many differences and no longer comparing
             if (diffFound >= MMaxDifToleradas)
                 return 0.0;
@@ -48,8 +44,7 @@ namespace Cosmos
             //ignore remaining text
             var portionText = text;
             var portionToCheck = toCheck;
-            if (text.Length != toCheck.Length)
-            {
+            if (text.Length != toCheck.Length) {
                 if (text.Length > toCheck.Length)
                     portionText = text.Substring(0, toCheck.Length);
                 else if (toCheck.Length > text.Length)
@@ -61,10 +56,9 @@ namespace Cosmos
             //evaluate the differences
             var totalDifferences = 0;
             var posDifference = -1;
-            for (var i = 0; i < text.Length; i++)
-            {
+            for (var i = 0; i < text.Length; i++) {
                 if (i >= toCheck.Length
-                    || text.ToCharArray()[i] != toCheck.ToCharArray()[i])
+                 || text.ToCharArray()[i] != toCheck.ToCharArray()[i])
                     totalDifferences++;
                 if (posDifference < 0 && totalDifferences == 1)
                     posDifference = i;
@@ -97,8 +91,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static TypeSimilarity EvaluateTypeSimilarity(this string text, string toCheck)
-        {
+        public static TypeSimilarity EvaluateTypeSimilarity(this string text, string toCheck) {
             //ignore spaces
             text = text.RemoveChars(' ');
             toCheck = toCheck.RemoveChars(' ');
@@ -110,8 +103,7 @@ namespace Cosmos
             //ignore remaining text
             var portionText = text;
             var portionToCheck = toCheck;
-            if (text.Length != toCheck.Length)
-            {
+            if (text.Length != toCheck.Length) {
                 if (text.Length > toCheck.Length)
                     portionText = text.Substring(0, toCheck.Length);
                 else if (toCheck.Length > text.Length)

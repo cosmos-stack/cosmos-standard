@@ -1,23 +1,19 @@
 using System;
 using Cosmos.IdUtils.GuidImplements;
 
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Guid provider
     /// </summary>
-    public static partial class GuidProvider
-    {
+    public static partial class GuidProvider {
         /// <summary>
         /// Create
         /// </summary>
         /// <param name="style"></param>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public static Guid Create(CombStyle style, NoRepeatMode mode = NoRepeatMode.Off)
-        {
-            switch (style)
-            {
+        public static Guid Create(CombStyle style, NoRepeatMode mode = NoRepeatMode.Off) {
+            switch (style) {
                 case CombStyle.NormalStyle:
                     return TimeStampStyleProvider.Create(mode);
 
@@ -51,10 +47,8 @@ namespace Cosmos.IdUtils
         /// <param name="style"></param>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public static Guid Create(Guid value, CombStyle style, NoRepeatMode mode = NoRepeatMode.Off)
-        {
-            switch (style)
-            {
+        public static Guid Create(Guid value, CombStyle style, NoRepeatMode mode = NoRepeatMode.Off) {
+            switch (style) {
                 case CombStyle.NormalStyle:
                     return TimeStampStyleProvider.Create(value, mode);
 
@@ -87,10 +81,8 @@ namespace Cosmos.IdUtils
         /// <param name="secureTimestamp"></param>
         /// <param name="style"></param>
         /// <returns></returns>
-        public static Guid Create(DateTime secureTimestamp, CombStyle style)
-        {
-            switch (style)
-            {
+        public static Guid Create(DateTime secureTimestamp, CombStyle style) {
+            switch (style) {
                 case CombStyle.NormalStyle:
                     return TimeStampStyleProvider.Create(secureTimestamp);
 
@@ -118,10 +110,8 @@ namespace Cosmos.IdUtils
         /// <param name="secureTimestamp"></param>
         /// <param name="style"></param>
         /// <returns></returns>
-        public static Guid Create(Guid value, DateTime secureTimestamp, CombStyle style)
-        {
-            switch (style)
-            {
+        public static Guid Create(Guid value, DateTime secureTimestamp, CombStyle style) {
+            switch (style) {
                 case CombStyle.NormalStyle:
                     return TimeStampStyleProvider.Create(value, secureTimestamp);
 

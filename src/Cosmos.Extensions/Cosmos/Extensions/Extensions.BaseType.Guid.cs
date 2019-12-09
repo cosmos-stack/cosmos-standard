@@ -2,10 +2,8 @@ using System;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class BaseTypeExtensions
-    {
+namespace Cosmos {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// 是否为空
         /// </summary>

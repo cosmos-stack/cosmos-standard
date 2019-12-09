@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos.IdUtils.GuidImplements
-{
+namespace Cosmos.IdUtils.GuidImplements {
     /// <summary>
     /// Unix timestamp style provider
     /// </summary>
-    public static class UnixTimeStampStyleProvider
-    {
+    public static class UnixTimeStampStyleProvider {
         private static DateTime GetUnixUtcNow() => new UnixTimeStamp(DateTime.UtcNow).ToDateTime();
         private static DateTime GetNoRepeatUnixUtcNow() => NoRepeatTimeStampManager.GetFactory().GetUtcUnixTimeStampObject().ToDateTime();
 
@@ -56,8 +54,7 @@ namespace Cosmos.IdUtils.GuidImplements
         /// <param name="value"></param>
         /// <param name="secureTimestamp"></param>
         /// <returns></returns>
-        public static Guid Create(Guid value, DateTime secureTimestamp)
-        {
+        public static Guid Create(Guid value, DateTime secureTimestamp) {
             byte[] guidArray = value.ToByteArray();
             DateTime basedTime = new DateTime(1_900, 1, 1);
 

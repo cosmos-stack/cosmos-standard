@@ -2,13 +2,11 @@ using System;
 using System.Text.RegularExpressions;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Regex extensons
     /// </summary>
-    public static partial class RegexExtensions
-    {
+    public static partial class RegexExtensions {
         /// <summary>
         /// Get group value
         /// </summary>
@@ -17,11 +15,10 @@ namespace Cosmos
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static string GetGroupValue(this Match match, string group)
-        {
-            if (match == null) 
+        public static string GetGroupValue(this Match match, string group) {
+            if (match == null)
                 throw new ArgumentNullException(nameof(match));
-            
+
             if (string.IsNullOrWhiteSpace(group))
                 throw new ArgumentNullException(nameof(group));
 

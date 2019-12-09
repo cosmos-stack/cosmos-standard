@@ -3,21 +3,18 @@ using System.Threading.Tasks;
 using Nito.AsyncEx;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Asynchronous
-{
+namespace Cosmos.Asynchronous {
     /// <summary>
     /// Task extensions
     /// </summary>
-    public static class TaskExtensions
-    {
+    public static class TaskExtensions {
         /// <summary>
         /// Run in AsyncContext
         /// </summary>
         /// <param name="task"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void RunInContext(this Task task)
-        {
-            if (task == null)
+        public static void RunInContext(this Task task) {
+            if (task is null)
                 throw new ArgumentNullException(nameof(task));
             AsyncContext.Run(() => task);
         }
@@ -29,9 +26,8 @@ namespace Cosmos.Asynchronous
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T RunInContext<T>(this Task<T> task)
-        {
-            if (task == null)
+        public static T RunInContext<T>(this Task<T> task) {
+            if (task is null)
                 throw new ArgumentNullException(nameof(task));
             return AsyncContext.Run(() => task);
         }

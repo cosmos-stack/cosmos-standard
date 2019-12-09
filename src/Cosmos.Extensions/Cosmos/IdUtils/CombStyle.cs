@@ -1,10 +1,8 @@
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Comb styles
     /// </summary>
-    public enum CombStyle
-    {
+    public enum CombStyle {
         /// <summary>
         /// Normal style
         /// </summary>

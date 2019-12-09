@@ -1,9 +1,7 @@
 using System;
 
-namespace Cosmos.Test.Serialization.XmlTest
-{
-    public class NiceModel
-    {
+namespace Cosmos.Test.Serialization.XmlTest {
+    public class NiceModel {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public NiceType NiceType { get; set; }

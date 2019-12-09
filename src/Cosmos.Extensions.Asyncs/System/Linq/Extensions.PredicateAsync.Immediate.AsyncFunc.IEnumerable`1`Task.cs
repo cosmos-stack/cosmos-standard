@@ -17,10 +17,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class PredicateAsyncExtensions
-    {
+namespace System.Linq {
+    public static partial class PredicateAsyncExtensions {
         /// <summary>
         /// All
         /// </summary>
@@ -29,8 +27,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<bool> All<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<bool> All<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.All, cancellationToken);
         }
 
@@ -42,8 +39,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<bool> Any<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<bool> Any<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.Any, cancellationToken);
         }
 
@@ -55,8 +51,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<int> Count<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<int> Count<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.Count, cancellationToken);
         }
 
@@ -68,8 +63,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<TSource> First<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<TSource> First<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.First, cancellationToken);
         }
 
@@ -81,8 +75,8 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<TSource> FirstOrDefault<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<TSource> FirstOrDefault<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.FirstOrDefault, cancellationToken);
         }
 
@@ -94,8 +88,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<TSource> Last<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<TSource> Last<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.Last, cancellationToken);
         }
 
@@ -107,8 +100,8 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<TSource> LastOrDefault<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<TSource> LastOrDefault<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.LastOrDefault, cancellationToken);
         }
 
@@ -120,8 +113,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<long> LongCount<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<long> LongCount<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.LongCount, cancellationToken);
         }
 
@@ -133,8 +125,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<TSource> Single<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<TSource> Single<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.Single, cancellationToken);
         }
 
@@ -146,8 +137,8 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<TSource> SingleOrDefault<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<TSource> SingleOrDefault<TSource>(this Task<IEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.SingleOrDefault, cancellationToken);
         }
     }

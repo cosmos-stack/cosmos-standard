@@ -16,8 +16,7 @@ using System;
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cosmos.IdUtils.CombImplements.Providers
-{
+namespace Cosmos.IdUtils.CombImplements.Providers {
     /*
      * Reference To
      *     http://github.com/richardtallent/RT.Comb
@@ -25,9 +24,8 @@ namespace Cosmos.IdUtils.CombImplements.Providers
      *         @ERM
      *     https://www.tallent.us
      */
-    
-    internal interface ICombProvider
-    {
+
+    internal interface ICombProvider {
         Guid Create();
 
         Guid Create(Guid value);

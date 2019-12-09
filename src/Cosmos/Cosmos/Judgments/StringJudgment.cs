@@ -2,13 +2,11 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Judgments
-{
+namespace Cosmos.Judgments {
     /// <summary>
     /// String Judgment Utilities
     /// </summary>
-    public static class StringJudgment
-    {
+    public static class StringJudgment {
         static StringJudgment() { }
 
         /// <summary>
@@ -17,8 +15,7 @@ namespace Cosmos.Judgments
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool StartWithThese(string str, params string[] values)
-        {
+        public static bool StartWithThese(string str, params string[] values) {
             if (string.IsNullOrWhiteSpace(str) || values == null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
@@ -31,8 +28,7 @@ namespace Cosmos.Judgments
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool StartWithThese(string str, ICollection<string> values)
-        {
+        public static bool StartWithThese(string str, ICollection<string> values) {
             if (string.IsNullOrWhiteSpace(str) || values == null || !values.Any())
                 return false;
 
@@ -45,8 +41,7 @@ namespace Cosmos.Judgments
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool EndWithThese(string str, params string[] values)
-        {
+        public static bool EndWithThese(string str, params string[] values) {
             if (string.IsNullOrWhiteSpace(str) || values == null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
@@ -59,8 +54,7 @@ namespace Cosmos.Judgments
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool EndWithThese(string str, ICollection<string> values)
-        {
+        public static bool EndWithThese(string str, ICollection<string> values) {
             if (string.IsNullOrWhiteSpace(str) || values == null || !values.Any())
                 return false;
 
@@ -76,8 +70,7 @@ namespace Cosmos.Judgments
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsWebUrl(string str)
-        {
+        public static bool IsWebUrl(string str) {
             return !string.IsNullOrWhiteSpace(str) && WebUrlExpressionSchema.IsMatch(str);
         }
 
@@ -90,8 +83,7 @@ namespace Cosmos.Judgments
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsEmail(string str)
-        {
+        public static bool IsEmail(string str) {
             return !string.IsNullOrWhiteSpace(str) && EemailExpressionSchema.IsMatch(str);
         }
 
@@ -100,8 +92,7 @@ namespace Cosmos.Judgments
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool ContainsChineseCharacters(string str)
-        {
+        public static bool ContainsChineseCharacters(string str) {
             return !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[\u4e00-\u9fa5]+");
         }
 
@@ -110,8 +101,7 @@ namespace Cosmos.Judgments
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool ContainsNumber(string str)
-        {
+        public static bool ContainsNumber(string str) {
             return !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[0-9]+");
         }
     }

@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Invalid DateTime Exception
     /// </summary>
-    public class InvalidDateTimeException : CosmosException
-    {
+    public class InvalidDateTimeException : CosmosException {
         // ReSharper disable once InconsistentNaming
         private const string FLAG = "DT_INV_FLG";
 

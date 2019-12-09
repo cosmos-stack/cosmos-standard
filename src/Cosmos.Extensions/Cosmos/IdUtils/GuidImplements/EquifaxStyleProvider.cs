@@ -1,7 +1,6 @@
 using System;
 
-namespace Cosmos.IdUtils.GuidImplements
-{
+namespace Cosmos.IdUtils.GuidImplements {
     /*
      * Reference To:
      *     https://github.com/abock/EquifaxGuid
@@ -10,8 +9,7 @@ namespace Cosmos.IdUtils.GuidImplements
      *     https://twitter.com/abock
      */
 
-    internal static class EquifaxStyleProvider
-    {
+    internal static class EquifaxStyleProvider {
         public static Guid Create()
             => Create(DateTime.UtcNow);
 

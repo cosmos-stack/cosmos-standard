@@ -1,9 +1,7 @@
 using System;
 
-namespace Cosmos.Test.Serialization.Utf8JsonTest
-{
-    public class NiceModel
-    {
+namespace Cosmos.Test.Serialization.Utf8JsonTest {
+    public class NiceModel {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public NiceType NiceType { get; set; }

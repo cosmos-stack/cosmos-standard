@@ -1,10 +1,8 @@
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Trace Maker Interface
     /// </summary>
-    public interface ITraceIdMaker
-    {
+    public interface ITraceIdMaker {
         /// <summary>
         /// Create Id
         /// </summary>

@@ -1,12 +1,10 @@
-﻿namespace Cosmos.Workflow
-{
+﻿namespace Cosmos.Workflow {
     /// <summary>
     /// Dynamic Element Interface<br />
     /// 动态元素接口<br />
     /// 本接口用于 Cosmos.Walker
     /// </summary>
-    public interface IDynamicElement
-    {
+    public interface IDynamicElement {
         /// <summary>
         /// Id<br />
         /// 编号

@@ -1,18 +1,15 @@
-namespace System
-{
+namespace System {
     /// <summary>
     /// Base Type Extensions
     /// </summary>
-    public static partial class BaseTypeExtensions
-    {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// In
         /// </summary>
         /// <param name="this"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool In(this char @this, params char[] values)
-        {
+        public static bool In(this char @this, params char[] values) {
             return Array.IndexOf(values, @this) != -1;
         }
 
@@ -22,8 +19,7 @@ namespace System
         /// <param name="this"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool NotIn(this char @this, params char[] values)
-        {
+        public static bool NotIn(this char @this, params char[] values) {
             return Array.IndexOf(values, @this) == -1;
         }
 
@@ -32,8 +28,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsWhiteSpace(this char c)
-        {
+        public static bool IsWhiteSpace(this char c) {
             return char.IsWhiteSpace(c);
         }
 
@@ -42,8 +37,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsControl(this char c)
-        {
+        public static bool IsControl(this char c) {
             return char.IsControl(c);
         }
 
@@ -52,8 +46,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsDigit(this char c)
-        {
+        public static bool IsDigit(this char c) {
             return char.IsDigit(c);
         }
 
@@ -62,8 +55,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsLetter(this char c)
-        {
+        public static bool IsLetter(this char c) {
             return char.IsLetter(c);
         }
 
@@ -72,8 +64,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsLetterOrDigit(this char c)
-        {
+        public static bool IsLetterOrDigit(this char c) {
             return char.IsLetterOrDigit(c);
         }
 
@@ -82,8 +73,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsLower(this char c)
-        {
+        public static bool IsLower(this char c) {
             return char.IsLower(c);
         }
 
@@ -92,8 +82,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsNumber(this char c)
-        {
+        public static bool IsNumber(this char c) {
             return char.IsNumber(c);
         }
 
@@ -102,8 +91,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsPunctuation(this char c)
-        {
+        public static bool IsPunctuation(this char c) {
             return char.IsPunctuation(c);
         }
 
@@ -112,8 +100,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsSeparator(this char c)
-        {
+        public static bool IsSeparator(this char c) {
             return char.IsSeparator(c);
         }
 
@@ -122,8 +109,7 @@ namespace System
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsSymbol(this char c)
-        {
+        public static bool IsSymbol(this char c) {
             return char.IsSymbol(c);
         }
 

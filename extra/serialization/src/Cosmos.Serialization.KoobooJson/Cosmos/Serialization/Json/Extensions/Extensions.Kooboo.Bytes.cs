@@ -4,15 +4,13 @@ using Kooboo.Json;
 using Cosmos.Serialization.Json.Kooboo;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     using K = KoobooJsonHelper;
 
     /// <summary>
     /// KoobooJson extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// To Kooboo bytes
         /// </summary>
@@ -119,6 +117,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="optionsAct"></param>
         /// <returns></returns>
-        public static Task<object> FromKoobooBytesAsync(this byte[] data, Type type, Action<JsonDeserializeOption> optionsAct) => K.DeserializeFromBytesAsync(data, type, optionsAct);
+        public static Task<object> FromKoobooBytesAsync(this byte[] data, Type type, Action<JsonDeserializeOption> optionsAct) =>
+            K.DeserializeFromBytesAsync(data, type, optionsAct);
     }
 }

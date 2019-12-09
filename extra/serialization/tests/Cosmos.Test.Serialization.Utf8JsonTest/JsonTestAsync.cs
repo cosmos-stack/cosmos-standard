@@ -3,13 +3,10 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.Utf8JsonTest
-{
-    public class JsonTestAsync
-    {
+namespace Cosmos.Test.Serialization.Utf8JsonTest {
+    public class JsonTestAsync {
         [Fact]
-        public async Task BasicJsonTest()
-        {
+        public async Task BasicJsonTest() {
             var model = CreateNiceModel();
             var json1 = await model.ToUtf8JsonAsync();
             var back1 = await json1.FromUtf8JsonAsync<NiceModel>();
@@ -25,10 +22,8 @@ namespace Cosmos.Test.Serialization.Utf8JsonTest
         }
 
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

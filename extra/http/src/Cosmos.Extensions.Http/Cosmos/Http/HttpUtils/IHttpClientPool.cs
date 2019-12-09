@@ -8,13 +8,11 @@
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// A pool implementation for HttpClient pool.
     /// </summary>
-    public interface IHttpClientPool
-    {
+    public interface IHttpClientPool {
         /// <summary>
         /// Gets a client for the specified <see cref="IRequestBuilder"/>
         /// </summary>

@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 using Jil;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     /// <summary>
     /// JilJson extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// Serialize to string
         /// </summary>
@@ -21,8 +19,7 @@ namespace Cosmos.Serialization.Json
         /// <typeparam name="TRequest"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static string SerializeToString<TRequest>(this Options options, TRequest request)
-        {
+        public static string SerializeToString<TRequest>(this Options options, TRequest request) {
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
             if (request == null)
@@ -41,8 +38,7 @@ namespace Cosmos.Serialization.Json
         /// <typeparam name="TResponse"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TResponse DeserializeFromString<TResponse>(this Options options, string json)
-        {
+        public static TResponse DeserializeFromString<TResponse>(this Options options, string json) {
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
             if (string.IsNullOrWhiteSpace(json))
@@ -63,8 +59,7 @@ namespace Cosmos.Serialization.Json
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public static async Task<MemoryStream> SerializeToMemoryStreamAsync<TRequest>(
-            this Options options, TRequest request, CancellationToken cancellationToken)
-        {
+            this Options options, TRequest request, CancellationToken cancellationToken) {
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
             if (request == null)

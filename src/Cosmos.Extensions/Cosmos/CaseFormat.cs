@@ -5,79 +5,68 @@ using Cosmos.Joiners;
 using Cosmos.Splitters;
 using Humanizer;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Case format<br />
-    /// ¥Û–°–¥∏Ò ΩªØ∆˜
+    /// Â§ßÂ∞èÂÜôÊ†ºÂºèÂåñÂô®
     /// </summary>
-    public class CaseFormat
-    {
+    public class CaseFormat {
         private readonly bool _humanizerMode;
         private readonly ISplitter _splitter;
 
-        private CaseFormat(ISplitter splitter)
-        {
+        private CaseFormat(ISplitter splitter) {
             _splitter = splitter ?? throw new ArgumentNullException(nameof(splitter));
             _humanizerMode = false;
         }
 
-        private CaseFormat()
-        {
+        private CaseFormat() {
             _splitter = null;
             _humanizerMode = true;
         }
 
         /// <summary>
         /// To<br />
-        /// ◊™ªª
+        /// ËΩ¨Êç¢
         /// </summary>
         /// <param name="style"></param>
         /// <param name="sequence"></param>
         /// <returns></returns>
-        public string To(Style style, string sequence)
-        {
+        public string To(Style style, string sequence) {
             var list = _splitter.SplitToList(sequence);
             IJoiner joiner;
-            switch (style)
-            {
-                case Style.LOWER_CAMEL:
-                    {
-                        CaseFormatUtils.LowerCase(list);
-                        CaseFormatUtils.UpperCaseEachFirstChar(list);
-                        CaseFormatUtils.LowerCaseFirstItemFirstChar(list);
-                        joiner = Joiner.On("");
-                        break;
-                    }
+            switch (style) {
+                case Style.LOWER_CAMEL: {
+                    CaseFormatUtils.LowerCase(list);
+                    CaseFormatUtils.UpperCaseEachFirstChar(list);
+                    CaseFormatUtils.LowerCaseFirstItemFirstChar(list);
+                    joiner = Joiner.On("");
+                    break;
+                }
 
-                case Style.LOWER_HYPHEN:
-                    {
-                        CaseFormatUtils.LowerCase(list);
-                        joiner = Joiner.On("-");
-                        break;
-                    }
+                case Style.LOWER_HYPHEN: {
+                    CaseFormatUtils.LowerCase(list);
+                    joiner = Joiner.On("-");
+                    break;
+                }
 
-                case Style.LOWER_UNDERSCORE:
-                    {
-                        CaseFormatUtils.LowerCase(list);
-                        joiner = Joiner.On("_");
-                        break;
-                    }
+                case Style.LOWER_UNDERSCORE: {
+                    CaseFormatUtils.LowerCase(list);
+                    joiner = Joiner.On("_");
+                    break;
+                }
 
-                case Style.UPPER_CAMEL:
-                    {
-                        CaseFormatUtils.LowerCase(list);
-                        CaseFormatUtils.UpperCaseEachFirstChar(list);
-                        joiner = Joiner.On("");
-                        break;
-                    }
+                case Style.UPPER_CAMEL: {
+                    CaseFormatUtils.LowerCase(list);
+                    CaseFormatUtils.UpperCaseEachFirstChar(list);
+                    joiner = Joiner.On("");
+                    break;
+                }
 
-                case Style.UPPER_UNDERSCORE:
-                    {
-                        CaseFormatUtils.UpperCase(list);
-                        joiner = Joiner.On("_");
-                        break;
-                    }
+                case Style.UPPER_UNDERSCORE: {
+                    CaseFormatUtils.UpperCase(list);
+                    joiner = Joiner.On("_");
+                    break;
+                }
 
                 default:
                     throw new InvalidOperationException("Invalid operation.");
@@ -88,16 +77,14 @@ namespace Cosmos
 
         /// <summary>
         /// To<br />
-        /// ◊™ªª
+        /// ËΩ¨Êç¢
         /// </summary>
         /// <param name="transformer"></param>
         /// <param name="sequence"></param>
         /// <param name="joinOnStr"></param>
         /// <returns></returns>
-        public string To(IStringTransformer transformer, string sequence, string joinOnStr = " ")
-        {
-            if (!_humanizerMode)
-            {
+        public string To(IStringTransformer transformer, string sequence, string joinOnStr = " ") {
+            if (!_humanizerMode) {
                 var list = _splitter.SplitToList(sequence);
                 var joiner = Joiner.On(joinOnStr);
                 sequence = joiner.Join(list);
@@ -131,30 +118,23 @@ namespace Cosmos
         /// </summary>
         public static CaseFormat Humanizer => new CaseFormat();
 
-        private static class CaseFormatUtils
-        {
-            public static void LowerCase(List<string> list)
-            {
-                for (var i = 0; i < list.Count; i++)
-                {
+        private static class CaseFormatUtils {
+            public static void LowerCase(List<string> list) {
+                for (var i = 0; i < list.Count; i++) {
                     list[i] = list[i].ToLower();
                 }
             }
 
-            public static void UpperCase(List<string> list)
-            {
-                for (var i = 0; i < list.Count; i++)
-                {
+            public static void UpperCase(List<string> list) {
+                for (var i = 0; i < list.Count; i++) {
                     list[i] = list[i].ToUpper();
                 }
             }
 
             // ReSharper disable once UnusedMember.Global
             // ReSharper disable once UnusedMember.Local
-            public static void LowerCaseEachFirstChar(List<string> list)
-            {
-                for (var i = 0; i < list.Count; i++)
-                {
+            public static void LowerCaseEachFirstChar(List<string> list) {
+                for (var i = 0; i < list.Count; i++) {
                     if (list[i].IsNullOrWhiteSpace())
                         continue;
 
@@ -165,10 +145,8 @@ namespace Cosmos
                 }
             }
 
-            public static void UpperCaseEachFirstChar(List<string> list)
-            {
-                for (var i = 0; i < list.Count; i++)
-                {
+            public static void UpperCaseEachFirstChar(List<string> list) {
+                for (var i = 0; i < list.Count; i++) {
                     if (list[i].IsNullOrWhiteSpace())
                         continue;
 
@@ -179,10 +157,8 @@ namespace Cosmos
                 }
             }
 
-            public static void LowerCaseFirstItemFirstChar(List<string> list)
-            {
-                if (list != null && list.Any() && !list[0].IsNullOrWhiteSpace())
-                {
+            public static void LowerCaseFirstItemFirstChar(List<string> list) {
+                if (list != null && list.Any() && !list[0].IsNullOrWhiteSpace()) {
                     var array = list[0].ToCharArray();
 
                     array[0] = array[0].ToLowerInvariant();
@@ -191,10 +167,8 @@ namespace Cosmos
             }
 
             // ReSharper disable once UnusedMember.Local
-            public static void UpperCaseFirstItemFirstChar(List<string> list)
-            {
-                if (list != null && list.Any() && !list[0].IsNullOrWhiteSpace())
-                {
+            public static void UpperCaseFirstItemFirstChar(List<string> list) {
+                if (list != null && list.Any() && !list[0].IsNullOrWhiteSpace()) {
                     var array = list[0].ToCharArray();
 
                     array[0] = array[0].ToUpperInvariant();
@@ -205,41 +179,40 @@ namespace Cosmos
 
         /// <summary>
         /// Case format style<be />
-        /// ¥Û–°–¥∏Ò ΩªØ—˘ Ω
+        /// Â§ßÂ∞èÂÜôÊ†ºÂºèÂåñÊ†∑Âºè
         /// </summary>
-        public enum Style
-        {
+        public enum Style {
             /// <summary>
             /// Lower camel<br />
-            /// –°–¥”ÎÕ’∑Â
+            /// Â∞èÂÜô‰∏éÈ©ºÂ≥∞
             /// </summary>
             // ReSharper disable once InconsistentNaming
             LOWER_CAMEL,
 
             /// <summary>
             /// Lower hyphen<br />
-            /// –°–¥”Î∫·œﬂ
+            /// Â∞èÂÜô‰∏éÊ®™Á∫ø
             /// </summary>
             // ReSharper disable once InconsistentNaming
             LOWER_HYPHEN,
 
             /// <summary>
             /// Lower underscore<br />
-            /// –°–¥”Îœ¬ªÆœﬂ
+            /// Â∞èÂÜô‰∏é‰∏ãÂàíÁ∫ø
             /// </summary>
             // ReSharper disable once InconsistentNaming
             LOWER_UNDERSCORE,
 
             /// <summary>
             /// Upper camel<br />
-            /// ¥Û–¥”ÎÕ’∑Â
+            /// Â§ßÂÜô‰∏éÈ©ºÂ≥∞
             /// </summary>
             // ReSharper disable once InconsistentNaming
             UPPER_CAMEL,
 
             /// <summary>
             /// Upper underscore<br />
-            /// ¥Û–¥”Îœ¬ªÆœﬂ
+            /// Â§ßÂÜô‰∏é‰∏ãÂàíÁ∫ø
             /// </summary>
             // ReSharper disable once InconsistentNaming
             UPPER_UNDERSCORE

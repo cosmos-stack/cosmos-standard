@@ -3,13 +3,11 @@ using System.Linq;
 using System.Net.Http.Headers;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// Extensions of Http header
     /// </summary>
-    public static partial class HttpHeaderExtensions
-    {
+    public static partial class HttpHeaderExtensions {
         /// <summary>
         /// Try get value from http headers
         /// </summary>
@@ -18,8 +16,7 @@ namespace Cosmos.Http
         /// <param name="value"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static bool TryGetValue(this HttpHeaders headers, string name, out string value)
-        {
+        public static bool TryGetValue(this HttpHeaders headers, string name, out string value) {
             if (headers == null)
                 throw new ArgumentNullException(nameof(headers));
             if (string.IsNullOrWhiteSpace(name))

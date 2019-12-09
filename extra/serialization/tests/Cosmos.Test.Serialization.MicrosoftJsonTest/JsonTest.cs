@@ -3,13 +3,10 @@ using System.Text.Json;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.MicrosoftJsonTest
-{
-    public class JsonTest
-    {
+namespace Cosmos.Test.Serialization.MicrosoftJsonTest {
+    public class JsonTest {
         [Fact]
-        public void BasicJsonTest()
-        {
+        public void BasicJsonTest() {
             var model = CreateNiceModel();
             var json1 = model.ToMicrosoftJson();
             var back1 = json1.FromMicrosoftJson<NiceModel>();
@@ -25,8 +22,7 @@ namespace Cosmos.Test.Serialization.MicrosoftJsonTest
         }
 
         [Fact]
-        public void OptionalJsonTest()
-        {
+        public void OptionalJsonTest() {
             var model = CreateNiceModel();
 
             var options = new JsonSerializerOptions {AllowTrailingCommas = true, MaxDepth = 3};
@@ -44,10 +40,8 @@ namespace Cosmos.Test.Serialization.MicrosoftJsonTest
                 Tuple.Create(back2.Id, back2.Name, back2.NiceType, back2.Count, back2.CreatedTime, back2.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

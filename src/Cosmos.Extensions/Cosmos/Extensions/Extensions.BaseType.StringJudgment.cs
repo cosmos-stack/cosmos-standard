@@ -2,13 +2,11 @@ using System;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StringExtensions
-    {
+    public static partial class StringExtensions {
         /// <summary>
         /// 判断指定字符串是否为 Guid
         /// </summary>
@@ -78,11 +76,10 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool OneAbsentChar(this string text, string toCheck)
-        {
+        public static bool OneAbsentChar(this string text, string toCheck) {
             if (text.Length > 1
-                && toCheck.Length > 1
-                && Math.Abs(text.Length - toCheck.Length) != 1) //las long deben diferir en 1, y ambas ser mayor que 1
+             && toCheck.Length > 1
+             && Math.Abs(text.Length - toCheck.Length) != 1) //las long deben diferir en 1, y ambas ser mayor que 1
                 return false;
 
             var textWithChar = (text.Length > toCheck.Length ? text : toCheck);
@@ -92,14 +89,13 @@ namespace Cosmos
             if (textWithChar[textWithChar.Length - 1] != textNoChar[textNoChar.Length - 1])
                 return textWithChar.Substring(0, textWithChar.Length - 1).EqualsIgnoreCase(textNoChar);
 
-            for (int i = 0; i < textNoChar.Length; i++)
-            {
-                if (textWithChar[i] != textNoChar[i])
-                {
+            for (int i = 0; i < textNoChar.Length; i++) {
+                if (textWithChar[i] != textNoChar[i]) {
                     //a partir del car distinto, el resto debe coincidir
                     return textWithChar.Substring(i + 1).EqualsIgnoreCase(textNoChar.Substring(i));
                 }
             }
+
             return false;
         }
     }

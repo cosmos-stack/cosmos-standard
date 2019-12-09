@@ -2,21 +2,18 @@ using System;
 using System.Globalization;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTimeOffset Extensions<br />
     /// DateTimeOffset 扩展方法
     /// </summary>
-    public static partial class DateTimeOffsetExtensions
-    {
+    public static partial class DateTimeOffsetExtensions {
         /// <summary>
         /// First day of year
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset FirstDayOfYear(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset FirstDayOfYear(this DateTimeOffset dto) {
             return dto.SetDate(dto.Year, 1, 1);
         }
 
@@ -25,8 +22,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset FirstDayOfQuarter(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset FirstDayOfQuarter(this DateTimeOffset dto) {
             var currentQuarter = (dto.Month - 1) / 3 + 1;
             return dto.SetDate(dto.Year, 3 * currentQuarter - 2, 1);
         }
@@ -36,8 +32,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset dto) {
             return dto.SetDay(1);
         }
 
@@ -46,8 +41,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset FirstDayOfWeek(this DateTimeOffset dto) {
             var currentCulture = CultureInfo.CurrentCulture;
             var firstDayOfWeek = currentCulture.DateTimeFormat.FirstDayOfWeek;
             var offset = dto.DayOfWeek - firstDayOfWeek < 0 ? 7 : 0;
@@ -61,8 +55,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset LastDayOfYear(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset LastDayOfYear(this DateTimeOffset dto) {
             return dto.SetDate(dto.Year, 12, 31);
         }
 
@@ -71,8 +64,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset LastDayOfQuarter(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset LastDayOfQuarter(this DateTimeOffset dto) {
             var currentQuarter = (dto.Month - 1) / 3 + 1;
             var firstDay = dto.SetDate(dto.Year, 3 * currentQuarter - 2, 1);
             return firstDay.SetMonth(firstDay.Month + 2).LastDayOfMonth();
@@ -83,8 +75,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset LastDayOfMonth(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset LastDayOfMonth(this DateTimeOffset dto) {
             return dto.SetDay(DateTime.DaysInMonth(dto.Year, dto.Month));
         }
 
@@ -93,8 +84,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset dto) {
             return dto.FirstDayOfWeek().AddDays(6);
         }
 
@@ -103,8 +93,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="start"></param>
         /// <returns></returns>
-        public static DateTimeOffset WeekAfter(this DateTimeOffset start)
-        {
+        public static DateTimeOffset WeekAfter(this DateTimeOffset start) {
             return start + 1.Weeks();
         }
 
@@ -113,8 +102,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset WeekBefore(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset WeekBefore(this DateTimeOffset dto) {
             return dto - 1.Weeks();
         }
 
@@ -123,8 +111,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset Midnight(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset Midnight(this DateTimeOffset dto) {
             return dto.BeginningOfDay();
         }
 
@@ -133,8 +120,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset Noon(this DateTimeOffset dto)
-        {
+        public static DateTimeOffset Noon(this DateTimeOffset dto) {
             return dto.SetTime(12, 0, 0, 0);
         }
     }

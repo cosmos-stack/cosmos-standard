@@ -2,13 +2,11 @@ using System;
 using System.IO;
 using Jil;
 
-namespace Cosmos.Serialization.Json.Jil
-{
+namespace Cosmos.Serialization.Json.Jil {
     /// <summary>
     /// JilJson helper
     /// </summary>
-    public static partial class JilHelper
-    {
+    public static partial class JilHelper {
         /// <summary>
         /// Pack
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream Pack<T>(T o, Options options = null)
-        {
+        public static Stream Pack<T>(T o, Options options = null) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -35,8 +32,7 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="stream"></param>
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Pack<T>(T t, Stream stream, Options options = null)
-        {
+        public static void Pack<T>(T t, Stream stream, Options options = null) {
             if (t == null || !stream.CanWrite)
                 return;
 
@@ -52,8 +48,7 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Unpack<T>(Stream stream, Options options = null)
-        {
+        public static T Unpack<T>(Stream stream, Options options = null) {
             return stream == null
                 ? default
                 : DeserializeFromBytes<T>(StreamToBytes(stream), options);
@@ -66,15 +61,13 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static object Unpack(Stream stream, Type type, Options options = null)
-        {
+        public static object Unpack(Stream stream, Type type, Options options = null) {
             return stream == null
                 ? null
                 : DeserializeFromBytes(StreamToBytes(stream), type, options);
         }
 
-        private static byte[] StreamToBytes(Stream stream)
-        {
+        private static byte[] StreamToBytes(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

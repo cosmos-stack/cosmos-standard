@@ -4,13 +4,11 @@ using Newtonsoft.Json;
 using JsonHelper = Cosmos.Serialization.Json.Newtonsoft.JsonHelper;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     /// <summary>
     /// Newtonsoft Json Extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// To json bytes
         /// </summary>
@@ -18,8 +16,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="settings"></param>
         /// <param name="withNodaTime"></param>
         /// <returns></returns>
-        public static byte[] ToJsonBytes(this object obj, JsonSerializerSettings settings = null, bool withNodaTime = false)
-        {
+        public static byte[] ToJsonBytes(this object obj, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return JsonHelper.SerializeToBytes(obj, settings, withNodaTime);
         }
 
@@ -30,8 +27,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="settings"></param>
         /// <param name="withNodaTime"></param>
         /// <returns></returns>
-        public static Task<byte[]> ToJsonBytesAsync(this object obj, JsonSerializerSettings settings = null, bool withNodaTime = false)
-        {
+        public static Task<byte[]> ToJsonBytesAsync(this object obj, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return JsonHelper.SerializeToBytesAsync(obj, settings, withNodaTime);
         }
 
@@ -43,8 +39,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="withNodaTime"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromJsonBytes<T>(this byte[] data, JsonSerializerSettings settings = null, bool withNodaTime = false)
-        {
+        public static T FromJsonBytes<T>(this byte[] data, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return JsonHelper.DeserializeFromBytes<T>(data, settings, withNodaTime);
         }
 
@@ -56,8 +51,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="settings"></param>
         /// <param name="withNodaTime"></param>
         /// <returns></returns>
-        public static object FromJsonBytes(this byte[] data, Type type, JsonSerializerSettings settings = null, bool withNodaTime = false)
-        {
+        public static object FromJsonBytes(this byte[] data, Type type, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return JsonHelper.DeserializeFromBytes(data, type, settings, withNodaTime);
         }
 
@@ -69,8 +63,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="withNodaTime"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromJsonBytesAsync<T>(this byte[] data, JsonSerializerSettings settings = null, bool withNodaTime = false)
-        {
+        public static Task<T> FromJsonBytesAsync<T>(this byte[] data, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return JsonHelper.DeserializeFromBytesAsync<T>(data, settings, withNodaTime);
         }
 
@@ -82,8 +75,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="settings"></param>
         /// <param name="withNodaTime"></param>
         /// <returns></returns>
-        public static Task<object> FromJsonBytesAsync(this byte[] data, Type type, JsonSerializerSettings settings = null, bool withNodaTime = false)
-        {
+        public static Task<object> FromJsonBytesAsync(this byte[] data, Type type, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return JsonHelper.DeserializeFromBytesAsync(data, type, settings, withNodaTime);
         }
     }

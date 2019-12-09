@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Type clazz
     /// </summary>
-    public static class TypeClass
-    {
+    public static class TypeClass {
         /// <summary>
         /// Gets clazz for object.
         /// </summary>

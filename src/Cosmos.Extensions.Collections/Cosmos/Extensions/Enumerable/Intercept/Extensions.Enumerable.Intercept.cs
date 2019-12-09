@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions
-    {
+    public static partial class EnumerableExtensions {
         /// <summary>
         /// Intercept
         /// </summary>
@@ -18,15 +16,13 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> Intercept<T>(this IEnumerable<T> source, Action<T> action)
-        {
+        public static IEnumerable<T> Intercept<T>(this IEnumerable<T> source, Action<T> action) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (action == null)
                 throw new ArgumentNullException(nameof(action));
 
-            return source.Select(t =>
-            {
+            return source.Select(t => {
                 action(t);
                 return t;
             });

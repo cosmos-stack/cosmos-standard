@@ -4,13 +4,11 @@ using System.Linq;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions of collection
     /// </summary>
-   public static class CollectionJudgmentExtensions
-    {
+    public static class CollectionJudgmentExtensions {
         /// <summary>
         /// 判断集合是否为空
         /// </summary>

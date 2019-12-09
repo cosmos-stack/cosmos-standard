@@ -2,13 +2,11 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions for dictionary
     /// </summary>
-    public static partial class DictionaryExtensions
-    {
+    public static partial class DictionaryExtensions {
         /// <summary>
         /// To string
         /// </summary>
@@ -18,12 +16,10 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static string ToString<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, string linker, string separator)
-        {
+        public static string ToString<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, string linker, string separator) {
             if (dictionary == null) return string.Empty;
             var sb = new StringBuilder();
-            foreach (var item in dictionary)
-            {
+            foreach (var item in dictionary) {
                 sb.Append($"{item.Key}{linker}{item.Value}{separator}");
             }
 

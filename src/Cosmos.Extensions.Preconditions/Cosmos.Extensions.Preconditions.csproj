@@ -1,32 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\build\common.ns20-net461-net451.props"/>
+    <Import Project="..\..\build\common.ns20-net461-net451.props" />
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <AssemblyName>Cosmos.Extensions.Preconditions</AssemblyName>
-    <PackageId>Cosmos.Extensions.Preconditions</PackageId>
-    <Description>Cosmos preconditions extension library</Description>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Preconditions</AssemblyName>
+        <PackageId>Cosmos.Extensions.Preconditions</PackageId>
+        <Description>Cosmos preconditions extension library</Description>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.Preconditions.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.Preconditions.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.Preconditions.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.Preconditions.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AspectCore.Extensions.Reflection" Version="1.3.0" />
-    <PackageReference Include="FluentValidation" Version="8.5.1" />
-    <PackageReference Include="AspectCore.Abstractions" Version="1.3.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AspectCore.Abstractions" Version="1.3.0" />
+        <PackageReference Include="AspectCore.Extensions.Reflection" Version="1.3.0" />
+        <PackageReference Include="FluentValidation" Version="8.6.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
+    </ItemGroup>
 </Project>

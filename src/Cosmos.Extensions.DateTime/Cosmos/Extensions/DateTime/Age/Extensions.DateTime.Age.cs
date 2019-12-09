@@ -1,13 +1,11 @@
 ﻿using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Age helper
     /// </summary>
-    public static class AgeExtensions
-    {
+    public static class AgeExtensions {
         /// <summary>
         /// 根据生日计算年纪
         /// </summary>
@@ -21,8 +19,7 @@ namespace Cosmos
         /// <param name="birthday">     </param>
         /// <param name="referenceDate"></param>
         /// <returns></returns>
-        public static int ToCalculateAge(this DateTime birthday, DateTime referenceDate)
-        {
+        public static int ToCalculateAge(this DateTime birthday, DateTime referenceDate) {
             var years = referenceDate.Year - birthday.Year;
             if (referenceDate.Month < birthday.Month || (referenceDate.Month == birthday.Month && referenceDate.Day < birthday.Day))
                 --years;

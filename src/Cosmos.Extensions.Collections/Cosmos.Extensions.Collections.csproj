@@ -1,32 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\build\common.ns20-net461-net451.props"/>
+    <Import Project="..\..\build\common.ns20-net461-net451.props" />
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <AssemblyName>Cosmos.Extensions.Collections</AssemblyName>
-    <PackageId>Cosmos.Extensions.Collections</PackageId>
-    <Description>Cosmos collections extension library</Description>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Collections</AssemblyName>
+        <PackageId>Cosmos.Extensions.Collections</PackageId>
+        <Description>Cosmos collections extension library</Description>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.Collections.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.Collections.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.Collections.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.Collections.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.0.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.1.0" />
+        <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
-  </ItemGroup>
-  
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
+    </ItemGroup>
+
 </Project>

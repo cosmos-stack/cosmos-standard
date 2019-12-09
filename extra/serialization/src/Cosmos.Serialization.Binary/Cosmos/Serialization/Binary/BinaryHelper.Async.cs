@@ -1,20 +1,17 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Cosmos.Serialization.Binary
-{
+namespace Cosmos.Serialization.Binary {
     /// <summary>
     /// Binary helper
     /// </summary>
-    public static partial class BinaryHelper
-    {
+    public static partial class BinaryHelper {
         /// <summary>
         /// Serialize
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static async Task<byte[]> SerializeAsync(object obj)
-        {
+        public static async Task<byte[]> SerializeAsync(object obj) {
             using var stream = await PackAsync(obj);
             return await StreamToBytesAsync(stream);
         }
@@ -25,8 +22,7 @@ namespace Cosmos.Serialization.Binary
         /// <param name="bytes"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> DeserializeAsync<T>(byte[] bytes)
-        {
+        public static async Task<T> DeserializeAsync<T>(byte[] bytes) {
             return (T) await DeserializeAsync(bytes);
         }
 
@@ -35,8 +31,7 @@ namespace Cosmos.Serialization.Binary
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public static async Task<object> DeserializeAsync(byte[] bytes)
-        {
+        public static async Task<object> DeserializeAsync(byte[] bytes) {
             if (bytes is null || bytes.Length is 0)
                 return default;
 

@@ -5,15 +5,13 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.Json.MicrosoftJson;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     using MS = MicrosoftJsonHelper;
 
     /// <summary>
     /// Microsoft System.Text.Json extensions
     /// </summary>
-    public static partial class MsJsonExtensions
-    {
+    public static partial class MsJsonExtensions {
         /// <summary>
         /// Microsoft System.Text.Json pack to
         /// </summary>
@@ -109,7 +107,8 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static async Task<object> MicrosoftJsonUnpackAsync(this Stream stream, Type type, JsonSerializerOptions options = null) => await MS.UnpackAsync(stream, type, options);
+        public static async Task<object> MicrosoftJsonUnpackAsync(this Stream stream, Type type, JsonSerializerOptions options = null) =>
+            await MS.UnpackAsync(stream, type, options);
 
     }
 }

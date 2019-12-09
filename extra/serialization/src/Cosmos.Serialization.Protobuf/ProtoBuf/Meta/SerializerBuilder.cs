@@ -13,13 +13,11 @@ using System.Reflection;
  *     https://github.com/Mutuduxf/Zaabee.Serializers/blob/master/Zaabee.Protobuf/Zaabee.Protobuf/SerializerBuilder.cs
  */
 
-namespace ProtoBuf.Meta
-{
+namespace ProtoBuf.Meta {
     /// <summary>
     /// Serializer builder
     /// </summary>
-    public static class SerializerBuilder
-    {
+    public static class SerializerBuilder {
         private const BindingFlags Flags = BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
 
         private static readonly ConcurrentDictionary<Type, HashSet<Type>> SubTypes = new ConcurrentDictionary<Type, HashSet<Type>>();
@@ -31,8 +29,7 @@ namespace ProtoBuf.Meta
         /// </summary>
         /// <param name="runtimeTypeModel"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Build<T>(RuntimeTypeModel runtimeTypeModel)
-        {
+        public static void Build<T>(RuntimeTypeModel runtimeTypeModel) {
             Build(runtimeTypeModel, typeof(T));
         }
 
@@ -41,20 +38,17 @@ namespace ProtoBuf.Meta
         /// </summary>
         /// <param name="runtimeTypeModel"></param>
         /// <param name="type"></param>
-        public static void Build(RuntimeTypeModel runtimeTypeModel, Type type)
-        {
+        public static void Build(RuntimeTypeModel runtimeTypeModel, Type type) {
             if (BuiltTypes.Contains(type))
                 return;
 
-            lock (type)
-            {
+            lock (type) {
                 if (BuiltTypes.Contains(type))
                     return;
-                
-                if (runtimeTypeModel.CanSerialize(type))
-                {
+
+                if (runtimeTypeModel.CanSerialize(type)) {
                     if (type.IsGenericType)
-                        BuildGenerics(runtimeTypeModel,type);
+                        BuildGenerics(runtimeTypeModel, type);
                     return;
                 }
 
@@ -74,18 +68,15 @@ namespace ProtoBuf.Meta
             }
         }
 
-        private static void BuildBaseClasses(RuntimeTypeModel runtimeTypeModel, Type type)
-        {
+        private static void BuildBaseClasses(RuntimeTypeModel runtimeTypeModel, Type type) {
             var baseType = type.BaseType;
             var inheritingType = type;
 
-            while (baseType != null && baseType != ObjectType)
-            {
+            while (baseType != null && baseType != ObjectType) {
                 if (!SubTypes.TryGetValue(baseType, out var baseTypedEntry))
                     SubTypes.TryAdd(baseType, baseTypedEntry = new HashSet<Type>());
 
-                if (!baseTypedEntry.Contains(inheritingType))
-                {
+                if (!baseTypedEntry.Contains(inheritingType)) {
                     Build(runtimeTypeModel, baseType);
                     runtimeTypeModel[baseType].AddSubType(baseTypedEntry.Count + 500, inheritingType);
                     baseTypedEntry.Add(inheritingType);
@@ -96,8 +87,7 @@ namespace ProtoBuf.Meta
             }
         }
 
-        private static void BuildGenerics(RuntimeTypeModel runtimeTypeModel, Type type)
-        {
+        private static void BuildGenerics(RuntimeTypeModel runtimeTypeModel, Type type) {
             if (!type.IsGenericType && (type.BaseType == null || !type.BaseType.IsGenericType)) return;
             var generics = type.IsGenericType ? type.GetGenericArguments() : type.BaseType.GetGenericArguments();
 

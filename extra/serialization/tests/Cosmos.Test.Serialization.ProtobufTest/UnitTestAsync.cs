@@ -4,13 +4,10 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.ProtoBuf;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.ProtobufTest
-{
-    public class UnitTestAsync
-    {
+namespace Cosmos.Test.Serialization.ProtobufTest {
+    public class UnitTestAsync {
         [Fact]
-        public async Task BytesTest()
-        {
+        public async Task BytesTest() {
             var model = CreateNiceModel();
             var bytes = await model.ToProtoBytesAsync();
             var backs = await bytes.FromProtoBytesAsync<NiceModel>();
@@ -21,8 +18,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         }
 
         [Fact]
-        public async Task NonGenericBytesTest()
-        {
+        public async Task NonGenericBytesTest() {
             var model = CreateNiceModel();
             var bytes = await model.ToProtoBytesAsync();
             var backs = (NiceModel) await bytes.FromProtoBytesAsync(typeof(NiceModel));
@@ -33,8 +29,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         }
 
         [Fact]
-        public async Task StreamTest()
-        {
+        public async Task StreamTest() {
             var model = CreateNiceModel();
             var stream1 = await model.ToStreamAsync();
             var stream2 = new MemoryStream();
@@ -60,8 +55,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         }
 
         [Fact]
-        public async Task NonGenericStreamTest()
-        {
+        public async Task NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = await model.ToStreamAsync();
             var stream2 = new MemoryStream();
@@ -86,10 +80,8 @@ namespace Cosmos.Test.Serialization.ProtobufTest
                 Tuple.Create(back3.Id, back3.Name, back3.NiceType, back3.Count, back3.CreatedTime, back3.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

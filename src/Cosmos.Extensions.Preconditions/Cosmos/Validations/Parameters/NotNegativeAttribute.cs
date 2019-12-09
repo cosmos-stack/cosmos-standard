@@ -4,14 +4,12 @@ using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Extensions;
 using Cosmos.Validations.Parameters.Internals;
 
-namespace Cosmos.Validations.Parameters
-{
+namespace Cosmos.Validations.Parameters {
     /// <summary>
     /// Not negative
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotNegativeAttribute : ParameterInterceptorAttribute, IValidationParameter
-    {
+    public class NotNegativeAttribute : ParameterInterceptorAttribute, IValidationParameter {
         /// <summary>
         /// Message
         /// </summary>
@@ -23,8 +21,7 @@ namespace Cosmos.Validations.Parameters
         /// <param name="context"></param>
         /// <param name="next"></param>
         /// <returns></returns>
-        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
-        {
+        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next) {
             if (context.Parameter.IsIntType())
                 context.Parameter.TryTo<int?>().SafeValue().CheckNegative(context.Parameter.Name, Message);
             else if (context.Parameter.IsLongType())

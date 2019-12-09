@@ -2,13 +2,11 @@ using System.Globalization;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// LocalDate extensions
     /// </summary>
-    public static partial class LocalDateExtensions
-    {
+    public static partial class LocalDateExtensions {
         /// <summary>
         /// Gets first day of year
         /// </summary>
@@ -21,8 +19,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ld"></param>
         /// <returns></returns>
-        public static LocalDate FirstDayOfQuarter(this LocalDate ld)
-        {
+        public static LocalDate FirstDayOfQuarter(this LocalDate ld) {
             var currentQuarter = (ld.Month - 1) / 3 + 1;
             var firstDay = new LocalDate(ld.Year, 3 * currentQuarter - 2, 1);
 
@@ -41,8 +38,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ld"></param>
         /// <returns></returns>
-        public static LocalDate FirstDayOfWeek(this LocalDate ld)
-        {
+        public static LocalDate FirstDayOfWeek(this LocalDate ld) {
             var currentCulture = CultureInfo.CurrentCulture;
             var firstDayOfWeek = (int) currentCulture.DateTimeFormat.FirstDayOfWeek;
 
@@ -66,8 +62,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ld"></param>
         /// <returns></returns>
-        public static LocalDate LastDayOfQuarter(this LocalDate ld)
-        {
+        public static LocalDate LastDayOfQuarter(this LocalDate ld) {
             var currentQuarter = (ld.Month - 1) / 3 + 1;
             var firstDay = ld.SetDate(ld.Year, 3 * currentQuarter - 2, 1);
             return firstDay.SetMonth(firstDay.Month + 2).LastDayOfMonth();

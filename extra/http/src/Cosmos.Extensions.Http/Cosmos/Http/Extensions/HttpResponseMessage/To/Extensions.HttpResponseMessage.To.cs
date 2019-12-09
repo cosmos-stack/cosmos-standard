@@ -7,13 +7,11 @@ using Jil;
 using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// HttpResponseMessage extensions
     /// </summary>
-    public static partial class HttpResponseMessageExtensions
-    {
+    public static partial class HttpResponseMessageExtensions {
         /// <summary>
         /// To Object async
         /// </summary>
@@ -23,8 +21,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task<T> ToObjectAsync<T>(this HttpResponseMessage httpResponseMessage,
-            CancellationToken cancellationToken)
-        {
+            CancellationToken cancellationToken) {
             if (httpResponseMessage == null)
                 throw new ArgumentNullException(nameof(httpResponseMessage));
             return httpResponseMessage.ToObjectAsync<T>(JsonSerializer.CreateDefault(), cancellationToken);
@@ -40,15 +37,14 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task<T> ToObjectAsync<T>(this HttpResponseMessage httpResponseMessage,
-            JsonSerializerSettings jsonSerializerSettings, CancellationToken cancellationToken)
-        {
+            JsonSerializerSettings jsonSerializerSettings, CancellationToken cancellationToken) {
             if (httpResponseMessage == null)
                 throw new ArgumentNullException(nameof(httpResponseMessage));
             if (jsonSerializerSettings == null)
                 throw new ArgumentNullException(nameof(jsonSerializerSettings));
             return httpResponseMessage.ToObjectAsync<T>(JsonSerializer.Create(jsonSerializerSettings), cancellationToken);
         }
-        
+
         /// <summary>
         /// To Object async
         /// </summary>
@@ -59,19 +55,15 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<T> ToObjectAsync<T>(this HttpResponseMessage httpResponseMessage,
-            JsonSerializer jsonSerializer, CancellationToken cancellationToken)
-        {
+            JsonSerializer jsonSerializer, CancellationToken cancellationToken) {
             if (httpResponseMessage == null)
                 throw new ArgumentNullException(nameof(httpResponseMessage));
             if (jsonSerializer == null)
                 throw new ArgumentNullException(nameof(jsonSerializer));
 
-            using (var stream = await httpResponseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false))
-            {
-                using (var streamReader = new StreamReader(stream))
-                {
-                    using (JsonReader jsonReader = new JsonTextReader(streamReader))
-                    {
+            using (var stream = await httpResponseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false)) {
+                using (var streamReader = new StreamReader(stream)) {
+                    using (JsonReader jsonReader = new JsonTextReader(streamReader)) {
                         return jsonSerializer.Deserialize<T>(jsonReader);
                     }
                 }
@@ -88,17 +80,14 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<T> ToObjectAsync<T>(this HttpResponseMessage httpResponseMessage,
-            Options options, CancellationToken cancellationToken)
-        {
+            Options options, CancellationToken cancellationToken) {
             if (httpResponseMessage == null)
                 throw new ArgumentNullException(nameof(httpResponseMessage));
             if (options == null)
                 options = Options.Default;
 
-            using (var stream = await httpResponseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false))
-            {
-                using (var streamReader = new StreamReader(stream))
-                {
+            using (var stream = await httpResponseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false)) {
+                using (var streamReader = new StreamReader(stream)) {
                     return JSON.Deserialize<T>(streamReader, options);
                 }
             }

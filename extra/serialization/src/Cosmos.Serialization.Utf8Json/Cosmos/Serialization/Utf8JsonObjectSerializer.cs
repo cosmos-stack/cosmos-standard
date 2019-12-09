@@ -2,13 +2,11 @@ using System;
 using System.Threading.Tasks;
 using Cosmos.Serialization.Json.Utf8Json;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Utf8Json object serializer
     /// </summary>
-    public class Utf8JsonObjectSerializer : IJsonSerializer
-    {
+    public class Utf8JsonObjectSerializer : IJsonSerializer {
         /// <inheritdoc />
         public string Serialize<T>(T o) => Utf8JsonHelper.Serialize(o);
 

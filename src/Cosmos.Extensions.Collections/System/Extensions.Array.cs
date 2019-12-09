@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace System
-{
+namespace System {
     /// <summary>
     /// Extensions
     /// </summary>
-    public static class Extensions
-    {
+    public static class Extensions {
         /// <summary>
         /// Contains
         /// </summary>

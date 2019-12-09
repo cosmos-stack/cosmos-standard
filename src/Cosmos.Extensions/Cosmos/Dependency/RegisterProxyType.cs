@@ -1,10 +1,8 @@
-﻿namespace Cosmos.Dependency
-{
+﻿namespace Cosmos.Dependency {
     /// <summary>
     /// Register proxy type
     /// </summary>
-    public enum RegisterProxyType
-    {
+    public enum RegisterProxyType {
         /// <summary>
         /// Type to type
         /// </summary>

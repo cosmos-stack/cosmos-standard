@@ -3,13 +3,11 @@ using Cosmos.Date;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Instant extensions
     /// </summary>
-    public static partial class InstantExtensions
-    {
+    public static partial class InstantExtensions {
         /// <summary>
         /// Add milliseconds
         /// </summary>
@@ -17,13 +15,12 @@ namespace Cosmos
         /// <param name="milliseconds"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusMilliseconds(this Instant i, long milliseconds)
-        {
+        public static Instant PlusMilliseconds(this Instant i, long milliseconds) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(milliseconds.DurationMilliseconds());
         }
-        
+
         /// <summary>
         /// Add milliseconds
         /// </summary>
@@ -31,8 +28,7 @@ namespace Cosmos
         /// <param name="milliseconds"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusMilliseconds(this Instant i, double milliseconds)
-        {
+        public static Instant PlusMilliseconds(this Instant i, double milliseconds) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(milliseconds.DurationMilliseconds());
@@ -45,8 +41,7 @@ namespace Cosmos
         /// <param name="seconds"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusSeconds(this Instant i, long seconds)
-        {
+        public static Instant PlusSeconds(this Instant i, long seconds) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(seconds.DurationSeconds());
@@ -59,8 +54,7 @@ namespace Cosmos
         /// <param name="seconds"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusSeconds(this Instant i, double seconds)
-        {
+        public static Instant PlusSeconds(this Instant i, double seconds) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(seconds.DurationSeconds());
@@ -73,8 +67,7 @@ namespace Cosmos
         /// <param name="minutes"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusMinutes(this Instant i, long minutes)
-        {
+        public static Instant PlusMinutes(this Instant i, long minutes) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(minutes.DurationMinutes());
@@ -87,8 +80,7 @@ namespace Cosmos
         /// <param name="minutes"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusMinutes(this Instant i, double minutes)
-        {
+        public static Instant PlusMinutes(this Instant i, double minutes) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(minutes.DurationMinutes());
@@ -101,8 +93,7 @@ namespace Cosmos
         /// <param name="hours"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusHours(this Instant i, int hours)
-        {
+        public static Instant PlusHours(this Instant i, int hours) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(hours.DurationHours());
@@ -115,8 +106,7 @@ namespace Cosmos
         /// <param name="hours"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusHours(this Instant i, double hours)
-        {
+        public static Instant PlusHours(this Instant i, double hours) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(hours.DurationHours());
@@ -129,8 +119,7 @@ namespace Cosmos
         /// <param name="days"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusDays(this Instant i, int days)
-        {
+        public static Instant PlusDays(this Instant i, int days) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(days.DurationDays());
@@ -143,8 +132,7 @@ namespace Cosmos
         /// <param name="days"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusDays(this Instant i, double days)
-        {
+        public static Instant PlusDays(this Instant i, double days) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(days.DurationDays());
@@ -157,8 +145,7 @@ namespace Cosmos
         /// <param name="ts"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusTimeSpan(this Instant i, TimeSpan ts)
-        {
+        public static Instant PlusTimeSpan(this Instant i, TimeSpan ts) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(ts.AsDuration());
@@ -171,8 +158,7 @@ namespace Cosmos
         /// <param name="ts"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Instant PlusTimeSpan(this Instant i, DateTimeSpan ts)
-        {
+        public static Instant PlusTimeSpan(this Instant i, DateTimeSpan ts) {
             if (i == null)
                 throw new ArgumentNullException(nameof(i));
             return i.Plus(ts.AsDuration());

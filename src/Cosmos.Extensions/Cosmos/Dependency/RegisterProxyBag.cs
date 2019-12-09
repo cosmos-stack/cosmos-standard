@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cosmos.Dependency
-{
+namespace Cosmos.Dependency {
     /// <summary>
     /// Register proxy bag
     /// </summary>
-    public class RegisterProxyBag
-    {
+    public class RegisterProxyBag {
         private readonly List<RegisterProxyDescriptor> _descriptors = new List<RegisterProxyDescriptor>();
 
         /// <summary>
         /// Register
         /// </summary>
         /// <param name="descriptor"></param>
-        public void Register(RegisterProxyDescriptor descriptor)
-        {
+        public void Register(RegisterProxyDescriptor descriptor) {
             if (descriptor == null)
                 throw new ArgumentNullException(nameof(descriptor));
 

@@ -1,10 +1,8 @@
 using Cosmos.IdUtils.CombImplements.Providers;
 using Cosmos.IdUtils.CombImplements.Strategies;
 
-namespace Cosmos.IdUtils.CombImplements
-{
-    internal static class InternalCombImplementProxy
-    {
+namespace Cosmos.IdUtils.CombImplements {
+    internal static class InternalCombImplementProxy {
         public static ICombProvider Legacy = new MsSqlCombProvider(new SqlDateTimeStrategy());
 
         public static ICombProvider LegacyWithNoRepeat = new MsSqlCombProvider(new SqlDateTimeStrategy(), new NoRepeatTimeStampFactory().GetUtcTimeStamp);

@@ -3,14 +3,12 @@ using System.Globalization;
 using Cosmos.Date.Chinese;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions<br />
     /// DateTime 扩展方法
     /// </summary>
-    public static partial class DateTimeExtensions
-    {
+    public static partial class DateTimeExtensions {
         /// <summary>
         /// Is special year a leap year.
         /// </summary>

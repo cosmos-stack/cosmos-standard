@@ -4,13 +4,11 @@ using System.Linq;
 using Cosmos.Collections;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Set extensions
     /// </summary>
-    public static partial class SetExtensions
-    {
+    public static partial class SetExtensions {
         /// <summary>
         /// Add range
         /// </summary>
@@ -19,8 +17,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyCollection<SetAddRangeResult<T>> AddRange<T>(this ISet<T> set, IEnumerable<T> items)
-        {
+        public static IReadOnlyCollection<SetAddRangeResult<T>> AddRange<T>(this ISet<T> set, IEnumerable<T> items) {
             if (set == null)
                 throw new ArgumentNullException(nameof(set));
             if (items == null)
@@ -29,7 +26,7 @@ namespace Cosmos.Collections
             var added = new List<SetAddRangeResult<T>>(items is ICollection<T> collection ? collection.Count : 1);
 
             added.AddRange(items.Select(i => new SetAddRangeResult<T>(i, set.Add(i))));
-            
+
             return added.WrapInReadOnlyCollection();
         }
     }

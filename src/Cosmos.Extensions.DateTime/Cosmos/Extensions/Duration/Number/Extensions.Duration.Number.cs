@@ -1,13 +1,11 @@
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Duration extensions
     /// </summary>
-    public static partial class DurationExtensions
-    {
+    public static partial class DurationExtensions {
         /// <summary>
         /// From milliseconds
         /// </summary>
@@ -77,7 +75,7 @@ namespace Cosmos
         /// <param name="days"></param>
         /// <returns></returns>
         public static Duration DurationDays(this double days) => Duration.FromDays(days);
-        
+
         /// <summary>
         /// From weeks
         /// </summary>

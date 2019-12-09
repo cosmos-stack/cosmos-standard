@@ -1,5 +1,4 @@
-﻿namespace Cosmos.Data.Context
-{
+﻿namespace Cosmos.Data.Context {
     /// <summary>
     /// DbContext Meta Interface<br />
     /// DnContext 元接口

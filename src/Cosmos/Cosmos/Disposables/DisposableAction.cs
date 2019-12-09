@@ -1,21 +1,18 @@
 ﻿using System;
 
-namespace Cosmos.Disposables
-{
+namespace Cosmos.Disposables {
     /// <summary>
     /// Disable Action. <br />
     /// When the derived class of this class is disposed, the specified <see cref="Action"/> will be executed.
     /// </summary>
-    public sealed class DisposableAction : IDisposableAction, IDisposable
-    {
+    public sealed class DisposableAction : IDisposableAction, IDisposable {
         private readonly Action _action;
 
         /// <summary>
         /// Create a new <see cref="DisposableAction"/> instance.
         /// </summary>
         /// <param name="action"></param>
-        public DisposableAction(Action action)
-        {
+        public DisposableAction(Action action) {
             _action = action;
         }
 
@@ -23,8 +20,7 @@ namespace Cosmos.Disposables
         public void Invoke() => _action?.Invoke();
 
         /// <inheritdoc />
-        public void Dispose()
-        {
+        public void Dispose() {
             Invoke();
         }
 

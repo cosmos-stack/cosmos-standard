@@ -1,21 +1,18 @@
 using System;
 using System.IO;
 
-namespace Cosmos.Serialization.Json.Lit
-{
+namespace Cosmos.Serialization.Json.Lit {
     /// <summary>
     /// Lit Helper
     /// </summary>
-    public static partial class LitHelper
-    {
+    public static partial class LitHelper {
         /// <summary>
         /// Pack
         /// </summary>
         /// <param name="o"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream Pack<T>(T o)
-        {
+        public static Stream Pack<T>(T o) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -32,8 +29,7 @@ namespace Cosmos.Serialization.Json.Lit
         /// <param name="t"></param>
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Pack<T>(T t, Stream stream)
-        {
+        public static void Pack<T>(T t, Stream stream) {
             if (t == null || !stream.CanWrite)
                 return;
 
@@ -48,8 +44,7 @@ namespace Cosmos.Serialization.Json.Lit
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Unpack<T>(Stream stream)
-        {
+        public static T Unpack<T>(Stream stream) {
             return stream == null
                 ? default
                 : DeserializeFromBytes<T>(StreamToBytes(stream));
@@ -61,15 +56,13 @@ namespace Cosmos.Serialization.Json.Lit
         /// <param name="stream"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object Unpack(Stream stream, Type type)
-        {
+        public static object Unpack(Stream stream, Type type) {
             return stream == null
                 ? null
                 : DeserializeFromBytes(StreamToBytes(stream), type);
         }
 
-        private static byte[] StreamToBytes(Stream stream)
-        {
+        private static byte[] StreamToBytes(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

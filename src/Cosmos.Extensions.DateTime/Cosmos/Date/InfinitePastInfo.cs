@@ -1,13 +1,11 @@
 ﻿using System;
 
-namespace Cosmos.Date
-{
+namespace Cosmos.Date {
     /// <summary>
     /// Infinite Past Info<br />
     /// 无限过去
     /// </summary>
-    public class InfinitePastInfo : DateInfo
-    {
+    public class InfinitePastInfo : DateInfo {
         // ReSharper disable once InconsistentNaming
         private static readonly DateTime _internalDateTime = DateTime.MinValue;
 

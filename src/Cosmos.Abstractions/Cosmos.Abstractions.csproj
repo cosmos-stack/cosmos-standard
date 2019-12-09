@@ -1,26 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\build\common.ns20-net461-net451.props" />
+    <Import Project="..\..\build\common.ns20-net461-net451.props" />
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <AssemblyName>Cosmos.Abstractions</AssemblyName>
-    <PackageId>Cosmos.Abstractions</PackageId>
-    <Description>Cosmos abstractions library</Description>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Abstractions</AssemblyName>
+        <PackageId>Cosmos.Abstractions</PackageId>
+        <Description>Cosmos abstractions library</Description>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Cosmos.Abstractions.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Abstractions.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>Cosmos.Abstractions.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Abstractions.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Cosmos\Loggings\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Cosmos\Loggings\" />
+    </ItemGroup>
 </Project>

@@ -2,13 +2,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// ReadOnly dictionary extensions
     /// </summary>
-    public static partial class ReadOnlyDictionaryExtensions
-    {
+    public static partial class ReadOnlyDictionaryExtensions {
         /// <summary>
         /// Gets empty readonly dictionary
         /// </summary>
@@ -17,8 +15,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         public static ReadOnlyDictionary<TKey, TValue> Empty<TKey, TValue>() => EmptyReadOnlyDictionarySingleton<TKey, TValue>.Instance;
 
-        private static class EmptyReadOnlyDictionarySingleton<TKey, TValue>
-        {
+        private static class EmptyReadOnlyDictionarySingleton<TKey, TValue> {
             internal static readonly ReadOnlyDictionary<TKey, TValue> Instance = new ReadOnlyDictionary<TKey, TValue>(new Dictionary<TKey, TValue>());
         }
     }

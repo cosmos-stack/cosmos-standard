@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions
-    {
+    public static partial class EnumerableExtensions {
         /// <summary>
         /// In
         /// </summary>
@@ -47,9 +45,8 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static bool In<T>(this T item, IEnumerable<T> items, IEqualityComparer<T> equalityComparer)
-        {
-            if (items == null) 
+        public static bool In<T>(this T item, IEnumerable<T> items, IEqualityComparer<T> equalityComparer) {
+            if (items == null)
                 throw new ArgumentNullException(nameof(items));
             if (equalityComparer == null)
                 throw new ArgumentNullException(nameof(equalityComparer));

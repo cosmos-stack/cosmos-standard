@@ -2,10 +2,8 @@ using System;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class BaseTypeExtensions
-    {
+namespace Cosmos {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// 判断指定日期是否为今天
         /// </summary>
@@ -74,8 +72,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsMorning(this DateTime @this)
-        {
+        public static bool IsMorning(this DateTime @this) {
             return @this.TimeOfDay < new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
         }
 
@@ -84,8 +81,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsAfternoon(this DateTime @this)
-        {
+        public static bool IsAfternoon(this DateTime @this) {
             return @this.TimeOfDay >= new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
         }
 
@@ -109,8 +105,7 @@ namespace Cosmos
         /// <param name="date"></param>
         /// <param name="dateToCompare"></param>
         /// <returns></returns>
-        public static bool IsDateEqual(this DateTime date, DateTime dateToCompare)
-        {
+        public static bool IsDateEqual(this DateTime date, DateTime dateToCompare) {
             return (date.Date == dateToCompare.Date);
         }
 
@@ -120,8 +115,7 @@ namespace Cosmos
         /// <param name="time"></param>
         /// <param name="timeToCompare"></param>
         /// <returns></returns>
-        public static bool IsTimeEqual(this DateTime time, DateTime timeToCompare)
-        {
+        public static bool IsTimeEqual(this DateTime time, DateTime timeToCompare) {
             return (time.TimeOfDay == timeToCompare.TimeOfDay);
         }
     }

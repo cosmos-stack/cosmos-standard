@@ -9,13 +9,11 @@ using Cosmos.IdUtils.GuidImplements.Internals;
  *      MIT
  */
 
-namespace Cosmos.IdUtils.GuidImplements.Core
-{
+namespace Cosmos.IdUtils.GuidImplements.Core {
     /// <summary>
     /// A <see cref="Guid"/> that has been decoded into its fields.
     /// </summary>
-    public sealed class DecodedGuid
-    {
+    public sealed class DecodedGuid {
         private static readonly DateTime Epoch = new DateTime(1582, 10, 15, 0, 0, 0, DateTimeKind.Utc);
 
         private readonly byte[] _littleEndianGuidBytes;
@@ -57,7 +55,7 @@ namespace Cosmos.IdUtils.GuidImplements.Core
                     return GuidVariant.NcsBackwardCompatibility;
                 if ((value & 0x40) == 0)
                     return GuidVariant.Rfc4122;
-                return (GuidVariant)(value >> 5);
+                return (GuidVariant) (value >> 5);
             }
         }
 
@@ -67,7 +65,7 @@ namespace Cosmos.IdUtils.GuidImplements.Core
         public GuidVersion Version {
             get {
                 var value = _littleEndianGuidBytes[7]; // big-endian octet 6
-                return (GuidVersion)(value >> 4);
+                return (GuidVersion) (value >> 4);
             }
         }
 
@@ -77,7 +75,7 @@ namespace Cosmos.IdUtils.GuidImplements.Core
         public DceDomain Domain {
             get {
                 var value = _littleEndianGuidBytes[9]; // big-endian octet 9
-                return (DceDomain)value;
+                return (DceDomain) value;
             }
         }
 

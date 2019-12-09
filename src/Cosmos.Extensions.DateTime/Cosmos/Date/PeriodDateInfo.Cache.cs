@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cosmos.Date
-{
+namespace Cosmos.Date {
     /// <summary>
     /// DateInfo Cache
     /// </summary>
     /// <typeparam name="TDateInfo"></typeparam>
-    public class DateInfoCache<TDateInfo> where TDateInfo : DateInfo
-    {
+    public class DateInfoCache<TDateInfo> where TDateInfo : DateInfo {
         private readonly IList<TDateInfo> _dateInfoCache;
 
         private TDateInfo LastDateInfo { get; set; }
@@ -18,8 +16,7 @@ namespace Cosmos.Date
         /// Create a new instance of DateInfoCache
         /// </summary>
         /// <param name="itemCreateFunc"></param>
-        public DateInfoCache(Func<TDateInfo, TDateInfo> itemCreateFunc)
-        {
+        public DateInfoCache(Func<TDateInfo, TDateInfo> itemCreateFunc) {
             _dateInfoCache = new List<TDateInfo>();
             ItemCreateFunc = itemCreateFunc ?? throw new ArgumentNullException(nameof(itemCreateFunc));
         }
@@ -34,10 +31,8 @@ namespace Cosmos.Date
         /// Add
         /// </summary>
         /// <param name="date"></param>
-        public void Add(TDateInfo date)
-        {
-            if (!Contains(date))
-            {
+        public void Add(TDateInfo date) {
+            if (!Contains(date)) {
                 LastDateInfo = ItemCreateFunc(date);
                 _dateInfoCache.Add(LastDateInfo);
             }
@@ -48,8 +43,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public bool Contains(TDateInfo date)
-        {
+        public bool Contains(TDateInfo date) {
             if (date == null)
                 return false;
             return _dateInfoCache.Contains(date);
@@ -59,8 +53,7 @@ namespace Cosmos.Date
         /// Get enumerator
         /// </summary>
         /// <returns></returns>
-        public IEnumerator<TDateInfo> GetEnumerator()
-        {
+        public IEnumerator<TDateInfo> GetEnumerator() {
             return _dateInfoCache.GetEnumerator();
         }
 

@@ -1,10 +1,8 @@
-﻿namespace Cosmos.Validations.Abstractions
-{
+﻿namespace Cosmos.Validations.Abstractions {
     /// <summary>
     /// Interface validation handler
     /// </summary>
-    public interface IValidationHandler
-    {
+    public interface IValidationHandler {
         /// <summary>
         /// Handler
         /// </summary>

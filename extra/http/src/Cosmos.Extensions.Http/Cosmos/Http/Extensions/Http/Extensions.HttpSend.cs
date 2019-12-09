@@ -18,21 +18,18 @@ using Newtonsoft.Json;
  */
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// Http Send Extensions
     /// </summary>
-    public static class HttpSendExtensions
-    {
+    public static class HttpSendExtensions {
         /// <summary>
         /// Send content
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="content"></param>
         /// <returns></returns>
-        public static IRequestBuilder SendContent(this IRequestBuilder builder, HttpContent content)
-        {
+        public static IRequestBuilder SendContent(this IRequestBuilder builder, HttpContent content) {
             builder.Message.Content = content;
             return builder;
         }
@@ -105,12 +102,9 @@ namespace Cosmos.Http
         /// <param name="builder"></param>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static IRequestBuilder SendProtoBuf(this IRequestBuilder builder, object obj)
-        {
-            using (var output = new MemoryStream())
-            {
-                using (var gzs = new GZipStream(output, CompressionMode.Compress))
-                {
+        public static IRequestBuilder SendProtoBuf(this IRequestBuilder builder, object obj) {
+            using (var output = new MemoryStream()) {
+                using (var gzs = new GZipStream(output, CompressionMode.Compress)) {
                     Serializer.Serialize(gzs, obj);
                     gzs.Close();
 

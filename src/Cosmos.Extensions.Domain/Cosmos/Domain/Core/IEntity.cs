@@ -1,13 +1,11 @@
 ﻿using Cosmos.Domain.ChangeTracking;
 using Cosmos.Domain.EntityDescriptors;
 
-namespace Cosmos.Domain.Core
-{
+namespace Cosmos.Domain.Core {
     /// <summary>
     /// Interface for entity
     /// </summary>
-    public interface IEntity : IDomainObject
-    {
+    public interface IEntity : IDomainObject {
         /// <summary>
         /// Init
         /// </summary>

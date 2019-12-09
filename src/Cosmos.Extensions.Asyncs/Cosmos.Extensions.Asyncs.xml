@@ -76,6 +76,19 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Asynchronous.ValueTasks">
+            <summary>
+            ValueTask utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ValueTasks.Create``1(``0)">
+            <summary>
+            Create a new ValueTask instance from given result.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.TaskExtensions">
             <summary>
             Task extensions
@@ -398,7 +411,7 @@
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose(`0)">
             <summary>
-            The actual disposal method, call only once from <seealso cref="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose(`0)"/>.
+            The actual disposal method, call only once from Dispose.
             </summary>
             <param name="context"></param>
         </member>
@@ -433,7 +446,7 @@
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose(`0)">
             <summary>
-            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose(`0)"/>
+            The actual disposal method, call only once from Dispose
             </summary>
             <param name="context"></param>
         </member>
@@ -12385,48 +12398,25 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:System.Threading.AsyncLocal`1">
+        <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
             <summary>
-            Async local for .NET Framework 4.5.1
+            Call Context
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:System.Threading.AsyncLocal`1.#ctor">
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.SetData(System.String,`0)">
             <summary>
-            Create a new instance for AsyncLocal for .NET Framework 4.5.1
+            Set data
             </summary>
+            <param name="name"></param>
+            <param name="value"></param>
         </member>
-        <member name="M:System.Threading.AsyncLocal`1.#ctor(System.Action{System.Threading.AsyncLocalValueChangedArgs{`0}})">
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.GetData(System.String)">
             <summary>
-            Create a new instance for AsyncLocal for .NET Framework 4.5.1
+            Get data
             </summary>
-            <param name="handler"></param>
-        </member>
-        <member name="P:System.Threading.AsyncLocal`1.Value">
-            <summary>
-            Gets or sets value
-            </summary>
-        </member>
-        <member name="T:System.Threading.AsyncLocalValueChangedArgs`1">
-            <summary>
-            Async local value changed args for .NET Framework 4.5.1
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.PreviousValue">
-            <summary>
-            Previous value
-            </summary>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.CurrentValue">
-            <summary>
-            Current value
-            </summary>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.ThreadContextChanged">
-            <summary>
-            Thread context changed
-            </summary>
+            <param name="name"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

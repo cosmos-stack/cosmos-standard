@@ -14,10 +14,8 @@ using Cosmos.Http.HttpUtils.Internals;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
-    internal class HttpBuilder : IRequestBuilder
-    {
+namespace Cosmos.Http.HttpUtils {
+    internal class HttpBuilder : IRequestBuilder {
         public HttpSettings Settings { get; }
 
         public HttpRequestMessage Message { get; }
@@ -35,9 +33,8 @@ namespace Cosmos.Http.HttpUtils
         private readonly string _callerFile;
         private readonly int _callerLine;
 
-        public HttpBuilder(string uri, HttpSettings settings, string callerName, string callerFile, int callerLine)
-        {
-            Message = new HttpRequestMessage { RequestUri = new Uri(uri, UriKind.RelativeOrAbsolute) };
+        public HttpBuilder(string uri, HttpSettings settings, string callerName, string callerFile, int callerLine) {
+            Message = new HttpRequestMessage {RequestUri = new Uri(uri, UriKind.RelativeOrAbsolute)};
             Settings = settings;
             Timeout = (settings ?? FluentHttp.DefaultSettings).DefaultTimeout;
 
@@ -46,32 +43,28 @@ namespace Cosmos.Http.HttpUtils
             _callerLine = callerLine;
         }
 
-        public void OnBeforeExceptionLog(HttpExceptionArgs args)
-        {
+        public void OnBeforeExceptionLog(HttpExceptionArgs args) {
             BeforeExceptionLog?.Invoke(this, args);
         }
 
-        internal void AddExceptionData(Exception ex)
-        {
+        internal void AddExceptionData(Exception ex) {
             if (ex == null) return;
 
-            try
-            {
+            try {
                 var servicePoint = ServicePointManager.FindServicePoint(Message.RequestUri);
                 ex
-                    .AddLoggedData("ServicePoint.ConnectionLimit", servicePoint.ConnectionLimit)
-                    .AddLoggedData("ServicePoint.CurrentConnections", servicePoint.CurrentConnections)
-                    .AddLoggedData("ServicePointManager.CurrentConnections", ServicePointManager.DefaultConnectionLimit);
+                   .AddLoggedData("ServicePoint.ConnectionLimit", servicePoint.ConnectionLimit)
+                   .AddLoggedData("ServicePoint.CurrentConnections", servicePoint.CurrentConnections)
+                   .AddLoggedData("ServicePointManager.CurrentConnections", ServicePointManager.DefaultConnectionLimit);
             }
-            catch
-            {
+            catch {
                 // ignored
             }
 
             ex
-                .AddLoggedData("Caller.Name", _callerName)
-                .AddLoggedData("Caller.File", _callerFile)
-                .AddLoggedData("Caller_Line", _callerLine.ToString());
+               .AddLoggedData("Caller.Name", _callerName)
+               .AddLoggedData("Caller.File", _callerFile)
+               .AddLoggedData("Caller_Line", _callerLine.ToString());
         }
 
         public IRequestBuilder<T> WithHandler<T>(Func<HttpResponseMessage, Task<T>> handler) => new HttpBuilder<T>(this, handler);

@@ -4,20 +4,17 @@ using System.Linq;
 using System.Reflection;
 using AspectCore.Extensions.Reflection;
 
-namespace Cosmos.Conversions
-{
+namespace Cosmos.Conversions {
     /// <summary>
     /// Object Conversion Utilities
     /// </summary>
-    public static class ObjectConversion
-    {
+    public static class ObjectConversion {
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static string ToString(object obj)
-        {
+        public static string ToString(object obj) {
             return obj?.ToString() ?? string.Empty;
         }
 
@@ -27,8 +24,7 @@ namespace Cosmos.Conversions
         /// <param name="fromObj"></param>
         /// <param name="targetType"></param>
         /// <returns></returns>
-        public static object To(object fromObj, Type targetType)
-        {
+        public static object To(object fromObj, Type targetType) {
             return To(fromObj, targetType, targetType.GetDefaultValue());
         }
 
@@ -39,45 +35,36 @@ namespace Cosmos.Conversions
         /// <param name="targetType"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static object To(object fromObj, Type targetType, object defaultValue)
-        {
-            if (fromObj == null)
-            {
+        public static object To(object fromObj, Type targetType, object defaultValue) {
+            if (fromObj == null) {
                 return defaultValue;
             }
 
-            if (fromObj is string && string.IsNullOrWhiteSpace(fromObj.ToString()))
-            {
+            if (fromObj is string && string.IsNullOrWhiteSpace(fromObj.ToString())) {
                 return defaultValue;
             }
 
             var fromObjType = Nullable.GetUnderlyingType(targetType) ?? targetType;
-            try
-            {
-                if (fromObjType.Name.ToLower() == "guid")
-                {
+            try {
+                if (fromObjType.Name.ToLower() == "guid") {
                     return GuidConversion.ToGuid(fromObj);
                 }
 
-                if (fromObjType.GetTypeInfo().IsEnum)
-                {
+                if (fromObjType.GetTypeInfo().IsEnum) {
                     return Enum.Parse(fromObjType, fromObj.ToString());
                 }
 
-                if (fromObj is string fromStr && decimal.TryParse(fromStr, out decimal decimalRet))
-                {
+                if (fromObj is string fromStr && decimal.TryParse(fromStr, out decimal decimalRet)) {
                     return Convert.ChangeType(decimalRet, fromObjType);
                 }
 
-                if (fromObj is IConvertible)
-                {
+                if (fromObj is IConvertible) {
                     return Convert.ChangeType(fromObj, fromObjType);
                 }
 
                 return fromObj;
             }
-            catch
-            {
+            catch {
                 return defaultValue;
             }
         }
@@ -88,8 +75,7 @@ namespace Cosmos.Conversions
         /// <param name="fromObj"></param>
         /// <param name="targetTypeInfo"></param>
         /// <returns></returns>
-        public static object To(object fromObj, TypeInfo targetTypeInfo)
-        {
+        public static object To(object fromObj, TypeInfo targetTypeInfo) {
             return To(fromObj, targetTypeInfo.AsType(), null);
         }
 
@@ -100,8 +86,7 @@ namespace Cosmos.Conversions
         /// <param name="targetTypeInfo"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static object To(object fromObj, TypeInfo targetTypeInfo, object defaultValue)
-        {
+        public static object To(object fromObj, TypeInfo targetTypeInfo, object defaultValue) {
             return To(fromObj, targetTypeInfo.AsType(), defaultValue);
         }
 
@@ -111,8 +96,7 @@ namespace Cosmos.Conversions
         /// <typeparam name="TTo"></typeparam>
         /// <param name="fromObj"></param>
         /// <returns></returns>
-        public static TTo To<TTo>(object fromObj)
-        {
+        public static TTo To<TTo>(object fromObj) {
             return To<TTo>(fromObj, default);
         }
 
@@ -123,14 +107,11 @@ namespace Cosmos.Conversions
         /// <param name="fromObj"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static TTo To<TTo>(object fromObj, TTo defaultValue)
-        {
-            try
-            {
-                return (TTo)To(fromObj, typeof(TTo), defaultValue);
+        public static TTo To<TTo>(object fromObj, TTo defaultValue) {
+            try {
+                return (TTo) To(fromObj, typeof(TTo), defaultValue);
             }
-            catch
-            {
+            catch {
                 return defaultValue;
             }
         }
@@ -142,11 +123,9 @@ namespace Cosmos.Conversions
         /// <param name="listStr"></param>
         /// <param name="splitChar"></param>
         /// <returns></returns>
-        public static IEnumerable<TTo> ToList<TTo>(string listStr, char splitChar = ',')
-        {
+        public static IEnumerable<TTo> ToList<TTo>(string listStr, char splitChar = ',') {
             var ret = new List<TTo>();
-            if (string.IsNullOrWhiteSpace(listStr))
-            {
+            if (string.IsNullOrWhiteSpace(listStr)) {
                 return ret;
             }
 
@@ -162,10 +141,8 @@ namespace Cosmos.Conversions
         /// <param name="obj"></param>
         /// <param name="defaultRet"></param>
         /// <returns></returns>
-        public static DateTime ToDateTime(object obj, DateTime defaultRet = default(DateTime))
-        {
-            if (obj == null)
-            {
+        public static DateTime ToDateTime(object obj, DateTime defaultRet = default(DateTime)) {
+            if (obj == null) {
                 return defaultRet;
             }
 
@@ -178,10 +155,8 @@ namespace Cosmos.Conversions
         /// <param name="obj"></param>
         /// <param name="defaultRet"></param>
         /// <returns></returns>
-        public static DateTime? ToNullableDateTime(object obj, DateTime? defaultRet = null)
-        {
-            if (obj == null)
-            {
+        public static DateTime? ToNullableDateTime(object obj, DateTime? defaultRet = null) {
+            if (obj == null) {
                 return defaultRet;
             }
 

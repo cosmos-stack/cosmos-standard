@@ -2,15 +2,12 @@ using System.IO;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.IO
-{
+namespace Cosmos.IO {
     /// <summary>
     /// Conversion extensions
     /// </summary>
-    public static class StreamConversionExtensions
-    {
-        private static byte[] ToBytes(this Stream stream)
-        {
+    public static class StreamConversionExtensions {
+        private static byte[] ToBytes(this Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)
@@ -24,8 +21,7 @@ namespace Cosmos.IO
             return bytes;
         }
 
-        private static async Task<byte[]> ToBytesAsync(this Stream stream)
-        {
+        private static async Task<byte[]> ToBytesAsync(this Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.Position > 0 && stream.CanSeek)

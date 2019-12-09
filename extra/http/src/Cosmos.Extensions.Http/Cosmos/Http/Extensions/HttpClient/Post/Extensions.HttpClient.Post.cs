@@ -7,13 +7,11 @@ using Cosmos.Serialization.Json;
 using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// HttpClient extensions
     /// </summary>
-    public static partial class HttpClientExtensions
-    {
+    public static partial class HttpClientExtensions {
         /// <summary>
         /// Post json async
         /// </summary>
@@ -25,8 +23,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task PostJsonAsync<TRequest>(this HttpClient httpClient, string uri,
-            TRequest request, CancellationToken cancellationToken)
-        {
+            TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -48,8 +45,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task<TResult> PostJsonAsync<TRequest, TResult>(this HttpClient httpClient, string uri,
-            TRequest request, CancellationToken cancellationToken)
-        {
+            TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -71,8 +67,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task PostJsonAsync<TRequest>(this HttpClient httpClient, string uri,
-            JsonSerializerSettings jsonSerializerSettings, TRequest request, CancellationToken cancellationToken)
-        {
+            JsonSerializerSettings jsonSerializerSettings, TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -97,8 +92,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task<TResponse> PostJsonAsync<TRequest, TResponse>(this HttpClient httpClient, string uri,
-            JsonSerializerSettings jsonSerializerSettings, TRequest request, CancellationToken cancellationToken)
-        {
+            JsonSerializerSettings jsonSerializerSettings, TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -123,8 +117,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task PostJsonAsync<TRequest>(this HttpClient httpClient,
-            string uri, JsonSerializer jsonSerializer, TRequest request, CancellationToken cancellationToken)
-        {
+            string uri, JsonSerializer jsonSerializer, TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -135,8 +128,7 @@ namespace Cosmos.Http
                 throw new ArgumentNullException(nameof(request));
 
             using (var httpResponseMessage =
-                await httpClient.PostJsonForHttpResponseMessageAsync(uri, jsonSerializer, request, cancellationToken).ConfigureAwait(false))
-            {
+                await httpClient.PostJsonForHttpResponseMessageAsync(uri, jsonSerializer, request, cancellationToken).ConfigureAwait(false)) {
                 httpResponseMessage.EnsureSuccessStatusCode();
             }
         }
@@ -154,8 +146,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<TResponse> PostJsonAsync<TRequest, TResponse>(this HttpClient httpClient,
-            string uri, JsonSerializer jsonSerializer, TRequest request, CancellationToken cancellationToken)
-        {
+            string uri, JsonSerializer jsonSerializer, TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -166,8 +157,7 @@ namespace Cosmos.Http
                 throw new ArgumentNullException(nameof(request));
 
             using (var httpResponseMessage =
-                await httpClient.PostJsonForHttpResponseMessageAsync(uri, jsonSerializer, request, cancellationToken).ConfigureAwait(false))
-            {
+                await httpClient.PostJsonForHttpResponseMessageAsync(uri, jsonSerializer, request, cancellationToken).ConfigureAwait(false)) {
                 httpResponseMessage.EnsureSuccessStatusCode();
                 return await httpResponseMessage.ToObjectAsync<TResponse>(jsonSerializer, cancellationToken).ConfigureAwait(false);
             }
@@ -185,8 +175,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task<HttpResponseMessage> PostJsonForHttpResponseMessageAsync<TRequest>(this HttpClient httpClient,
-            string uri, JsonSerializerSettings jsonSerializerSettings, TRequest request, CancellationToken cancellationToken)
-        {
+            string uri, JsonSerializerSettings jsonSerializerSettings, TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -211,8 +200,7 @@ namespace Cosmos.Http
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<HttpResponseMessage> PostJsonForHttpResponseMessageAsync<TRequest>(this HttpClient httpClient,
-            string uri, JsonSerializer jsonSerializer, TRequest request, CancellationToken cancellationToken)
-        {
+            string uri, JsonSerializer jsonSerializer, TRequest request, CancellationToken cancellationToken) {
             if (httpClient == null)
                 throw new ArgumentNullException(nameof(httpClient));
             if (string.IsNullOrWhiteSpace(uri))
@@ -224,8 +212,7 @@ namespace Cosmos.Http
 
             var json = jsonSerializer.SerializeToString(request);
 
-            using (HttpContent content = new StringContent(json, Encoding.UTF8, "application/json"))
-            {
+            using (HttpContent content = new StringContent(json, Encoding.UTF8, "application/json")) {
                 return await httpClient.PostAsync(uri, content, cancellationToken).ConfigureAwait(false);
             }
         }

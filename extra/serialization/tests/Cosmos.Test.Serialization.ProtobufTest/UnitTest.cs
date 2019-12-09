@@ -6,13 +6,10 @@ using Cosmos.Serialization.ProtoBuf;
 using ProtoBuf.Meta;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.ProtobufTest
-{
-    public class UnitTest
-    {
+namespace Cosmos.Test.Serialization.ProtobufTest {
+    public class UnitTest {
         [Fact]
-        public void BytesTest()
-        {
+        public void BytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToProtoBytes();
             var backs = bytes.FromProtoBytes<NiceModel>();
@@ -23,8 +20,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         }
 
         [Fact]
-        public void NonGenericBytesTest()
-        {
+        public void NonGenericBytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToProtoBytes();
             var backs = (NiceModel) bytes.FromProtoBytes(typeof(NiceModel));
@@ -35,8 +31,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         }
 
         [Fact]
-        public void StreamTest()
-        {
+        public void StreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.ToProtoStream();
             var stream2 = new MemoryStream();
@@ -62,8 +57,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         }
 
         [Fact]
-        public void NonGenericStreamTest()
-        {
+        public void NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.ToProtoStream();
             var stream2 = new MemoryStream();
@@ -88,10 +82,8 @@ namespace Cosmos.Test.Serialization.ProtobufTest
                 Tuple.Create(back3.Id, back3.Name, back3.NiceType, back3.Count, back3.CreatedTime, back3.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,
@@ -102,8 +94,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         }
 
         [Fact]
-        public void SerializerBuilderTest()
-        {
+        public void SerializerBuilderTest() {
             var model = CreateNiceModel2();
 
             var typeModel = TypeModel.Create();
@@ -129,21 +120,17 @@ namespace Cosmos.Test.Serialization.ProtobufTest
                 q.NiceType == p.NiceType && q.IsValid == p.IsValid)));
         }
 
-        private static SubModel CreateNiceModel2()
-        {
-            return new SubModel
-            {
+        private static SubModel CreateNiceModel2() {
+            return new SubModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,
                 Count = new Random().Next(0, 100),
                 CreatedTime = new DateTime(2019, 10, 1).ToUniversalTime(),
-                Kids = new Dictionary<Guid, NiceModel2>
-                {
+                Kids = new Dictionary<Guid, NiceModel2> {
                     {
                         Guid.NewGuid(),
-                        new SubModel
-                        {
+                        new SubModel {
                             Id = Guid.NewGuid(),
                             Name = "nice",
                             NiceType = NiceType.Yes,
@@ -152,11 +139,9 @@ namespace Cosmos.Test.Serialization.ProtobufTest
                             IsValid = true,
                             SayId = int.MaxValue
                         }
-                    },
-                    {
+                    }, {
                         Guid.NewGuid(),
-                        new SubModel
-                        {
+                        new SubModel {
                             Id = Guid.NewGuid(),
                             Name = "nice",
                             NiceType = NiceType.Yes,
@@ -165,11 +150,9 @@ namespace Cosmos.Test.Serialization.ProtobufTest
                             IsValid = true,
                             SayId = int.MaxValue
                         }
-                    },
-                    {
+                    }, {
                         Guid.NewGuid(),
-                        new SubModel
-                        {
+                        new SubModel {
                             Id = Guid.NewGuid(),
                             Name = "nice",
                             NiceType = NiceType.Yes,

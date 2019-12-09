@@ -2,14 +2,12 @@
 using System.Threading.Tasks;
 using Cosmos.Serialization.Json.Kooboo;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Kooboo Serializer
     /// </summary>
     // ReSharper disable once IdentifierTypo
-    public class KoobooObjectSerializer : IJsonSerializer
-    {
+    public class KoobooObjectSerializer : IJsonSerializer {
         /// <inheritdoc />
         public string Serialize<T>(T o) => KoobooJsonHelper.Serialize(o);
 
@@ -18,9 +16,9 @@ namespace Cosmos.Serialization
 
         /// <inheritdoc />
         public object Deserialize(string json, Type type) => KoobooJsonHelper.Deserialize(json, type);
-        
+
         /// <inheritdoc />
-        public Task<string> SerializeAsync<T>(T o)=> KoobooJsonHelper.SerializeAsync(o);
+        public Task<string> SerializeAsync<T>(T o) => KoobooJsonHelper.SerializeAsync(o);
 
         /// <inheritdoc />
         public Task<T> DeserializeAsync<T>(string data) => KoobooJsonHelper.DeserializeAsync<T>(data);

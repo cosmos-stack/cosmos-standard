@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Instance Scanner
     /// </summary>
     /// <typeparam name="TClass"></typeparam>
-    public abstract class InstanceScanner<TClass> : TypeScanner
-    {
+    public abstract class InstanceScanner<TClass> : TypeScanner {
         /// <summary>
         /// Create a new <see cref="InstanceScanner{TClass}"/> instance.
         /// </summary>
@@ -37,10 +35,8 @@ namespace Cosmos
         /// Scan, and return instances.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<TClass> ScanAndReturnInstances()
-        {
-            foreach (var type in Scan())
-            {
+        public virtual IEnumerable<TClass> ScanAndReturnInstances() {
+            foreach (var type in Scan()) {
                 yield return type.CreateInstance<TClass>();
             }
         }

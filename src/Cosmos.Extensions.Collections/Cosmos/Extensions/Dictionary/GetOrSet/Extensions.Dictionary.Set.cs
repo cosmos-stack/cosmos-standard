@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions for dictionary
     /// </summary>
-    public static partial class DictionaryExtensions
-    {
+    public static partial class DictionaryExtensions {
         /// <summary>
         /// Set value
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
-        public static void Set<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
-        {
+        public static void Set<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value) {
             if (dictionary.ContainsKey(key))
                 dictionary[key] = value;
             else

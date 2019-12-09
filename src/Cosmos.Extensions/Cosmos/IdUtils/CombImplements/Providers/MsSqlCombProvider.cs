@@ -17,8 +17,7 @@ using Cosmos.IdUtils.CombImplements.Strategies;
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cosmos.IdUtils.CombImplements.Providers
-{
+namespace Cosmos.IdUtils.CombImplements.Providers {
     /*
      * Reference To
      *     http://github.com/richardtallent/RT.Comb
@@ -27,8 +26,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
      *     https://www.tallent.us
      */
 
-    internal class MsSqlCombProvider : BaseProvider
-    {
+    internal class MsSqlCombProvider : BaseProvider {
         private const int EMBED_AT_INDEX = 10;
 
         public MsSqlCombProvider(IDateStrategy strategy,
@@ -36,8 +34,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
             InternalGuidProvider customGuidProvider = null)
             : base(strategy, customTimeStampProvider, customGuidProvider) { }
 
-        public override Guid Create(Guid value, DateTime timestamp)
-        {
+        public override Guid Create(Guid value, DateTime timestamp) {
             var gbytes = value.ToByteArray();
             var dbytes = _dateTimeStrategy.DateTimeToBytes(timestamp);
 
@@ -46,8 +43,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
             return new Guid(gbytes);
         }
 
-        public override DateTime GetTimeStamp(Guid value)
-        {
+        public override DateTime GetTimeStamp(Guid value) {
             var gbytes = value.ToByteArray();
             var dbytes = new byte[_dateTimeStrategy.NumDateBytes];
 

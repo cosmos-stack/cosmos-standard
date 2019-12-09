@@ -1,11 +1,9 @@
-﻿namespace Cosmos
-{
+﻿namespace Cosmos {
     /// <summary>
     /// Object Mapper Meta Interface<br />
     /// 对象映射元接口
     /// </summary>
-    public interface IObjectMapper
-    {
+    public interface IObjectMapper {
         /// <summary>
         /// Map to<br />
         /// 映射至……

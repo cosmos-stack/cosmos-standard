@@ -1,10 +1,9 @@
-﻿namespace System
-{
+﻿namespace System {
     /// <summary>
     /// Base Type Extensions
     /// </summary>
-    public static partial class BaseTypeExtensions
-    {
+    public static partial class BaseTypeExtensions {
+
         #region SetDateTime(设置时间)
 
         /// <summary>
@@ -123,7 +122,7 @@
         /// <param name="dateTime">日期</param>
         public static string ToMillisecondString(this DateTime dateTime)
             => dateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
-        
+
         /// <summary>
         /// 获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
         /// </summary>
@@ -147,8 +146,7 @@
         /// <param name="localDateTime"></param>
         /// <param name="localTimeZone"></param>
         /// <returns></returns>
-        public static DateTimeOffset ToDateTimeOffset(this DateTime localDateTime, TimeZoneInfo localTimeZone)
-        {
+        public static DateTimeOffset ToDateTimeOffset(this DateTime localDateTime, TimeZoneInfo localTimeZone) {
             if (localDateTime.Kind != DateTimeKind.Unspecified)
                 localDateTime = new DateTime(localDateTime.Ticks, DateTimeKind.Unspecified);
 
@@ -179,8 +177,7 @@
         /// <param name="current"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
-        public static DateTime SetTime(this DateTime current, int hour)
-        {
+        public static DateTime SetTime(this DateTime current, int hour) {
             return SetTime(current, hour, 0, 0, 0);
         }
 
@@ -192,8 +189,7 @@
         /// <param name="hour"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
-        public static DateTime SetTime(this DateTime current, int hour, int minute)
-        {
+        public static DateTime SetTime(this DateTime current, int hour, int minute) {
             return SetTime(current, hour, minute, 0, 0);
         }
 
@@ -206,8 +202,7 @@
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static DateTime SetTime(this DateTime current, int hour, int minute, int second)
-        {
+        public static DateTime SetTime(this DateTime current, int hour, int minute, int second) {
             return SetTime(current, hour, minute, second, 0);
         }
 
@@ -221,8 +216,7 @@
         /// <param name="second"></param>
         /// <param name="millisecond"></param>
         /// <returns></returns>
-        public static DateTime SetTime(this DateTime current, int hour, int minute, int second, int millisecond)
-        {
+        public static DateTime SetTime(this DateTime current, int hour, int minute, int second, int millisecond) {
             return new DateTime(current.Year, current.Month, current.Day, hour, minute, second, millisecond);
         }
     }

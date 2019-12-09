@@ -4,13 +4,10 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.Binary;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.BinaryTest
-{
-    public class UnitTestAsync
-    {
+namespace Cosmos.Test.Serialization.BinaryTest {
+    public class UnitTestAsync {
         [Fact]
-        public async Task BytesTest()
-        {
+        public async Task BytesTest() {
             var model = CreateNiceModel();
             var bytes = await model.ToBytesAsync();
             var backs = await bytes.FromBytesAsync<NiceModel>();
@@ -21,8 +18,7 @@ namespace Cosmos.Test.Serialization.BinaryTest
         }
 
         [Fact]
-        public async Task NonGenericBytesTest()
-        {
+        public async Task NonGenericBytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToBytes();
             var backs = (NiceModel) await bytes.FromBytesAsync(typeof(NiceModel));
@@ -33,8 +29,7 @@ namespace Cosmos.Test.Serialization.BinaryTest
         }
 
         [Fact]
-        public async Task StreamTest()
-        {
+        public async Task StreamTest() {
             var model = CreateNiceModel();
             var stream1 = await model.PackAsync();
             var stream2 = new MemoryStream();
@@ -60,8 +55,7 @@ namespace Cosmos.Test.Serialization.BinaryTest
         }
 
         [Fact]
-        public async Task NonGenericStreamTest()
-        {
+        public async Task NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = await model.PackAsync();
             var stream2 = new MemoryStream();
@@ -86,10 +80,8 @@ namespace Cosmos.Test.Serialization.BinaryTest
                 Tuple.Create(back3.Id, back3.Name, back3.NiceType, back3.Count, back3.CreatedTime, back3.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

@@ -3,13 +3,11 @@ using System.IO;
 using System.Threading.Tasks;
 using Kooboo.Json;
 
-namespace Cosmos.Serialization.Json.Kooboo
-{
+namespace Cosmos.Serialization.Json.Kooboo {
     /// <summary>
     /// KoobooJson helper
     /// </summary>
-    public static partial class KoobooJsonHelper
-    {
+    public static partial class KoobooJsonHelper {
         /// <summary>
         /// Pack async
         /// </summary>
@@ -17,8 +15,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync<T>(T o, JsonSerializerOption option = null)
-        {
+        public static async Task<Stream> PackAsync<T>(T o, JsonSerializerOption option = null) {
             var ms = new MemoryStream();
 
             if (o is null)
@@ -36,8 +33,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="stream"></param>
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
-        public static async Task PackAsync<T>(T o, Stream stream, JsonSerializerOption option = null)
-        {
+        public static async Task PackAsync<T>(T o, Stream stream, JsonSerializerOption option = null) {
             if (o is null)
                 return;
 
@@ -53,8 +49,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream, JsonDeserializeOption option = null)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream, JsonDeserializeOption option = null) {
             return stream is null
                 ? default
                 : await DeserializeAsync<T>(KoobooManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), option);
@@ -67,15 +62,13 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="type"></param>
         /// <param name="option"></param>
         /// <returns></returns>
-        public static async Task<object> UnpackAsync(Stream stream, Type type, JsonDeserializeOption option = null)
-        {
+        public static async Task<object> UnpackAsync(Stream stream, Type type, JsonDeserializeOption option = null) {
             return stream is null
                 ? default
                 : await DeserializeAsync(KoobooManager.DefaultEncoding.GetString(await StreamToBytesAsync(stream)), type, option);
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

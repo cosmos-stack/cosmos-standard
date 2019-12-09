@@ -1,13 +1,11 @@
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// LocalDate extensions
     /// </summary>
-    public static partial class LocalDateExtensions
-    {
+    public static partial class LocalDateExtensions {
         /// <summary>
         /// Add days
         /// </summary>

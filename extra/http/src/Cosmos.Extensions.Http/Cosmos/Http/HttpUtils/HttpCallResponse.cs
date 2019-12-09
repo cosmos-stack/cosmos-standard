@@ -11,13 +11,11 @@ using Cosmos.Http.HttpUtils.Internals;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// Http Call Response
     /// </summary>
-    public class HttpCallResponse
-    {
+    public class HttpCallResponse {
         /// <summary>
         /// Success
         /// </summary>
@@ -53,8 +51,7 @@ namespace Cosmos.Http.HttpUtils
         /// </summary>
         /// <param name="request"></param>
         /// <param name="error"></param>
-        protected HttpCallResponse(HttpRequestMessage request, Exception error)
-        {
+        protected HttpCallResponse(HttpRequestMessage request, Exception error) {
             RawRequest = request;
             Success = false;
             Error = error;
@@ -64,8 +61,7 @@ namespace Cosmos.Http.HttpUtils
         /// Create a new instance of <see cref="HttpCallResponse"/>.
         /// </summary>
         /// <param name="response"></param>
-        protected HttpCallResponse(HttpResponseMessage response)
-        {
+        protected HttpCallResponse(HttpResponseMessage response) {
             Success = response.IsSuccessStatusCode;
             RawResponse = response;
             RawRequest = response.RequestMessage;
@@ -76,8 +72,7 @@ namespace Cosmos.Http.HttpUtils
         /// </summary>
         /// <param name="response"></param>
         /// <param name="error"></param>
-        protected HttpCallResponse(HttpResponseMessage response, Exception error) : this(response)
-        {
+        protected HttpCallResponse(HttpResponseMessage response, Exception error) : this(response) {
             Success = false;
             Error = error;
         }
@@ -89,10 +84,9 @@ namespace Cosmos.Http.HttpUtils
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static HttpCallResponse<T> Create<T>(HttpRequestMessage request, Exception error = null)
-        {
+        public static HttpCallResponse<T> Create<T>(HttpRequestMessage request, Exception error = null) {
             error = (error ?? new HttpClientException($"Failed to send request for {request.RequestUri}"))
-                .AddLoggedData("Request URI", request.RequestUri);
+               .AddLoggedData("Request URI", request.RequestUri);
             return new HttpCallResponse<T>(request, error);
         }
 
@@ -103,14 +97,13 @@ namespace Cosmos.Http.HttpUtils
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static HttpCallResponse<T> Create<T>(HttpResponseMessage response, Exception error)
-        {
+        public static HttpCallResponse<T> Create<T>(HttpResponseMessage response, Exception error) {
             error
-                .AddLoggedData("Response.Code", ((int)response.StatusCode).ToString())
-                .AddLoggedData("Response.Status", response.StatusCode.ToString())
-                .AddLoggedData("Response.ReasonPhrase", response.ReasonPhrase)
-                .AddLoggedData("Response.ContentType", response.Content.Headers.ContentType)
-                .AddLoggedData("Request.URI", response.RequestMessage.RequestUri);
+               .AddLoggedData("Response.Code", ((int) response.StatusCode).ToString())
+               .AddLoggedData("Response.Status", response.StatusCode.ToString())
+               .AddLoggedData("Response.ReasonPhrase", response.ReasonPhrase)
+               .AddLoggedData("Response.ContentType", response.Content.Headers.ContentType)
+               .AddLoggedData("Request.URI", response.RequestMessage.RequestUri);
             return new HttpCallResponse<T>(response, error);
         }
 

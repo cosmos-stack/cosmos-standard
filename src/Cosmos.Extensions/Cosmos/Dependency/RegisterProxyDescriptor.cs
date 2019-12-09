@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Cosmos.Dependency
-{
+namespace Cosmos.Dependency {
     /// <summary>
     /// Register proxy descriptor
     /// </summary>
-    public class RegisterProxyDescriptor
-    {
+    public class RegisterProxyDescriptor {
         /// <summary>
         /// Service type
         /// </summary>
@@ -49,10 +47,8 @@ namespace Cosmos.Dependency
         /// <typeparam name="TImplementation"></typeparam>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create<TService, TImplementation>(RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create<TService, TImplementation>(RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 ServiceType = typeof(TService),
                 ImplementationType = typeof(TImplementation),
                 ProxyType = RegisterProxyType.TypeToType,
@@ -68,10 +64,8 @@ namespace Cosmos.Dependency
         /// <param name="instance"></param>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create<TService, TImplementation>(TImplementation instance, RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create<TService, TImplementation>(TImplementation instance, RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 ServiceType = typeof(TService),
                 InstanceOfImplementation = instance,
                 ProxyType = RegisterProxyType.TypeToInstance,
@@ -86,10 +80,8 @@ namespace Cosmos.Dependency
         /// <param name="instance"></param>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create<TService>(object instance, RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create<TService>(object instance, RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 ServiceType = typeof(TService),
                 InstanceOfImplementation = instance,
                 ProxyType = RegisterProxyType.TypeToInstance,
@@ -103,10 +95,8 @@ namespace Cosmos.Dependency
         /// <typeparam name="TImplementationSelf"></typeparam>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create<TImplementationSelf>(RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create<TImplementationSelf>(RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 ImplementationTypeSelf = typeof(TImplementationSelf),
                 ProxyType = RegisterProxyType.TypeSelf,
                 LifetimeType = lifetimeType
@@ -119,10 +109,8 @@ namespace Cosmos.Dependency
         /// <param name="instance"></param>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create(object instance, RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create(object instance, RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 InstanceOfImplementation = instance,
                 ProxyType = RegisterProxyType.InstanceSelf,
                 LifetimeType = lifetimeType
@@ -137,10 +125,8 @@ namespace Cosmos.Dependency
         /// <param name="instanceFunc"></param>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create<TService, TImplementation>(Func<TImplementation> instanceFunc, RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create<TService, TImplementation>(Func<TImplementation> instanceFunc, RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 ServiceType = typeof(TService),
                 ImplementationType = typeof(TImplementation),
                 InstanceFuncForImplementation = () => instanceFunc(),
@@ -156,10 +142,8 @@ namespace Cosmos.Dependency
         /// <param name="instanceFunc"></param>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create<TService>(Func<object> instanceFunc, RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create<TService>(Func<object> instanceFunc, RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 ServiceType = typeof(TService),
                 InstanceFuncForImplementation = instanceFunc,
                 ProxyType = RegisterProxyType.TypeToInstanceFunc,
@@ -174,10 +158,8 @@ namespace Cosmos.Dependency
         /// <param name="instanceFunc"></param>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create<TImplementation>(Func<TImplementation> instanceFunc, RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create<TImplementation>(Func<TImplementation> instanceFunc, RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 ImplementationTypeSelf = typeof(TImplementation),
                 InstanceFuncForImplementation = () => instanceFunc(),
                 ProxyType = RegisterProxyType.InstanceSelfFunc,
@@ -191,10 +173,8 @@ namespace Cosmos.Dependency
         /// <param name="instanceFunc"></param>
         /// <param name="lifetimeType"></param>
         /// <returns></returns>
-        public static RegisterProxyDescriptor Create(Func<object> instanceFunc, RegisterProxyLifetimeType lifetimeType)
-        {
-            return new RegisterProxyDescriptor
-            {
+        public static RegisterProxyDescriptor Create(Func<object> instanceFunc, RegisterProxyLifetimeType lifetimeType) {
+            return new RegisterProxyDescriptor {
                 InstanceFuncForImplementation = instanceFunc,
                 ProxyType = RegisterProxyType.InstanceSelfFunc,
                 LifetimeType = lifetimeType

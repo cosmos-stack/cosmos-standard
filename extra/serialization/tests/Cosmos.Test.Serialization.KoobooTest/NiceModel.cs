@@ -1,10 +1,8 @@
 using System;
 
-namespace Cosmos.Test.Serializaion.KoobooTest
-{
+namespace Cosmos.Test.Serializaion.KoobooTest {
     [Serializable]
-    public class NiceModel
-    {
+    public class NiceModel {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public NiceType NiceType { get; set; }

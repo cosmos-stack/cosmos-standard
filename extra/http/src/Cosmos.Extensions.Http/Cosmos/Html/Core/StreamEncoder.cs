@@ -2,13 +2,11 @@
 using System.IO;
 using System.Text;
 
-namespace Cosmos.Html.Core
-{
+namespace Cosmos.Html.Core {
     /// <summary>
     /// Stream Encoder
     /// </summary>
-    public class StreamEncoder
-    {
+    public class StreamEncoder {
         /// <summary>   
         /// 取得一个文本文件的编码方式。如果无法在文件头部找到有效的前导符，Encoding.Default将被返回。   
         /// </summary>   
@@ -29,10 +27,8 @@ namespace Cosmos.Html.Core
         /// <param name="fileName">文件名。</param>   
         /// <param name="defaultEncoding">默认编码方式。当该方法无法从文件的头部取得有效的前导符时，将返回该编码方式。</param>   
         /// <returns></returns>   
-        public static Encoding GetEncoding(string fileName, Encoding defaultEncoding)
-        {
-            using (var fs = new FileStream(fileName, FileMode.Open))
-            {
+        public static Encoding GetEncoding(string fileName, Encoding defaultEncoding) {
+            using (var fs = new FileStream(fileName, FileMode.Open)) {
                 return GetEncoding(fs, defaultEncoding);
             }
         }
@@ -43,12 +39,10 @@ namespace Cosmos.Html.Core
         /// <param name="stream">文本文件流。</param>   
         /// <param name="defaultEncoding">默认编码方式。当该方法无法从文件的头部取得有效的前导符时，将返回该编码方式。</param>   
         /// <returns></returns>   
-        public static Encoding GetEncoding(FileStream stream, Encoding defaultEncoding)
-        {
+        public static Encoding GetEncoding(FileStream stream, Encoding defaultEncoding) {
             var targetEncoding = defaultEncoding;
 
-            if (stream != null && stream.Length >= 2)
-            {
+            if (stream != null && stream.Length >= 2) {
                 //保存文件流的前4个字节   
                 byte byte1 = 0;
                 byte byte2 = 0;
@@ -72,13 +66,13 @@ namespace Cosmos.Html.Core
                 //Unicode {0xFF, 0xFE};   
                 //BE-Unicode {0xFE, 0xFF};   
                 //UTF8 = {0xEF, 0xBB, 0xBF};   
-                if (byte1 == 0xFE && byte2 == 0xFF)//UnicodeBe  
+                if (byte1 == 0xFE && byte2 == 0xFF) //UnicodeBe  
                     targetEncoding = Encoding.BigEndianUnicode;
 
-                if (byte1 == 0xFF && byte2 == 0xFE && byte3 != 0xFF)//Unicode   
+                if (byte1 == 0xFF && byte2 == 0xFE && byte3 != 0xFF) //Unicode   
                     targetEncoding = Encoding.Unicode;
 
-                if (byte1 == 0xEF && byte2 == 0xBB && byte3 == 0xBF)//UTF8   
+                if (byte1 == 0xEF && byte2 == 0xBB && byte3 == 0xBF) //UTF8   
                     targetEncoding = Encoding.UTF8;
 
                 //恢复Seek位置         
@@ -93,13 +87,11 @@ namespace Cosmos.Html.Core
         /// </summary>
         /// <param name="sen">字节数组</param>
         /// <returns>编码结果</returns>
-        public static System.Text.Encoding GetEncodingFromBytes(byte[] sen)
-        {
+        public static System.Text.Encoding GetEncodingFromBytes(byte[] sen) {
             if (sen.Length == 0)
                 return null;
 
-            using (Stream stream = new MemoryStream(sen))
-            {
+            using (Stream stream = new MemoryStream(sen)) {
                 return GetEncoding(stream);
             }
         }
@@ -110,29 +102,22 @@ namespace Cosmos.Html.Core
         /// </summary>   
         /// <param name="fs">文件流</param>   
         /// <returns>文件的编码类型</returns>   
-        public static System.Text.Encoding GetEncoding(Stream fs)
-        {
+        public static System.Text.Encoding GetEncoding(Stream fs) {
             var reVal = Encoding.Default;
 
-            using (var r = new BinaryReader(fs, System.Text.Encoding.Default))
-            {
+            using (var r = new BinaryReader(fs, System.Text.Encoding.Default)) {
                 var ss = r.ReadBytes(4);
-                if (ss[0] == 0xFE && ss[1] == 0xFF && ss[2] == 0x00)
-                {
+                if (ss[0] == 0xFE && ss[1] == 0xFF && ss[2] == 0x00) {
                     reVal = Encoding.BigEndianUnicode;
                 }
-                else if (ss[0] == 0xFF && ss[1] == 0xFE && ss[2] == 0x41)
-                {
+                else if (ss[0] == 0xFF && ss[1] == 0xFE && ss[2] == 0x41) {
                     reVal = Encoding.Unicode;
                 }
-                else
-                {
-                    if (ss[0] == 0xEF && ss[1] == 0xBB && ss[2] == 0xBF)
-                    {
+                else {
+                    if (ss[0] == 0xEF && ss[1] == 0xBB && ss[2] == 0xBF) {
                         reVal = Encoding.UTF8;
                     }
-                    else
-                    {
+                    else {
                         int i;
                         int.TryParse(fs.Length.ToString(), out i);
                         ss = r.ReadBytes(i);
@@ -141,6 +126,7 @@ namespace Cosmos.Html.Core
                             reVal = Encoding.UTF8;
                     }
                 }
+
                 r.Close();
                 return reVal;
             }
@@ -151,37 +137,31 @@ namespace Cosmos.Html.Core
         /// </summary>   
         /// <param name="data"></param>   
         /// <returns></returns>   
-        private static bool IsUtf8Bytes(byte[] data)
-        {
-            var charByteCounter = 1;　 //计算当前正分析的字符应还有的字节数   
-            byte currentByte; //当前分析的字节. 
-            
-            for (var i = 0; i < data.Length; i++)
-            {
+        private static bool IsUtf8Bytes(byte[] data) {
+            var charByteCounter = 1; //计算当前正分析的字符应还有的字节数   
+            byte currentByte;        //当前分析的字节. 
+
+            for (var i = 0; i < data.Length; i++) {
                 currentByte = data[i];
-                if (charByteCounter == 1)
-                {
-                    if (currentByte >= 0x80)
-                    {
+                if (charByteCounter == 1) {
+                    if (currentByte >= 0x80) {
                         //判断当前   
-                        while (((currentByte <<= 1) & 0x80) != 0)
-                        {
+                        while (((currentByte <<= 1) & 0x80) != 0) {
                             charByteCounter++;
                         }
+
                         //标记位首位若为非0 则至少以2个1开始 如:110XXXXX...........1111110X　   
-                        if (charByteCounter == 1 || charByteCounter > 6)
-                        {
+                        if (charByteCounter == 1 || charByteCounter > 6) {
                             return false;
                         }
                     }
                 }
-                else
-                {
+                else {
                     //若是UTF-8 此时第一位必须为1   
-                    if ((currentByte & 0xC0) != 0x80)
-                    {
+                    if ((currentByte & 0xC0) != 0x80) {
                         return false;
                     }
+
                     charByteCounter--;
                 }
             }

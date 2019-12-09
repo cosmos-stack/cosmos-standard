@@ -2,13 +2,11 @@ using System;
 using System.Threading.Tasks;
 using Cosmos.Serialization.MessagePack.MsgPackCli;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// MsgPack-cli object serializer
     /// </summary>
-    public class MsgPackCliObjectSerializer : IMessagePackSerializer
-    {
+    public class MsgPackCliObjectSerializer : IMessagePackSerializer {
 
         /// <inheritdoc />
         public byte[] Serialize<T>(T o) => MsgPackCliHelper.Serialize(o);

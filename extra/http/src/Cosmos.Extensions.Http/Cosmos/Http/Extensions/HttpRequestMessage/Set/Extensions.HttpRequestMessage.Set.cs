@@ -5,13 +5,11 @@ using System.Net.Http.Headers;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// HttpResponseMessage extensions
     /// </summary>
-    public static partial class HttpResponseMessageExtensions
-    {
+    public static partial class HttpResponseMessageExtensions {
         /// <summary>
         /// Set basic http authentication
         /// </summary>
@@ -19,8 +17,7 @@ namespace Cosmos.Http
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void SetBasicHttpAuthentication(this HttpRequestMessage message, string username, string password)
-        {
+        public static void SetBasicHttpAuthentication(this HttpRequestMessage message, string username, string password) {
             if (message == null)
                 throw new ArgumentNullException(nameof(message));
 

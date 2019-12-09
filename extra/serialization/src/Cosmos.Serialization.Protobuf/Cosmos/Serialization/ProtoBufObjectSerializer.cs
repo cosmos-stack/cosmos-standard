@@ -2,13 +2,11 @@ using System;
 using System.Threading.Tasks;
 using Cosmos.Serialization.ProtoBuf;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Google Protobuf object serializer
     /// </summary>
-    public class ProtoBufObjectSerializer : IProtobufSerializer
-    {
+    public class ProtoBufObjectSerializer : IProtobufSerializer {
         /// <inheritdoc />
         public byte[] Serialize<T>(T o) => ProtobufHelper.Serialize(o);
 

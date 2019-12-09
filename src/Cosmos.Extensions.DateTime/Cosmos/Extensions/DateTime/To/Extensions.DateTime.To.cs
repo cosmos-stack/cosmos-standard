@@ -3,14 +3,12 @@ using Cosmos.Date;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions<br />
     /// DateTime 扩展方法
     /// </summary>
-    public static partial class DateTimeExtensions
-    {
+    public static partial class DateTimeExtensions {
         /// <summary>
         /// Convert to utc date<br />
         /// 转换为 UTC 时间

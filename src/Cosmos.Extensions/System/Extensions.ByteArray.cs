@@ -1,21 +1,18 @@
 using System.IO;
 using Cosmos.Conversions;
 
-namespace System
-{
+namespace System {
     /// <summary>
     /// Base Type Extensions
     /// </summary>
-    public static partial class BaseTypeExtensions
-    {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// Resize
         /// </summary>
         /// <param name="this"></param>
         /// <param name="newSize"></param>
         /// <returns></returns>
-        public static byte[] Resize(this byte[] @this, int newSize)
-        {
+        public static byte[] Resize(this byte[] @this, int newSize) {
             Array.Resize(ref @this, newSize);
             return @this;
         }
@@ -29,8 +26,7 @@ namespace System
         /// <param name="outArray"></param>
         /// <param name="offsetOut"></param>
         /// <returns></returns>
-        public static int ToBase64CharArray(this byte[] inArray, int offsetIn, int length, char[] outArray, int offsetOut)
-        {
+        public static int ToBase64CharArray(this byte[] inArray, int offsetIn, int length, char[] outArray, int offsetOut) {
             return Convert.ToBase64CharArray(inArray, offsetIn, length, outArray, offsetOut);
         }
 
@@ -44,8 +40,7 @@ namespace System
         /// <param name="offsetOut"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static int ToBase64CharArray(this byte[] inArray, int offsetIn, int length, char[] outArray, int offsetOut, Base64FormattingOptions options)
-        {
+        public static int ToBase64CharArray(this byte[] inArray, int offsetIn, int length, char[] outArray, int offsetOut, Base64FormattingOptions options) {
             return Convert.ToBase64CharArray(inArray, offsetIn, length, outArray, offsetOut, options);
         }
 
@@ -54,8 +49,7 @@ namespace System
         /// </summary>
         /// <param name="inArray"></param>
         /// <returns></returns>
-        public static string ToBase64String(this byte[] inArray)
-        {
+        public static string ToBase64String(this byte[] inArray) {
             return Base64Conversion.ToBase64String(inArray);
         }
 
@@ -65,8 +59,7 @@ namespace System
         /// <param name="inArray"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static string ToBase64String(this byte[] inArray, Base64FormattingOptions options)
-        {
+        public static string ToBase64String(this byte[] inArray, Base64FormattingOptions options) {
             return Convert.ToBase64String(inArray, options);
         }
 
@@ -77,8 +70,7 @@ namespace System
         /// <param name="offset"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        public static string ToBase64String(this byte[] inArray, int offset, int length)
-        {
+        public static string ToBase64String(this byte[] inArray, int offset, int length) {
             return Convert.ToBase64String(inArray, offset, length);
         }
 
@@ -90,8 +82,7 @@ namespace System
         /// <param name="length"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static string ToBase64String(this byte[] inArray, int offset, int length, Base64FormattingOptions options)
-        {
+        public static string ToBase64String(this byte[] inArray, int offset, int length, Base64FormattingOptions options) {
             return Convert.ToBase64String(inArray, offset, length, options);
         }
 
@@ -100,8 +91,7 @@ namespace System
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static MemoryStream ToMemoryStream(this byte[] @this)
-        {
+        public static MemoryStream ToMemoryStream(this byte[] @this) {
             return new MemoryStream(@this);
         }
     }

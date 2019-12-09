@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// ReadOnly list extensions
     /// </summary>
-    public static partial class ReadOnlyListExtensions
-    {
+    public static partial class ReadOnlyListExtensions {
         /// <summary>
         /// Binary search
         /// </summary>
@@ -111,8 +109,7 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public static int BinarySearch<TSource, TValue>(this IReadOnlyList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value,
-            IComparer<TValue> comparer)
-        {
+            IComparer<TValue> comparer) {
             if (list == null)
                 throw new ArgumentNullException(nameof(list));
             if (map == null)
@@ -134,8 +131,7 @@ namespace Cosmos.Collections
             int high = index + length - 1;
 
             // While low < high.
-            while (low <= high)
-            {
+            while (low <= high) {
                 // The midpoint.
                 int midpoint = low + ((high - low) >> 1);
 

@@ -1,19 +1,17 @@
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// No repeat mode
     /// </summary>
-    public enum NoRepeatMode
-    {
+    public enum NoRepeatMode {
         /// <summary>
         /// Off<br />
-        /// ¹Ø
+        /// å…³
         /// </summary>
         Off,
 
         /// <summary>
         /// On<br />
-        /// ¿ª
+        /// å¼€
         /// </summary>
         On
     }

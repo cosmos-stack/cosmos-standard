@@ -2,13 +2,11 @@ using System;
 using System.IO;
 using Utf8Json;
 
-namespace Cosmos.Serialization.Json.Utf8Json
-{
+namespace Cosmos.Serialization.Json.Utf8Json {
     /// <summary>
     /// Utf8Json helper
     /// </summary>
-    public static partial class Utf8JsonHelper
-    {
+    public static partial class Utf8JsonHelper {
         /// <summary>
         /// Pack
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream Pack<T>(T o, IJsonFormatterResolver resolver = null)
-        {
+        public static Stream Pack<T>(T o, IJsonFormatterResolver resolver = null) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -35,8 +32,7 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="stream"></param>
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Pack<T>(T t, Stream stream, IJsonFormatterResolver resolver = null)
-        {
+        public static void Pack<T>(T t, Stream stream, IJsonFormatterResolver resolver = null) {
             if (t == null || !stream.CanWrite)
                 return;
 
@@ -52,8 +48,7 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Unpack<T>(Stream stream, IJsonFormatterResolver resolver = null)
-        {
+        public static T Unpack<T>(Stream stream, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? default
                 : DeserializeFromBytes<T>(StreamToBytes(stream), resolver);
@@ -66,15 +61,13 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="type"></param>
         /// <param name="resolver"></param>
         /// <returns></returns>
-        public static object Unpack(Stream stream, Type type, IJsonFormatterResolver resolver = null)
-        {
+        public static object Unpack(Stream stream, Type type, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? null
                 : DeserializeFromBytes(StreamToBytes(stream), type, resolver);
         }
-        
-        private static byte[] StreamToBytes(Stream stream)
-        {
+
+        private static byte[] StreamToBytes(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

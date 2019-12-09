@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Cosmos.Collections;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class StringExtensions
-    {
+namespace Cosmos {
+    public static partial class StringExtensions {
         /// <summary>
         /// 根据给定的 splitCode 对字符串进行切割
         /// </summary>
@@ -24,8 +23,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string[] SplitInWords(this string s)
-        {
+        public static string[] SplitInWords(this string s) {
 
             //
             // Split on all non-word characters.
@@ -42,15 +40,12 @@ namespace Cosmos
         /// <param name="s"></param>
         /// <param name="wordlength"></param>
         /// <returns></returns>
-        public static List<string> SplitInWordsLongerThan(this string s, int wordlength)
-        {
+        public static List<string> SplitInWordsLongerThan(this string s, int wordlength) {
             var res = new List<string>();
             var splitwords = mSplitWords.Split(s);
 
-            foreach (var word in splitwords)
-            {
-                if (word.Length > wordlength)
-                {
+            foreach (var word in splitwords) {
+                if (word.Length > wordlength) {
                     res.Add(word);
                 }
             }
@@ -63,9 +58,8 @@ namespace Cosmos
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string[] SplitInLines(this string s)
-        {
-            return s.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+        public static string[] SplitInLines(this string s) {
+            return s.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
         }
 
         /// <summary>
@@ -74,8 +68,7 @@ namespace Cosmos
         /// <typeparam name="T"></typeparam>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static T[] SplitInLinesTyped<T>(this string s) where T : IComparable
-        {
+        public static T[] SplitInLinesTyped<T>(this string s) where T : IComparable {
             return SplitTyped<T>(s, Environment.NewLine);
         }
 
@@ -84,9 +77,8 @@ namespace Cosmos
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string[] SplitInLinesRemoveEmptys(this string s)
-        {
-            return s.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+        public static string[] SplitInLinesRemoveEmptys(this string s) {
+            return s.Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
         }
 
         /// <summary>
@@ -95,8 +87,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="index"></param>
         /// <returns></returns>
-        public static Tuple<string, string> SplitByIndex(this string text, int index)
-        {
+        public static Tuple<string, string> SplitByIndex(this string text, int index) {
             if (text.IsNullOrEmpty())
                 return new Tuple<string, string>("", "");
 
@@ -115,8 +106,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="index"></param>
         /// <returns></returns>
-        public static Tuple<string, string> SplitWordsByIndex(this string text, int index)
-        {
+        public static Tuple<string, string> SplitWordsByIndex(this string text, int index) {
             var splitByIndex = text.SplitByIndex(index);
             var res = new Tuple<string, string>(splitByIndex.Item1, splitByIndex.Item2);
 
@@ -133,21 +123,20 @@ namespace Cosmos
         /// <param name="me"></param>
         /// <param name="delimiter"></param>
         /// <returns></returns>
-        public static T[] SplitTyped<T>(this string me, char delimiter) where T : IComparable
-        {
+        public static T[] SplitTyped<T>(this string me, char delimiter) where T : IComparable {
             if (me.IsNullOrWhiteSpace())
                 return new T[] { };
 
             me = me.Trim();
 
-            var parts = me.Split(new[] { delimiter }, StringSplitOptions.RemoveEmptyEntries);
+            var parts = me.Split(new[] {delimiter}, StringSplitOptions.RemoveEmptyEntries);
 
             var res = new T[parts.Length];
 
-            for (int i = 0; i < parts.Length; i++)
-            {
-                res[i] = (T)Convert.ChangeType(parts[i], typeof(T));
+            for (int i = 0; i < parts.Length; i++) {
+                res[i] = (T) Convert.ChangeType(parts[i], typeof(T));
             }
+
             return res;
         }
 
@@ -158,21 +147,20 @@ namespace Cosmos
         /// <param name="me"></param>
         /// <param name="delimiter"></param>
         /// <returns></returns>
-        public static T[] SplitTyped<T>(this string me, string delimiter) where T : IComparable
-        {
+        public static T[] SplitTyped<T>(this string me, string delimiter) where T : IComparable {
             if (me.IsNullOrWhiteSpace())
                 return new T[] { };
 
             me = me.Trim();
 
-            var parts = me.Split(new[] { delimiter }, StringSplitOptions.RemoveEmptyEntries);
+            var parts = me.Split(new[] {delimiter}, StringSplitOptions.RemoveEmptyEntries);
 
             var res = new T[parts.Length];
 
-            for (int i = 0; i < parts.Length; i++)
-            {
-                res[i] = (T)Convert.ChangeType(parts[i], typeof(T));
+            for (int i = 0; i < parts.Length; i++) {
+                res[i] = (T) Convert.ChangeType(parts[i], typeof(T));
             }
+
             return res;
         }
     }

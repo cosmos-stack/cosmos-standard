@@ -1,11 +1,9 @@
 using System;
 using ZeroFormatter;
 
-namespace Cosmos.Test.Serialization.ZeroFormatterTest
-{
+namespace Cosmos.Test.Serialization.ZeroFormatterTest {
     [ZeroFormattable]
-    public class NiceModel
-    {
+    public class NiceModel {
         [Index(0)]
         public virtual Guid Id { get; set; }
 

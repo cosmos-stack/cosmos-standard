@@ -2,10 +2,8 @@
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class StringExtensions
-    {
+namespace Cosmos {
+    public static partial class StringExtensions {
         /// <summary>
         /// 是否包含中文
         /// </summary>
@@ -24,8 +22,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsIgnoreCase(this string text, string toCheck)
-        {
+        public static bool ContainsIgnoreCase(this string text, string toCheck) {
             if (toCheck.IsNullOrEmpty())
                 throw new ArgumentException($" The value of '{nameof(toCheck)}' cannot be null or empty.");
             return text.IndexOfIgnoreCase(toCheck) >= 0;
@@ -37,8 +34,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsWholeWord(this string text, string toCheck)
-        {
+        public static bool ContainsWholeWord(this string text, string toCheck) {
             if (text.IsNullOrEmpty())
                 return false;
 
@@ -46,11 +42,11 @@ namespace Cosmos
                 throw new ArgumentException("El parametro 'toChek' es vacio");
 
             var partes = text.SplitInWords();
-            foreach (var parte in partes)
-            {
+            foreach (var parte in partes) {
                 if (parte.EqualsIgnoreCase(toCheck))
                     return true;
             }
+
             return false;
         }
 
@@ -60,8 +56,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsAnyWholeWord(this string text, params string[] toCheck)
-        {
+        public static bool ContainsAnyWholeWord(this string text, params string[] toCheck) {
             if (text.IsNullOrEmpty())
                 return false;
 
@@ -69,14 +64,13 @@ namespace Cosmos
                 throw new ArgumentException("El parametro 'toChek' es vacio");
 
             var partes = text.SplitInWords();
-            foreach (var parte in partes)
-            {
-                foreach (var check in toCheck)
-                {
+            foreach (var parte in partes) {
+                foreach (var check in toCheck) {
                     if (parte.EqualsIgnoreCase(check))
                         return true;
                 }
             }
+
             return false;
         }
 
@@ -86,14 +80,12 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsWholePhrase(this string text, string toCheck)
-        {
+        public static bool ContainsWholePhrase(this string text, string toCheck) {
             if (toCheck.IsNullOrEmpty())
                 throw new ArgumentException("El parametro 'toChek' es vacio");
 
             var startIndex = 0;
-            while (startIndex <= text.Length)
-            {
+            while (startIndex <= text.Length) {
                 var index = text.IndexOfIgnoreCase(startIndex, toCheck);
                 if (index < 0)
                     return false;
@@ -101,13 +93,14 @@ namespace Cosmos
                 var indexPreviousCar = index - 1;
                 var indexNextCar = index + toCheck.Length;
                 if ((index == 0
-                     || !Char.IsLetter(text[indexPreviousCar]))
-                    && (index + toCheck.Length == text.Length
-                        || !Char.IsLetter(text[indexNextCar])))
+                  || !Char.IsLetter(text[indexPreviousCar]))
+                 && (index + toCheck.Length == text.Length
+                  || !Char.IsLetter(text[indexNextCar])))
                     return true;
 
                 startIndex = index + toCheck.Length;
             }
+
             return false;
         }
 
@@ -117,12 +110,11 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsWholePhraseAny(this string text, params string[] toCheck)
-        {
-            foreach (var phrase in toCheck)
-            {
+        public static bool ContainsWholePhraseAny(this string text, params string[] toCheck) {
+            foreach (var phrase in toCheck) {
                 if (text.ContainsWholePhrase(phrase)) return true;
             }
+
             return false;
         }
 
@@ -132,12 +124,11 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsWholePhraseAll(this string text, params string[] toCheck)
-        {
-            foreach (var phrase in toCheck)
-            {
+        public static bool ContainsWholePhraseAll(this string text, params string[] toCheck) {
+            foreach (var phrase in toCheck) {
                 if (!text.ContainsWholePhrase(phrase)) return false;
             }
+
             return true;
         }
 
@@ -147,15 +138,14 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsAnyIgnoreCase(this string text, params string[] toCheck)
-        {
+        public static bool ContainsAnyIgnoreCase(this string text, params string[] toCheck) {
             if (toCheck == null || toCheck.Length == 0)
                 throw new ArgumentException("El parametro 'toChek' es vacio");
 
-            foreach (var checking in toCheck)
-            {
+            foreach (var checking in toCheck) {
                 if (text.IndexOfIgnoreCase(checking) >= 0) return true;
             }
+
             return false;
         }
 
@@ -165,15 +155,14 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsAllIgnoreCase(this string text, params string[] toCheck)
-        {
+        public static bool ContainsAllIgnoreCase(this string text, params string[] toCheck) {
             if (toCheck == null || toCheck.Length == 0)
                 throw new ArgumentException("El parametro 'toChek' es vacio");
 
-            foreach (var checking in toCheck)
-            {
+            foreach (var checking in toCheck) {
                 if (text.IndexOfIgnoreCase(checking) < 0) return false;
             }
+
             return true;
         }
 
@@ -183,15 +172,14 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool ContainsOnlyThisChar(this string text, char toCheck)
-        {
+        public static bool ContainsOnlyThisChar(this string text, char toCheck) {
             if (text.Length == 0)
                 return false;
 
-            foreach (var t in text)
-            {
+            foreach (var t in text) {
                 if (t != toCheck) return false;
             }
+
             return true;
         }
     }

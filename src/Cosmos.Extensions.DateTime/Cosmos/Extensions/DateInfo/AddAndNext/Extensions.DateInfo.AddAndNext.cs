@@ -2,14 +2,12 @@
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateInfo Extensions<br />
     /// DateInfo 扩展方法
     /// </summary>
-    public static partial class DateInfoExtensions
-    {
+    public static partial class DateInfoExtensions {
         /// <summary>
         /// Add one day<br />
         /// 加一天
@@ -57,8 +55,7 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="next"></param>
         /// <returns></returns>
-        public static bool IsNextMatched(this DateInfo d, DateInfo next)
-        {
+        public static bool IsNextMatched(this DateInfo d, DateInfo next) {
             if (d == null || next == null)
                 return false;
 
@@ -89,14 +86,11 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="days"></param>
         /// <returns></returns>
-        public static DateInfo AddBusinessDays(this DateInfo d, int days)
-        {
+        public static DateInfo AddBusinessDays(this DateInfo d, int days) {
             var sign = Math.Sign(days);
             var unsignedDays = Math.Abs(days);
-            for (var i = 0; i < unsignedDays; i++)
-            {
-                do
-                {
+            for (var i = 0; i < unsignedDays; i++) {
+                do {
                     d = d.AddDays(sign);
                 } while (d.DayOfWeek == DayOfWeek.Saturday ||
                          d.DayOfWeek == DayOfWeek.Sunday);

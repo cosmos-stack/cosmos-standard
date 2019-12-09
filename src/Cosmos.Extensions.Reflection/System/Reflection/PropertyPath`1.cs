@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace System.Reflection
-{
+namespace System.Reflection {
     /// <summary>
     /// Property path
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class PropertyPath<T> : PropertyPath
-    {
+    public class PropertyPath<T> : PropertyPath {
         internal PropertyPath() : base(null) { }
 
         internal PropertyPath(PropertyPath root) : base(root) { }
@@ -21,9 +19,8 @@ namespace System.Reflection
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public PropertyPath<TResult> ThenEnumerable<TResult>(Expression<Func<T, IEnumerable<TResult>>> expression)
-        {
-            if (expression == null) 
+        public PropertyPath<TResult> ThenEnumerable<TResult>(Expression<Func<T, IEnumerable<TResult>>> expression) {
+            if (expression == null)
                 throw new ArgumentNullException(nameof(expression));
 
             var propertyInfo = (expression.Body as MemberExpression)?.Member as PropertyInfo;
@@ -44,9 +41,8 @@ namespace System.Reflection
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public PropertyPath<TResult> Then<TResult>(Expression<Func<T, TResult>> expression)
-        {
-            if (expression == null) 
+        public PropertyPath<TResult> Then<TResult>(Expression<Func<T, TResult>> expression) {
+            if (expression == null)
                 throw new ArgumentNullException(nameof(expression));
 
             var propertyInfo = (expression.Body as MemberExpression)?.Member as PropertyInfo;

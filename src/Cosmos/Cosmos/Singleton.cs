@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Provide a unified singleton management portal.
     /// </summary>
-    public class Singleton
-    {
-        static Singleton()
-        {
+    public class Singleton {
+        static Singleton() {
             AllSingletons = new Dictionary<Type, object>();
         }
 
@@ -23,18 +20,15 @@ namespace Cosmos
     /// Provide a unified singleton management portal and a copy of itself.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Singleton<T> : Singleton
-    {
+    public class Singleton<T> : Singleton {
         private static T _instance;
 
         /// <summary>
         /// Singleton instance
         /// </summary>
-        public static T Instance
-        {
+        public static T Instance {
             get => _instance;
-            set
-            {
+            set {
                 _instance = value;
                 AllSingletons[typeof(T)] = value;
             }
@@ -45,10 +39,8 @@ namespace Cosmos
     /// Provide a unified singleton management portal and a copy of itself.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class SingletonList<T> : Singleton<IList<T>>
-    {
-        static SingletonList()
-        {
+    public class SingletonList<T> : Singleton<IList<T>> {
+        static SingletonList() {
             Singleton<IList<T>>.Instance = new List<T>();
         }
 
@@ -63,10 +55,8 @@ namespace Cosmos
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TValue"></typeparam>
-    public class SingletonDictionary<TKey, TValue> : Singleton<IDictionary<TKey, TValue>>
-    {
-        static SingletonDictionary()
-        {
+    public class SingletonDictionary<TKey, TValue> : Singleton<IDictionary<TKey, TValue>> {
+        static SingletonDictionary() {
             Singleton<Dictionary<TKey, TValue>>.Instance = new Dictionary<TKey, TValue>();
         }
 

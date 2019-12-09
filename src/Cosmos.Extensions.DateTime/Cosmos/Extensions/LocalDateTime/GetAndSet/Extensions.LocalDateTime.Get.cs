@@ -4,13 +4,11 @@ using Cosmos.Date;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// LocalDateTime extensions
     /// </summary>
-    public static partial class LocalDateTimeExtensions
-    {
+    public static partial class LocalDateTimeExtensions {
         /// <summary>
         /// Gets first day of year
         /// </summary>
@@ -23,8 +21,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ldt"></param>
         /// <returns></returns>
-        public static LocalDateTime FirstDayOfQuarter(this LocalDateTime ldt)
-        {
+        public static LocalDateTime FirstDayOfQuarter(this LocalDateTime ldt) {
             var currentQuarter = (ldt.Month - 1) / 3 + 1;
             var firstDay = new LocalDateTime(ldt.Year, 3 * currentQuarter - 2, 1, ldt.Hour, ldt.Minute);
 
@@ -43,8 +40,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ldt"></param>
         /// <returns></returns>
-        public static LocalDateTime FirstDayOfWeek(this LocalDateTime ldt)
-        {
+        public static LocalDateTime FirstDayOfWeek(this LocalDateTime ldt) {
             var currentCulture = CultureInfo.CurrentCulture;
             var firstDayOfWeek = (int) currentCulture.DateTimeFormat.FirstDayOfWeek;
 
@@ -68,8 +64,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ldt"></param>
         /// <returns></returns>
-        public static LocalDateTime LastDayOfQuarter(this LocalDateTime ldt)
-        {
+        public static LocalDateTime LastDayOfQuarter(this LocalDateTime ldt) {
             var currentQuarter = (ldt.Month - 1) / 3 + 1;
             var firstDay = ldt.SetDate(ldt.Year, 3 * currentQuarter - 2, 1);
             return firstDay.SetMonth(firstDay.Month + 2).LastDayOfMonth();

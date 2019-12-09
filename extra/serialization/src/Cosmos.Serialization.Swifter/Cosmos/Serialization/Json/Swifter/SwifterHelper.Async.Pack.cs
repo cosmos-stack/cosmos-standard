@@ -3,22 +3,19 @@ using System.IO;
 using System.Threading.Tasks;
 using Swifter.Json;
 
-namespace Cosmos.Serialization.Json.Swifter
-{
+namespace Cosmos.Serialization.Json.Swifter {
     /// <summary>
     /// SwiftJson Helper
     /// </summary>
-    public static partial class SwifterHelper
-    {
-         /// <summary>
+    public static partial class SwifterHelper {
+        /// <summary>
         /// Pack async
         /// </summary>
         /// <param name="o"></param>
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync<T>(T o, JsonFormatterOptions?  options = null)
-        {
+        public static async Task<Stream> PackAsync<T>(T o, JsonFormatterOptions? options = null) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -37,8 +34,7 @@ namespace Cosmos.Serialization.Json.Swifter
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task PackAsync<T>(T o, Stream stream, JsonFormatterOptions?  options = null)
-        {
+        public static async Task PackAsync<T>(T o, Stream stream, JsonFormatterOptions? options = null) {
             if (o == null || !stream.CanWrite)
                 return;
 
@@ -54,8 +50,7 @@ namespace Cosmos.Serialization.Json.Swifter
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream, JsonFormatterOptions?  options = null)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream, JsonFormatterOptions? options = null) {
             return stream is null
                 ? default
                 : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream), options ?? SwifterJsonManager.DefaltDeserializeOptions);
@@ -68,15 +63,13 @@ namespace Cosmos.Serialization.Json.Swifter
         /// <param name="stream"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static async Task<object> UnpackAsync(Stream stream, Type type, JsonFormatterOptions?  options = null)
-        {
+        public static async Task<object> UnpackAsync(Stream stream, Type type, JsonFormatterOptions? options = null) {
             return stream is null
                 ? default
                 : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type, options ?? SwifterJsonManager.DefaltDeserializeOptions);
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

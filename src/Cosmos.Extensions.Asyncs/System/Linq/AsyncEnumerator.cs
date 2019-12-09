@@ -16,20 +16,17 @@ using System.Threading;
  *  MIT
  */
 
-namespace System.Linq
-{
+namespace System.Linq {
     /// <summary>
     /// Async enumerator
     /// </summary>
-    public class AsyncEnumerator : IEnumerator
-    {
+    public class AsyncEnumerator : IEnumerator {
         /// <summary>
         /// Create a new instance of <see cref="AsyncEnumerator"/>.
         /// </summary>
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncEnumerator(IEnumerator source, CancellationToken cancellationToken)
-        {
+        public AsyncEnumerator(IEnumerator source, CancellationToken cancellationToken) {
             CancellationToken = cancellationToken;
             Source = source;
         }
@@ -48,15 +45,13 @@ namespace System.Linq
         public object Current => Source.Current;
 
         /// <inheritdoc />
-        public bool MoveNext()
-        {
+        public bool MoveNext() {
             CancellationToken.ThrowIfCancellationRequested();
             return Source.MoveNext();
         }
 
         /// <inheritdoc />
-        public void Reset()
-        {
+        public void Reset() {
             Source.Reset();
         }
     }

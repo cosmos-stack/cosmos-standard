@@ -1,13 +1,11 @@
 using System;
 using Cosmos.IdUtils.GuidImplements;
 
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Guid provider
     /// </summary>
-    public static partial class GuidProvider
-    {
+    public static partial class GuidProvider {
         /// <summary>
         /// Create random style guid
         /// </summary>
@@ -21,10 +19,8 @@ namespace Cosmos.IdUtils
         /// <param name="style"></param>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public static Guid Create(GuidStyle style = GuidStyle.BasicStyle, NoRepeatMode mode = NoRepeatMode.Off)
-        {
-            switch (style)
-            {
+        public static Guid Create(GuidStyle style = GuidStyle.BasicStyle, NoRepeatMode mode = NoRepeatMode.Off) {
+            switch (style) {
                 //Creates a random (version 4) GUID.
                 case GuidStyle.BasicStyle:
                     return Guid.NewGuid();
@@ -77,10 +73,8 @@ namespace Cosmos.IdUtils
         /// <param name="secureTimestamp"></param>
         /// <param name="style"></param>
         /// <returns></returns>
-        public static Guid Create(DateTime secureTimestamp, GuidStyle style = GuidStyle.TimeStampStyle)
-        {
-            switch (style)
-            {
+        public static Guid Create(DateTime secureTimestamp, GuidStyle style = GuidStyle.TimeStampStyle) {
+            switch (style) {
                 case GuidStyle.BasicStyle:
                     return Guid.NewGuid();
 
@@ -125,10 +119,8 @@ namespace Cosmos.IdUtils
         /// <param name="endianGuidBytes"></param>
         /// <param name="style"></param>
         /// <returns></returns>
-        public static Guid Create(byte[] endianGuidBytes, GuidBytesStyle style)
-        {
-            switch (style)
-            {
+        public static Guid Create(byte[] endianGuidBytes, GuidBytesStyle style) {
+            switch (style) {
                 case GuidBytesStyle.LittleEndianByteArray:
                     return LittleEndianByteArrayProvider.Create(endianGuidBytes);
 
@@ -148,10 +140,8 @@ namespace Cosmos.IdUtils
         /// <param name="name"></param>
         /// <param name="version"></param>
         /// <returns></returns>
-        public static Guid Create(Guid @namespace, byte[] name, GuidVersion version)
-        {
-            switch (version)
-            {
+        public static Guid Create(Guid @namespace, byte[] name, GuidVersion version) {
+            switch (version) {
                 //Creates a random (version 4) GUID.
                 case GuidVersion.Random:
                     return CreateRandom();

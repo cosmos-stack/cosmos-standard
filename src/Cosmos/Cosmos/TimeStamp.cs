@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Timestamp
     /// </summary>
-    public class TimeStamp
-    {
+    public class TimeStamp {
         /// <summary>
         /// Timestamp
         /// </summary>
@@ -36,8 +34,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         public TimeStamp(DateTime dt) : this(dt, ToTimestampFunc(dt)) { }
 
-        private TimeStamp(DateTime dt, long timestamp)
-        {
+        private TimeStamp(DateTime dt, long timestamp) {
             m_timestamp = timestamp;
             m_datetime = dt;
         }

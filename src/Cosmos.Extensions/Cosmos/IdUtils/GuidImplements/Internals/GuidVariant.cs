@@ -8,13 +8,11 @@
  *      MIT
  */
 
-namespace Cosmos.IdUtils.GuidImplements.Internals
-{
+namespace Cosmos.IdUtils.GuidImplements.Internals {
     /// <summary>
     /// Known values for the <see cref="Guid"/> Variant field.
     /// </summary>
-    public enum GuidVariant
-    {
+    public enum GuidVariant {
         /// <summary>
         /// Reserved for NCS backward compatibility.
         /// </summary>

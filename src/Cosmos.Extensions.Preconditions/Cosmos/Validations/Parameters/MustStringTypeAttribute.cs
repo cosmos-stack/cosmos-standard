@@ -4,14 +4,12 @@ using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Judgments;
 using Cosmos.Validations.Parameters.Internals;
 
-namespace Cosmos.Validations.Parameters
-{
+namespace Cosmos.Validations.Parameters {
     /// <summary>
     /// Must string type
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class MustStringTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
-    {
+    public class MustStringTypeAttribute : ParameterInterceptorAttribute, IValidationParameter {
         /// <summary>
         /// Message
         /// </summary>
@@ -24,8 +22,7 @@ namespace Cosmos.Validations.Parameters
         /// <param name="next"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentInvalidException"></exception>
-        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
-        {
+        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next) {
 
             AssertionJudgment.Require2Validation<ArgumentInvalidException>(
                 context.Parameter.Type.Is(TypeClass.StringClass),

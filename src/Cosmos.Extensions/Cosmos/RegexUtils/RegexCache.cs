@@ -16,21 +16,17 @@ using System.Text.RegularExpressions;
  * Changed and updated by Alex Lewis
  */
 
-namespace Cosmos.RegexUtils
-{
+namespace Cosmos.RegexUtils {
     /// <summary>
     /// Regex cache
     /// </summary>
-    public sealed class RegexCache
-    {
+    public sealed class RegexCache {
         private bool _hasValue;
         private Key _key;
         private Regex _regex;
 
-        private class Key
-        {
-            public Key(string pattern, RegexOptions options)
-            {
+        private class Key {
+            public Key(string pattern, RegexOptions options) {
                 Pattern = pattern;
                 Options = options;
             }
@@ -39,15 +35,13 @@ namespace Cosmos.RegexUtils
 
             private RegexOptions Options { get; }
 
-            public override bool Equals(object obj)
-            {
+            public override bool Equals(object obj) {
                 return obj is Key key &&
                        key.Pattern == Pattern &&
                        key.Options == Options;
             }
 
-            public override int GetHashCode()
-            {
+            public override int GetHashCode() {
                 return Pattern.GetHashCode() ^ Options.GetHashCode();
             }
         }
@@ -58,16 +52,13 @@ namespace Cosmos.RegexUtils
         /// <param name="pattern">The pattern used to create the regular expression.</param>
         /// <param name="options">The options for regex.</param>
         /// <returns>The calculated or cached value.</returns>
-        public Regex Get(string pattern, RegexOptions options)
-        {
+        public Regex Get(string pattern, RegexOptions options) {
             if (pattern == null)
                 throw new ArgumentNullException(nameof(pattern));
 
-            lock (this)
-            {
+            lock (this) {
                 var current = new Key(pattern, options);
-                if (_hasValue && current.Equals(_key))
-                {
+                if (_hasValue && current.Equals(_key)) {
                     return _regex;
                 }
 

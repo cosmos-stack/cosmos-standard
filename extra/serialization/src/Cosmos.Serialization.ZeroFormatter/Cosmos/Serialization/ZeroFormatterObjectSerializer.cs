@@ -2,13 +2,11 @@ using System;
 using System.Threading.Tasks;
 using Cosmos.Serialization.ZeroFormatter;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// ZeroFormatter serializer
     /// </summary>
-    public class ZeroFormatterObjectSerializer : IZeroFormatterSerializer
-    {
+    public class ZeroFormatterObjectSerializer : IZeroFormatterSerializer {
         /// <inheritdoc />
         public byte[] Serialize<T>(T o) => ZeroFormatterHelper.Serialize(o);
 

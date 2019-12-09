@@ -1,13 +1,12 @@
 ﻿using Cosmos.Conversions;
 using Cosmos.Judgments;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Number Utilities
     /// </summary>
-    public static class Numbers
-    {
+    public static class Numbers {
+
         #region GetMembersBetween
 
         /// <summary>
@@ -16,15 +15,12 @@ namespace Cosmos
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static int[] GetMembersBetween(int min, int max)
-        {
-            if (min == max)
-            {
-                return new[] { min };
+        public static int[] GetMembersBetween(int min, int max) {
+            if (min == max) {
+                return new[] {min};
             }
 
-            if (min > max)
-            {
+            if (min > max) {
                 var t = min;
                 min = max;
                 max = t;
@@ -35,8 +31,7 @@ namespace Cosmos
             var pointer = min;
             var index = 0;
 
-            while (pointer <= max && index < count)
-            {
+            while (pointer <= max && index < count) {
                 results[index] = pointer;
 
                 ++index;
@@ -52,15 +47,12 @@ namespace Cosmos
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static long[] GetMembersBetween(long min, long max)
-        {
-            if (min == max)
-            {
-                return new[] { min };
+        public static long[] GetMembersBetween(long min, long max) {
+            if (min == max) {
+                return new[] {min};
             }
 
-            if (min > max)
-            {
+            if (min > max) {
                 var t = min;
                 min = max;
                 max = t;
@@ -71,8 +63,7 @@ namespace Cosmos
             var pointer = min;
             var index = 0L;
 
-            while (pointer <= max && index < count)
-            {
+            while (pointer <= max && index < count) {
                 results[index] = pointer;
 
                 ++index;

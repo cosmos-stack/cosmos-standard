@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Serialization;
 
-namespace Cosmos.Splitters
-{
+namespace Cosmos.Splitters {
     /// <summary>
     /// Fixed length splitter interface
     /// </summary>
-    public interface IFixedLengthSplitter
-    {
+    public interface IFixedLengthSplitter {
         /// <summary>
         /// Trim results
         /// </summary>

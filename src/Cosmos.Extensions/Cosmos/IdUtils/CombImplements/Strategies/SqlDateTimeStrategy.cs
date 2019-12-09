@@ -16,8 +16,7 @@ using System;
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cosmos.IdUtils.CombImplements.Strategies
-{
+namespace Cosmos.IdUtils.CombImplements.Strategies {
     /*
      * Reference To
      *     http://github.com/richardtallent/RT.Comb
@@ -26,8 +25,7 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
      *     https://www.tallent.us
      */
 
-    internal class SqlDateTimeStrategy : IDateStrategy
-    {
+    internal class SqlDateTimeStrategy : IDateStrategy {
         private const double TICKS_PER_DAY = 86_400d * 300d;
         private const double TICKS_PER_MILLISECOND = 3d / 10d;
 
@@ -37,15 +35,13 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
 
         public DateTime MaxDateTimeValue => MinDateTimeValue.AddDays(NumberConstants.UshortMax);
 
-        public byte[] DateTimeToBytes(DateTime timestamp)
-        {
+        public byte[] DateTimeToBytes(DateTime timestamp) {
             var ticks = (int) (timestamp.TimeOfDay.TotalMilliseconds * TICKS_PER_MILLISECOND);
             var days = (ushort) (timestamp - MinDateTimeValue).TotalDays;
             var tickBytes = BitConverter.GetBytes(ticks);
             var dayBytes = BitConverter.GetBytes(days);
 
-            if (BitConverter.IsLittleEndian)
-            {
+            if (BitConverter.IsLittleEndian) {
                 dayBytes.Reverse();
                 tickBytes.Reverse();
             }
@@ -57,15 +53,13 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
             return ret;
         }
 
-        public DateTime BytesToDateTime(byte[] value)
-        {
+        public DateTime BytesToDateTime(byte[] value) {
             var dayBytes = new byte[2];
             var tickBytes = new byte[4];
             value.Copy(0, dayBytes, 0, 2);
             value.Copy(2, tickBytes, 0, 4);
 
-            if (BitConverter.IsLittleEndian)
-            {
+            if (BitConverter.IsLittleEndian) {
                 dayBytes.Reverse();
                 tickBytes.Reverse();
             }
@@ -73,12 +67,10 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
             var days = BitConverter.ToUInt16(dayBytes, 0);
             var ticks = BitConverter.ToInt32(tickBytes, 0);
 
-            if (ticks < 0f)
-            {
+            if (ticks < 0f) {
                 throw new ArgumentException("Not a COMB, time component is negative.");
             }
-            else if (ticks > TICKS_PER_DAY)
-            {
+            else if (ticks > TICKS_PER_DAY) {
                 throw new ArgumentException("Not a COMB, time component exceeds 24 hours.");
             }
 

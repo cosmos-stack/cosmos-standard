@@ -8,22 +8,19 @@
  *      MIT
  */
 
-namespace Cosmos.Disposables
-{
+namespace Cosmos.Disposables {
     /// <summary>
     /// Single Nonblocking Disposable Object
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class SingleNonblockingDisposableObject<T> : IDisposable
-    {
+    public abstract class SingleNonblockingDisposableObject<T> : IDisposable {
         private readonly DisposableActionField<T> _context;
 
         /// <summary>
         /// Create a single nonblocking disposable object for such context
         /// </summary>
         /// <param name="context"></param>
-        protected SingleNonblockingDisposableObject(T context)
-        {
+        protected SingleNonblockingDisposableObject(T context) {
             _context = new DisposableActionField<T>(Dispose, context);
         }
 

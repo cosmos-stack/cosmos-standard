@@ -1,21 +1,17 @@
 ﻿using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class StringExtensions
-    {
+namespace Cosmos {
+    public static partial class StringExtensions {
         /// <summary>
         /// Is upper
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool IsUpper(this string text)
-        {
-            foreach (var ch in text)
-            {
+        public static bool IsUpper(this string text) {
+            foreach (var ch in text) {
                 if (!char.IsLetter(ch)
-                    || char.IsLower(ch))
+                 || char.IsLower(ch))
                     return false;
             }
 
@@ -27,12 +23,10 @@ namespace Cosmos
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool IsLower(this string text)
-        {
-            foreach (var ch in text)
-            {
+        public static bool IsLower(this string text) {
+            foreach (var ch in text) {
                 if (char.IsLetter(ch)
-                    && char.IsUpper(ch))
+                 && char.IsUpper(ch))
                     return false;
             }
 
@@ -45,8 +39,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="check"></param>
         /// <returns></returns>
-        public static bool IsSameWords(this string text, string check)
-        {
+        public static bool IsSameWords(this string text, string check) {
             if (check.IsNullOrEmpty())
                 return text.IsNullOrEmpty();
 

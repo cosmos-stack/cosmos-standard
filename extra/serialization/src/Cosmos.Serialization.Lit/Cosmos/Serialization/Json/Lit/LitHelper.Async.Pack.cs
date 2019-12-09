@@ -2,21 +2,18 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Cosmos.Serialization.Json.Lit
-{
+namespace Cosmos.Serialization.Json.Lit {
     /// <summary>
     /// Lit Helper
     /// </summary>
-    public static partial class LitHelper
-    {
+    public static partial class LitHelper {
         /// <summary>
         /// Pack async
         /// </summary>
         /// <param name="o"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync<T>(T o)
-        {
+        public static async Task<Stream> PackAsync<T>(T o) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -34,8 +31,7 @@ namespace Cosmos.Serialization.Json.Lit
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task PackAsync<T>(T o, Stream stream)
-        {
+        public static async Task PackAsync<T>(T o, Stream stream) {
             if (o == null || !stream.CanWrite)
                 return;
 
@@ -50,8 +46,7 @@ namespace Cosmos.Serialization.Json.Lit
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream) {
             return stream is null
                 ? default
                 : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream));
@@ -63,15 +58,13 @@ namespace Cosmos.Serialization.Json.Lit
         /// <param name="type"></param>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static async Task<object> UnpackAsync(Stream stream, Type type)
-        {
+        public static async Task<object> UnpackAsync(Stream stream, Type type) {
             return stream is null
                 ? default
                 : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type);
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

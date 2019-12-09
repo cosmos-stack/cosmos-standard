@@ -9,13 +9,11 @@ using System.Net.Http;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// Settings for HTTP
     /// </summary>
-    public class HttpSettings
-    {
+    public class HttpSettings {
         /// <summary>
         /// User agent
         /// </summary>
@@ -63,8 +61,7 @@ namespace Cosmos.Http.HttpUtils
         /// <summary>
         /// Create a new instance of <see cref="HttpSettings"/>.
         /// </summary>
-        public HttpSettings()
-        {
+        public HttpSettings() {
             ClientPool = new DefaultHttpClientPool(this);
         }
     }

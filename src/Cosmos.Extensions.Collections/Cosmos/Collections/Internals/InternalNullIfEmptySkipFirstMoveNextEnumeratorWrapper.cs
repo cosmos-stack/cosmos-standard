@@ -2,12 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Cosmos.Collections.Internals
-{
-    internal class InternalNullIfEmptySkipFirstMoveNextEnumeratorWrapper<T> : IEnumerator<T>
-    {
-        public InternalNullIfEmptySkipFirstMoveNextEnumeratorWrapper(IEnumerator<T> inner)
-        {
+namespace Cosmos.Collections.Internals {
+    internal class InternalNullIfEmptySkipFirstMoveNextEnumeratorWrapper<T> : IEnumerator<T> {
+        public InternalNullIfEmptySkipFirstMoveNextEnumeratorWrapper(IEnumerator<T> inner) {
             // Validate parameters.
             _inner = inner ?? throw new ArgumentNullException(nameof(inner));
         }
@@ -16,11 +13,9 @@ namespace Cosmos.Collections.Internals
 
         private readonly IEnumerator<T> _inner;
 
-        public bool MoveNext()
-        {
+        public bool MoveNext() {
             // If not skipped, skip and return.
-            if (!_skipped)
-            {
+            if (!_skipped) {
                 // Set to true.
                 _skipped = true;
 
@@ -32,8 +27,7 @@ namespace Cosmos.Collections.Internals
             return _inner.MoveNext();
         }
 
-        public void Reset()
-        {
+        public void Reset() {
             // Reset.
             // NOTE: We do not reset skipped because we
             // already know the call to move next will succeed

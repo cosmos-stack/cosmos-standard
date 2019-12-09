@@ -4,13 +4,11 @@ using Cosmos.Serialization.Json.Utf8Json;
 using Utf8Json;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     /// <summary>
     /// Utf8Json extensions
     /// </summary>
-    public static partial class Utf8JsonExtensions
-    {
+    public static partial class Utf8JsonExtensions {
         /// <summary>
         /// To Utf8Json bytes
         /// </summary>
@@ -18,8 +16,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static byte[] ToUtf8JsonBytes<T>(this T obj, IJsonFormatterResolver resolver = null)
-        {
+        public static byte[] ToUtf8JsonBytes<T>(this T obj, IJsonFormatterResolver resolver = null) {
             return Utf8JsonHelper.SerializeToBytes(obj, resolver);
         }
 
@@ -30,8 +27,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<byte[]> ToUtf8JsonBytesAsync<T>(this T obj, IJsonFormatterResolver resolver = null)
-        {
+        public static Task<byte[]> ToUtf8JsonBytesAsync<T>(this T obj, IJsonFormatterResolver resolver = null) {
             return Utf8JsonHelper.SerializeToBytesAsync(obj, resolver);
         }
 
@@ -42,8 +38,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T FromUtf8JsonBytes<T>(this byte[] data, IJsonFormatterResolver resolver = null)
-        {
+        public static T FromUtf8JsonBytes<T>(this byte[] data, IJsonFormatterResolver resolver = null) {
             return Utf8JsonHelper.DeserializeFromBytes<T>(data, resolver);
         }
 
@@ -54,8 +49,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="resolver"></param>
         /// <returns></returns>
-        public static object FromUtf8JsonBytes(this byte[] data, Type type, IJsonFormatterResolver resolver = null)
-        {
+        public static object FromUtf8JsonBytes(this byte[] data, Type type, IJsonFormatterResolver resolver = null) {
             return Utf8JsonHelper.DeserializeFromBytes(data, type, resolver);
         }
 
@@ -66,8 +60,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T> FromUtf8JsonBytesAsync<T>(this byte[] data, IJsonFormatterResolver resolver = null)
-        {
+        public static Task<T> FromUtf8JsonBytesAsync<T>(this byte[] data, IJsonFormatterResolver resolver = null) {
             return Utf8JsonHelper.DeserializeFromBytesAsync<T>(data, resolver);
         }
 
@@ -78,8 +71,7 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="resolver"></param>
         /// <returns></returns>
-        public static Task<object> FromUtf8JsonBytesAsync(this byte[] data, Type type, IJsonFormatterResolver resolver = null)
-        {
+        public static Task<object> FromUtf8JsonBytesAsync(this byte[] data, Type type, IJsonFormatterResolver resolver = null) {
             return Utf8JsonHelper.DeserializeFromBytesAsync(data, type, resolver);
         }
     }

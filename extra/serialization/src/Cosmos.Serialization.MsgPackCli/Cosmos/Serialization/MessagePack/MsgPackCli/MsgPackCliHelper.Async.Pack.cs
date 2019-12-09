@@ -3,21 +3,18 @@ using System.IO;
 using System.Threading.Tasks;
 using MsgPack.Serialization;
 
-namespace Cosmos.Serialization.MessagePack.MsgPackCli
-{
+namespace Cosmos.Serialization.MessagePack.MsgPackCli {
     /// <summary>
     /// MessagePack-Cli helper
     /// </summary>
-    public static partial class MsgPackCliHelper
-    {
+    public static partial class MsgPackCliHelper {
         /// <summary>
         /// Pack async
         /// </summary>
         /// <param name="t"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync<T>(T t)
-        {
+        public static async Task<Stream> PackAsync<T>(T t) {
             var ms = new MemoryStream();
 
             if (t == null)
@@ -36,8 +33,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
         /// <param name="t"></param>
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
-        public static async Task PackAsync<T>(T t, Stream stream)
-        {
+        public static async Task PackAsync<T>(T t, Stream stream) {
             if (t == null)
                 return;
 
@@ -52,8 +48,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync(object obj, Type type)
-        {
+        public static async Task<Stream> PackAsync(object obj, Type type) {
             var ms = new MemoryStream();
 
             if (obj is null)
@@ -72,8 +67,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <param name="stream"></param>
-        public static async Task PackAsync(object obj, Type type, Stream stream)
-        {
+        public static async Task PackAsync(object obj, Type type, Stream stream) {
             if (obj is null)
                 return;
 
@@ -88,8 +82,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream) {
             if (stream is null)
                 return default;
 
@@ -107,8 +100,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
         /// <param name="stream"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static async Task<object> UnpackAsync(Stream stream, Type type)
-        {
+        public static async Task<object> UnpackAsync(Stream stream, Type type) {
             if (stream is null)
                 return null;
 
@@ -120,8 +112,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli
             return await Task.Run(() => serializer.Unpack(stream));
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.Position > 0 && stream.CanSeek)

@@ -1,5 +1,4 @@
-namespace Cosmos.CharMatchers
-{
+namespace Cosmos.CharMatchers {
     /// <summary>
     /// Interface for char matcher
     /// </summary>

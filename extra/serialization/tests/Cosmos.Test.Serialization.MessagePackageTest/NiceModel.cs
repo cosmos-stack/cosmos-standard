@@ -1,11 +1,9 @@
 using System;
 using MessagePack;
 
-namespace Cosmos.Test.Serialization.MessagePackageTest
-{
+namespace Cosmos.Test.Serialization.MessagePackageTest {
     [MessagePackObject]
-    public class NiceModel
-    {
+    public class NiceModel {
         [Key(0)]
         public Guid Id { get; set; }
 

@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos.Disposables
-{
+namespace Cosmos.Disposables {
     /// <summary>
     /// AsAnonymous Disposable Object
     /// </summary>
-    public sealed class AsynchronousAnonymousDisposableObject: AsynchronousSingleDisposableObject<Action>
-    {
+    public sealed class AsynchronousAnonymousDisposableObject : AsynchronousSingleDisposableObject<Action> {
         /// <summary>
         /// Create a new <see cref="AsynchronousAnonymousDisposableObject"/> instance.
         /// </summary>
@@ -23,34 +21,32 @@ namespace Cosmos.Disposables
         /// </summary>
         /// <param name="disposableAction"></param>
         public AsynchronousAnonymousDisposableObject(AsynchronousDisposableAction disposableAction) : base(disposableAction?.InternalAction) { }
-        
+
         /// <summary>
         /// Dispose.
         /// </summary>
         /// <param name="context"></param>
         protected override void Dispose(Action context) => context?.Invoke();
-        
+
         /// <summary>
         /// Add dispose <see cref="Action"/>.
         /// </summary>
         /// <param name="dispose"></param>
-        public void Add(Action dispose)
-        {
+        public void Add(Action dispose) {
             if (dispose == null)
                 return;
             if (!TryUpdateContext(x => x + dispose))
                 dispose();
         }
-        
+
         /// <summary>
         /// Add dispose <see cref="Action"/>.
         /// </summary>
         /// <param name="disposableAction"></param>
-        public void Add(AsynchronousDisposableAction disposableAction)
-        {
+        public void Add(AsynchronousDisposableAction disposableAction) {
             Add(disposableAction?.InternalAction);
         }
-        
+
         /// <summary>
         /// Create a new disposable that executes dispose when disposed.
         /// </summary>

@@ -2,13 +2,11 @@
 using System.Threading.Tasks;
 using Cosmos.Serialization.Json.Lit;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// LitJson Serializer
     /// </summary>
-    public class LitObjectSerializer : IJsonSerializer
-    {
+    public class LitObjectSerializer : IJsonSerializer {
         /// <inheritdoc />
         public string Serialize<T>(T o) => LitHelper.Serialize(o);
 
@@ -17,9 +15,9 @@ namespace Cosmos.Serialization
 
         /// <inheritdoc />
         public object Deserialize(string json, Type type) => LitHelper.Deserialize(json, type);
-        
+
         /// <inheritdoc />
-        public Task<string> SerializeAsync<T>(T o)=> LitHelper.SerializeAsync(o);
+        public Task<string> SerializeAsync<T>(T o) => LitHelper.SerializeAsync(o);
 
         /// <inheritdoc />
         public Task<T> DeserializeAsync<T>(string data) => LitHelper.DeserializeAsync<T>(data);
