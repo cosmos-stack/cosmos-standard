@@ -4,13 +4,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions
-    {
+    public static partial class EnumerableExtensions {
         /// <summary>
         /// To dictionary
         /// </summary>
@@ -32,39 +30,12 @@ namespace Cosmos.Collections
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(
-            this IEnumerable<KeyValuePair<TKey, TValue>> source, IEqualityComparer<TKey> equalityComparer)
-        {
+            this IEnumerable<KeyValuePair<TKey, TValue>> source, IEqualityComparer<TKey> equalityComparer) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (equalityComparer == null)
                 throw new ArgumentNullException(nameof(equalityComparer));
             return source.ToDictionary(p => p.Key, p => p.Value, equalityComparer);
-        }
-
-        /// <summary>
-        /// To hashset
-        /// </summary>
-        /// <param name="source"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source) =>
-            source.ToHashSet(EqualityComparer<T>.Default);
-
-        /// <summary>
-        /// To hashset
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source, IEqualityComparer<T> comparer)
-        {
-            if (source == null)
-                throw new ArgumentNullException(nameof(source));
-            if (comparer == null)
-                throw new ArgumentNullException(nameof(comparer));
-            return new HashSet<T>(source, comparer);
         }
 
         /// <summary>
@@ -74,8 +45,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<KeyValuePair<int, T>> ToIndexedSequence<T>(this IEnumerable<T> source)
-        {
+        public static IEnumerable<KeyValuePair<int, T>> ToIndexedSequence<T>(this IEnumerable<T> source) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             return source.Select((t, i) => new KeyValuePair<int, T>(i, t));
@@ -96,8 +66,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static ReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> source)
-        {
+        public static ReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> source) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             return source.ToList().WrapInReadOnlyCollection();
@@ -113,8 +82,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static ReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
-            this IEnumerable<TValue> source, Func<TValue, TKey> keySelector)
-        {
+            this IEnumerable<TValue> source, Func<TValue, TKey> keySelector) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (keySelector == null)
@@ -134,8 +102,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static ReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
-            this IEnumerable<TValue> source, Func<TValue, TKey> keySelector, IEqualityComparer<TKey> comparer)
-        {
+            this IEnumerable<TValue> source, Func<TValue, TKey> keySelector, IEqualityComparer<TKey> comparer) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (keySelector == null)
@@ -161,8 +128,7 @@ namespace Cosmos.Collections
         public static ReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TSource, TKey, TValue>(
             this IEnumerable<TSource> source, Func<TSource, TKey> keySelector,
             Func<TSource, TValue> elementSelector,
-            IEqualityComparer<TKey> comparer)
-        {
+            IEqualityComparer<TKey> comparer) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (keySelector == null)
@@ -188,8 +154,7 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentNullException"></exception>
         public static ReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TSource, TKey, TValue>(
             this IEnumerable<TSource> source, Func<TSource, TKey> keySelector,
-            Func<TSource, TValue> elementSelector)
-        {
+            Func<TSource, TValue> elementSelector) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (keySelector == null)
@@ -209,8 +174,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
-            this IEnumerable<KeyValuePair<TKey, TValue>> source)
-        {
+            this IEnumerable<KeyValuePair<TKey, TValue>> source) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
 
@@ -227,8 +191,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
-            this IEnumerable<KeyValuePair<TKey, TValue>> source, IEqualityComparer<TKey> comparer)
-        {
+            this IEnumerable<KeyValuePair<TKey, TValue>> source, IEqualityComparer<TKey> comparer) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (comparer == null)
