@@ -1,4 +1,4 @@
-﻿using AspectCore.Injector;
+﻿using AspectCore.DependencyInjection;
 
 namespace Cosmos.Dependency {
     /// <summary>

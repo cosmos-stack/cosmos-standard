@@ -1,5 +1,6 @@
 ﻿using System;
 using Cosmos.Dependency;
+using AspectCore.DependencyInjection;
 
 namespace AspectCore.Injector {
     /// <summary>
@@ -13,7 +14,7 @@ namespace AspectCore.Injector {
         /// <param name="bag"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IServiceContainer RegisterProxy(this IServiceContainer services, RegisterProxyBag bag) {
+        public static IServiceContext RegisterProxy(this IServiceContext services, RegisterProxyBag bag) {
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
 
@@ -52,12 +53,12 @@ namespace AspectCore.Injector {
             return services;
         }
 
-        private static void TypeToTypeRegister(IServiceContainer services, RegisterProxyDescriptor d) {
+        private static void TypeToTypeRegister(IServiceContext services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToAspectCoreLifetime();
             services.AddType(d.ServiceType, d.ImplementationType, lifetime);
         }
 
-        private static void TypeToInstanceRegister(IServiceContainer services, RegisterProxyDescriptor d) {
+        private static void TypeToInstanceRegister(IServiceContext services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToAspectCoreLifetime();
             switch (lifetime) {
                 case Lifetime.Singleton:
@@ -69,17 +70,17 @@ namespace AspectCore.Injector {
             }
         }
 
-        private static void TypeToInstanceFuncRegister(IServiceContainer services, RegisterProxyDescriptor d) {
+        private static void TypeToInstanceFuncRegister(IServiceContext services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToAspectCoreLifetime();
             services.AddDelegate(d.ServiceType, r => d.InstanceFuncForImplementation(), lifetime);
         }
 
-        private static void TypeSelfRegister(IServiceContainer services, RegisterProxyDescriptor d) {
+        private static void TypeSelfRegister(IServiceContext services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToAspectCoreLifetime();
             services.AddType(d.ImplementationTypeSelf, lifetime);
         }
 
-        private static void InstanceSelfRegister(IServiceContainer services, RegisterProxyDescriptor d) {
+        private static void InstanceSelfRegister(IServiceContext services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToAspectCoreLifetime();
             switch (lifetime) {
                 case Lifetime.Singleton:
@@ -91,7 +92,7 @@ namespace AspectCore.Injector {
             }
         }
 
-        private static void InstanceSelfFuncRegister(IServiceContainer services, RegisterProxyDescriptor d) {
+        private static void InstanceSelfFuncRegister(IServiceContext services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToAspectCoreLifetime();
             switch (lifetime) {
                 case Lifetime.Singleton:
