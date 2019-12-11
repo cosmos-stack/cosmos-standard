@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\build\common.ns20-net461-net451.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp3.1;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Serialization.YamlDotNet</AssemblyName>
+        <PackageId>Cosmos.Serialization.YamlDotNet</PackageId>
+        <Description>YamlDotNet serializer extension for Cosmos base library</Description>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Serialization.YamlDotNet.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Serialization.YamlDotNet.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="YamlDotNet" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
