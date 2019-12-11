@@ -12429,5 +12429,48 @@
             <param name="name"></param>
             <returns></returns>
         </member>
+        <member name="T:System.Threading.AsyncLocal`1">
+            <summary>
+            Async local for .NET Framework 4.5.1
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:System.Threading.AsyncLocal`1.#ctor">
+            <summary>
+            Create a new instance for AsyncLocal for .NET Framework 4.5.1
+            </summary>
+        </member>
+        <member name="M:System.Threading.AsyncLocal`1.#ctor(System.Action{System.Threading.AsyncLocalValueChangedArgs{`0}})">
+            <summary>
+            Create a new instance for AsyncLocal for .NET Framework 4.5.1
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="P:System.Threading.AsyncLocal`1.Value">
+            <summary>
+            Gets or sets value
+            </summary>
+        </member>
+        <member name="T:System.Threading.AsyncLocalValueChangedArgs`1">
+            <summary>
+            Async local value changed args for .NET Framework 4.5.1
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.PreviousValue">
+            <summary>
+            Previous value
+            </summary>
+        </member>
+        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.CurrentValue">
+            <summary>
+            Current value
+            </summary>
+        </member>
+        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.ThreadContextChanged">
+            <summary>
+            Thread context changed
+            </summary>
+        </member>
     </members>
 </doc>
