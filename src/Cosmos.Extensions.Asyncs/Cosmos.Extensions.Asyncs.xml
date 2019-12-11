@@ -63,6 +63,17 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Asynchronous.Tasks">
+            <summary>
+            Task utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.Tasks.CompletedTask">
+            <summary>
+            Gets a task that has been completed successfully.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.ValueTaskFactory">
             <summary>
             ValueTask factory

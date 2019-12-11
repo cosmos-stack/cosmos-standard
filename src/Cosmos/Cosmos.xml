@@ -1684,6 +1684,66 @@
             Get a singleton of the specified type T
             </summary>
         </member>
+        <member name="T:Cosmos.ThreeValuedBoolean">
+            <summary>
+            Three value boolean
+            </summary>
+        </member>
+        <member name="P:Cosmos.ThreeValuedBoolean.True">
+            <summary>
+            True
+            </summary>
+        </member>
+        <member name="P:Cosmos.ThreeValuedBoolean.False">
+            <summary>
+            False
+            </summary>
+        </member>
+        <member name="P:Cosmos.ThreeValuedBoolean.Default">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="M:Cosmos.ThreeValuedBoolean.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            And operator
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ThreeValuedBoolean.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
+            <summary>
+            And operator
+            </summary>
+            <param name="left"></param>
+            <param name="rights"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ThreeValuedBoolean.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Or operator
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ThreeValuedBoolean.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
+            <summary>
+            Or operator
+            </summary>
+            <param name="left"></param>
+            <param name="rights"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ThreeValuedBoolean.Same(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Same operator
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.TimeStamp">
             <summary>
             Timestamp
