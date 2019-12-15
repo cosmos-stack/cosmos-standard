@@ -17,10 +17,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class Extensions
-    {
+namespace System.Linq {
+    public static partial class Extensions {
         /// <summary>
         /// As enumerable
         /// </summary>
@@ -30,9 +28,8 @@ namespace System.Linq
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         public static Task<IEnumerable<KeyValuePair<TKey, TValue>>> AsEnumerable<TKey, TValue>(
-            this Task<IReadOnlyDictionary<TKey, TValue>> source, 
-            CancellationToken cancellationToken = default)
-        {
+            this Task<IReadOnlyDictionary<TKey, TValue>> source,
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.AsEnumerable, cancellationToken);
         }
     }

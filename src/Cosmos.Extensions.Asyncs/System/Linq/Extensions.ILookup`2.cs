@@ -17,10 +17,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class Extensions
-    {
+namespace System.Linq {
+    public static partial class Extensions {
         /// <summary>
         /// As enumerable
         /// </summary>
@@ -31,8 +29,7 @@ namespace System.Linq
         /// <returns></returns>
         public static Task<IEnumerable<IGrouping<TKey, TValue>>> AsEnumerable<TKey, TValue>(
             this Task<Lookup<TKey, TValue>> source,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.AsEnumerable, cancellationToken);
         }
 
@@ -46,8 +43,7 @@ namespace System.Linq
         /// <returns></returns>
         public static Task<IEnumerable<IGrouping<TKey, TValue>>> AsEnumerable<TKey, TValue>(
             this Task<ILookup<TKey, TValue>> source,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.AsEnumerable, cancellationToken);
         }
     }

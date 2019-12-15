@@ -2,13 +2,11 @@ using System;
 using System.Threading.Tasks;
 using Cosmos.Serialization.Binary;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Binary object serializer
     /// </summary>
-    public class BinaryObjectSerializer : IObjectSerializer<byte[]>
-    {
+    public class BinaryObjectSerializer : IObjectSerializer<byte[]> {
         /// <inheritdoc />
         public byte[] Serialize<T>(T o) => BinaryHelper.Serialize(o);
 

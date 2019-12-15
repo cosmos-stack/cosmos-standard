@@ -2,21 +2,18 @@ using System;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTimeSpan Extensions<br />
     /// DateTimeSpan 扩展方法
     /// </summary>
-    public static partial class DateTimeSpanExtensions
-    {
+    public static partial class DateTimeSpanExtensions {
         /// <summary>
         /// Ago
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
-        public static DateTime Ago(this DateTimeSpan ts)
-        {
+        public static DateTime Ago(this DateTimeSpan ts) {
             return ts.Before(DateTime.Now);
         }
 
@@ -26,8 +23,7 @@ namespace Cosmos
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTime Ago(this DateTimeSpan ts, DateTime originalValue)
-        {
+        public static DateTime Ago(this DateTimeSpan ts, DateTime originalValue) {
             return ts.Before(originalValue);
         }
 
@@ -36,8 +32,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
-        public static DateTimeOffset OffsetAgo(this DateTimeSpan ts)
-        {
+        public static DateTimeOffset OffsetAgo(this DateTimeSpan ts) {
             return ts.Before(DateTimeOffset.Now);
         }
 
@@ -47,8 +42,7 @@ namespace Cosmos
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTimeOffset Ago(this DateTimeSpan ts, DateTimeOffset originalValue)
-        {
+        public static DateTimeOffset Ago(this DateTimeSpan ts, DateTimeOffset originalValue) {
             return ts.Before(originalValue);
         }
     }

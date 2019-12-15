@@ -12,13 +12,11 @@ using System.Net.Http.Headers;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// Default http client pool
     /// </summary>
-    public class DefaultHttpClientPool : IHttpClientPool
-    {
+    public class DefaultHttpClientPool : IHttpClientPool {
         private readonly ConcurrentDictionary<HttpClientCacheKey, HttpClient> _clientPool = new ConcurrentDictionary<HttpClientCacheKey, HttpClient>();
         private HttpSettings Settings { get; set; }
 
@@ -33,24 +31,19 @@ namespace Cosmos.Http.HttpUtils
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public HttpClient Get(IRequestBuilder builder)
-        {
+        public HttpClient Get(IRequestBuilder builder) {
             return _clientPool.GetOrAdd(new HttpClientCacheKey(builder.Timeout), CreateHttpClient);
         }
 
-        private HttpClient CreateHttpClient(HttpClientCacheKey options)
-        {
+        private HttpClient CreateHttpClient(HttpClientCacheKey options) {
             var handler = new HttpClientHandler {UseCookies = false};
             if (handler.SupportsAutomaticDecompression)
                 handler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
 
-            var client = new HttpClient(handler)
-            {
+            var client = new HttpClient(handler) {
                 Timeout = options.Timeout,
-                DefaultRequestHeaders =
-                {
-                    AcceptEncoding =
-                    {
+                DefaultRequestHeaders = {
+                    AcceptEncoding = {
                         new StringWithQualityHeaderValue("gzip"),
                         new StringWithQualityHeaderValue("deflate")
                     }
@@ -66,13 +59,11 @@ namespace Cosmos.Http.HttpUtils
         /// <summary>
         /// Clear
         /// </summary>
-        public void Clear()
-        {
+        public void Clear() {
             _clientPool.Clear();
         }
 
-        private struct HttpClientCacheKey
-        {
+        private struct HttpClientCacheKey {
             public TimeSpan Timeout { get; }
 
             public HttpClientCacheKey(TimeSpan timeout) => Timeout = timeout;

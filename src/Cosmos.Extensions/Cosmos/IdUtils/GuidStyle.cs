@@ -1,10 +1,8 @@
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Guid style
     /// </summary>
-    public enum GuidStyle
-    {
+    public enum GuidStyle {
         /// <summary>
         /// Basic
         /// </summary>

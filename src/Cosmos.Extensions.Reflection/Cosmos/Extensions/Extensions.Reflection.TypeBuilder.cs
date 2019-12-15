@@ -3,10 +3,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class ReflectionExtensions
-    {
+namespace Cosmos {
+    public static partial class ReflectionExtensions {
         /// <summary>
         /// Property set and property get methods require a special set of attributes.
         /// </summary>
@@ -21,8 +19,7 @@ namespace Cosmos
         /// <param name="propertyType"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static (PropertyBuilder PropertyBuilder, FieldBuilder FieldBuilder) DefineAutoImplementedProperty(this TypeBuilder typeBuilder, string name, Type propertyType)
-        {
+        public static (PropertyBuilder PropertyBuilder, FieldBuilder FieldBuilder) DefineAutoImplementedProperty(this TypeBuilder typeBuilder, string name, Type propertyType) {
             if (typeBuilder == null)
                 throw new ArgumentNullException(nameof(typeBuilder));
             if (string.IsNullOrWhiteSpace(name))
@@ -49,8 +46,7 @@ namespace Cosmos
             return (propertyBuilder, fieldBuilder);
         }
 
-        private static MethodBuilder DefineAutoImplementedPropertyGetMethodBuilder(this TypeBuilder typeBuilder, string name, Type propertyType, FieldBuilder fieldBuilder)
-        {
+        private static MethodBuilder DefineAutoImplementedPropertyGetMethodBuilder(this TypeBuilder typeBuilder, string name, Type propertyType, FieldBuilder fieldBuilder) {
             if (typeBuilder == null)
                 throw new ArgumentNullException(nameof(typeBuilder));
             if (string.IsNullOrWhiteSpace(name))
@@ -75,8 +71,7 @@ namespace Cosmos
             return methodBuilder;
         }
 
-        private static MethodBuilder DefineAutoImplementedPropertySetMethodBuilder(this TypeBuilder typeBuilder, string name, Type propertyType, FieldBuilder fieldBuilder)
-        {
+        private static MethodBuilder DefineAutoImplementedPropertySetMethodBuilder(this TypeBuilder typeBuilder, string name, Type propertyType, FieldBuilder fieldBuilder) {
             if (typeBuilder == null)
                 throw new ArgumentNullException(nameof(typeBuilder));
             if (string.IsNullOrWhiteSpace(name))

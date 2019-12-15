@@ -4,17 +4,14 @@ using System.Text;
 using Cosmos.Joiners;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class CollectionExtensions
-    {
+namespace Cosmos.Collections {
+    public static partial class CollectionExtensions {
         /// <summary>
         /// Join to string
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string JoinToString(this IEnumerable<string> list)
-        {
+        public static string JoinToString(this IEnumerable<string> list) {
             return JoinToString<string>(list, ",", t => true, s => s);
         }
 
@@ -24,8 +21,7 @@ namespace Cosmos
         /// <param name="list"></param>
         /// <param name="delimiter"></param>
         /// <returns></returns>
-        public static string JoinToString(this IEnumerable<string> list, string delimiter)
-        {
+        public static string JoinToString(this IEnumerable<string> list, string delimiter) {
             return JoinToString<string>(list, delimiter, t => true, s => s);
         }
 
@@ -36,8 +32,7 @@ namespace Cosmos
         /// <param name="predicate"></param>
         /// <param name="replaceFunc"></param>
         /// <returns></returns>
-        public static string JoinToString(this IEnumerable<string> list, Func<string, bool> predicate, Func<string, string> replaceFunc = null)
-        {
+        public static string JoinToString(this IEnumerable<string> list, Func<string, bool> predicate, Func<string, string> replaceFunc = null) {
             return JoinToString(list, ",", predicate, s => s, replaceFunc);
         }
 
@@ -49,8 +44,7 @@ namespace Cosmos
         /// <param name="predicate"></param>
         /// <param name="replaceFunc"></param>
         /// <returns></returns>
-        public static string JoinToString(this IEnumerable<string> list, string delimiter, Func<string, bool> predicate, Func<string, string> replaceFunc = null)
-        {
+        public static string JoinToString(this IEnumerable<string> list, string delimiter, Func<string, bool> predicate, Func<string, string> replaceFunc = null) {
             return JoinToString(list, delimiter, predicate, s => s, replaceFunc);
         }
 
@@ -60,8 +54,7 @@ namespace Cosmos
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string JoinToString<T>(this IEnumerable<T> list)
-        {
+        public static string JoinToString<T>(this IEnumerable<T> list) {
             return JoinToString(list, ",", t => true, t => $"{t}");
         }
 
@@ -72,8 +65,7 @@ namespace Cosmos
         /// <param name="list"></param>
         /// <param name="delimiter"></param>
         /// <returns></returns>
-        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter)
-        {
+        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter) {
             return JoinToString(list, delimiter, t => true, t => $"{t}");
         }
 
@@ -86,8 +78,7 @@ namespace Cosmos
         /// <param name="predicate"></param>
         /// <param name="replaceFunc"></param>
         /// <returns></returns>
-        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, bool> predicate, Func<T, T> replaceFunc = null)
-        {
+        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, bool> predicate, Func<T, T> replaceFunc = null) {
             return JoinToString(list, delimiter, predicate, s => $"{s}", replaceFunc);
         }
 
@@ -100,8 +91,7 @@ namespace Cosmos
         /// <param name="converter"></param>
         /// <param name="replaceFunc"></param>
         /// <returns></returns>
-        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, ITypeConverter<T, string> converter, Func<T, T> replaceFunc = null)
-        {
+        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, ITypeConverter<T, string> converter, Func<T, T> replaceFunc = null) {
             return JoinToString(list, delimiter, t => true, converter.To, replaceFunc);
         }
 
@@ -114,8 +104,7 @@ namespace Cosmos
         /// <param name="to"></param>
         /// <param name="replaceFunc"></param>
         /// <returns></returns>
-        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, string> to, Func<T, T> replaceFunc = null)
-        {
+        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, string> to, Func<T, T> replaceFunc = null) {
             return JoinToString(list, delimiter, t => true, to, replaceFunc);
         }
 
@@ -129,8 +118,8 @@ namespace Cosmos
         /// <param name="converter"></param>
         /// <param name="replaceFunc"></param>
         /// <returns></returns>
-        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, bool> predicate, ITypeConverter<T, string> converter, Func<T, T> replaceFunc = null)
-        {
+        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, bool> predicate, ITypeConverter<T, string> converter,
+            Func<T, T> replaceFunc = null) {
             return JoinToString(list, delimiter, predicate, converter.To, replaceFunc);
         }
 
@@ -140,8 +129,7 @@ namespace Cosmos
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string JoinOnePerLine<T>(this IEnumerable<T> list)
-        {
+        public static string JoinOnePerLine<T>(this IEnumerable<T> list) {
             return JoinToString(list, Environment.NewLine, t => true, t => $"{t}") + Environment.NewLine;
         }
 
@@ -151,8 +139,7 @@ namespace Cosmos
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string JoinToStringFormat<T>(this IEnumerable<T> list) where T : IFormattable
-        {
+        public static string JoinToStringFormat<T>(this IEnumerable<T> list) where T : IFormattable {
             return list.JoinToStringFormat(",");
         }
 
@@ -163,8 +150,7 @@ namespace Cosmos
         /// <param name="list"></param>
         /// <param name="delimiter"></param>
         /// <returns></returns>
-        public static string JoinToStringFormat<T>(this IEnumerable<T> list, string delimiter) where T : IFormattable
-        {
+        public static string JoinToStringFormat<T>(this IEnumerable<T> list, string delimiter) where T : IFormattable {
             return list.JoinToStringFormat(delimiter, null);
         }
 
@@ -176,8 +162,7 @@ namespace Cosmos
         /// <param name="delimiter"></param>
         /// <param name="info"></param>
         /// <returns></returns>
-        public static string JoinToStringFormat<T>(this IEnumerable<T> list, string delimiter, IFormatProvider info) where T : IFormattable
-        {
+        public static string JoinToStringFormat<T>(this IEnumerable<T> list, string delimiter, IFormatProvider info) where T : IFormattable {
             return JoinToString(list, delimiter, t => true, t => t.ToString(null, info));
         }
 
@@ -191,8 +176,7 @@ namespace Cosmos
         /// <param name="to"></param>
         /// <param name="replaceFunc"></param>
         /// <returns></returns>
-        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, bool> predicate, Func<T, string> to, Func<T, T> replaceFunc = null)
-        {
+        public static string JoinToString<T>(this IEnumerable<T> list, string delimiter, Func<T, bool> predicate, Func<T, string> to, Func<T, T> replaceFunc = null) {
             if (list == null)
                 return string.Empty;
 

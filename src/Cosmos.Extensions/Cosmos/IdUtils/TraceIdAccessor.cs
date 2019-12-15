@@ -1,10 +1,8 @@
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Trace Id Accessor
     /// </summary>
-    public sealed class TraceIdAccessor
-    {
+    public sealed class TraceIdAccessor {
         private static readonly ITraceIdMaker DefaultMaker = new DefaultTraceIdMaker();
         private readonly string _id;
 
@@ -12,8 +10,7 @@ namespace Cosmos.IdUtils
         /// Create a new <see cref="TraceIdAccessor"/> instance.
         /// </summary>
         /// <param name="maker"></param>
-        public TraceIdAccessor(ITraceIdMaker maker)
-        {
+        public TraceIdAccessor(ITraceIdMaker maker) {
             _id = maker == null ? DefaultMaker.CreateId() : maker.CreateId();
         }
 

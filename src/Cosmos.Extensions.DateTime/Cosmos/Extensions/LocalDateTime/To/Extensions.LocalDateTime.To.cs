@@ -3,13 +3,11 @@ using Cosmos.Date;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// LocalDateTime extensions
     /// </summary>
-    public static partial class LocalDateTimeExtensions
-    {
+    public static partial class LocalDateTimeExtensions {
         /// <summary>
         /// To DateTime
         /// </summary>

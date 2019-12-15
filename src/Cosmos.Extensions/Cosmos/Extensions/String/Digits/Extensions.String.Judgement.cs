@@ -1,11 +1,10 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+
+namespace Cosmos {
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StringExtensions
-    {
+    public static partial class StringExtensions {
         /// <summary>
         /// Contains only digits
         /// </summary>
@@ -13,10 +12,10 @@ namespace Cosmos
         /// <returns></returns>
         public static bool ContainsOnlyDigits(this string text) //ver
         {
-            foreach (var car in text)
-            {
+            foreach (var car in text) {
                 if (!char.IsDigit(car)) return false;
             }
+
             return true;
         }
 
@@ -27,10 +26,10 @@ namespace Cosmos
         /// <returns></returns>
         public static bool NotContainsDigits(this string text) //Ver
         {
-            foreach (var car in text)
-            {
+            foreach (var car in text) {
                 if (char.IsDigit(car)) return false;
             }
+
             return true;
         }
 
@@ -41,10 +40,10 @@ namespace Cosmos
         /// <returns></returns>
         public static bool ContainsDigit(this string text) //ver
         {
-            foreach (var car in text)
-            {
+            foreach (var car in text) {
                 if (char.IsDigit(car)) return true;
             }
+
             return false;
         }
 
@@ -67,8 +66,7 @@ namespace Cosmos
         public static bool IncludeDigits(this string text, int minCount) //ver
         {
             var count = 0;
-            foreach (var car in text)
-            {
+            foreach (var car in text) {
                 if (char.IsDigit(car))
                     count++;
 

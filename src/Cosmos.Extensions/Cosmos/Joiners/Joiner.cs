@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Cosmos.Collections;
 
-namespace Cosmos.Joiners
-{
+namespace Cosmos.Joiners {
     /// <summary>
     /// Joiner<br />
     /// 连接器
     /// </summary>
-    public partial class Joiner : IJoiner
-    {
+    public partial class Joiner : IJoiner {
         private readonly string _on;
 
         private JoinerOptions Options { get; set; } = new JoinerOptions();
 
-        private Joiner(string on)
-        {
+        private Joiner(string on) {
             _on = on;
         }
 
@@ -26,8 +24,7 @@ namespace Cosmos.Joiners
         /// 跳过 null
         /// </summary>
         /// <returns></returns>
-        IJoiner IJoiner.SkipNulls()
-        {
+        IJoiner IJoiner.SkipNulls() {
             Options.SetSkipNulls();
             return this;
         }
@@ -42,8 +39,7 @@ namespace Cosmos.Joiners
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        IJoiner IJoiner.UseForNull(string value)
-        {
+        IJoiner IJoiner.UseForNull(string value) {
             Options.SetReplacer<string>(s => value);
             return this;
         }
@@ -54,8 +50,7 @@ namespace Cosmos.Joiners
         /// </summary>
         /// <param name="valueFunc"></param>
         /// <returns></returns>
-        IJoiner IJoiner.UseForNull(Func<string, string> valueFunc)
-        {
+        IJoiner IJoiner.UseForNull(Func<string, string> valueFunc) {
             Options.SetReplacer(valueFunc);
             return this;
         }
@@ -69,8 +64,7 @@ namespace Cosmos.Joiners
         /// </summary>
         /// <param name="separator"></param>
         /// <returns></returns>
-        public IMapJoiner WithKeyValueSeparator(string separator)
-        {
+        public IMapJoiner WithKeyValueSeparator(string separator) {
             Options.SetMapSeparator(separator);
             return this;
         }
@@ -80,8 +74,7 @@ namespace Cosmos.Joiners
         /// </summary>
         /// <param name="separator"></param>
         /// <returns></returns>
-        public IMapJoiner WithKeyValueSeparator(char separator)
-        {
+        public IMapJoiner WithKeyValueSeparator(char separator) {
             Options.SetMapSeparator(separator);
             return this;
         }
@@ -96,8 +89,7 @@ namespace Cosmos.Joiners
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        string IJoiner.Join(IEnumerable<string> list)
-        {
+        string IJoiner.Join(IEnumerable<string> list) {
             return list.JoinToString(_on, JoinerUtils.GetStringPredicate(Options), Options.GetReplacer<string>());
         }
 
@@ -109,8 +101,7 @@ namespace Cosmos.Joiners
         /// <param name="list"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        string IJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
-        {
+        string IJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter) {
             return list.JoinToString(_on, JoinerUtils.GetObjectPredicate<T>(Options), converter, replaceFunc: Options.GetReplacer<T>());
         }
 
@@ -122,8 +113,7 @@ namespace Cosmos.Joiners
         /// <param name="list"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        string IJoiner.Join<T>(IEnumerable<T> list, Func<T, string> to)
-        {
+        string IJoiner.Join<T>(IEnumerable<T> list, Func<T, string> to) {
             return list.JoinToString(_on, JoinerUtils.GetObjectPredicate<T>(Options), to, Options.GetReplacer<T>());
         }
 
@@ -134,11 +124,10 @@ namespace Cosmos.Joiners
         /// <param name="str1"></param>
         /// <param name="restStrings"></param>
         /// <returns></returns>
-        string IJoiner.Join(string str1, params string[] restStrings)
-        {
-            var list = new List<string>() { str1 };
+        string IJoiner.Join(string str1, params string[] restStrings) {
+            var list = new List<string>() {str1};
             list.AddRange(restStrings);
-            return ((IJoiner)this).Join(list);
+            return ((IJoiner) this).Join(list);
         }
 
         /// <summary>
@@ -150,11 +139,10 @@ namespace Cosmos.Joiners
         /// <param name="item1"></param>
         /// <param name="restItems"></param>
         /// <returns></returns>
-        string IJoiner.Join<T>(ITypeConverter<T, string> converter, T item1, params T[] restItems)
-        {
-            var list = new List<T> { item1 };
+        string IJoiner.Join<T>(ITypeConverter<T, string> converter, T item1, params T[] restItems) {
+            var list = new List<T> {item1};
             list.AddRange(restItems);
-            return ((IJoiner)this).Join(list, converter);
+            return ((IJoiner) this).Join(list, converter);
         }
 
         /// <summary>
@@ -166,11 +154,10 @@ namespace Cosmos.Joiners
         /// <param name="item1"></param>
         /// <param name="restItems"></param>
         /// <returns></returns>
-        string IJoiner.Join<T>(Func<T, string> to, T item1, params T[] restItems)
-        {
-            var list = new List<T> { item1 };
+        string IJoiner.Join<T>(Func<T, string> to, T item1, params T[] restItems) {
+            var list = new List<T> {item1};
             list.AddRange(restItems);
-            return ((IJoiner)this).Join(list, to);
+            return ((IJoiner) this).Join(list, to);
         }
 
         #endregion
@@ -184,8 +171,7 @@ namespace Cosmos.Joiners
         /// <param name="builder"></param>
         /// <param name="list"></param>
         /// <returns></returns>
-        StringBuilder IJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
-        {
+        StringBuilder IJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list) {
             CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetStringPredicate(Options), s => s, Options.GetReplacer<string>());
             return builder;
         }
@@ -198,11 +184,10 @@ namespace Cosmos.Joiners
         /// <param name="str1"></param>
         /// <param name="restStrings"></param>
         /// <returns></returns>
-        StringBuilder IJoiner.AppendTo(StringBuilder builder, string str1, params string[] restStrings)
-        {
-            var list = new List<string>() { str1 };
+        StringBuilder IJoiner.AppendTo(StringBuilder builder, string str1, params string[] restStrings) {
+            var list = new List<string>() {str1};
             list.AddRange(restStrings);
-            return ((IJoiner)this).AppendTo(builder, list);
+            return ((IJoiner) this).AppendTo(builder, list);
         }
 
         /// <summary>
@@ -214,9 +199,9 @@ namespace Cosmos.Joiners
         /// <param name="list"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
-        {
-            CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), converter.To, replaceFunc: Options.GetReplacer<T>());
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter) {
+            CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), converter.To,
+                replaceFunc: Options.GetReplacer<T>());
             return builder;
         }
 
@@ -229,8 +214,7 @@ namespace Cosmos.Joiners
         /// <param name="list"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, Func<T, string> to)
-        {
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, Func<T, string> to) {
             CommonJoinUtils.JoinToString(builder, (c, s) => c.Append(s), list, _on, JoinerUtils.GetObjectPredicate<T>(Options), to, replaceFunc: Options.GetReplacer<T>());
             return builder;
         }
@@ -245,11 +229,10 @@ namespace Cosmos.Joiners
         /// <param name="item1"></param>
         /// <param name="restItems"></param>
         /// <returns></returns>
-        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T item1, params T[] restItems)
-        {
-            var list = new List<T> { item1 };
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T item1, params T[] restItems) {
+            var list = new List<T> {item1};
             list.AddRange(restItems);
-            return ((IJoiner)this).AppendTo(builder, list, converter);
+            return ((IJoiner) this).AppendTo(builder, list, converter);
         }
 
         /// <summary>
@@ -262,11 +245,10 @@ namespace Cosmos.Joiners
         /// <param name="item1"></param>
         /// <param name="restItems"></param>
         /// <returns></returns>
-        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, Func<T, string> to, T item1, params T[] restItems)
-        {
-            var list = new List<T> { item1 };
+        StringBuilder IJoiner.AppendTo<T>(StringBuilder builder, Func<T, string> to, T item1, params T[] restItems) {
+            var list = new List<T> {item1};
             list.AddRange(restItems);
-            return ((IJoiner)this).AppendTo(builder, list, to);
+            return ((IJoiner) this).AppendTo(builder, list, to);
         }
 
         #endregion
@@ -279,8 +261,7 @@ namespace Cosmos.Joiners
         /// </summary>
         /// <param name="on"></param>
         /// <returns></returns>
-        public static IJoiner On(string on)
-        {
+        public static IJoiner On(string on) {
             return new Joiner(on);
         }
 
@@ -290,8 +271,7 @@ namespace Cosmos.Joiners
         /// </summary>
         /// <param name="on"></param>
         /// <returns></returns>
-        public static IJoiner On(char on)
-        {
+        public static IJoiner On(char on) {
             return new Joiner($"{on}");
         }
 
@@ -299,14 +279,13 @@ namespace Cosmos.Joiners
 
         #region Private class
 
-        private partial class JoinerOptions
-        {
+        private partial class JoinerOptions {
+
             #region Skip Nulls - List
 
             public bool SkipNullsFlag { get; private set; }
 
-            public void SetSkipNulls()
-            {
+            public void SetSkipNulls() {
                 SkipNullsFlag = true;
             }
 
@@ -318,13 +297,11 @@ namespace Cosmos.Joiners
 
             private bool ObjectReplacerFlag { get; set; }
 
-            public Func<T, T> GetReplacer<T>()
-            {
+            public Func<T, T> GetReplacer<T>() {
                 return ObjectReplacerFlag ? ObjectReplacer?.GetValue<T>() : null;
             }
 
-            public void SetReplacer<T>(Func<T, T> valueFunc)
-            {
+            public void SetReplacer<T>(Func<T, T> valueFunc) {
                 ObjectReplacerFlag = true;
                 ObjectReplacer = JoinerObjectReplacer.Create(valueFunc);
                 SetSkipNulls();
@@ -332,13 +309,11 @@ namespace Cosmos.Joiners
 
             #endregion
 
-            private class JoinerObjectReplacer
-            {
+            private class JoinerObjectReplacer {
                 private dynamic KeyFunc { get; }
                 private dynamic ValueFunc { get; }
 
-                private JoinerObjectReplacer(dynamic keyFunc, dynamic valueFunc)
-                {
+                private JoinerObjectReplacer(dynamic keyFunc, dynamic valueFunc) {
                     KeyFunc = keyFunc;
                     ValueFunc = valueFunc;
                 }
@@ -357,21 +332,19 @@ namespace Cosmos.Joiners
 
                 public static JoinerObjectReplacer CreateForMap<T1, T2, T3, T4>(Func<T1, T2> keyFunc, Func<T3, T4> valueFunc) => new JoinerObjectReplacer(keyFunc, valueFunc);
 
-                public static JoinerObjectReplacer CreateForTuple<T1, T2, T3, T4>(Func<T1, T2, T1> keyFunc, Func<T3, T4, T4> valueFunc) => new JoinerObjectReplacer(keyFunc, valueFunc);
+                public static JoinerObjectReplacer CreateForTuple<T1, T2, T3, T4>(Func<T1, T2, T1> keyFunc, Func<T3, T4, T4> valueFunc) =>
+                    new JoinerObjectReplacer(keyFunc, valueFunc);
             }
         }
 
-        private static partial class JoinerUtils
-        {
-            public static Func<string, bool> GetStringPredicate(JoinerOptions options)
-            {
+        private static partial class JoinerUtils {
+            public static Func<string, bool> GetStringPredicate(JoinerOptions options) {
                 if (options.SkipNullsFlag)
                     return s => !string.IsNullOrWhiteSpace(s);
                 return null;
             }
 
-            public static Func<T, bool> GetObjectPredicate<T>(JoinerOptions options)
-            {
+            public static Func<T, bool> GetObjectPredicate<T>(JoinerOptions options) {
                 if (options.SkipNullsFlag)
                     return t => t != null;
                 return null;
@@ -379,5 +352,6 @@ namespace Cosmos.Joiners
         }
 
         #endregion
+
     }
 }

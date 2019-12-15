@@ -17,10 +17,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class Extensions
-    {
+namespace System.Linq {
+    public static partial class Extensions {
         /// <summary>
         /// Select
         /// </summary>
@@ -33,8 +31,7 @@ namespace System.Linq
         public static Task<IEnumerable<TResult>> Select<TSource, TResult>(
             this Task<TSource[]> source,
             Func<TSource, TResult> selector,
-            CancellationToken cancellationToken = default(CancellationToken))
-        {
+            CancellationToken cancellationToken = default(CancellationToken)) {
             return Task.Factory.FromTaskEnumerable(source, selector, Enumerable.Select, cancellationToken);
         }
 
@@ -50,8 +47,7 @@ namespace System.Linq
         public static Task<IEnumerable<TResult>> Select<TSource, TResult>(
             this Task<TSource[]> source,
             Func<TSource, int, TResult> selector,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, selector, Enumerable.Select, cancellationToken);
         }
 
@@ -67,8 +63,7 @@ namespace System.Linq
         public static Task<IEnumerable<TResult>> SelectMany<TSource, TResult>(
             this Task<TSource[]> source,
             Func<TSource, IEnumerable<TResult>> selector,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, selector, Enumerable.SelectMany, cancellationToken);
         }
 
@@ -84,8 +79,7 @@ namespace System.Linq
         public static Task<IEnumerable<TResult>> SelectMany<TSource, TResult>(
             this Task<TSource[]> source,
             Func<TSource, int, IEnumerable<TResult>> selector,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, selector, Enumerable.SelectMany, cancellationToken);
         }
 
@@ -104,8 +98,7 @@ namespace System.Linq
             this Task<TSource[]> source,
             Func<TSource, int, IEnumerable<TCollection>> collectionSelector,
             Func<TSource, TCollection, TResult> resultSelector,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, collectionSelector, resultSelector, Enumerable.SelectMany, cancellationToken);
         }
 
@@ -124,8 +117,7 @@ namespace System.Linq
             this Task<TSource[]> source,
             Func<TSource, IEnumerable<TCollection>> collectionSelector,
             Func<TSource, TCollection, TResult> resultSelector,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, collectionSelector, resultSelector, Enumerable.SelectMany, cancellationToken);
         }
     }

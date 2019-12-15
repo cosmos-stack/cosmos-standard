@@ -2,13 +2,11 @@
 using System.Threading.Tasks;
 using Cosmos.Serialization.MessagePack.Neuecc;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Neuecc's MessagePack Serializer
     /// </summary>
-    public class NeueccMessagePackObjectSerializer : IMessagePackSerializer
-    {
+    public class NeueccMessagePackObjectSerializer : IMessagePackSerializer {
         /// <inheritdoc />
         public byte[] Serialize<T>(T o) => NeueccMsgPackHelper.Serialize(o);
 

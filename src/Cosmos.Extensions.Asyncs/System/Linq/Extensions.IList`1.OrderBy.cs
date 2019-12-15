@@ -17,10 +17,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class Extensions
-    {
+namespace System.Linq {
+    public static partial class Extensions {
         /// <summary>
         /// Order by
         /// </summary>
@@ -33,8 +31,7 @@ namespace System.Linq
         public static Task<IOrderedEnumerable<TSource>> OrderBy<TSource, TKey>(
             this Task<List<TSource>> source,
             Func<TSource, TKey> keySelector,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, keySelector, Enumerable.OrderBy, cancellationToken);
         }
 
@@ -52,8 +49,7 @@ namespace System.Linq
             this Task<List<TSource>> source,
             Func<TSource, TKey> keySelector,
             IComparer<TKey> comparer,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, keySelector, comparer, Enumerable.OrderBy, cancellationToken);
         }
 
@@ -69,8 +65,7 @@ namespace System.Linq
         public static Task<IOrderedEnumerable<TSource>> OrderByDescending<TSource, TKey>(
             this Task<List<TSource>> source,
             Func<TSource, TKey> keySelector,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, keySelector, Enumerable.OrderByDescending, cancellationToken);
         }
 
@@ -88,8 +83,7 @@ namespace System.Linq
             this Task<List<TSource>> source,
             Func<TSource, TKey> keySelector,
             IComparer<TKey> comparer,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, keySelector, comparer, Enumerable.OrderByDescending, cancellationToken);
         }
     }

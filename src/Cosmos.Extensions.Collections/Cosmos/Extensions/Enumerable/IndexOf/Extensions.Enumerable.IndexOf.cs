@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions
-    {
+    public static partial class EnumerableExtensions {
         /// <summary>
         /// Index of
         /// </summary>
@@ -28,16 +26,15 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static int? IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> equalityComparer)
-        {
+        public static int? IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> equalityComparer) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (equalityComparer == null)
                 throw new ArgumentNullException(nameof(equalityComparer));
 
             return source.Select((i, index) => new {Item = i, Index = index})
-                .FirstOrDefault(p => equalityComparer.Equals(p.Item, item))
-                ?.Index;
+                         .FirstOrDefault(p => equalityComparer.Equals(p.Item, item))
+                        ?.Index;
         }
     }
 }

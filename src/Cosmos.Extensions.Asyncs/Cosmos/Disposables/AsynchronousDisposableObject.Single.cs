@@ -2,14 +2,12 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cosmos.Disposables
-{
+namespace Cosmos.Disposables {
     /// <summary>
     /// Asynchronous Single Disposable Object
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class AsynchronousSingleDisposableObject<T> : IDisposable
-    {
+    public abstract class AsynchronousSingleDisposableObject<T> : IDisposable {
         private readonly AsynchronousDisposableActionField<T> _context;
 
         private readonly ManualResetEventSlim _slim = new ManualResetEventSlim();
@@ -18,8 +16,7 @@ namespace Cosmos.Disposables
         /// Create a asynchronous single disposable object for such context
         /// </summary>
         /// <param name="context"></param>
-        protected AsynchronousSingleDisposableObject(T context)
-        {
+        protected AsynchronousSingleDisposableObject(T context) {
             _context = new AsynchronousDisposableActionField<T>(Dispose, context);
         }
 
@@ -39,7 +36,7 @@ namespace Cosmos.Disposables
         public bool IsDisposing => IsDisposeStarted && !IsDisposed;
 
         /// <summary>
-        /// The actual disposal method, call only once from <seealso cref="Dispose"/>.
+        /// The actual disposal method, call only once from Dispose.
         /// </summary>
         /// <param name="context"></param>
         protected abstract void Dispose(T context);
@@ -47,21 +44,17 @@ namespace Cosmos.Disposables
         /// <summary>
         /// Disposes this instance.
         /// </summary>
-        public void Dispose()
-        {
+        public void Dispose() {
             var context = _context.TryGetAndUnset();
-            if (context == null)
-            {
+            if (context == null) {
                 _slim.Wait();
                 return;
             }
 
-            try
-            {
+            try {
                 Task.Run(async () => await context.InvokeAsync());
             }
-            finally
-            {
+            finally {
                 _slim.Set();
             }
         }

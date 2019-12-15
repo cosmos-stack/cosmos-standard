@@ -1,11 +1,9 @@
-namespace Cosmos.Joiners
-{
+namespace Cosmos.Joiners {
     /// <summary>
     /// Skip null types<br />
-    /// Ìø¹ý null µÄÀàÐÍ
+    /// è·³è¿‡ null çš„ç±»åž‹
     /// </summary>
-    public enum SkipNullType
-    {
+    public enum SkipNullType {
         /// <summary>
         /// Nothing
         /// </summary>
@@ -20,7 +18,7 @@ namespace Cosmos.Joiners
         /// When either
         /// </summary>
         WhenEither,
-        
+
         /// <summary>
         /// When key is null
         /// </summary>

@@ -4,13 +4,10 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.NewtonsoftTest
-{
-    public class UnitTestAsync
-    {
+namespace Cosmos.Test.Serialization.NewtonsoftTest {
+    public class UnitTestAsync {
         [Fact]
-        public async Task BytesTest()
-        {
+        public async Task BytesTest() {
             var model = CreateNiceModel();
             var bytes = await model.ToJsonAsync();
             var backs = await bytes.FromJsonAsync<NiceModel>();
@@ -21,8 +18,7 @@ namespace Cosmos.Test.Serialization.NewtonsoftTest
         }
 
         [Fact]
-        public async Task NonGenericBytesTest()
-        {
+        public async Task NonGenericBytesTest() {
             var model = CreateNiceModel();
             var bytes = await model.ToJsonAsync();
             var backs = (NiceModel) await bytes.FromJsonAsync(typeof(NiceModel));
@@ -33,8 +29,7 @@ namespace Cosmos.Test.Serialization.NewtonsoftTest
         }
 
         [Fact]
-        public async Task StreamTest()
-        {
+        public async Task StreamTest() {
             var model = CreateNiceModel();
             var stream1 = await model.JsonPackAsync();
             var stream2 = new MemoryStream();
@@ -60,8 +55,7 @@ namespace Cosmos.Test.Serialization.NewtonsoftTest
         }
 
         [Fact]
-        public async Task NonGenericStreamTest()
-        {
+        public async Task NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = await model.JsonPackAsync();
             var stream2 = new MemoryStream();
@@ -87,8 +81,7 @@ namespace Cosmos.Test.Serialization.NewtonsoftTest
         }
 
         [Fact]
-        public async Task StringTest()
-        {
+        public async Task StringTest() {
             var model = CreateNiceModel();
             var json1 = await model.ToJsonAsync();
             var back1 = await json1.FromJsonAsync<NiceModel>();
@@ -99,8 +92,7 @@ namespace Cosmos.Test.Serialization.NewtonsoftTest
         }
 
         [Fact]
-        public async Task NonGenericStringTest()
-        {
+        public async Task NonGenericStringTest() {
             var model = CreateNiceModel();
             var json1 = await model.ToJsonAsync();
             var back1 = (NiceModel) await json1.FromJsonAsync(typeof(NiceModel));
@@ -110,10 +102,8 @@ namespace Cosmos.Test.Serialization.NewtonsoftTest
                 Tuple.Create(back1.Id, back1.Name, back1.NiceType, back1.Count, back1.CreatedTime, back1.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class StringExtensions
-    {
+namespace Cosmos {
+    public static partial class StringExtensions {
         /// <summary>
         /// To capital case
         /// </summary>
         /// <param name="original"></param>
         /// <returns></returns>
-        public static string ToCapitalCase(this string original)
-        {
+        public static string ToCapitalCase(this string original) {
             var words = original.Split(' ');
             var result = new List<string>();
-            foreach (var word in words)
-            {
+            foreach (var word in words) {
                 if (word.Length == 0 || AllCapitals(word))
                     result.Add(word);
                 else if (word.Length == 1)
@@ -27,8 +23,8 @@ namespace Cosmos
             }
 
             return string.Join(" ", result).Replace(" Y ", " y ")
-                .Replace(" De ", " de ")
-                .Replace(" O ", " o ");
+                         .Replace(" De ", " de ")
+                         .Replace(" O ", " o ");
 
         }
 
@@ -37,8 +33,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        static bool AllCapitals(string input)
-        {
+        static bool AllCapitals(string input) {
             return input.ToCharArray().All(Char.IsUpper);
         }
 
@@ -47,8 +42,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="original"></param>
         /// <returns></returns>
-        public static string ToCamelCase(this string original)
-        {
+        public static string ToCamelCase(this string original) {
             if (original.Length <= 1)
                 return original.ToLower();
 

@@ -13,13 +13,11 @@ using System.Threading.Tasks;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// A request for building request options before issuing.
     /// </summary>
-    public interface IRequestBuilder
-    {
+    public interface IRequestBuilder {
         /// <summary>
         /// Settings
         /// </summary>

@@ -5,13 +5,11 @@ using System.Linq.Expressions;
 using System.Reflection;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Expressions
-{
+namespace Cosmos.Expressions {
     /// <summary>
     /// Expression extensions
     /// </summary>
-    public static partial class ExpressionExtensions
-    {
+    public static partial class ExpressionExtensions {
         /// <summary>
         /// Get PropertyInfo
         /// </summary>
@@ -21,8 +19,7 @@ namespace Cosmos.Expressions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public static PropertyInfo GetPropertyInfo<T, TProperty>(this Expression<Func<T, TProperty>> expression)
-        {
+        public static PropertyInfo GetPropertyInfo<T, TProperty>(this Expression<Func<T, TProperty>> expression) {
             if (expression == null)
                 throw new ArgumentNullException(nameof(expression));
 
@@ -72,8 +69,7 @@ namespace Cosmos.Expressions
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<PropertyInfo> GetPropertyInfos<T>(this T source, IEnumerable<Expression<Func<T, object>>> expressions)
-        {
+        public static IEnumerable<PropertyInfo> GetPropertyInfos<T>(this T source, IEnumerable<Expression<Func<T, object>>> expressions) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (expressions == null)

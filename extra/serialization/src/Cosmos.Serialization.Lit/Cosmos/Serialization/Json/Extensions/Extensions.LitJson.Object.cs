@@ -2,13 +2,11 @@
 using Cosmos.Serialization.Json.Lit;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     /// <summary>
     /// LitJson extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// To LitJson
         /// </summary>

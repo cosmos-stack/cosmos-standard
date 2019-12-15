@@ -1,7 +1,6 @@
 ﻿using Cosmos.Domain.EntityDescriptors;
 
-namespace Cosmos.Domain.Core
-{
+namespace Cosmos.Domain.Core {
     /// <summary>
     /// Interface for aggregate root
     /// </summary>

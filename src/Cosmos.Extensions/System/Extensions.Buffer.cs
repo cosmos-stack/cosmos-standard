@@ -1,10 +1,8 @@
-namespace System
-{
+namespace System {
     /// <summary>
     /// Base Type Extensions
     /// </summary>
-    public static partial class BaseTypeExtensions
-    {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// Block copy
         /// </summary>
@@ -13,8 +11,7 @@ namespace System
         /// <param name="dst"></param>
         /// <param name="dstOffset"></param>
         /// <param name="count"></param>
-        public static void BlockCopy(this Array src, int srcOffset, Array dst, int dstOffset, int count)
-        {
+        public static void BlockCopy(this Array src, int srcOffset, Array dst, int dstOffset, int count) {
             Buffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
         }
 
@@ -23,8 +20,7 @@ namespace System
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
-        public static int ByteLength(this Array array)
-        {
+        public static int ByteLength(this Array array) {
             return Buffer.ByteLength(array);
         }
 
@@ -34,8 +30,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <returns></returns>
-        public static byte GetByte(this Array array, int index)
-        {
+        public static byte GetByte(this Array array, int index) {
             return Buffer.GetByte(array, index);
         }
 
@@ -45,8 +40,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="value"></param>
-        public static void SetByte(this Array array, int index, byte value)
-        {
+        public static void SetByte(this Array array, int index, byte value) {
             Buffer.SetByte(array, index, value);
         }
     }

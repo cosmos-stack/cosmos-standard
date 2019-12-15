@@ -3,13 +3,10 @@ using System.IO;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.Utf8JsonTest
-{
-    public class UnitTest
-    {
+namespace Cosmos.Test.Serialization.Utf8JsonTest {
+    public class UnitTest {
         [Fact]
-        public void BytesTest()
-        {
+        public void BytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToUtf8JsonBytes();
             var backs = bytes.FromUtf8JsonBytes<NiceModel>();
@@ -20,8 +17,7 @@ namespace Cosmos.Test.Serialization.Utf8JsonTest
         }
 
         [Fact]
-        public void NonGenericBytesTest()
-        {
+        public void NonGenericBytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToUtf8JsonBytes();
             var backs = (NiceModel) bytes.FromUtf8JsonBytes(typeof(NiceModel));
@@ -32,8 +28,7 @@ namespace Cosmos.Test.Serialization.Utf8JsonTest
         }
 
         [Fact]
-        public void StreamTest()
-        {
+        public void StreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.Utf8JsonPack();
             var stream2 = new MemoryStream();
@@ -59,8 +54,7 @@ namespace Cosmos.Test.Serialization.Utf8JsonTest
         }
 
         [Fact]
-        public void NonGenericStreamTest()
-        {
+        public void NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.Utf8JsonPack();
             var stream2 = new MemoryStream();
@@ -86,8 +80,7 @@ namespace Cosmos.Test.Serialization.Utf8JsonTest
         }
 
         [Fact]
-        public void StringTest()
-        {
+        public void StringTest() {
             var model = CreateNiceModel();
             var json1 = model.ToUtf8Json();
             var back1 = json1.FromUtf8Json<NiceModel>();
@@ -98,8 +91,7 @@ namespace Cosmos.Test.Serialization.Utf8JsonTest
         }
 
         [Fact]
-        public void NonGenericStringTest()
-        {
+        public void NonGenericStringTest() {
             var model = CreateNiceModel();
             var json1 = model.ToUtf8Json();
             var back1 = (NiceModel) json1.FromUtf8Json(typeof(NiceModel));
@@ -108,11 +100,9 @@ namespace Cosmos.Test.Serialization.Utf8JsonTest
                 Tuple.Create(model.Id, model.Name, model.NiceType, model.Count, model.CreatedTime, model.IsValid),
                 Tuple.Create(back1.Id, back1.Name, back1.NiceType, back1.Count, back1.CreatedTime, back1.IsValid));
         }
-        
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

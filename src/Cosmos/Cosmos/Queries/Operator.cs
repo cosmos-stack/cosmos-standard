@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel;
 
-namespace Cosmos.Queries
-{
+namespace Cosmos.Queries {
     /// <summary>
     /// Operator
     /// </summary>
-    public enum Operator
-    {
+    public enum Operator {
         /// <summary>
         /// Equals
         /// </summary>

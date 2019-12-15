@@ -2,13 +2,10 @@ using System;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.LitTest
-{
-    public class JsonTest
-    {
+namespace Cosmos.Test.Serialization.LitTest {
+    public class JsonTest {
         [Fact]
-        public void BasicJsonTest()
-        {
+        public void BasicJsonTest() {
             var model = CreateNiceModel();
             var json1 = model.ToLitJson();
             var back1 = json1.FromLitJson<NiceModel>();
@@ -23,10 +20,8 @@ namespace Cosmos.Test.Serialization.LitTest
                 Tuple.Create(back2.Id, back2.Name, back2.NiceType, back2.Count, back2.CreatedTime, back2.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = "123",
                 Name = "nice",
                 NiceType = NiceType.Yes,

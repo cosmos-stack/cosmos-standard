@@ -1,7 +1,6 @@
 ﻿using System;
 
-namespace Cosmos.Domain.Services.Abstractions
-{
+namespace Cosmos.Domain.Services.Abstractions {
     /// <summary>
     /// Interface for domain service
     /// </summary>

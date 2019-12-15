@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Default value for type
     /// </summary>
-    public static class TypeDefault
-    {
+    public static class TypeDefault {
         /// <summary>
         /// Gets default value for type TValue.
         /// </summary>

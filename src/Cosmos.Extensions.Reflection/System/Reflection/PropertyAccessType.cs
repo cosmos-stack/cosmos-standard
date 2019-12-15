@@ -1,10 +1,8 @@
-namespace System.Reflection
-{
+namespace System.Reflection {
     /// <summary>
     /// Property access type
     /// </summary>
-    public enum PropertyAccessType
-    {
+    public enum PropertyAccessType {
         /// <summary>
         /// Getters
         /// </summary>

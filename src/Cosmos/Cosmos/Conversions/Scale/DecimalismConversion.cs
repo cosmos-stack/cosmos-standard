@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Cosmos.Conversions.Scale
-{
+namespace Cosmos.Conversions.Scale {
     /// <summary>
     /// Decimalism Conversion Utilities
     /// </summary>
-    public static class DecimalismConversion
-    {
+    public static class DecimalismConversion {
         /// <summary>
         /// Convert from decimalism to binary.
         /// </summary>
@@ -30,8 +28,7 @@ namespace Cosmos.Conversions.Scale
         /// <param name="dec"></param>
         /// <param name="formatLength"></param>
         /// <returns></returns>
-        public static string ToHexadecimal(int dec, int formatLength)
-        {
+        public static string ToHexadecimal(int dec, int formatLength) {
             var hex = ToHexadecimal(dec);
             return hex.Length > formatLength ? hex : hex.PadLeft(formatLength, '0');
         }

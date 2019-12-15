@@ -6,14 +6,12 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using Cosmos.Disposables;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Type Scanner <br />
     /// 类型扫描
     /// </summary>
-    public abstract class TypeScanner : IDisposable
-    {
+    public abstract class TypeScanner : IDisposable {
         // ReSharper disable once InconsistentNaming
         private const string DEFAULT_SKIP_ASSEMBLIES =
             "^System|^Mscorlib|^Netstandard|^Microsoft|^Autofac|^AutoMapper|^EntityFramework|^Newtonsoft|^Castle|^NLog|^Pomelo|^AspectCore|^Xunit|^Nito|^Npgsql|^Exceptionless|^MySqlConnector|^Anonymously Hosted";
@@ -39,10 +37,8 @@ namespace Cosmos
         /// Create a new instance of <see cref="TypeScanner"/>
         /// </summary>
         /// <param name="scannerName"></param>
-        protected TypeScanner(string scannerName)
-        {
-            _anonymousDisposableObject = AnonymousDisposableObject.Create(() =>
-            {
+        protected TypeScanner(string scannerName) {
+            _anonymousDisposableObject = AnonymousDisposableObject.Create(() => {
                 ScannedResultCache.Clear();
                 ScannedResultCache = null;
                 ScannedResultCached = false;
@@ -60,8 +56,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="scannerName"></param>
         /// <param name="baseType"></param>
-        protected TypeScanner(string scannerName, Type baseType) : this(scannerName)
-        {
+        protected TypeScanner(string scannerName, Type baseType) : this(scannerName) {
             BaseType = baseType;
         }
 
@@ -75,23 +70,18 @@ namespace Cosmos
         /// ɨ��
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<Type> Scan()
-        {
-            if (ScannedResultCached)
-            {
+        public virtual IEnumerable<Type> Scan() {
+            if (ScannedResultCached) {
                 foreach (var cachedType in ScannedResultCache)
                     yield return cachedType;
             }
-            else
-            {
+            else {
                 var assemblies = GetAssemblies();
-                foreach (var assembly in assemblies)
-                {
+                foreach (var assembly in assemblies) {
                     if (NeedToIgnore(assembly))
                         continue;
                     var types = _typesFilter(assembly);
-                    foreach (var type in types)
-                    {
+                    foreach (var type in types) {
                         ScannedResultCache.Add(type);
                         yield return type;
                     }
@@ -129,8 +119,7 @@ namespace Cosmos
         /// <returns></returns>
         protected abstract Func<Type, bool> TypeFilter();
 
-        private bool NeedToIgnore(Assembly assembly)
-        {
+        private bool NeedToIgnore(Assembly assembly) {
             var skipAssemblies = GetSkipAssembliesNamespaces();
             var limitedAssemblies = GetLimitedAssembliesNamespaces();
             var regexOptions = RegexOptions.IgnoreCase | RegexOptions.Compiled;
@@ -144,8 +133,7 @@ namespace Cosmos
         /// <summary>
         /// Dispose
         /// </summary>
-        public void Dispose()
-        {
+        public void Dispose() {
             _anonymousDisposableObject.Dispose();
         }
     }

@@ -1,10 +1,8 @@
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Number constants
     /// </summary>
-    public static class NumberConstants
-    {
+    public static class NumberConstants {
         /// <summary>
         /// One
         /// </summary>

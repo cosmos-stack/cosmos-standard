@@ -2,19 +2,16 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// StringBuilder extensions
     /// </summary>
-    public static partial class StringBuilderExtensions
-    {
+    public static partial class StringBuilderExtensions {
         /// <summary>
         /// Reverse
         /// </summary>
         /// <param name="builder"></param>
-        public static void Reverse(this StringBuilder builder)
-        {
+        public static void Reverse(this StringBuilder builder) {
             if (builder == null || builder.Length == 0)
                 return;
 
@@ -31,8 +28,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static StringBuilder ToReverseBuilder(this StringBuilder builder)
-        {
+        public static StringBuilder ToReverseBuilder(this StringBuilder builder) {
             if (builder == null || builder.Length == 0)
                 return builder;
 
@@ -47,8 +43,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static string ToReverseString(this StringBuilder builder)
-        {
+        public static string ToReverseString(this StringBuilder builder) {
             if (builder == null || builder.Length == 0)
                 return string.Empty;
             return builder.ToReverseBuilder().ToString();

@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions for dictionary
     /// </summary>
-    public static partial class DictionaryExtensions
-    {
+    public static partial class DictionaryExtensions {
         /// <summary>
         /// Get value or default
         /// </summary>
@@ -19,8 +17,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
-        {
+        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue) {
             return dictionary != null && dictionary.TryGetValue(key, out var value) ? value : defaultValue;
         }
 
@@ -33,8 +30,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
-        {
+        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key) {
             return dictionary != null && dictionary.TryGetValue(key, out var value) ? value : default;
         }
 
@@ -48,8 +44,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TValue GetValueOrDefaultCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaries, TKey key, TValue defaultValue)
-        {
+        public static TValue GetValueOrDefaultCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaries, TKey key, TValue defaultValue) {
             if (dictionaries == null)
                 throw new ArgumentNullException(nameof(dictionaries));
 
@@ -75,8 +70,7 @@ namespace Cosmos.Collections
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public static void AddOrOverride<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
-        {
+        public static void AddOrOverride<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value) {
             dictionary[key] = value;
         }
 
@@ -89,8 +83,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TValue? TryGetValue<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key) where TValue : struct
-        {
+        public static TValue? TryGetValue<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key) where TValue : struct {
             if (dictionary == null)
                 throw new ArgumentNullException(nameof(dictionary));
 
@@ -107,8 +100,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static bool TryGetValueCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaries, TKey key, out TValue value)
-        {
+        public static bool TryGetValueCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaries, TKey key, out TValue value) {
             if (dictionaries == null)
                 throw new ArgumentNullException(nameof(dictionaries));
 
@@ -163,8 +155,7 @@ namespace Cosmos.Collections
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
-        {
+        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value) {
             if (dictionary.TryGetValue(key, out var res))
                 return res;
 
@@ -180,15 +171,14 @@ namespace Cosmos.Collections
         /// <param name="key"></param>
         /// <param name="newValueCreator"></param>
         /// <returns></returns>
-        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> newValueCreator)
-        {
+        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> newValueCreator) {
             if (dictionary.TryGetValue(key, out var res))
                 return res;
 
             res = newValueCreator(key);
             return dictionary[key] = res;
         }
-        
+
         /// <summary>
         /// Get or add new default instance
         /// </summary>
@@ -197,8 +187,7 @@ namespace Cosmos.Collections
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static TValue GetOrAddNewInstance<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key) where TValue : new()
-        {
+        public static TValue GetOrAddNewInstance<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key) where TValue : new() {
             if (dictionary.TryGetValue(key, out var res))
                 return res;
 
@@ -216,8 +205,7 @@ namespace Cosmos.Collections
         /// <param name="key"></param>
         /// <param name="valueCalculator"></param>
         /// <returns></returns>
-        public static TValue GetOrCalculate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator)
-        {
+        public static TValue GetOrCalculate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator) {
             if (dictionary != null && dictionary.TryGetValue(key, out var res))
                 return res;
 
@@ -234,8 +222,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TValue GetOrAddCalculatedInstance<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator)
-        {
+        public static TValue GetOrAddCalculatedInstance<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator) {
             if (dictionary == null)
                 throw new ArgumentNullException(nameof(dictionary));
 

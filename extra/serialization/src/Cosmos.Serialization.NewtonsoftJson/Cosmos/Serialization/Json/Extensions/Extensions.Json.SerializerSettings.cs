@@ -5,21 +5,18 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     /// <summary>
     /// Newtonsoft Json Extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// To serializer
         /// </summary>
         /// <param name="jsonSerializerSettings"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static JsonSerializer ToSerializer(this JsonSerializerSettings jsonSerializerSettings)
-        {
+        public static JsonSerializer ToSerializer(this JsonSerializerSettings jsonSerializerSettings) {
             if (jsonSerializerSettings == null)
                 throw new ArgumentNullException(nameof(jsonSerializerSettings));
             return JsonSerializer.Create(jsonSerializerSettings);

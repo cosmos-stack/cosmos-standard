@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Unix timestamp
     /// </summary>
-    public class UnixTimeStamp : TimeStamp
-    {
+    public class UnixTimeStamp : TimeStamp {
         /// <summary>
         /// Create a new instance of <see cref="UnixTimeStamp"/>
         /// </summary>
@@ -24,8 +22,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         public UnixTimeStamp(DateTime dt) : this(dt, ToUnixTimestampFunc(dt)) { }
 
-        private UnixTimeStamp(DateTime dt, long timestamp)
-        {
+        private UnixTimeStamp(DateTime dt, long timestamp) {
             m_timestamp = timestamp;
             m_datetime = dt;
         }
@@ -47,7 +44,7 @@ namespace Cosmos
 
         private static readonly Func<long, DateTime> FromUnixTimestampFunc = timestamp =>
             (TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1), TimeZoneInfo.Local))
-            .Add(new TimeSpan(long.Parse(timestamp + "0000000")));
+           .Add(new TimeSpan(long.Parse(timestamp + "0000000")));
 
         /// <summary>
         /// Gets a func for unix now.

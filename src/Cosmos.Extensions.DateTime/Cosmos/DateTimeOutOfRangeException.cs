@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime out of range exception.
     /// </summary>
-    public class DateTimeOutOfRangeException : CosmosException
-    {
+    public class DateTimeOutOfRangeException : CosmosException {
         // ReSharper disable once InconsistentNaming
         private const string FLAG = "DT_OOR_FLG";
 

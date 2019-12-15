@@ -10,14 +10,12 @@ using NodaTime;
  *     NO LICENSE
  */
 
-namespace Cosmos.Date
-{
+namespace Cosmos.Date {
     /// <summary>
     /// DateTime span
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct DateTimeSpan : IEquatable<DateTimeSpan>, IComparable<TimeSpan>, IComparable<DateTimeSpan>
-    {
+    public struct DateTimeSpan : IEquatable<DateTimeSpan>, IComparable<TimeSpan>, IComparable<DateTimeSpan> {
         /// <summary>
         /// Days per year
         /// </summary>
@@ -45,8 +43,7 @@ namespace Cosmos.Date
         /// <returns>
         /// <c>true</c> if the current object is equal to the other parameter; otherwise, <c>false</c>.
         /// </returns>
-        public bool Equals(DateTimeSpan other)
-        {
+        public bool Equals(DateTimeSpan other) {
             return this == other;
         }
 
@@ -55,8 +52,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="number">The number to add to this <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the addition.</returns>
-        public DateTimeSpan Add(DateTimeSpan number)
-        {
+        public DateTimeSpan Add(DateTimeSpan number) {
             return AddInternal(this, number);
         }
 
@@ -65,8 +61,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="timeSpan">The <see cref="TimeSpan"/> to add to this <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the addition.</returns>
-        public DateTimeSpan Add(TimeSpan timeSpan)
-        {
+        public DateTimeSpan Add(TimeSpan timeSpan) {
             return AddInternal(this, timeSpan);
         }
 
@@ -75,8 +70,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dateTimeSpan">The matrix to subtract from this <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the subtraction.</returns>
-        public DateTimeSpan Subtract(DateTimeSpan dateTimeSpan)
-        {
+        public DateTimeSpan Subtract(DateTimeSpan dateTimeSpan) {
             return SubtractInternal(this, dateTimeSpan);
         }
 
@@ -85,8 +79,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="timeSpan">The <see cref="TimeSpan"/> to subtract from this <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the subtraction.</returns>
-        public DateTimeSpan Subtract(TimeSpan timeSpan)
-        {
+        public DateTimeSpan Subtract(TimeSpan timeSpan) {
             return SubtractInternal(this, timeSpan);
         }
 
@@ -96,8 +89,7 @@ namespace Cosmos.Date
         /// <param name="left">The left hand <see cref="DateTimeSpan"/>.</param>
         /// <param name="right">The right hand <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the addition.</returns>
-        public static DateTimeSpan operator +(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator +(DateTimeSpan left, DateTimeSpan right) {
             return AddInternal(left, right);
         }
 
@@ -107,8 +99,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator +(DateTimeSpan left, TimeSpan right)
-        {
+        public static DateTimeSpan operator +(DateTimeSpan left, TimeSpan right) {
             return AddInternal(left, right);
         }
 
@@ -118,8 +109,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator +(TimeSpan left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator +(TimeSpan left, DateTimeSpan right) {
             return AddInternal(left, right);
         }
 
@@ -129,8 +119,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator +(DateTimeSpan left, Period right)
-        {
+        public static DateTimeSpan operator +(DateTimeSpan left, Period right) {
             return AddInternal(left, right);
         }
 
@@ -140,8 +129,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator +(Period left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator +(Period left, DateTimeSpan right) {
             return AddInternal(left, right);
         }
 
@@ -151,19 +139,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator +(DateTimeSpan left, Duration right)
-        {
+        public static DateTimeSpan operator +(DateTimeSpan left, Duration right) {
             return AddInternal(left, right);
         }
-        
+
         /// <summary>
         /// Overload of the operator +
         /// </summary>
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator +(Duration left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator +(Duration left, DateTimeSpan right) {
             return AddInternal(left, right);
         }
 
@@ -173,8 +159,7 @@ namespace Cosmos.Date
         /// <param name="left">The left hand <see cref="DateTimeSpan"/>.</param>
         /// <param name="right">The right hand <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the subtraction.</returns>
-        public static DateTimeSpan operator -(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator -(DateTimeSpan left, DateTimeSpan right) {
             return SubtractInternal(left, right);
         }
 
@@ -184,8 +169,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator -(TimeSpan left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator -(TimeSpan left, DateTimeSpan right) {
             return SubtractInternal(left, right);
         }
 
@@ -195,8 +179,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator -(DateTimeSpan left, TimeSpan right)
-        {
+        public static DateTimeSpan operator -(DateTimeSpan left, TimeSpan right) {
             return SubtractInternal(left, right);
         }
 
@@ -206,8 +189,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator -(Period left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator -(Period left, DateTimeSpan right) {
             return SubtractInternal(left, right);
         }
 
@@ -217,19 +199,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator -(DateTimeSpan left, Period right)
-        {
-            return SubtractInternal(left, right);
-        }
-        
-        /// <summary>
-        /// Overload of the operator -
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static DateTimeSpan operator -(Duration left, DateTimeSpan right)
-        {
+        public static DateTimeSpan operator -(DateTimeSpan left, Period right) {
             return SubtractInternal(left, right);
         }
 
@@ -239,8 +209,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator -(DateTimeSpan left, Duration right)
-        {
+        public static DateTimeSpan operator -(Duration left, DateTimeSpan right) {
+            return SubtractInternal(left, right);
+        }
+
+        /// <summary>
+        /// Overload of the operator -
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static DateTimeSpan operator -(DateTimeSpan left, Duration right) {
             return SubtractInternal(left, right);
         }
 
@@ -250,8 +229,7 @@ namespace Cosmos.Date
         /// <param name="left">The left hand side.</param>
         /// <param name="right">The right hand side.</param>
         /// <returns><c>true</c> is <paramref name="left"/> is equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
-        public static bool operator ==(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator ==(DateTimeSpan left, DateTimeSpan right) {
             return left.Years == right.Years &&
                    left.Months == right.Months &&
                    left.TimeSpan == right.TimeSpan;
@@ -263,8 +241,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(TimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator ==(TimeSpan left, DateTimeSpan right) {
             return (DateTimeSpan) left == right;
         }
 
@@ -274,8 +251,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(DateTimeSpan left, TimeSpan right)
-        {
+        public static bool operator ==(DateTimeSpan left, TimeSpan right) {
             return left == (DateTimeSpan) right;
         }
 
@@ -285,8 +261,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(Period left, DateTimeSpan right)
-        {
+        public static bool operator ==(Period left, DateTimeSpan right) {
             return (DateTimeSpan) left == right;
         }
 
@@ -296,19 +271,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(DateTimeSpan left, Period right)
-        {
+        public static bool operator ==(DateTimeSpan left, Period right) {
             return left == (DateTimeSpan) right;
         }
-        
+
         /// <summary>
         /// Equals operator.
         /// </summary>
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(Duration left, DateTimeSpan right)
-        {
+        public static bool operator ==(Duration left, DateTimeSpan right) {
             return (DateTimeSpan) left == right;
         }
 
@@ -318,8 +291,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(DateTimeSpan left, Duration right)
-        {
+        public static bool operator ==(DateTimeSpan left, Duration right) {
             return left == (DateTimeSpan) right;
         }
 
@@ -329,8 +301,7 @@ namespace Cosmos.Date
         /// <param name="left">The left hand side.</param>
         /// <param name="right">The right hand side.</param>
         /// <returns><c>true</c> is <paramref name="left"/> is not equal to <paramref name="right"/>; otherwise <c>false</c>.</returns>
-        public static bool operator !=(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator !=(DateTimeSpan left, DateTimeSpan right) {
             return !(left == right);
         }
 
@@ -340,8 +311,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(TimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator !=(TimeSpan left, DateTimeSpan right) {
             return !(left == right);
         }
 
@@ -351,8 +321,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(DateTimeSpan left, TimeSpan right)
-        {
+        public static bool operator !=(DateTimeSpan left, TimeSpan right) {
             return !(left == right);
         }
 
@@ -362,8 +331,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(Period left, DateTimeSpan right)
-        {
+        public static bool operator !=(Period left, DateTimeSpan right) {
             return !(left == right);
         }
 
@@ -373,19 +341,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(DateTimeSpan left, Period right)
-        {
-            return !(left == right);
-        }
-        
-        /// <summary>
-        /// Not Equals operator.
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
-        public static bool operator !=(Duration left, DateTimeSpan right)
-        {
+        public static bool operator !=(DateTimeSpan left, Period right) {
             return !(left == right);
         }
 
@@ -395,8 +351,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(DateTimeSpan left, Duration right)
-        {
+        public static bool operator !=(Duration left, DateTimeSpan right) {
+            return !(left == right);
+        }
+
+        /// <summary>
+        /// Not Equals operator.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator !=(DateTimeSpan left, Duration right) {
             return !(left == right);
         }
 
@@ -405,8 +370,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static DateTimeSpan operator -(DateTimeSpan value)
-        {
+        public static DateTimeSpan operator -(DateTimeSpan value) {
             return value.Negate();
         }
 
@@ -416,8 +380,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator <(DateTimeSpan left, DateTimeSpan right) {
             return (TimeSpan) left < (TimeSpan) right;
         }
 
@@ -427,8 +390,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(DateTimeSpan left, TimeSpan right)
-        {
+        public static bool operator <(DateTimeSpan left, TimeSpan right) {
             return (TimeSpan) left < right;
         }
 
@@ -438,8 +400,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(TimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator <(TimeSpan left, DateTimeSpan right) {
             return left < (TimeSpan) right;
         }
 
@@ -449,8 +410,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(DateTimeSpan left, Period right)
-        {
+        public static bool operator <(DateTimeSpan left, Period right) {
             return (TimeSpan) left < right.AsTimeSpan();
         }
 
@@ -460,19 +420,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(Period left, DateTimeSpan right)
-        {
+        public static bool operator <(Period left, DateTimeSpan right) {
             return left.AsTimeSpan() < (TimeSpan) right;
         }
-        
+
         /// <summary>
         /// Overload of the operator &lt;
         /// </summary>
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(DateTimeSpan left, Duration right)
-        {
+        public static bool operator <(DateTimeSpan left, Duration right) {
             return (TimeSpan) left < right.ToTimeSpan();
         }
 
@@ -482,8 +440,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(Duration left, DateTimeSpan right)
-        {
+        public static bool operator <(Duration left, DateTimeSpan right) {
             return left.ToTimeSpan() < (TimeSpan) right;
         }
 
@@ -493,8 +450,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator <=(DateTimeSpan left, DateTimeSpan right) {
             return (TimeSpan) left <= (TimeSpan) right;
         }
 
@@ -504,8 +460,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(DateTimeSpan left, TimeSpan right)
-        {
+        public static bool operator <=(DateTimeSpan left, TimeSpan right) {
             return (TimeSpan) left <= right;
         }
 
@@ -515,8 +470,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(TimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator <=(TimeSpan left, DateTimeSpan right) {
             return left <= (TimeSpan) right;
         }
 
@@ -526,8 +480,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(DateTimeSpan left, Period right)
-        {
+        public static bool operator <=(DateTimeSpan left, Period right) {
             return (TimeSpan) left <= right.AsTimeSpan();
         }
 
@@ -537,19 +490,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(Period left, DateTimeSpan right)
-        {
+        public static bool operator <=(Period left, DateTimeSpan right) {
             return left.AsTimeSpan() <= (TimeSpan) right;
         }
-        
+
         /// <summary>
         /// Overload of the operator &lt; or equals to
         /// </summary>
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(DateTimeSpan left, Duration right)
-        {
+        public static bool operator <=(DateTimeSpan left, Duration right) {
             return (TimeSpan) left <= right.ToTimeSpan();
         }
 
@@ -559,8 +510,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(Duration left, DateTimeSpan right)
-        {
+        public static bool operator <=(Duration left, DateTimeSpan right) {
             return left.ToTimeSpan() <= (TimeSpan) right;
         }
 
@@ -570,8 +520,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator >(DateTimeSpan left, DateTimeSpan right) {
             return (TimeSpan) left > (TimeSpan) right;
         }
 
@@ -581,8 +530,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(DateTimeSpan left, TimeSpan right)
-        {
+        public static bool operator >(DateTimeSpan left, TimeSpan right) {
             return (TimeSpan) left > right;
         }
 
@@ -592,8 +540,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(TimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator >(TimeSpan left, DateTimeSpan right) {
             return left > (TimeSpan) right;
         }
 
@@ -603,8 +550,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(DateTimeSpan left, Period right)
-        {
+        public static bool operator >(DateTimeSpan left, Period right) {
             return (TimeSpan) left > right.AsTimeSpan();
         }
 
@@ -614,19 +560,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(Period left, DateTimeSpan right)
-        {
+        public static bool operator >(Period left, DateTimeSpan right) {
             return left.AsTimeSpan() > (TimeSpan) right;
         }
-        
+
         /// <summary>
         /// Overload of the operator &gt;
         /// </summary>
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(DateTimeSpan left, Duration right)
-        {
+        public static bool operator >(DateTimeSpan left, Duration right) {
             return (TimeSpan) left > right.ToTimeSpan();
         }
 
@@ -636,8 +580,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(Duration left, DateTimeSpan right)
-        {
+        public static bool operator >(Duration left, DateTimeSpan right) {
             return left.ToTimeSpan() > (TimeSpan) right;
         }
 
@@ -647,8 +590,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(DateTimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator >=(DateTimeSpan left, DateTimeSpan right) {
             return (TimeSpan) left >= (TimeSpan) right;
         }
 
@@ -658,8 +600,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(DateTimeSpan left, TimeSpan right)
-        {
+        public static bool operator >=(DateTimeSpan left, TimeSpan right) {
             return (TimeSpan) left >= right;
         }
 
@@ -669,8 +610,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(TimeSpan left, DateTimeSpan right)
-        {
+        public static bool operator >=(TimeSpan left, DateTimeSpan right) {
             return left >= (TimeSpan) right;
         }
 
@@ -680,8 +620,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(DateTimeSpan left, Period right)
-        {
+        public static bool operator >=(DateTimeSpan left, Period right) {
             return (TimeSpan) left >= right.AsTimeSpan();
         }
 
@@ -691,19 +630,17 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(Period left, DateTimeSpan right)
-        {
+        public static bool operator >=(Period left, DateTimeSpan right) {
             return left.AsTimeSpan() >= (TimeSpan) right;
         }
-        
+
         /// <summary>
         /// Overload of the operator &gt; or equals to
         /// </summary>
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(DateTimeSpan left, Duration right)
-        {
+        public static bool operator >=(DateTimeSpan left, Duration right) {
             return (TimeSpan) left >= right.ToTimeSpan();
         }
 
@@ -713,8 +650,7 @@ namespace Cosmos.Date
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(Duration left, DateTimeSpan right)
-        {
+        public static bool operator >=(Duration left, DateTimeSpan right) {
             return left.ToTimeSpan() >= (TimeSpan) right;
         }
 
@@ -723,8 +659,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dateTimeSpan">The DateTimeSpan.</param>
         /// <returns>The result of the conversion.</returns>
-        public static implicit operator TimeSpan(DateTimeSpan dateTimeSpan)
-        {
+        public static implicit operator TimeSpan(DateTimeSpan dateTimeSpan) {
             var daysFromYears = DAYS_PER_YEAR * dateTimeSpan.Years;
             var daysFromMonths = 30 * dateTimeSpan.Months;
             var days = daysFromMonths + daysFromYears;
@@ -736,8 +671,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="timeSpan">The <see cref="TimeSpan"/> that will be converted.</param>
         /// <returns>The result of the conversion.</returns>
-        public static implicit operator DateTimeSpan(TimeSpan timeSpan)
-        {
+        public static implicit operator DateTimeSpan(TimeSpan timeSpan) {
             return new DateTimeSpan {TimeSpan = timeSpan};
         }
 
@@ -746,8 +680,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dateTimeSpan"></param>
         /// <returns></returns>
-        public static implicit operator Period(DateTimeSpan dateTimeSpan)
-        {
+        public static implicit operator Period(DateTimeSpan dateTimeSpan) {
             return Period.FromTicks(dateTimeSpan.Ticks);
         }
 
@@ -756,10 +689,8 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="period">The <see cref="Period"/> that will be converted.</param>
         /// <returns>The result of the conversion.</returns>
-        public static implicit operator DateTimeSpan(Period period)
-        {
-            return new DateTimeSpan
-            {
+        public static implicit operator DateTimeSpan(Period period) {
+            return new DateTimeSpan {
                 Years = period.Years,
                 Months = period.Months,
                 TimeSpan = TimeSpan.FromTicks(period.Ticks)
@@ -771,8 +702,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dateTimeSpan"></param>
         /// <returns></returns>
-        public static implicit operator Duration(DateTimeSpan dateTimeSpan)
-        {
+        public static implicit operator Duration(DateTimeSpan dateTimeSpan) {
             return Duration.FromTimeSpan(dateTimeSpan.TimeSpan);
         }
 
@@ -781,8 +711,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="duration">The <see cref="Duration"/> that will be converted.</param>
         /// <returns>The result of the conversion.</returns>
-        public static implicit operator DateTimeSpan(Duration duration)
-        {
+        public static implicit operator DateTimeSpan(Duration duration) {
             return new DateTimeSpan {TimeSpan = duration.ToTimeSpan()};
         }
 
@@ -792,10 +721,8 @@ namespace Cosmos.Date
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        public object Clone()
-        {
-            return new DateTimeSpan
-            {
+        public object Clone() {
+            return new DateTimeSpan {
                 TimeSpan = TimeSpan,
                 Months = Months,
                 Years = Years
@@ -803,27 +730,22 @@ namespace Cosmos.Date
         }
 
         /// <inheritdoc />
-        public override string ToString()
-        {
+        public override string ToString() {
             return ((TimeSpan) this).ToString();
         }
 
         /// <inheritdoc />
-        public override bool Equals(object obj)
-        {
-            if (obj == null)
-            {
+        public override bool Equals(object obj) {
+            if (obj == null) {
                 return false;
             }
 
             var type = obj.GetType();
-            if (type == typeof(DateTimeSpan))
-            {
+            if (type == typeof(DateTimeSpan)) {
                 return this == (DateTimeSpan) obj;
             }
 
-            if (type == typeof(TimeSpan))
-            {
+            if (type == typeof(TimeSpan)) {
                 return this == (TimeSpan) obj;
             }
 
@@ -831,92 +753,75 @@ namespace Cosmos.Date
         }
 
         /// <inheritdoc />
-        public override int GetHashCode()
-        {
+        public override int GetHashCode() {
             // ReSharper disable NonReadonlyMemberInGetHashCode
             return Months.GetHashCode() ^ Years.GetHashCode() ^ TimeSpan.GetHashCode();
         }
 
         //DateTimeSpan ops others
 
-        static DateTimeSpan AddInternal(DateTimeSpan left, TimeSpan right)
-        {
-            return new DateTimeSpan
-            {
+        static DateTimeSpan AddInternal(DateTimeSpan left, TimeSpan right) {
+            return new DateTimeSpan {
                 Months = left.Months,
                 Years = left.Years,
                 TimeSpan = left.TimeSpan + right
             };
         }
 
-        static DateTimeSpan SubtractInternal(DateTimeSpan left, TimeSpan right)
-        {
-            return new DateTimeSpan
-            {
+        static DateTimeSpan SubtractInternal(DateTimeSpan left, TimeSpan right) {
+            return new DateTimeSpan {
                 Months = left.Months,
                 Years = left.Years,
                 TimeSpan = left.TimeSpan - right
             };
         }
 
-        static DateTimeSpan AddInternal(DateTimeSpan left, Period right)
-        {
+        static DateTimeSpan AddInternal(DateTimeSpan left, Period right) {
             return left + right.AsDateTimeSpan();
         }
 
-        static DateTimeSpan SubtractInternal(DateTimeSpan left, Period right)
-        {
+        static DateTimeSpan SubtractInternal(DateTimeSpan left, Period right) {
             return left - right.AsDateTimeSpan();
         }
 
-        static DateTimeSpan AddInternal(DateTimeSpan left, Duration right)
-        {
+        static DateTimeSpan AddInternal(DateTimeSpan left, Duration right) {
             return left + right.ToTimeSpan();
         }
 
-        static DateTimeSpan SubtractInternal(DateTimeSpan left, Duration right)
-        {
+        static DateTimeSpan SubtractInternal(DateTimeSpan left, Duration right) {
             return left - right.ToTimeSpan();
         }
 
         //others ops DateTimeSpan
 
-        internal static DateTimeSpan SubtractInternal(TimeSpan left, DateTimeSpan right)
-        {
-            return new DateTimeSpan
-            {
+        internal static DateTimeSpan SubtractInternal(TimeSpan left, DateTimeSpan right) {
+            return new DateTimeSpan {
                 Months = -right.Months,
                 Years = -right.Years,
                 TimeSpan = left - right.TimeSpan
             };
         }
 
-        static DateTimeSpan SubtractInternal(Period left, DateTimeSpan right)
-        {
+        static DateTimeSpan SubtractInternal(Period left, DateTimeSpan right) {
             return left.AsDateTimeSpan() - right;
         }
 
-        static DateTimeSpan SubtractInternal(Duration left, DateTimeSpan right)
-        {
+        static DateTimeSpan SubtractInternal(Duration left, DateTimeSpan right) {
             return left.ToTimeSpan() - right;
         }
 
         //DateTimeSpan ops DateTimeSpan
 
-        static DateTimeSpan AddInternal(DateTimeSpan left, DateTimeSpan right)
-        {
-            return new DateTimeSpan
-            {
+        static DateTimeSpan AddInternal(DateTimeSpan left, DateTimeSpan right) {
+            return new DateTimeSpan {
                 Years = left.Years + right.Years,
                 Months = left.Months + right.Months,
                 TimeSpan = left.TimeSpan + right.TimeSpan
             };
         }
 
-        static DateTimeSpan SubtractInternal(DateTimeSpan left, DateTimeSpan right)
-        {
-            return new DateTimeSpan
-            {
+        static DateTimeSpan SubtractInternal(DateTimeSpan left, DateTimeSpan right) {
+            return new DateTimeSpan {
                 Years = left.Years - right.Years,
                 Months = left.Months - right.Months,
                 TimeSpan = left.TimeSpan - right.TimeSpan
@@ -979,8 +884,7 @@ namespace Cosmos.Date
         public double TotalSeconds => ((TimeSpan) this).TotalSeconds;
 
         /// <inheritdoc />
-        public int CompareTo(TimeSpan other)
-        {
+        public int CompareTo(TimeSpan other) {
             return ((TimeSpan) this).CompareTo(other);
         }
 
@@ -990,10 +894,8 @@ namespace Cosmos.Date
         /// <param name="value"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public int CompareTo(object value)
-        {
-            if (value is TimeSpan timeSpan)
-            {
+        public int CompareTo(object value) {
+            if (value is TimeSpan timeSpan) {
                 return ((TimeSpan) this).CompareTo(timeSpan);
             }
 
@@ -1005,8 +907,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public int CompareTo(DateTimeSpan value)
-        {
+        public int CompareTo(DateTimeSpan value) {
             return ((TimeSpan) this).CompareTo(value);
         }
 
@@ -1014,10 +915,8 @@ namespace Cosmos.Date
         /// Negate
         /// </summary>
         /// <returns></returns>
-        public TimeSpan Negate()
-        {
-            return new DateTimeSpan
-            {
+        public TimeSpan Negate() {
+            return new DateTimeSpan {
                 TimeSpan = -TimeSpan,
                 Months = -Months,
                 Years = -Years

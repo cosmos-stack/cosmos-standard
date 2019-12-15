@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos.CharMatchers
-{
+namespace Cosmos.CharMatchers {
     /// <summary>
     /// Interface to flag 'None' mode of char matcher
     /// </summary>
-    public interface INoneOfModeCharMatcher : ICharMatcher
-    {
+    public interface INoneOfModeCharMatcher : ICharMatcher {
         /// <summary>
         /// Negate
         /// </summary>

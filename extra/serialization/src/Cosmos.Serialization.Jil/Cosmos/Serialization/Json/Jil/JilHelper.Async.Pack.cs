@@ -3,13 +3,11 @@ using System.IO;
 using System.Threading.Tasks;
 using Jil;
 
-namespace Cosmos.Serialization.Json.Jil
-{
+namespace Cosmos.Serialization.Json.Jil {
     /// <summary>
     /// JilJson helper
     /// </summary>
-    public static partial class JilHelper
-    {
+    public static partial class JilHelper {
         /// <summary>
         /// Pack async
         /// </summary>
@@ -17,8 +15,7 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync<T>(T o, Options options = null)
-        {
+        public static async Task<Stream> PackAsync<T>(T o, Options options = null) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -37,8 +34,7 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task PackAsync<T>(T o, Stream stream, Options options = null)
-        {
+        public static async Task PackAsync<T>(T o, Stream stream, Options options = null) {
             if (o == null || !stream.CanWrite)
                 return;
 
@@ -54,8 +50,7 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream, Options options = null)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream, Options options = null) {
             return stream is null
                 ? default
                 : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream), options ?? JilManager.DefaultOptions);
@@ -68,15 +63,13 @@ namespace Cosmos.Serialization.Json.Jil
         /// <param name="stream"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static async Task<object> UnpackAsync(Stream stream, Type type, Options options = null)
-        {
+        public static async Task<object> UnpackAsync(Stream stream, Type type, Options options = null) {
             return stream is null
                 ? default
                 : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type, options ?? JilManager.DefaultOptions);
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

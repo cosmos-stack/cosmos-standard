@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// No repeat TimeStamp factory
     /// </summary>
-    public class NoRepeatTimeStampFactory
-    {
+    public class NoRepeatTimeStampFactory {
         // ReSharper disable once InconsistentNaming
         private DateTime lastValue = DateTime.MinValue;
         private readonly object _lockObj = new object();
@@ -52,13 +50,10 @@ namespace Cosmos
         /// <returns></returns>
         public UnixTimeStamp GetUtcUnixTimeStampObject() => new UnixTimeStamp(GetUtcTimeStamp());
 
-        private DateTime GetTimeStampCore(DateTime refDt)
-        {
+        private DateTime GetTimeStampCore(DateTime refDt) {
             var now = refDt;
-            lock (_lockObj)
-            {
-                if ((now - lastValue).TotalMilliseconds < IncrementMs)
-                {
+            lock (_lockObj) {
+                if ((now - lastValue).TotalMilliseconds < IncrementMs) {
                     now = lastValue.AddMilliseconds(IncrementMs);
                 }
 

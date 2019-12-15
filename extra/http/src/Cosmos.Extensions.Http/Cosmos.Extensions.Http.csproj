@@ -3,7 +3,7 @@
     <Import Project="..\..\build\common.ns20-net461-net451.props"/>
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp3.0;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.1;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -20,15 +20,11 @@
         <DocumentationFile>Cosmos.Extensions.Http.xml</DocumentationFile>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="System.Collections.Immutable" Version="1.6.0"/>
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.0' OR 
-                          '$(TargetFramework)'=='netstandard2.1' OR
-                          '$(TargetFramework)'=='netstandard2.0' OR
+    <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' OR 
+                          '$(TargetFramework)'=='netstandard2.1' OR 
+                          '$(TargetFramework)'=='netstandard2.0' OR 
                           '$(TargetFramework)'=='net461'">
-        <PackageReference Include="System.Reactive" Version="4.2.0"/>
+        <PackageReference Include="System.Reactive" Version="4.3.1"/>
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='net451'">

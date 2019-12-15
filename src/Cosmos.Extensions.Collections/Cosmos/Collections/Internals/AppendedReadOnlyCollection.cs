@@ -2,14 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Cosmos.Collections.Internals
-{
-    internal class AppendedReadOnlyCollection<T> : IReadOnlyCollection<T>
-    {
+namespace Cosmos.Collections.Internals {
+    internal class AppendedReadOnlyCollection<T> : IReadOnlyCollection<T> {
         private readonly IEnumerable<T> _enumerable;
 
-        internal AppendedReadOnlyCollection(IReadOnlyCollection<T> root, T item)
-        {
+        internal AppendedReadOnlyCollection(IReadOnlyCollection<T> root, T item) {
             // Validate parameters.
 
             // Assign values.

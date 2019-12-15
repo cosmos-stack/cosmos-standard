@@ -1,12 +1,10 @@
-﻿
-// ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+﻿// ReSharper disable once CheckNamespace
+
+namespace Cosmos {
     /// <summary>
     /// Type Similarity
     /// </summary>
-    public enum TypeSimilarity
-    {
+    public enum TypeSimilarity {
         /// <summary>
         /// Any
         /// </summary>

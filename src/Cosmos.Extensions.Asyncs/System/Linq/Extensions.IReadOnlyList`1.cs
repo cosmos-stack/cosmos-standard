@@ -17,10 +17,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class Extensions
-    {
+namespace System.Linq {
+    public static partial class Extensions {
         /// <summary>
         /// As enumerable
         /// </summary>
@@ -30,8 +28,7 @@ namespace System.Linq
         /// <returns></returns>
         public static Task<IEnumerable<TSource>> AsEnumerable<TSource>(
             this Task<IReadOnlyList<TSource>> source,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.AsEnumerable, cancellationToken);
         }
     }

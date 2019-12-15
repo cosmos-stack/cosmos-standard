@@ -1,10 +1,8 @@
-namespace Cosmos.Domain.EntityDescriptors
-{
+namespace Cosmos.Domain.EntityDescriptors {
     /// <summary>
     /// Delete operation types
     /// </summary>
-    public enum DeleteOperationTypes
-    {
+    public enum DeleteOperationTypes {
         /// <summary>
         /// Logic delete, also named soft-delete.
         /// </summary>

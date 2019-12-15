@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
-    public static partial class JTokenConversionExtensions
-    {
+namespace Cosmos.Serialization.Json {
+    public static partial class JTokenConversionExtensions {
         /// <summary>
         /// Gets token
         /// </summary>

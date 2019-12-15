@@ -2,13 +2,11 @@
 using System.Globalization;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions
     /// </summary>
-    public static partial class BaseTypeExtensions
-    {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// 获得本月的总天数
         /// </summary>
@@ -23,8 +21,7 @@ namespace Cosmos
         /// <param name="date"></param>
         /// <param name="weekday"></param>
         /// <returns></returns>
-        public static DateTime GetNextWeekday(this DateTime date, DayOfWeek weekday)
-        {
+        public static DateTime GetNextWeekday(this DateTime date, DayOfWeek weekday) {
             while (date.DayOfWeek != weekday) date = date.AddDays(1);
             return date;
         }
@@ -35,8 +32,7 @@ namespace Cosmos
         /// <param name="date">   </param>
         /// <param name="weekday"></param>
         /// <returns></returns>
-        public static DateTime GetPreviousWeekday(this DateTime date, DayOfWeek weekday)
-        {
+        public static DateTime GetPreviousWeekday(this DateTime date, DayOfWeek weekday) {
             while (date.DayOfWeek != weekday) date = date.AddDays(-1);
             return date;
         }
@@ -70,11 +66,9 @@ namespace Cosmos
         /// <param name="date">     </param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime GetFirstDayOfMonth(this DateTime date, DayOfWeek dayOfWeek)
-        {
+        public static DateTime GetFirstDayOfMonth(this DateTime date, DayOfWeek dayOfWeek) {
             var dt = date.GetFirstDayOfMonth();
-            while (dt.DayOfWeek != dayOfWeek)
-            {
+            while (dt.DayOfWeek != dayOfWeek) {
                 dt = dt.AddDays(1);
             }
 
@@ -99,11 +93,9 @@ namespace Cosmos
         /// <param name="date">     </param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime GetLastDayOfMonth(this DateTime date, DayOfWeek dayOfWeek)
-        {
+        public static DateTime GetLastDayOfMonth(this DateTime date, DayOfWeek dayOfWeek) {
             var dt = date.GetLastDayOfMonth();
-            while (dt.DayOfWeek != dayOfWeek)
-            {
+            while (dt.DayOfWeek != dayOfWeek) {
                 dt = dt.AddDays(-1);
             }
 
@@ -128,8 +120,7 @@ namespace Cosmos
         /// <param name="date">       </param>
         /// <param name="cultureInfo"></param>
         /// <returns></returns>
-        public static DateTime GetFirstDayOfWeek(this DateTime date, CultureInfo cultureInfo)
-        {
+        public static DateTime GetFirstDayOfWeek(this DateTime date, CultureInfo cultureInfo) {
             cultureInfo = (cultureInfo ?? CultureInfo.CurrentCulture);
 
             var firstDayOfWeek = cultureInfo.DateTimeFormat.FirstDayOfWeek;
@@ -192,13 +183,12 @@ namespace Cosmos
         /// <param name="dt1"></param>
         /// <param name="dt2"></param>
         /// <returns></returns>
-        public static int GetMonthDiff(this DateTime dt1, DateTime dt2)
-        {
+        public static int GetMonthDiff(this DateTime dt1, DateTime dt2) {
             var l = dt1 < dt2 ? dt1 : dt2;
             var r = dt1 >= dt2 ? dt1 : dt2;
             return (l.Day == r.Day ? 0 : l.Day > r.Day ? 0 : 1)
-                   + (l.Month == r.Month ? 0 : r.Month - l.Month)
-                   + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
+                 + (l.Month == r.Month ? 0 : r.Month - l.Month)
+                 + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
         }
 
         /// <summary>
@@ -207,8 +197,7 @@ namespace Cosmos
         /// <param name="dt1"></param>
         /// <param name="dt2"></param>
         /// <returns></returns>
-        public static double GetTotalMonthDiff(this DateTime dt1, DateTime dt2)
-        {
+        public static double GetTotalMonthDiff(this DateTime dt1, DateTime dt2) {
             var l = dt1 < dt2 ? dt1 : dt2;
             var r = dt1 >= dt2 ? dt1 : dt2;
             var lDfM = DateTime.DaysInMonth(l.Year, l.Month);
@@ -221,8 +210,8 @@ namespace Cosmos
                     : (r.Day - l.Day) * 1d / rDfM;
 
             return dayFixOne
-                   + (l.Month == r.Month ? 0 : r.Month - l.Month)
-                   + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
+                 + (l.Month == r.Month ? 0 : r.Month - l.Month)
+                 + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
         }
 
         #endregion
@@ -274,8 +263,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static DateTime GetEndOfDay(this DateTime @this)
-        {
+        public static DateTime GetEndOfDay(this DateTime @this) {
             return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
         }
 
@@ -284,8 +272,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static DateTime GetEndOfMonth(this DateTime @this)
-        {
+        public static DateTime GetEndOfMonth(this DateTime @this) {
             return new DateTime(@this.Year, @this.Month, 1).AddMonths(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
         }
 
@@ -295,23 +282,18 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="startDayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime GetEndOfWeek(this DateTime dt, DayOfWeek startDayOfWeek = DayOfWeek.Sunday)
-        {
+        public static DateTime GetEndOfWeek(this DateTime dt, DayOfWeek startDayOfWeek = DayOfWeek.Sunday) {
             DateTime end = dt;
             DayOfWeek endDayOfWeek = startDayOfWeek - 1;
-            if (endDayOfWeek < 0)
-            {
+            if (endDayOfWeek < 0) {
                 endDayOfWeek = DayOfWeek.Saturday;
             }
 
-            if (end.DayOfWeek != endDayOfWeek)
-            {
-                if (endDayOfWeek < end.DayOfWeek)
-                {
+            if (end.DayOfWeek != endDayOfWeek) {
+                if (endDayOfWeek < end.DayOfWeek) {
                     end = end.AddDays(7 - (end.DayOfWeek - endDayOfWeek));
                 }
-                else
-                {
+                else {
                     end = end.AddDays(endDayOfWeek - end.DayOfWeek);
                 }
             }
@@ -324,8 +306,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static DateTime GetEndOfYear(this DateTime @this)
-        {
+        public static DateTime GetEndOfYear(this DateTime @this) {
             return new DateTime(@this.Year, 1, 1).AddYears(1).Subtract(new TimeSpan(0, 0, 0, 0, 1));
         }
 
@@ -334,8 +315,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static TimeSpan ToEpochTimeSpan(this DateTime @this)
-        {
+        public static TimeSpan ToEpochTimeSpan(this DateTime @this) {
             return @this.Subtract(new DateTime(1970, 1, 1));
         }
 
@@ -344,8 +324,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static DateTime Tomorrow(this DateTime @this)
-        {
+        public static DateTime Tomorrow(this DateTime @this) {
             return @this.AddDays(1);
         }
 
@@ -354,8 +333,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static DateTime Yesterday(this DateTime @this)
-        {
+        public static DateTime Yesterday(this DateTime @this) {
             return @this.AddDays(-1);
         }
 
@@ -367,8 +345,7 @@ namespace Cosmos
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static DateTime SetTime(this DateTime originalDate, int hour, int minute, int second)
-        {
+        public static DateTime SetTime(this DateTime originalDate, int hour, int minute, int second) {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, second, originalDate.Millisecond);
         }
 
@@ -378,8 +355,7 @@ namespace Cosmos
         /// <param name="originalDate"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
-        public static DateTime SetHour(this DateTime originalDate, int hour)
-        {
+        public static DateTime SetHour(this DateTime originalDate, int hour) {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, hour, originalDate.Minute, originalDate.Second, originalDate.Millisecond);
         }
 
@@ -389,8 +365,7 @@ namespace Cosmos
         /// <param name="originalDate"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
-        public static DateTime SetMinute(this DateTime originalDate, int minute)
-        {
+        public static DateTime SetMinute(this DateTime originalDate, int minute) {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, minute, originalDate.Second, originalDate.Millisecond);
         }
 
@@ -400,8 +375,7 @@ namespace Cosmos
         /// <param name="originalDate"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static DateTime SetSecond(this DateTime originalDate, int second)
-        {
+        public static DateTime SetSecond(this DateTime originalDate, int second) {
             return new DateTime(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, originalDate.Minute, second, originalDate.Millisecond);
         }
 
@@ -413,8 +387,7 @@ namespace Cosmos
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static DateTime SetDate(this DateTime value, int year, int month, int day)
-        {
+        public static DateTime SetDate(this DateTime value, int year, int month, int day) {
             return new DateTime(year, month, day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
 
@@ -424,8 +397,7 @@ namespace Cosmos
         /// <param name="value"></param>
         /// <param name="year"></param>
         /// <returns></returns>
-        public static DateTime SetYear(this DateTime value, int year)
-        {
+        public static DateTime SetYear(this DateTime value, int year) {
             return new DateTime(year, value.Month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
 
@@ -435,8 +407,7 @@ namespace Cosmos
         /// <param name="value"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        public static DateTime SetMonth(this DateTime value, int month)
-        {
+        public static DateTime SetMonth(this DateTime value, int month) {
             return new DateTime(value.Year, month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
 
@@ -446,8 +417,7 @@ namespace Cosmos
         /// <param name="value"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static DateTime SetDay(this DateTime value, int day)
-        {
+        public static DateTime SetDay(this DateTime value, int day) {
             return new DateTime(value.Year, value.Month, day, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
     }

@@ -6,10 +6,8 @@ using System.Reflection;
 using Cosmos.Expressions;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class ReflectionExtensions
-    {
+namespace Cosmos {
+    public static partial class ReflectionExtensions {
         /// <summary>
         /// Exclude
         /// </summary>
@@ -50,15 +48,14 @@ namespace Cosmos
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<PropertyInfo> Exclude<T>(this IEnumerable<PropertyInfo> properties, IEnumerable<Expression<Func<T, object>>> expressions)
-        {
-            if (properties == null) 
+        public static IEnumerable<PropertyInfo> Exclude<T>(this IEnumerable<PropertyInfo> properties, IEnumerable<Expression<Func<T, object>>> expressions) {
+            if (properties == null)
                 throw new ArgumentNullException(nameof(properties));
             if (expressions == null)
                 throw new ArgumentNullException(nameof(expressions));
 
             ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(expressions.GetPropertyInfos());
-            
+
             return properties.Where(p => !excluded.Contains(p));
         }
     }

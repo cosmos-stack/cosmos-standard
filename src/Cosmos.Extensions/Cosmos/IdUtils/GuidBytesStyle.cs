@@ -1,10 +1,8 @@
-﻿namespace Cosmos.IdUtils
-{
+﻿namespace Cosmos.IdUtils {
     /// <summary>
     /// Guid bytes styles
     /// </summary>
-    public enum GuidBytesStyle
-    {
+    public enum GuidBytesStyle {
         /// <summary>
         /// Little endian byte array
         /// </summary>

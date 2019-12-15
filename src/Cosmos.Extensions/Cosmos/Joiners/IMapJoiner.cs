@@ -2,24 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cosmos.Joiners
-{
+namespace Cosmos.Joiners {
     /// <summary>
     /// MapJoiner Interface<br />
-    /// MapJoiner ½Ó¿Ú
+    /// MapJoiner æ¥å£
     /// </summary>
-    public interface IMapJoiner
-    {
+    public interface IMapJoiner {
         /// <summary>
         /// Skip null<br />
-        /// Ìø¹ı null
+        /// è·³è¿‡ null
         /// </summary>
         /// <returns></returns>
         IMapJoiner SkipNulls();
 
         /// <summary>
         /// Skip null<br />
-        /// Ìø¹ı null
+        /// è·³è¿‡ null
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -27,7 +25,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// If null, then use the special value.<br />
-        /// Èç¹ûÎª null£¬ÔòÊ¹ÓÃÖ¸¶¨µÄÖµÀ´Ìæ´ú
+        /// å¦‚æœä¸º nullï¼Œåˆ™ä½¿ç”¨æŒ‡å®šçš„å€¼æ¥æ›¿ä»£
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
@@ -36,7 +34,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// If null, then use the special value.<br />
-        /// Èç¹ûÎª null£¬ÔòÊ¹ÓÃÖ¸¶¨µÄÖµÀ´Ìæ´ú
+        /// å¦‚æœä¸º nullï¼Œåˆ™ä½¿ç”¨æŒ‡å®šçš„å€¼æ¥æ›¿ä»£
         /// </summary>
         /// <param name="keyFunc"></param>
         /// <param name="valueFunc"></param>
@@ -45,7 +43,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// If null, then use the special value.<br />
-        /// Èç¹ûÎª null£¬ÔòÊ¹ÓÃÖ¸¶¨µÄÖµÀ´Ìæ´ú
+        /// å¦‚æœä¸º nullï¼Œåˆ™ä½¿ç”¨æŒ‡å®šçš„å€¼æ¥æ›¿ä»£
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -56,7 +54,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// If null, then use the special value.<br />
-        /// Èç¹ûÎª null£¬ÔòÊ¹ÓÃÖ¸¶¨µÄÖµÀ´Ìæ´ú
+        /// å¦‚æœä¸º nullï¼Œåˆ™ä½¿ç”¨æŒ‡å®šçš„å€¼æ¥æ›¿ä»£
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -67,14 +65,14 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Switch to tuple mode<br />
-        /// ÇĞ»»Îª Tuple Ä£Ê½
+        /// åˆ‡æ¢ä¸º Tuple æ¨¡å¼
         /// </summary>
         /// <returns></returns>
         ITupleJoiner FromTuple();
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
@@ -82,7 +80,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="list"></param>
         /// <param name="defaultKey"></param>
@@ -92,7 +90,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="str1"></param>
         /// <param name="str2"></param>
@@ -102,7 +100,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
@@ -112,7 +110,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
@@ -124,7 +122,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="converter"></param>
@@ -136,7 +134,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="list"></param>
@@ -145,7 +143,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="list"></param>
@@ -156,7 +154,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="str1"></param>
@@ -167,7 +165,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>
@@ -178,7 +176,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>
@@ -191,7 +189,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>

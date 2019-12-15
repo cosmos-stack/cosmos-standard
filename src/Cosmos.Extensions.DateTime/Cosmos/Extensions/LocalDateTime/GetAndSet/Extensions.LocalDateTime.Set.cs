@@ -3,13 +3,11 @@ using Cosmos.Date;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// LocalDateTime extensions
     /// </summary>
-    public static partial class LocalDateTimeExtensions
-    {
+    public static partial class LocalDateTimeExtensions {
         /// <summary>
         /// Set time
         /// </summary>
@@ -18,7 +16,7 @@ namespace Cosmos
         /// <returns></returns>
         public static LocalDateTime SetTime(this LocalDateTime ldt, LocalTime lt) =>
             ldt.SetTime(lt.Hour, lt.Minute, lt.Second, lt.Millisecond);
-        
+
         /// <summary>
         /// Set time
         /// </summary>

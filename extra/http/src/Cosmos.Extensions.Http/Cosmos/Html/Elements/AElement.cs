@@ -1,10 +1,8 @@
-﻿namespace Cosmos.Html.Elements
-{
+﻿namespace Cosmos.Html.Elements {
     /// <summary>
     /// A
     /// </summary>
-    public class AElement
-    {
+    public class AElement {
         /// <summary>
         /// 链接地址
         /// </summary>

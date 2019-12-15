@@ -3,13 +3,10 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.SwifterTest
-{
-    public class JsonTestAsync
-    {
+namespace Cosmos.Test.Serialization.SwifterTest {
+    public class JsonTestAsync {
         [Fact]
-        public async Task BasicJsonTest()
-        {
+        public async Task BasicJsonTest() {
             var model = CreateNiceModel();
             var json1 = await model.ToSwifterJsonAsync();
             var back1 = await json1.FromSwifterJsonAsync<NiceModel>();
@@ -24,10 +21,8 @@ namespace Cosmos.Test.Serialization.SwifterTest
                 Tuple.Create(back2.Id, back2.Name, back2.NiceType, back2.Count, back2.CreatedTime, back2.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

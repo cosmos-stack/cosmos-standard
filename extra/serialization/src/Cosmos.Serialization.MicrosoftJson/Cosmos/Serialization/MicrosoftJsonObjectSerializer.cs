@@ -2,13 +2,11 @@ using System;
 using System.Threading.Tasks;
 using Cosmos.Serialization.Json.MicrosoftJson;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Microsoft System.Text.Json object serializer
     /// </summary>
-    public class MicrosoftJsonObjectSerializer : IJsonSerializer
-    {
+    public class MicrosoftJsonObjectSerializer : IJsonSerializer {
         /// <inheritdoc />
         public string Serialize<T>(T o) => MicrosoftJsonHelper.Serialize(o);
 
@@ -19,7 +17,7 @@ namespace Cosmos.Serialization
         public object Deserialize(string json, Type type) => MicrosoftJsonHelper.Deserialize(json, type);
 
         /// <inheritdoc />
-        public Task<string> SerializeAsync<T>(T o)=> MicrosoftJsonHelper.SerializeAsync(o);
+        public Task<string> SerializeAsync<T>(T o) => MicrosoftJsonHelper.SerializeAsync(o);
 
         /// <inheritdoc />
         public Task<T> DeserializeAsync<T>(string data) => MicrosoftJsonHelper.DeserializeAsync<T>(data);

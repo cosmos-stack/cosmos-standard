@@ -2,13 +2,11 @@
 using System.Linq;
 using AspectCore.Extensions.Reflection;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Type Utilities
     /// </summary>
-    public static class Types
-    {
+    public static class Types {
 
         #region Of
 
@@ -23,8 +21,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="objColl">Object array</param>
         /// <returns></returns>
-        public static Type[] Of(object[] objColl)
-        {
+        public static Type[] Of(object[] objColl) {
             if (objColl == null)
                 return null;
             if (!objColl.Contains(null))
@@ -56,8 +53,7 @@ namespace Cosmos
         /// <param name="type">The given type</param>
         /// <param name="genericType">The generic type</param>
         /// <returns></returns>
-        public static bool IsGenericImplementation(Type type, Type genericType)
-        {
+        public static bool IsGenericImplementation(Type type, Type genericType) {
             if (type == null)
                 throw new ArgumentNullException(nameof(type));
 
@@ -74,8 +70,7 @@ namespace Cosmos
             if (testFlag) return true;
 
             //Testing class
-            while (type != null && type != TypeClass.ObjectClass)
-            {
+            while (type != null && type != TypeClass.ObjectClass) {
                 testFlag = _checkRawGenericType(type);
                 if (testFlag) return true;
                 type = type.BaseType;
@@ -105,8 +100,7 @@ namespace Cosmos
         /// <param name="type">The given type</param>
         /// <param name="genericType">The generic type</param>
         /// <returns></returns>
-        public static Type GetRawTypeFromGenericClass(Type type, Type genericType)
-        {
+        public static Type GetRawTypeFromGenericClass(Type type, Type genericType) {
             if (type == null)
                 throw new ArgumentNullException(nameof(type));
 
@@ -116,11 +110,9 @@ namespace Cosmos
             if (!genericType.IsGenericType)
                 return null;
 
-            while (type != null && type != TypeClass.ObjectClass)
-            {
+            while (type != null && type != TypeClass.ObjectClass) {
                 var testFlag = _checkRawGenericType(type);
-                if (testFlag)
-                {
+                if (testFlag) {
                     return type.GenericTypeArguments.Length > 0
                         ? type.GenericTypeArguments[0]
                         : null;
@@ -156,8 +148,7 @@ namespace Cosmos
         /// <typeparam name="TInstance">Special type you need to return.</typeparam>
         /// <param name="args">Arguments for such type's constructor</param>
         /// <returns>Instance of special type</returns>
-        public static TInstance CreateInstance<TInstance>(params object[] args)
-        {
+        public static TInstance CreateInstance<TInstance>(params object[] args) {
             if (args == null || args.Length == 0)
                 return CreateInstanceCore<TInstance>();
             return CreateInstanceCore<TInstance>(args);
@@ -179,8 +170,7 @@ namespace Cosmos
         /// <param name="type">Special type</param>
         /// <param name="args">Arguments for such type's constructor</param>
         /// <returns>Instance of special type</returns>
-        public static object CreateInstance(Type type, params object[] args)
-        {
+        public static object CreateInstance(Type type, params object[] args) {
             if (args == null || args.Length == 0)
                 return CreateInstanceCore(type);
             return CreateInstanceCore(type, args);

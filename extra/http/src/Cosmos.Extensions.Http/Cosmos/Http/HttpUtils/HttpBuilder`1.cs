@@ -10,16 +10,13 @@ using System.Threading.Tasks;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
-    internal class HttpBuilder<T> : IRequestBuilder<T>
-    {
+namespace Cosmos.Http.HttpUtils {
+    internal class HttpBuilder<T> : IRequestBuilder<T> {
         public IRequestBuilder Inner { get; }
 
         public Func<HttpResponseMessage, Task<T>> Handler { get; }
 
-        public HttpBuilder(HttpBuilder builder, Func<HttpResponseMessage, Task<T>> handler)
-        {
+        public HttpBuilder(HttpBuilder builder, Func<HttpResponseMessage, Task<T>> handler) {
             Inner = builder;
             Handler = handler;
         }

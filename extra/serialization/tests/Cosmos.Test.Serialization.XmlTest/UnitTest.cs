@@ -3,13 +3,10 @@ using System.IO;
 using Cosmos.Serialization.Xml;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.XmlTest
-{
-    public class UnitTest
-    {
+namespace Cosmos.Test.Serialization.XmlTest {
+    public class UnitTest {
         [Fact]
-        public void BytesTest()
-        {
+        public void BytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToXmlBytes();
             var backs = bytes.FromXmlBytes<NiceModel>();
@@ -20,8 +17,7 @@ namespace Cosmos.Test.Serialization.XmlTest
         }
 
         [Fact]
-        public void NonGenericBytesTest()
-        {
+        public void NonGenericBytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToXmlBytes();
             var backs = (NiceModel) bytes.FromXmlBytes(typeof(NiceModel));
@@ -32,8 +28,7 @@ namespace Cosmos.Test.Serialization.XmlTest
         }
 
         [Fact]
-        public void StreamTest()
-        {
+        public void StreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.XmlPack();
             var stream2 = new MemoryStream();
@@ -59,8 +54,7 @@ namespace Cosmos.Test.Serialization.XmlTest
         }
 
         [Fact]
-        public void NonGenericStreamTest()
-        {
+        public void NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.XmlPack();
             var stream2 = new MemoryStream();
@@ -85,10 +79,8 @@ namespace Cosmos.Test.Serialization.XmlTest
                 Tuple.Create(back3.Id, back3.Name, back3.NiceType, back3.Count, back3.CreatedTime, back3.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

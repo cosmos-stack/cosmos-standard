@@ -1,7 +1,5 @@
-namespace Cosmos.Test.Serialization.MessagePackageTest
-{
-    public enum NiceType
-    {
+namespace Cosmos.Test.Serialization.MessagePackageTest {
+    public enum NiceType {
         Yes,
         No
     }

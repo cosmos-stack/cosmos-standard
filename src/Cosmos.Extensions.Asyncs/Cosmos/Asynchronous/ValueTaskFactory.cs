@@ -1,12 +1,10 @@
 using System.Threading.Tasks;
 
-namespace Cosmos.Asynchronous
-{
+namespace Cosmos.Asynchronous {
     /// <summary>
     /// ValueTask factory
     /// </summary>
-    public static class ValueTaskFactory
-    {
+    public static class ValueTaskFactory {
         /// <summary>
         /// From result
         /// </summary>

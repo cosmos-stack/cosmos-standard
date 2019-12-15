@@ -1,13 +1,11 @@
 ﻿using System;
 using Cosmos.Judgments;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime arguments checking
     /// </summary>
-    public static partial class Preconditions
-    {
+    public static partial class Preconditions {
         /// <summary>
         /// 检查时间是否合法
         /// </summary>
@@ -15,8 +13,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotInvalidDate(DateTime argument, string argumentName, string message = null)
-        {
+        public static void IsNotInvalidDate(DateTime argument, string argumentName, string message = null) {
             AssertionJudgment.Require2Validation<ArgumentInvalidException>(
                 DateTimeJudgment.IsValid(argument),
                 message ?? $"{nameof(argument)} is invalid datetime value.", argumentName);
@@ -29,8 +26,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotInvalidDate(DateTime? argument, string argumentName, string message = null)
-        {
+        public static void IsNotInvalidDate(DateTime? argument, string argumentName, string message = null) {
             IsNotInvalidDate(argument.SafeValue(), argumentName, message);
         }
 
@@ -42,8 +38,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotInPast(DateTime argument, string argumentName, string message = null)
-        {
+        public static void IsNotInPast(DateTime argument, string argumentName, string message = null) {
             AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument <= DateTime.UtcNow,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be in past.");
@@ -57,8 +52,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotInPast(DateTime? argument, string argumentName, string message = null)
-        {
+        public static void IsNotInPast(DateTime? argument, string argumentName, string message = null) {
             IsNotInPast(argument.SafeValue(), argumentName, message);
         }
 
@@ -70,8 +64,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotInFuture(DateTime argument, string argumentName, string message = null)
-        {
+        public static void IsNotInFuture(DateTime argument, string argumentName, string message = null) {
             AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument <= DateTime.UtcNow,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be in future.");
@@ -85,8 +78,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotInFuture(DateTime? argument, string argumentName, string message = null)
-        {
+        public static void IsNotInFuture(DateTime? argument, string argumentName, string message = null) {
             IsNotInFuture(argument.SafeValue(), argumentName, message);
         }
 
@@ -97,8 +89,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotNegative(TimeSpan argument, string argumentName, string message = null)
-        {
+        public static void IsNotNegative(TimeSpan argument, string argumentName, string message = null) {
             AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument >= TimeSpan.Zero,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be negative.");
@@ -111,8 +102,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotNegative(TimeSpan? argument, string argumentName, string message = null)
-        {
+        public static void IsNotNegative(TimeSpan? argument, string argumentName, string message = null) {
             IsNotNegative(argument.SafeValue(), argumentName, message);
         }
 
@@ -123,8 +113,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotNegativeOrZero(TimeSpan argument, string argumentName, string message = null)
-        {
+        public static void IsNotNegativeOrZero(TimeSpan argument, string argumentName, string message = null) {
             AssertionJudgment.Require2Validation<ArgumentOutOfRangeException>(
                 argument > TimeSpan.Zero,
                 argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
@@ -137,8 +126,7 @@ namespace Cosmos
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void IsNotNegativeOrZero(TimeSpan? argument, string argumentName, string message = null)
-        {
+        public static void IsNotNegativeOrZero(TimeSpan? argument, string argumentName, string message = null) {
             IsNotNegativeOrZero(argument.SafeValue(), argumentName, message);
         }
     }

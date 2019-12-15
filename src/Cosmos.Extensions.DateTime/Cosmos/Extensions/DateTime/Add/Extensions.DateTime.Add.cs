@@ -2,14 +2,12 @@
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions<br />
     /// DateTime 扩展方法
     /// </summary>
-    public static partial class DateTimeExtensions
-    {
+    public static partial class DateTimeExtensions {
         /// <summary>
         /// Add weeks.
         /// </summary>
@@ -17,8 +15,7 @@ namespace Cosmos
         /// <param name="weeks"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime AddWeeks(this DateTime dt, int weeks)
-        {
+        public static DateTime AddWeeks(this DateTime dt, int weeks) {
             if (dt == null)
                 throw new ArgumentNullException(nameof(dt));
 
@@ -32,8 +29,7 @@ namespace Cosmos
         /// <param name="quarters"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime AddQuarters(this DateTime dt, int quarters)
-        {
+        public static DateTime AddQuarters(this DateTime dt, int quarters) {
             if (dt == null)
                 throw new ArgumentNullException(nameof(dt));
 
@@ -47,8 +43,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="duration"></param>
         /// <returns></returns>
-        public static DateTime AddDuration(this DateTime dt, Duration duration)
-        {
+        public static DateTime AddDuration(this DateTime dt, Duration duration) {
             if (dt == null)
                 throw new ArgumentNullException(nameof(dt));
 
@@ -62,14 +57,11 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="days"></param>
         /// <returns></returns>
-        public static DateTime AddBusinessDays(this DateTime dt, int days)
-        {
+        public static DateTime AddBusinessDays(this DateTime dt, int days) {
             var sign = Math.Sign(days);
             var unsignedDays = Math.Abs(days);
-            for (var i = 0; i < unsignedDays; i++)
-            {
-                do
-                {
+            for (var i = 0; i < unsignedDays; i++) {
+                do {
                     dt = dt.AddDays(sign);
                 } while (dt.DayOfWeek == DayOfWeek.Saturday ||
                          dt.DayOfWeek == DayOfWeek.Sunday);

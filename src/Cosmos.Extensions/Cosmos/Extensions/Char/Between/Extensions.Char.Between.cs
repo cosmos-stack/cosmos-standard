@@ -1,12 +1,10 @@
 // ReSharper disable once CheckNamespace
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Char extensions
     /// </summary>
-    public static partial class CharExtensions
-    {
+    public static partial class CharExtensions {
         /// <summary>
         /// Is special char between min and max
         /// </summary>
@@ -14,14 +12,12 @@ namespace Cosmos
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static bool IsBetween(this char @char, char min, char max)
-        {
+        public static bool IsBetween(this char @char, char min, char max) {
             var (xiao, da) = Fix(min, max);
             return @char >= xiao && @char <= da;
         }
 
-        private static (char min, char max) Fix(char min, char max)
-        {
+        private static (char min, char max) Fix(char min, char max) {
             if (min >= max)
                 return (max, min);
             return (min, max);

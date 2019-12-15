@@ -2,21 +2,18 @@ using System;
 using System.IO;
 using ZeroFormatter;
 
-namespace Cosmos.Serialization.ZeroFormatter
-{
+namespace Cosmos.Serialization.ZeroFormatter {
     /// <summary>
     /// ZeroFormatter helper
     /// </summary>
-    public static partial class ZeroFormatterHelper
-    {
+    public static partial class ZeroFormatterHelper {
         /// <summary>
         /// Pack
         /// </summary>
         /// <param name="t"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream Pack<T>(T t)
-        {
+        public static Stream Pack<T>(T t) {
             var ms = new MemoryStream();
 
             if (t == null)
@@ -33,10 +30,8 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="o"></param>
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Pack<T>(T o, Stream stream)
-        {
-            if (o != null)
-            {
+        public static void Pack<T>(T o, Stream stream) {
+            if (o != null) {
                 ZeroFormatterSerializer.Serialize(stream, o);
             }
         }
@@ -47,8 +42,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="type"></param>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static Stream Pack(object obj, Type type)
-        {
+        public static Stream Pack(object obj, Type type) {
             var ms = new MemoryStream();
 
             if (obj is null)
@@ -65,10 +59,8 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <param name="stream"></param>
-        public static void Pack(object obj, Type type, Stream stream)
-        {
-            if (obj != null)
-            {
+        public static void Pack(object obj, Type type, Stream stream) {
+            if (obj != null) {
                 ZeroFormatterSerializer.NonGeneric.Serialize(type, stream, obj);
             }
         }
@@ -79,8 +71,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Unpack<T>(Stream stream)
-        {
+        public static T Unpack<T>(Stream stream) {
             return stream is null
                 ? default
                 : ZeroFormatterSerializer.Deserialize<T>(stream);
@@ -92,8 +83,7 @@ namespace Cosmos.Serialization.ZeroFormatter
         /// <param name="stream"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object Unpack(Stream stream, Type type)
-        {
+        public static object Unpack(Stream stream, Type type) {
             return stream is null
                 ? default(Type)
                 : ZeroFormatterSerializer.NonGeneric.Deserialize(type, stream);

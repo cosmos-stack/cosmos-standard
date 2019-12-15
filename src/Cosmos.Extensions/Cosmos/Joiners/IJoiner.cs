@@ -2,24 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cosmos.Joiners
-{
+namespace Cosmos.Joiners {
     /// <summary>
     /// Joiner Interface<br />
-    /// Á¬½ÓÆ÷½Ó¿Ú
+    /// è¿æ¥å™¨æ¥å£
     /// </summary>
-    public interface IJoiner
-    {
+    public interface IJoiner {
         /// <summary>
         /// Skip null<br />
-        /// Ìø¹ı null
+        /// è·³è¿‡ null
         /// </summary>
         /// <returns></returns>
         IJoiner SkipNulls();
 
         /// <summary>
         /// If null, then use the special value.<br />
-        /// Èç¹ûÎª null£¬ÔòÊ¹ÓÃÖ¸¶¨µÄÖµÀ´Ìæ´ú
+        /// å¦‚æœä¸º nullï¼Œåˆ™ä½¿ç”¨æŒ‡å®šçš„å€¼æ¥æ›¿ä»£
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -27,7 +25,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// If null, then use the special value.<br />
-        /// Èç¹ûÎª null£¬ÔòÊ¹ÓÃÖ¸¶¨µÄÖµÀ´Ìæ´ú
+        /// å¦‚æœä¸º nullï¼Œåˆ™ä½¿ç”¨æŒ‡å®šçš„å€¼æ¥æ›¿ä»£
         /// </summary>
         /// <param name="valueFunc"></param>
         /// <returns></returns>
@@ -49,7 +47,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
@@ -57,7 +55,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="str1"></param>
         /// <param name="restStrings"></param>
@@ -66,7 +64,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
@@ -76,7 +74,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
@@ -86,7 +84,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="converter"></param>
@@ -97,7 +95,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="to"></param>
@@ -108,7 +106,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="list"></param>
@@ -117,7 +115,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="str1"></param>
@@ -127,7 +125,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>
@@ -138,7 +136,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>
@@ -149,7 +147,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>
@@ -161,7 +159,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="builder"></param>

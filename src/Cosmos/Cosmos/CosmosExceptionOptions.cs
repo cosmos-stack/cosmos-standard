@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Options for cosmos exception
     /// </summary>
-    public class CosmosExceptionOptions
-    {
+    public class CosmosExceptionOptions {
         /// <summary>
         /// Empty flag
         /// </summary>

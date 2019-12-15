@@ -17,10 +17,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class Extensions
-    {
+namespace System.Linq {
+    public static partial class Extensions {
         /// <summary>
         /// Skip
         /// </summary>
@@ -32,11 +30,10 @@ namespace System.Linq
         public static Task<IEnumerable<TSource>> Skip<TSource>(
             this Task<List<TSource>> source,
             int count,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, count, Enumerable.Skip, cancellationToken);
         }
-        
+
         /// <summary>
         /// Skip while
         /// </summary>
@@ -48,8 +45,7 @@ namespace System.Linq
         public static Task<IEnumerable<TSource>> SkipWhile<TSource>(
             this Task<List<TSource>> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.SkipWhile, cancellationToken);
         }
 
@@ -64,8 +60,7 @@ namespace System.Linq
         public static Task<IEnumerable<TSource>> SkipWhile<TSource>(
             this Task<List<TSource>> source,
             Func<TSource, int, bool> predicate,
-            CancellationToken cancellationToken = default)
-        {
+            CancellationToken cancellationToken = default) {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.SkipWhile, cancellationToken);
         }
     }

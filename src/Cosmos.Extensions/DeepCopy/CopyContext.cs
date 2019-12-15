@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 
-namespace DeepCopy
-{
+namespace DeepCopy {
     /// <summary>
     /// Records details about copied objects.
     /// </summary>
-    public sealed class CopyContext
-    {
+    public sealed class CopyContext {
         // ReSharper disable once InconsistentNaming
         private readonly Dictionary<object, object> copies = new Dictionary<object, object>(16, ReferenceEqualsComparer.Instance);
 
@@ -15,8 +13,7 @@ namespace DeepCopy
         /// </summary>
         /// <param name="original">The original object.</param>
         /// <param name="copy">The copy of <paramref name="original"/>.</param>
-        public void RecordCopy(object original, object copy)
-        {
+        public void RecordCopy(object original, object copy) {
             copies[original] = copy;
         }
 
@@ -26,16 +23,14 @@ namespace DeepCopy
         /// <param name="original">The original object.</param>
         /// <param name="result">The copied object.</param>
         /// <returns>The copy of <paramref name="original"/> or <see langword="null"/> if no copy has been made.</returns>
-        public bool TryGetCopy(object original, out object result)
-        {
+        public bool TryGetCopy(object original, out object result) {
             return copies.TryGetValue(original, out result);
         }
 
         /// <summary>
         /// Resets this instance so that it can be reused.
         /// </summary>
-        internal void Reset()
-        {
+        internal void Reset() {
             copies.Clear();
         }
     }

@@ -5,16 +5,14 @@ using Cosmos.IdUtils;
 using Cosmos.Validations;
 using Cosmos.Validations.Abstractions;
 
-namespace Cosmos.Domain
-{
+namespace Cosmos.Domain {
     /// <summary>
     /// Entity base
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TKey"></typeparam>
     public abstract class EntityBase<TEntity, TKey> : DomainObject<TEntity>, IEntity<TEntity, TKey>
-        where TEntity : class, IEntity, IValidatable<TEntity>
-    {
+        where TEntity : class, IEntity, IValidatable<TEntity> {
         /// <summary>
         /// Create a new instance of <see cref="EntityBase{TEntity, TKey}"/>.
         /// </summary>
@@ -33,8 +31,7 @@ namespace Cosmos.Domain
         public TKey Id { get; set; }
 
         /// <inheritdoc />
-        public override bool Equals(object other)
-        {
+        public override bool Equals(object other) {
             if (other == null)
                 return false;
             var entity = other as EntityBase<TEntity, TKey>;
@@ -44,8 +41,7 @@ namespace Cosmos.Domain
         }
 
         /// <inheritdoc />
-        public override int GetHashCode()
-        {
+        public override int GetHashCode() {
             // ReSharper disable once NonReadonlyMemberInGetHashCode
             return ReferenceEquals(Id, null) ? 0 : Id.GetHashCode();
         }
@@ -56,9 +52,8 @@ namespace Cosmos.Domain
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(EntityBase<TEntity, TKey> left, EntityBase<TEntity, TKey> right)
-        {
-            if ((object)left == null && (object)right == null)
+        public static bool operator ==(EntityBase<TEntity, TKey> left, EntityBase<TEntity, TKey> right) {
+            if ((object) left == null && (object) right == null)
                 return true;
             if (!(left is TEntity) || !(right is TEntity))
                 return false;
@@ -73,20 +68,16 @@ namespace Cosmos.Domain
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(EntityBase<TEntity, TKey> left, EntityBase<TEntity, TKey> right)
-        {
+        public static bool operator !=(EntityBase<TEntity, TKey> left, EntityBase<TEntity, TKey> right) {
             return !(left == right);
         }
 
         /// <inheritdoc />
-        public void Init()
-        {
-            if (Types.Of<TKey>() == Types.Of<Guid>())
-            {
+        public void Init() {
+            if (Types.Of<TKey>() == Types.Of<Guid>()) {
                 Id = GenerateCombKey().CastTo<TKey>();
             }
-            else if (Id?.Equals(default(TKey)) ?? false)
-            {
+            else if (Id?.Equals(default(TKey)) ?? false) {
                 Id = GenerateKey();
             }
         }
@@ -97,8 +88,7 @@ namespace Cosmos.Domain
         /// Generate key
         /// </summary>
         /// <returns></returns>
-        protected virtual TKey GenerateKey()
-        {
+        protected virtual TKey GenerateKey() {
             return Guid.NewGuid().CastTo<TKey>();
         }
 
@@ -106,8 +96,7 @@ namespace Cosmos.Domain
         /// Generate combkey
         /// </summary>
         /// <returns></returns>
-        protected virtual Guid GenerateCombKey()
-        {
+        protected virtual Guid GenerateCombKey() {
             return GuidProvider.Create(GuidStyle.CombStyle);
         }
 

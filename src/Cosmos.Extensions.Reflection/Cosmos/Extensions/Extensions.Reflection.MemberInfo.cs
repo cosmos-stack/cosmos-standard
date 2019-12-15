@@ -4,10 +4,8 @@ using System.Linq;
 using System.Reflection;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class ReflectionExtensions
-    {
+namespace Cosmos {
+    public static partial class ReflectionExtensions {
         /// <summary>
         /// To judge the attribute exists or not
         /// </summary>

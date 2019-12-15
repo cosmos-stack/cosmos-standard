@@ -11,14 +11,12 @@ using System.Threading.Tasks;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// Generic interface for request builder
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IRequestBuilder<T>
-    {
+    public interface IRequestBuilder<T> {
         /// <summary>
         /// Inner
         /// </summary>

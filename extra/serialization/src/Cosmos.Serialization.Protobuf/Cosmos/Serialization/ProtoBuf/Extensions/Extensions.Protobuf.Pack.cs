@@ -3,13 +3,11 @@ using System.IO;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.ProtoBuf
-{
+namespace Cosmos.Serialization.ProtoBuf {
     /// <summary>
     /// ProtoBuf extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// ProtoBuf Pack to
         /// </summary>

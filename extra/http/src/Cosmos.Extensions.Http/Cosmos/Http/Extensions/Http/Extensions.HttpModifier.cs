@@ -16,21 +16,18 @@ using Cosmos.Http.HttpUtils;
  */
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Http
-{
+namespace Cosmos.Http {
     /// <summary>
     /// Http Modifier Extensions
     /// </summary>
-    public static class HttpModifierExtensions
-    {
+    public static class HttpModifierExtensions {
         /// <summary>
         /// With timeout
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="timeout"></param>
         /// <returns></returns>
-        public static IRequestBuilder WithTimeout(this IRequestBuilder builder, TimeSpan timeout)
-        {
+        public static IRequestBuilder WithTimeout(this IRequestBuilder builder, TimeSpan timeout) {
             builder.Timeout = timeout;
             return builder;
         }
@@ -40,8 +37,7 @@ namespace Cosmos.Http
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static IRequestBuilder WithoutErrorLogging(this IRequestBuilder builder)
-        {
+        public static IRequestBuilder WithoutErrorLogging(this IRequestBuilder builder) {
             builder.LogErrors = false;
             return builder;
         }
@@ -52,8 +48,7 @@ namespace Cosmos.Http
         /// <param name="builder"></param>
         /// <param name="ignoredStatusCodes"></param>
         /// <returns></returns>
-        public static IRequestBuilder WithoutLogging(this IRequestBuilder builder, IEnumerable<HttpStatusCode> ignoredStatusCodes)
-        {
+        public static IRequestBuilder WithoutLogging(this IRequestBuilder builder, IEnumerable<HttpStatusCode> ignoredStatusCodes) {
             builder.IgnoreResponseStatuses = ignoredStatusCodes;
             return builder;
         }
@@ -67,8 +62,7 @@ namespace Cosmos.Http
         /// <param name="builder"></param>
         /// <param name="ignoredStatusCode"></param>
         /// <returns></returns>
-        public static IRequestBuilder WithoutLogging(this IRequestBuilder builder, HttpStatusCode ignoredStatusCode)
-        {
+        public static IRequestBuilder WithoutLogging(this IRequestBuilder builder, HttpStatusCode ignoredStatusCode) {
             builder.IgnoreResponseStatuses = _ignoreCache.GetOrAdd(ignoredStatusCode, ImmutableHashSet.Create);
             return builder;
         }
@@ -79,8 +73,7 @@ namespace Cosmos.Http
         /// <param name="builder"></param>
         /// <param name="beforeLogHandler"></param>
         /// <returns></returns>
-        public static IRequestBuilder OnException(this IRequestBuilder builder, EventHandler<HttpExceptionArgs> beforeLogHandler)
-        {
+        public static IRequestBuilder OnException(this IRequestBuilder builder, EventHandler<HttpExceptionArgs> beforeLogHandler) {
             builder.BeforeExceptionLog += beforeLogHandler;
             return builder;
         }
@@ -92,16 +85,12 @@ namespace Cosmos.Http
         /// <param name="name"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static IRequestBuilder AddHeader(this IRequestBuilder builder, string name, string value)
-        {
-            if (!string.IsNullOrEmpty(name))
-            {
-                try
-                {
+        public static IRequestBuilder AddHeader(this IRequestBuilder builder, string name, string value) {
+            if (!string.IsNullOrEmpty(name)) {
+                try {
                     builder.Message.Headers.Add(name, value);
                 }
-                catch (Exception e)
-                {
+                catch (Exception e) {
                     var wrapper = new HttpClientException($"Unable to set header: {name} to '{value}'", builder.Message.RequestUri, e);
                     builder.GetSettings().OnException(builder, new HttpExceptionArgs(builder, wrapper));
                 }
@@ -116,19 +105,15 @@ namespace Cosmos.Http
         /// <param name="builder"></param>
         /// <param name="headers"></param>
         /// <returns></returns>
-        public static IRequestBuilder AddHeaders(this IRequestBuilder builder, IDictionary<string, string> headers)
-        {
+        public static IRequestBuilder AddHeaders(this IRequestBuilder builder, IDictionary<string, string> headers) {
             if (headers == null)
                 return builder;
 
             var pHeaders = builder.Message.Headers;
 
-            foreach (var kv in headers)
-            {
-                try
-                {
-                    switch (kv.Key)
-                    {
+            foreach (var kv in headers) {
+                try {
+                    switch (kv.Key) {
                         case "Accept":
                             pHeaders.Accept.ParseAdd(kv.Value);
                             break;
@@ -142,8 +127,7 @@ namespace Cosmos.Http
                             break;
                     }
                 }
-                catch (Exception e)
-                {
+                catch (Exception e) {
                     var wrapper = new HttpClientException($"Unable to set header: {kv.Key} to '{kv.Value}'", builder.Message.RequestUri, e);
                     builder.GetSettings().OnException(builder, new HttpExceptionArgs(builder, wrapper));
                 }

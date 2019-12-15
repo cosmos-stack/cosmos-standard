@@ -4,13 +4,11 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.MessagePack.MsgPackCli;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.MessagePack
-{
+namespace Cosmos.Serialization.MessagePack {
     /// <summary>
     /// MessagePack extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// Pack to
         /// </summary>

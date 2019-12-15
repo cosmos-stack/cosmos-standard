@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions
-    {
+    public static partial class EnumerableExtensions {
         /// <summary>
         /// Take last
         /// </summary>
@@ -19,8 +17,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static IEnumerable<T> TakeLast<T>(this IEnumerable<T> source, int count)
-        {
+        public static IEnumerable<T> TakeLast<T>(this IEnumerable<T> source, int count) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (count < 0)
@@ -43,12 +40,10 @@ namespace Cosmos.Collections
             return source.EnumerableTakeLast(count);
         }
 
-        private static IEnumerable<T> EnumerableTakeLast<T>(this IEnumerable<T> source, int count)
-        {
+        private static IEnumerable<T> EnumerableTakeLast<T>(this IEnumerable<T> source, int count) {
             var window = new Queue<T>(count);
 
-            foreach (T item in source)
-            {
+            foreach (T item in source) {
                 window.Enqueue(item);
                 if (window.Count > count)
                     window.Dequeue();
@@ -57,8 +52,7 @@ namespace Cosmos.Collections
             return window;
         }
 
-        private static IEnumerable<T> CollectionTakeLast<T>(this ICollection<T> source, int count)
-        {
+        private static IEnumerable<T> CollectionTakeLast<T>(this ICollection<T> source, int count) {
             count = Math.Min(source.Count, count);
 
             if (count == 0)
@@ -70,11 +64,10 @@ namespace Cosmos.Collections
             return source.Skip(source.Count - count);
         }
 
-        private static IEnumerable<T> ReadOnlyCollectionTakeLast<T>(this IReadOnlyCollection<T> source, int count)
-        {
+        private static IEnumerable<T> ReadOnlyCollectionTakeLast<T>(this IReadOnlyCollection<T> source, int count) {
             count = Math.Min(source.Count, count);
-            
-            if (count == 0) 
+
+            if (count == 0)
                 return Enumerable.Empty<T>();
 
             if (count == source.Count)

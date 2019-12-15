@@ -17,8 +17,7 @@ using Cosmos.IdUtils.CombImplements.Strategies;
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cosmos.IdUtils.CombImplements.Providers
-{
+namespace Cosmos.IdUtils.CombImplements.Providers {
     /*
      * Reference To
      *     http://github.com/richardtallent/RT.Comb
@@ -27,15 +26,13 @@ namespace Cosmos.IdUtils.CombImplements.Providers
      *     https://www.tallent.us
      */
 
-    internal class PostgreSqlCombProvider : BaseProvider
-    {
+    internal class PostgreSqlCombProvider : BaseProvider {
         public PostgreSqlCombProvider(IDateStrategy strategy,
             InternalTimeStampProvider customTimeStampProvider = null,
             InternalGuidProvider customGuidProvider = null)
             : base(strategy, customTimeStampProvider, customGuidProvider) { }
 
-        public override Guid Create(Guid value, DateTime timestamp)
-        {
+        public override Guid Create(Guid value, DateTime timestamp) {
             var gbytes = value.ToByteArray();
             var dbytes = _dateTimeStrategy.DateTimeToBytes(timestamp);
 
@@ -46,8 +43,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
             return new Guid(gbytes);
         }
 
-        public override DateTime GetTimeStamp(Guid value)
-        {
+        public override DateTime GetTimeStamp(Guid value) {
             var gbytes = value.ToByteArray();
             var dbytes = new byte[_dateTimeStrategy.NumDateBytes];
 
@@ -58,8 +54,7 @@ namespace Cosmos.IdUtils.CombImplements.Providers
             return _dateTimeStrategy.BytesToDateTime(dbytes);
         }
 
-        private void SwapByteOrderForStringOrder(byte[] input)
-        {
+        private void SwapByteOrderForStringOrder(byte[] input) {
             input.Reverse(0, 4);
             if (input.Length == 4)
                 return;

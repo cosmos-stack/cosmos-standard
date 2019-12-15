@@ -4,23 +4,20 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.MessagePack.Neuecc;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.MessagePack
-{
+namespace Cosmos.Serialization.MessagePack {
     using N = NeueccMsgPackHelper;
 
     /// <summary>
     /// MessagePack extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// Pack to
         /// </summary>
         /// <param name="t"></param>
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
-        public static void NeueccPackTo<T>(this T t, Stream stream)
-        {
+        public static void NeueccPackTo<T>(this T t, Stream stream) {
             N.Pack(t, stream);
         }
 
@@ -30,8 +27,7 @@ namespace Cosmos.Serialization.MessagePack
         /// <param name="obj"></param>
         /// <param name="type"></param>
         /// <param name="stream"></param>
-        public static void NeueccPackTo(this object obj, Type type, Stream stream)
-        {
+        public static void NeueccPackTo(this object obj, Type type, Stream stream) {
             N.Pack(obj, type, stream);
         }
 

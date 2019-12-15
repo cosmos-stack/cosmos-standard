@@ -9,7 +9,7 @@
             Extensions for NCC AspectCore
             </summary>
         </member>
-        <member name="M:AspectCore.Injector.AspectCoreInjectorExtensions.RegisterProxy(AspectCore.Injector.IServiceContainer,Cosmos.Dependency.RegisterProxyBag)">
+        <member name="M:AspectCore.Injector.AspectCoreInjectorExtensions.RegisterProxy(AspectCore.DependencyInjection.IServiceContext,Cosmos.Dependency.RegisterProxyBag)">
             <summary>
             Register Proxy
             </summary>

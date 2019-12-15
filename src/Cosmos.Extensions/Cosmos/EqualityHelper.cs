@@ -9,8 +9,7 @@ using System.Collections.Generic;
  *      MIT
  */
 
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// 相等比较，用于快速创建<see cref="IEqualityComparer{T}"/>的实例
     /// </summary>
@@ -19,16 +18,14 @@ namespace Cosmos
     /// var equalityComparer2 = EqualityHelper[Person].CreateComparer(p => p.Name);
     /// var equalityComparer3 = EqualityHelper[Person].CreateComparer(p => p.Birthday.Year);
     /// </example>
-    public static class EqualityHelper<T>
-    {
+    public static class EqualityHelper<T> {
         /// <summary>
         /// Create comparer
         /// </summary>
         /// <typeparam name="TV"></typeparam>
         /// <param name="keySelector"></param>
         /// <returns></returns>
-        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector)
-        {
+        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector) {
             return new CommonEqualityComparer<TV>(keySelector);
         }
 
@@ -39,18 +36,15 @@ namespace Cosmos
         /// <param name="keySelector"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
-        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector, IEqualityComparer<TV> comparer)
-        {
+        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector, IEqualityComparer<TV> comparer) {
             return new CommonEqualityComparer<TV>(keySelector, comparer);
         }
 
-        private class CommonEqualityComparer<TV> : IEqualityComparer<T>
-        {
+        private class CommonEqualityComparer<TV> : IEqualityComparer<T> {
             private readonly IEqualityComparer<TV> _comparer;
             private readonly Func<T, TV> _keySelector;
 
-            public CommonEqualityComparer(Func<T, TV> keySelector, IEqualityComparer<TV> comparer)
-            {
+            public CommonEqualityComparer(Func<T, TV> keySelector, IEqualityComparer<TV> comparer) {
                 _keySelector = keySelector;
                 _comparer = comparer;
             }

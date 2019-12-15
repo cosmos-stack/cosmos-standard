@@ -1,14 +1,12 @@
 ﻿using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTime Extensions<br />
     /// DateTime 扩展方法
     /// </summary>
-    public static partial class DateTimeExtensions
-    {
+    public static partial class DateTimeExtensions {
         /// <summary>
         /// Is current date between <paramref name="from"/> and <paramref to="to"/>.<br />
         /// 判断当前日期是否在 from 和 to 之间
@@ -18,8 +16,7 @@ namespace Cosmos
         /// <param name="to"></param>
         /// <param name="includeBoundary"></param>
         /// <returns></returns>
-        public static bool IsBetween(this DateTime dt, DateTime from, DateTime to, bool includeBoundary = true)
-        {
+        public static bool IsBetween(this DateTime dt, DateTime from, DateTime to, bool includeBoundary = true) {
             return includeBoundary
                 ? dt >= from && dt <= to
                 : dt > @from && dt < to;
@@ -44,8 +41,7 @@ namespace Cosmos
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static bool IsDateBetweenWithBoundary(this DateTime dt, DateTime? min, DateTime? max)
-        {
+        public static bool IsDateBetweenWithBoundary(this DateTime dt, DateTime? min, DateTime? max) {
             if (min.HasValue && max.HasValue)
                 return dt.IsDateBetweenWithBoundary(min.Value, max.Value);
 

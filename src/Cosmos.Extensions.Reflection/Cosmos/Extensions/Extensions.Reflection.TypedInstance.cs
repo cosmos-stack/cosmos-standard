@@ -1,10 +1,8 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class ReflectionExtensions
-    {
+namespace Cosmos {
+    public static partial class ReflectionExtensions {
         /// <summary>
         /// Create instance
         /// </summary>

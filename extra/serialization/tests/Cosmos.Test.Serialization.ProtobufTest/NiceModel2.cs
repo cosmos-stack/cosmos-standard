@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using ProtoBuf;
 
-namespace Cosmos.Test.Serialization.ProtobufTest
-{
-    public class NiceModel2
-    {
+namespace Cosmos.Test.Serialization.ProtobufTest {
+    public class NiceModel2 {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public NiceType NiceType { get; set; }
@@ -15,8 +13,7 @@ namespace Cosmos.Test.Serialization.ProtobufTest
         public bool IsValid { get; set; }
     }
 
-    public class SubModel : NiceModel2
-    {
+    public class SubModel : NiceModel2 {
         public int SayId { get; set; }
     }
 }

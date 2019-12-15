@@ -1,19 +1,15 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class BaseTypeExtensions
-    {
+namespace Cosmos {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// If true...
         /// </summary>
         /// <param name="this"></param>
         /// <param name="action"></param>
-        public static void IfTrue(this bool @this, Action action)
-        {
-            if (@this)
-            {
+        public static void IfTrue(this bool @this, Action action) {
+            if (@this) {
                 action?.Invoke();
             }
         }
@@ -23,10 +19,8 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <param name="action"></param>
-        public static void IfFalse(this bool @this, Action action)
-        {
-            if (!@this)
-            {
+        public static void IfFalse(this bool @this, Action action) {
+            if (!@this) {
                 action?.Invoke();
             }
         }
@@ -37,14 +31,11 @@ namespace Cosmos
         /// <param name="condition"></param>
         /// <param name="this"></param>
         /// <param name="that"></param>
-        public static void Ifttt(this bool condition, Action @this, Action that)
-        {
-            if (condition)
-            {
+        public static void Ifttt(this bool condition, Action @this, Action that) {
+            if (condition) {
                 @this?.Invoke();
             }
-            else
-            {
+            else {
                 that?.Invoke();
             }
         }
@@ -57,16 +48,13 @@ namespace Cosmos
         /// <param name="this"></param>
         /// <param name="that"></param>
         /// <returns></returns>
-        public static TValue Ifttt<TValue>(this bool condition, Func<TValue> @this, Func<TValue> @that)
-        {
-            if (condition)
-            {
+        public static TValue Ifttt<TValue>(this bool condition, Func<TValue> @this, Func<TValue> @that) {
+            if (condition) {
                 if (@this == null)
                     return default;
                 return @this.Invoke();
             }
-            else
-            {
+            else {
                 if (that == null)
                     return default;
                 return that.Invoke();
@@ -78,8 +66,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static byte ToBinary(this bool @this)
-        {
+        public static byte ToBinary(this bool @this) {
             return Convert.ToByte(@this);
         }
 
@@ -90,8 +77,7 @@ namespace Cosmos
         /// <param name="trueString"></param>
         /// <param name="falseString"></param>
         /// <returns></returns>
-        public static string ToString(this bool @this, string trueString, string falseString)
-        {
+        public static string ToString(this bool @this, string trueString, string falseString) {
             return @this ? trueString : falseString;
         }
 
@@ -100,10 +86,8 @@ namespace Cosmos
         /// </summary>
         /// <param name="string"></param>
         /// <param name="action"></param>
-        public static void IfNullOrWhiteSpace(this string @string, Action action)
-        {
-            if (string.IsNullOrWhiteSpace(@string))
-            {
+        public static void IfNullOrWhiteSpace(this string @string, Action action) {
+            if (string.IsNullOrWhiteSpace(@string)) {
                 action?.Invoke();
             }
         }
@@ -113,10 +97,8 @@ namespace Cosmos
         /// </summary>
         /// <param name="string"></param>
         /// <param name="action"></param>
-        public static void IfNotNullNorSpace(this string @string, Action action)
-        {
-            if (!string.IsNullOrWhiteSpace(@string))
-            {
+        public static void IfNotNullNorSpace(this string @string, Action action) {
+            if (!string.IsNullOrWhiteSpace(@string)) {
                 action?.Invoke();
             }
         }

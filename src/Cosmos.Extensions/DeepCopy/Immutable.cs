@@ -1,10 +1,8 @@
-namespace DeepCopy
-{
+namespace DeepCopy {
     /// <summary>
     /// Helper class for creating immutable values.
     /// </summary>
-    public static class Immutable
-    {
+    public static class Immutable {
         /// <summary>
         /// Returns an immutable wrapper over the provided value.
         /// </summary>
@@ -19,14 +17,12 @@ namespace DeepCopy
     /// </summary>
     /// <typeparam name="T">The wrapped type.</typeparam>
     [Immutable]
-    public struct Immutable<T>
-    {
+    public struct Immutable<T> {
         /// <summary>
         /// Initializes a new <see cref="Immutable{T}"/> instance.
         /// </summary>
         /// <param name="value">The value.</param>
-        public Immutable(T value)
-        {
+        public Immutable(T value) {
             Value = value;
         }
 

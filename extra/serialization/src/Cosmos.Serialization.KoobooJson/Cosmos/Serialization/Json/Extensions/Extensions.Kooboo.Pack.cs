@@ -5,15 +5,13 @@ using Kooboo.Json;
 using Cosmos.Serialization.Json.Kooboo;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     using K = KoobooJsonHelper;
 
     /// <summary>
     /// KoobooJson extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// Kooboo pack to
         /// </summary>

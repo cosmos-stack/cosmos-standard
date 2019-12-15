@@ -1,12 +1,10 @@
 using System;
 
-namespace Cosmos.Domain.EntityDescriptors
-{
+namespace Cosmos.Domain.EntityDescriptors {
     /// <summary>
     /// To flag this entity will be expired, include start time and end time.
     /// </summary>
-    public interface IExpireable
-    {
+    public interface IExpireable {
         /// <summary>
         /// Expire limited from...
         /// </summary>

@@ -63,6 +63,17 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Asynchronous.Tasks">
+            <summary>
+            Task utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.Tasks.CompletedTask">
+            <summary>
+            Gets a task that has been completed successfully.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.ValueTaskFactory">
             <summary>
             ValueTask factory
@@ -74,6 +85,19 @@
             </summary>
             <param name="result"></param>
             <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Asynchronous.ValueTasks">
+            <summary>
+            ValueTask utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ValueTasks.Create``1(``0)">
+            <summary>
+            Create a new ValueTask instance from given result.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="result"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Asynchronous.TaskExtensions">
@@ -398,7 +422,7 @@
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose(`0)">
             <summary>
-            The actual disposal method, call only once from <seealso cref="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose(`0)"/>.
+            The actual disposal method, call only once from Dispose.
             </summary>
             <param name="context"></param>
         </member>
@@ -433,7 +457,7 @@
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose(`0)">
             <summary>
-            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose(`0)"/>
+            The actual disposal method, call only once from Dispose
             </summary>
             <param name="context"></param>
         </member>
@@ -12383,6 +12407,26 @@
             <typeparam name="TP4"></typeparam>
             <typeparam name="TP5"></typeparam>
             <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
+            <summary>
+            Call Context
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.SetData(System.String,`0)">
+            <summary>
+            Set data
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.GetData(System.String)">
+            <summary>
+            Get data
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:System.Threading.AsyncLocal`1">

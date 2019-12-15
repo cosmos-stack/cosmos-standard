@@ -1,10 +1,8 @@
-﻿namespace Cosmos.Domain.EntityDescriptors
-{
+﻿namespace Cosmos.Domain.EntityDescriptors {
     /// <summary>
     /// To flag this entity can be mark as deleted.
     /// </summary>
-    public interface IDeletable
-    {
+    public interface IDeletable {
         /// <summary>
         /// Is deleted
         /// </summary>

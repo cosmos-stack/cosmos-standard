@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions of list
     /// </summary>
-    public static partial class ListExtensions
-    {
+    public static partial class ListExtensions {
         /// <summary>
         /// To string list
         /// </summary>

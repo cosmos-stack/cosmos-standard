@@ -1,16 +1,14 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class CharExtensions
-    {
+
+namespace Cosmos {
+    public static partial class CharExtensions {
         /// <summary>
         /// Equals ignore case
         /// </summary>
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool EqualsIgnoreCase(this char text, char toCheck)
-        {
+        public static bool EqualsIgnoreCase(this char text, char toCheck) {
             return char.ToUpper(text) == char.ToUpper(toCheck);
         }
 
@@ -20,8 +18,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool EqualsIgnoreCase(this char? text, char toCheck)
-        {
+        public static bool EqualsIgnoreCase(this char? text, char toCheck) {
             if (text == null)
                 return false;
 

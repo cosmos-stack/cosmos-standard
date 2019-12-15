@@ -1,14 +1,12 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTimeOffset Extensions<br />
     /// DateTimeOffset 扩展方法
     /// </summary>
-    public static partial class DateTimeOffsetExtensions
-    {
+    public static partial class DateTimeOffsetExtensions {
         /// <summary>
         /// At
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos
         /// <param name="hour"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
-        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute)
-        {
+        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute) {
             return dto.SetTime(hour, minute);
         }
 
@@ -29,8 +26,7 @@ namespace Cosmos
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second)
-        {
+        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second) {
             return dto.SetTime(hour, minute, second);
         }
 
@@ -43,8 +39,7 @@ namespace Cosmos
         /// <param name="second"></param>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
-        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second, int milliseconds)
-        {
+        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second, int milliseconds) {
             return dto.SetTime(hour, minute, second, milliseconds);
         }
     }

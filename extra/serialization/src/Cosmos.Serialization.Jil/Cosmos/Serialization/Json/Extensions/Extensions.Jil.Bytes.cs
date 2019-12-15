@@ -4,13 +4,11 @@ using Jil;
 using Cosmos.Serialization.Json.Jil;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     /// <summary>
     /// JilJson extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// To Jil bytes
         /// </summary>

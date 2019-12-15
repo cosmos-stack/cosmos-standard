@@ -3,13 +3,11 @@ using System.IO;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Xml
-{
+namespace Cosmos.Serialization.Xml {
     /// <summary>
     /// Xml extensions
     /// </summary>
-    public static partial class XmlExtensions
-    {
+    public static partial class XmlExtensions {
         /// <summary>
         /// Xml pack to
         /// </summary>

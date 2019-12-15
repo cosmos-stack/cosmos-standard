@@ -1,24 +1,19 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace System.Reflection
-{
+namespace System.Reflection {
     /// <summary>
     /// Property path
     /// </summary>
-    public class PropertyPath
-    {
+    public class PropertyPath {
         internal PropertyPath() : this(null) { }
 
-        internal PropertyPath(PropertyPath root)
-        {
-            if (root == null)
-            {
+        internal PropertyPath(PropertyPath root) {
+            if (root == null) {
                 _path = new Queue<PropertyInfo>();
                 Root = this;
             }
-            else
-            {
+            else {
                 Root = root;
             }
 
@@ -42,8 +37,7 @@ namespace System.Reflection
         /// </summary>
         /// <param name="property"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        protected void Append(PropertyInfo property)
-        {
+        protected void Append(PropertyInfo property) {
             if (property == null)
                 throw new ArgumentNullException(nameof(property));
 

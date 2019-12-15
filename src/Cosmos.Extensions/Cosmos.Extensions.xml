@@ -1183,12 +1183,12 @@
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.CollectionExtensions">
+        <member name="T:Cosmos.Collections.CollectionExtensions">
             <summary>
             Collection extensions
             </summary>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.AddRange``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEnumerable{``0},System.Int32)">
+        <member name="M:Cosmos.Collections.CollectionExtensions.AddRange``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEnumerable{``0},System.Int32)">
             <summary>
             Add range
             </summary>
@@ -1197,7 +1197,7 @@
             <param name="collection"></param>
             <param name="limit"></param>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.Disorder``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.Disorder``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             打乱一个集合的顺序
             </summary>
@@ -1205,14 +1205,14 @@
             <param name="source"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Join to string
             </summary>
             <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.String)">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.String)">
             <summary>
             Join to string
             </summary>
@@ -1220,7 +1220,7 @@
             <param name="delimiter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.Boolean},System.Func{System.String,System.String})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.Boolean},System.Func{System.String,System.String})">
             <summary>
             Join to string
             </summary>
@@ -1229,7 +1229,7 @@
             <param name="replaceFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.String,System.Func{System.String,System.Boolean},System.Func{System.String,System.String})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.String,System.Func{System.String,System.Boolean},System.Func{System.String,System.String})">
             <summary>
             Join to string
             </summary>
@@ -1239,7 +1239,7 @@
             <param name="replaceFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Join to string
             </summary>
@@ -1247,7 +1247,7 @@
             <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
             <summary>
             Join to string
             </summary>
@@ -1256,7 +1256,7 @@
             <param name="delimiter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},System.Func{``0,``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},System.Func{``0,``0})">
             <summary>
             Join to string
             </summary>
@@ -1267,7 +1267,7 @@
             <param name="replaceFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,Cosmos.ITypeConverter{``0,System.String},System.Func{``0,``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,Cosmos.ITypeConverter{``0,System.String},System.Func{``0,``0})">
             <summary>
             Join to string
             </summary>
@@ -1278,7 +1278,7 @@
             <param name="replaceFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String},System.Func{``0,``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String},System.Func{``0,``0})">
             <summary>
             Join to string
             </summary>
@@ -1289,7 +1289,7 @@
             <param name="replaceFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},Cosmos.ITypeConverter{``0,System.String},System.Func{``0,``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},Cosmos.ITypeConverter{``0,System.String},System.Func{``0,``0})">
             <summary>
             Join to string
             </summary>
@@ -1301,7 +1301,7 @@
             <param name="replaceFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinOnePerLine``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinOnePerLine``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Join to string
             </summary>
@@ -1309,7 +1309,7 @@
             <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Join to string
             </summary>
@@ -1317,7 +1317,7 @@
             <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0},System.String)">
             <summary>
             Join to string
             </summary>
@@ -1326,7 +1326,7 @@
             <param name="delimiter"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0},System.String,System.IFormatProvider)">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0},System.String,System.IFormatProvider)">
             <summary>
             Join to string
             </summary>
@@ -1336,7 +1336,7 @@
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,``0})">
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,``0})">
             <summary>
             Join to string
             </summary>

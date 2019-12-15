@@ -3,22 +3,19 @@ using System.Globalization;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateInfo Extensions<br />
     /// DateInfo 扩展方法
     /// </summary>
-    public static partial class DateInfoExtensions
-    {
+    public static partial class DateInfoExtensions {
         /// <summary>
         /// Get next weekday.
         /// </summary>
         /// <param name="dt"></param>
         /// <param name="weekday"></param>
         /// <returns></returns>
-        public static DateInfo GetNextWeekdayInfo(this DateTime dt, DayOfWeek weekday)
-        {
+        public static DateInfo GetNextWeekdayInfo(this DateTime dt, DayOfWeek weekday) {
             while (dt.DayOfWeek != weekday) dt = dt.AddDays(1);
             return dt;
         }
@@ -29,8 +26,7 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="weekday"></param>
         /// <returns></returns>
-        public static DateInfo GetNextWeekdayInfo(this DateInfo d, DayOfWeek weekday)
-        {
+        public static DateInfo GetNextWeekdayInfo(this DateInfo d, DayOfWeek weekday) {
             while (d.DayOfWeek != weekday) d = d.AddDays(1);
             return d;
         }
@@ -41,8 +37,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="weekday"></param>
         /// <returns></returns>
-        public static DateInfo GetPreviousWeekdayInfo(this DateTime dt, DayOfWeek weekday)
-        {
+        public static DateInfo GetPreviousWeekdayInfo(this DateTime dt, DayOfWeek weekday) {
             while (dt.DayOfWeek != weekday) dt = dt.AddDays(-1);
             return dt;
         }
@@ -53,8 +48,7 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="weekday"></param>
         /// <returns></returns>
-        public static DateInfo GetPreviousWeekdayInfo(this DateInfo d, DayOfWeek weekday)
-        {
+        public static DateInfo GetPreviousWeekdayInfo(this DateInfo d, DayOfWeek weekday) {
             while (d.DayOfWeek != weekday) d = d.AddDays(-1);
             return d;
         }
@@ -79,8 +73,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="cultureInfo"></param>
         /// <returns></returns>
-        public static DateInfo GetLastDayInfoOfWeek(this DateTime dt, CultureInfo cultureInfo)
-        {
+        public static DateInfo GetLastDayInfoOfWeek(this DateTime dt, CultureInfo cultureInfo) {
             cultureInfo = (cultureInfo ?? CultureInfo.CurrentCulture);
             var firstDayOfWeek = cultureInfo.DateTimeFormat.FirstDayOfWeek;
             while (dt.DayOfWeek != firstDayOfWeek) dt = dt.AddDays(-1);
@@ -93,8 +86,7 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="cultureInfo"></param>
         /// <returns></returns>
-        public static DateInfo GetLastDayInfoOfWeek(this DateInfo d, CultureInfo cultureInfo)
-        {
+        public static DateInfo GetLastDayInfoOfWeek(this DateInfo d, CultureInfo cultureInfo) {
             cultureInfo = (cultureInfo ?? CultureInfo.CurrentCulture);
             var firstDayOfWeek = cultureInfo.DateTimeFormat.FirstDayOfWeek;
             while (d.DayOfWeek != firstDayOfWeek) d = d.AddDays(-1);
@@ -121,8 +113,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo GetLastDayInfoOfMonth(this DateTime dt, DayOfWeek dayOfWeek)
-        {
+        public static DateInfo GetLastDayInfoOfMonth(this DateTime dt, DayOfWeek dayOfWeek) {
             var t = new DateTime(dt.Year, dt.Month, DateTime.DaysInMonth(dt.Year, dt.Month));
             while (t.DayOfWeek != dayOfWeek)
                 t = t.AddDays(-1);
@@ -135,8 +126,7 @@ namespace Cosmos
         /// <param name="d"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo GetLastDayInfoOfMonth(this DateInfo d, DayOfWeek dayOfWeek)
-        {
+        public static DateInfo GetLastDayInfoOfMonth(this DateInfo d, DayOfWeek dayOfWeek) {
             var t = new DateTime(d.Year, d.Month, DateTime.DaysInMonth(d.Year, d.Month));
             while (t.DayOfWeek != dayOfWeek)
                 t = t.AddDays(-1);
@@ -163,8 +153,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo GetLastDayInfoOfQuarter(this DateTime dt, DayOfWeek dayOfWeek)
-        {
+        public static DateInfo GetLastDayInfoOfQuarter(this DateTime dt, DayOfWeek dayOfWeek) {
             var t = dt.GetLastDayInfoOfQuarter();
             while (t.DayOfWeek != dayOfWeek)
                 t = t.AddDays(-1);
@@ -199,8 +188,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo GetLastDayInfoOfYear(this DateTime dt, DayOfWeek dayOfWeek)
-        {
+        public static DateInfo GetLastDayInfoOfYear(this DateTime dt, DayOfWeek dayOfWeek) {
             var t = dt.LastDayOfYear();
             while (t.DayOfWeek != dayOfWeek)
                 t = t.AddDays(-1);
@@ -235,8 +223,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="cultureInfo"></param>
         /// <returns></returns>
-        public static DateInfo GetFirstDayInfoOfWeek(this DateTime dt, CultureInfo cultureInfo)
-        {
+        public static DateInfo GetFirstDayInfoOfWeek(this DateTime dt, CultureInfo cultureInfo) {
             cultureInfo = (cultureInfo ?? CultureInfo.CurrentCulture);
             var firstDayOfWeek = cultureInfo.DateTimeFormat.FirstDayOfWeek;
             while (dt.DayOfWeek != firstDayOfWeek) dt = dt.AddDays(-1);
@@ -271,8 +258,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo GetFirstDayInfoOfMonth(this DateTime dt, DayOfWeek dayOfWeek)
-        {
+        public static DateInfo GetFirstDayInfoOfMonth(this DateTime dt, DayOfWeek dayOfWeek) {
             var t = new DateTime(dt.Year, dt.Month, 1);
             while (t.DayOfWeek != dayOfWeek)
                 t = t.AddDays(1);
@@ -307,8 +293,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo GetFirstDayInfoOfQuarter(this DateTime dt, DayOfWeek dayOfWeek)
-        {
+        public static DateInfo GetFirstDayInfoOfQuarter(this DateTime dt, DayOfWeek dayOfWeek) {
             var d = dt.GetFirstDayInfoOfQuarter();
             while (d.DayOfWeek != dayOfWeek)
                 d = d.AddDays(1);
@@ -343,8 +328,7 @@ namespace Cosmos
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateInfo GetFirstDayInfoOfYear(this DateTime dt, DayOfWeek dayOfWeek)
-        {
+        public static DateInfo GetFirstDayInfoOfYear(this DateTime dt, DayOfWeek dayOfWeek) {
             var t = DateTimeFactory.Create(dt.Year, 1, 1);
             while (t.DayOfWeek != dayOfWeek)
                 t = t.AddDays(-1);

@@ -441,6 +441,9 @@
             <summary>
             Enumerable extensions
             </summary>
+            <summary>
+            Enumerable extensions
+            </summary>
         </member>
         <member name="M:Cosmos.Collections.EnumerableExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0[])">
             <summary>
@@ -679,6 +682,51 @@
             <param name="enumerate"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To hashset
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            To hashset
+            </summary>
+            <param name="source"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
+            <summary>
+            To HashSet
+            </summary>
+            <param name="source"></param>
+            <param name="ignoreDup"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            To HashSet
+            </summary>
+            <param name="source"></param>
+            <param name="keyFunc"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSetIgnoringDuplicates``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To HashSet ignore duplicates
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Collections.EnumerableExtensions.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
             <summary>
             To dictionary
@@ -696,24 +744,6 @@
             <param name="equalityComparer"></param>
             <typeparam name="TKey"></typeparam>
             <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To hashset
-            </summary>
-            <param name="source"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
-            <summary>
-            To hashset
-            </summary>
-            <param name="source"></param>
-            <param name="comparer"></param>
-            <typeparam name="T"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -898,46 +928,6 @@
             <typeparam name="T"></typeparam>
             <param name="this"></param>
             <param name="that"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Collections.HashtableExtensions">
-            <summary>
-            Extensions for HashSet 
-            </summary>
-        </member>
-        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSetIgnoringDuplicates``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            To HashSet ignore duplicates
-            </summary>
-            <param name="list"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To HashSet
-            </summary>
-            <param name="list"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
-            <summary>
-            To HashSet
-            </summary>
-            <param name="list"></param>
-            <param name="ignoreDup"></param>
-            <typeparam name="TItem"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Collections.HashtableExtensions.ToHashSet``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
-            <summary>
-            To HashSet
-            </summary>
-            <param name="list"></param>
-            <param name="keyFunc"></param>
-            <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Collections.ListExtensions">

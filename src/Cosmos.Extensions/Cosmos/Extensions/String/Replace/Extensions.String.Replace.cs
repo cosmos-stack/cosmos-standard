@@ -2,13 +2,11 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StringExtensions
-    {
+    public static partial class StringExtensions {
         /// <summary>
         /// Replace ignore case
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceIgnoringCase(this string original, string oldValue, string newValue)
-        {
+        public static string ReplaceIgnoringCase(this string original, string oldValue, string newValue) {
             return Replace(original, oldValue, newValue, StringComparison.OrdinalIgnoreCase);
         }
 
@@ -28,8 +25,7 @@ namespace Cosmos
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceOnlyWholePhrase(this string original, string oldValue, string newValue)
-        {
+        public static string ReplaceOnlyWholePhrase(this string original, string oldValue, string newValue) {
             if (original.IsNullOrEmpty() || oldValue.IsNullOrEmpty())
                 return original;
 
@@ -38,8 +34,7 @@ namespace Cosmos
 
             var buffer = new StringBuilder(original.Length);
 
-            while (index >= 0)
-            {
+            while (index >= 0) {
                 buffer.Append(original, startIndex: lastIndex, count: index - lastIndex);
                 buffer.Append(newValue);
 
@@ -47,6 +42,7 @@ namespace Cosmos
 
                 index = original.IndexWholePhrase(oldValue, startIndex: index + 1);
             }
+
             buffer.Append(original, lastIndex, original.Length - lastIndex);
 
             return buffer.ToString();
@@ -59,8 +55,7 @@ namespace Cosmos
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceFirstOccurrence(this string original, string oldValue, string newValue)
-        {
+        public static string ReplaceFirstOccurrence(this string original, string oldValue, string newValue) {
             if (oldValue.IsNullOrEmpty())
                 return original;
 
@@ -82,8 +77,7 @@ namespace Cosmos
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceLastOccurrence(this string original, string oldValue, string newValue)
-        {
+        public static string ReplaceLastOccurrence(this string original, string oldValue, string newValue) {
             if (oldValue.IsNullOrEmpty())
                 return original;
 
@@ -105,8 +99,7 @@ namespace Cosmos
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceOnlyAtEndIgnoreCase(this string original, string oldValue, string newValue)
-        {
+        public static string ReplaceOnlyAtEndIgnoreCase(this string original, string oldValue, string newValue) {
             if (oldValue.IsNullOrEmpty())
                 return original;
 
@@ -124,26 +117,24 @@ namespace Cosmos
         /// <param name="newValue"></param>
         /// <param name="comparisionType"></param>
         /// <returns></returns>
-        public static string Replace(this string original, string oldValue, string newValue, StringComparison comparisionType)
-        {
+        public static string Replace(this string original, string oldValue, string newValue, StringComparison comparisionType) {
             if (original.IsNullOrEmpty())
                 return original;
 
             string result = original;
 
-            if (!string.IsNullOrEmpty(oldValue))
-            {
+            if (!string.IsNullOrEmpty(oldValue)) {
                 int index = -1, lastIndex = 0;
 
                 var buffer = new StringBuilder(original.Length);
 
-                while ((index = original.IndexOf(oldValue, index + 1, comparisionType)) >= 0)
-                {
+                while ((index = original.IndexOf(oldValue, index + 1, comparisionType)) >= 0) {
                     buffer.Append(original, lastIndex, index - lastIndex);
                     buffer.Append(newValue);
 
                     lastIndex = index + oldValue.Length;
                 }
+
                 buffer.Append(original, lastIndex, original.Length - lastIndex);
 
                 result = buffer.ToString();
@@ -159,8 +150,7 @@ namespace Cosmos
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceRecursive(this string original, string oldValue, string newValue)
-        {
+        public static string ReplaceRecursive(this string original, string oldValue, string newValue) {
             const int MaxTries = 1000;
 
             string ante, res;
@@ -168,8 +158,7 @@ namespace Cosmos
             res = original.Replace(oldValue, newValue);
 
             var i = 0;
-            do
-            {
+            do {
                 i++;
                 ante = res;
                 res = ante.Replace(oldValue, newValue);
@@ -185,13 +174,12 @@ namespace Cosmos
         /// <param name="me"></param>
         /// <param name="toReplace"></param>
         /// <returns></returns>
-        public static string ReplaceCharsWithSpace(this string me, params char[] toReplace)
-        {
+        public static string ReplaceCharsWithSpace(this string me, params char[] toReplace) {
             var res = new StringBuilder(me);
-            foreach (var replace in toReplace)
-            {
+            foreach (var replace in toReplace) {
                 res.Replace(replace, ' ');
             }
+
             return res.ToString();
         }
 
@@ -201,16 +189,15 @@ namespace Cosmos
         /// <param name="me"></param>
         /// <param name="toReplace"></param>
         /// <returns></returns>
-        public static string ReplaceNumbersWith(this string me, char toReplace)
-        {
+        public static string ReplaceNumbersWith(this string me, char toReplace) {
             var res = new StringBuilder(me.Length);
-            foreach (var caracter in me)
-            {
+            foreach (var caracter in me) {
                 if (caracter.IsOn('1', '2', '3', '4', '5', '6', '7', '8', '9', '0'))
                     res.Append(toReplace);
                 else
                     res.Append(caracter);
             }
+
             return res.ToString();
         }
     }

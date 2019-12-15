@@ -2,24 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cosmos.Joiners
-{
+namespace Cosmos.Joiners {
     /// <summary>
     /// TupleJoiner Interface<br />
-    /// TupleJoiner ½Ó¿Ú
+    /// TupleJoiner æ¥å£
     /// </summary>
-    public interface ITupleJoiner
-    {
+    public interface ITupleJoiner {
         /// <summary>
         /// Skip null<br />
-        /// Ìø¹ı null
+        /// è·³è¿‡ null
         /// </summary>
         /// <returns></returns>
         ITupleJoiner SkipNulls();
 
         /// <summary>
         /// Skip null<br />
-        /// Ìø¹ı null
+        /// è·³è¿‡ null
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -27,7 +25,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// If null, then use the special value.<br />
-        /// Èç¹ûÎª null£¬ÔòÊ¹ÓÃÖ¸¶¨µÄÖµÀ´Ìæ´ú
+        /// å¦‚æœä¸º nullï¼Œåˆ™ä½¿ç”¨æŒ‡å®šçš„å€¼æ¥æ›¿ä»£
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -38,7 +36,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
@@ -46,7 +44,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="list"></param>
         /// <param name="defaultKey"></param>
@@ -56,7 +54,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <param name="tuple1"></param>
         /// <param name="restTuples"></param>
@@ -65,7 +63,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -77,7 +75,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -91,7 +89,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Join<br />
-        /// Á¬½Ó
+        /// è¿æ¥
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -104,7 +102,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="list"></param>
@@ -113,7 +111,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="list"></param>
@@ -124,7 +122,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="tuple1"></param>
@@ -134,7 +132,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -147,7 +145,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
@@ -162,7 +160,7 @@ namespace Cosmos.Joiners
 
         /// <summary>
         /// Append to...<br />
-        /// ¸½¼Óµ½...
+        /// é™„åŠ åˆ°...
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>

@@ -1,20 +1,17 @@
 using System;
 using System.IO;
 
-namespace Cosmos.Serialization.ProtoBuf
-{
+namespace Cosmos.Serialization.ProtoBuf {
     /// <summary>
     /// Google protobuf helper
     /// </summary>
-    public static partial class ProtobufHelper
-    {
+    public static partial class ProtobufHelper {
         /// <summary>
         /// Pack
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static Stream Pack(object obj)
-        {
+        public static Stream Pack(object obj) {
             var ms = new MemoryStream();
 
             if (obj != null)
@@ -28,10 +25,8 @@ namespace Cosmos.Serialization.ProtoBuf
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="stream"></param>
-        public static void Pack(object obj, Stream stream)
-        {
-            if (obj != null)
-            {
+        public static void Pack(object obj, Stream stream) {
+            if (obj != null) {
                 ProtoBufManager.Model.Serialize(stream, obj);
             }
         }
@@ -42,8 +37,7 @@ namespace Cosmos.Serialization.ProtoBuf
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Unpack<T>(Stream stream)
-        {
+        public static T Unpack<T>(Stream stream) {
             if (stream is null || stream.Length == 0)
                 return default;
 
@@ -57,8 +51,7 @@ namespace Cosmos.Serialization.ProtoBuf
         /// <param name="stream"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object Unpack(Stream stream, Type type)
-        {
+        public static object Unpack(Stream stream, Type type) {
             if (stream is null || stream.Length == 0)
                 return default;
 
@@ -68,8 +61,7 @@ namespace Cosmos.Serialization.ProtoBuf
             return ProtoBufManager.Model.Deserialize(stream, null, type);
         }
 
-        private static byte[] StreamToBytes(Stream stream)
-        {
+        private static byte[] StreamToBytes(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.Position > 0 && stream.CanSeek)

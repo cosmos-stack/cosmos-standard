@@ -1,13 +1,11 @@
 ﻿using System;
 using Cosmos.Dependency;
 
-namespace Microsoft.Extensions.DependencyInjection
-{
+namespace Microsoft.Extensions.DependencyInjection {
     /// <summary>
     /// Extensions for Dependency Injection
     /// </summary>
-    public static class DependencyInjectionExtensions
-    {
+    public static class DependencyInjectionExtensions {
         /// <summary>
         /// Add Register Proxy
         /// </summary>
@@ -15,19 +13,15 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="bag"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IServiceCollection AddRegisterProxy(this IServiceCollection services, RegisterProxyBag bag)
-        {
+        public static IServiceCollection AddRegisterProxy(this IServiceCollection services, RegisterProxyBag bag) {
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
 
-            if (bag != null)
-            {
+            if (bag != null) {
                 var descriptors = bag.ExportDescriptors();
 
-                foreach (var descriptor in descriptors)
-                {
-                    switch (descriptor.ProxyType)
-                    {
+                foreach (var descriptor in descriptors) {
+                    switch (descriptor.ProxyType) {
                         case RegisterProxyType.TypeToType:
                             TypeToTypeRegister(services, descriptor);
                             break;
@@ -58,11 +52,9 @@ namespace Microsoft.Extensions.DependencyInjection
             return services;
         }
 
-        private static void TypeToTypeRegister(IServiceCollection services, RegisterProxyDescriptor d)
-        {
+        private static void TypeToTypeRegister(IServiceCollection services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToMsLifetime();
-            switch (lifetime)
-            {
+            switch (lifetime) {
                 case ServiceLifetime.Scoped:
                     services.AddScoped(d.ServiceType, d.ImplementationType);
                     break;
@@ -81,11 +73,9 @@ namespace Microsoft.Extensions.DependencyInjection
             }
         }
 
-        private static void TypeToInstanceRegister(IServiceCollection services, RegisterProxyDescriptor d)
-        {
+        private static void TypeToInstanceRegister(IServiceCollection services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToMsLifetime();
-            switch (lifetime)
-            {
+            switch (lifetime) {
                 case ServiceLifetime.Singleton:
                     services.AddSingleton(d.ServiceType, d.InstanceOfImplementation);
                     break;
@@ -95,11 +85,9 @@ namespace Microsoft.Extensions.DependencyInjection
             }
         }
 
-        private static void TypeToInstanceFuncRegister(IServiceCollection services, RegisterProxyDescriptor d)
-        {
+        private static void TypeToInstanceFuncRegister(IServiceCollection services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToMsLifetime();
-            switch (lifetime)
-            {
+            switch (lifetime) {
                 case ServiceLifetime.Scoped:
                     services.AddScoped(d.ServiceType, p => d.InstanceFuncForImplementation());
                     break;
@@ -118,11 +106,9 @@ namespace Microsoft.Extensions.DependencyInjection
             }
         }
 
-        private static void TypeSelfRegister(IServiceCollection services, RegisterProxyDescriptor d)
-        {
+        private static void TypeSelfRegister(IServiceCollection services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToMsLifetime();
-            switch (lifetime)
-            {
+            switch (lifetime) {
                 case ServiceLifetime.Scoped:
                     services.AddScoped(d.ImplementationTypeSelf);
                     break;
@@ -141,11 +127,9 @@ namespace Microsoft.Extensions.DependencyInjection
             }
         }
 
-        private static void InstanceSelfRegister(IServiceCollection services, RegisterProxyDescriptor d)
-        {
+        private static void InstanceSelfRegister(IServiceCollection services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToMsLifetime();
-            switch (lifetime)
-            {
+            switch (lifetime) {
                 case ServiceLifetime.Singleton:
                     services.AddSingleton(d.InstanceOfImplementation);
                     break;
@@ -155,11 +139,9 @@ namespace Microsoft.Extensions.DependencyInjection
             }
         }
 
-        private static void InstanceSelfFuncRegister(IServiceCollection services, RegisterProxyDescriptor d)
-        {
+        private static void InstanceSelfFuncRegister(IServiceCollection services, RegisterProxyDescriptor d) {
             var lifetime = d.LifetimeType.ToMsLifetime();
-            switch (lifetime)
-            {
+            switch (lifetime) {
                 case ServiceLifetime.Singleton:
                     services.AddSingleton(p => d.InstanceFuncForImplementation());
                     break;

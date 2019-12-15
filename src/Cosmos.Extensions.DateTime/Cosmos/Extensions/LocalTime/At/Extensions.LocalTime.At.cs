@@ -1,13 +1,11 @@
 ﻿using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// LocalTime extensions
     /// </summary>
-    public static partial class LocalTimeExtensions
-    {
+    public static partial class LocalTimeExtensions {
         /// <summary>
         /// At
         /// </summary>

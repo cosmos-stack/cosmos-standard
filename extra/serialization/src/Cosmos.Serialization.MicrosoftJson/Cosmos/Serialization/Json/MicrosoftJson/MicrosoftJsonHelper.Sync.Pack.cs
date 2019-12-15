@@ -2,13 +2,11 @@ using System;
 using System.IO;
 using System.Text.Json;
 
-namespace Cosmos.Serialization.Json.MicrosoftJson
-{
+namespace Cosmos.Serialization.Json.MicrosoftJson {
     /// <summary>
     /// Microsoft System.Text.Json helper
     /// </summary>
-    public static partial class MicrosoftJsonHelper
-    {
+    public static partial class MicrosoftJsonHelper {
         /// <summary>
         /// Pack
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream Pack<T>(T o, JsonSerializerOptions options = null)
-        {
+        public static Stream Pack<T>(T o, JsonSerializerOptions options = null) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -35,8 +32,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="stream"></param>
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Pack<T>(T t, Stream stream, JsonSerializerOptions options = null)
-        {
+        public static void Pack<T>(T t, Stream stream, JsonSerializerOptions options = null) {
             if (t == null || !stream.CanWrite)
                 return;
 
@@ -52,8 +48,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="options"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Unpack<T>(Stream stream, JsonSerializerOptions options = null)
-        {
+        public static T Unpack<T>(Stream stream, JsonSerializerOptions options = null) {
             return stream == null
                 ? default
                 : DeserializeFromBytes<T>(StreamToBytes(stream), options);
@@ -66,15 +61,13 @@ namespace Cosmos.Serialization.Json.MicrosoftJson
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static object Unpack(Stream stream, Type type, JsonSerializerOptions options = null)
-        {
+        public static object Unpack(Stream stream, Type type, JsonSerializerOptions options = null) {
             return stream == null
                 ? null
                 : DeserializeFromBytes(StreamToBytes(stream), type, options);
         }
 
-        private static byte[] StreamToBytes(Stream stream)
-        {
+        private static byte[] StreamToBytes(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

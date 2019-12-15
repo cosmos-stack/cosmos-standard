@@ -1,13 +1,11 @@
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Asynchronous
-{
+namespace Cosmos.Asynchronous {
     /// <summary>
     /// ValueTask extensions
     /// </summary>
-    public static class ValueTaskExtensions
-    {
+    public static class ValueTaskExtensions {
         /// <summary>
         /// Run in AsyncContext
         /// </summary>

@@ -4,15 +4,13 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.Json.MicrosoftJson;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     using MS = MicrosoftJsonHelper;
 
     /// <summary>
     /// Microsoft System.Text.Json extensions
     /// </summary>
-    public static partial class MsJsonExtensions
-    {
+    public static partial class MsJsonExtensions {
         /// <summary>
         /// To Microsoft System.Text.Json bytes
         /// </summary>
@@ -68,7 +66,8 @@ namespace Cosmos.Serialization.Json
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static Task<object> FromMicrosoftJsonBytesAsync(this byte[] data, Type type, JsonSerializerOptions options = null) => MS.DeserializeFromBytesAsync(data, type, options);
+        public static Task<object> FromMicrosoftJsonBytesAsync(this byte[] data, Type type, JsonSerializerOptions options = null) =>
+            MS.DeserializeFromBytesAsync(data, type, options);
 
     }
 }

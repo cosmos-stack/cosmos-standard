@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Cosmos.Serialization
-{
+namespace Cosmos.Serialization {
     /// <summary>
     /// Object Serializer Meta Interface<br />
     /// 对象序列化器元接口
     /// </summary>
     /// <typeparam name="TSerializedType">指定的目标序列化类型</typeparam>
-    public interface IObjectSerializer<TSerializedType>
-    {
+    public interface IObjectSerializer<TSerializedType> {
         /// <summary>
         /// Serialize<br />
         /// 序列化

@@ -3,17 +3,14 @@ using System.Reflection;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class ReflectionExtensions
-    {
+namespace Cosmos {
+    public static partial class ReflectionExtensions {
         /// <summary>
         /// Get full name of method including type name and method name
         /// </summary>
         /// <param name="method"></param>
         /// <returns></returns>
-        public static string GetFullName(this MethodInfo method)
-        {
+        public static string GetFullName(this MethodInfo method) {
             var result = new StringBuilder();
             var type = method.DeclaringType;
             if (type != null)
@@ -28,18 +25,15 @@ namespace Cosmos
         /// </summary>
         /// <param name="method"></param>
         /// <returns></returns>
-        public static string ToComputeSignature(this MethodInfo method)
-        {
+        public static string ToComputeSignature(this MethodInfo method) {
             var sb = new StringBuilder();
             sb.Append(method.ReturnType.ToComputeSignature());
             sb.Append(" ");
             sb.Append(method.Name);
-            if (method.IsGenericMethod)
-            {
+            if (method.IsGenericMethod) {
                 sb.Append("[");
                 var genericTypes = method.GetGenericArguments().ToTypeInfo().ToList();
-                for (var i = 0; i < genericTypes.Count; i++)
-                {
+                for (var i = 0; i < genericTypes.Count; i++) {
                     sb.Append(genericTypes[i].ToComputeSignature());
                     if (i != genericTypes.Count - 1)
                         sb.Append(", ");
@@ -50,8 +44,7 @@ namespace Cosmos
 
             sb.Append("(");
             var parameters = method.GetParameters();
-            for (var i = 0; i < parameters.Length; i++)
-            {
+            for (var i = 0; i < parameters.Length; i++) {
                 sb.Append(parameters[i].ParameterType.ToComputeSignature());
                 if (i != parameters.Length - 1)
                     sb.Append(", ");

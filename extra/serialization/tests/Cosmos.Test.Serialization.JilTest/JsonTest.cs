@@ -3,13 +3,10 @@ using Cosmos.Serialization.Json;
 using Jil;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.JilTest
-{
-    public class JsonTest
-    {
+namespace Cosmos.Test.Serialization.JilTest {
+    public class JsonTest {
         [Fact]
-        public void BasicJsonTest()
-        {
+        public void BasicJsonTest() {
             var model = CreateNiceModel();
             var json1 = model.ToJil();
             var back1 = json1.FromJil<NiceModel>();
@@ -25,8 +22,7 @@ namespace Cosmos.Test.Serialization.JilTest
         }
 
         [Fact]
-        public void OptionalJsonTest()
-        {
+        public void OptionalJsonTest() {
             var model = CreateNiceModel();
 
             var options = new Options(dateFormat: DateTimeFormat.ISO8601,
@@ -46,10 +42,8 @@ namespace Cosmos.Test.Serialization.JilTest
                 Tuple.Create(back2.Id, back2.Name, back2.NiceType, back2.Count, back2.CreatedTime, back2.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

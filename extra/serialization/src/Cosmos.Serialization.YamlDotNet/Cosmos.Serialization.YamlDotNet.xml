@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Serialization.YamlDotNet</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Serialization.YamlSerializer">
+            <summary>
+            Yaml Serializer
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.YamlSerializer.Serialize``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.YamlSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.YamlSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.YamlSerializer.SerializeAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.YamlSerializer.DeserializeAsync``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Serialization.YamlSerializer.DeserializeAsync(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Serialization.Yaml.Extensions">
+            <summary>
+            YamlDotNet extensions
+            </summary>
+            <summary>
+            YamlDotNet extensions
+            </summary>
+            <summary>
+            YamlDotNet extensions
+            </summary>
+            <summary>
+            YamlDotNet extensions
+            </summary>
+            <summary>
+            YamlDotNet extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYamlBytes``1(``0)">
+            <summary>
+            To YamlDotNet bytes
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYamlBytesAsync``1(``0)">
+            <summary>
+            To YamlDotNet bytes async
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYamlBytes``1(System.Byte[])">
+            <summary>
+            From YamlDotNet bytes 
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYamlBytes(System.Byte[],System.Type)">
+            <summary>
+            From YamlDotNet bytes 
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYamlBytesAsync``1(System.Byte[])">
+            <summary>
+            From YamlDotNet bytes async
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYamlBytesAsync(System.Byte[],System.Type)">
+            <summary>
+            From YamlDotNet bytes async
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYaml``1(``0)">
+            <summary>
+            To Yaml
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYamlAsync``1(``0)">
+            <summary>
+            To Yaml async
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPack``1(``0)">
+            <summary>
+            Lit pack to
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackTo``1(``0,System.IO.Stream)">
+            <summary>
+            Pack to
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackTo(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack to
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackBy``1(System.IO.Stream,``0)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackBy(System.IO.Stream,System.Object,System.Type)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackAsync``1(``0)">
+            <summary>
+            Yaml pack to
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackToAsync``1(``0,System.IO.Stream)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="t"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackToAsync(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack to async
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackByAsync``1(System.IO.Stream,``0)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlPackByAsync(System.IO.Stream,System.Object,System.Type)">
+            <summary>
+            Pack by
+            </summary>
+            <param name="stream"></param>
+            <param name="obj"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlUnpack``1(System.IO.Stream)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlUnpack(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlUnpackAsync``1(System.IO.Stream)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.YamlUnpackAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYamlStream``1(``0)">
+            <summary>
+            To stream
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYamlStream(System.Object,System.Type)">
+            <summary>
+            To stream
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYamlStreamAsync``1(``0)">
+            <summary>
+            To stream
+            </summary>
+            <param name="t"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.ToYamlStreamAsync(System.Object,System.Type)">
+            <summary>
+            To stream
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYaml``1(System.String)">
+            <summary>
+            From Yaml
+            </summary>
+            <param name="str"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYaml(System.String,System.Type)">
+            <summary>
+            From Yaml
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYamlAsync``1(System.String)">
+            <summary>
+            From Yaml async
+            </summary>
+            <param name="str"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.Extensions.FromYamlAsync(System.String,System.Type)">
+            <summary>
+            From Yaml async
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper">
+            <summary>
+            Yaml Helper
+            </summary>
+            <summary>
+            Yaml Helper
+            </summary>
+            <summary>
+            Yaml Helper
+            </summary>
+            <summary>
+            Yaml Helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.SerializeAsync``1(``0)">
+            <summary>
+            Serialize async
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.SerializeToBytesAsync``1(``0)">
+            <summary>
+            Serialize to bytes async
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.DeserializeAsync``1(System.String)">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.DeserializeAsync(System.String,System.Type)">
+            <summary>
+            Deserialize async
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.DeserializeFromBytesAsync``1(System.Byte[])">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.DeserializeFromBytesAsync(System.Byte[],System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.PackAsync``1(``0)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.PackAsync(System.Object,System.Type)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.PackAsync``1(``0,System.IO.Stream)">
+            <summary>
+            Pack async
+            </summary>
+            <param name="o"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.PackAsync(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.UnpackAsync``1(System.IO.Stream)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.UnpackAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack async
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Serialize``1(``0)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.SerializeToBytes``1(``0)">
+            <summary>
+            Serialize to bytes
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Deserialize``1(System.String)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.DeserializeFromBytes``1(System.Byte[])">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.DeserializeFromBytes(System.Byte[],System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="data"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Pack``1(``0)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Pack(System.Object,System.Type)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Pack``1(``0,System.IO.Stream)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Pack(System.Object,System.Type,System.IO.Stream)">
+            <summary>
+            Pack
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Unpack``1(System.IO.Stream)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.Yaml.YamlDotNet.YamlHelper.Unpack(System.IO.Stream,System.Type)">
+            <summary>
+            Unpack
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.Yaml.YamlDotNet.YamlManager">
+            <summary>
+            YamlDotNet manager
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Yaml.YamlDotNet.YamlManager.DefaultSerializerBuilder">
+            <summary>
+            Gets or sets YamlDotNet serializer builder
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Yaml.YamlDotNet.YamlManager.DefaultDeserializerBuilder">
+            <summary>
+            Gets or sets YamlDotNet deserializer builder
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Yaml.YamlDotNet.YamlManager.DefaultSerializer">
+            <summary>
+            Gets default YamlDotNet serializer
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Yaml.YamlDotNet.YamlManager.DefaultDeserializer">
+            <summary>
+            Gets default YamlDotNet deserializer
+            </summary>
+        </member>
+        <member name="P:Cosmos.Serialization.Yaml.YamlDotNet.YamlManager.DefaultEncoding">
+            <summary>
+            Gets or sets default encoding
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Serialization;
 
-namespace Cosmos.Splitters
-{
+namespace Cosmos.Splitters {
     /// <summary>
     /// Splitter interface
     /// </summary>
-    public interface ISplitter
-    {
+    public interface ISplitter {
         /// <summary>
         /// Omit empty strings
         /// </summary>

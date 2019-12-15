@@ -1,20 +1,17 @@
 using System.Collections;
 
-namespace System
-{
+namespace System {
     /// <summary>
     /// Base Type Extensions
     /// </summary>
-    public static partial class BaseTypeExtensions
-    {
+    public static partial class BaseTypeExtensions {
         /// <summary>
         /// Copy
         /// </summary>
         /// <param name="sourceArray"></param>
         /// <param name="destinationArray"></param>
         /// <param name="length"></param>
-        public static void Copy(this Array sourceArray, Array destinationArray, int length)
-        {
+        public static void Copy(this Array sourceArray, Array destinationArray, int length) {
             Array.Copy(sourceArray, destinationArray, length);
         }
 
@@ -26,8 +23,7 @@ namespace System
         /// <param name="destinationArray"></param>
         /// <param name="destinationIndex"></param>
         /// <param name="length"></param>
-        public static void Copy(this Array sourceArray, int sourceIndex, Array destinationArray, int destinationIndex, int length)
-        {
+        public static void Copy(this Array sourceArray, int sourceIndex, Array destinationArray, int destinationIndex, int length) {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
 
@@ -37,8 +33,7 @@ namespace System
         /// <param name="sourceArray"></param>
         /// <param name="destinationArray"></param>
         /// <param name="length"></param>
-        public static void Copy(this Array sourceArray, Array destinationArray, long length)
-        {
+        public static void Copy(this Array sourceArray, Array destinationArray, long length) {
             Array.Copy(sourceArray, destinationArray, length);
         }
 
@@ -50,8 +45,7 @@ namespace System
         /// <param name="destinationArray"></param>
         /// <param name="destinationIndex"></param>
         /// <param name="length"></param>
-        public static void Copy(this Array sourceArray, long sourceIndex, Array destinationArray, long destinationIndex, long length)
-        {
+        public static void Copy(this Array sourceArray, long sourceIndex, Array destinationArray, long destinationIndex, long length) {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
 
@@ -63,8 +57,7 @@ namespace System
         /// <param name="destinationArray"></param>
         /// <param name="destinationIndex"></param>
         /// <param name="length"></param>
-        public static void ConstrainedCopy(this Array sourceArray, int sourceIndex, Array destinationArray, int destinationIndex, int length)
-        {
+        public static void ConstrainedCopy(this Array sourceArray, int sourceIndex, Array destinationArray, int destinationIndex, int length) {
             Array.ConstrainedCopy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
 
@@ -74,8 +67,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
-        public static void Clear(this Array array, int index, int length)
-        {
+        public static void Clear(this Array array, int index, int length) {
             Array.Clear(array, index, length);
         }
 
@@ -83,8 +75,7 @@ namespace System
         /// Clear all
         /// </summary>
         /// <param name="array"></param>
-        public static void ClearAll(this Array array)
-        {
+        public static void ClearAll(this Array array) {
             Array.Clear(array, 0, array.Length);
         }
 
@@ -94,8 +85,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int IndexOf(this Array array, object value)
-        {
+        public static int IndexOf(this Array array, object value) {
             return Array.IndexOf(array, value);
         }
 
@@ -106,8 +96,7 @@ namespace System
         /// <param name="value"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
-        public static int IndexOf(this Array array, object value, int startIndex)
-        {
+        public static int IndexOf(this Array array, object value, int startIndex) {
             return Array.IndexOf(array, value, startIndex);
         }
 
@@ -119,8 +108,7 @@ namespace System
         /// <param name="startIndex"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public static int IndexOf(this Array array, object value, int startIndex, int count)
-        {
+        public static int IndexOf(this Array array, object value, int startIndex, int count) {
             return Array.IndexOf(array, value, startIndex, count);
         }
 
@@ -130,8 +118,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int LastIndexOf(this Array array, object value)
-        {
+        public static int LastIndexOf(this Array array, object value) {
             return Array.LastIndexOf(array, value);
         }
 
@@ -142,8 +129,7 @@ namespace System
         /// <param name="value"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
-        public static int LastIndexOf(this Array array, object value, int startIndex)
-        {
+        public static int LastIndexOf(this Array array, object value, int startIndex) {
             return Array.LastIndexOf(array, value, startIndex);
         }
 
@@ -155,8 +141,7 @@ namespace System
         /// <param name="startIndex"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public static int LastIndexOf(this Array array, object value, int startIndex, int count)
-        {
+        public static int LastIndexOf(this Array array, object value, int startIndex, int count) {
             return Array.LastIndexOf(array, value, startIndex, count);
         }
 
@@ -166,8 +151,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <returns></returns>
-        public static bool WithinIndex(this Array array, int index)
-        {
+        public static bool WithinIndex(this Array array, int index) {
             return index >= 0 && index < array.Length;
         }
 
@@ -178,8 +162,7 @@ namespace System
         /// <param name="index"></param>
         /// <param name="dimension"></param>
         /// <returns></returns>
-        public static bool WithinIndex(this Array array, int index, int dimension)
-        {
+        public static bool WithinIndex(this Array array, int index, int dimension) {
             if (dimension <= 0) throw new ArgumentOutOfRangeException(nameof(dimension));
             return index >= array.GetLowerBound(dimension) && index <= array.GetUpperBound(dimension);
         }
@@ -188,8 +171,7 @@ namespace System
         /// Reverse
         /// </summary>
         /// <param name="array"></param>
-        public static void Reverse(this Array array)
-        {
+        public static void Reverse(this Array array) {
             Array.Reverse(array);
         }
 
@@ -199,8 +181,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
-        public static void Reverse(this Array array, int index, int length)
-        {
+        public static void Reverse(this Array array, int index, int length) {
             Array.Reverse(array, index, length);
         }
 
@@ -208,8 +189,7 @@ namespace System
         /// Sort
         /// </summary>
         /// <param name="array"></param>
-        public static void Sort(this Array array)
-        {
+        public static void Sort(this Array array) {
             Array.Sort(array);
         }
 
@@ -218,8 +198,7 @@ namespace System
         /// </summary>
         /// <param name="array"></param>
         /// <param name="items"></param>
-        public static void Sort(this Array array, Array items)
-        {
+        public static void Sort(this Array array, Array items) {
             Array.Sort(array, items);
         }
 
@@ -229,8 +208,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
-        public static void Sort(this Array array, int index, int length)
-        {
+        public static void Sort(this Array array, int index, int length) {
             Array.Sort(array, index, length);
         }
 
@@ -241,8 +219,7 @@ namespace System
         /// <param name="items"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
-        public static void Sort(this Array array, Array items, int index, int length)
-        {
+        public static void Sort(this Array array, Array items, int index, int length) {
             Array.Sort(array, items, index, length);
         }
 
@@ -251,8 +228,7 @@ namespace System
         /// </summary>
         /// <param name="array"></param>
         /// <param name="comparer"></param>
-        public static void Sort(this Array array, IComparer comparer)
-        {
+        public static void Sort(this Array array, IComparer comparer) {
             Array.Sort(array, comparer);
         }
 
@@ -262,8 +238,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="items"></param>
         /// <param name="comparer"></param>
-        public static void Sort(this Array array, Array items, IComparer comparer)
-        {
+        public static void Sort(this Array array, Array items, IComparer comparer) {
             Array.Sort(array, items, comparer);
         }
 
@@ -274,8 +249,7 @@ namespace System
         /// <param name="index"></param>
         /// <param name="length"></param>
         /// <param name="comparer"></param>
-        public static void Sort(this Array array, int index, int length, IComparer comparer)
-        {
+        public static void Sort(this Array array, int index, int length, IComparer comparer) {
             Array.Sort(array, index, length, comparer);
         }
 
@@ -287,8 +261,7 @@ namespace System
         /// <param name="index"></param>
         /// <param name="length"></param>
         /// <param name="comparer"></param>
-        public static void Sort(this Array array, Array items, int index, int length, IComparer comparer)
-        {
+        public static void Sort(this Array array, Array items, int index, int length, IComparer comparer) {
             Array.Sort(array, items, index, length, comparer);
         }
 
@@ -298,8 +271,7 @@ namespace System
         /// <param name="array"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int BinarySearch(this Array array, object value)
-        {
+        public static int BinarySearch(this Array array, object value) {
             return Array.BinarySearch(array, value);
         }
 
@@ -311,8 +283,7 @@ namespace System
         /// <param name="length"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int BinarySearch(this Array array, int index, int length, object value)
-        {
+        public static int BinarySearch(this Array array, int index, int length, object value) {
             return Array.BinarySearch(array, index, length, value);
         }
 
@@ -324,8 +295,7 @@ namespace System
         /// <param name="value"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
-        public static int BinarySearch(this Array array, object value, IComparer comparer)
-        {
+        public static int BinarySearch(this Array array, object value, IComparer comparer) {
             return Array.BinarySearch(array, value, comparer);
         }
 
@@ -338,8 +308,7 @@ namespace System
         /// <param name="value"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
-        public static int BinarySearch(this Array array, int index, int length, object value, IComparer comparer)
-        {
+        public static int BinarySearch(this Array array, int index, int length, object value, IComparer comparer) {
             return Array.BinarySearch(array, index, length, value, comparer);
         }
 
@@ -350,8 +319,7 @@ namespace System
         /// <param name="me"></param>
         /// <param name="condition"></param>
         /// <returns></returns>
-        public static T[] FindAll<T>(this T[] me, Predicate<T> condition)
-        {
+        public static T[] FindAll<T>(this T[] me, Predicate<T> condition) {
             return Array.FindAll(me, condition);
         }
     }

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Cosmos
-{
+namespace Cosmos {
     // ReSharper disable InconsistentNaming
     /// <summary>
     /// Cosmos base exception
     /// </summary>
-    public abstract class CosmosException : Exception
-    {
+    public abstract class CosmosException : Exception {
         /// <summary>
         /// Empty flag
         /// </summary>
@@ -67,8 +65,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        protected CosmosException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
+        protected CosmosException(SerializationInfo info, StreamingContext context) : base(info, context) {
             ExtraData = new Dictionary<string, object>();
             Code = DEFAULT_EXTEND_ERROR_CODE;
             Flag = EMPTY_FLAG;
@@ -82,10 +79,8 @@ namespace Cosmos
         /// <param name="flag"></param>
         /// <param name="innerException"></param>
         protected CosmosException(long errorCode, string errorMessage, string flag, Exception innerException = null)
-            : base(errorMessage, innerException)
-        {
-            if (string.IsNullOrWhiteSpace(flag))
-            {
+            : base(errorMessage, innerException) {
+            if (string.IsNullOrWhiteSpace(flag)) {
                 flag = EMPTY_FLAG;
             }
 
@@ -98,8 +93,7 @@ namespace Cosmos
         /// Create a new cosmos exception instance.
         /// </summary>
         /// <param name="options"></param>
-        protected CosmosException(CosmosExceptionOptions options) : base(options.Message, options.InnerException)
-        {
+        protected CosmosException(CosmosExceptionOptions options) : base(options.Message, options.InnerException) {
             ExtraData = options.ExtraErrors;
             Code = options.ErrorCode;
             Flag = options.Flag;

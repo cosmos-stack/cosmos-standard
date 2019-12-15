@@ -27,13 +27,11 @@ using System.Text.RegularExpressions;
  * Changed and updated by Alex Lewis
  */
 
-namespace Cosmos.RegexUtils
-{
+namespace Cosmos.RegexUtils {
     /// <summary>
     /// Regex verbal expressions
     /// </summary>
-    public class RegexVerbalExpressions
-    {
+    public class RegexVerbalExpressions {
         /// <summary>
         /// Returns a default instance of RegexVerbalExpressions
         /// having the Multiline option enabled
@@ -67,8 +65,7 @@ namespace Cosmos.RegexUtils
         /// <param name="value"></param>
         /// <param name="sanitize"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions Add(string value, bool sanitize = true)
-        {
+        public RegexVerbalExpressions Add(string value, bool sanitize = true) {
             if (value == null)
                 throw new ArgumentNullException(nameof(value), "value must be provided");
             _source.Append(sanitize ? Sanitize(value) : value);
@@ -80,8 +77,7 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="enable"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions StartOfLine(bool enable = true)
-        {
+        public RegexVerbalExpressions StartOfLine(bool enable = true) {
             _prefixes.Append(enable ? "^" : string.Empty);
             return this;
         }
@@ -91,8 +87,7 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="enable"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions EndOfLine(bool enable = true)
-        {
+        public RegexVerbalExpressions EndOfLine(bool enable = true) {
             _suffixes.Append(enable ? "$" : string.Empty);
             return this;
         }
@@ -167,8 +162,7 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions Replace(string value)
-        {
+        public RegexVerbalExpressions Replace(string value) {
             var whereToReplace = PatternRegex.ToString();
             if (whereToReplace.Length != 0)
                 _source.Replace(whereToReplace, value);
@@ -205,8 +199,7 @@ namespace Cosmos.RegexUtils
         /// <param name="value"></param>
         /// <param name="sanitize"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions AnyOf(string value, bool sanitize = true)
-        {
+        public RegexVerbalExpressions AnyOf(string value, bool sanitize = true) {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentNullException(nameof(value));
             return Add($"[{(sanitize ? Sanitize(value) : value)}]", false);
@@ -224,24 +217,22 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="arguments"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions Range(params object[] arguments)
-        {
+        public RegexVerbalExpressions Range(params object[] arguments) {
             if (arguments is null)
                 throw new ArgumentNullException(nameof(arguments));
 
             if (arguments.Length == 1)
                 throw new ArgumentOutOfRangeException(nameof(arguments));
 
-            var sanitizedStrings = arguments.Select(argument =>
-                {
-                    if (argument is null)
-                        return string.Empty;
-                    var castRet = argument.ToString();
-                    return string.IsNullOrEmpty(castRet) ? string.Empty : Sanitize(castRet);
-                })
-                .Where(sanitizedString => !string.IsNullOrEmpty(sanitizedString))
-                .OrderBy(s => s)
-                .ToArray();
+            var sanitizedStrings = arguments.Select(argument => {
+                                                 if (argument is null)
+                                                     return string.Empty;
+                                                 var castRet = argument.ToString();
+                                                 return string.IsNullOrEmpty(castRet) ? string.Empty : Sanitize(castRet);
+                                             })
+                                            .Where(sanitizedString => !string.IsNullOrEmpty(sanitizedString))
+                                            .OrderBy(s => s)
+                                            .ToArray();
 
             if (sanitizedStrings.Length > 3)
                 throw new ArgumentOutOfRangeException(nameof(arguments));
@@ -252,13 +243,13 @@ namespace Cosmos.RegexUtils
             var hasOddNumberOfParams = (sanitizedStrings.Length % 2) > 0;
 
             var sb = new StringBuilder("[");
-            for (var from = 0; from < sanitizedStrings.Length; from += 2)
-            {
+            for (var from = 0; from < sanitizedStrings.Length; from += 2) {
                 var to = from + 1;
                 if (sanitizedStrings.Length <= to)
                     break;
                 sb.AppendFormat("{0}-{1}", sanitizedStrings[from], sanitizedStrings[to]);
             }
+
             sb.Append("]");
 
             if (hasOddNumberOfParams)
@@ -273,8 +264,7 @@ namespace Cosmos.RegexUtils
         /// <param name="value"></param>
         /// <param name="sanitize"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions Multiple(string value, bool sanitize = true)
-        {
+        public RegexVerbalExpressions Multiple(string value, bool sanitize = true) {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentNullException(nameof(value));
             return Add($@"({(sanitize ? Sanitize(value) : value)})+", false);
@@ -293,8 +283,7 @@ namespace Cosmos.RegexUtils
         /// <param name="value"></param>
         /// <param name="sanitize"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions Or(string value, bool sanitize = true)
-        {
+        public RegexVerbalExpressions Or(string value, bool sanitize = true) {
             _prefixes.Append("(");
             _suffixes.Insert(0, ")");
             _source.Append(")|(");
@@ -345,10 +334,8 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="modifier"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions AddModifier(char modifier)
-        {
-            switch (modifier)
-            {
+        public RegexVerbalExpressions AddModifier(char modifier) {
+            switch (modifier) {
                 case 'i':
                     _modifiers |= RegexOptions.IgnoreCase;
                     break;
@@ -371,10 +358,8 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="modifier"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions RemoveModifier(char modifier)
-        {
-            switch (modifier)
-            {
+        public RegexVerbalExpressions RemoveModifier(char modifier) {
+            switch (modifier) {
                 case 'i':
                     _modifiers &= ~RegexOptions.IgnoreCase;
                     break;
@@ -397,16 +382,14 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="enable"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions WithAnyCase(bool enable = true)
-        {
-            if (enable)
-            {
+        public RegexVerbalExpressions WithAnyCase(bool enable = true) {
+            if (enable) {
                 AddModifier('i');
             }
-            else
-            {
+            else {
                 RemoveModifier('i');
             }
+
             return this;
         }
 
@@ -415,14 +398,11 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="enable"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions UseOneLineSearchOption(bool enable)
-        {
-            if (enable)
-            {
+        public RegexVerbalExpressions UseOneLineSearchOption(bool enable) {
+            if (enable) {
                 RemoveModifier('m');
             }
-            else
-            {
+            else {
                 AddModifier('m');
             }
 
@@ -434,8 +414,7 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public RegexVerbalExpressions WithOptions(RegexOptions options)
-        {
+        public RegexVerbalExpressions WithOptions(RegexOptions options) {
             _modifiers = options;
             return this;
         }
@@ -449,8 +428,7 @@ namespace Cosmos.RegexUtils
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public string Sanitize(string value)
-        {
+        public string Sanitize(string value) {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentNullException(nameof(value));
             return Regex.Escape(value);
@@ -488,8 +466,7 @@ namespace Cosmos.RegexUtils
         /// <param name="toTest"></param>
         /// <param name="groupName"></param>
         /// <returns></returns>
-        public string Capture(string toTest, string groupName)
-        {
+        public string Capture(string toTest, string groupName) {
             if (!Test(toTest))
                 return null;
 
@@ -499,5 +476,6 @@ namespace Cosmos.RegexUtils
         }
 
         #endregion Helpers
+
     }
 }

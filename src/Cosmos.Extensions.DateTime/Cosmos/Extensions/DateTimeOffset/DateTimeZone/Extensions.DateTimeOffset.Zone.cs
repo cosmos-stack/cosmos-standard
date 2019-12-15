@@ -2,14 +2,12 @@ using System;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTimeOffset Extensions<br />
     /// DateTimeOffset 扩展方法
     /// </summary>
-    public static partial class DateTimeOffsetExtensions
-    {
+    public static partial class DateTimeOffsetExtensions {
         /// <summary>
         /// Replace offset from DateTimeZone leniently
         /// </summary>

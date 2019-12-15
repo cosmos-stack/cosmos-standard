@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     /// <summary>
     /// Newtonsoft Json Extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// Serialize to string
         /// </summary>
@@ -21,8 +19,7 @@ namespace Cosmos.Serialization.Json
         /// <typeparam name="TRequest"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static string SerializeToString<TRequest>(this JsonSerializer serializer, TRequest request)
-        {
+        public static string SerializeToString<TRequest>(this JsonSerializer serializer, TRequest request) {
             if (serializer == null)
                 throw new ArgumentNullException(nameof(serializer));
             if (request == null)
@@ -43,8 +40,7 @@ namespace Cosmos.Serialization.Json
         /// <typeparam name="TResponse"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TResponse DeserializeFromString<TResponse>(this JsonSerializer serializer, string json)
-        {
+        public static TResponse DeserializeFromString<TResponse>(this JsonSerializer serializer, string json) {
             if (serializer == null)
                 throw new ArgumentNullException(nameof(json));
             if (string.IsNullOrWhiteSpace(json))
@@ -67,8 +63,7 @@ namespace Cosmos.Serialization.Json
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public static async Task<MemoryStream> SerializeToMemoryStreamAsync<TRequest>(
-            this JsonSerializer serializer, TRequest request, CancellationToken cancellationToken)
-        {
+            this JsonSerializer serializer, TRequest request, CancellationToken cancellationToken) {
             if (serializer == null)
                 throw new ArgumentNullException(nameof(serializer));
             if (request == null)

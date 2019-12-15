@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cosmos.Date
-{
+namespace Cosmos.Date {
     /// <summary>
     /// Period DateInfo<br />
     /// 时间段日期信息
     /// </summary>
     /// <typeparam name="TDateInfo"></typeparam>
-    public abstract class PeriodDateInfo<TDateInfo> where TDateInfo : DateInfo
-    {
+    public abstract class PeriodDateInfo<TDateInfo> where TDateInfo : DateInfo {
         /// <summary>
         /// From
         /// </summary>
@@ -41,8 +39,7 @@ namespace Cosmos.Date
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <param name="itemCreateFunc"></param>
-        protected PeriodDateInfo(TDateInfo from, TDateInfo to, Func<TDateInfo, TDateInfo> itemCreateFunc)
-        {
+        protected PeriodDateInfo(TDateInfo from, TDateInfo to, Func<TDateInfo, TDateInfo> itemCreateFunc) {
             PeriodChecker.CheckFromAndTo(from, to);
             _from = from;
             _to = to;
@@ -68,10 +65,8 @@ namespace Cosmos.Date
         /// </summary>
         public abstract TDateInfo To { get; }
 
-        private static class PeriodChecker
-        {
-            public static void CheckFromAndTo(TDateInfo from, TDateInfo to)
-            {
+        private static class PeriodChecker {
+            public static void CheckFromAndTo(TDateInfo from, TDateInfo to) {
                 if (from == null) throw new ArgumentNullException(nameof(from));
                 if (to == null) throw new ArgumentNullException(nameof(to));
                 if (from.DateTimeRef > to.DateTimeRef)
@@ -84,8 +79,7 @@ namespace Cosmos.Date
         /// 获取所有日期
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<TDateInfo> GetAllDates()
-        {
+        public IEnumerable<TDateInfo> GetAllDates() {
             Initialize();
             foreach (var item in _cache)
                 yield return item;

@@ -10,13 +10,12 @@ using Cosmos.Disposables;
  *      MIT
  */
 
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Snowflake Id worker
     /// </summary>
-    public class SnowflakeIdWorker
-    {
+    public class SnowflakeIdWorker {
+
         #region Constants
 
         /// <summary>
@@ -124,8 +123,7 @@ namespace Cosmos.IdUtils
         /// <param name="workerId"></param>
         /// <param name="dataCenterId"></param>
         /// <param name="sequence"></param>
-        public SnowflakeIdWorker(long workerId, long dataCenterId, long sequence = 0L)
-        {
+        public SnowflakeIdWorker(long workerId, long dataCenterId, long sequence = 0L) {
             // 如果超出范围就抛出异常
             if (workerId > MAX_WORKER_ID || workerId < 0)
                 throw new ArgumentException($"worker Id 必须大于0，且不能大于MaxWorkerId： {MAX_WORKER_ID}");
@@ -144,33 +142,27 @@ namespace Cosmos.IdUtils
         /// Next Id
         /// </summary>
         /// <returns></returns>
-        public virtual long NextId()
-        {
-            lock (_lock)
-            {
+        public virtual long NextId() {
+            lock (_lock) {
                 var timestamp = TimeGen();
-                if (timestamp < _lastTimestamp)
-                {
+                if (timestamp < _lastTimestamp) {
                     throw new Exception($"时间戳必须大于上一次生成ID的时间戳.  拒绝为{_lastTimestamp - timestamp}毫秒生成id");
                 }
 
                 //如果上次生成时间和当前时间相同,在同一毫秒内
-                if (_lastTimestamp == timestamp)
-                {
+                if (_lastTimestamp == timestamp) {
                     //sequence自增，和sequenceMask相与一下，去掉高位
                     _sequence = (_sequence + 1) & SEQUENCE_MASK;
                     //判断是否溢出,也就是每毫秒内超过1024，当为1024时，与sequenceMask相与，sequence就等于0
-                    if (_sequence == 0)
-                    {
+                    if (_sequence == 0) {
                         //等待到下一毫秒
                         timestamp = TilNextMillis(_lastTimestamp);
                     }
                 }
-                else
-                {
+                else {
                     //如果和上次生成时间不同,重置sequence，就是下一毫秒开始，sequence计数重新从0开始累加,
                     //为了保证尾数随机性更大一些,最后一位可以设置一个随机数
-                    _sequence = 0;//new Random().Next(10);
+                    _sequence = 0; //new Random().Next(10);
                 }
 
                 _lastTimestamp = timestamp;
@@ -183,13 +175,12 @@ namespace Cosmos.IdUtils
         /// </summary>
         /// <param name="lastTimestamp"></param>
         /// <returns></returns>
-        protected virtual long TilNextMillis(long lastTimestamp)
-        {
+        protected virtual long TilNextMillis(long lastTimestamp) {
             var timestamp = TimeGen();
-            while (timestamp <= lastTimestamp)
-            {
+            while (timestamp <= lastTimestamp) {
                 timestamp = TimeGen();
             }
+
             return timestamp;
         }
 
@@ -197,47 +188,36 @@ namespace Cosmos.IdUtils
         /// 获取当前的时间戳
         /// </summary>
         /// <returns></returns>
-        protected virtual long TimeGen()
-        {
+        protected virtual long TimeGen() {
             return TimeExtensions.CurrentTimeMillis();
         }
 
-        private static class TimeExtensions
-        {
+        private static class TimeExtensions {
             private static Func<long> _currentTimeFunc = InternalCurrentTimeMillis;
 
-            public static long CurrentTimeMillis()
-            {
+            public static long CurrentTimeMillis() {
                 return _currentTimeFunc();
             }
 
             // ReSharper disable once UnusedMember.Global
             // ReSharper disable once UnusedMember.Local
-            public static IDisposable StubCurrentTime(Func<long> func)
-            {
+            public static IDisposable StubCurrentTime(Func<long> func) {
                 _currentTimeFunc = func;
 
-                return new DisposableAction(() =>
-                {
-                    _currentTimeFunc = InternalCurrentTimeMillis;
-                });
+                return new DisposableAction(() => { _currentTimeFunc = InternalCurrentTimeMillis; });
             }
 
             // ReSharper disable once UnusedMember.Global
             // ReSharper disable once UnusedMember.Local
-            public static IDisposable StubCurrentTime(long millis)
-            {
+            public static IDisposable StubCurrentTime(long millis) {
                 _currentTimeFunc = () => millis;
 
-                return new DisposableAction(() =>
-                {
-                    _currentTimeFunc = InternalCurrentTimeMillis;
-                });
+                return new DisposableAction(() => { _currentTimeFunc = InternalCurrentTimeMillis; });
             }
 
             private static readonly DateTime Jan1St1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-            private static long InternalCurrentTimeMillis() => (long)(DateTime.UtcNow - Jan1St1970).TotalMilliseconds;
+            private static long InternalCurrentTimeMillis() => (long) (DateTime.UtcNow - Jan1St1970).TotalMilliseconds;
         }
     }
 }

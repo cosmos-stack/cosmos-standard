@@ -2,13 +2,11 @@ using System;
 using System.IO;
 using Kooboo.Json;
 
-namespace Cosmos.Serialization.Json.Kooboo
-{
+namespace Cosmos.Serialization.Json.Kooboo {
     /// <summary>
     /// KoobooJson helper
     /// </summary>
-    public static partial class KoobooJsonHelper
-    {
+    public static partial class KoobooJsonHelper {
         /// <summary>
         /// Pack
         /// </summary>
@@ -16,8 +14,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Stream Pack<T>(T o, JsonSerializerOption option = null)
-        {
+        public static Stream Pack<T>(T o, JsonSerializerOption option = null) {
             var ms = new MemoryStream();
 
             if (o is null)
@@ -35,8 +32,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="stream"></param>
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Pack<T>(T o, Stream stream, JsonSerializerOption option = null)
-        {
+        public static void Pack<T>(T o, Stream stream, JsonSerializerOption option = null) {
             if (o is null)
                 return;
 
@@ -52,8 +48,7 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="option"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Unpack<T>(Stream stream, JsonDeserializeOption option = null)
-        {
+        public static T Unpack<T>(Stream stream, JsonDeserializeOption option = null) {
             return stream is null
                 ? default
                 : Deserialize<T>(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), option);
@@ -66,15 +61,13 @@ namespace Cosmos.Serialization.Json.Kooboo
         /// <param name="type"></param>
         /// <param name="option"></param>
         /// <returns></returns>
-        public static object Unpack(Stream stream, Type type, JsonDeserializeOption option = null)
-        {
+        public static object Unpack(Stream stream, Type type, JsonDeserializeOption option = null) {
             return stream is null
                 ? default
                 : Deserialize(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), type, option);
         }
 
-        private static byte[] StreamToBytes(Stream stream)
-        {
+        private static byte[] StreamToBytes(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

@@ -16,13 +16,11 @@ using Cosmos.Http.HttpUtils.Internals;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// StackOverflow fluent http
     /// </summary>
-    public static class FluentHttp
-    {
+    public static class FluentHttp {
         /// <summary>
         /// Default settings
         /// </summary>
@@ -46,8 +44,7 @@ namespace Cosmos.Http.HttpUtils
 
         private static readonly FieldInfo stackTraceString = typeof(Exception).GetField("_stackTraceString", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        internal static async Task<HttpCallResponse<T>> SendAsync<T>(IRequestBuilder<T> builder, HttpMethod method, CancellationToken cancellationToken = default)
-        {
+        internal static async Task<HttpCallResponse<T>> SendAsync<T>(IRequestBuilder<T> builder, HttpMethod method, CancellationToken cancellationToken = default) {
             var settings = builder.GetSettings();
 
             settings.OnBeforeSend(builder, builder.Inner);
@@ -58,16 +55,11 @@ namespace Cosmos.Http.HttpUtils
             Exception exception = null;
             HttpResponseMessage response = null;
 
-            try
-            {
-                using (settings.ProfileRequest?.Invoke(request))
-                {
-                    using (request)
-                    {
-                        using (response = await settings.ClientPool.Get(builder.Inner).SendAsync(request, cancellationToken))
-                        {
-                            if (!response.IsSuccessStatusCode && !builder.Inner.IgnoreResponseStatuses.Contains(response.StatusCode))
-                            {
+            try {
+                using (settings.ProfileRequest?.Invoke(request)) {
+                    using (request) {
+                        using (response = await settings.ClientPool.Get(builder.Inner).SendAsync(request, cancellationToken)) {
+                            if (!response.IsSuccessStatusCode && !builder.Inner.IgnoreResponseStatuses.Contains(response.StatusCode)) {
                                 exception = new HttpClientException(
                                     $"Response code was {(int) response.StatusCode} ({response.StatusCode}) from {response.RequestMessage.RequestUri}: {response.ReasonPhrase}",
                                     response.StatusCode,
@@ -75,8 +67,7 @@ namespace Cosmos.Http.HttpUtils
 
                                 stackTraceString.SetValue(exception, new StackTrace(true).ToString());
                             }
-                            else
-                            {
+                            else {
                                 var data = await builder.Handler(response);
                                 return HttpCallResponse.Create(response, data);
                             }
@@ -84,14 +75,12 @@ namespace Cosmos.Http.HttpUtils
                     }
                 }
             }
-            catch (TaskCanceledException ex)
-            {
+            catch (TaskCanceledException ex) {
                 exception = cancellationToken.IsCancellationRequested
                     ? new HttpClientException($"HttpClient request cancelled by token request.", builder.Inner.Message.RequestUri, ex)
                     : new HttpClientException($"HttpClient request time out: {builder.Inner.Timeout.TotalMilliseconds:N0}ms", builder.Inner.Message.RequestUri, ex);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 exception = ex;
             }
 
@@ -101,8 +90,7 @@ namespace Cosmos.Http.HttpUtils
 
             (builder.Inner as HttpBuilder)?.AddExceptionData(exception);
 
-            if (builder.Inner.LogErrors)
-            {
+            if (builder.Inner.LogErrors) {
                 var args = new HttpExceptionArgs(builder.Inner, exception);
                 builder.Inner.OnBeforeExceptionLog(args);
 

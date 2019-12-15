@@ -8,16 +8,13 @@
  *      MIT
  */
 
-namespace Cosmos.IdUtils.GuidImplements.Internals
-{
-    internal static class GuidUtility
-    {
+namespace Cosmos.IdUtils.GuidImplements.Internals {
+    internal static class GuidUtility {
         /// <summary>
         /// Creates a new array that is a copy of the specified array.
         /// </summary>
         /// <param name="guid">The GUID, as a byte array.</param>
-        public static byte[] Copy(byte[] guid)
-        {
+        public static byte[] Copy(byte[] guid) {
             var result = new byte[16];
             Array.Copy(guid, result, 16);
             return result;
@@ -27,8 +24,7 @@ namespace Cosmos.IdUtils.GuidImplements.Internals
         /// Creates a new array that is an endian conversion of the specified array, converting big-endian to little-endian or vice versa.
         /// </summary>
         /// <param name="guid">The GUID, as a byte array.</param>
-        public static byte[] CopyWithEndianSwap(byte[] guid)
-        {
+        public static byte[] CopyWithEndianSwap(byte[] guid) {
             var result = new byte[16];
             result[0] = guid[3];
             result[1] = guid[2];
@@ -46,8 +42,7 @@ namespace Cosmos.IdUtils.GuidImplements.Internals
         /// Converts a big-endian GUID to a little-endian GUID, or vice versa. This method modifies the array in-place.
         /// </summary>
         /// <param name="guid">The GUID, as a byte array.</param>
-        public static void EndianSwap(byte[] guid)
-        {
+        public static void EndianSwap(byte[] guid) {
             Swap(guid, 0, 3);
             Swap(guid, 1, 2);
 
@@ -56,8 +51,7 @@ namespace Cosmos.IdUtils.GuidImplements.Internals
             Swap(guid, 6, 7);
         }
 
-        private static void Swap(byte[] array, int index1, int index2)
-        {
+        private static void Swap(byte[] array, int index1, int index2) {
             var temp = array[index1];
             array[index1] = array[index2];
             array[index2] = temp;

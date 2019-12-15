@@ -4,14 +4,12 @@ using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Judgments;
 using Cosmos.Validations.Parameters.Internals;
 
-namespace Cosmos.Validations.Parameters
-{
+namespace Cosmos.Validations.Parameters {
     /// <summary>
     /// Must long
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class MustLongTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
-    {
+    public class MustLongTypeAttribute : ParameterInterceptorAttribute, IValidationParameter {
         /// <summary>
         /// Message
         /// </summary>
@@ -29,8 +27,7 @@ namespace Cosmos.Validations.Parameters
         /// <param name="next"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentInvalidException"></exception>
-        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
-        {
+        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next) {
             var condition = MayBeNullable
                 ? context.Parameter.IsNot(TypeClass.LongClass).OrNot(TypeClass.LongNullableClass)
                 : context.Parameter.Type.IsNot(TypeClass.LongClass);

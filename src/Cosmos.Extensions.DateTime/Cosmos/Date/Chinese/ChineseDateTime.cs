@@ -2,14 +2,12 @@
 using System.Globalization;
 using Cosmos.Judgments;
 
-namespace Cosmos.Date.Chinese
-{
+namespace Cosmos.Date.Chinese {
     /// <summary>
     /// Chinese Date Time<br />
     /// 中国农历日期与时间
     /// </summary>
-    public class ChineseDateTime
-    {
+    public class ChineseDateTime {
         private DateTime InternalDateTime { get; set; }
         private ChineseLunisolarCalendar Calendar { get; set; }
 
@@ -18,8 +16,7 @@ namespace Cosmos.Date.Chinese
         /// 创建一个 <see cref="ChineseDateTime"/> 的新实例
         /// </summary>
         /// <param name="dt"></param>
-        public ChineseDateTime(DateTime dt)
-        {
+        public ChineseDateTime(DateTime dt) {
             InternalDateTime = dt;
             Calendar = new ChineseLunisolarCalendar();
         }
@@ -30,8 +27,7 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="dt"></param>
         /// <param name="calendar"></param>
-        private ChineseDateTime(DateTime dt, ChineseLunisolarCalendar calendar)
-        {
+        private ChineseDateTime(DateTime dt, ChineseLunisolarCalendar calendar) {
             InternalDateTime = dt;
             Calendar = calendar;
         }
@@ -133,7 +129,8 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public string GetChineseDateWithYear(bool traditionalChineseCharacters = false) => $"{GetChineseYear(traditionalChineseCharacters)}{GetChineseDate(traditionalChineseCharacters)}";
+        public string GetChineseDateWithYear(bool traditionalChineseCharacters = false) =>
+            $"{GetChineseYear(traditionalChineseCharacters)}{GetChineseDate(traditionalChineseCharacters)}";
 
         /// <summary>
         /// Gets Chinese date with Chinese Sexagenary year<br />
@@ -141,7 +138,8 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public string GetChineseDateWithSexagenaryYear(bool traditionalChineseCharacters = false) => $"{GetSexagenaryYear(traditionalChineseCharacters)}{GetChineseDate(traditionalChineseCharacters)}";
+        public string GetChineseDateWithSexagenaryYear(bool traditionalChineseCharacters = false) =>
+            $"{GetSexagenaryYear(traditionalChineseCharacters)}{GetChineseDate(traditionalChineseCharacters)}";
 
         /// <summary>
         /// Gets Chinese Time<br />
@@ -165,7 +163,8 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public string GetLastSolarTerm(bool traditionalChineseCharacters = false) => ChineseSolarTermHelper.GetLastSolarTerm(Calendar, InternalDateTime, traditionalChineseCharacters);
+        public string GetLastSolarTerm(bool traditionalChineseCharacters = false) =>
+            ChineseSolarTermHelper.GetLastSolarTerm(Calendar, InternalDateTime, traditionalChineseCharacters);
 
         /// <summary>
         /// Gets last solar term<br />
@@ -174,7 +173,8 @@ namespace Cosmos.Date.Chinese
         /// <param name="dt"></param>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public string GetLastSolarTerm(out DateTime dt, bool traditionalChineseCharacters = false) => ChineseSolarTermHelper.GetLastSolarTerm(Calendar, InternalDateTime, out dt, traditionalChineseCharacters);
+        public string GetLastSolarTerm(out DateTime dt, bool traditionalChineseCharacters = false) =>
+            ChineseSolarTermHelper.GetLastSolarTerm(Calendar, InternalDateTime, out dt, traditionalChineseCharacters);
 
         /// <summary>
         /// Gets next solar term<br />
@@ -182,7 +182,8 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public string GetNextSolarTerm(bool traditionalChineseCharacters = false) => ChineseSolarTermHelper.GetNextSolarTerm(Calendar, InternalDateTime, traditionalChineseCharacters);
+        public string GetNextSolarTerm(bool traditionalChineseCharacters = false) =>
+            ChineseSolarTermHelper.GetNextSolarTerm(Calendar, InternalDateTime, traditionalChineseCharacters);
 
         /// <summary>
         /// Gets next solar term<br />
@@ -191,15 +192,15 @@ namespace Cosmos.Date.Chinese
         /// <param name="dt"></param>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public string GetNextSolarTerm(out DateTime dt, bool traditionalChineseCharacters = false) => ChineseSolarTermHelper.GetNextSolarTerm(Calendar, InternalDateTime, out dt, traditionalChineseCharacters);
+        public string GetNextSolarTerm(out DateTime dt, bool traditionalChineseCharacters = false) =>
+            ChineseSolarTermHelper.GetNextSolarTerm(Calendar, InternalDateTime, out dt, traditionalChineseCharacters);
 
         /// <summary>
         /// Tomorrow<br />
         /// 明天
         /// </summary>
         /// <returns></returns>
-        public ChineseDateTime Tomorrow()
-        {
+        public ChineseDateTime Tomorrow() {
             return AddDays(1);
         }
 
@@ -208,8 +209,7 @@ namespace Cosmos.Date.Chinese
         /// 昨天
         /// </summary>
         /// <returns></returns>
-        public ChineseDateTime Yesterday()
-        {
+        public ChineseDateTime Yesterday() {
             return AddDays(-1);
         }
 
@@ -219,8 +219,7 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public ChineseDateTime AddDays(int days)
-        {
+        public ChineseDateTime AddDays(int days) {
             return new ChineseDateTime(InternalDateTime.AddDays(days));
         }
 
@@ -230,22 +229,18 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public ChineseDateTime AddWorkDays(int days)
-        {
+        public ChineseDateTime AddWorkDays(int days) {
             var cc = new ChineseDateTime(InternalDateTime);
             if (days <= 0)
                 days = 1;
 
-            while (true)
-            {
+            while (true) {
                 cc = cc.Tomorrow();
-                if (cc.IsWorkDay())
-                {
+                if (cc.IsWorkDay()) {
                     days--;
                 }
 
-                if (days == 0)
-                {
+                if (days == 0) {
                     return cc;
                 }
             }
@@ -257,8 +252,7 @@ namespace Cosmos.Date.Chinese
         /// </summary>
         /// <param name="months"></param>
         /// <returns></returns>
-        public ChineseDateTime AddMonths(int months)
-        {
+        public ChineseDateTime AddMonths(int months) {
             return new ChineseDateTime(InternalDateTime.AddMonths(months));
         }
 
@@ -301,8 +295,7 @@ namespace Cosmos.Date.Chinese
         /// Convert <see cref="ChineseDateTime"/> to <see cref="DateTime"/>
         /// </summary>
         /// <param name="di"></param>
-        public static implicit operator DateTime(ChineseDateTime di)
-        {
+        public static implicit operator DateTime(ChineseDateTime di) {
             return di.InternalDateTime;
         }
 
@@ -310,8 +303,7 @@ namespace Cosmos.Date.Chinese
         /// Convert <see cref="DateTime"/> to <see cref="ChineseDateTime"/>
         /// </summary>
         /// <param name="dt"></param>
-        public static implicit operator ChineseDateTime(DateTime dt)
-        {
+        public static implicit operator ChineseDateTime(DateTime dt) {
             return new ChineseDateTime(dt);
         }
 
@@ -340,8 +332,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static ChineseDateTime Of(int year, int month, int day)
-        {
+        public static ChineseDateTime Of(int year, int month, int day) {
             return new ChineseDateTime(DateTimeFactory.Create(year, month, day));
         }
 
@@ -356,8 +347,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second)
-        {
+        public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second) {
             return new ChineseDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second));
         }
 
@@ -373,8 +363,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="second"></param>
         /// <param name="millisecond"></param>
         /// <returns></returns>
-        public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second, int millisecond)
-        {
+        public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second, int millisecond) {
             return new ChineseDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second, millisecond));
         }
 
@@ -386,8 +375,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static ChineseDateTime OfLunar(int year, int month, int day)
-        {
+        public static ChineseDateTime OfLunar(int year, int month, int day) {
             var calendar = new ChineseLunisolarCalendar();
             return new ChineseDateTime(calendar.ToDateTime(year, month, day, 0, 0, 0, 0), calendar);
         }
@@ -403,8 +391,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static ChineseDateTime OfLunar(int year, int month, int day, int hour, int minute, int second)
-        {
+        public static ChineseDateTime OfLunar(int year, int month, int day, int hour, int minute, int second) {
             var calendar = new ChineseLunisolarCalendar();
             return new ChineseDateTime(calendar.ToDateTime(year, month, day, hour, minute, second, 0), calendar);
         }
@@ -421,8 +408,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="second"></param>
         /// <param name="millisecond"></param>
         /// <returns></returns>
-        public static ChineseDateTime OfLunar(int year, int month, int day, int hour, int minute, int second, int millisecond)
-        {
+        public static ChineseDateTime OfLunar(int year, int month, int day, int hour, int minute, int second, int millisecond) {
             var calendar = new ChineseLunisolarCalendar();
             return new ChineseDateTime(calendar.ToDateTime(year, month, day, hour, minute, second, millisecond), calendar);
         }

@@ -1,5 +1,4 @@
-namespace Cosmos.IdUtils.GuidImplements
-{
+namespace Cosmos.IdUtils.GuidImplements {
     /*
      * Reference to:
      *     https://github.com/jhtodd/SequentialGuid
@@ -8,9 +7,8 @@ namespace Cosmos.IdUtils.GuidImplements
      *
      *     Copyright @ Jeremy H. Todd 2011
      */
-    
-    internal enum SequentialGuidTypes
-    {
+
+    internal enum SequentialGuidTypes {
         SequentialAsString,
         SequentialAsBinary,
         SequentialAsEnd

@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using FluentValidation.Results;
 
-namespace Cosmos.Validations.Abstractions
-{
+namespace Cosmos.Validations.Abstractions {
     /// <summary>
     /// Interface for validation result
     /// </summary>
-    public interface IValidationResult : IEnumerable<ValidationResult>
-    {
+    public interface IValidationResult : IEnumerable<ValidationResult> {
         /// <summary>
         /// Count
         /// </summary>

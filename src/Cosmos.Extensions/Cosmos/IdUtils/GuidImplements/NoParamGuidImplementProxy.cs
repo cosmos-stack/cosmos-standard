@@ -1,9 +1,7 @@
 using System;
 
-namespace Cosmos.IdUtils.GuidImplements
-{
-    internal static class NoParamGuidImplementProxy
-    {
+namespace Cosmos.IdUtils.GuidImplements {
+    internal static class NoParamGuidImplementProxy {
         // ReSharper disable once RedundantArgumentDefaultValue
         public static Guid Basic() => GuidProvider.Create(GuidStyle.BasicStyle);
 

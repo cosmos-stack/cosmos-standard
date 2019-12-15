@@ -3,13 +3,11 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cosmos.Serialization.Xml
-{
+namespace Cosmos.Serialization.Xml {
     /// <summary>
     /// Xml Helper
     /// </summary>
-    public static partial class XmlHelper
-    {
+    public static partial class XmlHelper {
         /// <summary>
         /// Serialize
         /// </summary>
@@ -17,8 +15,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="encoding"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<string> SerializeAsync<T>(T o, Encoding encoding = null)
-        {
+        public static async Task<string> SerializeAsync<T>(T o, Encoding encoding = null) {
             return await SerializeAsync(o, typeof(T), encoding);
         }
 
@@ -29,8 +26,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="type"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static async Task<string> SerializeAsync(object o, Type type, Encoding encoding = null)
-        {
+        public static async Task<string> SerializeAsync(object o, Type type, Encoding encoding = null) {
             if (o is null)
                 return string.Empty;
 
@@ -46,8 +42,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="o"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<byte[]> SerializeToBytesAsync<T>(T o)
-        {
+        public static async Task<byte[]> SerializeToBytesAsync<T>(T o) {
             return await SerializeToBytesAsync(o, typeof(T));
         }
 
@@ -57,8 +52,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="o"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static async Task<byte[]> SerializeToBytesAsync(object o, Type type)
-        {
+        public static async Task<byte[]> SerializeToBytesAsync(object o, Type type) {
             if (o is null)
                 return new byte[0];
 
@@ -73,8 +67,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="encoding"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> DeserializeAsync<T>(string xml, Encoding encoding = null)
-        {
+        public static async Task<T> DeserializeAsync<T>(string xml, Encoding encoding = null) {
             return string.IsNullOrWhiteSpace(xml)
                 ? default
                 : (T) await DeserializeAsync(xml, typeof(T), encoding);
@@ -87,8 +80,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="type"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static async Task<object> DeserializeAsync(string xml, Type type, Encoding encoding = null)
-        {
+        public static async Task<object> DeserializeAsync(string xml, Type type, Encoding encoding = null) {
             if (string.IsNullOrWhiteSpace(xml))
                 return null;
 
@@ -104,8 +96,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="data"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> DeserializeFromBytesAsync<T>(byte[] data)
-        {
+        public static async Task<T> DeserializeFromBytesAsync<T>(byte[] data) {
             return data is null || data.Length is 0
                 ? default
                 : (T) await DeserializeFromBytesAsync(data, typeof(T));
@@ -117,8 +108,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="data"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static async Task<object> DeserializeFromBytesAsync(byte[] data, Type type)
-        {
+        public static async Task<object> DeserializeFromBytesAsync(byte[] data, Type type) {
             if (data is null || data.Length == 0)
                 return null;
 

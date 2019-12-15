@@ -188,6 +188,12 @@
             XML 序列化器接口
             </summary>
         </member>
+        <member name="T:Cosmos.Serialization.IYamlSerializer">
+            <summary>
+            Interface of Yaml serializer<br />
+            Yaml 序列化器接口
+            </summary>
+        </member>
         <member name="T:Cosmos.Serialization.IZeroFormatterSerializer">
             <summary>
             Interface of ZeroFormatter serializer<br />

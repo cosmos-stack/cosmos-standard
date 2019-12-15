@@ -1,5 +1,4 @@
-﻿namespace Cosmos.Domain.Core
-{
+﻿namespace Cosmos.Domain.Core {
     /// <summary>
     /// Interface of domain object
     /// </summary>

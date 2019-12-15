@@ -11,13 +11,12 @@ using System.Threading.Tasks;
  */
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Asynchronous
-{
+namespace Cosmos.Asynchronous {
     /// <summary>
     /// TaskCompletionSource extensions
     /// </summary>
-    public static class TaskCompletionSourceExtensions
-    {
+    public static class TaskCompletionSourceExtensions {
+
         #region TryCompleteFromCompletedTask
 
         /// <summary>
@@ -29,13 +28,11 @@ namespace Cosmos.Asynchronous
         /// <returns></returns>
         public static bool TryCompleteFromCompletedTask<TResult>(
             this TaskCompletionSource<TResult> taskCompletionSource,
-            Task<TResult> completedTask)
-        {
+            Task<TResult> completedTask) {
             if (taskCompletionSource == null) throw new ArgumentNullException(nameof(taskCompletionSource));
             if (completedTask == null) throw new ArgumentNullException(nameof(completedTask));
 
-            switch (completedTask.Status)
-            {
+            switch (completedTask.Status) {
                 case TaskStatus.Faulted:
                     // ReSharper disable once PossibleNullReferenceException
                     return taskCompletionSource.TrySetException(completedTask.Exception.InnerExceptions);
@@ -61,8 +58,7 @@ namespace Cosmos.Asynchronous
         /// <param name="task"></param>
         /// <param name="continuationAction"></param>
         /// <returns></returns>
-        public static Task ContinueWithSynchronously(this Task task, Action<Task> continuationAction)
-        {
+        public static Task ContinueWithSynchronously(this Task task, Action<Task> continuationAction) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationAction == null) throw new ArgumentNullException(nameof(continuationAction));
 
@@ -80,8 +76,7 @@ namespace Cosmos.Asynchronous
         /// <param name="continuationAction"></param>
         /// <param name="state"></param>
         /// <returns></returns>
-        public static Task ContinueWithSynchronously(this Task task, Action<Task, object> continuationAction, object state)
-        {
+        public static Task ContinueWithSynchronously(this Task task, Action<Task, object> continuationAction, object state) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationAction == null) throw new ArgumentNullException(nameof(continuationAction));
 
@@ -100,8 +95,7 @@ namespace Cosmos.Asynchronous
         /// <param name="task"></param>
         /// <param name="continuationFunc"></param>
         /// <returns></returns>
-        public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, TResult> continuationFunc)
-        {
+        public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, TResult> continuationFunc) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationFunc == null) throw new ArgumentNullException(nameof(continuationFunc));
 
@@ -120,8 +114,7 @@ namespace Cosmos.Asynchronous
         /// <param name="continuationFunc"></param>
         /// <param name="state"></param>
         /// <returns></returns>
-        public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, object, TResult> continuationFunc, object state)
-        {
+        public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, object, TResult> continuationFunc, object state) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationFunc == null) throw new ArgumentNullException(nameof(continuationFunc));
 
@@ -140,8 +133,7 @@ namespace Cosmos.Asynchronous
         /// <param name="task"></param>
         /// <param name="continuationAction"></param>
         /// <returns></returns>
-        public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>> continuationAction)
-        {
+        public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>> continuationAction) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationAction == null) throw new ArgumentNullException(nameof(continuationAction));
 
@@ -160,8 +152,7 @@ namespace Cosmos.Asynchronous
         /// <param name="continuationAction"></param>
         /// <param name="state"></param>
         /// <returns></returns>
-        public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>, object> continuationAction, object state)
-        {
+        public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>, object> continuationAction, object state) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationAction == null) throw new ArgumentNullException(nameof(continuationAction));
 
@@ -181,8 +172,7 @@ namespace Cosmos.Asynchronous
         /// <param name="task"></param>
         /// <param name="continuationFunc"></param>
         /// <returns></returns>
-        public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, TNewResult> continuationFunc)
-        {
+        public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, TNewResult> continuationFunc) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationFunc == null) throw new ArgumentNullException(nameof(continuationFunc));
 
@@ -202,8 +192,8 @@ namespace Cosmos.Asynchronous
         /// <param name="continuationFunc"></param>
         /// <param name="state"></param>
         /// <returns></returns>
-        public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, object, TNewResult> continuationFunc, object state)
-        {
+        public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, object, TNewResult> continuationFunc,
+            object state) {
             if (task == null) throw new ArgumentNullException(nameof(task));
             if (continuationFunc == null) throw new ArgumentNullException(nameof(continuationFunc));
 
@@ -224,16 +214,16 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="task"></param>
         /// <returns></returns>
-        public static CancellationTokenSource ToCancellationTokenSource(this Task task)
-        {
+        public static CancellationTokenSource ToCancellationTokenSource(this Task task) {
             if (task == null)
                 throw new ArgumentNullException(nameof(task));
 
             var cancellationTokenSource = new CancellationTokenSource();
-            task.ContinueWithSynchronously((_, @this) => ((CancellationTokenSource)@this).Cancel(), cancellationTokenSource);
+            task.ContinueWithSynchronously((_, @this) => ((CancellationTokenSource) @this).Cancel(), cancellationTokenSource);
             return cancellationTokenSource;
         }
 
         #endregion
+
     }
 }

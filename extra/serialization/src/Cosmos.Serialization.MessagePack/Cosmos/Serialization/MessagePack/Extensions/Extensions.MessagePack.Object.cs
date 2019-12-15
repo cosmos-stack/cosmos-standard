@@ -3,15 +3,13 @@ using System.Threading.Tasks;
 using Cosmos.Serialization.MessagePack.Neuecc;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.MessagePack
-{
+namespace Cosmos.Serialization.MessagePack {
     using N = NeueccMsgPackHelper;
 
     /// <summary>
     /// MessagePack extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// To neuecc's message pack
         /// </summary>

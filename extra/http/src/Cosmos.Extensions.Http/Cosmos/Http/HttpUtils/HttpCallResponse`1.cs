@@ -9,21 +9,18 @@ using System.Net.Http;
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// Http Call Response
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class HttpCallResponse<T> : HttpCallResponse
-    {
+    public class HttpCallResponse<T> : HttpCallResponse {
         /// <summary>
         /// Create a new instance of <see cref="HttpCallResponse"/>.
         /// </summary>
         /// <param name="response"></param>
         /// <param name="data"></param>
-        public HttpCallResponse(HttpResponseMessage response, T data) : base(response)
-        {
+        public HttpCallResponse(HttpResponseMessage response, T data) : base(response) {
             Data = data;
         }
 

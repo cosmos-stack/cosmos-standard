@@ -1,21 +1,17 @@
 using Cosmos.IdUtils.CombImplements.Providers;
 
-namespace Cosmos.IdUtils.GuidImplements
-{
-    internal static class NoRepeatTimeStampManager
-    {
+namespace Cosmos.IdUtils.GuidImplements {
+    internal static class NoRepeatTimeStampManager {
         // ReSharper disable once InconsistentNaming
         private static readonly NoRepeatTimeStampFactory _factory;
 
-        static NoRepeatTimeStampManager()
-        {
+        static NoRepeatTimeStampManager() {
             _factory = new NoRepeatTimeStampFactory();
         }
 
         public static NoRepeatTimeStampFactory GetFactory() => _factory;
 
-        public static InternalTimeStampProvider GetTimeStampProvider(NoRepeatMode mode)
-        {
+        public static InternalTimeStampProvider GetTimeStampProvider(NoRepeatMode mode) {
             if (mode == NoRepeatMode.On)
                 return GetFactory().GetTimeStamp;
             return null;

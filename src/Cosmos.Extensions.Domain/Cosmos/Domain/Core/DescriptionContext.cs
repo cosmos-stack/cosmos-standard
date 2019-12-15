@@ -1,19 +1,16 @@
 ﻿using System.Text;
 
-namespace Cosmos.Domain.Core
-{
+namespace Cosmos.Domain.Core {
     /// <summary>
     /// Description context
     /// </summary>
-    public sealed class DescriptionContext
-    {
+    public sealed class DescriptionContext {
         private StringBuilder _stringBuilder;
 
         /// <summary>
         /// Create a new instance of <see cref="DescriptionContext"/>.
         /// </summary>
-        public DescriptionContext()
-        {
+        public DescriptionContext() {
             _stringBuilder = new StringBuilder();
         }
 
@@ -21,8 +18,7 @@ namespace Cosmos.Domain.Core
         /// Add desctiption
         /// </summary>
         /// <param name="description"></param>
-        public void Add(string description)
-        {
+        public void Add(string description) {
             if (string.IsNullOrWhiteSpace(description))
                 return;
             _stringBuilder.Append(description);
@@ -34,8 +30,7 @@ namespace Cosmos.Domain.Core
         /// <param name="name"></param>
         /// <param name="value"></param>
         /// <typeparam name="TValue"></typeparam>
-        public void Add<TValue>(string name, TValue value)
-        {
+        public void Add<TValue>(string name, TValue value) {
             if (string.IsNullOrWhiteSpace(name))
                 return;
             if (value == null || value.Equals(default(TValue)) || string.IsNullOrWhiteSpace(value.ToString()))
@@ -46,8 +41,7 @@ namespace Cosmos.Domain.Core
         /// <summary>
         /// Flush cache
         /// </summary>
-        public void FlushCache()
-        {
+        public void FlushCache() {
             _stringBuilder.Clear();
         }
 
@@ -55,16 +49,14 @@ namespace Cosmos.Domain.Core
         /// Output
         /// </summary>
         /// <returns></returns>
-        public string Output()
-        {
+        public string Output() {
             if (_stringBuilder.Length == 0)
                 return string.Empty;
             return _stringBuilder.ToString().TrimEnd().TrimEnd(',');
         }
 
         /// <inheritdoc />
-        public override string ToString()
-        {
+        public override string ToString() {
             return Output();
         }
     }

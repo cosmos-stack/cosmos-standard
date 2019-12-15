@@ -1,34 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\build\common.ns20-net461-net451.props"/>
+    <Import Project="..\..\build\common.ns20-net461-net451.props" />
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <AssemblyName>Cosmos.Extensions.DateTime</AssemblyName>
-    <PackageId>Cosmos.Extensions.DateTime</PackageId>
-    <Description>Cosmos Date/Time extension library</Description>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.DateTime</AssemblyName>
+        <PackageId>Cosmos.Extensions.DateTime</PackageId>
+        <Description>Cosmos Date/Time extension library</Description>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.DateTime.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.DateTime.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>Cosmos.Extensions.DateTime.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>Cosmos.Extensions.DateTime.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="NodaTime" Version="3.0.0-beta01" />
-  </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
+        <PackageReference Include="NodaTime" Version="3.0.0-beta01" />
+    </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='net461' OR '$(TargetFramework)'=='net451'">
-    <PackageReference Include="NodaTime" Version="2.4.7" />
-  </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'=='net461' OR '$(TargetFramework)'=='net451'">
+        <PackageReference Include="NodaTime" Version="2.4.7" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
+    </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
-namespace Cosmos.Domain.EntityDescriptors
-{
+namespace Cosmos.Domain.EntityDescriptors {
     /// <summary>
     /// Interface for audited
     /// </summary>

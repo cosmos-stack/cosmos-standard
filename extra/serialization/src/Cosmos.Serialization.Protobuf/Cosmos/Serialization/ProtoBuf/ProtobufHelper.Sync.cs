@@ -1,20 +1,17 @@
 using System;
 using System.IO;
 
-namespace Cosmos.Serialization.ProtoBuf
-{
+namespace Cosmos.Serialization.ProtoBuf {
     /// <summary>
     /// Google protobuf helper
     /// </summary>
-    public static partial class ProtobufHelper
-    {
+    public static partial class ProtobufHelper {
         /// <summary>
         /// Serialize
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static byte[] Serialize(object obj)
-        {
+        public static byte[] Serialize(object obj) {
             if (obj is null)
                 return new byte[0];
 
@@ -28,8 +25,7 @@ namespace Cosmos.Serialization.ProtoBuf
         /// <param name="data"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Deserialize<T>(byte[] data)
-        {
+        public static T Deserialize<T>(byte[] data) {
             if (data is null || data.Length == 0)
                 return default;
 
@@ -42,8 +38,7 @@ namespace Cosmos.Serialization.ProtoBuf
         /// <param name="data"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static object Deserialize(byte[] data, Type type)
-        {
+        public static object Deserialize(byte[] data, Type type) {
             if (data is null || data.Length == 0)
                 return default;
 

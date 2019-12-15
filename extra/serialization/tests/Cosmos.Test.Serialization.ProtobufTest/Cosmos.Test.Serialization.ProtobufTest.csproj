@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp2.2;netcoreapp3.0</TargetFrameworks>
+        <TargetFrameworks>netcoreapp2.2;netcoreapp3.1</TargetFrameworks>
 
         <IsPackable>false</IsPackable>
     </PropertyGroup>
@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Cosmos.Serialization.Protobuf\Cosmos.Serialization.Protobuf.csproj" />
+        <ProjectReference Include="..\..\src\Cosmos.Serialization.Protobuf\Cosmos.Serialization.Protobuf.csproj" />
     </ItemGroup>
 
 </Project>

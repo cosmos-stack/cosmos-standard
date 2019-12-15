@@ -2,21 +2,18 @@ using System;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateInfo Extensions<br />
     /// DateInfo 扩展方法
     /// </summary>
-    public static partial class DateInfoExtensions
-    {
+    public static partial class DateInfoExtensions {
         /// <summary>
         /// Next year
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
-        public static DateInfo NextYear(this DateInfo d)
-        {
+        public static DateInfo NextYear(this DateInfo d) {
             var year = d.Year + 1;
             var daysOfMonth = DateTime.DaysInMonth(year, d.Month);
 
@@ -33,8 +30,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
-        public static DateInfo PreviousYear(this DateInfo d)
-        {
+        public static DateInfo PreviousYear(this DateInfo d) {
             var year = d.Year - 1;
             var daysOfMonth = DateTime.DaysInMonth(year, d.Month);
 

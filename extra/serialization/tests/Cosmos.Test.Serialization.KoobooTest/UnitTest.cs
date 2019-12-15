@@ -3,13 +3,10 @@ using System.IO;
 using Cosmos.Serialization.Json;
 using Xunit;
 
-namespace Cosmos.Test.Serializaion.KoobooTest
-{
-    public class UnitTest
-    {
+namespace Cosmos.Test.Serializaion.KoobooTest {
+    public class UnitTest {
         [Fact]
-        public void BytesTest()
-        {
+        public void BytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToKoobooBytes();
             var backs = bytes.FromKoobooBytes<NiceModel>();
@@ -20,8 +17,7 @@ namespace Cosmos.Test.Serializaion.KoobooTest
         }
 
         [Fact]
-        public void NonGenericBytesTest()
-        {
+        public void NonGenericBytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToKoobooBytes();
             var backs = (NiceModel) bytes.FromKoobooBytes(typeof(NiceModel));
@@ -32,8 +28,7 @@ namespace Cosmos.Test.Serializaion.KoobooTest
         }
 
         [Fact]
-        public void StreamTest()
-        {
+        public void StreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.KoobooPack();
             var stream2 = new MemoryStream();
@@ -59,8 +54,7 @@ namespace Cosmos.Test.Serializaion.KoobooTest
         }
 
         [Fact]
-        public void NonGenericStreamTest()
-        {
+        public void NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.KoobooPack();
             var stream2 = new MemoryStream();
@@ -86,8 +80,7 @@ namespace Cosmos.Test.Serializaion.KoobooTest
         }
 
         [Fact]
-        public void StringTest()
-        {
+        public void StringTest() {
             var model = CreateNiceModel();
             var json1 = model.ToKoobooJson();
             var back1 = json1.FromKoobooJson<NiceModel>();
@@ -98,8 +91,7 @@ namespace Cosmos.Test.Serializaion.KoobooTest
         }
 
         [Fact]
-        public void NonGenericStringTest()
-        {
+        public void NonGenericStringTest() {
             var model = CreateNiceModel();
             var json1 = model.ToKoobooJson();
             var back1 = (NiceModel) json1.FromKoobooJson(typeof(NiceModel));
@@ -109,10 +101,8 @@ namespace Cosmos.Test.Serializaion.KoobooTest
                 Tuple.Create(back1.Id, back1.Name, back1.NiceType, back1.Count, back1.CreatedTime, back1.IsValid));
         }
 
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

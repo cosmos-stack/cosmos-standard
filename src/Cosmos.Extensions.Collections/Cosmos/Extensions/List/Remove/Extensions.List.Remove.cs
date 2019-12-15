@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Extensions of list
     /// </summary>
-    public static partial class ListExtensions
-    {
+    public static partial class ListExtensions {
         /// <summary>
         /// Remove deplicates
         /// </summary>
         /// <param name="values"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<TSource> RemoveDuplicates<TSource>(this IList<TSource> values)
-        {
+        public static IEnumerable<TSource> RemoveDuplicates<TSource>(this IList<TSource> values) {
             var duplicateCheck = new HashSet<TSource>();
 
-            return values.RemoveWhere(item =>
-            {
+            return values.RemoveWhere(item => {
                 if (duplicateCheck.Contains(item))
                     return true;
 
@@ -37,15 +33,13 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TCheck"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<TSource> RemoveDuplicates<TSource, TCheck>(this IList<TSource> values, Func<TSource, TCheck> duplicatePredicate)
-        {
+        public static IEnumerable<TSource> RemoveDuplicates<TSource, TCheck>(this IList<TSource> values, Func<TSource, TCheck> duplicatePredicate) {
             if (duplicatePredicate == null)
                 throw new ArgumentNullException(nameof(duplicatePredicate));
 
             var duplicateCheck = new HashSet<TCheck>();
 
-            return values.RemoveWhere(item =>
-            {
+            return values.RemoveWhere(item => {
                 var val = duplicatePredicate(item);
 
                 if (duplicateCheck.Contains(val))
@@ -61,12 +55,10 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static IEnumerable<string> RemoveDuplicatesIgnoreCase(this IList<string> values)
-        {
+        public static IEnumerable<string> RemoveDuplicatesIgnoreCase(this IList<string> values) {
             var duplicateCheck = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-            return values.RemoveWhere(item =>
-            {
+            return values.RemoveWhere(item => {
                 if (duplicateCheck.Contains(item))
                     return true;
 
@@ -83,16 +75,14 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> RemoveWhere<T>(this IList<T> source, Func<T, bool> predicate)
-        {
+        public static IEnumerable<T> RemoveWhere<T>(this IList<T> source, Func<T, bool> predicate) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
 
             if (predicate == null)
                 throw new ArgumentNullException(nameof(predicate));
 
-            for (var i = source.Count - 1; i >= 0; --i)
-            {
+            for (var i = source.Count - 1; i >= 0; --i) {
                 var item = source[i];
 
                 if (!predicate.Invoke(item))
@@ -113,8 +103,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> SafeRemoveRange<T>(this List<T> source, int index, int count)
-        {
+        public static IEnumerable<T> SafeRemoveRange<T>(this List<T> source, int index, int count) {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
 
@@ -125,7 +114,7 @@ namespace Cosmos.Collections
                 return source;
 
             count = Math.Min(count, source.Count) - index;
-            
+
             source.RemoveRange(index, count);
 
             return source;

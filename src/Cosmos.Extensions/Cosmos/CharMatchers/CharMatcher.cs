@@ -3,23 +3,19 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.CharMatchers
-{
+namespace Cosmos.CharMatchers {
     /// <summary>
     /// Char matcher
     /// </summary>
-    public partial class CharMatcher : ICharMatcher
-    {
+    public partial class CharMatcher : ICharMatcher {
         private MatchingPredicateOptions Options { get; set; } = new MatchingPredicateOptions();
 
-        private CharMatcher(char match, bool not)
-        {
+        private CharMatcher(char match, bool not) {
             Options.SetSingleChar(match);
             Options.Not = not;
         }
 
-        private CharMatcher(string sequence, bool not)
-        {
+        private CharMatcher(string sequence, bool not) {
             Options.SetSequenceChars(sequence);
             Options.Not = not;
         }
@@ -31,8 +27,7 @@ namespace Cosmos.CharMatchers
         /// </summary>
         /// <param name="match"></param>
         /// <returns></returns>
-        public static IIsModeCharMatcher Is(char match)
-        {
+        public static IIsModeCharMatcher Is(char match) {
             return new CharMatcher(match, MatchingMode.TRUE);
         }
 
@@ -41,8 +36,7 @@ namespace Cosmos.CharMatchers
         /// </summary>
         /// <param name="match"></param>
         /// <returns></returns>
-        public static IIsNotModeCharMatcher IsNot(char match)
-        {
+        public static IIsNotModeCharMatcher IsNot(char match) {
             return new CharMatcher(match, MatchingMode.FALSE);
         }
 
@@ -51,8 +45,7 @@ namespace Cosmos.CharMatchers
         /// </summary>
         /// <param name="sequence"></param>
         /// <returns></returns>
-        public static ICharMatcher AnyOf(string sequence)
-        {
+        public static ICharMatcher AnyOf(string sequence) {
             return new CharMatcher(sequence, MatchingMode.TRUE);
         }
 
@@ -61,8 +54,7 @@ namespace Cosmos.CharMatchers
         /// </summary>
         /// <param name="sequence"></param>
         /// <returns></returns>
-        public static ICharMatcher NoneOf(string sequence)
-        {
+        public static ICharMatcher NoneOf(string sequence) {
             return new CharMatcher(sequence, MatchingMode.FALSE);
         }
 
@@ -80,8 +72,7 @@ namespace Cosmos.CharMatchers
 
         #region Private class
 
-        private class MatchingPredicateOptions
-        {
+        private class MatchingPredicateOptions {
 
             #region NOT
 
@@ -99,14 +90,12 @@ namespace Cosmos.CharMatchers
 
             public bool IsSingleCharMode { get; private set; }
 
-            public void SetSingleChar(char @char)
-            {
+            public void SetSingleChar(char @char) {
                 _singleChar = @char;
                 IsSingleCharMode = true;
             }
 
-            public void SetSequenceChars(string @string)
-            {
+            public void SetSequenceChars(string @string) {
                 _sequenceChars = @string;
                 IsSingleCharMode = false;
             }
@@ -119,8 +108,7 @@ namespace Cosmos.CharMatchers
 
             #region Negate
 
-            public void Negate()
-            {
+            public void Negate() {
                 Not = !Not;
             }
 
@@ -128,8 +116,7 @@ namespace Cosmos.CharMatchers
 
         }
 
-        private static class MatchingMode
-        {
+        private static class MatchingMode {
             // ReSharper disable once InconsistentNaming
             public static bool TRUE { get; } = true;
 
@@ -142,27 +129,22 @@ namespace Cosmos.CharMatchers
             // ReSharper disable once InconsistentNaming
             public static string OR { get; } = "OR";
 
-            public static bool IsAndMode(string mode)
-            {
+            public static bool IsAndMode(string mode) {
                 return string.Compare(mode, AND, StringComparison.OrdinalIgnoreCase) == 0;
             }
 
-            public static bool IsOrMode(string mode)
-            {
+            public static bool IsOrMode(string mode) {
                 return string.Compare(mode, OR, StringComparison.OrdinalIgnoreCase) == 0;
             }
         }
 
-        private static class SingleUtils
-        {
+        private static class SingleUtils {
 
             #region Match
 
-            public static bool MatchesAnyOf(string sequence, MatchingPredicateOptions options)
-            {
+            public static bool MatchesAnyOf(string sequence, MatchingPredicateOptions options) {
                 var @char = options.GetSingleChar();
-                for (var i = 0; i < sequence.Length; i++)
-                {
+                for (var i = 0; i < sequence.Length; i++) {
                     if (sequence[i] == @char)
                         return true;
                 }
@@ -170,11 +152,9 @@ namespace Cosmos.CharMatchers
                 return false;
             }
 
-            public static bool MatchesAllOf(string sequence, MatchingPredicateOptions options)
-            {
+            public static bool MatchesAllOf(string sequence, MatchingPredicateOptions options) {
                 var @char = options.GetSingleChar();
-                for (var i = 0; i < sequence.Length; i++)
-                {
+                for (var i = 0; i < sequence.Length; i++) {
                     if (sequence[i] != @char)
                         return false;
                 }
@@ -186,18 +166,15 @@ namespace Cosmos.CharMatchers
 
             #region IndexIn
 
-            public static int IndexIn(string sequence, char @char)
-            {
+            public static int IndexIn(string sequence, char @char) {
                 return sequence.IndexOf(@char);
             }
 
-            public static int IndexIn(string sequence, char @char, int startIndex)
-            {
+            public static int IndexIn(string sequence, char @char, int startIndex) {
                 return sequence.IndexOf(@char, startIndex);
             }
 
-            public static int LastIndexIn(string sequence, char @char)
-            {
+            public static int LastIndexIn(string sequence, char @char) {
                 return sequence.LastIndexOf(@char);
             }
 
@@ -205,8 +182,7 @@ namespace Cosmos.CharMatchers
 
             #region CountIn
 
-            public static int CountIn(string sequence, char @char)
-            {
+            public static int CountIn(string sequence, char @char) {
                 return sequence.Count(c => c == @char);
             }
 
@@ -214,15 +190,12 @@ namespace Cosmos.CharMatchers
 
             #region Operation from
 
-            public static string RemoveFrom(string sequence, MatchingPredicateOptions options, bool antiNot = false)
-            {
+            public static string RemoveFrom(string sequence, MatchingPredicateOptions options, bool antiNot = false) {
                 var @char = options.GetSingleChar();
                 var counter = 0;
                 var sb = new StringBuilder();
-                for (var i = 0; i < sequence.Length; i++)
-                {
-                    if (sequence[i] == @char)
-                    {
+                for (var i = 0; i < sequence.Length; i++) {
+                    if (sequence[i] == @char) {
                         ++counter;
                         continue;
                     }
@@ -235,23 +208,19 @@ namespace Cosmos.CharMatchers
                     : options.Not.Ifttt(() => Strings.Repeat(@char, counter), () => sb.ToString());
             }
 
-            public static string ReplaceFrom(string sequence, string replacement, MatchingPredicateOptions options)
-            {
+            public static string ReplaceFrom(string sequence, string replacement, MatchingPredicateOptions options) {
                 var @char = options.GetSingleChar();
 
                 var sb1 = new StringBuilder();
                 var sb2 = new StringBuilder();
-                for (var i = 0; i < sequence.Length; i++)
-                {
+                for (var i = 0; i < sequence.Length; i++) {
                     var index = i;
 
-                    if (sequence[i] == @char)
-                    {
+                    if (sequence[i] == @char) {
                         sb1.Append(replacement);
                         sb2.Append(sequence[i]);
                     }
-                    else
-                    {
+                    else {
                         sb2.Append(replacement);
                         sb1.Append(sequence[i]);
                     }
@@ -264,47 +233,38 @@ namespace Cosmos.CharMatchers
 
             #region Trim
 
-            public static string TrimFrom(string sequence, MatchingPredicateOptions options)
-            {
+            public static string TrimFrom(string sequence, MatchingPredicateOptions options) {
                 var @char = options.GetSingleChar();
                 var result = sequence.Trim(@char);
-                if (options.Not)
-                {
+                if (options.Not) {
                     var (f, l) = CharMatcherUtils.GetHeadAndTailLength(sequence, result);
                     return $"{@char.Repeat(f)}{@char.Repeat(l)}";
                 }
-                else
-                {
+                else {
                     return result;
                 }
             }
 
-            public static string TrimStartFrom(string sequence, MatchingPredicateOptions options)
-            {
+            public static string TrimStartFrom(string sequence, MatchingPredicateOptions options) {
                 var @char = options.GetSingleChar();
                 var result = sequence.TrimStart(@char);
-                if (options.Not)
-                {
+                if (options.Not) {
                     var times = sequence.Length - result.Length;
                     return @char.Repeat(times);
                 }
-                else
-                {
+                else {
                     return result;
                 }
             }
 
-            public static string TrimEndFrom(string sequence, MatchingPredicateOptions options)
-            {
+            public static string TrimEndFrom(string sequence, MatchingPredicateOptions options) {
                 var @char = options.GetSingleChar();
                 var result = sequence.TrimEnd(@char);
-                if (options.Not)
-                {
+                if (options.Not) {
                     var times = sequence.Length - result.Length;
                     return @char.Repeat(times);
                 }
-                else
-                {
+                else {
                     return result;
                 }
             }
@@ -313,14 +273,12 @@ namespace Cosmos.CharMatchers
 
             #region Collapse
 
-            public static string CollapseFrom(string sequence, char replacement, MatchingPredicateOptions options)
-            {
+            public static string CollapseFrom(string sequence, char replacement, MatchingPredicateOptions options) {
                 var @char = options.GetSingleChar();
                 var sb = new StringBuilder();
                 void UpdateAct(StringBuilder c, char r) => c.Append(r);
 
-                for (var i = 0; i < sequence.Length; i++)
-                {
+                for (var i = 0; i < sequence.Length; i++) {
                     var index = i;
                     var checker = sequence[i] == @char;
                     options.Not.Ifttt(
@@ -335,19 +293,16 @@ namespace Cosmos.CharMatchers
 
         }
 
-        private static class SequenceUtils
-        {
+        private static class SequenceUtils {
 
             #region Match
 
-            public static bool MatchesAnyOf(string sequence, MatchingPredicateOptions options)
-            {
+            public static bool MatchesAnyOf(string sequence, MatchingPredicateOptions options) {
                 var @string = options.GetSequenceChars();
                 return sequence.IndexWholePhrase(@string) >= 0;
             }
 
-            public static bool MatchesAllOf(string sequence, MatchingPredicateOptions options)
-            {
+            public static bool MatchesAllOf(string sequence, MatchingPredicateOptions options) {
                 var @string = options.GetSequenceChars();
                 if (sequence.Length % @string.Length != 0)
                     return false;
@@ -359,18 +314,15 @@ namespace Cosmos.CharMatchers
 
             #region IndexIn
 
-            public static int IndexIn(string sequence, string @string)
-            {
+            public static int IndexIn(string sequence, string @string) {
                 return sequence.IndexWholePhrase(@string);
             }
 
-            public static int IndexIn(string sequence, string @string, int startIndex)
-            {
+            public static int IndexIn(string sequence, string @string, int startIndex) {
                 return sequence.IndexWholePhrase(@string, startIndex);
             }
 
-            public static int LastIndexIn(string sequence, string @string)
-            {
+            public static int LastIndexIn(string sequence, string @string) {
                 return sequence.LastIndexOf(@string, StringComparison.Ordinal);
             }
 
@@ -378,8 +330,7 @@ namespace Cosmos.CharMatchers
 
             #region CountIn
 
-            public static int CountIn(string sequence, string @string)
-            {
+            public static int CountIn(string sequence, string @string) {
                 return Regex.Matches(sequence, @string).Count;
             }
 
@@ -387,35 +338,28 @@ namespace Cosmos.CharMatchers
 
             #region Operation from
 
-            public static string RemoveFrom(string sequence, MatchingPredicateOptions options, bool antiNot = false)
-            {
+            public static string RemoveFrom(string sequence, MatchingPredicateOptions options, bool antiNot = false) {
                 var @string = options.GetSequenceChars();
                 var sb = new StringBuilder();
                 var counter = 0;
-                if (@string.Length > sequence.Length)
-                {
+                if (@string.Length > sequence.Length) {
                     sb.Append(sequence);
                 }
-                else
-                {
-                    for (var i = 0; i < sequence.Length; i++)
-                    {
-                        if (i + @string.Length > sequence.Length)
-                        {
+                else {
+                    for (var i = 0; i < sequence.Length; i++) {
+                        if (i + @string.Length > sequence.Length) {
                             var rest = sequence.Substring(i);
                             sb.Append(rest);
                             break;
                         }
 
                         var t = sequence.Substring(i, @string.Length);
-                        if (t != @string)
-                        {
+                        if (t != @string) {
                             sb.Append(sequence[i]);
                         }
-                        else
-                        {
+                        else {
                             i = i + @string.Length - 1; //fix position
-                            ++counter; //update counter
+                            ++counter;                  //update counter
                         }
                     }
                 }
@@ -425,8 +369,7 @@ namespace Cosmos.CharMatchers
                     : options.Not.Ifttt(() => Strings.Repeat(@string, counter), sb.ToString);
             }
 
-            public static string ReplaceFrom(string sequence, string replacement, MatchingPredicateOptions options)
-            {
+            public static string ReplaceFrom(string sequence, string replacement, MatchingPredicateOptions options) {
                 var @string = options.GetSequenceChars();
                 var result = sequence.Replace(@string, replacement);
 
@@ -443,51 +386,42 @@ namespace Cosmos.CharMatchers
 
             #region Trim
 
-            public static string TrimFrom(string sequence, MatchingPredicateOptions options)
-            {
+            public static string TrimFrom(string sequence, MatchingPredicateOptions options) {
                 var @string = options.GetSequenceChars();
                 var result = sequence.TrimPhrase(@string);
-                if (options.Not)
-                {
+                if (options.Not) {
                     var (f, l) = CharMatcherUtils.GetHeadAndTailLength(sequence, result);
                     var f2 = (int) (f / @string.Length);
                     var l2 = (int) (l / @string.Length);
                     return $"{@string.Repeat(f2)}{@string.Repeat(l2)}";
                 }
-                else
-                {
+                else {
                     return result;
                 }
             }
 
-            public static string TrimStartFrom(string sequence, MatchingPredicateOptions options)
-            {
+            public static string TrimStartFrom(string sequence, MatchingPredicateOptions options) {
                 var @string = options.GetSequenceChars();
                 var result = sequence.TrimPhraseStart(@string);
-                if (options.Not)
-                {
+                if (options.Not) {
                     var length = sequence.Length - result.Length;
                     var times = (int) (length / @string.Length);
                     return @string.Repeat(times);
                 }
-                else
-                {
+                else {
                     return result;
                 }
             }
 
-            public static string TrimEndFrom(string sequence, MatchingPredicateOptions options)
-            {
+            public static string TrimEndFrom(string sequence, MatchingPredicateOptions options) {
                 var @string = options.GetSequenceChars();
                 var result = sequence.TrimPhraseStart(@string);
-                if (options.Not)
-                {
+                if (options.Not) {
                     var length = sequence.Length - result.Length;
                     var times = (int) (length / @string.Length);
                     return @string.Repeat(times);
                 }
-                else
-                {
+                else {
                     return result;
                 }
 
@@ -497,17 +431,14 @@ namespace Cosmos.CharMatchers
 
             #region Collapse
 
-            public static string CollapseFrom(string sequence, char replacement, MatchingPredicateOptions options)
-            {
+            public static string CollapseFrom(string sequence, char replacement, MatchingPredicateOptions options) {
                 var @string = options.GetSequenceChars();
                 var sb = new StringBuilder();
                 void UpdateAct(StringBuilder c, char r) => c.Append(r);
 
-                for (var i = 0; i < sequence.Length; i++)
-                {
+                for (var i = 0; i < sequence.Length; i++) {
                     var index = i;
-                    for (var j = 0; j < @string.Length; j++)
-                    {
+                    for (var j = 0; j < @string.Length; j++) {
                         var checker = sequence[i] == @string[j];
                         options.Not.Ifttt(
                             () => checker.Ifttt(() => UpdateAct(sb, sequence[index]), () => UpdateAct(sb, replacement)),
@@ -523,18 +454,15 @@ namespace Cosmos.CharMatchers
 
         }
 
-        private static class CharMatcherUtils
-        {
-            public static (int FirstLength, int LastLength) GetHeadAndTailLength(string originalSequence, string result)
-            {
+        private static class CharMatcherUtils {
+            public static (int FirstLength, int LastLength) GetHeadAndTailLength(string originalSequence, string result) {
                 var index = originalSequence.IndexWholePhrase(result);
                 var firstLength = index;
                 var lastLength = originalSequence.Length - firstLength - result.Length;
                 return (firstLength, lastLength);
             }
 
-            public static (char MinChar, char MaxChar) GetMinAndMax(char startInclusive, char endInclusive)
-            {
+            public static (char MinChar, char MaxChar) GetMinAndMax(char startInclusive, char endInclusive) {
                 if (startInclusive >= endInclusive)
                     return (endInclusive, startInclusive);
                 return (startInclusive, endInclusive);

@@ -4,10 +4,8 @@ using System.Linq;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class StringExtensions
-    {
+namespace Cosmos {
+    public static partial class StringExtensions {
         /// <summary>
         /// 确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
         /// <para>只要有一个匹配，则返回 True，不然则返回 False</para>
@@ -34,8 +32,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool StartsWithIgnoreCase(this string text, string toCheck)
-        {
+        public static bool StartsWithIgnoreCase(this string text, string toCheck) {
             if (toCheck.IsNullOrEmpty())
                 return true;
 
@@ -49,7 +46,7 @@ namespace Cosmos
         /// <param name="toCheck"></param>
         /// <returns></returns>
         public static bool StartsWithAnyIgnoreCase(this string text, params string[] toCheck)
-            => StartsWithAnyIgnoreCase(text, (IEnumerable<string>)toCheck);
+            => StartsWithAnyIgnoreCase(text, (IEnumerable<string>) toCheck);
 
         /// <summary>
         /// Starts with any ignore case
@@ -86,8 +83,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static bool EndsWithIgnoreCase(this string text, string toCheck)
-        {
+        public static bool EndsWithIgnoreCase(this string text, string toCheck) {
             if (toCheck.IsNullOrEmpty())
                 return true;
             return text.IsNullOrEmpty() ? toCheck.IsNullOrEmpty() : text.EndsWith(toCheck, StringComparison.OrdinalIgnoreCase);
@@ -100,7 +96,7 @@ namespace Cosmos
         /// <param name="toCheck"></param>
         /// <returns></returns>
         public static bool EndsWithAnyIgnoreCase(this string text, params string[] toCheck)
-            => EndsWithAnyIgnoreCase(text, (IEnumerable<string>)toCheck);
+            => EndsWithAnyIgnoreCase(text, (IEnumerable<string>) toCheck);
 
         /// <summary>
         /// Ends with any ignore case

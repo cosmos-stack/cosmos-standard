@@ -2,27 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using Cosmos.Collections;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StringExtensions
-    {
+    public static partial class StringExtensions {
         /// <summary>
         /// Fill
         /// </summary>
         /// <param name="original"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static string Fill(this string original, params object[] values)
-        {
+        public static string Fill(this string original, params object[] values) {
             string texto =
                 original.Replace("\\n", Environment.NewLine)
-                    .Replace("<br>", Environment.NewLine)
-                    .Replace("<BR>", Environment.NewLine);
+                        .Replace("<br>", Environment.NewLine)
+                        .Replace("<BR>", Environment.NewLine);
 
             return string.Format(texto, values);
         }
@@ -32,15 +30,12 @@ namespace Cosmos
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static IEnumerable<string> EnumerateLines(this string s)
-        {
+        public static IEnumerable<string> EnumerateLines(this string s) {
             var index = 0;
 
-            while (true)
-            {
+            while (true) {
                 var newIndex = s.IndexOf(Environment.NewLine, index, StringComparison.Ordinal);
-                if (newIndex < 0)
-                {
+                if (newIndex < 0) {
                     if (s.Length > index)
                         yield return s.Substring(index);
 
@@ -59,8 +54,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="original"></param>
         /// <returns></returns>
-        public static string ToValidIdentifier(this string original)
-        {
+        public static string ToValidIdentifier(this string original) {
             original = original.ToCapitalCase();
 
             if (original.Length == 0)
@@ -70,8 +64,7 @@ namespace Cosmos
             if (!char.IsLetter(original[0]) && original[0] != '_')
                 res.Append('_');
 
-            for (int i = 0; i < original.Length; i++)
-            {
+            for (int i = 0; i < original.Length; i++) {
                 char c = original[i];
                 if (char.IsLetterOrDigit(c) || c == '_')
                     res.Append(c);
@@ -89,8 +82,7 @@ namespace Cosmos
         /// <param name="separator"></param>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string UseAsSeparatorFor<T>(this string separator, IEnumerable<T> list)
-        {
+        public static string UseAsSeparatorFor<T>(this string separator, IEnumerable<T> list) {
             return list.JoinToString(separator);
         }
 
@@ -99,8 +91,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="original"></param>
         /// <returns></returns>
-        public static string AvoidNull(this string original)
-        {
+        public static string AvoidNull(this string original) {
             if (original == null)
                 return string.Empty;
 
@@ -113,8 +104,7 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static string Repeat(this string text, int times)
-        {
+        public static string Repeat(this string text, int times) {
             if (text.IsNullOrEmpty() || times == 0)
                 return string.Empty;
 
@@ -131,10 +121,10 @@ namespace Cosmos
                 return string.Concat(text, text, text, text);
 
             var res = new StringBuilder(text.Length * times);
-            for (var i = 0; i < times; i++)
-            {
+            for (var i = 0; i < times; i++) {
                 res.Append(text);
             }
+
             return res.ToString();
         }
 
@@ -146,8 +136,7 @@ namespace Cosmos
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static string ExtractAround(this string text, int index, int left, int right)
-        {
+        public static string ExtractAround(this string text, int index, int left, int right) {
             if (text.IsNullOrEmpty())
                 return string.Empty;
 
@@ -165,12 +154,10 @@ namespace Cosmos
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string OnlyLettersNumbers(this string text)
-        {
+        public static string OnlyLettersNumbers(this string text) {
             var res = new StringBuilder(text.Length);
 
-            foreach (char car in text)
-            {
+            foreach (char car in text) {
                 if (char.IsLetterOrDigit(car))
                     res.Append(car);
             }
@@ -184,12 +171,10 @@ namespace Cosmos
         /// <param name="text"></param>
         /// <param name="onlyThese"></param>
         /// <returns></returns>
-        public static string FilterChars(this string text, Predicate<char> onlyThese)
-        {
+        public static string FilterChars(this string text, Predicate<char> onlyThese) {
             var res = new StringBuilder(text.Length);
 
-            foreach (char car in text)
-            {
+            foreach (char car in text) {
                 if (onlyThese(car))
                     res.Append(car);
             }
@@ -203,8 +188,7 @@ namespace Cosmos
         /// <param name="match"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static string SafeGroupValue(this Match match, string name)
-        {
+        public static string SafeGroupValue(this Match match, string name) {
             var group = match.Groups[name];
 
             if (group == null)

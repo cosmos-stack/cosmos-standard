@@ -1,10 +1,8 @@
-﻿namespace Cosmos.Dependency
-{
+﻿namespace Cosmos.Dependency {
     /// <summary>
     /// Lifetime type for register proxy
     /// </summary>
-    public enum RegisterProxyLifetimeType
-    {
+    public enum RegisterProxyLifetimeType {
         /// <summary>
         /// Scoped
         /// </summary>

@@ -16,8 +16,7 @@ using System;
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cosmos.IdUtils.CombImplements.Strategies
-{
+namespace Cosmos.IdUtils.CombImplements.Strategies {
     /*
      * Reference To
      *     http://github.com/richardtallent/RT.Comb
@@ -25,13 +24,12 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
      *         @ERM
      *     https://www.tallent.us
      */
-    
-    internal interface IDateStrategy
-    {
+
+    internal interface IDateStrategy {
         int NumDateBytes { get; }
-        
+
         DateTime MinDateTimeValue { get; }
-        
+
         DateTime MaxDateTimeValue { get; }
 
         byte[] DateTimeToBytes(DateTime timestamp);

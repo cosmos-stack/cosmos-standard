@@ -4,19 +4,28 @@ Cosmos.Serialization is an inline common project of [COSMOS LOOPS PROGRAMME](htt
 
 Cosmos.Serialization provides several serializers and extensions:
 
-- Cosmos.Serialization.Xml
-- Cosmos.Serialization.Jil
-- Cosmos.Serialization.KoobooJson
-- Cosmos.Serialization.Lit *(Cosmos.Serialization.LitJson)*
-- Cosmos.Serialization.NewtonsoftJson
-- Cosmos.Serialization.MicrosoftJson
-- Cosmos.Serialization.Swifter *(Cosmos.Serialization.SwifterJson)*
-- Cosmos.Serialization.Utf8Json
-- Cosmos.Serialization.Binary
-- Cosmos.Serialization.Protobuf
-- Cosmos.Serialization.MsgPackCli
-- Cosmos.Serialization.MessagePack
-- Cosmos.Serialization.ZeroFormatter
+- Xml
+  - Cosmos.Serialization.Xml
+- Json
+  - Cosmos.Serialization.Jil
+  - Cosmos.Serialization.KoobooJson
+  - Cosmos.Serialization.Lit *(Cosmos.Serialization.LitJson)*
+  - Cosmos.Serialization.NewtonsoftJson
+  - Cosmos.Serialization.MicrosoftJson
+  - Cosmos.Serialization.Swifter *(Cosmos.Serialization.SwifterJson)*
+  - Cosmos.Serialization.Utf8Json
+- Yaml
+  - Cosmos.Serialization.YamlDotNet
+  - Cosmos.Serialization.SharpYaml
+- Binary
+  - Cosmos.Serialization.Binary
+- Protobuf
+  - Cosmos.Serialization.Protobuf
+- MessagePack
+  - Cosmos.Serialization.MsgPackCli
+  - Cosmos.Serialization.MessagePack
+- ZeroFormatter
+  - Cosmos.Serialization.ZeroFormatter
 
 ---
 

@@ -3,16 +3,13 @@
     <Import Project="..\..\build\common.ns20-net461-net451.props"/>
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp3.0;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.1;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
         <AssemblyName>Cosmos.Serialization.Jil</AssemblyName>
         <PackageId>Cosmos.Serialization.Jil</PackageId>
         <Description>Jil serializer extension for Cosmos base library</Description>
-        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,11 +20,11 @@
         <DocumentationFile>Cosmos.Serialization.Jil.xml</DocumentationFile>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.0' OR 
-                          '$(TargetFramework)'=='netstandard2.1' OR
-                          '$(TargetFramework)'=='netstandard2.0' OR
+    <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' OR 
+                          '$(TargetFramework)'=='netstandard2.1' OR 
+                          '$(TargetFramework)'=='netstandard2.0' OR 
                           '$(TargetFramework)'=='net461'">
-        <PackageReference Include="Jil" Version="3.0.0-alpha"/>
+        <PackageReference Include="Jil" Version="3.0.0-alpha2"/>
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='net451'">

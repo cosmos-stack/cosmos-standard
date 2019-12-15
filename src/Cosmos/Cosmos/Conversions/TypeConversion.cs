@@ -2,20 +2,17 @@
 using System.Reflection;
 using Cosmos.Judgments;
 
-namespace Cosmos.Conversions
-{
+namespace Cosmos.Conversions {
     /// <summary>
     /// Type conversion Utilities
     /// </summary>
-    public static class TypeConversion
-    {
+    public static class TypeConversion {
         /// <summary>
         /// Convert nullable type to underlying type.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Type ToNonNullableType(Type type)
-        {
+        public static Type ToNonNullableType(Type type) {
             return Nullable.GetUnderlyingType(type);
         }
 
@@ -24,8 +21,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="typeInfo"></param>
         /// <returns></returns>
-        public static TypeInfo ToNonNullableTypeInfo(TypeInfo typeInfo)
-        {
+        public static TypeInfo ToNonNullableTypeInfo(TypeInfo typeInfo) {
             return Nullable.GetUnderlyingType(typeInfo.AsType()).GetTypeInfo();
         }
 
@@ -34,8 +30,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Type ToSafeNonNullableType(Type type)
-        {
+        public static Type ToSafeNonNullableType(Type type) {
             return TypeJudgment.IsNullableType(type) ? ToNonNullableType(type) : type;
         }
 
@@ -44,8 +39,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="typeInfo"></param>
         /// <returns></returns>
-        public static TypeInfo ToSafeNonNullableTypeInfo(TypeInfo typeInfo)
-        {
+        public static TypeInfo ToSafeNonNullableTypeInfo(TypeInfo typeInfo) {
             return TypeJudgment.IsNullableType(typeInfo) ? ToNonNullableTypeInfo(typeInfo) : typeInfo;
         }
     }

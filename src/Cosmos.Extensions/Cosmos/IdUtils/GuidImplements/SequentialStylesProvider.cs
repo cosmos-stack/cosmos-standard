@@ -1,8 +1,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace Cosmos.IdUtils.GuidImplements
-{
+namespace Cosmos.IdUtils.GuidImplements {
     /*
      * Reference to:
      *     https://github.com/jhtodd/SequentialGuid
@@ -12,8 +11,7 @@ namespace Cosmos.IdUtils.GuidImplements
      *     Copyright @ Jeremy H. Todd 2011
      */
 
-    internal static class SequentialStylesProvider
-    {
+    internal static class SequentialStylesProvider {
         private static readonly RNGCryptoServiceProvider RandomGenerator = new RNGCryptoServiceProvider();
 
         public static Guid Create(SequentialGuidTypes type)
@@ -22,8 +20,7 @@ namespace Cosmos.IdUtils.GuidImplements
         public static Guid Create(SequentialGuidTypes type, NoRepeatMode mode)
             => Create(mode == NoRepeatMode.On ? NoRepeatTimeStampManager.GetFactory().GetUtcTimeStamp() : DateTime.UtcNow, type);
 
-        public static Guid Create(DateTime secureTimestamp, SequentialGuidTypes type)
-        {
+        public static Guid Create(DateTime secureTimestamp, SequentialGuidTypes type) {
             byte[] randomBytes = new byte[10];
             RandomGenerator.GetBytes(randomBytes);
 
@@ -35,15 +32,13 @@ namespace Cosmos.IdUtils.GuidImplements
 
             byte[] guidBytes = new byte[16];
 
-            switch (type)
-            {
+            switch (type) {
                 case SequentialGuidTypes.SequentialAsString:
                 case SequentialGuidTypes.SequentialAsBinary:
                     timestampBytes.BlockCopy(2, guidBytes, 0, 0);
                     randomBytes.BlockCopy(0, guidBytes, 6, 10);
 
-                    if (type == SequentialGuidTypes.SequentialAsString && BitConverter.IsLittleEndian)
-                    {
+                    if (type == SequentialGuidTypes.SequentialAsString && BitConverter.IsLittleEndian) {
                         guidBytes.Reverse(0, 4);
                         guidBytes.Reverse(4, 2);
                     }

@@ -8,13 +8,11 @@
  *      MIT
  */
 
-namespace Cosmos.Http.HttpUtils
-{
+namespace Cosmos.Http.HttpUtils {
     /// <summary>
     /// Http Exception Args
     /// </summary>
-    public class HttpExceptionArgs
-    {
+    public class HttpExceptionArgs {
         /// <summary>
         /// Builder
         /// </summary>
@@ -30,8 +28,7 @@ namespace Cosmos.Http.HttpUtils
         /// </summary>
         public bool AbortLogging { get; set; }
 
-        internal HttpExceptionArgs(IRequestBuilder builder, Exception ex)
-        {
+        internal HttpExceptionArgs(IRequestBuilder builder, Exception ex) {
             Builder = builder;
             Error = ex;
         }

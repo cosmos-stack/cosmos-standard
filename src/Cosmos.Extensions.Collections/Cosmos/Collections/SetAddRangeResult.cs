@@ -1,11 +1,9 @@
-namespace Cosmos.Collections
-{
+namespace Cosmos.Collections {
     /// <summary>
     /// Set and range result
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class SetAddRangeResult<T>
-    {
+    public class SetAddRangeResult<T> {
 
         #region Constructor.
 
@@ -14,8 +12,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="item"></param>
         /// <param name="added"></param>
-        public SetAddRangeResult(T item, bool added)
-        {
+        public SetAddRangeResult(T item, bool added) {
             // Set values.
             Item = item;
             Added = added;

@@ -3,37 +3,32 @@ using System.IO;
 using Cosmos.Serialization.ZeroFormatter;
 using Xunit;
 
-namespace Cosmos.Test.Serialization.ZeroFormatterTest
-{
-    public class UnitTest
-    {
+namespace Cosmos.Test.Serialization.ZeroFormatterTest {
+    public class UnitTest {
         [Fact]
-        public void BytesTest()
-        {
+        public void BytesTest() {
             var model = CreateNiceModel();
             var bytes = model.ToZeroFormatter();
             var backs = bytes.FromZeroFormatter<NiceModel>();
-            
-            Assert.Equal(
-                Tuple.Create(model.Id, model.Name, model.NiceType, model.Count, model.CreatedTime, model.IsValid),
-                Tuple.Create(backs.Id, backs.Name, backs.NiceType, backs.Count, backs.CreatedTime, backs.IsValid));
-        }
-        
-        [Fact]
-        public void NonGenericBytesTest()
-        {
-            var model = CreateNiceModel();
-            var bytes = model.ToZeroFormatter();
-            var backs = (NiceModel) bytes.FromZeroFormatter(typeof(NiceModel));
-            
+
             Assert.Equal(
                 Tuple.Create(model.Id, model.Name, model.NiceType, model.Count, model.CreatedTime, model.IsValid),
                 Tuple.Create(backs.Id, backs.Name, backs.NiceType, backs.Count, backs.CreatedTime, backs.IsValid));
         }
 
         [Fact]
-        public void StreamTest()
-        {
+        public void NonGenericBytesTest() {
+            var model = CreateNiceModel();
+            var bytes = model.ToZeroFormatter();
+            var backs = (NiceModel) bytes.FromZeroFormatter(typeof(NiceModel));
+
+            Assert.Equal(
+                Tuple.Create(model.Id, model.Name, model.NiceType, model.Count, model.CreatedTime, model.IsValid),
+                Tuple.Create(backs.Id, backs.Name, backs.NiceType, backs.Count, backs.CreatedTime, backs.IsValid));
+        }
+
+        [Fact]
+        public void StreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.ToStream();
             var stream2 = new MemoryStream();
@@ -44,7 +39,7 @@ namespace Cosmos.Test.Serialization.ZeroFormatterTest
             var back1 = stream1.Unpack<NiceModel>();
             var back2 = stream2.Unpack<NiceModel>();
             var back3 = stream3.Unpack<NiceModel>();
-            
+
             Assert.Equal(
                 Tuple.Create(model.Id, model.Name, model.NiceType, model.Count, model.CreatedTime, model.IsValid),
                 Tuple.Create(back1.Id, back1.Name, back1.NiceType, back1.Count, back1.CreatedTime, back1.IsValid));
@@ -59,19 +54,18 @@ namespace Cosmos.Test.Serialization.ZeroFormatterTest
         }
 
         [Fact]
-        public void NonGenericStreamTest()
-        {
+        public void NonGenericStreamTest() {
             var model = CreateNiceModel();
             var stream1 = model.ToStream();
             var stream2 = new MemoryStream();
             model.PackTo(stream2);
             var stream3 = new MemoryStream();
             stream3.PackBy(model);
-            
+
             var back1 = (NiceModel) stream1.Unpack(typeof(NiceModel));
             var back2 = (NiceModel) stream2.Unpack(typeof(NiceModel));
             var back3 = (NiceModel) stream3.Unpack(typeof(NiceModel));
-            
+
             Assert.Equal(
                 Tuple.Create(model.Id, model.Name, model.NiceType, model.Count, model.CreatedTime, model.IsValid),
                 Tuple.Create(back1.Id, back1.Name, back1.NiceType, back1.Count, back1.CreatedTime, back1.IsValid));
@@ -84,10 +78,9 @@ namespace Cosmos.Test.Serialization.ZeroFormatterTest
                 Tuple.Create(model.Id, model.Name, model.NiceType, model.Count, model.CreatedTime, model.IsValid),
                 Tuple.Create(back3.Id, back3.Name, back3.NiceType, back3.Count, back3.CreatedTime, back3.IsValid));
         }
-        private static NiceModel CreateNiceModel()
-        {
-            return new NiceModel
-            {
+
+        private static NiceModel CreateNiceModel() {
+            return new NiceModel {
                 Id = Guid.NewGuid(),
                 Name = "nice",
                 NiceType = NiceType.Yes,

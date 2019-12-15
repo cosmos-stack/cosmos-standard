@@ -3,13 +3,11 @@ using Cosmos.Date;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// Duration extensions
     /// </summary>
-    public static partial class DurationExtensions
-    {
+    public static partial class DurationExtensions {
         /// <summary>
         /// As duration
         /// </summary>

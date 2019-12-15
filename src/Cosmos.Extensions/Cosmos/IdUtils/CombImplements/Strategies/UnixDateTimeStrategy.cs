@@ -16,8 +16,7 @@ using System;
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cosmos.IdUtils.CombImplements.Strategies
-{
+namespace Cosmos.IdUtils.CombImplements.Strategies {
     /*
      * Reference To
      *     http://github.com/richardtallent/RT.Comb
@@ -26,8 +25,7 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
      *     https://www.tallent.us
      */
 
-    internal class UnixDateTimeStrategy : IDateStrategy
-    {
+    internal class UnixDateTimeStrategy : IDateStrategy {
         private const long TICKS_PER_MILLISECOND = 10_000;
         public int NumDateBytes { get; } = 6;
 
@@ -35,8 +33,7 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
 
         public DateTime MaxDateTimeValue => MinDateTimeValue.AddMilliseconds(2 ^ (8 * NumDateBytes));
 
-        public byte[] DateTimeToBytes(DateTime timestamp)
-        {
+        public byte[] DateTimeToBytes(DateTime timestamp) {
             var ms = ToUnixTmeMillseconds(timestamp);
             var msBytes = BitConverter.GetBytes(ms);
 
@@ -50,8 +47,7 @@ namespace Cosmos.IdUtils.CombImplements.Strategies
             return ret;
         }
 
-        public DateTime BytesToDateTime(byte[] value)
-        {
+        public DateTime BytesToDateTime(byte[] value) {
             var msBytes = new byte[8];
             var index = 8 - NumDateBytes;
 

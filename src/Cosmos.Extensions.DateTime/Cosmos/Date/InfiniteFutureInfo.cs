@@ -1,13 +1,11 @@
 ﻿using System;
 
-namespace Cosmos.Date
-{
+namespace Cosmos.Date {
     /// <summary>
     /// Infinite Future Info<br />
     /// 无限未来
     /// </summary>
-    public class InfiniteFutureInfo : DateInfo
-    {
+    public class InfiniteFutureInfo : DateInfo {
         // ReSharper disable once InconsistentNaming
         private static readonly DateTime _internalDateTime = DateTime.MaxValue;
 

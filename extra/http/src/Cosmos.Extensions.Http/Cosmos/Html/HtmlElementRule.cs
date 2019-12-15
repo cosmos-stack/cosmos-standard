@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Cosmos.Html
-{
+namespace Cosmos.Html {
     /// <summary>
     /// Regex rule for html elements
     /// </summary>
-    public static class HtmlElementRule
-    {
+    public static class HtmlElementRule {
         /// <summary>
         /// To match all a-flag
         /// </summary>

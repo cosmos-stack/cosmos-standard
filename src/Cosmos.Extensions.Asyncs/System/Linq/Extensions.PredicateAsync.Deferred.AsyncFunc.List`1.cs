@@ -18,10 +18,8 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq
-{
-    public static partial class PredicateAsyncExtensions
-    {
+namespace System.Linq {
+    public static partial class PredicateAsyncExtensions {
         /// <summary>
         /// Skip where
         /// </summary>
@@ -30,8 +28,8 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<AsyncWhereEnumerable<TSource>> SkipWhile<TSource>(this Task<List<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<AsyncWhereEnumerable<TSource>> SkipWhile<TSource>(this Task<List<TSource>> source, Func<TSource, Task<bool>> predicate,
+            CancellationToken cancellationToken = default) {
             return source.AsEnumerable(cancellationToken).SkipWhile(predicate, cancellationToken);
         }
 
@@ -43,8 +41,8 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<AsyncWhereEnumerable<TSource>> SkipWhile<TSource>(this Task<List<TSource>> source, Func<TSource, int, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<AsyncWhereEnumerable<TSource>> SkipWhile<TSource>(this Task<List<TSource>> source, Func<TSource, int, Task<bool>> predicate,
+            CancellationToken cancellationToken = default) {
             return source.AsEnumerable(cancellationToken).SkipWhile(predicate, cancellationToken);
         }
 
@@ -56,8 +54,8 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<AsyncWhereEnumerable<TSource>> Where<TSource>(this Task<List<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<AsyncWhereEnumerable<TSource>> Where<TSource>(this Task<List<TSource>> source, Func<TSource, Task<bool>> predicate,
+            CancellationToken cancellationToken = default) {
             return source.AsEnumerable(cancellationToken).Where(predicate, cancellationToken);
         }
 
@@ -69,8 +67,8 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<AsyncWhereEnumerable<TSource>> Where<TSource>(this Task<List<TSource>> source, Func<TSource, int, Task<bool>> predicate, CancellationToken cancellationToken = default)
-        {
+        public static Task<AsyncWhereEnumerable<TSource>> Where<TSource>(this Task<List<TSource>> source, Func<TSource, int, Task<bool>> predicate,
+            CancellationToken cancellationToken = default) {
             return source.AsEnumerable(cancellationToken).Where(predicate, cancellationToken);
         }
     }

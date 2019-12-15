@@ -1,26 +1,22 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// DateTimeOffset Extensions<br />
     /// DateTimeOffset 扩展方法
     /// </summary>
-    public static partial class DateTimeOffsetExtensions
-    {
+    public static partial class DateTimeOffsetExtensions {
         /// <summary>
         /// Next year
         /// </summary>
         /// <param name="start"></param>
         /// <returns></returns>
-        public static DateTimeOffset NextYear(this DateTimeOffset start)
-        {
+        public static DateTimeOffset NextYear(this DateTimeOffset start) {
             var nextYear = start.Year + 1;
             var numberOfDaysInSameMonthNextYear = DateTime.DaysInMonth(nextYear, start.Month);
 
-            if (numberOfDaysInSameMonthNextYear < start.Day)
-            {
+            if (numberOfDaysInSameMonthNextYear < start.Day) {
                 var differenceInDays = start.Day - numberOfDaysInSameMonthNextYear;
                 var dateTimeOffset = new DateTimeOffset(nextYear, start.Month, numberOfDaysInSameMonthNextYear, start.Hour, start.Minute, start.Second, start.Millisecond,
                     start.Offset);
@@ -35,13 +31,11 @@ namespace Cosmos
         /// </summary>
         /// <param name="start"></param>
         /// <returns></returns>
-        public static DateTimeOffset PreviousYear(this DateTimeOffset start)
-        {
+        public static DateTimeOffset PreviousYear(this DateTimeOffset start) {
             var previousYear = start.Year - 1;
             var numberOfDaysInSameMonthPreviousYear = DateTime.DaysInMonth(previousYear, start.Month);
 
-            if (numberOfDaysInSameMonthPreviousYear < start.Day)
-            {
+            if (numberOfDaysInSameMonthPreviousYear < start.Day) {
                 var differenceInDays = start.Day - numberOfDaysInSameMonthPreviousYear;
                 var dateTime = new DateTimeOffset(previousYear, start.Month, numberOfDaysInSameMonthPreviousYear, start.Hour, start.Minute, start.Second, start.Millisecond,
                     start.Offset);
@@ -56,8 +50,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="current"></param>
         /// <returns></returns>
-        public static DateTimeOffset NextMonth(this DateTimeOffset current)
-        {
+        public static DateTimeOffset NextMonth(this DateTimeOffset current) {
 
             var year = current.Month == 12 ? current.Year + 1 : current.Year;
 
@@ -71,14 +64,13 @@ namespace Cosmos
 
             return firstDayOfNextMonth.SetDay(day);
         }
-        
+
         /// <summary>
         /// Previous month
         /// </summary>
         /// <param name="current"></param>
         /// <returns></returns>
-        public static DateTimeOffset PreviousMonth(this DateTimeOffset current)
-        {
+        public static DateTimeOffset PreviousMonth(this DateTimeOffset current) {
             var year = current.Month == 1 ? current.Year - 1 : current.Year;
 
             var month = current.Month == 1 ? 12 : current.Month - 1;
@@ -97,8 +89,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="start"></param>
         /// <returns></returns>
-        public static DateTimeOffset NextDay(this DateTimeOffset start)
-        {
+        public static DateTimeOffset NextDay(this DateTimeOffset start) {
             return start + 1.Days();
         }
 
@@ -107,8 +98,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="start"></param>
         /// <returns></returns>
-        public static DateTimeOffset PreviousDay(this DateTimeOffset start)
-        {
+        public static DateTimeOffset PreviousDay(this DateTimeOffset start) {
             return start - 1.Days();
         }
 
@@ -118,10 +108,8 @@ namespace Cosmos
         /// <param name="start"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static DateTimeOffset Next(this DateTimeOffset start, DayOfWeek day)
-        {
-            do
-            {
+        public static DateTimeOffset Next(this DateTimeOffset start, DayOfWeek day) {
+            do {
                 start = start.NextDay();
             } while (start.DayOfWeek != day);
 
@@ -134,10 +122,8 @@ namespace Cosmos
         /// <param name="start"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static DateTimeOffset Previous(this DateTimeOffset start, DayOfWeek day)
-        {
-            do
-            {
+        public static DateTimeOffset Previous(this DateTimeOffset start, DayOfWeek day) {
+            do {
                 start = start.PreviousDay();
             } while (start.DayOfWeek != day);
 
@@ -150,8 +136,7 @@ namespace Cosmos
         /// <param name="startDate"></param>
         /// <param name="toAdd"></param>
         /// <returns></returns>
-        public static DateTimeOffset IncreaseTime(this DateTimeOffset startDate, TimeSpan toAdd)
-        {
+        public static DateTimeOffset IncreaseTime(this DateTimeOffset startDate, TimeSpan toAdd) {
             return startDate + toAdd;
         }
 
@@ -161,8 +146,7 @@ namespace Cosmos
         /// <param name="startDate"></param>
         /// <param name="toSubtract"></param>
         /// <returns></returns>
-        public static DateTimeOffset DecreaseTime(this DateTimeOffset startDate, TimeSpan toSubtract)
-        {
+        public static DateTimeOffset DecreaseTime(this DateTimeOffset startDate, TimeSpan toSubtract) {
             return startDate - toSubtract;
         }
     }

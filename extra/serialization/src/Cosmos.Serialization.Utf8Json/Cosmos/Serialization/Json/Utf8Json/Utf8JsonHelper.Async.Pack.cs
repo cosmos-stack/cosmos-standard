@@ -3,13 +3,11 @@ using System.IO;
 using System.Threading.Tasks;
 using Utf8Json;
 
-namespace Cosmos.Serialization.Json.Utf8Json
-{
+namespace Cosmos.Serialization.Json.Utf8Json {
     /// <summary>
     /// Utf8Json helper
     /// </summary>
-    public static partial class Utf8JsonHelper
-    {
+    public static partial class Utf8JsonHelper {
         /// <summary>
         /// Pack async
         /// </summary>
@@ -17,8 +15,7 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync<T>(T o, IJsonFormatterResolver resolver = null)
-        {
+        public static async Task<Stream> PackAsync<T>(T o, IJsonFormatterResolver resolver = null) {
             var ms = new MemoryStream();
 
             if (o == null)
@@ -36,8 +33,7 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="stream"></param>
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
-        public static async Task PackAsync<T>(T t, Stream stream, IJsonFormatterResolver resolver = null)
-        {
+        public static async Task PackAsync<T>(T t, Stream stream, IJsonFormatterResolver resolver = null) {
             if (t == null || !stream.CanWrite)
                 return;
 
@@ -53,8 +49,7 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="resolver"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream, IJsonFormatterResolver resolver = null)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? default
                 : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream), resolver);
@@ -67,15 +62,13 @@ namespace Cosmos.Serialization.Json.Utf8Json
         /// <param name="type"></param>
         /// <param name="resolver"></param>
         /// <returns></returns>
-        public static async Task<object> UnpackAsync(Stream stream, Type type, IJsonFormatterResolver resolver = null)
-        {
+        public static async Task<object> UnpackAsync(Stream stream, Type type, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? null
                 : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type, resolver);
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)

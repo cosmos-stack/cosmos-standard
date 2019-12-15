@@ -5,15 +5,12 @@ using System.Linq.Expressions;
 using System.Reflection;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Expressions
-{
+namespace Cosmos.Expressions {
     /// <summary>
     /// Expression extensions
     /// </summary>
-    public static partial class ExpressionExtensions
-    {
-        private static ParameterExpression CreateParameterExpression(this Type type)
-        {
+    public static partial class ExpressionExtensions {
+        private static ParameterExpression CreateParameterExpression(this Type type) {
             if (type == null)
                 throw new ArgumentNullException(nameof(type));
             return Expression.Parameter(type, "o");
@@ -35,8 +32,7 @@ namespace Cosmos.Expressions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static MemberExpression CreateGetPropertyExpression(this PropertyInfo propertyInfo, ParameterExpression parameterExpression)
-        {
+        public static MemberExpression CreateGetPropertyExpression(this PropertyInfo propertyInfo, ParameterExpression parameterExpression) {
             if (propertyInfo == null)
                 throw new ArgumentNullException(nameof(propertyInfo));
             if (parameterExpression == null)
@@ -70,21 +66,20 @@ namespace Cosmos.Expressions
         /// <typeparam name="TProperty"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Expression<Func<T, TProperty>> CreateGetPropertyLambdaExpression<T, TProperty>(this PropertyInfo propertyInfo, ParameterExpression parameterExpression)
-        {
+        public static Expression<Func<T, TProperty>> CreateGetPropertyLambdaExpression<T, TProperty>(this PropertyInfo propertyInfo, ParameterExpression parameterExpression) {
             if (propertyInfo == null)
                 throw new ArgumentNullException(nameof(propertyInfo));
-            if (parameterExpression == null) 
+            if (parameterExpression == null)
                 throw new ArgumentNullException(nameof(parameterExpression));
-            
+
             MemberExpression propertyExpression = propertyInfo.CreateGetPropertyExpression(parameterExpression);
-            
+
             Expression expression = propertyExpression;
             var type = typeof(TProperty);
-            
+
             if (propertyInfo.PropertyType != type)
                 expression = Expression.Convert(expression, type);
-            
+
             return Expression.Lambda<Func<T, TProperty>>(expression, propertyExpression.Expression as ParameterExpression);
         }
     }

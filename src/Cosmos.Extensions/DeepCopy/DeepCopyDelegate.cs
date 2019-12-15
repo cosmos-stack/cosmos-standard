@@ -1,5 +1,4 @@
-namespace DeepCopy
-{
+namespace DeepCopy {
     /// <summary>
     /// Deep copier delegate.
     /// </summary>

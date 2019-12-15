@@ -2,20 +2,17 @@ using System;
 using NodaTime;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
+namespace Cosmos {
     /// <summary>
     /// LocalDate extensions
     /// </summary>
-    public static partial class LocalDateExtensions
-    {
+    public static partial class LocalDateExtensions {
         /// <summary>
         /// Next year
         /// </summary>
         /// <param name="ld"></param>
         /// <returns></returns>
-        public static LocalDate NextYear(this LocalDate ld)
-        {
+        public static LocalDate NextYear(this LocalDate ld) {
             var year = ld.Year + 1;
             var daysOfMonth = DateTime.DaysInMonth(year, ld.Month);
 
@@ -32,8 +29,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ld"></param>
         /// <returns></returns>
-        public static LocalDate PreviousYear(this LocalDate ld)
-        {
+        public static LocalDate PreviousYear(this LocalDate ld) {
             var year = ld.Year - 1;
             var daysOfMonth = DateTime.DaysInMonth(year, ld.Month);
 
@@ -50,8 +46,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ld"></param>
         /// <returns></returns>
-        public static LocalDate NextMonth(this LocalDate ld)
-        {
+        public static LocalDate NextMonth(this LocalDate ld) {
             var year = ld.Month == 12 ? ld.Year + 1 : ld.Year;
 
             var month = ld.Month == 12 ? 1 : ld.Month + 1;
@@ -70,8 +65,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="ld"></param>
         /// <returns></returns>
-        public static LocalDate PreviousMonth(this LocalDate ld)
-        {
+        public static LocalDate PreviousMonth(this LocalDate ld) {
             var year = ld.Month == 1 ? ld.Year - 1 : ld.Year;
 
             var month = ld.Month == 1 ? 12 : ld.Month - 1;
@@ -105,8 +99,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate Next(this LocalDate ld, DayOfWeek dayOfWeek)
-        {
+        public static LocalDate Next(this LocalDate ld, DayOfWeek dayOfWeek) {
             var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
             return DateAdjusters.Next(dow)(ld);
         }
@@ -117,8 +110,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate Next(this LocalDate ld, IsoDayOfWeek dayOfWeek)
-        {
+        public static LocalDate Next(this LocalDate ld, IsoDayOfWeek dayOfWeek) {
             return DateAdjusters.Next(dayOfWeek)(ld);
         }
 
@@ -128,8 +120,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate NextOrSame(this LocalDate ld, DayOfWeek dayOfWeek)
-        {
+        public static LocalDate NextOrSame(this LocalDate ld, DayOfWeek dayOfWeek) {
             var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
             return DateAdjusters.NextOrSame(dow)(ld);
         }
@@ -140,8 +131,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate NextOrSame(this LocalDate ld, IsoDayOfWeek dayOfWeek)
-        {
+        public static LocalDate NextOrSame(this LocalDate ld, IsoDayOfWeek dayOfWeek) {
             return DateAdjusters.NextOrSame(dayOfWeek)(ld);
         }
 
@@ -151,8 +141,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate Previous(this LocalDate ld, DayOfWeek dayOfWeek)
-        {
+        public static LocalDate Previous(this LocalDate ld, DayOfWeek dayOfWeek) {
             var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
             return DateAdjusters.Previous(dow)(ld);
         }
@@ -163,8 +152,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate Previous(this LocalDate ld, IsoDayOfWeek dayOfWeek)
-        {
+        public static LocalDate Previous(this LocalDate ld, IsoDayOfWeek dayOfWeek) {
             return DateAdjusters.Previous(dayOfWeek)(ld);
         }
 
@@ -174,8 +162,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate PreviousOrSame(this LocalDate ld, DayOfWeek dayOfWeek)
-        {
+        public static LocalDate PreviousOrSame(this LocalDate ld, DayOfWeek dayOfWeek) {
             var dow = NodaTime.Helpers.DayOfWeekHelper.ToNodaTimeWeek(dayOfWeek);
             return DateAdjusters.PreviousOrSame(dow)(ld);
         }
@@ -186,8 +173,7 @@ namespace Cosmos
         /// <param name="ld"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static LocalDate PreviousOrSame(this LocalDate ld, IsoDayOfWeek dayOfWeek)
-        {
+        public static LocalDate PreviousOrSame(this LocalDate ld, IsoDayOfWeek dayOfWeek) {
             return DateAdjusters.PreviousOrSame(dayOfWeek)(ld);
         }
 

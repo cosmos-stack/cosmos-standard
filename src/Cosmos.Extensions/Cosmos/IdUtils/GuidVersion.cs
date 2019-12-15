@@ -8,13 +8,11 @@
  *      MIT
  */
 
-namespace Cosmos.IdUtils
-{
+namespace Cosmos.IdUtils {
     /// <summary>
     /// Known values for the <see cref="Guid"/> Version field.
     /// </summary>
-    public enum GuidVersion
-    {
+    public enum GuidVersion {
         /// <summary>
         /// Time-based (sequential) GUID.
         /// </summary>

@@ -17,21 +17,18 @@ using System.Threading;
  *  MIT
  */
 
-namespace System.Linq
-{
+namespace System.Linq {
     /// <summary>
     /// Async Enumerable
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsyncEnumerable<T> : IEnumerable<T>
-    {
+    public class AsyncEnumerable<T> : IEnumerable<T> {
         /// <summary>
         /// Create a new instance of <see cref="AsyncEnumerable{T}"/>.
         /// </summary>
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncEnumerable(IEnumerable<T> source, CancellationToken cancellationToken)
-        {
+        public AsyncEnumerable(IEnumerable<T> source, CancellationToken cancellationToken) {
             CancellationToken = cancellationToken;
             Source = source;
         }
@@ -47,13 +44,11 @@ namespace System.Linq
         public IEnumerable<T> Source { get; set; }
 
         /// <inheritdoc />
-        public IEnumerator<T> GetEnumerator()
-        {
+        public IEnumerator<T> GetEnumerator() {
             return new AsyncEnumerator<T>(Source.GetEnumerator(), CancellationToken);
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
+        IEnumerator IEnumerable.GetEnumerator() {
             return new AsyncEnumerator<T>(Source.GetEnumerator(), CancellationToken);
         }
 
@@ -63,8 +58,7 @@ namespace System.Linq
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public static AsyncEnumerable<T> CreateFrom(IEnumerable<T> source, CancellationToken cancellationToken)
-        {
+        public static AsyncEnumerable<T> CreateFrom(IEnumerable<T> source, CancellationToken cancellationToken) {
             return new AsyncEnumerable<T>(source, cancellationToken);
         }
     }

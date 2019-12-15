@@ -5,10 +5,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos
-{
-    public static partial class ReflectionExtensions
-    {
+namespace Cosmos {
+    public static partial class ReflectionExtensions {
         /// <summary>
         /// Define poco
         /// </summary>
@@ -28,8 +26,7 @@ namespace Cosmos
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static TypeBuilder DefinePoco(this ModuleBuilder moduleBuilder, string name, IEnumerable<KeyValuePair<string, Type>> properties)
-        {
+        public static TypeBuilder DefinePoco(this ModuleBuilder moduleBuilder, string name, IEnumerable<KeyValuePair<string, Type>> properties) {
             if (moduleBuilder == null)
                 throw new ArgumentNullException(nameof(moduleBuilder));
             if (string.IsNullOrWhiteSpace(name))
@@ -38,11 +35,10 @@ namespace Cosmos
                 throw new ArgumentNullException(nameof(properties));
 
             var typeBuilder = moduleBuilder.DefineType(name, TypeAttributes.Public);
-            
+
             ISet<string> propertyNames = new HashSet<string>(StringComparer.Ordinal);
 
-            foreach (var pair in properties)
-            {
+            foreach (var pair in properties) {
                 var propertyName = pair.Key;
                 var type = pair.Value;
 

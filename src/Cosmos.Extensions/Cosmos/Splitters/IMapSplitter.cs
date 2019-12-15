@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Serialization;
 
-namespace Cosmos.Splitters
-{
+namespace Cosmos.Splitters {
     /// <summary>
     /// MapSplitter interface
     /// </summary>
-    public interface IMapSplitter
-    {
+    public interface IMapSplitter {
         /// <summary>
         /// Trim results
         /// </summary>

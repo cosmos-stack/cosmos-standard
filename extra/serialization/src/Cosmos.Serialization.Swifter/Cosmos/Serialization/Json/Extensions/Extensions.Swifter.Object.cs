@@ -4,15 +4,13 @@ using Cosmos.Serialization.Json.Swifter;
 using Swifter.Json;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Serialization.Json
-{
+namespace Cosmos.Serialization.Json {
     using S = SwifterHelper;
 
     /// <summary>
     /// SwiftJson extensions
     /// </summary>
-    public static partial class Extensions
-    {
+    public static partial class Extensions {
         /// <summary>
         /// To SwifterJson
         /// </summary>

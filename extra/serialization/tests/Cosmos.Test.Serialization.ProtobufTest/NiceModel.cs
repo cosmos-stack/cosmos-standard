@@ -1,11 +1,9 @@
 using System;
 using ProtoBuf;
 
-namespace Cosmos.Test.Serialization.ProtobufTest
-{
+namespace Cosmos.Test.Serialization.ProtobufTest {
     [ProtoContract]
-    public class NiceModel
-    {
+    public class NiceModel {
         [ProtoMember(1)]
         public Guid Id { get; set; }
 

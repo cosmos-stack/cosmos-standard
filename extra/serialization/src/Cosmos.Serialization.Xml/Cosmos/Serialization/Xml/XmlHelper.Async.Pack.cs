@@ -3,21 +3,18 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Cosmos.Serialization.Xml
-{
+namespace Cosmos.Serialization.Xml {
     /// <summary>
     /// Xml Helper
     /// </summary>
-    public static partial class XmlHelper
-    {
+    public static partial class XmlHelper {
         /// <summary>
         /// Pack
         /// </summary>
         /// <param name="o"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<Stream> PackAsync<T>(T o)
-        {
+        public static Task<Stream> PackAsync<T>(T o) {
             return PackAsync(o, typeof(T));
         }
 
@@ -27,8 +24,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="o"></param>
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
-        public static Task PackAsync<T>(T o, Stream stream)
-        {
+        public static Task PackAsync<T>(T o, Stream stream) {
             return PackAsync(o, typeof(T), stream);
         }
 
@@ -38,8 +34,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="type"></param>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static async Task<Stream> PackAsync(object obj, Type type)
-        {
+        public static async Task<Stream> PackAsync(object obj, Type type) {
             if (obj is null)
                 return new MemoryStream();
 
@@ -56,8 +51,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="type"></param>
         /// <param name="obj"></param>
         /// <param name="stream"></param>
-        public static async Task PackAsync(object obj, Type type, Stream stream)
-        {
+        public static async Task PackAsync(object obj, Type type, Stream stream) {
             if (obj is null)
                 return;
 
@@ -72,8 +66,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="stream"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static async Task<T> UnpackAsync<T>(Stream stream)
-        {
+        public static async Task<T> UnpackAsync<T>(Stream stream) {
             return (T) await UnpackAsync(stream, typeof(T));
         }
 
@@ -83,8 +76,7 @@ namespace Cosmos.Serialization.Xml
         /// <param name="type"></param>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static Task<object> UnpackAsync(Stream stream, Type type)
-        {
+        public static Task<object> UnpackAsync(Stream stream, Type type) {
             if (stream is null || stream.Length == 0)
                 return default;
 
@@ -96,8 +88,7 @@ namespace Cosmos.Serialization.Xml
             return Task.Run(() => xmlSerializer.Deserialize(stream));
         }
 
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream)
-        {
+        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.Position > 0 && stream.CanSeek)
