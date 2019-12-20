@@ -41,5 +41,10 @@ namespace Cosmos.Disposables {
         public void Dispose() {
             Invoke();
         }
+
+        /// <summary>
+        /// Get a cached instance of <see cref="NoopDisposableAction"/>.
+        /// </summary>
+        public static IDisposable Noop => NoopDisposableAction.Instance;
     }
 }

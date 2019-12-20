@@ -25,5 +25,10 @@ namespace Cosmos.Disposables {
         }
 
         internal Action InternalAction => _action;
+
+        /// <summary>
+        /// Get a cached instance of <see cref="NoopDisposableAction"/>.
+        /// </summary>
+        public static IDisposable Noop => NoopDisposableAction.Instance;
     }
 }
