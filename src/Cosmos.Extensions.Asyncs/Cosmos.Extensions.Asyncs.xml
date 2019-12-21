@@ -12433,29 +12433,24 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
+        <member name="T:System.Runtime.Remoting.Messaging.CallContext">
             <summary>
-            Call Context
+            CallContext for .NET Standard and .NET Core
+            for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
             </summary>
-            <typeparam name="T"></typeparam>
         </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.SetData(System.String,`0)">
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext.SetData(System.String,System.Object)">
             <summary>
             Set data
             </summary>
             <param name="name"></param>
-            <param name="value"></param>
+            <param name="data"></param>
         </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.GetData(System.String)">
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext.GetData(System.String)">
             <summary>
             Get data
             </summary>
             <param name="name"></param>
-            <returns></returns>
-        </member>
-    </members>
-</doc>
->
             <returns></returns>
         </member>
         <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
