@@ -86,19 +86,5 @@ namespace Cosmos.Serialization.Xml {
 
             return xmlSerializer.Deserialize(stream);
         }
-
-        private static byte[] StreamToBytes(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.Position > 0 && stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            stream.Read(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
-        }
     }
 }

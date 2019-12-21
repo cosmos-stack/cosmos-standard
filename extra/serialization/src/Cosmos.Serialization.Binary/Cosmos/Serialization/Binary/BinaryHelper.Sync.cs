@@ -1,4 +1,5 @@
 using System.IO;
+using Cosmos.IO;
 
 namespace Cosmos.Serialization.Binary {
     /// <summary>
@@ -12,7 +13,7 @@ namespace Cosmos.Serialization.Binary {
         /// <returns></returns>
         public static byte[] Serialize(object obj) {
             using var stream = Pack(obj);
-            return StreamToBytes(stream);
+            return stream.StreamToBytes();
         }
 
         /// <summary>

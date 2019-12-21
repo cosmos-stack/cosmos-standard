@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Cosmos.IO;
 
 namespace Cosmos.Serialization.Yaml.YamlDotNet {
     /// <summary>
@@ -80,7 +81,7 @@ namespace Cosmos.Serialization.Yaml.YamlDotNet {
         public static async Task<T> UnpackAsync<T>(Stream stream) {
             return stream == null
                 ? default
-                : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream));
+                : await DeserializeFromBytesAsync<T>(await stream.StreamToBytesAsync());
         }
 
         /// <summary>
@@ -92,21 +93,7 @@ namespace Cosmos.Serialization.Yaml.YamlDotNet {
         public static async Task<object> UnpackAsync(Stream stream, Type type) {
             return stream == null
                 ? null
-                : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type);
-        }
-
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.CanSeek && stream.Position > 0)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            await stream.ReadAsync(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
+                : await DeserializeFromBytesAsync(await stream.StreamToBytesAsync(), type);
         }
     }
 }

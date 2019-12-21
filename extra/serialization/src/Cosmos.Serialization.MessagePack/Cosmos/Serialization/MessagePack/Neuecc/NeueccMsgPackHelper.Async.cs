@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Cosmos.IO;
 using MessagePack;
 
 namespace Cosmos.Serialization.MessagePack.Neuecc {
@@ -20,7 +21,7 @@ namespace Cosmos.Serialization.MessagePack.Neuecc {
 
             using var ms = new MemoryStream();
             await MessagePackSerializer.SerializeAsync(ms, t);
-            return await StreamToBytesAsync(ms);
+            return await ms.StreamToBytesAsync();
         }
 
         /// <summary>

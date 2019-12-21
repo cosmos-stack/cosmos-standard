@@ -63,19 +63,5 @@ namespace Cosmos.Serialization.ProtoBuf {
             Func<object> func = () => ProtoBufManager.Model.Deserialize(stream, null, type);
             return await Task.Run(func);
         }
-
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.Position > 0 && stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            await stream.ReadAsync(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
-        }
     }
 }

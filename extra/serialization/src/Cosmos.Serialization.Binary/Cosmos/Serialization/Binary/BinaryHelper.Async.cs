@@ -1,5 +1,6 @@
 using System.IO;
 using System.Threading.Tasks;
+using Cosmos.IO;
 
 namespace Cosmos.Serialization.Binary {
     /// <summary>
@@ -13,7 +14,7 @@ namespace Cosmos.Serialization.Binary {
         /// <returns></returns>
         public static async Task<byte[]> SerializeAsync(object obj) {
             using var stream = await PackAsync(obj);
-            return await StreamToBytesAsync(stream);
+            return await stream.StreamToBytesAsync();
         }
 
         /// <summary>

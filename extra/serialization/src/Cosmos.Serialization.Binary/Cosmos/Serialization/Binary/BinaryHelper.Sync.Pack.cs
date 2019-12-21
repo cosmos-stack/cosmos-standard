@@ -54,19 +54,5 @@ namespace Cosmos.Serialization.Binary {
 
             return BinaryManager.GetBinaryFormatter().Deserialize(stream);
         }
-
-        private static byte[] StreamToBytes(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.CanSeek && stream.Position > 0)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            stream.Read(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
-        }
     }
 }

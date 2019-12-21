@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Cosmos.IO;
 using Swifter.Json;
 
 namespace Cosmos.Serialization.Json.Swifter {
@@ -53,7 +54,7 @@ namespace Cosmos.Serialization.Json.Swifter {
         public static async Task<T> UnpackAsync<T>(Stream stream, JsonFormatterOptions? options = null) {
             return stream is null
                 ? default
-                : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream), options ?? SwifterJsonManager.DefaltDeserializeOptions);
+                : await DeserializeFromBytesAsync<T>(await stream.StreamToBytesAsync(), options ?? SwifterJsonManager.DefaltDeserializeOptions);
         }
 
         /// <summary>
@@ -66,21 +67,7 @@ namespace Cosmos.Serialization.Json.Swifter {
         public static async Task<object> UnpackAsync(Stream stream, Type type, JsonFormatterOptions? options = null) {
             return stream is null
                 ? default
-                : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type, options ?? SwifterJsonManager.DefaltDeserializeOptions);
-        }
-
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.CanSeek && stream.Position > 0)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            await stream.ReadAsync(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
+                : await DeserializeFromBytesAsync(await stream.StreamToBytesAsync(), type, options ?? SwifterJsonManager.DefaltDeserializeOptions);
         }
     }
 }

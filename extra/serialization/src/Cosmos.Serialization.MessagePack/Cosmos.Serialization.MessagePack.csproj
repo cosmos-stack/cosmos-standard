@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\..\build\common.ns20-net461-net451.props" />
+    <Import Project="..\..\build\common.props" />
 
     <PropertyGroup>
         <TargetFrameworks>netcoreapp3.1;netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
@@ -10,14 +10,6 @@
         <AssemblyName>Cosmos.Serialization.MessagePack</AssemblyName>
         <PackageId>Cosmos.Serialization.MessagePack</PackageId>
         <Description>Neuecc's MessagePack serializer extension for Cosmos base library</Description>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <DocumentationFile>Cosmos.Serialization.MessagePack.xml</DocumentationFile>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <DocumentationFile>Cosmos.Serialization.MessagePack.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' OR 
@@ -31,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\src\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+        <ProjectReference Include="..\..\..\..\src\Cosmos.Extensions\Cosmos.Extensions.csproj" />
     </ItemGroup>
-
+    
 </Project>
