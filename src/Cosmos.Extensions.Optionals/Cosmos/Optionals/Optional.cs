@@ -17,10 +17,30 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Maybe<T> Some<T>(T? value) where T : struct
+            => value.HasValue ? Some(value.Value) : None<T>();
+
+        /// <summary>
+        /// Some
+        /// </summary>
+        /// <param name="value"></param>
+        /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static Either<T, TException> Some<T, TException>(T value)
             => new Either<T, TException>(value, default, true);
+
+        /// <summary>
+        /// Some
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="exception"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TException"></typeparam>
+        /// <returns></returns>
+        public static Either<T, TException> Some<T, TException>(T? value, TException exception) where T : struct
+            => value.HasValue ? Some<T, TException>(value.Value) : None<T, TException>(exception);
 
         /// <summary>
         /// None
