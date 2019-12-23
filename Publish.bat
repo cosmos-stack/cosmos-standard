@@ -17,6 +17,7 @@ dotnet pack src/Cosmos.Extensions.Asyncs -c Release -o nuget_pub
 dotnet pack src/Cosmos.Extensions.Domain -c Release -o nuget_pub
 dotnet pack src/Cosmos.Extensions.DateTime -c Release -o nuget_pub
 dotnet pack src/Cosmos.Extensions.Collections -c Release -o nuget_pub
+dotnet pack src/Cosmos.Extensions.Optionals -c Release -o nuget_pub
 dotnet pack src/Cosmos.Extensions.Preconditions -c Release -o nuget_pub
 dotnet pack src/Cosmos.Extensions.Reflection -c Release -o nuget_pub
 dotnet pack src/Cosmos.Abstractions -c Release -o nuget_pub
