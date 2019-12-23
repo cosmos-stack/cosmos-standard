@@ -1,20 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\..\build\common.ns20-net461-net451.props" />
+    <Import Project="..\..\build\common.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
 
     <PropertyGroup>
         <AssemblyName>Cosmos.Standard</AssemblyName>
         <PackageId>Cosmos.Standard</PackageId>
         <Description>Cosmos standard library</Description>
     </PropertyGroup>
+    
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.DateTime\Cosmos.Extensions.DateTime.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Domain\Cosmos.Extensions.Domain.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Preconditions\Cosmos.Extensions.Preconditions.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
         <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
     </ItemGroup>
+    
 </Project>

@@ -1,0 +1,2789 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions.Optionals</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Optionals.Either`2">
+            <summary>
+            Either
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Either`2.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Either`2.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Either`2.Exception">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Equals(Cosmos.Optionals.Either{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.op_Equality(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.op_Inequality(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.CompareTo(Cosmos.Optionals.Either{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.op_LessThan(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.op_LessThanOrEqual(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.op_GreaterThan(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.op_GreaterThanOrEqual(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.ToEnumerable">
+            <summary>
+            To enumerable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.GetEnumerator">
+            <summary>
+            Get enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Contains(`0)">
+            <summary>
+            Contains
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Exists(System.Func{`0,System.Boolean})">
+            <summary>
+            Exists
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.ValueOr(`0)">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.ValueOr(System.Func{`0})">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.ValueOr(System.Func{`1,`0})">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Or(`0)">
+            <summary>
+            Or
+            </summary>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Or(System.Func{`0})">
+            <summary>
+            Or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Or(System.Func{`1,`0})">
+            <summary>
+            Or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Else(Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeOption"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Else(System.Func{Cosmos.Optionals.Either{`0,`1}})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeOptionFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Else(System.Func{`1,Cosmos.Optionals.Either{`0,`1}})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeOptionFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.WithoutException">
+            <summary>
+            With exception
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Match``1(System.Func{`0,``0},System.Func{`1,``0})">
+            <summary>
+            Match
+            </summary>
+            <param name="someFactory"></param>
+            <param name="noneFactory"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Match(System.Action{`0},System.Action{`1})">
+            <summary>
+            Match
+            </summary>
+            <param name="someAct"></param>
+            <param name="noneAct"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.MatchSome(System.Action{`0})">
+            <summary>
+            Match some
+            </summary>
+            <param name="someAct"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.MatchNone(System.Action{`1})">
+            <summary>
+            Match none
+            </summary>
+            <param name="noneAct"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Map``1(System.Func{`0,``0})">
+            <summary>
+            Map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.MapException``1(System.Func{`1,``0})">
+            <summary>
+            Map exception
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TExceptionResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.FlatMap``1(System.Func{`0,Cosmos.Optionals.Either{``0,`1}})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}},`1)">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <param name="exception"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}},System.Func{`1})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <param name="exceptionFactory"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Filter(System.Boolean,`1)">
+            <summary>
+            Filter
+            </summary>
+            <param name="condition"></param>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Filter(System.Boolean,System.Func{`1})">
+            <summary>
+            Filter
+            </summary>
+            <param name="condition"></param>
+            <param name="exceptionFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Filter(System.Func{`0,System.Boolean},`1)">
+            <summary>
+            Filter
+            </summary>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.Filter(System.Func{`0,System.Boolean},System.Func{`1})">
+            <summary>
+            Filter
+            </summary>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.NotNull(`1)">
+            <summary>
+            Not null
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.NotNull(System.Func{`1})">
+            <summary>
+            Not null
+            </summary>
+            <param name="exceptionFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.AsyncCollectionExtensions">
+            <summary>
+            Extensions for collections
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapAsync``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            May async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            Map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{``1}},System.Boolean)">
+            <summary>
+            Map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}})">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,Cosmos.Optionals.Maybe{``1}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``1,``2}}})">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,Cosmos.Optionals.Either{``1,``2}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``1,``2}}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Filter async
+            </summary>
+            <param name="option"></param>
+            <param name="predicate"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Boolean},System.Boolean)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},System.Boolean)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.NotNullAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}})">
+            <summary>
+            Not null async
+            </summary>
+            <param name="optionTask"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.OrAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Or async
+            </summary>
+            <param name="option"></param>
+            <param name="alternativeFactory"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.OrAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0},System.Boolean)">
+            <summary>
+            Or async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.OrAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{System.Threading.Tasks.Task{``0}},System.Boolean)">
+            <summary>
+            Or async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.ElseAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}}})">
+            <summary>
+            Else async
+            </summary>
+            <param name="option"></param>
+            <param name="alternativeOptionFactory"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.ElseAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{Cosmos.Optionals.Maybe{``0}},System.Boolean)">
+            <summary>
+            Else async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeOptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.ElseAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}}},System.Boolean)">
+            <summary>
+            Else async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeOptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.WithExceptionAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},``1)">
+            <summary>
+            With exception async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.WithExceptionAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``1},System.Boolean)">
+            <summary>
+            With exception async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="exceptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlattenAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{Cosmos.Optionals.Maybe{``0}}})">
+            <summary>
+            Flatten async
+            </summary>
+            <param name="optionTask"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapAsync``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,System.Threading.Tasks.Task{``2}})">
+            <summary>
+            Map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,``2},System.Boolean)">
+            <summary>
+            Map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{``2}},System.Boolean)">
+            <summary>
+            Map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapExceptionAsync``3(Cosmos.Optionals.Either{``0,``1},System.Func{``1,System.Threading.Tasks.Task{``2}})">
+            <summary>
+            Map exception async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TExceptionResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapExceptionAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``1,``2},System.Boolean)">
+            <summary>
+            Map exception async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TExceptionResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.MapExceptionAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``1,System.Threading.Tasks.Task{``2}},System.Boolean)">
+            <summary>
+            Map exception async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TExceptionResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}})">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,Cosmos.Optionals.Either{``2,``1}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``2}}},``1)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``2}}},System.Func{``1})">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <param name="exceptionFactory"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,Cosmos.Optionals.Maybe{``2}},``1,System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="exception"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,Cosmos.Optionals.Maybe{``2}},System.Func{``1},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="exceptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``2}}},``1,System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="exception"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``2}}},System.Func{``1},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="exceptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``2(Cosmos.Optionals.Either{``0,``1},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},``1)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="option"></param>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``2(Cosmos.Optionals.Either{``0,``1},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},System.Func{``1})">
+            <summary>
+            Filter async
+            </summary>
+            <param name="option"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Boolean},``1,System.Boolean)">
+            <summary>
+            filter  async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Boolean},System.Func{``1},System.Boolean)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},``1,System.Boolean)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FilterAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},System.Func{``1},System.Boolean)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.NotNullAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},``1)">
+            <summary>
+            Not null async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.NotNullAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``1})">
+            <summary>
+            Not null async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="exceptionFactory"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.OrAsync``2(Cosmos.Optionals.Either{``0,``1},System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Or async
+            </summary>
+            <param name="option"></param>
+            <param name="alternativeFactory"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.OrAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0},System.Boolean)">
+            <summary>
+            Or async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.OrAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{System.Threading.Tasks.Task{``0}},System.Boolean)">
+            <summary>
+            Or async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.ElseAsync``2(Cosmos.Optionals.Either{``0,``1},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}}})">
+            <summary>
+            Else async
+            </summary>
+            <param name="option"></param>
+            <param name="alternativeOptionFactory"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.ElseAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{Cosmos.Optionals.Either{``0,``1}},System.Boolean)">
+            <summary>
+            Else async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeOptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.ElseAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}}},System.Boolean)">
+            <summary>
+            Else async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeOptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.WithoutExceptionAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}})">
+            <summary>
+            Without exception async
+            </summary>
+            <param name="optionTask"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncCollectionExtensions.FlattenAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Either{Cosmos.Optionals.Either{``0,``1},``1}})">
+            <summary>
+            Flatten async
+            </summary>
+            <param name="optionTask"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Optionals.CollectionExtensions">
+            <summary>
+            Extensions for collections
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.MapValues``1(System.Collections.Generic.IEnumerable{Cosmos.Optionals.Maybe{``0}})">
+            <summary>
+            Flattens a sequence of maybe into a sequence containing all inner values.
+            Empty elements are discarded.
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.MapValues``2(System.Collections.Generic.IEnumerable{Cosmos.Optionals.Either{``0,``1}})">
+            <summary>
+            Flattens a sequence of either into a sequence containing all inner values.
+            Empty elements and their exceptional values are discarded.
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.MapExceptions``2(System.Collections.Generic.IEnumerable{Cosmos.Optionals.Either{``0,``1}})">
+            <summary>
+            Flattens a sequence of optionals into a sequence containing all exceptional values.
+            Non-empty elements and their values are discarded.
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.FindOrNone``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            Returns the value associated with the specified key if such exists.
+            A dictionary lookup will be used if available, otherwise falling
+            back to a linear scan of the enumerable.
+            </summary>
+            <param name="source"></param>
+            <param name="key"></param>
+            <param name="type"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.FirstOrNone``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns the first element of a sequence if such exists.
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.FirstOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element of a sequence, satisfying a specified predicate, 
+            if such exists.
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.LastOrNone``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns the last element of a sequence if such exists.
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.LastOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the last element of a sequence, satisfying a specified predicate, 
+            if such exists.
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.SingleOrNone``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns a single element from a sequence, if it exists 
+            and is the only element in the sequence.
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.SingleOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns a single element from a sequence, satisfying a specified predicate, 
+            if it exists and is the only element in the sequence.
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.CollectionExtensions.ElementAtOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Returns an element at a specified position in a sequence if such exists.
+            </summary>
+            <param name="source"></param>
+            <param name="index"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Optionals.LinqExtensions">
+            <summary>
+            Extensions for linq
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.LinqExtensions.Select``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,``1})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.LinqExtensions.SelectMany``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,Cosmos.Optionals.Maybe{``1}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.LinqExtensions.SelectMany``3(Cosmos.Optionals.Maybe{``0},System.Func{``0,Cosmos.Optionals.Maybe{``1}},System.Func{``0,``1,``2})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.LinqExtensions.Where``1(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Where
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.LinqExtensions.Select``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,``2})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.LinqExtensions.SelectMany``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,Cosmos.Optionals.Either{``2,``1}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.LinqExtensions.SelectMany``4(Cosmos.Optionals.Either{``0,``1},System.Func{``0,Cosmos.Optionals.Either{``2,``1}},System.Func{``0,``2,``3})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Optionals.AsyncLinqExtensions">
+            <summary>
+            Extensions for linq
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncLinqExtensions.Select``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,``1})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncLinqExtensions.SelectMany``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncLinqExtensions.SelectMany``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}},System.Func{``0,``1,``2})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncLinqExtensions.Where``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Boolean})">
+            <summary>
+            Where
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncLinqExtensions.Select``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,``2})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncLinqExtensions.SelectMany``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.AsyncLinqExtensions.SelectMany``4(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}},System.Func{``0,``2,``3})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Optionals.OptionalExtensions">
+            <summary>
+            Extensions for optional
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Maybe``1(``0)">
+            <summary>
+            Maybe
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Maybe``2(``0)">
+            <summary>
+            Maybe
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Some``1(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Some``1(``0,System.Func{``0,System.Boolean},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Some``2(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Some``2(``0,System.Func{``0,System.Boolean},``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Some``2(``0,System.Func{``0,System.Boolean},System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Some``2(``0,System.Func{``0,System.Boolean},System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.SomeNotNull``1(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.SomeNotNull``2(``0,``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.SomeNotNull``2(``0,System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.SomeNotNull``2(``0,System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.None``1(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.None``2(``0,``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.None``1(``0,System.Func{``0,System.Boolean},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.None``2(``0,System.Func{``0,System.Boolean},``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.None``2(``0,System.Func{``0,System.Boolean},System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.None``2(``0,System.Func{``0,System.Boolean},System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.ToOptional``1(System.Nullable{``0},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To optional
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.ToOptional``2(System.Nullable{``0},``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To optional
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.ToOptional``2(System.Nullable{``0},System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To optional
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.ValueOrException``2(Cosmos.Optionals.Optional{``0,``0,``1})">
+            <summary>
+            Value or exception
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Flatten``2(Cosmos.Optionals.IOptionalImpl{Cosmos.Optionals.Maybe{``0},``1})">
+            <summary>
+            Flatten
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.Flatten``3(Cosmos.Optionals.IOptionalImpl{Cosmos.Optionals.Either{``0,``1},``1,``2})">
+            <summary>
+            Flatten
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.UnsafeOptionalExtensions">
+            <summary>
+            Unsafe extensions for optional
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ToNullable``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            TO nullable
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrDefault``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Value or default
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Value or failure
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ToNullable``2(Cosmos.Optionals.Either{``0,``1})">
+            <summary>
+            To nullable
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrDefault``2(Cosmos.Optionals.Either{``0,``1})">
+            <summary>
+            Value or default
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1})">
+            <summary>
+            Value or failure
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0},System.String)">
+            <summary>
+            Value or failure
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessage"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0},System.Func{System.String})">
+            <summary>
+            Value or failure
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessageFactory"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1},System.String)">
+            <summary>
+            Value or failure
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessage"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.UnsafeOptionalExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1},System.Func{``1,System.String})">
+            <summary>
+            Value or failure
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessageFactory"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="T:Cosmos.Optionals.IOptional`1">
+            <summary>
+            Interface for optional
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.IOptional`1.HasValue">
+            <summary>
+            Has value
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.IOptional`1.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptional`1.Contains(`0)">
+            <summary>
+            Contains
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptional`1.Exists(System.Func{`0,System.Boolean})">
+            <summary>
+            Exists
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptional`1.ValueOr(`0)">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptional`1.ValueOr(System.Func{`0})">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.IOptionalImpl`2">
+            <summary>
+            Interface for optional
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Or(`0)">
+            <summary>
+            Or
+            </summary>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Or(System.Func{`0})">
+            <summary>
+            Or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Else(`1)">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeMaybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Else(System.Func{`1})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeMaybeFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.WithException``1(``0)">
+            <summary>
+            With exception
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.WithException``1(System.Func{``0})">
+            <summary>
+            With exception
+            </summary>
+            <param name="exceptionFactory"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Match``1(System.Func{`0,``0},System.Func{``0})">
+            <summary>
+            Match
+            </summary>
+            <param name="someFactory"></param>
+            <param name="noneFactory"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Match(System.Action{`0},System.Action)">
+            <summary>
+            Match
+            </summary>
+            <param name="someAct"></param>
+            <param name="noneAct"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.MatchMaybe(System.Action{`0})">
+            <summary>
+            Match maybe
+            </summary>
+            <param name="maybeAct"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.MatchNone(System.Action)">
+            <summary>
+            Match none
+            </summary>
+            <param name="noneAct"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Map``1(System.Func{`0,``0})">
+            <summary>
+            Map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.FlatMap``2(System.Func{`0,Cosmos.Optionals.Either{``0,``1}})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Filter(System.Boolean)">
+            <summary>
+            Filter
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.Filter(System.Func{`0,System.Boolean})">
+            <summary>
+            Filter
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`2.NotNull">
+            <summary>
+            Not null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.IOptional`2">
+            <summary>
+            Interface for optional
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.IOptional`2.Exception">
+            <summary>
+            Exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptional`2.ValueOr(System.Func{`1,`0})">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.IOptionalImpl`3">
+            <summary>
+            Interface for optional
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Or(`0)">
+            <summary>
+            Or
+            </summary>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Or(System.Func{`0})">
+            <summary>
+            Or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Or(System.Func{`1,`0})">
+            <summary>
+            Or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Else(`2)">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeOption"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Else(System.Func{`2})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeOptionFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Else(System.Func{`1,`2})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeOptionFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.WithoutException">
+            <summary>
+            With exception
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Match``1(System.Func{`0,``0},System.Func{`1,``0})">
+            <summary>
+            Match
+            </summary>
+            <param name="someFactory"></param>
+            <param name="noneFactory"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Match(System.Action{`0},System.Action{`1})">
+            <summary>
+            Match
+            </summary>
+            <param name="someAct"></param>
+            <param name="noneAct"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.MatchSome(System.Action{`0})">
+            <summary>
+            Match some
+            </summary>
+            <param name="someAct"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.MatchNone(System.Action{`1})">
+            <summary>
+            Match none
+            </summary>
+            <param name="noneAct"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Map``1(System.Func{`0,``0})">
+            <summary>
+            Map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.MapException``1(System.Func{`1,``0})">
+            <summary>
+            Map exception
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TExceptionResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.FlatMap``1(System.Func{`0,Cosmos.Optionals.Either{``0,`1}})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}},`1)">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <param name="exception"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}},System.Func{`1})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <param name="exceptionFactory"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Filter(System.Boolean,`1)">
+            <summary>
+            Filter
+            </summary>
+            <param name="condition"></param>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Filter(System.Boolean,System.Func{`1})">
+            <summary>
+            Filter
+            </summary>
+            <param name="condition"></param>
+            <param name="exceptionFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Filter(System.Func{`0,System.Boolean},`1)">
+            <summary>
+            Filter
+            </summary>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.Filter(System.Func{`0,System.Boolean},System.Func{`1})">
+            <summary>
+            Filter
+            </summary>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.NotNull(`1)">
+            <summary>
+            Not null
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.IOptionalImpl`3.NotNull(System.Func{`1})">
+            <summary>
+            Not null
+            </summary>
+            <param name="exceptionFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.Maybe`1">
+            <summary>
+            Maybe
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`1.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`1.Value">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Equals(Cosmos.Optionals.Maybe{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.op_Equality(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.op_Inequality(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.CompareTo(Cosmos.Optionals.Maybe{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.op_LessThan(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.op_LessThanOrEqual(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.op_GreaterThan(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.op_GreaterThanOrEqual(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.ToEnumerable">
+            <summary>
+            To enumerable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.GetEnumerator">
+            <summary>
+            Get enumrtator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Contains(`0)">
+            <summary>
+            Contains
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Exists(System.Func{`0,System.Boolean})">
+            <summary>
+            Exists
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.ValueOr(`0)">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.ValueOr(System.Func{`0})">
+            <summary>
+            Value or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Or(`0)">
+            <summary>
+            Or
+            </summary>
+            <param name="alternative"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Or(System.Func{`0})">
+            <summary>
+            Or
+            </summary>
+            <param name="alternativeFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Else(Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeMaybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Else(System.Func{Cosmos.Optionals.Maybe{`0}})">
+            <summary>
+            Else
+            </summary>
+            <param name="alternativeMaybeFactory"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.WithException``1(``0)">
+            <summary>
+            With exception
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.WithException``1(System.Func{``0})">
+            <summary>
+            With exception
+            </summary>
+            <param name="exceptionFactory"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Match``1(System.Func{`0,``0},System.Func{``0})">
+            <summary>
+            Match
+            </summary>
+            <param name="someFactory"></param>
+            <param name="noneFactory"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Match(System.Action{`0},System.Action)">
+            <summary>
+            Match
+            </summary>
+            <param name="someAct"></param>
+            <param name="noneAct"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.MatchMaybe(System.Action{`0})">
+            <summary>
+            Match maybe
+            </summary>
+            <param name="maybeAct"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.MatchNone(System.Action)">
+            <summary>
+            Match none
+            </summary>
+            <param name="noneAct"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Map``1(System.Func{`0,``0})">
+            <summary>
+            Map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.FlatMap``2(System.Func{`0,Cosmos.Optionals.Either{``0,``1}})">
+            <summary>
+            Flat map
+            </summary>
+            <param name="mapping"></param>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Filter(System.Boolean)">
+            <summary>
+            Filter
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Filter(System.Func{`0,System.Boolean})">
+            <summary>
+            Filter
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.NotNull">
+            <summary>
+            Not null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`1.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.None`1">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.Equals(Cosmos.Optionals.None{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.CompareTo(Cosmos.Optionals.None{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.Or(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.Or(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.Else(Cosmos.Optionals.None{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.Else(System.Func{Cosmos.Optionals.None{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.Filter(System.Func{`0,System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Optionals.None`2">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Equals(Cosmos.Optionals.None{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.CompareTo(Cosmos.Optionals.None{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Or(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Or(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Or(System.Func{`1,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Else(Cosmos.Optionals.None{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Else(System.Func{Cosmos.Optionals.None{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Else(System.Func{`1,Cosmos.Optionals.None{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Filter(System.Boolean,`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Filter(System.Boolean,System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Filter(System.Func{`0,System.Boolean},`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.Filter(System.Func{`0,System.Boolean},System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.NotNull(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.NotNull(System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Optionals.Optional">
+            <summary>
+            Optional utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``1(``0)">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``2(``0)">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``1">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``2(``1)">
+            <summary>
+            None
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.Optional.Wrapped">
+            <summary>
+            Wrapped optional
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.Some``1(``0)">
+            <summary>
+            For some value
+            </summary>
+            <param name="some"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.Some``2(``0)">
+            <summary>
+            For some value
+            </summary>
+            <param name="some"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.None``1">
+            <summary>
+            For nothing
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.None``2(``1)">
+            <summary>
+            For nothing
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.NoneSlim``1">
+            <summary>
+            For nothing
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.NoneSlim``2(``1)">
+            <summary>
+            For nothing
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.OptionalType">
+            <summary>
+            Optional type
+            </summary>
+        </member>
+        <member name="F:Cosmos.Optionals.OptionalType.ValueType">
+            <summary>
+            Value type
+            </summary>
+        </member>
+        <member name="F:Cosmos.Optionals.OptionalType.ReferenceType">
+            <summary>
+            Reference type
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.OptionalValueMissingException">
+            <summary>
+            Optional value missing exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalValueMissingException.#ctor">
+            <summary>
+            Create a new <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalValueMissingException.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> instance.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalValueMissingException.#ctor(System.Int64)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> instance.
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalValueMissingException.#ctor(System.Int64,System.String)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> instance.
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalValueMissingException.#ctor(System.Exception)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> instance.
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalValueMissingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> instance.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:Cosmos.Optionals.Optional`2">
+            <summary>
+            Base optional for Some and None.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+        </member>
+        <member name="F:Cosmos.Optionals.Optional`2.Maybe">
+            <summary>
+            Internal Maybe instance
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.#ctor(`0,System.Boolean)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Optionals.Optional`2"/>.
+            </summary>
+            <param name="value"></param>
+            <param name="hasValue"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.#ctor(Cosmos.Optionals.Maybe{`0})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Optionals.Optional`2"/>.
+            </summary>
+            <param name="maybe"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Optional`2.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Optional`2.Value">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Contains(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Exists(System.Func{`0,System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.ValueOr(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.ValueOr(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Equals(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.CompareTo(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Or(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Or(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Else(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Else(System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.WithException``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.WithException``1(System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Match``1(System.Func{`0,``0},System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Match(System.Action{`0},System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.MatchMaybe(System.Action{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.MatchNone(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Map``1(System.Func{`0,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.FlatMap``2(System.Func{`0,Cosmos.Optionals.Either{``0,``1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Filter(System.Func{`0,System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Optional`2.Nothing">
+            <summary>
+            Nothing.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Optional`3">
+            <summary>
+            Base optional for Some and None.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+        </member>
+        <member name="F:Cosmos.Optionals.Optional`3.Either">
+            <summary>
+            Internal Either instance
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.#ctor(`0,`1,System.Boolean)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Optionals.Optional`2"/>.
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <param name="hasValue"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.#ctor(Cosmos.Optionals.Either{`0,`1})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Optionals.Optional`2"/>.
+            </summary>
+            <param name="either"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Optional`3.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Optional`3.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Optional`3.Exception">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Contains(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Exists(System.Func{`0,System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.ValueOr(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.ValueOr(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.ValueOr(System.Func{`1,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Equals(`2)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.CompareTo(`2)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Or(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Or(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Or(System.Func{`1,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Else(`2)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Else(System.Func{`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Else(System.Func{`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.WithoutException">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Match``1(System.Func{`0,``0},System.Func{`1,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Match(System.Action{`0},System.Action{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.MatchSome(System.Action{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.MatchNone(System.Action{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Map``1(System.Func{`0,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.MapException``1(System.Func{`1,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.FlatMap``1(System.Func{`0,Cosmos.Optionals.Either{``0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}},`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.FlatMap``1(System.Func{`0,Cosmos.Optionals.Maybe{``0}},System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Filter(System.Boolean,`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Filter(System.Boolean,System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Filter(System.Func{`0,System.Boolean},`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Filter(System.Func{`0,System.Boolean},System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.NotNull(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.NotNull(System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Optionals.Some`1">
+            <summary>
+            Some
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Equals(Cosmos.Optionals.Some{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.CompareTo(Cosmos.Optionals.Some{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Or(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Or(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Else(Cosmos.Optionals.Some{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Else(System.Func{Cosmos.Optionals.Some{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Filter(System.Func{`0,System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Optionals.Some`2">
+            <summary>
+            Some
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Equals(Cosmos.Optionals.Some{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.CompareTo(Cosmos.Optionals.Some{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Or(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Or(System.Func{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Or(System.Func{`1,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Else(Cosmos.Optionals.Some{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Else(System.Func{Cosmos.Optionals.Some{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Else(System.Func{`1,Cosmos.Optionals.Some{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Filter(System.Boolean,`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Filter(System.Boolean,System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Filter(System.Func{`0,System.Boolean},`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Filter(System.Func{`0,System.Boolean},System.Func{`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.NotNull(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.NotNull(System.Func{`1})">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

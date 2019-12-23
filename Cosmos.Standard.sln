@@ -22,12 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{83D0F22B
 		build\version.props = build\version.props
 		build\misc.props = build\misc.props
 		build\package.props = build\package.props
-		build\common.net461-net451.props = build\common.net461-net451.props
-		build\common.net461.props = build\common.net461.props
-		build\common.ns20-net451.props = build\common.ns20-net451.props
-		build\common.ns20-net461-net451.props = build\common.ns20-net461-net451.props
-		build\common.ns20-net461.props = build\common.ns20-net461.props
-		build\common.ns20.props = build\common.ns20.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos", "src\Cosmos\Cosmos.csproj", "{8FE469B4-1086-4708-8CF4-5CCF6645EB20}"
@@ -142,38 +136,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.Serialization.M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F8932762-6701-4DD4-84F4-FC06CBED066E}"
 ProjectSection(SolutionItems) = preProject
-	extra\dependency\build\common.net461-net451.props = extra\dependency\build\common.net461-net451.props
-	extra\dependency\build\common.net461.props = extra\dependency\build\common.net461.props
-	extra\dependency\build\common.ns20-net451.props = extra\dependency\build\common.ns20-net451.props
-	extra\dependency\build\common.ns20-net461-net451.props = extra\dependency\build\common.ns20-net461-net451.props
-	extra\dependency\build\common.ns20-net461.props = extra\dependency\build\common.ns20-net461.props
-	extra\dependency\build\common.ns20.props = extra\dependency\build\common.ns20.props
 	extra\dependency\build\misc.props = extra\dependency\build\misc.props
 	extra\dependency\build\package.props = extra\dependency\build\package.props
+	extra\dependency\build\common.props = extra\dependency\build\common.props
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{0A45A6AA-B899-4FED-9027-F350A122B015}"
 ProjectSection(SolutionItems) = preProject
-	extra\http\build\common.ns20-net451.props = extra\http\build\common.ns20-net451.props
 	extra\http\build\package.props = extra\http\build\package.props
 	extra\http\build\misc.props = extra\http\build\misc.props
-	extra\http\build\common.ns20-net461.props = extra\http\build\common.ns20-net461.props
-	extra\http\build\common.ns20-net461-net451.props = extra\http\build\common.ns20-net461-net451.props
-	extra\http\build\common.net461-net451.props = extra\http\build\common.net461-net451.props
-	extra\http\build\common.net461.props = extra\http\build\common.net461.props
-	extra\http\build\common.ns20.props = extra\http\build\common.ns20.props
+	extra\http\build\common.props = extra\http\build\common.props
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{61FD55B4-1F7B-43DE-8126-15D926E633BE}"
 ProjectSection(SolutionItems) = preProject
 	extra\serialization\build\misc.props = extra\serialization\build\misc.props
-	extra\serialization\build\common.ns20.props = extra\serialization\build\common.ns20.props
 	extra\serialization\build\package.props = extra\serialization\build\package.props
-	extra\serialization\build\common.ns20-net461.props = extra\serialization\build\common.ns20-net461.props
-	extra\serialization\build\common.ns20-net451.props = extra\serialization\build\common.ns20-net451.props
-	extra\serialization\build\common.net461-net451.props = extra\serialization\build\common.net461-net451.props
-	extra\serialization\build\common.net461.props = extra\serialization\build\common.net461.props
-	extra\serialization\build\common.ns20-net461-net451.props = extra\serialization\build\common.ns20-net461-net451.props
+	extra\serialization\build\common.props = extra\serialization\build\common.props
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Serialization.SharpYaml", "extra\serialization\src\Cosmos.Serialization.SharpYaml\Cosmos.Serialization.SharpYaml.csproj", "{BB63DD9A-11DB-4CF0-98B4-A38AEB5E5BF9}"
@@ -183,6 +162,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.Serialization.SharpYaml", "extra\serialization\tests\Cosmos.Test.Serialization.SharpYaml\Cosmos.Test.Serialization.SharpYaml.csproj", "{60B1F9E9-300B-4944-8409-B434E6CF9AC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.Serialization.YamlDotNet", "extra\serialization\tests\Cosmos.Test.Serialization.YamlDotNet\Cosmos.Test.Serialization.YamlDotNet.csproj", "{FB8BD44F-F65D-4944-8F1B-CD72CF8EBBAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Optionals", "src\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj", "{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -394,6 +375,10 @@ Global
 		{FB8BD44F-F65D-4944-8F1B-CD72CF8EBBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB8BD44F-F65D-4944-8F1B-CD72CF8EBBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB8BD44F-F65D-4944-8F1B-CD72CF8EBBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -460,6 +445,7 @@ Global
 		{D70AC87F-2379-4569-8DC7-15D9E92A7202} = {87D7302C-14EA-46B4-9324-0E42E39C100D}
 		{60B1F9E9-300B-4944-8409-B434E6CF9AC2} = {66C97C79-C2AE-49DD-8622-CAC7DD71F21B}
 		{FB8BD44F-F65D-4944-8F1B-CD72CF8EBBAE} = {66C97C79-C2AE-49DD-8622-CAC7DD71F21B}
+		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D68A6AF5-79FE-4679-AD20-67D6CFCF75B4}
