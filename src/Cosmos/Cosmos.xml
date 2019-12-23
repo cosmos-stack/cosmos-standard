@@ -663,6 +663,27 @@
         <member name="M:Cosmos.Disposables.DisposableAction.Dispose">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Disposables.DisposableAction.Noop">
+            <summary>
+            Get a cached instance of <see cref="T:Cosmos.Disposables.NoopDisposableAction"/>.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.NoopDisposableAction">
+            <summary>
+            A disposable action implement which does nothing when disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.NoopDisposableAction.Instance">
+            <summary>
+            Gets a <see cref="T:Cosmos.Disposables.NoopDisposableAction"/> cache.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableAction.Invoke">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableAction.Dispose">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Disposables.DisposableActionField`1">
             <summary>
             Disposable Action Field
@@ -723,6 +744,11 @@
         <member name="M:Cosmos.Disposables.DisposableAction`1.Dispose">
             <summary>
             Dispose
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableAction`1.Noop">
+            <summary>
+            Get a cached instance of <see cref="T:Cosmos.Disposables.NoopDisposableAction"/>.
             </summary>
         </member>
         <member name="T:Cosmos.Disposables.AnonymousDisposableObject">
@@ -1424,90 +1450,6 @@
             <summary>
             Min value of ushort.
             </summary>
-        </member>
-        <member name="T:Cosmos.Optional`1">
-            <summary>
-            Option
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Cosmos.Optional`1.#ctor(System.Boolean)">
-            <summary>
-            Option
-            </summary>
-            <param name="hasValue"></param>
-        </member>
-        <member name="P:Cosmos.Optional`1.HasValue">
-            <summary>
-            Has value
-            </summary>
-        </member>
-        <member name="P:Cosmos.Optional`1.Value">
-            <summary>
-            Value
-            </summary>
-        </member>
-        <member name="M:Cosmos.Optional`1.Some(`0)">
-            <summary>
-            Create a <see cref="M:Cosmos.Optional`1.Some(`0)"/> wrapper.
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optional`1.None">
-            <summary>
-            Create a <see cref="M:Cosmos.Optional`1.None"/> wrapper.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optional`1.SafeNone">
-            <summary>
-            Create a <see cref="M:Cosmos.Optional`1.SafeNone"/> wrapper.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.None`1">
-            <summary>
-            None
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Cosmos.None`1.#ctor">
-            <summary>
-            None
-            </summary>
-        </member>
-        <member name="P:Cosmos.None`1.Value">
-            <inheritdoc />
-        </member>
-        <member name="T:Cosmos.SafeNone`1">
-            <summary>
-            Safe None
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Cosmos.SafeNone`1.#ctor">
-            <summary>
-            Safe None
-            </summary>
-        </member>
-        <member name="P:Cosmos.SafeNone`1.Value">
-            <inheritdoc />
-        </member>
-        <member name="T:Cosmos.Some`1">
-            <summary>
-            Some
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Cosmos.Some`1.#ctor(`0)">
-            <summary>
-            Some
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="P:Cosmos.Some`1.Value">
-            <inheritdoc />
         </member>
         <member name="T:Cosmos.Queries.Operator">
             <summary>
