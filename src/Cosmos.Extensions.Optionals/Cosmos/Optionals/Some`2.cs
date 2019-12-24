@@ -6,12 +6,27 @@ namespace Cosmos.Optionals {
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TException"></typeparam>
-    public sealed class Some<T, TException> : Optional<T, TException, Some<T, TException>> {
+    public sealed class Some<T, TException> : Optional<T, TException, Some<T, TException>>,
+                                              IEquatable<Some<T, TException>>,
+                                              IComparable<Some<T, TException>> {
         internal Some(T value) : base(value, default, true) { }
 
         internal Some(Either<T, TException> either) : base(either) { }
 
+        #region Equals
+
         /// <inheritdoc />
+        public override bool Equals(T other) {
+            if (other is null)
+                return false;
+            return Either.Equals(other);
+        }
+
+        /// <summary>
+        /// Equals
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public override bool Equals(Some<T, TException> other) {
             if (other is null)
                 return false;
@@ -19,11 +34,146 @@ namespace Cosmos.Optionals {
         }
 
         /// <inheritdoc />
+        public override bool Equals(object other) {
+            if (other is null)
+                return false;
+            if (other is Some<T, TException> some)
+                return Equals(some);
+            return InternalPointer.Equals(other);
+        }
+
+        #endregion
+
+        #region CompareTo
+
+        /// <inheritdoc />
+        public override int CompareTo(T other) {
+            if (other is null)
+                return 1;
+            return Either.CompareTo(other);
+        }
+
+        /// <summary>
+        /// Compare to
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public override int CompareTo(Some<T, TException> other) {
             if (other is null)
                 return 1;
             return Either.CompareTo(other.Either);
         }
+
+        #endregion
+
+        #region GetHashCode
+
+        /// <inheritdoc />
+        public override int GetHashCode() {
+            return InternalPointer.GetHashCode();
+        }
+
+        #endregion
+
+        #region ==/!=
+
+        /// <summary>
+        /// ==
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator ==(Some<T, TException> left, Some<T, TException> right) {
+            if (left is null && right is null)
+                return true;
+            if (left is null || right is null)
+                return false;
+            return left.InternalPointer.Equals(right.InternalPointer);
+        }
+
+        /// <summary>
+        /// ==
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator ==(Some<T, TException> left, None<T, TException> right) {
+            if (left is null && right is null)
+                return true;
+            if (left is null || right is null)
+                return false;
+            return left.InternalPointer.Equals(right.InternalPointer);
+        }
+
+        /// <summary>
+        /// ==
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator ==(None<T, TException> left, Some<T, TException> right) {
+            if (left is null && right is null)
+                return true;
+            if (left is null || right is null)
+                return false;
+            return left.InternalPointer.Equals(right.InternalPointer);
+        }
+
+        /// <summary>
+        /// !=
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator !=(Some<T, TException> left, Some<T, TException> right) {
+            return !(left == right);
+        }
+
+        /// <summary>
+        /// !=
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator !=(Some<T, TException> left, None<T, TException> right) {
+            return !(left == right);
+        }
+
+        /// <summary>
+        /// !=
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator !=(None<T, TException> left, Some<T, TException> right) {
+            return !(left == right);
+        }
+
+        #endregion
+
+        #region Implicit operator
+
+        /// <summary>
+        /// implicit operator
+        /// </summary>
+        /// <param name="some"></param>
+        /// <returns></returns>
+        public static implicit operator Maybe<T>(Some<T, TException> some) {
+            return some.WithoutException();
+        }
+
+        /// <summary>
+        /// implicit operator
+        /// </summary>
+        /// <param name="some"></param>
+        /// <returns></returns>
+        public static implicit operator Some<T>(Some<T, TException> some) {
+            return some.WithoutException().ToWrappedSome();
+        }
+
+        #endregion
+
+        #region Or / Else
 
         /// <inheritdoc />
         public override Some<T, TException> Or(T alternative) {
@@ -64,6 +214,10 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(alternativeOptionFactory));
             return HasValue ? this : alternativeOptionFactory(Exception);
         }
+        
+        #endregion
+
+        #region Filter
 
         /// <inheritdoc />
         public override Some<T, TException> Filter(bool condition, TException exception) {
@@ -92,6 +246,10 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(exceptionFactory));
             return HasValue && !predicate(Value) ? Optional.Wrapped.NoneSlim<T, TException>(exceptionFactory()) : this;
         }
+        
+        #endregion
+
+        #region Not null
 
         /// <inheritdoc />
         public override Some<T, TException> NotNull(TException exception) {
@@ -104,5 +262,7 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(exceptionFactory));
             return HasValue && Value is null ? Optional.Wrapped.NoneSlim<T, TException>(exceptionFactory()) : this;
         }
+
+        #endregion
     }
 }

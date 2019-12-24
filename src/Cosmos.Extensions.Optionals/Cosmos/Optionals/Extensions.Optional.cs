@@ -390,6 +390,39 @@ namespace Cosmos.Optionals {
 
         #endregion
 
+        #region Value or throw
+
+        /// <summary>
+        /// Value or throw
+        /// </summary>
+        /// <param name="optional"></param>
+        /// <param name="exception"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TException"></typeparam>
+        /// <returns></returns>
+        public static T ValueOrThrow<T, TException>(this IOptional<T> optional, TException exception) 
+            where TException : Exception {
+            if (optional.HasValue)
+                return optional.Value;
+            throw exception;
+        }
+        
+        /// <summary>
+        /// Value or throw
+        /// </summary>
+        /// <param name="optional"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TException"></typeparam>
+        /// <returns></returns>
+        public static T ValueOrThrow<T, TException>(this IOptional<T,TException> optional) 
+            where TException : Exception {
+            if (optional.HasValue)
+                return optional.Value;
+            throw optional.Exception;
+        } 
+        
+        #endregion
+
         #region Flatten
 
         /// <summary>

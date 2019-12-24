@@ -7,7 +7,9 @@ namespace Cosmos.Optionals {
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TImpl"></typeparam>
     /// <typeparam name="TException"></typeparam>
-    public interface IOptionalImpl<T, TException, TImpl> : IOptional<T, TException>, IEquatable<TImpl>, IComparable<TImpl> {
+    public interface IOptionalImpl<T, TException, TImpl> : IOptional<T, TException>,
+                                                           IEquatable<T>,
+                                                           IComparable<T> {
         /// <summary>
         /// Or
         /// </summary>

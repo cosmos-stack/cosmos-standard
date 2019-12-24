@@ -14,6 +14,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         protected readonly Either<T, TException> Either;
 
+        internal Either<T, TException> InternalPointer => Either;
+
         /// <summary>
         /// Create a new instance of <see cref="Optional{T, TImpl}"/>.
         /// </summary>
@@ -57,9 +59,23 @@ namespace Cosmos.Optionals {
         public T ValueOr(Func<TException, T> alternativeFactory) => Either.ValueOr(alternativeFactory);
 
         /// <inheritdoc />
+        public abstract bool Equals(T other);
+
+        /// <summary>
+        /// Equals
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public abstract bool Equals(TImpl other);
 
         /// <inheritdoc />
+        public abstract int CompareTo(T other);
+
+        /// <summary>
+        /// Compare to
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public abstract int CompareTo(TImpl other);
 
         /// <inheritdoc />

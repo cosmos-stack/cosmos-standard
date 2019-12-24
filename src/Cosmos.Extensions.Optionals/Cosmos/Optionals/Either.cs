@@ -8,7 +8,9 @@ namespace Cosmos.Optionals {
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TException"></typeparam>
     [Serializable]
-    public readonly struct Either<T, TException> : IOptionalImpl<T, TException, Either<T, TException>> {
+    public readonly struct Either<T, TException> : IOptionalImpl<T, TException, Either<T, TException>>,
+                                                   IEquatable<Either<T, TException>>,
+                                                   IComparable<Either<T, TException>> {
         private readonly bool _hasValue;
         private readonly T _value;
         private readonly TException _exception;
@@ -28,6 +30,8 @@ namespace Cosmos.Optionals {
         /// <inheritdoc />
         public TException Exception => _exception;
 
+        #region Equals
+
         /// <inheritdoc />
         public bool Equals(Either<T, TException> other) {
             if (!_hasValue && !other._hasValue) {
@@ -42,7 +46,37 @@ namespace Cosmos.Optionals {
         }
 
         /// <inheritdoc />
+        public bool Equals(T other) {
+            if (other is null)
+                return false;
+            return _hasValue && EqualityComparer<T>.Default.Equals(_value, other);
+        }
+
+        /// <inheritdoc />
         public override bool Equals(object obj) => obj is Maybe<T> maybe && Equals(maybe);
+
+        #endregion
+
+        #region CompareTo
+
+        /// <inheritdoc />
+        public int CompareTo(T other) {
+            return !_hasValue ? -1 : Comparer<T>.Default.Compare(_value, other);
+        }
+
+        /// <inheritdoc />
+        public int CompareTo(Either<T, TException> other) {
+            if (_hasValue && !other._hasValue) return 1;
+            if (!_hasValue && other._hasValue) return -1;
+
+            return _hasValue
+                ? Comparer<T>.Default.Compare(_value, other._value)
+                : Comparer<TException>.Default.Compare(_exception, other._exception);
+        }
+
+        #endregion
+
+        #region ==/!=
 
         /// <summary>
         /// ==
@@ -60,24 +94,9 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         public static bool operator !=(Either<T, TException> left, Either<T, TException> right) => !left.Equals(right);
 
-        /// <inheritdoc />
-        public override int GetHashCode() {
-            return _hasValue
-                ? _value == null ? 1 : _value.GetHashCode()
-                : _exception == null
-                    ? 0
-                    : _exception.GetHashCode();
-        }
+        #endregion
 
-        /// <inheritdoc />
-        public int CompareTo(Either<T, TException> other) {
-            if (_hasValue && !other._hasValue) return 1;
-            if (!_hasValue && other._hasValue) return -1;
-
-            return _hasValue
-                ? Comparer<T>.Default.Compare(_value, other._value)
-                : Comparer<TException>.Default.Compare(_exception, other._exception);
-        }
+        #region < <= > >=
 
         /// <summary>
         /// Determines if an optional is less than another optional.
@@ -111,6 +130,10 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         public static bool operator >=(Either<T, TException> left, Either<T, TException> right) => left.CompareTo(right) >= 0;
 
+        #endregion
+
+        #region ToString
+
         /// <inheritdoc />
         public override string ToString() {
             return _hasValue
@@ -121,6 +144,23 @@ namespace Cosmos.Optionals {
                     ? "None(null)"
                     : $"None({_exception})";
         }
+
+        #endregion
+
+        #region GetHashCode
+
+        /// <inheritdoc />
+        public override int GetHashCode() {
+            return _hasValue
+                ? _value == null ? 1 : _value.GetHashCode()
+                : _exception == null
+                    ? 0
+                    : _exception.GetHashCode();
+        }
+
+        #endregion
+
+        #region Enumerable
 
         /// <summary>
         /// To enumerable
@@ -139,6 +179,10 @@ namespace Cosmos.Optionals {
             if (_hasValue)
                 yield return _value;
         }
+
+        #endregion
+
+        #region Contains and Exists
 
         /// <summary>
         /// Contains
@@ -166,6 +210,10 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(predicate));
             return _hasValue && predicate(_value);
         }
+
+        #endregion
+
+        #region Value or
 
         /// <summary>
         /// Value or
@@ -199,6 +247,10 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(alternativeFactory));
             return _hasValue ? _value : alternativeFactory(_exception);
         }
+
+        #endregion
+
+        #region Or / Else
 
         /// <summary>
         /// Or
@@ -266,8 +318,12 @@ namespace Cosmos.Optionals {
             return _hasValue ? this : alternativeOptionFactory(_exception);
         }
 
+        #endregion
+
+        #region Without exception
+
         /// <summary>
-        /// With exception
+        /// Without exception
         /// </summary>
         /// <returns></returns>
         public Maybe<T> WithoutException() {
@@ -276,6 +332,10 @@ namespace Cosmos.Optionals {
                 noneFactory: _ => Optional.None<T>()
             );
         }
+
+        #endregion
+
+        #region Match
 
         /// <summary>
         /// Match
@@ -333,6 +393,10 @@ namespace Cosmos.Optionals {
             if (!_hasValue)
                 noneAct(_exception);
         }
+
+        #endregion
+
+        #region Map
 
         /// <summary>
         /// Map
@@ -412,6 +476,10 @@ namespace Cosmos.Optionals {
             return FlatMap(value => mapping(value).WithException(exceptionFactory));
         }
 
+        #endregion
+
+        #region Filter
+
         /// <summary>
         /// Filter
         /// </summary>
@@ -463,6 +531,10 @@ namespace Cosmos.Optionals {
             return _hasValue && !predicate(_value) ? Optional.None<T, TException>(exceptionFactory()) : this;
         }
 
+        #endregion
+
+        #region Not null
+
         /// <summary>
         /// Not null
         /// </summary>
@@ -484,6 +556,10 @@ namespace Cosmos.Optionals {
             return _hasValue && _value is null ? Optional.None<T, TException>(exceptionFactory()) : this;
         }
 
+        #endregion
+
+        #region To wrapped object
+
         /// <summary>
         /// To wrapped optional some
         /// </summary>
@@ -495,5 +571,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <returns></returns>
         public None<T, TException> ToWrappedNone() => new None<T, TException>(_exception);
+
+        #endregion
+
     }
 }

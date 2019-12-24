@@ -6,7 +6,7 @@ namespace Cosmos.Optionals {
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TImpl"></typeparam>
-    public interface IOptionalImpl<T, TImpl> : IOptional<T>, IEquatable<TImpl>, IComparable<TImpl> {
+    public interface IOptionalImpl<T, TImpl> : IOptional<T>, IEquatable<T>, IComparable<T> {
         /// <summary>
         /// Or
         /// </summary>

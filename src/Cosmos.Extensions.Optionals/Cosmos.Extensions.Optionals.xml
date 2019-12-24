@@ -23,7 +23,16 @@
         <member name="M:Cosmos.Optionals.Either`2.Equals(Cosmos.Optionals.Either{`0,`1})">
             <inheritdoc />
         </member>
+        <member name="M:Cosmos.Optionals.Either`2.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Either`2.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.CompareTo(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.CompareTo(Cosmos.Optionals.Either{`0,`1})">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Either`2.op_Equality(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
@@ -41,12 +50,6 @@
             <param name="left"></param>
             <param name="right"></param>
             <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Either`2.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Optionals.Either`2.CompareTo(Cosmos.Optionals.Either{`0,`1})">
-            <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Either`2.op_LessThan(Cosmos.Optionals.Either{`0,`1},Cosmos.Optionals.Either{`0,`1})">
             <summary>
@@ -81,6 +84,9 @@
             <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.Either`2.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Either`2.GetHashCode">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Either`2.ToEnumerable">
@@ -181,7 +187,7 @@
         </member>
         <member name="M:Cosmos.Optionals.Either`2.WithoutException">
             <summary>
-            With exception
+            Without exception
             </summary>
             <returns></returns>
         </member>
@@ -1084,6 +1090,37 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="T:Cosmos.Optionals.DictionaryExtensions">
+            <summary>
+            Extensions for Dictionary
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.DictionaryExtensions.TryGetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            TryGetValue wrapper with option types.
+            It returns Some of the value when a value for the give key is present
+            or None other-side
+            </summary>
+            <param name="source"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.EnumExtensions">
+            <summary>
+            Extensions for enum
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.EnumExtensions.TryParse``1(System.String,System.Boolean)">
+            <summary>
+            Try parse
+            </summary>
+            <param name="value"></param>
+            <param name="ignoreCase"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Optionals.LinqExtensions">
             <summary>
             Extensions for linq
@@ -1506,6 +1543,25 @@
             <typeparam name="TImpl"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.ValueOrThrow``2(Cosmos.Optionals.IOptional{``0},``1)">
+            <summary>
+            Value or throw
+            </summary>
+            <param name="optional"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.ValueOrThrow``2(Cosmos.Optionals.IOptional{``0,``1})">
+            <summary>
+            Value or throw
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Optionals.OptionalExtensions.Flatten``2(Cosmos.Optionals.IOptionalImpl{Cosmos.Optionals.Maybe{``0},``1})">
             <summary>
             Flatten
@@ -1523,6 +1579,25 @@
             <typeparam name="T"></typeparam>
             <typeparam name="TException"></typeparam>
             <typeparam name="TImpl"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.StringExtensions">
+            <summary>
+            Extensions for string
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.StringExtensions.NoneIfEmpty(System.String)">
+            <summary>
+            None if empty
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.StringExtensions.NoneIfWhitespace(System.String)">
+            <summary>
+            None if whitespace
+            </summary>
+            <param name="str"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Optionals.UnsafeOptionalExtensions">
@@ -2001,7 +2076,16 @@
         <member name="M:Cosmos.Optionals.Maybe`1.Equals(Cosmos.Optionals.Maybe{`0})">
             <inheritdoc />
         </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Maybe`1.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.CompareTo(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.CompareTo(Cosmos.Optionals.Maybe{`0})">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Maybe`1.op_Equality(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
@@ -2019,12 +2103,6 @@
             <param name="left"></param>
             <param name="right"></param>
             <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`1.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`1.CompareTo(Cosmos.Optionals.Maybe{`0})">
-            <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Maybe`1.op_LessThan(Cosmos.Optionals.Maybe{`0},Cosmos.Optionals.Maybe{`0})">
             <summary>
@@ -2059,6 +2137,9 @@
             <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.Maybe`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.GetHashCode">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Maybe`1.ToEnumerable">
@@ -2243,7 +2324,1345 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Join``1(``0)">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Join``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <param name="condition"></param>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`1.Join``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Join
+            </summary>
+            <param name="optionalToJoin"></param>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
         <member name="P:Cosmos.Optionals.Maybe`1.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Maybe`2">
+            <summary>
+            Maybe
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.Item1">
+            <summary>
+            Gets value of he first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.Item2">
+            <summary>
+            Gets value of he second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Equals(System.ValueTuple{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Equals(Cosmos.Optionals.Maybe{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.CompareTo(System.ValueTuple{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.CompareTo(Cosmos.Optionals.Maybe{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_Equality(Cosmos.Optionals.Maybe{`0,`1},Cosmos.Optionals.Maybe{`0,`1})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_Inequality(Cosmos.Optionals.Maybe{`0,`1},Cosmos.Optionals.Maybe{`0,`1})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_LessThan(Cosmos.Optionals.Maybe{`0,`1},Cosmos.Optionals.Maybe{`0,`1})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_LessThanOrEqual(Cosmos.Optionals.Maybe{`0,`1},Cosmos.Optionals.Maybe{`0,`1})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_GreaterThan(Cosmos.Optionals.Maybe{`0,`1},Cosmos.Optionals.Maybe{`0,`1})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_GreaterThanOrEqual(Cosmos.Optionals.Maybe{`0,`1},Cosmos.Optionals.Maybe{`0,`1})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_Implicit(Cosmos.Optionals.Maybe{`0,`1})~System.ValueTuple{`0,`1}">
+            <summary>
+            Convert maybe to tuple
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.op_Explicit(System.ValueTuple{`0,`1})~Cosmos.Optionals.Maybe{`0,`1}">
+            <summary>
+            Convert maybe from tuple
+            </summary>
+            <param name="tuple"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Contains(System.ValueTuple{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Exists(System.Func{System.ValueTuple{`0,`1},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.ValueOr(System.ValueTuple{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.ValueOr(System.Func{System.ValueTuple{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Or(System.ValueTuple{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Or(System.Func{System.ValueTuple{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Else(Cosmos.Optionals.Maybe{`0,`1})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Else(System.Func{Cosmos.Optionals.Maybe{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.WithException``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.WithException``1(System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Match``1(System.Func{System.ValueTuple{`0,`1},``0},System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Match(System.Action{System.ValueTuple{`0,`1}},System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.MatchMaybe(System.Action{System.ValueTuple{`0,`1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.MatchNone(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Map``1(System.Func{System.ValueTuple{`0,`1},``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.FlatMap``1(System.Func{System.ValueTuple{`0,`1},Cosmos.Optionals.Maybe{``0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.FlatMap``2(System.Func{System.ValueTuple{`0,`1},Cosmos.Optionals.Either{``0,``1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Filter(System.Func{System.ValueTuple{`0,`1},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Join``1(``0)">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Join``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <param name="condition"></param>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Join``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Join
+            </summary>
+            <param name="optionalToJoin"></param>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Maybe`3">
+            <summary>
+            Maybe
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.Item1">
+            <summary>
+            Gets value of he first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.Item2">
+            <summary>
+            Gets value of he second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.Item3">
+            <summary>
+            Gets value of he third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Equals(System.ValueTuple{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Equals(Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.CompareTo(System.ValueTuple{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.CompareTo(Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_Equality(Cosmos.Optionals.Maybe{`0,`1,`2},Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_Inequality(Cosmos.Optionals.Maybe{`0,`1,`2},Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_LessThan(Cosmos.Optionals.Maybe{`0,`1,`2},Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_LessThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2},Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_GreaterThan(Cosmos.Optionals.Maybe{`0,`1,`2},Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_GreaterThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2},Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_Implicit(Cosmos.Optionals.Maybe{`0,`1,`2})~System.ValueTuple{`0,`1,`2}">
+            <summary>
+            Convert maybe to tuple
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.op_Explicit(System.ValueTuple{`0,`1,`2})~Cosmos.Optionals.Maybe{`0,`1,`2}">
+            <summary>
+            Convert maybe from tuple
+            </summary>
+            <param name="tuple"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Contains(System.ValueTuple{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Exists(System.Func{System.ValueTuple{`0,`1,`2},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.ValueOr(System.ValueTuple{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.ValueOr(System.Func{System.ValueTuple{`0,`1,`2}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Or(System.ValueTuple{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Or(System.Func{System.ValueTuple{`0,`1,`2}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Else(Cosmos.Optionals.Maybe{`0,`1,`2})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Else(System.Func{Cosmos.Optionals.Maybe{`0,`1,`2}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.WithException``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.WithException``1(System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Match``1(System.Func{System.ValueTuple{`0,`1,`2},``0},System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Match(System.Action{System.ValueTuple{`0,`1,`2}},System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.MatchMaybe(System.Action{System.ValueTuple{`0,`1,`2}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.MatchNone(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Map``1(System.Func{System.ValueTuple{`0,`1,`2},``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.FlatMap``1(System.Func{System.ValueTuple{`0,`1,`2},Cosmos.Optionals.Maybe{``0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.FlatMap``2(System.Func{System.ValueTuple{`0,`1,`2},Cosmos.Optionals.Either{``0,``1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Filter(System.Func{System.ValueTuple{`0,`1,`2},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Join``1(``0)">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Join``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <param name="condition"></param>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Join``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Join
+            </summary>
+            <param name="optionalToJoin"></param>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Maybe`4">
+            <summary>
+            Maybe
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Item1">
+            <summary>
+            Gets value of he first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Item2">
+            <summary>
+            Gets value of he second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Item3">
+            <summary>
+            Gets value of he third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Item4">
+            <summary>
+            Gets value of he forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Equals(System.ValueTuple{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Equals(Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.CompareTo(System.ValueTuple{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.CompareTo(Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_Equality(Cosmos.Optionals.Maybe{`0,`1,`2,`3},Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_Inequality(Cosmos.Optionals.Maybe{`0,`1,`2,`3},Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_LessThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3},Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_LessThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3},Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_GreaterThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3},Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_GreaterThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3},Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_Implicit(Cosmos.Optionals.Maybe{`0,`1,`2,`3})~System.ValueTuple{`0,`1,`2,`3}">
+            <summary>
+            Convert maybe to tuple
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.op_Explicit(System.ValueTuple{`0,`1,`2,`3})~Cosmos.Optionals.Maybe{`0,`1,`2,`3}">
+            <summary>
+            Convert maybe from tuple
+            </summary>
+            <param name="tuple"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Contains(System.ValueTuple{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Exists(System.Func{System.ValueTuple{`0,`1,`2,`3},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.ValueOr(System.ValueTuple{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.ValueOr(System.Func{System.ValueTuple{`0,`1,`2,`3}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Or(System.ValueTuple{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Or(System.Func{System.ValueTuple{`0,`1,`2,`3}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Else(Cosmos.Optionals.Maybe{`0,`1,`2,`3})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Else(System.Func{Cosmos.Optionals.Maybe{`0,`1,`2,`3}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.WithException``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.WithException``1(System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Match``1(System.Func{System.ValueTuple{`0,`1,`2,`3},``0},System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Match(System.Action{System.ValueTuple{`0,`1,`2,`3}},System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.MatchMaybe(System.Action{System.ValueTuple{`0,`1,`2,`3}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.MatchNone(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Map``1(System.Func{System.ValueTuple{`0,`1,`2,`3},``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.FlatMap``1(System.Func{System.ValueTuple{`0,`1,`2,`3},Cosmos.Optionals.Maybe{``0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.FlatMap``2(System.Func{System.ValueTuple{`0,`1,`2,`3},Cosmos.Optionals.Either{``0,``1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Filter(System.Func{System.ValueTuple{`0,`1,`2,`3},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Join``1(``0)">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Join``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <param name="condition"></param>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Join``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Join
+            </summary>
+            <param name="optionalToJoin"></param>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Maybe`5">
+            <summary>
+            Maybe
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Item1">
+            <summary>
+            Gets value of he first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Item2">
+            <summary>
+            Gets value of he second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Item3">
+            <summary>
+            Gets value of he third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Item4">
+            <summary>
+            Gets value of he forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Item5">
+            <summary>
+            Gets value of he fifth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Equals(System.ValueTuple{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Equals(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.CompareTo(System.ValueTuple{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.CompareTo(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_Equality(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_Inequality(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_LessThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_LessThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_GreaterThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_GreaterThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_Implicit(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})~System.ValueTuple{`0,`1,`2,`3,`4}">
+            <summary>
+            Convert maybe to tuple
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.op_Explicit(System.ValueTuple{`0,`1,`2,`3,`4})~Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4}">
+            <summary>
+            Convert maybe from tuple
+            </summary>
+            <param name="tuple"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Contains(System.ValueTuple{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Exists(System.Func{System.ValueTuple{`0,`1,`2,`3,`4},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.ValueOr(System.ValueTuple{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.ValueOr(System.Func{System.ValueTuple{`0,`1,`2,`3,`4}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Or(System.ValueTuple{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Or(System.Func{System.ValueTuple{`0,`1,`2,`3,`4}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Else(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Else(System.Func{Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.WithException``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.WithException``1(System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Match``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4},``0},System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Match(System.Action{System.ValueTuple{`0,`1,`2,`3,`4}},System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.MatchMaybe(System.Action{System.ValueTuple{`0,`1,`2,`3,`4}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.MatchNone(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Map``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4},``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.FlatMap``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4},Cosmos.Optionals.Maybe{``0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.FlatMap``2(System.Func{System.ValueTuple{`0,`1,`2,`3,`4},Cosmos.Optionals.Either{``0,``1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Filter(System.Func{System.ValueTuple{`0,`1,`2,`3,`4},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Join``1(``0)">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Join``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <param name="condition"></param>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Join``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Join
+            </summary>
+            <param name="optionalToJoin"></param>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Maybe`6">
+            <summary>
+            Maybe
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item1">
+            <summary>
+            Gets value of he first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item2">
+            <summary>
+            Gets value of he second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item3">
+            <summary>
+            Gets value of he third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item4">
+            <summary>
+            Gets value of he forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item5">
+            <summary>
+            Gets value of he fifth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item6">
+            <summary>
+            Gets value of he sixth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Equals(System.ValueTuple{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Equals(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.CompareTo(System.ValueTuple{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.CompareTo(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_Equality(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_Inequality(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_LessThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_LessThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_GreaterThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_GreaterThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_Implicit(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})~System.ValueTuple{`0,`1,`2,`3,`4,`5}">
+            <summary>
+            Convert maybe to tuple
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.op_Explicit(System.ValueTuple{`0,`1,`2,`3,`4,`5})~Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5}">
+            <summary>
+            Convert maybe from tuple
+            </summary>
+            <param name="tuple"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Contains(System.ValueTuple{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Exists(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.ValueOr(System.ValueTuple{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.ValueOr(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Or(System.ValueTuple{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Or(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Else(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Else(System.Func{Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.WithException``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.WithException``1(System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Match``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5},``0},System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Match(System.Action{System.ValueTuple{`0,`1,`2,`3,`4,`5}},System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.MatchMaybe(System.Action{System.ValueTuple{`0,`1,`2,`3,`4,`5}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.MatchNone(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Map``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5},``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.FlatMap``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Maybe{``0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.FlatMap``2(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5},Cosmos.Optionals.Either{``0,``1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Filter(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Join``1(``0)">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Join``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Join
+            </summary>
+            <param name="valueToJoin"></param>
+            <param name="condition"></param>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Join``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Join
+            </summary>
+            <param name="optionalToJoin"></param>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Maybe`7">
+            <summary>
+            Maybe
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item1">
+            <summary>
+            Gets value of he first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item2">
+            <summary>
+            Gets value of he second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item3">
+            <summary>
+            Gets value of he third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item4">
+            <summary>
+            Gets value of he forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item5">
+            <summary>
+            Gets value of he fifth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item6">
+            <summary>
+            Gets value of he sixth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item7">
+            <summary>
+            Gets value of he seventh item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.HasValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Equals(System.ValueTuple{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Equals(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.CompareTo(System.ValueTuple{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.CompareTo(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_Equality(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_Inequality(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_LessThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            Determines if an optional is less than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_LessThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            Determines if an optional is less than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_GreaterThan(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            Determines if an optional is greater than another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_GreaterThanOrEqual(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            Determines if an optional is greater than or equal to another optional.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_Implicit(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})~System.ValueTuple{`0,`1,`2,`3,`4,`5,`6}">
+            <summary>
+            Convert maybe to tuple
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.op_Explicit(System.ValueTuple{`0,`1,`2,`3,`4,`5,`6})~Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6}">
+            <summary>
+            Convert maybe from tuple
+            </summary>
+            <param name="tuple"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Contains(System.ValueTuple{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Exists(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.ValueOr(System.ValueTuple{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.ValueOr(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Or(System.ValueTuple{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Or(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Else(Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Else(System.Func{Cosmos.Optionals.Maybe{`0,`1,`2,`3,`4,`5,`6}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.WithException``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.WithException``1(System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Match``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6},``0},System.Func{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Match(System.Action{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6}},System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.MatchMaybe(System.Action{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.MatchNone(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Map``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6},``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.FlatMap``1(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Maybe{``0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.FlatMap``2(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6},Cosmos.Optionals.Either{``0,``1}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Filter(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Filter(System.Func{System.ValueTuple{`0,`1,`2,`3,`4,`5,`6},System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.NotNull">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.ToWrappedSome">
+            <summary>
+            To wrapped optional some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.ToWrappedNone">
+            <summary>
+            To wrapped optional none
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Nothing">
             <summary>
             Nothing
             </summary>
@@ -2254,11 +3673,39 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
+        <member name="M:Cosmos.Optionals.None`1.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.None`1.Equals(Cosmos.Optionals.None{`0})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.CompareTo(`0)">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.None`1.CompareTo(Cosmos.Optionals.None{`0})">
-            <inheritdoc />
+            <summary>
+            Compare to
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.op_Explicit(Cosmos.Optionals.Some{`0})~Cosmos.Optionals.None{`0}">
+            <summary>
+            Convert maybe to none
+            </summary>
+            <param name="some"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.None`1.op_Explicit(Cosmos.Optionals.Maybe{`0})~Cosmos.Optionals.None{`0}">
+            <summary>
+            Convert maybe to none
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.None`1.Or(`0)">
             <inheritdoc />
@@ -2288,11 +3735,39 @@
             <typeparam name="T"></typeparam>
             <typeparam name="TException"></typeparam>
         </member>
+        <member name="M:Cosmos.Optionals.None`2.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.None`2.Equals(Cosmos.Optionals.None{`0,`1})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.CompareTo(`0)">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.None`2.CompareTo(Cosmos.Optionals.None{`0,`1})">
-            <inheritdoc />
+            <summary>
+            Compare to
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.op_Implicit(Cosmos.Optionals.None{`0,`1})~Cosmos.Optionals.Maybe{`0}">
+            <summary>
+            implicit operator
+            </summary>
+            <param name="some"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.None`2.op_Implicit(Cosmos.Optionals.None{`0,`1})~Cosmos.Optionals.None{`0}">
+            <summary>
+            implicit operator
+            </summary>
+            <param name="some"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.None`2.Or(`0)">
             <inheritdoc />
@@ -2343,11 +3818,29 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``1(System.Nullable{``0})">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Optionals.Optional.Some``2(``0)">
             <summary>
             Some
             </summary>
             <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``2(System.Nullable{``0},``1)">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
             <typeparam name="T"></typeparam>
             <typeparam name="TException"></typeparam>
             <returns></returns>
@@ -2366,6 +3859,32 @@
             <param name="exception"></param>
             <typeparam name="T"></typeparam>
             <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``1(``0)">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="value"></param>
+            <param name="condition"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``1(System.Nullable{``0})">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="nullable"></param>
+            <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Optionals.Optional.Wrapped">
@@ -2419,6 +3938,344 @@
             <param name="exception"></param>
             <typeparam name="T"></typeparam>
             <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(``0)">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="value"></param>
+            <param name="condition"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(System.Nullable{``0})">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="nullable"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``2(``0,``1)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``3(``0,``1,``2)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``4(``0,``1,``2,``3)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``5(``0,``1,``2,``3,``4)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``6(``0,``1,``2,``3,``4,``5)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <param name="value6"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``7(``0,``1,``2,``3,``4,``5,``6)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <param name="value6"></param>
+            <param name="value7"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``2(System.ValueTuple{``0,``1})">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``3(System.ValueTuple{``0,``1,``2})">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``4(System.ValueTuple{``0,``1,``2,``3})">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``5(System.ValueTuple{``0,``1,``2,``3,``4})">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``6(System.ValueTuple{``0,``1,``2,``3,``4,``5})">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.From``7(System.ValueTuple{``0,``1,``2,``3,``4,``5,``6})">
+            <summary>
+            Some
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``2(``0,``1)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``3(``0,``1,``2)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``4(``0,``1,``2,``3)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``5(``0,``1,``2,``3,``4)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``6(``0,``1,``2,``3,``4,``5)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <param name="value6"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Some``7(``0,``1,``2,``3,``4,``5,``6)">
+            <summary>
+            Some
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <param name="value6"></param>
+            <param name="value7"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``2">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``3">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``4">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``5">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``6">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.None``7">
+            <summary>
+            None
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Optionals.OptionalType">
@@ -2485,7 +4342,7 @@
             <typeparam name="T"></typeparam>
             <typeparam name="TImpl"></typeparam>
         </member>
-        <member name="F:Cosmos.Optionals.Optional`2.Maybe">
+        <member name="F:Cosmos.Optionals.Optional`2.Internal">
             <summary>
             Internal Maybe instance
             </summary>
@@ -2501,7 +4358,7 @@
             <summary>
             Create a new instance of <see cref="T:Cosmos.Optionals.Optional`2"/>.
             </summary>
-            <param name="maybe"></param>
+            <param name="internal"></param>
         </member>
         <member name="P:Cosmos.Optionals.Optional`2.HasValue">
             <inheritdoc />
@@ -2521,11 +4378,25 @@
         <member name="M:Cosmos.Optionals.Optional`2.ValueOr(System.Func{`0})">
             <inheritdoc />
         </member>
+        <member name="M:Cosmos.Optionals.Optional`2.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Optional`2.Equals(`1)">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`2.CompareTo(`0)">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Optional`2.CompareTo(`1)">
-            <inheritdoc />
+            <summary>
+            Compare to
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.Optional`2.Or(`0)">
             <inheritdoc />
@@ -2631,11 +4502,25 @@
         <member name="M:Cosmos.Optionals.Optional`3.ValueOr(System.Func{`1,`0})">
             <inheritdoc />
         </member>
+        <member name="M:Cosmos.Optionals.Optional`3.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Optional`3.Equals(`2)">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional`3.CompareTo(`0)">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Optional`3.CompareTo(`2)">
-            <inheritdoc />
+            <summary>
+            Compare to
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.Optional`3.Or(`0)">
             <inheritdoc />
@@ -2709,11 +4594,100 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
+        <member name="M:Cosmos.Optionals.Some`1.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Some`1.Equals(Cosmos.Optionals.Some{`0})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Equals(Cosmos.Optionals.None{`0})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.CompareTo(`0)">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Some`1.CompareTo(Cosmos.Optionals.Some{`0})">
+            <summary>
+            Compare to
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.GetHashCode">
             <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Equality(Cosmos.Optionals.Some{`0},Cosmos.Optionals.Some{`0})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Equality(Cosmos.Optionals.Some{`0},Cosmos.Optionals.None{`0})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Equality(Cosmos.Optionals.None{`0},Cosmos.Optionals.Some{`0})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Inequality(Cosmos.Optionals.Some{`0},Cosmos.Optionals.Some{`0})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Inequality(Cosmos.Optionals.Some{`0},Cosmos.Optionals.None{`0})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Inequality(Cosmos.Optionals.None{`0},Cosmos.Optionals.Some{`0})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Explicit(Cosmos.Optionals.None{`0})~Cosmos.Optionals.Some{`0}">
+            <summary>
+            Convert none to some
+            </summary>
+            <param name="none"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`1.op_Explicit(Cosmos.Optionals.Maybe{`0})~Cosmos.Optionals.Some{`0}">
+            <summary>
+            Convert maybe to some
+            </summary>
+            <param name="maybe"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.Some`1.Or(`0)">
             <inheritdoc />
@@ -2743,11 +4717,93 @@
             <typeparam name="T"></typeparam>
             <typeparam name="TException"></typeparam>
         </member>
+        <member name="M:Cosmos.Optionals.Some`2.Equals(`0)">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Some`2.Equals(Cosmos.Optionals.Some{`0,`1})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.CompareTo(`0)">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Some`2.CompareTo(Cosmos.Optionals.Some{`0,`1})">
+            <summary>
+            Compare to
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.GetHashCode">
             <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Equality(Cosmos.Optionals.Some{`0,`1},Cosmos.Optionals.Some{`0,`1})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Equality(Cosmos.Optionals.Some{`0,`1},Cosmos.Optionals.None{`0,`1})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Equality(Cosmos.Optionals.None{`0,`1},Cosmos.Optionals.Some{`0,`1})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Inequality(Cosmos.Optionals.Some{`0,`1},Cosmos.Optionals.Some{`0,`1})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Inequality(Cosmos.Optionals.Some{`0,`1},Cosmos.Optionals.None{`0,`1})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Inequality(Cosmos.Optionals.None{`0,`1},Cosmos.Optionals.Some{`0,`1})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Implicit(Cosmos.Optionals.Some{`0,`1})~Cosmos.Optionals.Maybe{`0}">
+            <summary>
+            implicit operator
+            </summary>
+            <param name="some"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Some`2.op_Implicit(Cosmos.Optionals.Some{`0,`1})~Cosmos.Optionals.Some{`0}">
+            <summary>
+            implicit operator
+            </summary>
+            <param name="some"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.Some`2.Or(`0)">
             <inheritdoc />
