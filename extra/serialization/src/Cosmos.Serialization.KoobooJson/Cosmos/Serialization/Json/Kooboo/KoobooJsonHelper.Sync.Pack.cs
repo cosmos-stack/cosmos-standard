@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Cosmos.IO;
 using Kooboo.Json;
 
 namespace Cosmos.Serialization.Json.Kooboo {
@@ -51,7 +52,7 @@ namespace Cosmos.Serialization.Json.Kooboo {
         public static T Unpack<T>(Stream stream, JsonDeserializeOption option = null) {
             return stream is null
                 ? default
-                : Deserialize<T>(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), option);
+                : Deserialize<T>(KoobooManager.DefaultEncoding.GetString(stream.StreamToBytes()), option);
         }
 
         /// <summary>
@@ -64,21 +65,7 @@ namespace Cosmos.Serialization.Json.Kooboo {
         public static object Unpack(Stream stream, Type type, JsonDeserializeOption option = null) {
             return stream is null
                 ? default
-                : Deserialize(KoobooManager.DefaultEncoding.GetString(StreamToBytes(stream)), type, option);
-        }
-
-        private static byte[] StreamToBytes(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.CanSeek && stream.Position > 0)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            stream.Read(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
+                : Deserialize(KoobooManager.DefaultEncoding.GetString(stream.StreamToBytes()), type, option);
         }
     }
 }

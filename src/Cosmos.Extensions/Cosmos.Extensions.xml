@@ -3059,6 +3059,20 @@
             Conversion extensions
             </summary>
         </member>
+        <member name="M:Cosmos.IO.StreamConversionExtensions.StreamToBytes(System.IO.Stream)">
+            <summary>
+            Convert stream to bytes
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.IO.StreamConversionExtensions.StreamToBytesAsync(System.IO.Stream)">
+            <summary>
+            Convert stream to bytes async
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.ExceptionExtensions">
             <summary>
             Exception extensions<br />

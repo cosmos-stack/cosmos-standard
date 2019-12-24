@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using Cosmos.IO;
 
 namespace Cosmos.Serialization.Xml {
     /// <summary>
@@ -32,7 +33,7 @@ namespace Cosmos.Serialization.Xml {
             encoding ??= XmlManager.DefaultEncoding;
 
             using var stream = Pack(o, type);
-            return encoding.GetString(StreamToBytes(stream));
+            return encoding.GetString(stream.StreamToBytes());
         }
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace Cosmos.Serialization.Xml {
                 return new byte[0];
 
             using var stream = Pack(o, type);
-            return StreamToBytes(stream);
+            return stream.StreamToBytes();
         }
 
         /// <summary>

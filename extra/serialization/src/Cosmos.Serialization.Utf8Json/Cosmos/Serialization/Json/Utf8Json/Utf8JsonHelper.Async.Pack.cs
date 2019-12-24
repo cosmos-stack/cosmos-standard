@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Cosmos.IO;
 using Utf8Json;
 
 namespace Cosmos.Serialization.Json.Utf8Json {
@@ -52,7 +53,7 @@ namespace Cosmos.Serialization.Json.Utf8Json {
         public static async Task<T> UnpackAsync<T>(Stream stream, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? default
-                : await DeserializeFromBytesAsync<T>(await StreamToBytesAsync(stream), resolver);
+                : await DeserializeFromBytesAsync<T>(await stream.StreamToBytesAsync(), resolver);
         }
 
         /// <summary>
@@ -65,21 +66,7 @@ namespace Cosmos.Serialization.Json.Utf8Json {
         public static async Task<object> UnpackAsync(Stream stream, Type type, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? null
-                : await DeserializeFromBytesAsync(await StreamToBytesAsync(stream), type, resolver);
-        }
-
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.CanSeek && stream.Position > 0)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            await stream.ReadAsync(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
+                : await DeserializeFromBytesAsync(await stream.StreamToBytesAsync(), type, resolver);
         }
     }
 }

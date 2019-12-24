@@ -111,19 +111,5 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli {
 
             return await Task.Run(() => serializer.Unpack(stream));
         }
-
-        private static async Task<byte[]> StreamToBytesAsync(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.Position > 0 && stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            await stream.ReadAsync(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
-        }
     }
 }

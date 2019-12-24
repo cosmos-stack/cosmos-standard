@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Cosmos.IO;
 using Utf8Json;
 
 namespace Cosmos.Serialization.Json.Utf8Json {
@@ -51,7 +52,7 @@ namespace Cosmos.Serialization.Json.Utf8Json {
         public static T Unpack<T>(Stream stream, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? default
-                : DeserializeFromBytes<T>(StreamToBytes(stream), resolver);
+                : DeserializeFromBytes<T>(stream.StreamToBytes(), resolver);
         }
 
         /// <summary>
@@ -64,21 +65,7 @@ namespace Cosmos.Serialization.Json.Utf8Json {
         public static object Unpack(Stream stream, Type type, IJsonFormatterResolver resolver = null) {
             return stream == null
                 ? null
-                : DeserializeFromBytes(StreamToBytes(stream), type, resolver);
-        }
-
-        private static byte[] StreamToBytes(Stream stream) {
-            var bytes = new byte[stream.Length];
-
-            if (stream.CanSeek && stream.Position > 0)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            stream.Read(bytes, 0, bytes.Length);
-
-            if (stream.CanSeek)
-                stream.Seek(0, SeekOrigin.Begin);
-
-            return bytes;
+                : DeserializeFromBytes(stream.StreamToBytes(), type, resolver);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Cosmos.IO;
 
 namespace Cosmos.Serialization.MessagePack.MsgPackCli {
     /// <summary>
@@ -17,7 +18,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli {
                 return new byte[0];
 
             using var stream = Pack(t);
-            return StreamToBytes(stream);
+            return stream.StreamToBytes();
         }
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace Cosmos.Serialization.MessagePack.MsgPackCli {
                 return new byte[0];
 
             using var stream = Pack(obj, type);
-            return StreamToBytes(stream);
+            return stream.StreamToBytes();
         }
 
         /// <summary>

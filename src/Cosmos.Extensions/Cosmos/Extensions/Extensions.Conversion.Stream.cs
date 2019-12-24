@@ -7,7 +7,12 @@ namespace Cosmos.IO {
     /// Conversion extensions
     /// </summary>
     public static class StreamConversionExtensions {
-        private static byte[] ToBytes(this Stream stream) {
+        /// <summary>
+        /// Convert stream to bytes
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
+        public static byte[] StreamToBytes(this Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.CanSeek && stream.Position > 0)
@@ -21,7 +26,12 @@ namespace Cosmos.IO {
             return bytes;
         }
 
-        private static async Task<byte[]> ToBytesAsync(this Stream stream) {
+        /// <summary>
+        /// Convert stream to bytes async
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
+        public static async Task<byte[]> StreamToBytesAsync(this Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.Position > 0 && stream.CanSeek)

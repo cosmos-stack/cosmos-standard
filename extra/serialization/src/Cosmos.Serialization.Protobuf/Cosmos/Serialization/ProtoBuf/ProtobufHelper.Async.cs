@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Cosmos.IO;
 
 namespace Cosmos.Serialization.ProtoBuf {
     /// <summary>
@@ -17,7 +18,7 @@ namespace Cosmos.Serialization.ProtoBuf {
                 return new byte[0];
 
             using var stream = await PackAsync(obj);
-            return await StreamToBytesAsync(stream);
+            return await stream.StreamToBytesAsync();
         }
 
         /// <summary>

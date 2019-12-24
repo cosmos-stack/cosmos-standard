@@ -1,25 +1,17 @@
 <Project>
 
-    <Import Project="..\..\..\build\version.props"/>
+    <Import Project="..\..\..\build\version.props" />
 
-    <PropertyGroup Label="Build">
-        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
 
-    <PropertyGroup Label="Package">
-        <Product>Cosmos.Serialization</Product>
-        <Authors>AlexLEWIS;dotnetcore;StarrySky;Cosmos</Authors>
-        <RepositoryUrl>https://github.com/cosmos-loops/Standard</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageProjectUrl>https://github.com/cosmos-loops/Standard/tree/master/extra/serialization</PackageProjectUrl>
-        <PackageIcon>icon.png</PackageIcon>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PackageTags>StarrySky;Cosmos;Standard;Serialization;Framework</PackageTags>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="..\..\..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
-        <None Include="..\..\..\..\msic\images\icon.png" Pack="true" Visible="false" PackagePath=""/>
-    </ItemGroup>
+    <Import Project="package.props" />
+
+    <Import Project="misc.props" />
 
 </Project>

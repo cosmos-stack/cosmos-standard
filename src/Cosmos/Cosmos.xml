@@ -663,6 +663,27 @@
         <member name="M:Cosmos.Disposables.DisposableAction.Dispose">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Disposables.DisposableAction.Noop">
+            <summary>
+            Get a cached instance of <see cref="T:Cosmos.Disposables.NoopDisposableAction"/>.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.NoopDisposableAction">
+            <summary>
+            A disposable action implement which does nothing when disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.NoopDisposableAction.Instance">
+            <summary>
+            Gets a <see cref="T:Cosmos.Disposables.NoopDisposableAction"/> cache.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableAction.Invoke">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableAction.Dispose">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Disposables.DisposableActionField`1">
             <summary>
             Disposable Action Field
@@ -723,6 +744,11 @@
         <member name="M:Cosmos.Disposables.DisposableAction`1.Dispose">
             <summary>
             Dispose
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableAction`1.Noop">
+            <summary>
+            Get a cached instance of <see cref="T:Cosmos.Disposables.NoopDisposableAction"/>.
             </summary>
         </member>
         <member name="T:Cosmos.Disposables.AnonymousDisposableObject">
