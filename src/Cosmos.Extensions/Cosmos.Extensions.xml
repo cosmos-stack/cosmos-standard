@@ -970,6 +970,18 @@
             <param name="comparer"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Exceptions.ExceptionHelper">
+            <summary>
+            Exception helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionHelper.PrepareForRethrow(System.Exception)">
+            <summary>
+            Prepare for rethrow
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Expressions.ParameterRebinder">
             <summary>
             参数重绑定操作
@@ -7198,6 +7210,297 @@
             <param name="width"></param>
             <param name="appendChar"></param>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Try">
+            <summary>
+            Try
+            </summary>
+        </member>
+        <member name="M:Cosmos.Try.Create``1(System.Func{``0})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try.LiftValue``1(``0)">
+            <summary>
+            Lifts a value.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try.LiftException``1(System.Exception)">
+            <summary>
+            Lifts
+            </summary>
+            <param name="ex"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.TryExtensions">
+            <summary>
+            Extensions for Try
+            </summary>
+        </member>
+        <member name="M:Cosmos.TryExtensions.Select``2(Cosmos.Try{``0},System.Func{``0,``1})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TryExtensions.SelectMany``2(Cosmos.Try{``0},System.Func{``0,Cosmos.Try{``1}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TryExtensions.SelectMany``3(Cosmos.Try{``0},System.Func{``0,Cosmos.Try{``1}},System.Func{``0,``1,``2})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="convert"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TIntermediate"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TryExtensions.Where``1(Cosmos.Try{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Where
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Try`1">
+            <summary>
+            Try
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Try`1.IsFailure">
+            <summary>
+            Is failure
+            </summary>
+        </member>
+        <member name="P:Cosmos.Try`1.IsSuccess">
+            <summary>
+            Is success
+            </summary>
+        </member>
+        <member name="P:Cosmos.Try`1.Exception">
+            <summary>
+            Exception
+            </summary>
+        </member>
+        <member name="P:Cosmos.Try`1.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:Cosmos.Try`1.op_Equality(Cosmos.Try{`0},Cosmos.Try{`0})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.op_Inequality(Cosmos.Try{`0},Cosmos.Try{`0})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Try`1.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Try`1.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Try`1.Deconstruct(`0@,System.Exception@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.Try`1.ExceptionAs``1">
+            <summary>
+            Exception as
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Recover(System.Func{System.Exception,`0})">
+            <summary>
+            Recover
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.RecoverWith(System.Func{System.Exception,Cosmos.Try{`0}})">
+            <summary>
+            Recover with
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+            <summary>
+            Match
+            </summary>
+            <param name="whenValue"></param>
+            <param name="whenException"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Map``1(System.Func{`0,``0})">
+            <summary>
+            Map
+            </summary>
+            <param name="map"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Tap(System.Action{`0},System.Action{System.Exception})">
+            <summary>
+            Tap
+            </summary>
+            <param name="successFunction"></param>
+            <param name="failureFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Bind``1(System.Func{`0,Cosmos.Try{``0}})">
+            <summary>
+            Bind
+            </summary>
+            <param name="bind"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Failure`1">
+            <summary>
+            Failure
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Failure`1.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cosmos.Failure`1"/> class.
+            </summary>
+            <param name="exception">The exception to wrapp.</param>
+        </member>
+        <member name="P:Cosmos.Failure`1.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Failure`1.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Failure`1.Exception">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Failure`1.Value">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Equals(Cosmos.Failure{`0})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Failure`1.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Failure`1.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Failure`1.Deconstruct(`0@,System.Exception@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Recover(System.Func{System.Exception,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.RecoverWith(System.Func{System.Exception,Cosmos.Try{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Tap(System.Action{`0},System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Success`1">
+            <summary>
+            Success
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Success`1.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Success`1.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Success`1.Exception">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Success`1.Value">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Equals(Cosmos.Success{`0})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Success`1.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Deconstruct(`0@,System.Exception@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Recover(System.Func{System.Exception,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.RecoverWith(System.Func{System.Exception,Cosmos.Try{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Tap(System.Action{`0},System.Action{System.Exception})">
+            <inheritdoc />
         </member>
         <member name="T:DeepCopy.CopierGenerator`1">
             <summary>

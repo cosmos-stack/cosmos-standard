@@ -1,6 +1,10 @@
 using System;
 
 namespace Cosmos {
+    /// <summary>
+    /// Try
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class Try<T> {
         /// <summary>
         /// Is failure

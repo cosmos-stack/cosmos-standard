@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<VersionMajor>0</VersionMajor>
 		<VersionMinor>1</VersionMinor>
-		<VersionPatch>2-alpha2-100011</VersionPatch>
+		<VersionPatch>2-alpha2-100015</VersionPatch>
 		<VersionQuality></VersionQuality>
 		<VersionPrefix>$(VersionMajor).$(VersionMinor).$(VersionPatch)</VersionPrefix>
 	</PropertyGroup>

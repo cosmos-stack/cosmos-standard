@@ -46,4 +46,4 @@ People or projects that have made a great contribbution to this project:
 
 Member project of [Cosmosloops Labs.](https://github.com/cosmos-loops).
 
-[Apache 2.0 License](/LICENSE)
+[Apache License 2.0](/LICENSE)
