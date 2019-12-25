@@ -1,3 +1,5 @@
+#if !NET451
+
 using System;
 using System.Threading.Tasks;
 using Nito.AsyncEx;
@@ -7,7 +9,7 @@ namespace Cosmos.Asynchronous {
     /// <summary>
     /// Task extensions
     /// </summary>
-    public static class TaskExtensions {
+    public static partial class TaskExtensions {
         /// <summary>
         /// Run in AsyncContext
         /// </summary>
@@ -33,3 +35,5 @@ namespace Cosmos.Asynchronous {
         }
     }
 }
+
+#endif
