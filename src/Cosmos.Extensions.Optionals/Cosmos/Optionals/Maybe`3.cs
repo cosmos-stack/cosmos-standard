@@ -17,12 +17,22 @@ namespace Cosmos.Optionals {
         private readonly Maybe<T2> _o2;
         private readonly Maybe<T3> _o3;
         private readonly bool _hasValue;
+        private readonly IReadOnlyDictionary<string, int> _optionalIndexCache;
 
         internal Maybe(T1 value1, T2 value2, T3 value3, bool hasValue) {
             _o1 = Optional.From(value1);
             _o2 = Optional.From(value2);
             _o3 = Optional.From(value3);
             _hasValue = hasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(3);
+        }
+
+        internal Maybe(T1 value1, string key1, T2 value2, string key2, T3 value3, string key3, bool hasValue) {
+            _o1 = Optional.From(value1);
+            _o2 = Optional.From(value2);
+            _o3 = Optional.From(value3);
+            _hasValue = hasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(3, key1, key2, key3);
         }
 
         internal Maybe(Maybe<T1> maybe1, Maybe<T2> maybe2, Maybe<T3> maybe3) {
@@ -30,6 +40,7 @@ namespace Cosmos.Optionals {
             _o2 = maybe2;
             _o3 = maybe3;
             _hasValue = _o1.HasValue && _o2.HasValue && _o3.HasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(3, maybe1.Key, maybe2.Key, maybe3.Key);
         }
 
         /// <summary>
@@ -52,6 +63,62 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public bool HasValue => _hasValue && _o1.HasValue && _o2.HasValue && _o3.HasValue;
+
+        #region Index
+
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <param name="index"></param>
+        public object this[int index] {
+            get {
+                return index switch {
+                    0 => _o1.Value,
+                    1 => _o2.Value,
+                    2 => _o3.Value,
+                    _ => throw new IndexOutOfRangeException($"Index value '{index}' must between [0, 3).")
+                };
+            }
+        }
+
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <param name="key"></param>
+        public object this[string key]
+            => _optionalIndexCache.TryGetValue(key, out var index)
+                ? this[index]
+                : default;
+
+        #endregion
+
+        #region Deconstruct
+
+        /// <summary>
+        /// Deconstruct
+        /// </summary>
+        /// <param name="item1"></param>
+        /// <param name="item2"></param>
+        /// <param name="item3"></param>
+        public void Deconstruct(out T1 item1, out T2 item2, out T3 item3) {
+            item1 = _o1.Value;
+            item2 = _o2.Value;
+            item3 = _o3.Value;
+        }
+
+        /// <summary>
+        /// Deconstruct
+        /// </summary>
+        /// <param name="maybe1"></param>
+        /// <param name="maybe2"></param>
+        /// <param name="maybe3"></param>
+        public void Deconstruct(out Maybe<T1> maybe1, out Maybe<T2> maybe2, out Maybe<T3> maybe3) {
+            maybe1 = _o1;
+            maybe2 = _o2;
+            maybe3 = _o3;
+        }
+
+        #endregion
 
         #region Equals
 

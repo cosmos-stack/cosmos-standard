@@ -15,17 +15,27 @@ namespace Cosmos.Optionals {
         private readonly Maybe<T1> _o1;
         private readonly Maybe<T2> _o2;
         private readonly bool _hasValue;
+        private readonly IReadOnlyDictionary<string, int> _optionalIndexCache;
 
         internal Maybe(T1 value1, T2 value2, bool hasValue) {
             _o1 = Optional.From(value1);
             _o2 = Optional.From(value2);
             _hasValue = hasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(2);
+        }
+
+        internal Maybe(T1 value1, string key1, T2 value2, string key2, bool hasValue) {
+            _o1 = Optional.From(value1);
+            _o2 = Optional.From(value2);
+            _hasValue = hasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(2, key1, key2);
         }
 
         internal Maybe(Maybe<T1> maybe1, Maybe<T2> maybe2) {
             _o1 = maybe1;
             _o2 = maybe2;
             _hasValue = _o1.HasValue && _o2.HasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(2, maybe1.Key, maybe2.Key);
         }
 
         /// <summary>
@@ -43,6 +53,57 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public bool HasValue => _hasValue && _o1.HasValue && _o2.HasValue;
+
+        #region Index
+
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <param name="index"></param>
+        public object this[int index] {
+            get {
+                return index switch {
+                    0 => _o1.Value,
+                    1 => _o2.Value,
+                    _ => throw new IndexOutOfRangeException($"Index value '{index}' must between [0, 2).")
+                };
+            }
+        }
+
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <param name="key"></param>
+        public object this[string key]
+            => _optionalIndexCache.TryGetValue(key, out var index)
+                ? this[index]
+                : default;
+
+        #endregion
+
+        #region Deconstruct
+
+        /// <summary>
+        /// Deconstruct
+        /// </summary>
+        /// <param name="item1"></param>
+        /// <param name="item2"></param>
+        public void Deconstruct(out T1 item1, out T2 item2) {
+            item1 = _o1.Value;
+            item2 = _o2.Value;
+        }
+
+        /// <summary>
+        /// Deconstruct
+        /// </summary>
+        /// <param name="maybe1"></param>
+        /// <param name="maybe2"></param>
+        public void Deconstruct(out Maybe<T1> maybe1, out Maybe<T2> maybe2) {
+            maybe1 = _o1;
+            maybe2 = _o2;
+        }
+
+        #endregion
 
         #region Equals
 
@@ -72,6 +133,7 @@ namespace Cosmos.Optionals {
         /// <inheritdoc />
         public int CompareTo((T1, T2) other) {
             if (!HasValue) return -1;
+
             var v = new[] {
                 CompareHelper.Compare(Item1, other.Item1, 2),
                 CompareHelper.Compare(Item2, other.Item2, 1)
@@ -83,6 +145,7 @@ namespace Cosmos.Optionals {
         public int CompareTo(Maybe<T1, T2> other) {
             if (HasValue && !other.HasValue) return 1;
             if (!HasValue && other.HasValue) return -1;
+
             var v = new[] {
                 CompareHelper.Compare(Item1, other.Item1, 2),
                 CompareHelper.Compare(Item2, other.Item2, 1)
@@ -292,6 +355,7 @@ namespace Cosmos.Optionals {
             if (HasValue)
                 someAct(Value);
             else
+
                 noneAct();
         }
 
@@ -420,4 +484,5 @@ namespace Cosmos.Optionals {
         /// </summary>
         public static Maybe<T1, T2> Nothing => Optional.None<T1, T2>();
     }
+
 }
