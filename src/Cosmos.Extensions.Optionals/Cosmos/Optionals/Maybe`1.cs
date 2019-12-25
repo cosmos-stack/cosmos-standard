@@ -1,7 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Cosmos.Optionals.Internals;
+
+// ReSharper disable InconsistentNaming
 
 namespace Cosmos.Optionals {
+    
+    
     /// <summary>
     /// Maybe
     /// </summary>
@@ -10,12 +15,20 @@ namespace Cosmos.Optionals {
     public readonly struct Maybe<T> : IOptionalImpl<T, Maybe<T>>,
                                       IEquatable<Maybe<T>>,
                                       IComparable<Maybe<T>> {
+        private readonly string _key;
         private readonly bool _hasValue;
         private readonly T _value;
 
         internal Maybe(T value, bool hasValue) {
             _hasValue = hasValue;
             _value = value;
+            _key = NamedMaybeConstants.KEY;
+        }
+
+        internal Maybe(T value, string key, bool hasValue) {
+            _hasValue = hasValue;
+            _value = value;
+            _key = string.IsNullOrWhiteSpace(key) ? NamedMaybeConstants.KEY : key;
         }
 
         /// <inheritdoc />
@@ -23,6 +36,11 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public T Value => _value;
+
+        /// <summary>
+        /// Hashcode for key
+        /// </summary>
+        internal string Key => _key;
 
         #region Equals
 

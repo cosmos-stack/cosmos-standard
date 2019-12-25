@@ -21,6 +21,7 @@ namespace Cosmos.Optionals {
         private readonly Maybe<T4> _o4;
         private readonly Maybe<T5> _o5;
         private readonly bool _hasValue;
+        private readonly IReadOnlyDictionary<string, int> _optionalIndexCache;
 
         internal Maybe(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, bool hasValue) {
             _o1 = Optional.From(value1);
@@ -29,6 +30,17 @@ namespace Cosmos.Optionals {
             _o4 = Optional.From(value4);
             _o5 = Optional.From(value5);
             _hasValue = hasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(5);
+        }
+
+        internal Maybe(T1 value1, string key1, T2 value2, string key2, T3 value3, string key3, T4 value4, string key4, T5 value5, string key5, bool hasValue) {
+            _o1 = Optional.From(value1);
+            _o2 = Optional.From(value2);
+            _o3 = Optional.From(value3);
+            _o4 = Optional.From(value4);
+            _o5 = Optional.From(value5);
+            _hasValue = hasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(5, key1, key2, key3, key4, key5);
         }
 
         internal Maybe(Maybe<T1> maybe1, Maybe<T2> maybe2, Maybe<T3> maybe3, Maybe<T4> maybe4, Maybe<T5> maybe5) {
@@ -38,6 +50,7 @@ namespace Cosmos.Optionals {
             _o4 = maybe4;
             _o5 = maybe5;
             _hasValue = _o1.HasValue && _o2.HasValue && _o3.HasValue && _o4.HasValue && _o5.HasValue;
+            _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(5, maybe1.Key, maybe2.Key, maybe3.Key, maybe4.Key, maybe5.Key);
         }
 
         /// <summary>
@@ -70,6 +83,72 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public bool HasValue => _hasValue && _o1.HasValue && _o2.HasValue && _o3.HasValue && _o4.HasValue && _o5.HasValue;
+
+        #region Index
+
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <param name="index"></param>
+        public object this[int index] {
+            get {
+                return index switch {
+                    0 => _o1.Value,
+                    1 => _o2.Value,
+                    2 => _o3.Value,
+                    3 => _o4.Value,
+                    4 => _o5.Value,
+                    _ => throw new IndexOutOfRangeException($"Index value '{index}' must between [0, 5).")
+                };
+            }
+        }
+
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <param name="key"></param>
+        public object this[string key]
+            => _optionalIndexCache.TryGetValue(key, out var index)
+                ? this[index]
+                : default;
+
+        #endregion
+        
+        #region Deconstruct
+
+        /// <summary>
+        /// Deconstruct
+        /// </summary>
+        /// <param name="item1"></param>
+        /// <param name="item2"></param>
+        /// <param name="item3"></param>
+        /// <param name="item4"></param>
+        /// <param name="item5"></param>
+        public void Deconstruct(out T1 item1, out T2 item2, out T3 item3, out T4 item4,out T5 item5) {
+            item1 = _o1.Value;
+            item2 = _o2.Value;
+            item3 = _o3.Value;
+            item4 = _o4.Value;
+            item5 = _o5.Value;
+        }
+
+        /// <summary>
+        /// Deconstruct
+        /// </summary>
+        /// <param name="maybe1"></param>
+        /// <param name="maybe2"></param>
+        /// <param name="maybe3"></param>
+        /// <param name="maybe4"></param>
+        /// <param name="maybe5"></param>
+        public void Deconstruct(out Maybe<T1> maybe1, out Maybe<T2> maybe2, out Maybe<T3> maybe3, out Maybe<T4> maybe4,out Maybe<T5> maybe5) {
+            maybe1 = _o1;
+            maybe2 = _o2;
+            maybe3 = _o3;
+            maybe4 = _o4;
+            maybe5 = _o5;
+        }
+
+        #endregion
 
         #region Equals
 
