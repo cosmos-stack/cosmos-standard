@@ -2073,6 +2073,11 @@
         <member name="P:Cosmos.Optionals.Maybe`1.Value">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Optionals.Maybe`1.Key">
+            <summary>
+            Hashcode for key
+            </summary>
+        </member>
         <member name="M:Cosmos.Optionals.Maybe`1.Equals(Cosmos.Optionals.Maybe{`0})">
             <inheritdoc />
         </member>
@@ -2377,6 +2382,32 @@
         <member name="P:Cosmos.Optionals.Maybe`2.HasValue">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.Item(System.Int32)">
+            <summary>
+            Index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.Item(System.String)">
+            <summary>
+            Index
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Deconstruct(`0@,`1@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="item1"></param>
+            <param name="item2"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`2.Deconstruct(Cosmos.Optionals.Maybe{`0}@,Cosmos.Optionals.Maybe{`1}@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="maybe1"></param>
+            <param name="maybe2"></param>
+        </member>
         <member name="M:Cosmos.Optionals.Maybe`2.Equals(System.ValueTuple{`0,`1})">
             <inheritdoc />
         </member>
@@ -2590,6 +2621,34 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`3.HasValue">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.Item(System.Int32)">
+            <summary>
+            Index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.Item(System.String)">
+            <summary>
+            Index
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Deconstruct(`0@,`1@,`2@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="item1"></param>
+            <param name="item2"></param>
+            <param name="item3"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`3.Deconstruct(Cosmos.Optionals.Maybe{`0}@,Cosmos.Optionals.Maybe{`1}@,Cosmos.Optionals.Maybe{`2}@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="maybe1"></param>
+            <param name="maybe2"></param>
+            <param name="maybe3"></param>
         </member>
         <member name="M:Cosmos.Optionals.Maybe`3.Equals(System.ValueTuple{`0,`1,`2})">
             <inheritdoc />
@@ -2810,6 +2869,36 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`4.HasValue">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Item(System.Int32)">
+            <summary>
+            Index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.Item(System.String)">
+            <summary>
+            Index
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Deconstruct(`0@,`1@,`2@,`3@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="item1"></param>
+            <param name="item2"></param>
+            <param name="item3"></param>
+            <param name="item4"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`4.Deconstruct(Cosmos.Optionals.Maybe{`0}@,Cosmos.Optionals.Maybe{`1}@,Cosmos.Optionals.Maybe{`2}@,Cosmos.Optionals.Maybe{`3}@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="maybe1"></param>
+            <param name="maybe2"></param>
+            <param name="maybe3"></param>
+            <param name="maybe4"></param>
         </member>
         <member name="M:Cosmos.Optionals.Maybe`4.Equals(System.ValueTuple{`0,`1,`2,`3})">
             <inheritdoc />
@@ -3036,6 +3125,38 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`5.HasValue">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Item(System.Int32)">
+            <summary>
+            Index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.Item(System.String)">
+            <summary>
+            Index
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Deconstruct(`0@,`1@,`2@,`3@,`4@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="item1"></param>
+            <param name="item2"></param>
+            <param name="item3"></param>
+            <param name="item4"></param>
+            <param name="item5"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`5.Deconstruct(Cosmos.Optionals.Maybe{`0}@,Cosmos.Optionals.Maybe{`1}@,Cosmos.Optionals.Maybe{`2}@,Cosmos.Optionals.Maybe{`3}@,Cosmos.Optionals.Maybe{`4}@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="maybe1"></param>
+            <param name="maybe2"></param>
+            <param name="maybe3"></param>
+            <param name="maybe4"></param>
+            <param name="maybe5"></param>
         </member>
         <member name="M:Cosmos.Optionals.Maybe`5.Equals(System.ValueTuple{`0,`1,`2,`3,`4})">
             <inheritdoc />
@@ -3268,6 +3389,40 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`6.HasValue">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item(System.Int32)">
+            <summary>
+            Index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.Item(System.String)">
+            <summary>
+            Index
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Deconstruct(`0@,`1@,`2@,`3@,`4@,`5@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="item1"></param>
+            <param name="item2"></param>
+            <param name="item3"></param>
+            <param name="item4"></param>
+            <param name="item5"></param>
+            <param name="item6"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`6.Deconstruct(Cosmos.Optionals.Maybe{`0}@,Cosmos.Optionals.Maybe{`1}@,Cosmos.Optionals.Maybe{`2}@,Cosmos.Optionals.Maybe{`3}@,Cosmos.Optionals.Maybe{`4}@,Cosmos.Optionals.Maybe{`5}@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="maybe1"></param>
+            <param name="maybe2"></param>
+            <param name="maybe3"></param>
+            <param name="maybe4"></param>
+            <param name="maybe5"></param>
+            <param name="maybe6"></param>
         </member>
         <member name="M:Cosmos.Optionals.Maybe`6.Equals(System.ValueTuple{`0,`1,`2,`3,`4,`5})">
             <inheritdoc />
@@ -3507,6 +3662,42 @@
         <member name="P:Cosmos.Optionals.Maybe`7.HasValue">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item(System.Int32)">
+            <summary>
+            Index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.Item(System.String)">
+            <summary>
+            Index
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Deconstruct(`0@,`1@,`2@,`3@,`4@,`5@,`6@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="item1"></param>
+            <param name="item2"></param>
+            <param name="item3"></param>
+            <param name="item4"></param>
+            <param name="item5"></param>
+            <param name="item6"></param>
+            <param name="item7"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.Maybe`7.Deconstruct(Cosmos.Optionals.Maybe{`0}@,Cosmos.Optionals.Maybe{`1}@,Cosmos.Optionals.Maybe{`2}@,Cosmos.Optionals.Maybe{`3}@,Cosmos.Optionals.Maybe{`4}@,Cosmos.Optionals.Maybe{`5}@,Cosmos.Optionals.Maybe{`6}@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="maybe1"></param>
+            <param name="maybe2"></param>
+            <param name="maybe3"></param>
+            <param name="maybe4"></param>
+            <param name="maybe5"></param>
+            <param name="maybe6"></param>
+            <param name="maybe7"></param>
+        </member>
         <member name="M:Cosmos.Optionals.Maybe`7.Equals(System.ValueTuple{`0,`1,`2,`3,`4,`5,`6})">
             <inheritdoc />
         </member>
@@ -3667,6 +3858,224 @@
             Nothing
             </summary>
         </member>
+        <member name="T:Cosmos.Optionals.NamedOptionalBuilder">
+            <summary>
+            Named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionalBuilder.Create">
+            <summary>
+            Create the named optional builder
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionalBuilder.May``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionalBuilder.May``1(``0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder.May``1(``0)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder.May``1(``0,System.String)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <param name="key"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`1">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`1.May``1(``0)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`1.May``1(``0,System.String)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <param name="key"></param>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`1.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`2">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`2.May``1(``0)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`2.May``1(``0,System.String)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <param name="key"></param>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`2.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`3">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`3.May``1(``0)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`3.May``1(``0,System.String)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <param name="key"></param>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`3.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`4">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`4.May``1(``0)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`4.May``1(``0,System.String)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <param name="key"></param>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`4.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`5">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`5.May``1(``0)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`5.May``1(``0,System.String)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <param name="key"></param>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`5.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`6">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`6.May``1(``0)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`6.May``1(``0,System.String)">
+            <summary>
+            May
+            </summary>
+            <param name="value"></param>
+            <param name="key"></param>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`6.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`7">
+            <summary>
+            Interface for named optional builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.NamedOptionals.INamedOptionalBuilder`7.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Optionals.None`1">
             <summary>
             None
@@ -3809,6 +4218,15 @@
             <summary>
             Optional utilities
             </summary>
+            <summary>
+            Optional utilities
+            </summary>
+            <summary>
+            Optional utilities
+            </summary>
+            <summary>
+            Optional utilities
+            </summary>
         </member>
         <member name="M:Cosmos.Optionals.Optional.Some``1(``0)">
             <summary>
@@ -3880,85 +4298,6 @@
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Optionals.Optional.From``1(System.Nullable{``0})">
-            <summary>
-            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
-            </summary>
-            <param name="nullable"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Optionals.Optional.Wrapped">
-            <summary>
-            Wrapped optional
-            </summary>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.Some``1(``0)">
-            <summary>
-            For some value
-            </summary>
-            <param name="some"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.Some``2(``0)">
-            <summary>
-            For some value
-            </summary>
-            <param name="some"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.None``1">
-            <summary>
-            For nothing
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.None``2(``1)">
-            <summary>
-            For nothing
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.NoneSlim``1">
-            <summary>
-            For nothing
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.NoneSlim``2(``1)">
-            <summary>
-            For nothing
-            </summary>
-            <param name="exception"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(``0)">
-            <summary>
-            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
-            </summary>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(``0,System.Func{``0,System.Boolean})">
-            <summary>
-            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
-            </summary>
-            <param name="value"></param>
-            <param name="condition"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(System.Nullable{``0})">
             <summary>
             Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
             </summary>
@@ -4276,6 +4615,90 @@
             <typeparam name="T5"></typeparam>
             <typeparam name="T6"></typeparam>
             <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Optionals.Optional.Named">
+            <summary>
+            Get an instance of builder, to build a named Maybe.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Optionals.Optional.Wrapped">
+            <summary>
+            Wrapped optional
+            </summary>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.Some``1(``0)">
+            <summary>
+            For some value
+            </summary>
+            <param name="some"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.Some``2(``0)">
+            <summary>
+            For some value
+            </summary>
+            <param name="some"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.None``1">
+            <summary>
+            For nothing
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.None``2(``1)">
+            <summary>
+            For nothing
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.NoneSlim``1">
+            <summary>
+            For nothing
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.NoneSlim``2(``1)">
+            <summary>
+            For nothing
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(``0)">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="value"></param>
+            <param name="condition"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.Optional.Wrapped.From``1(System.Nullable{``0})">
+            <summary>
+            Create an instance of <see cref="T:Cosmos.Optionals.IOptional`1"/> from the given value.
+            </summary>
+            <param name="nullable"></param>
+            <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Optionals.OptionalType">
