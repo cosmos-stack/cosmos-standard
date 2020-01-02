@@ -5,8 +5,6 @@ using Cosmos.Optionals.Internals;
 // ReSharper disable InconsistentNaming
 
 namespace Cosmos.Optionals {
-    
-    
     /// <summary>
     /// Maybe
     /// </summary>
@@ -37,10 +35,8 @@ namespace Cosmos.Optionals {
         /// <inheritdoc />
         public T Value => _value;
 
-        /// <summary>
-        /// Hashcode for key
-        /// </summary>
-        internal string Key => _key;
+        /// <inheritdoc />
+        public string Key => _key;
 
         #region Equals
 
@@ -515,9 +511,36 @@ namespace Cosmos.Optionals {
 
         #endregion
 
+        #region implicit operator
+
+        /// <summary>
+        /// Convert T to Maybe{T}
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static implicit operator Maybe<T>(T value) {
+            return Optional.From(value);
+        }
+
+        /// <summary>
+        /// Convert T from Maybe{T}
+        /// </summary>
+        /// <param name="maybe"></param>
+        /// <returns></returns>
+        public static implicit operator T(Maybe<T> maybe) {
+            return maybe.ValueOrDefault();
+        }
+
+        #endregion
+
+        #region Nothing
+
         /// <summary>
         /// Nothing
         /// </summary>
         public static Maybe<T> Nothing => Optional.None<T>();
+
+        #endregion
+
     }
 }

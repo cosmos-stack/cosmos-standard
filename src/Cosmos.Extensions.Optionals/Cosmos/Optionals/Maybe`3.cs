@@ -63,6 +63,9 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public bool HasValue => _hasValue && _o1.HasValue && _o2.HasValue && _o3.HasValue;
+ 
+        /// <inheritdoc />
+        public string Key => _o3.Key;
 
         #region Index
 

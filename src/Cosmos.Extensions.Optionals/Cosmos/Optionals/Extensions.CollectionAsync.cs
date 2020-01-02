@@ -29,7 +29,7 @@ namespace Cosmos.Optionals {
                 someFactory: async valueTask => {
                     if (valueTask == null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var value = await valueTask.ConfigureAwait(continueOnCapturedContext: false);
-                    return value.Maybe();
+                    return value.ToMaybe();
                 },
                 noneFactory: () => Task.FromResult(Optional.None<TResult>())
             );
@@ -289,7 +289,7 @@ namespace Cosmos.Optionals {
                 throw new InvalidOperationException($"{nameof(alternativeFactory)} must not return a null task.");
 
             var alternative = await alternativeTask.ConfigureAwait(continueOnCapturedContext: false);
-            return alternative.Maybe();
+            return alternative.ToMaybe();
         }
 
         /// <summary>
@@ -461,7 +461,7 @@ namespace Cosmos.Optionals {
                     if (valueTask is null)
                         throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var value = await valueTask.ConfigureAwait(continueOnCapturedContext: false);
-                    return value.Maybe<TResult, TException>();
+                    return value.ToMaybe<TResult, TException>();
                 },
                 noneFactory: exception => Task.FromResult(Optional.None<TResult, TException>(exception))
             );
@@ -934,7 +934,7 @@ namespace Cosmos.Optionals {
                 throw new InvalidOperationException($"{nameof(alternativeFactory)} must not return a null task.");
 
             var alternative = await alternativeTask.ConfigureAwait(continueOnCapturedContext: false);
-            return alternative.Maybe<T, TException>();
+            return alternative.ToMaybe<T, TException>();
         }
 
         /// <summary>

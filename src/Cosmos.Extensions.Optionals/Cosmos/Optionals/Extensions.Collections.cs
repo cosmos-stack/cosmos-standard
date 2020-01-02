@@ -96,14 +96,14 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(source));
             if (source is IList<T> list) {
                 if (list.Count > 0)
-                    return list[0].Maybe();
+                    return list[0].ToMaybe();
             } else if (source is IReadOnlyList<T> readOnlyList) {
                 if (readOnlyList.Count > 0)
-                    return readOnlyList[0].Maybe();
+                    return readOnlyList[0].ToMaybe();
             } else {
                 using (var enumerator = source.GetEnumerator()) {
                     if (enumerator.MoveNext())
-                        return enumerator.Current.Maybe();
+                        return enumerator.Current.ToMaybe();
                 }
             }
 
@@ -126,7 +126,7 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(predicate));
             foreach (var element in source) {
                 if (predicate(element))
-                    return element.Maybe();
+                    return element.ToMaybe();
             }
 
             return Optional.None<T>();
@@ -145,11 +145,11 @@ namespace Cosmos.Optionals {
             if (source is IList<T> list) {
                 var count = list.Count;
                 if (count > 0)
-                    return list[count].Maybe();
+                    return list[count].ToMaybe();
             } else if (source is IReadOnlyList<T> readOnlyList) {
                 var count = readOnlyList.Count;
                 if (count > 0)
-                    return readOnlyList[count].Maybe();
+                    return readOnlyList[count].ToMaybe();
             } else {
                 using (var enumerator = source.GetEnumerator()) {
                     if (enumerator.MoveNext()) {
@@ -158,7 +158,7 @@ namespace Cosmos.Optionals {
                             t = enumerator.Current;
                         } while (enumerator.MoveNext());
 
-                        return t.Maybe();
+                        return t.ToMaybe();
                     }
                 }
             }
@@ -184,13 +184,13 @@ namespace Cosmos.Optionals {
                 for (var i = list.Count - 1; i >= 0; --i) {
                     var result = list[i];
                     if (predicate(result))
-                        return result.Maybe();
+                        return result.ToMaybe();
                 }
             } else if (source is IReadOnlyList<T> readOnlyList) {
                 for (var i = readOnlyList.Count - 1; i >= 0; --i) {
                     var result = readOnlyList[i];
                     if (predicate(result))
-                        return result.Maybe();
+                        return result.ToMaybe();
                 }
             } else {
                 using (var enumerator = source.GetEnumerator()) {
@@ -204,7 +204,7 @@ namespace Cosmos.Optionals {
                                 }
                             }
 
-                            return result.Maybe();
+                            return result.ToMaybe();
                         }
                     }
                 }
@@ -227,12 +227,12 @@ namespace Cosmos.Optionals {
             if (source is IList<T> list) {
                 switch (list.Count) {
                     case 0: return Optional.None<T>();
-                    case 1: return list[0].Maybe();
+                    case 1: return list[0].ToMaybe();
                 }
             } else if (source is IReadOnlyList<T> readOnlyList) {
                 switch (readOnlyList.Count) {
                     case 0: return Optional.None<T>();
-                    case 1: return readOnlyList[0].Maybe();
+                    case 1: return readOnlyList[0].ToMaybe();
                 }
             } else {
                 using (var enumerator = source.GetEnumerator()) {
@@ -240,7 +240,7 @@ namespace Cosmos.Optionals {
                         return Optional.None<T>();
                     var result = enumerator.Current;
                     if (!enumerator.MoveNext())
-                        return result.Maybe();
+                        return result.ToMaybe();
                 }
             }
 
@@ -270,7 +270,7 @@ namespace Cosmos.Optionals {
                                 return Optional.None<T>();
                         }
 
-                        return result.Maybe();
+                        return result.ToMaybe();
                     }
                 }
             }
@@ -292,17 +292,17 @@ namespace Cosmos.Optionals {
             if (index >= 0) {
                 if (source is IList<T> list) {
                     if (index < list.Count) {
-                        return list[index].Maybe();
+                        return list[index].ToMaybe();
                     }
                 } else if (source is IReadOnlyList<T> readOnlyList) {
                     if (index < readOnlyList.Count) {
-                        return readOnlyList[index].Maybe();
+                        return readOnlyList[index].ToMaybe();
                     }
                 } else {
                     using (var enumerator = source.GetEnumerator()) {
                         while (enumerator.MoveNext()) {
                             if (index == 0) {
-                                return enumerator.Current.Maybe();
+                                return enumerator.Current.ToMaybe();
                             }
 
                             index--;

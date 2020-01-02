@@ -41,6 +41,9 @@ namespace Cosmos.Optionals {
         public virtual T Value => Either.Value;
 
         /// <inheritdoc />
+        public string Key => Either.Key;
+
+        /// <inheritdoc />
         public TException Exception => Either.Exception;
 
         /// <inheritdoc />

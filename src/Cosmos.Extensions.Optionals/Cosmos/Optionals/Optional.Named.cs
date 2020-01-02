@@ -1,4 +1,3 @@
-using System;
 using Cosmos.Optionals.NamedOptionals;
 
 namespace Cosmos.Optionals {

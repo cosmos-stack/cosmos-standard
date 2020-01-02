@@ -36,7 +36,10 @@ namespace Cosmos.Optionals {
         public virtual bool HasValue => Internal.HasValue;
 
         /// <inheritdoc />
-        public virtual T Value => Internal.Value;
+        public virtual T Value => Internal.Value; 
+        
+        /// <inheritdoc />
+        public string Key => Internal.Key;
 
         /// <inheritdoc />
         public bool Contains(T value) => Internal.Contains(value);

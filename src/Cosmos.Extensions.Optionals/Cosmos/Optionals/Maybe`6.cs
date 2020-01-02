@@ -94,7 +94,10 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public bool HasValue => _hasValue && _o1.HasValue && _o2.HasValue && _o3.HasValue && _o4.HasValue && _o5.HasValue && _o6.HasValue;
-
+        
+        /// <inheritdoc />
+        public string Key => _o6.Key;
+        
         #region Index
 
         /// <summary>

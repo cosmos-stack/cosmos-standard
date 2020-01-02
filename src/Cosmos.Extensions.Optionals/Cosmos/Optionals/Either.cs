@@ -30,6 +30,9 @@ namespace Cosmos.Optionals {
         /// <inheritdoc />
         public TException Exception => _exception;
 
+        /// <inheritdoc />
+        public string Key => "EitherKey";
+
         #region Equals
 
         /// <inheritdoc />
