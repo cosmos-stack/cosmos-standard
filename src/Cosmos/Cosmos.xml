@@ -987,6 +987,18 @@
             <param name="typeInfo">枚举类型</param>
             <param name="member">成员名、值、实例均可</param>
         </member>
+        <member name="T:Cosmos.Exceptions.ExceptionHelper">
+            <summary>
+            Exception helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionHelper.PrepareForRethrow(System.Exception)">
+            <summary>
+            Prepare for rethrow
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Judgments.AssertionJudgment">
             <summary>
             Assertion Judgment
@@ -2085,6 +2097,9 @@
             </summary>
         </member>
         <member name="T:Cosmos.Types">
+            <summary>
+            Type Utilities
+            </summary>
             <summary>
             Type Utilities
             </summary>

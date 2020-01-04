@@ -970,18 +970,6 @@
             <param name="comparer"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Exceptions.ExceptionHelper">
-            <summary>
-            Exception helper
-            </summary>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionHelper.PrepareForRethrow(System.Exception)">
-            <summary>
-            Prepare for rethrow
-            </summary>
-            <param name="exception"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Expressions.ParameterRebinder">
             <summary>
             参数重绑定操作
@@ -4486,6 +4474,26 @@
             <summary>
             Create Id
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.InterlockedUtil">
+            <summary>
+            Interlocked util
+            </summary>
+        </member>
+        <member name="M:Cosmos.InterlockedUtil.Read(System.Int32@)">
+            <summary>
+            Read
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.InterlockedUtil.Read``1(``0@)">
+            <summary>
+            Read
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Joiners.CommonJoinUtils">

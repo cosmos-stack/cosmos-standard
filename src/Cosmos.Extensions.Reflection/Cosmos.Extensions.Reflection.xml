@@ -4,6 +4,150 @@
         <name>Cosmos.Extensions.Reflection</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Exceptions.BuildingDescriptors.ExceptionArgConstants">
+            <summary>
+            Exception arg constants
+            </summary>
+        </member>
+        <member name="F:Cosmos.Exceptions.BuildingDescriptors.ExceptionArgConstants.MESSAGE">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="F:Cosmos.Exceptions.BuildingDescriptors.ExceptionArgConstants.PARAM_NAME">
+            <summary>
+            Param Name
+            </summary>
+        </member>
+        <member name="F:Cosmos.Exceptions.BuildingDescriptors.ExceptionArgConstants.INNER_EXCEPTION">
+            <summary>
+            Inner exception
+            </summary>
+        </member>
+        <member name="F:Cosmos.Exceptions.BuildingDescriptors.ExceptionArgConstants.INNER">
+            <summary>
+            Inner exception, usage for InvalidProgramException
+            </summary>
+        </member>
+        <member name="F:Cosmos.Exceptions.BuildingDescriptors.ExceptionArgConstants.ACTUAL_VALUE">
+            <summary>
+            Actual value
+            </summary>
+        </member>
+        <member name="F:Cosmos.Exceptions.BuildingDescriptors.ExceptionArgConstants.ERROR_CODE">
+            <summary>
+            Error code
+            </summary>
+        </member>
+        <member name="T:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions">
+            <summary>
+            Exception building options
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.#ctor(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions"/>.
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="P:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.ExceptionType">
+            <summary>
+            Gets exception type
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.AddArg``1(System.String,``0)">
+            <summary>
+            Add args
+            </summary>
+            <param name="argumentName"></param>
+            <param name="argumentValue"></param>
+            <typeparam name="TArgVal"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.AddArg``1(System.String,``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Add args
+            </summary>
+            <param name="argumentName"></param>
+            <param name="argumentValue"></param>
+            <param name="predicate"></param>
+            <typeparam name="TArgVal"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Exceptions.ExceptionBuilder">
+            <summary>
+            Exception builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder.Create``1">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.ExceptionBuilder`1"/>.
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Exceptions.ExceptionBuilder`1">
+            <summary>
+            Exception builder
+            </summary>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="T:Cosmos.Exceptions.IFluentExceptionBuilder`1">
+            <summary>
+            Interface for fluent exception builder
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.IFluentExceptionBuilder`1.TargetType">
+            <summary>
+            Gets target exception's type
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.InnerException(System.Exception)">
+            <summary>
+            With inner exception
+            </summary>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.ParamName(System.String)">
+            <summary>
+            With parameter's name
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.Message(System.String)">
+            <summary>
+            With message
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.ActualValue(System.Object)">
+            <summary>
+            Actual value
+            </summary>
+            <param name="actualValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.ErrorCode(System.Int32)">
+            <summary>
+            Error code
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.Build">
+            <summary>
+            Build and return exception instance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.BuildAndThrow">
+            <summary>
+            Build and throw exception
+            </summary>
+        </member>
         <member name="T:Cosmos.ReflectionExtensions">
             <summary>
             Type extensions
@@ -411,6 +555,69 @@
             Scan, and return instances.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.NTypes">
+            <summary>
+            Advanced Types utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.NTypes.CreateInstance``1(System.Collections.Generic.IEnumerable{Cosmos.CtorArgDescriptor})">
+            <summary>
+            Create instance
+            </summary>
+            <param name="ctorArgDescriptors"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.NTypes.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{Cosmos.CtorArgDescriptor})">
+            <summary>
+            Create instance
+            </summary>
+            <param name="type"></param>
+            <param name="ctorArgDescriptors"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.NTypes.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{Cosmos.CtorArgDescriptor})">
+            <summary>
+            Create instance
+            </summary>
+            <param name="type"></param>
+            <param name="ctorArgDescriptors"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.CtorArgDescriptor">
+            <summary>
+            Descriptor of argument
+            </summary>
+        </member>
+        <member name="M:Cosmos.CtorArgDescriptor.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.CtorArgDescriptor"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.CtorArgDescriptor.#ctor(System.String,System.Object,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.CtorArgDescriptor"/>.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="type"></param>
+        </member>
+        <member name="P:Cosmos.CtorArgDescriptor.Name">
+            <summary>
+            Argument name
+            </summary>
+        </member>
+        <member name="P:Cosmos.CtorArgDescriptor.Value">
+            <summary>
+            Argument value
+            </summary>
+        </member>
+        <member name="P:Cosmos.CtorArgDescriptor.Type">
+            <summary>
+            Argument type
+            </summary>
         </member>
         <member name="T:System.Reflection.PropertyAccessType">
             <summary>

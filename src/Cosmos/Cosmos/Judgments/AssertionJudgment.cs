@@ -17,11 +17,15 @@ namespace Cosmos.Judgments {
             if (assertion)
                 return;
 
-            if (string.IsNullOrEmpty(message))
-                throw new ArgumentNullException(nameof(message));
+            Exception exception;
 
-            var exception = Types.CreateInstance<TException>(message);
-            throw exception;
+            if (string.IsNullOrEmpty(message)) {
+                exception = new ArgumentNullException(nameof(message));
+            } else {
+                exception = Types.CreateInstance<TException>(message);
+            }
+
+            Exceptions.ExceptionHelper.PrepareForRethrow(exception);
         }
 
         /// <summary>
@@ -35,7 +39,8 @@ namespace Cosmos.Judgments {
                 return;
 
             var exception = Types.CreateInstance<TException>(exceptionParams);
-            throw exception;
+
+            Exceptions.ExceptionHelper.PrepareForRethrow(exception);
         }
 
         /// <summary>
@@ -51,12 +56,14 @@ namespace Cosmos.Judgments {
 
             var exception = Types.CreateInstance<TException>(exceptionParams);
 
-            throw exception switch {
+            var wrappedException = exception switch {
                 ArgumentNullException __exception_01       => (Exception) ValidationErrors.Null(__exception_01),
                 ArgumentOutOfRangeException __exception_02 => ValidationErrors.OutOfRange(__exception_02),
                 ArgumentInvalidException __exception_03    => ValidationErrors.Invalid(__exception_03),
                 _                                          => exception
             };
+
+            Exceptions.ExceptionHelper.PrepareForRethrow(wrappedException);
         }
 
         /// <summary>
@@ -69,11 +76,15 @@ namespace Cosmos.Judgments {
             if (assertion)
                 return;
 
-            if (options == null)
-                throw new ArgumentNullException(nameof(options));
+            Exception exception;
 
-            var exception = Types.CreateInstance<TException>(options);
-            throw exception;
+            if (options == null) {
+                exception = new ArgumentNullException(nameof(options));
+            } else {
+                exception = Types.CreateInstance<TException>(options);
+            }
+
+            Exceptions.ExceptionHelper.PrepareForRethrow(exception);
         }
     }
 }
