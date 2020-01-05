@@ -1,4 +1,4 @@
-#if !NET451
+#if !NET451 && !NET461
 
 using System;
 
@@ -13,10 +13,10 @@ namespace Cosmos {
     /// </summary>
     public class CtorArgDescriptor {
 
-        /// <summary>
-        /// Create a new instance of <see cref="CtorArgDescriptor"/>.
-        /// </summary>
-        public CtorArgDescriptor() { }
+        // /// <summary>
+        // /// Create a new instance of <see cref="CtorArgDescriptor"/>.
+        // /// </summary>
+        // public CtorArgDescriptor() { }
 
         /// <summary>
         /// Create a new instance of <see cref="CtorArgDescriptor"/>.

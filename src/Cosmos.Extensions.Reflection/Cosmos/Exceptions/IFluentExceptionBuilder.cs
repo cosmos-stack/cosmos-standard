@@ -11,35 +11,40 @@ namespace Cosmos.Exceptions {
         Type TargetType { get; }
 
         /// <summary>
-        /// With inner exception
+        /// With inner exception.<br />
+        /// This value will be used for constructor with param-name 'innerException' and 'inner' (just for <see cref="InvalidProgramException"/>).
         /// </summary>
         /// <param name="innerException"></param>
         /// <returns></returns>
         IFluentExceptionBuilder<TException> InnerException(Exception innerException);
 
         /// <summary>
-        /// With parameter's name
+        /// With parameter's name.<br />
+        /// This value will be used for constructor with param-name 'paramName'.
         /// </summary>
         /// <param name="paramName"></param>
         /// <returns></returns>
         IFluentExceptionBuilder<TException> ParamName(string paramName);
 
         /// <summary>
-        /// With message
+        /// With message.<br />
+        /// This value will be used for constructor with param-name 'message'.
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
         IFluentExceptionBuilder<TException> Message(string message);
 
         /// <summary>
-        /// Actual value
+        /// Actual value.<br />
+        /// This value will be used for constructor with param-name 'actualValue'.
         /// </summary>
         /// <param name="actualValue"></param>
         /// <returns></returns>
         IFluentExceptionBuilder<TException> ActualValue(object actualValue);
 
         /// <summary>
-        /// Error code
+        /// Error code.<br />
+        /// This value will be used for constructor with param-name 'errorCode'.
         /// </summary>
         /// <param name="errorCode"></param>
         /// <returns></returns>

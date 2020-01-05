@@ -12,6 +12,10 @@
         <Description>Cosmos reflection extension library</Description>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
     </ItemGroup>
@@ -20,7 +24,7 @@
         <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0' OR '$(TargetFramework)'=='net461'">
+    <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
         <PackageReference Include="DotNetCore.Natasha.DynamicCache" Version="1.2.1.7" />
     </ItemGroup>
 

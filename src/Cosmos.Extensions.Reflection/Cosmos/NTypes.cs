@@ -1,4 +1,4 @@
-#if !NET451
+#if !NET451 && !NET461
 
 using System;
 using System.Collections.Generic;
