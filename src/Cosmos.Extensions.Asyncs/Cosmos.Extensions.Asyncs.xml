@@ -268,6 +268,98 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1">
+            <summary>
+            Bounded concurrent queue
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1.#ctor(System.Int32)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1"/>.
+            </summary>
+            <param name="queueLimit"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="P:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1.Count">
+            <summary>
+            Gets queue count
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1.TryDequeue(`0@)">
+            <summary>
+            Try dequeue
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1.TryEnqueue(`0)">
+            <summary>
+            Try enqueue
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Concurrent.ConcurrentSet`1">
+            <summary>
+            Concurrent Set
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Collections.Concurrent.ConcurrentSet`1.IsEmpty">
+            <summary>
+            Is empty
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Concurrent.ConcurrentSet`1.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Concurrent.ConcurrentSet`1.IsReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.Contains(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.TryAdd(`0)">
+            <summary>
+            Try add
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.TryRemove(`0)">
+            <summary>
+            Try remove
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.Values">
+            <summary>
+            Values
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.Add(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.CopyTo(`0[],System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Concurrent.ConcurrentSet`1.Remove(`0)">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Disposables.AsynchronousDisposableAction">
             <summary>
             Asynchronous Disable Action. <br />

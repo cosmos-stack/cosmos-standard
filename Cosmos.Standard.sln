@@ -169,6 +169,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Serialization.Nett",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.Serialization.NettTest", "extra\serialization\tests\Cosmos.Test.Serialization.NettTest\Cosmos.Test.Serialization.NettTest.csproj", "{57DA8994-BA86-4FB8-BA92-CFB09FDE0A55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.ReflectionTests", "test\Cosmos.Test.ReflectionTests\Cosmos.Test.ReflectionTests.csproj", "{F7ED45F3-8BB1-4620-A267-9F02510134E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -391,6 +393,10 @@ Global
 		{57DA8994-BA86-4FB8-BA92-CFB09FDE0A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57DA8994-BA86-4FB8-BA92-CFB09FDE0A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57DA8994-BA86-4FB8-BA92-CFB09FDE0A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7ED45F3-8BB1-4620-A267-9F02510134E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7ED45F3-8BB1-4620-A267-9F02510134E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7ED45F3-8BB1-4620-A267-9F02510134E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7ED45F3-8BB1-4620-A267-9F02510134E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -460,6 +466,7 @@ Global
 		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
 		{B1A584BE-EE50-4EF3-AC49-1E3FB91545E2} = {87D7302C-14EA-46B4-9324-0E42E39C100D}
 		{57DA8994-BA86-4FB8-BA92-CFB09FDE0A55} = {66C97C79-C2AE-49DD-8622-CAC7DD71F21B}
+		{F7ED45F3-8BB1-4620-A267-9F02510134E4} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D68A6AF5-79FE-4679-AD20-67D6CFCF75B4}

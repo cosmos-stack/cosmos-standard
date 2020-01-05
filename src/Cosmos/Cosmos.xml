@@ -4,6 +4,44 @@
         <name>Cosmos</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Conversions.Base32Conversion">
+            <summary>
+            Base32 Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.ToBase32String(System.Byte[])">
+            <summary>
+            Base32 encode
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.ToBase32String(System.Byte[],System.String,System.Text.Encoding)">
+            <summary>
+            Base32 encode
+            </summary>
+            <param name="bytes"></param>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.FromBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Base32 decode
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.FromBase32StringToBytes(System.String)">
+            <summary>
+            Base32 decode
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="T:Cosmos.Conversions.Base64Conversion">
             <summary>
             Base64 Conversion Utilities
