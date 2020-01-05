@@ -7,7 +7,7 @@ namespace Cosmos.Conversions {
     /// </summary>
     public static class Base32Conversion {
         /// <summary>
-        /// Base32 encode
+        /// Convert from <see cref="string"/> to base32 <see cref="string"/>.
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
@@ -47,44 +47,43 @@ namespace Cosmos.Conversions {
         }
 
         /// <summary>
-        /// Base32 encode
+        /// Convert from <see cref="string"/> to base32 <see cref="string"/>.
         /// </summary>
-        /// <param name="bytes"></param>
-        /// <param name="data"></param>
+        /// <param name="str"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string ToBase32String(byte[] bytes, string data, Encoding encoding) {
-            return ToBase32String(encoding.GetBytes(data));
+        public static string ToBase32String(string str, Encoding encoding = null) {
+            return ToBase32String(encoding.Fixed().GetBytes(str));
         }
 
         /// <summary>
-        /// Base32 decode
+        /// Convert from base32 <see cref="string"/> to <see cref="string"/>.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="base32String"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string FromBase32String(string data, Encoding encoding) {
-            return encoding.GetString(FromBase32StringToBytes(data));
+        public static string FromBase32String(string base32String, Encoding encoding = null) {
+            return encoding.Fixed().GetString(FromBase32StringToBytes(base32String));
         }
 
         /// <summary>
-        /// Base32 decode
+        /// Convert from base32 <see cref="string"/> to <see cref="byte"/> array.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="base32String"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static byte[] FromBase32StringToBytes(string data) {
-            if (data is null) {
-                throw new ArgumentNullException(nameof(data));
+        public static byte[] FromBase32StringToBytes(string base32String) {
+            if (base32String is null) {
+                throw new ArgumentNullException(nameof(base32String));
             }
 
-            data = data.TrimEnd('=');            //remove padding characters
-            var byteCount = data.Length * 5 / 8; //this must be TRUNCATED
+            base32String = base32String.TrimEnd('=');            //remove padding characters
+            var byteCount = base32String.Length * 5 / 8; //this must be TRUNCATED
             var returnArray = new byte[byteCount];
 
             byte curByte = 0, bitsRemaining = 8;
             var arrayIndex = 0;
-            foreach (var c in data) {
+            foreach (var c in base32String) {
                 var cValue = CharToValue(c);
 
                 int mask;

@@ -65,6 +65,11 @@
             Build and throw exception
             </summary>
         </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.BuildAndThrowAsValidationError">
+            <summary>
+            Build and throw exception as validation error
+            </summary>
+        </member>
         <member name="T:Cosmos.ReflectionExtensions">
             <summary>
             Type extensions

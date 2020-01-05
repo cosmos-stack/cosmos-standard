@@ -10,7 +10,17 @@ namespace Cosmos.Conversions {
         private const string BASE64 = "===========================================+=+=/0123456789=======ABCDEFGHIJKLMNOPQRSTUVWXYZ====/=abcdefghijklmnopqrstuvwxyz=====";
 
         /// <summary>
-        /// Convert from bytes to base64 <see cref="string"/>.
+        /// Convert from <see cref="string"/> to base64 <see cref="string"/>.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static string ToBase64String(string str, Encoding encoding = null) {
+            return ToBase64String(encoding.Fixed().GetBytes(str));
+        }
+
+        /// <summary>
+        /// Convert from <see cref="string"/> to base64 <see cref="string"/>.
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
@@ -19,33 +29,33 @@ namespace Cosmos.Conversions {
         }
 
         /// <summary>
-        /// Convert from <see cref="string"/> to base64 <see cref="string"/>.
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="encoding"></param>
-        /// <returns></returns>
-        public static string ToBase64String(string str, Encoding encoding) {
-            return ToBase64String(encoding.GetBytes(str));
-        }
-
-        /// <summary>
         /// Convert from base64 <see cref="string"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="base64String"></param>
-        public static byte[] FromBase64String(string base64String) {
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static string FromBase64String(string base64String, Encoding encoding = null) {
+            return encoding.Fixed().GetString(FromBase64StringToBytes(base64String));
+        }
+
+        /// <summary>
+        /// Convert from base64 <see cref="string"/> to <see cref="byte"/> array.
+        /// </summary>
+        /// <param name="base64String"></param>
+        public static byte[] FromBase64StringToBytes(string base64String) {
             return Convert.FromBase64String(base64String);
         }
 
         /// <summary>
-        /// Convert from base64 <see cref="string"/> to <see cref="string"/>.
+        /// Convert from <see cref="string"/> to base64url <see cref="string"/>.
         /// </summary>
-        /// <param name="base64String"></param>
+        /// <param name="str"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string FromBase64String(string base64String, Encoding encoding) {
-            return encoding.GetString(FromBase64String(base64String));
+        public static string ToBase64UrlString(string str, Encoding encoding = null) {
+            return ToBase64UrlString(encoding.Fixed().GetBytes(str));
         }
-
+        
         /// <summary>
         /// Convert from <see cref="string"/> to base64url <see cref="string"/>.
         /// </summary>
@@ -57,22 +67,21 @@ namespace Cosmos.Conversions {
             result.Replace('/', '_');
             return result.ToString();
         }
-
-        /// <summary>
-        /// Convert from <see cref="string"/> to base64url <see cref="string"/>.
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="encoding"></param>
-        /// <returns></returns>
-        public static string ToBase64UrlString(string str, Encoding encoding) {
-            return ToBase64UrlString(encoding.GetBytes(str));
-        }
-
+        
         /// <summary>
         /// Convert from base64url <see cref="string"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="base64UrlString"></param>
-        public static byte[] FromBase64UrlString(string base64UrlString) {
+        /// <param name="encoding"></param>
+        public static string FromBase64UrlString(string base64UrlString, Encoding encoding = null) {
+            return encoding.Fixed().GetString(FromBase64UrlStringToBytes(base64UrlString));
+        }
+        
+        /// <summary>
+        /// Convert from base64url <see cref="string"/> to <see cref="string"/>.
+        /// </summary>
+        /// <param name="base64UrlString"></param>
+        public static byte[] FromBase64UrlStringToBytes(string base64UrlString) {
             var sb = new StringBuilder();
             foreach (var c in base64UrlString) {
                 if (c >= 128) continue;
@@ -87,13 +96,5 @@ namespace Cosmos.Conversions {
             return Convert.FromBase64String(sb.ToString());
         }
 
-        /// <summary>
-        /// Convert from base64url <see cref="string"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="base64UrlString"></param>
-        /// <param name="encoding"></param>
-        public static string FromBase64UrlString(string base64UrlString, Encoding encoding) {
-            return encoding.GetString(FromBase64UrlString(base64UrlString));
-        }
     }
 }
