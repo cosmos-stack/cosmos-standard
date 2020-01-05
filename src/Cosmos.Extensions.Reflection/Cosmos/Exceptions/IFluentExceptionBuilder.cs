@@ -60,5 +60,10 @@ namespace Cosmos.Exceptions {
         /// Build and throw exception
         /// </summary>
         void BuildAndThrow();
+
+        /// <summary>
+        /// Build and throw exception as validation error
+        /// </summary>
+        void BuildAndThrowAsValidationError();
     }
 }

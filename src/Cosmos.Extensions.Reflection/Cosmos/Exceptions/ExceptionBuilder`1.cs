@@ -2,6 +2,7 @@
 
 using System;
 using Cosmos.Exceptions.BuildingDescriptors;
+using Cosmos.Validations;
 
 namespace Cosmos.Exceptions {
     /// <summary>
@@ -84,6 +85,28 @@ namespace Cosmos.Exceptions {
         public void BuildAndThrow() {
             CreateAndCacheExceptionInstance();
             ExceptionHelper.PrepareForRethrow(CachedException);
+        }
+
+        public void BuildAndThrowAsValidationError() {
+            CreateAndCacheExceptionInstance();
+            switch (CachedException) {
+                case ArgumentNullException exception01:
+                    exception01.ThrowAsValidationError();
+                    break;
+
+                case ArgumentOutOfRangeException exception02:
+                    exception02.ThrowAsValidationError();
+                    break;
+
+                case ArgumentInvalidException exception03:
+                    exception03.ThrowAsValidationError();
+                    break;
+
+                default:
+                    var invalidOps = new InvalidOperationException("Unhandled exception type here.");
+                    ExceptionHelper.PrepareForRethrow(invalidOps);
+                    break;
+            }
         }
     }
 }
