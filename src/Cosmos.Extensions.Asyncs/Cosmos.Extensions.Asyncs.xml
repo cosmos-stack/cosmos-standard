@@ -12525,26 +12525,6 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:System.Runtime.Remoting.Messaging.CallContext">
-            <summary>
-            CallContext for .NET Standard and .NET Core
-            for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
-            </summary>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.SetData(System.String,System.Object)">
-            <summary>
-            Set data
-            </summary>
-            <param name="name"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.GetData(System.String)">
-            <summary>
-            Get data
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
         <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
             <summary>
             Call Context
