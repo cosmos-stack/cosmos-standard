@@ -40,9 +40,9 @@ namespace Cosmos.Conversions.Scale {
         /// Convert from hexadecimal to <see cref="string"/>.
         /// </summary>
         /// <param name="hex"></param>
-        /// <param name="encodingName">encoding name, default is "utf-8"</param>
+        /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string ToString(string hex, string encodingName = "utf-8") {
+        public static string ToString(string hex, Encoding encoding = null) {
             hex = hex.Replace(" ", "");
             if (string.IsNullOrWhiteSpace(hex)) {
                 return "";
@@ -55,7 +55,7 @@ namespace Cosmos.Conversions.Scale {
                 }
             }
 
-            return Encoding.GetEncoding(encodingName).GetString(bytes);
+            return encoding.Fixed().GetString(bytes);
         }
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace Cosmos.Conversions.Scale {
         /// </summary>
         /// <example>in: A; out: 1000001</example>
         /// <param name="str"></param>
-        /// <param name="encodingName">encoding name, default is "utf-8"</param>
+        /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string FromString(string str, string encodingName = "utf-8")
-            => BitConverter.ToString(Encoding.GetEncoding(encodingName).GetBytes(str)).Replace("-", " ");
+        public static string FromString(string str, Encoding encoding = null)
+            => BitConverter.ToString(encoding.Fixed().GetBytes(str)).Replace("-", " ");
     }
 }

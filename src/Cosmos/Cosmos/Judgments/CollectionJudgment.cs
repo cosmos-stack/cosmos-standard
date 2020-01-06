@@ -13,7 +13,7 @@ namespace Cosmos.Judgments {
         /// <param name="coll"></param>
         /// <returns></returns>
         public static bool IsNull(IEnumerable coll) {
-            return coll == null;
+            return coll is null;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Cosmos.Judgments {
         /// <param name="coll"></param>
         /// <returns></returns>
         public static bool IsNullOrEmpty(IEnumerable coll) {
-            if (coll == null)
+            if (coll is null)
                 return true;
 
             return !coll.Cast<object>().Any();
@@ -35,7 +35,7 @@ namespace Cosmos.Judgments {
         /// <param name="coll"></param>
         /// <returns></returns>
         public static bool IsNullOrEmpty<T>(IEnumerable<T> coll) {
-            return coll == null || !coll.Any();
+            return coll is null || !coll.Any();
         }
 
         /// <summary>
@@ -53,17 +53,17 @@ namespace Cosmos.Judgments {
         /// To judge whether these two collections contain same count of elements.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="leftCcoll"></param>
+        /// <param name="leftColl"></param>
         /// <param name="rightColl"></param>
         /// <returns></returns>
-        public static bool ContainsEqualCount<T>(ICollection<T> leftCcoll, ICollection<T> rightColl) {
-            if (leftCcoll == null && rightColl == null)
+        public static bool ContainsEqualCount<T>(ICollection<T> leftColl, ICollection<T> rightColl) {
+            if (leftColl is null && rightColl is null)
                 return true;
 
-            if (leftCcoll == null || rightColl == null)
+            if (leftColl is null || rightColl is null)
                 return false;
 
-            return leftCcoll.Count.Equals(rightColl.Count);
+            return leftColl.Count.Equals(rightColl.Count);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Cosmos {
         /// <summary>
         /// Create a new <see cref="InstanceScanner{TClass}"/> instance.
         /// </summary>
-        protected InstanceScanner() : base() { }
+        protected InstanceScanner() { }
 
         /// <summary>
         /// Create a new <see cref="InstanceScanner{TClass}"/> instance.

@@ -14,7 +14,7 @@ namespace Cosmos.Optionals {
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Maybe<T> Maybe<T>(this T value) {
+        public static Maybe<T> ToMaybe<T>(this T value) {
             return Optional.Some(value);
         }
 
@@ -25,7 +25,7 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
-        public static Either<T, TException> Maybe<T, TException>(this T value) {
+        public static Either<T, TException> ToMaybe<T, TException>(this T value) {
             return Optional.Some<T, TException>(value);
         }
 

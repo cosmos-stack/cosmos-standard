@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
-using AspectCore.Extensions.Reflection;
 
 namespace Cosmos {
     /// <summary>
     /// Type Utilities
     /// </summary>
-    public static class Types {
+    public static partial class Types {
 
         #region Of
 
@@ -22,7 +21,7 @@ namespace Cosmos {
         /// <param name="objColl">Object array</param>
         /// <returns></returns>
         public static Type[] Of(object[] objColl) {
-            if (objColl == null)
+            if (objColl is null)
                 return null;
             if (!objColl.Contains(null))
                 return Type.GetTypeArray(objColl);
@@ -54,10 +53,10 @@ namespace Cosmos {
         /// <param name="genericType">The generic type</param>
         /// <returns></returns>
         public static bool IsGenericImplementation(Type type, Type genericType) {
-            if (type == null)
+            if (type is null)
                 throw new ArgumentNullException(nameof(type));
 
-            if (genericType == null)
+            if (genericType is null)
                 throw new ArgumentNullException(nameof(genericType));
 
             if (!genericType.IsGenericType)
@@ -101,10 +100,10 @@ namespace Cosmos {
         /// <param name="genericType">The generic type</param>
         /// <returns></returns>
         public static Type GetRawTypeFromGenericClass(Type type, Type genericType) {
-            if (type == null)
+            if (type is null)
                 throw new ArgumentNullException(nameof(type));
 
-            if (genericType == null)
+            if (genericType is null)
                 throw new ArgumentNullException(nameof(genericType));
 
             if (!genericType.IsGenericType)
@@ -139,56 +138,5 @@ namespace Cosmos {
         public static Type GetRawTypeFromGenericClass<TGot, TGeneric>() => GetRawTypeFromGenericClass(typeof(TGot), typeof(TGeneric));
 
         #endregion
-
-        #region CreateInstance
-
-        /// <summary>
-        /// Create instance
-        /// </summary>
-        /// <typeparam name="TInstance">Special type you need to return.</typeparam>
-        /// <param name="args">Arguments for such type's constructor</param>
-        /// <returns>Instance of special type</returns>
-        public static TInstance CreateInstance<TInstance>(params object[] args) {
-            if (args == null || args.Length == 0)
-                return CreateInstanceCore<TInstance>();
-            return CreateInstanceCore<TInstance>(args);
-        }
-
-        /// <summary>
-        /// Create instance
-        /// </summary>
-        /// <typeparam name="TInstance">Special type you need to return.</typeparam>
-        /// <param name="type">Special type</param>
-        /// <param name="args">Arguments for such type's constructor</param>
-        /// <returns>Instance of special type</returns>
-        public static TInstance CreateInstance<TInstance>(Type type, params object[] args)
-            => CreateInstance(type, args) is TInstance ret ? ret : default;
-
-        /// <summary>
-        /// Create instance
-        /// </summary>
-        /// <param name="type">Special type</param>
-        /// <param name="args">Arguments for such type's constructor</param>
-        /// <returns>Instance of special type</returns>
-        public static object CreateInstance(Type type, params object[] args) {
-            if (args == null || args.Length == 0)
-                return CreateInstanceCore(type);
-            return CreateInstanceCore(type, args);
-        }
-
-        private static TInstance CreateInstanceCore<TInstance>()
-            => CreateInstanceCore(typeof(TInstance)) is TInstance ret ? ret : default;
-
-        private static TInstance CreateInstanceCore<TInstance>(object[] args)
-            => CreateInstanceCore(typeof(TInstance), args) is TInstance ret ? ret : default;
-
-        private static object CreateInstanceCore(Type type)
-            => type.GetConstructors().FirstOrDefault(x => !x.GetParameters().Any())?.GetReflector().Invoke();
-
-        private static object CreateInstanceCore(Type type, object[] args)
-            => type.GetConstructor(Of(args))?.GetReflector().Invoke(args);
-
-        #endregion
-
     }
 }

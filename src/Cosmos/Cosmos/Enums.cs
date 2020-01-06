@@ -55,8 +55,8 @@ namespace Cosmos {
         /// <param name="member">成员名、值、实例均可</param>
         /// <returns></returns>
         public static string NameOf(TypeInfo typeinfo, object member) {
-            if (typeinfo == null) return string.Empty;
-            if (member == null) return string.Empty;
+            if (typeinfo is null) return string.Empty;
+            if (member is null) return string.Empty;
             if (member is string) return member.ToString();
             return !typeinfo.IsEnum ? string.Empty : Enum.GetName(typeinfo.AsType(), member);
         }

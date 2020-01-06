@@ -36,7 +36,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultValue"></param>
         /// <returns></returns>
         public static object To(object fromObj, Type targetType, object defaultValue) {
-            if (fromObj == null) {
+            if (fromObj is null) {
                 return defaultValue;
             }
 
@@ -63,8 +63,7 @@ namespace Cosmos.Conversions {
                 }
 
                 return fromObj;
-            }
-            catch {
+            } catch {
                 return defaultValue;
             }
         }
@@ -110,8 +109,7 @@ namespace Cosmos.Conversions {
         public static TTo To<TTo>(object fromObj, TTo defaultValue) {
             try {
                 return (TTo) To(fromObj, typeof(TTo), defaultValue);
-            }
-            catch {
+            } catch {
                 return defaultValue;
             }
         }
@@ -142,7 +140,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultRet"></param>
         /// <returns></returns>
         public static DateTime ToDateTime(object obj, DateTime defaultRet = default(DateTime)) {
-            if (obj == null) {
+            if (obj is null) {
                 return defaultRet;
             }
 
@@ -156,7 +154,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultRet"></param>
         /// <returns></returns>
         public static DateTime? ToNullableDateTime(object obj, DateTime? defaultRet = null) {
-            if (obj == null) {
+            if (obj is null) {
                 return defaultRet;
             }
 

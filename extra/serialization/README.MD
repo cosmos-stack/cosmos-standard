@@ -17,6 +17,8 @@ Cosmos.Serialization provides several serializers and extensions:
 - Yaml
   - Cosmos.Serialization.YamlDotNet
   - Cosmos.Serialization.SharpYaml
+- Toml
+  - Cosmos.Serialization.Nett
 - Binary
   - Cosmos.Serialization.Binary
 - Protobuf

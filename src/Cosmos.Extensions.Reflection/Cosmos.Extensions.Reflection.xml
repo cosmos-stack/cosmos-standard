@@ -4,6 +4,72 @@
         <name>Cosmos.Extensions.Reflection</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Exceptions.IFluentExceptionBuilder`1">
+            <summary>
+            Interface for fluent exception builder
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.IFluentExceptionBuilder`1.TargetType">
+            <summary>
+            Gets target exception's type
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.InnerException(System.Exception)">
+            <summary>
+            With inner exception.<br />
+            This value will be used for constructor with param-name 'innerException' and 'inner' (just for <see cref="T:System.InvalidProgramException"/>).
+            </summary>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.ParamName(System.String)">
+            <summary>
+            With parameter's name.<br />
+            This value will be used for constructor with param-name 'paramName'.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.Message(System.String)">
+            <summary>
+            With message.<br />
+            This value will be used for constructor with param-name 'message'.
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.ActualValue(System.Object)">
+            <summary>
+            Actual value.<br />
+            This value will be used for constructor with param-name 'actualValue'.
+            </summary>
+            <param name="actualValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.ErrorCode(System.Int32)">
+            <summary>
+            Error code.<br />
+            This value will be used for constructor with param-name 'errorCode'.
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.Build">
+            <summary>
+            Build and return exception instance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.BuildAndThrow">
+            <summary>
+            Build and throw exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.IFluentExceptionBuilder`1.BuildAndThrowAsValidationError">
+            <summary>
+            Build and throw exception as validation error
+            </summary>
+        </member>
         <member name="T:Cosmos.ReflectionExtensions">
             <summary>
             Type extensions

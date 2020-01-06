@@ -182,6 +182,12 @@
             Google ProtoBuf 序列化器接口
             </summary>
         </member>
+        <member name="T:Cosmos.Serialization.ITomlSerializer">
+            <summary>
+            Interface of Toml serializer<br />
+            Toml 序列化器接口
+            </summary>
+        </member>
         <member name="T:Cosmos.Serialization.IXmlSerializer">
             <summary>
             Interface of XML serializer<br />

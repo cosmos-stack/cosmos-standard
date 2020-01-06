@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+
+#if !NET451
 using Nito.AsyncEx.Synchronous;
+#endif
 
 namespace Cosmos.Asynchronous {
     /// <summary>
@@ -68,8 +71,7 @@ namespace Cosmos.Asynchronous {
 
             try {
                 return FromAsynchronousCalling(task, cancellationToken);
-            }
-            catch {
+            } catch {
                 return defaultValue;
             }
         }

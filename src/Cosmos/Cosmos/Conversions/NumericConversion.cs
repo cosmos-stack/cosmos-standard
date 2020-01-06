@@ -12,7 +12,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultRet"></param>
         /// <returns></returns>
         public static int ToInt32(object obj, int defaultRet = 0) {
-            if (obj == null) {
+            if (obj is null) {
                 return defaultRet;
             }
 
@@ -22,8 +22,7 @@ namespace Cosmos.Conversions {
 
             try {
                 return Convert.ToInt32(ToDouble(obj, defaultRet));
-            }
-            catch {
+            } catch {
                 return defaultRet;
             }
         }
@@ -34,7 +33,7 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static int? ToNullableInt32(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return null;
             }
 
@@ -52,7 +51,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultRet"></param>
         /// <returns></returns>
         public static long ToInt64(object obj, long defaultRet = 0) {
-            if (obj == null) {
+            if (obj is null) {
                 return defaultRet;
             }
 
@@ -62,8 +61,7 @@ namespace Cosmos.Conversions {
 
             try {
                 return Convert.ToInt64(ToDouble(obj, defaultRet));
-            }
-            catch {
+            } catch {
                 return defaultRet;
             }
         }
@@ -74,7 +72,7 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static long? ToNullableInt64(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return null;
             }
 
@@ -92,7 +90,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultRet"></param>
         /// <returns></returns>
         public static float ToFloat(object obj, float defaultRet = 0F) {
-            if (obj == null) {
+            if (obj is null) {
                 return defaultRet;
             }
 
@@ -105,7 +103,7 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static float? ToNullableFloat(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return null;
             }
 
@@ -124,7 +122,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultRet"></param>
         /// <returns></returns>
         public static double ToDouble(object obj, double defaultRet = 0D) {
-            if (obj == null) {
+            if (obj is null) {
                 return defaultRet;
             }
 
@@ -148,7 +146,7 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static double? ToNullableDouble(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return null;
             }
 
@@ -167,7 +165,7 @@ namespace Cosmos.Conversions {
         /// <returns></returns>
         public static double? ToRoundNullableDouble(object obj, int digits) {
             var ret = ToNullableDouble(obj);
-            if (ret == null) {
+            if (ret is null) {
                 return null;
             }
 
@@ -181,7 +179,7 @@ namespace Cosmos.Conversions {
         /// <param name="defaultRet"></param>
         /// <returns></returns>
         public static decimal ToDecimal(object obj, decimal defaultRet = 0M) {
-            if (obj == null) {
+            if (obj is null) {
                 return defaultRet;
             }
 
@@ -205,7 +203,7 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static decimal? ToNullableDecimal(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return null;
             }
 
@@ -224,7 +222,7 @@ namespace Cosmos.Conversions {
         /// <returns></returns>
         public static decimal? ToRoundNullableDecimal(object obj, int digits) {
             var ret = ToNullableDecimal(obj);
-            if (ret == null) {
+            if (ret is null) {
                 return null;
             }
 

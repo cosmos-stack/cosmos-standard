@@ -11,11 +11,11 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static Guid ToGuid(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return Guid.Empty;
             }
 
-            return Guid.TryParse(obj.ToString(), out Guid ret) ? ret : Guid.Empty;
+            return Guid.TryParse(obj.ToString(), out var ret) ? ret : Guid.Empty;
         }
 
         /// <summary>
@@ -24,11 +24,11 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static Guid? ToNullableGuid(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return null;
             }
 
-            if (Guid.TryParse(obj.ToString(), out Guid ret)) {
+            if (Guid.TryParse(obj.ToString(), out var ret)) {
                 return ret;
             }
 

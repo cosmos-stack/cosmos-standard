@@ -4,17 +4,47 @@
         <name>Cosmos</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Conversions.Base32Conversion">
+            <summary>
+            Base32 Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.ToBase32String(System.Byte[])">
+            <summary>
+            Convert from <see cref="T:System.String"/> to base32 <see cref="T:System.String"/>.
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.ToBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from <see cref="T:System.String"/> to base32 <see cref="T:System.String"/>.
+            </summary>
+            <param name="str"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.FromBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from base32 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base32String"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base32Conversion.FromBase32StringToBytes(System.String)">
+            <summary>
+            Convert from base32 <see cref="T:System.String"/> to <see cref="T:System.Byte"/> array.
+            </summary>
+            <param name="base32String"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="T:Cosmos.Conversions.Base64Conversion">
             <summary>
             Base64 Conversion Utilities
             </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64String(System.Byte[])">
-            <summary>
-            Convert from bytes to base64 <see cref="T:System.String"/>.
-            </summary>
-            <param name="bytes"></param>
-            <returns></returns>
         </member>
         <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64String(System.String,System.Text.Encoding)">
             <summary>
@@ -24,17 +54,32 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64String(System.String)">
+        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64String(System.Byte[])">
             <summary>
-            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            Convert from <see cref="T:System.String"/> to base64 <see cref="T:System.String"/>.
             </summary>
-            <param name="base64String"></param>
+            <param name="bytes"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64String(System.String,System.Text.Encoding)">
             <summary>
             Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
             </summary>
             <param name="base64String"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64StringToBytes(System.String)">
+            <summary>
+            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.Byte"/> array.
+            </summary>
+            <param name="base64String"></param>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64UrlString(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from <see cref="T:System.String"/> to base64url <see cref="T:System.String"/>.
+            </summary>
+            <param name="str"></param>
             <param name="encoding"></param>
             <returns></returns>
         </member>
@@ -45,26 +90,18 @@
             <param name="bytes"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Base64Conversion.ToBase64UrlString(System.String,System.Text.Encoding)">
-            <summary>
-            Convert from <see cref="T:System.String"/> to base64url <see cref="T:System.String"/>.
-            </summary>
-            <param name="str"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64UrlString(System.String)">
-            <summary>
-            Convert from base64url <see cref="T:System.String"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="base64UrlString"></param>
-        </member>
         <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64UrlString(System.String,System.Text.Encoding)">
             <summary>
             Convert from base64url <see cref="T:System.String"/> to <see cref="T:System.String"/>.
             </summary>
             <param name="base64UrlString"></param>
             <param name="encoding"></param>
+        </member>
+        <member name="M:Cosmos.Conversions.Base64Conversion.FromBase64UrlStringToBytes(System.String)">
+            <summary>
+            Convert from base64url <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base64UrlString"></param>
         </member>
         <member name="T:Cosmos.Conversions.BooleanConversion">
             <summary>
@@ -454,21 +491,21 @@
             <param name="hex"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToString(System.String,System.String)">
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToString(System.String,System.Text.Encoding)">
             <summary>
             Convert from hexadecimal to <see cref="T:System.String"/>.
             </summary>
             <param name="hex"></param>
-            <param name="encodingName">encoding name, default is "utf-8"</param>
+            <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.FromString(System.String,System.String)">
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.FromString(System.String,System.Text.Encoding)">
             <summary>
             Convert from <see cref="T:System.String"/> to hexadecimal.
             </summary>
             <example>in: A; out: 1000001</example>
             <param name="str"></param>
-            <param name="encodingName">encoding name, default is "utf-8"</param>
+            <param name="encoding"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Conversions.TypeConversion">
@@ -599,6 +636,11 @@
             Get full message
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.CosmosException.Throw">
+            <summary>
+            Throw me.
+            </summary>
         </member>
         <member name="T:Cosmos.CosmosExceptionOptions">
             <summary>
@@ -987,6 +1029,18 @@
             <param name="typeInfo">枚举类型</param>
             <param name="member">成员名、值、实例均可</param>
         </member>
+        <member name="T:Cosmos.Exceptions.ExceptionHelper">
+            <summary>
+            Exception helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionHelper.PrepareForRethrow(System.Exception)">
+            <summary>
+            Prepare for rethrow
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Judgments.AssertionJudgment">
             <summary>
             Assertion Judgment
@@ -1065,7 +1119,7 @@
             To judge whether these two collections contain same count of elements.
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="leftCcoll"></param>
+            <param name="leftColl"></param>
             <param name="rightColl"></param>
             <returns></returns>
         </member>
@@ -2085,6 +2139,9 @@
             </summary>
         </member>
         <member name="T:Cosmos.Types">
+            <summary>
+            Type Utilities
+            </summary>
             <summary>
             Type Utilities
             </summary>

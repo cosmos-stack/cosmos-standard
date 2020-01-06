@@ -7,7 +7,6 @@ namespace Cosmos.Judgments {
     /// String Judgment Utilities
     /// </summary>
     public static class StringJudgment {
-        static StringJudgment() { }
 
         /// <summary>
         /// To judge whether the string starts with the specified strings.
@@ -16,7 +15,7 @@ namespace Cosmos.Judgments {
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool StartWithThese(string str, params string[] values) {
-            if (string.IsNullOrWhiteSpace(str) || values == null || values.Any(string.IsNullOrWhiteSpace))
+            if (string.IsNullOrWhiteSpace(str) || values is null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
             return values.Any(str.StartsWith);
@@ -29,7 +28,7 @@ namespace Cosmos.Judgments {
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool StartWithThese(string str, ICollection<string> values) {
-            if (string.IsNullOrWhiteSpace(str) || values == null || !values.Any())
+            if (string.IsNullOrWhiteSpace(str) || values is null || !values.Any())
                 return false;
 
             return StartWithThese(str, values.ToArray());
@@ -42,7 +41,7 @@ namespace Cosmos.Judgments {
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool EndWithThese(string str, params string[] values) {
-            if (string.IsNullOrWhiteSpace(str) || values == null || values.Any(string.IsNullOrWhiteSpace))
+            if (string.IsNullOrWhiteSpace(str) || values is null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
             return values.Any(str.EndsWith);
@@ -55,7 +54,7 @@ namespace Cosmos.Judgments {
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool EndWithThese(string str, ICollection<string> values) {
-            if (string.IsNullOrWhiteSpace(str) || values == null || !values.Any())
+            if (string.IsNullOrWhiteSpace(str) || values is null || !values.Any())
                 return false;
 
             return EndWithThese(str, values.ToArray());

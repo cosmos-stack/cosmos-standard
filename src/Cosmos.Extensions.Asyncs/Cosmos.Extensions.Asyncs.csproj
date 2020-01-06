@@ -17,15 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
     <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0' OR '$(TargetFramework)'=='net461'">
     <PackageReference Include="Nito.AsyncEx" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='net461' OR '$(TargetFramework)'=='net451'">
-    <PackageReference Include="Nito.AsyncEx" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

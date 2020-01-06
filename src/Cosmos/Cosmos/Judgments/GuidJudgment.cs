@@ -21,7 +21,7 @@ namespace Cosmos.Judgments {
         /// <param name="guid"></param>
         /// <returns></returns>
         public static bool IsNullOrEmpty(Guid? guid) {
-            return guid == null || IsNullOrEmpty(guid.Value);
+            return guid is null || IsNullOrEmpty(guid.Value);
         }
 
 
@@ -36,10 +36,8 @@ namespace Cosmos.Judgments {
         /// <param name="guidStr"></param>
         /// <returns></returns>
         public static bool IsValid(string guidStr) {
-            if (string.IsNullOrWhiteSpace(guidStr))
-                return false;
+            return !string.IsNullOrWhiteSpace(guidStr) && GuidSchema.Match(guidStr).Success;
 
-            return GuidSchema.Match(guidStr).Success;
         }
     }
 }

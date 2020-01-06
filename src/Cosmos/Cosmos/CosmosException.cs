@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Cosmos.Exceptions;
 
 namespace Cosmos {
     // ReSharper disable InconsistentNaming
@@ -119,5 +120,12 @@ namespace Cosmos {
         /// </summary>
         /// <returns></returns>
         public virtual string GetFullMessage() => $"{Code}:({Flag}){Message}";
+
+        /// <summary>
+        /// Throw me.
+        /// </summary>
+        public virtual void Throw() {
+            ExceptionHelper.PrepareForRethrow(this);
+        }
     }
 }

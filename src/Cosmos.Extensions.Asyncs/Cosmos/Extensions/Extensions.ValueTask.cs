@@ -1,3 +1,5 @@
+#if !NET451
+
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
@@ -15,3 +17,5 @@ namespace Cosmos.Asynchronous {
         public static T RunInContext<T>(this in ValueTask<T> task) => task.AsTask().RunInContext();
     }
 }
+
+#endif
