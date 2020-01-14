@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using Cosmos.IO;
 
 namespace Cosmos.Serialization.ProtoBuf {
     /// <summary>
@@ -17,7 +16,7 @@ namespace Cosmos.Serialization.ProtoBuf {
                 return new byte[0];
 
             using var stream = Pack(obj);
-            return stream.StreamToBytes();
+            return stream.CastToBytes();
         }
 
         /// <summary>

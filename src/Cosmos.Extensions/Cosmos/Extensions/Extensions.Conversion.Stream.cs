@@ -2,19 +2,19 @@ using System.IO;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.IO {
+namespace Cosmos {
     /// <summary>
     /// Conversion extensions
     /// </summary>
-    public static class StreamConversionExtensions {
+    public static partial class ConversionExtensions {
         /// <summary>
         /// Convert stream to bytes
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static byte[] StreamToBytes(this Stream stream) {
+        public static byte[] CastToBytes(this Stream stream) {
             var bytes = new byte[stream.Length];
-
+            
             if (stream.CanSeek && stream.Position > 0)
                 stream.Seek(0, SeekOrigin.Begin);
 
@@ -31,7 +31,7 @@ namespace Cosmos.IO {
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static async Task<byte[]> StreamToBytesAsync(this Stream stream) {
+        public static async Task<byte[]> CastToBytesAsync(this Stream stream) {
             var bytes = new byte[stream.Length];
 
             if (stream.Position > 0 && stream.CanSeek)

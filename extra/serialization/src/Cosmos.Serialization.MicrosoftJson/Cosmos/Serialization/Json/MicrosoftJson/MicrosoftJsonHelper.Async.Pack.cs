@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Cosmos.IO;
 
 namespace Cosmos.Serialization.Json.MicrosoftJson {
     /// <summary>
@@ -53,7 +52,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson {
         public static async Task<T> UnpackAsync<T>(Stream stream, JsonSerializerOptions options = null) {
             return stream == null
                 ? default
-                : await DeserializeFromBytesAsync<T>(await stream.StreamToBytesAsync(), options);
+                : await DeserializeFromBytesAsync<T>(await stream.CastToBytesAsync(), options);
         }
 
         /// <summary>
@@ -66,7 +65,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson {
         public static async Task<object> UnpackAsync(Stream stream, Type type, JsonSerializerOptions options = null) {
             return stream == null
                 ? null
-                : await DeserializeFromBytesAsync(await stream.StreamToBytesAsync(), type, options);
+                : await DeserializeFromBytesAsync(await stream.CastToBytesAsync(), type, options);
         }
     }
 }

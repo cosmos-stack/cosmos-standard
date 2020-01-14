@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using Cosmos.IO;
 using Swifter.Json;
 
 namespace Cosmos.Serialization.Json.Swifter {
@@ -52,7 +51,7 @@ namespace Cosmos.Serialization.Json.Swifter {
         public static T Unpack<T>(Stream stream, JsonFormatterOptions? options = null) {
             return stream == null
                 ? default
-                : DeserializeFromBytes<T>(stream.StreamToBytes(), options);
+                : DeserializeFromBytes<T>(stream.CastToBytes(), options);
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace Cosmos.Serialization.Json.Swifter {
         public static object Unpack(Stream stream, Type type, JsonFormatterOptions? options = null) {
             return stream == null
                 ? null
-                : DeserializeFromBytes(stream.StreamToBytes(), type, options);
+                : DeserializeFromBytes(stream.CastToBytes(), type, options);
         }
     }
 }

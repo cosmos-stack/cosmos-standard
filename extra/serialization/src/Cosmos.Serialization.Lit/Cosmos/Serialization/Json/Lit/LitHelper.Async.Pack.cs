@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Cosmos.IO;
 
 namespace Cosmos.Serialization.Json.Lit {
     /// <summary>
@@ -50,7 +49,7 @@ namespace Cosmos.Serialization.Json.Lit {
         public static async Task<T> UnpackAsync<T>(Stream stream) {
             return stream is null
                 ? default
-                : await DeserializeFromBytesAsync<T>(await stream.StreamToBytesAsync());
+                : await DeserializeFromBytesAsync<T>(await stream.CastToBytesAsync());
         }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace Cosmos.Serialization.Json.Lit {
         public static async Task<object> UnpackAsync(Stream stream, Type type) {
             return stream is null
                 ? default
-                : await DeserializeFromBytesAsync(await stream.StreamToBytesAsync(), type);
+                : await DeserializeFromBytesAsync(await stream.CastToBytesAsync(), type);
         }
     }
 }
