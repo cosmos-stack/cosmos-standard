@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Linq;
 using Shouldly;
 using Xunit;
 using Splitter = Cosmos.Splitters.Splitter;
 
-namespace Cosmos.Tests.GuavaTests.GuavaSplitter
-{
-    public class FixedLengthSplitterTests
-    {
-        private static class OriginalStrings
-        {
+namespace Cosmos.Test.Guava.GuavaSplitter {
+    public class FixedLengthSplitterTests {
+        private static class OriginalStrings {
             public static string NormalString { get; } = "abcdefghijklmnopqrstuvwxyz";
             public static string IncludeWhiteSpaceString { get; } = "abcdefghijklmnopqrstuvwx yz";
         }
 
         [Fact]
-        public void StringToFixedLengthEnumerableTest()
-        {
+        public void StringToFixedLengthEnumerableTest() {
             var enumerable = Splitter.FixedLength(3).Split(OriginalStrings.NormalString);
             // ReSharper disable once PossibleMultipleEnumeration
             enumerable.Count().ShouldBe(9);
@@ -39,10 +31,9 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
             list[7].ShouldBe("vwx");
             list[8].ShouldBe("yz");
         }
-        
+
         [Fact]
-        public void StringToFixedLengthEnumerableWithLimitTest()
-        {
+        public void StringToFixedLengthEnumerableWithLimitTest() {
             var enumerable = Splitter.FixedLength(3).Limit(3).Split(OriginalStrings.NormalString);
             // ReSharper disable once PossibleMultipleEnumeration
             enumerable.Count().ShouldBe(3);
@@ -58,8 +49,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
         }
 
         [Fact]
-        public void StringToFixedLengthEnumerableWithTrimTest()
-        {
+        public void StringToFixedLengthEnumerableWithTrimTest() {
             var @base = Splitter.FixedLength(3).Split(OriginalStrings.IncludeWhiteSpaceString);
             // ReSharper disable once PossibleMultipleEnumeration
             @base.Count().ShouldBe(9);
@@ -97,8 +87,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
         }
 
         [Fact]
-        public void StringToFixedLengthEnumerableWithCustomTrimTest()
-        {
+        public void StringToFixedLengthEnumerableWithCustomTrimTest() {
             var @base = Splitter.FixedLength(3).Split(OriginalStrings.IncludeWhiteSpaceString);
             // ReSharper disable once PossibleMultipleEnumeration
             @base.Count().ShouldBe(9);
@@ -136,8 +125,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
         }
 
         [Fact]
-        public void StringToFixedLengthListTest()
-        {
+        public void StringToFixedLengthListTest() {
             var list = Splitter.FixedLength(3).SplitToList(OriginalStrings.NormalString);
 
             list.Count().ShouldBe(9);
@@ -155,8 +143,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
 
 
         [Fact]
-        public void StringToFixedLengthListWithLimitTest()
-        {
+        public void StringToFixedLengthListWithLimitTest() {
             var list = Splitter.FixedLength(3).Limit(3).SplitToList(OriginalStrings.NormalString);
 
             list.Count().ShouldBe(3);
@@ -167,8 +154,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
         }
 
         [Fact]
-        public void StringToFixedLengthListWithTrimTest()
-        {
+        public void StringToFixedLengthListWithTrimTest() {
             var @base = Splitter.FixedLength(3).SplitToList(OriginalStrings.IncludeWhiteSpaceString);
             @base.Count().ShouldBe(9);
 
@@ -198,8 +184,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaSplitter
         }
 
         [Fact]
-        public void StringToFixedLengthListWithCustomTrimTest()
-        {
+        public void StringToFixedLengthListWithCustomTrimTest() {
             var @base = Splitter.FixedLength(3).SplitToList(OriginalStrings.IncludeWhiteSpaceString);
             @base.Count().ShouldBe(9);
 

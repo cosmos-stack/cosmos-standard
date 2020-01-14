@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Shouldly;
+﻿using Shouldly;
 using Xunit;
 
-namespace Cosmos.Tests.GuavaTests.GuavaStrings
-{
-    public class StringsTests
-    {
+namespace Cosmos.Test.Guava.GuavaStrings {
+    public class StringsTests {
         [Fact]
-        public void StringTest()
-        {
+        public void StringTest() {
             string str = "str";
             var checker = Strings.NullToEmpty(str);
             checker.ShouldBe("str");
         }
 
         [Fact]
-        public void NullStringTest()
-        {
+        public void NullStringTest() {
             string str = null;
             var checker = Strings.NullToEmpty(str);
             checker.ShouldBeEmpty();
@@ -26,8 +19,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaStrings
         }
 
         [Fact]
-        public void EmptyStringTest()
-        {
+        public void EmptyStringTest() {
             string str = string.Empty;
             var checker = Strings.NullToEmpty(str);
             checker.ShouldBeEmpty();
@@ -35,8 +27,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaStrings
         }
 
         [Fact]
-        public void WhiteSpaceStringTest()
-        {
+        public void WhiteSpaceStringTest() {
             string str = "";
             var checker = Strings.NullToEmpty(str);
             checker.ShouldBe("");
@@ -47,8 +38,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaStrings
         [InlineData("aabc", "aab", "aab")]
         [InlineData("", "aab", "")]
         [InlineData("aabc", "bbc", "")]
-        public void CommonPrefixTest(string left, string right, string expected)
-        {
+        public void CommonPrefixTest(string left, string right, string expected) {
             var actual = Strings.CommonPrefix(left, right);
             actual.ShouldBe(expected);
         }
@@ -58,8 +48,7 @@ namespace Cosmos.Tests.GuavaTests.GuavaStrings
         [InlineData("", "aac", "")]
         [InlineData("aabc", "bbc", "bc")]
         [InlineData("aaac", "aad", "")]
-        public void CommonSuffexTest(string left, string right, string expected)
-        {
+        public void CommonSuffexTest(string left, string right, string expected) {
             var actual = Strings.CommonSuffix(left, right);
             actual.ShouldBe(expected);
         }
