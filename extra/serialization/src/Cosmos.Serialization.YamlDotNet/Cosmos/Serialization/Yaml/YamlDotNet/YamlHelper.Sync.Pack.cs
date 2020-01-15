@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using Cosmos.IO;
 
 namespace Cosmos.Serialization.Yaml.YamlDotNet {
     /// <summary>
@@ -80,7 +79,7 @@ namespace Cosmos.Serialization.Yaml.YamlDotNet {
         public static T Unpack<T>(Stream stream) {
             return stream == null
                 ? default
-                : DeserializeFromBytes<T>(stream.StreamToBytes());
+                : DeserializeFromBytes<T>(stream.CastToBytes());
         }
 
         /// <summary>
@@ -92,7 +91,7 @@ namespace Cosmos.Serialization.Yaml.YamlDotNet {
         public static object Unpack(Stream stream, Type type) {
             return stream is null
                 ? null
-                : DeserializeFromBytes(stream.StreamToBytes(), type);
+                : DeserializeFromBytes(stream.CastToBytes(), type);
         }
     }
 }

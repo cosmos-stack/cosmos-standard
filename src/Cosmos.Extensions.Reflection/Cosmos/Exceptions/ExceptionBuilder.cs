@@ -1,4 +1,4 @@
-#if !NET451 && !NET461
+#if !NET451
 
 using System;
 

@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Cosmos.IO;
 using Swifter.Json;
 
 namespace Cosmos.Serialization.Json.Swifter {
@@ -54,7 +53,7 @@ namespace Cosmos.Serialization.Json.Swifter {
         public static async Task<T> UnpackAsync<T>(Stream stream, JsonFormatterOptions? options = null) {
             return stream is null
                 ? default
-                : await DeserializeFromBytesAsync<T>(await stream.StreamToBytesAsync(), options ?? SwifterJsonManager.DefaltDeserializeOptions);
+                : await DeserializeFromBytesAsync<T>(await stream.CastToBytesAsync(), options ?? SwifterJsonManager.DefaltDeserializeOptions);
         }
 
         /// <summary>
@@ -67,7 +66,7 @@ namespace Cosmos.Serialization.Json.Swifter {
         public static async Task<object> UnpackAsync(Stream stream, Type type, JsonFormatterOptions? options = null) {
             return stream is null
                 ? default
-                : await DeserializeFromBytesAsync(await stream.StreamToBytesAsync(), type, options ?? SwifterJsonManager.DefaltDeserializeOptions);
+                : await DeserializeFromBytesAsync(await stream.CastToBytesAsync(), type, options ?? SwifterJsonManager.DefaltDeserializeOptions);
         }
     }
 }

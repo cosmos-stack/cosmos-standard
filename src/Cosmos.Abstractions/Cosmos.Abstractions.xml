@@ -4,6 +4,32 @@
         <name>Cosmos.Abstractions</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Conversions.IConversionImpl`2">
+            <summary>
+            Interface for conversion impl
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.IConversionImpl`2.TryTo(`0,`1@)">
+            <summary>
+            To
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.IConversionTry`2">
+            <summary>
+            Interface for conversion try
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.IConversionTry`2.Is(`0,`1@)">
+            <summary>
+            Is
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Data.Context.IDbContext">
             <summary>
             DbContext Meta Interface<br />

@@ -40,17 +40,23 @@ namespace Cosmos {
         /// </summary>
         /// <param name="object"></param>
         /// <returns></returns>
-        public static string SafeString(this object @object) => (@object as string).SafeValue();
+        public static string SafeString(this object @object) {
+            return @object switch {
+                string str => str.SafeValue(),
+                null       => string.Empty,
+                _          => @object.ToString()
+            };
+        }
 
         /// <summary>
         /// 安全获取字符串类型
         /// </summary>
         /// <param name="object"></param>
-        /// <param name="defaultValue"></param>
+        /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static string SafeString(this object @object, string defaultValue) {
+        public static string SafeString(this object @object, string defaultVal) {
             var @string = @object.SafeString();
-            return string.IsNullOrWhiteSpace(@string) ? defaultValue : @string;
+            return string.IsNullOrWhiteSpace(@string) ? defaultVal : @string;
         }
 
         /// <summary>
@@ -58,7 +64,11 @@ namespace Cosmos {
         /// </summary>
         /// <param name="object"></param>
         /// <returns></returns>
-        public static DateTime? SafeDateTime(this object @object) => @object as DateTime?;
+        public static DateTime? SafeDateTime(this object @object) {
+            if (@object is DateTime dateTime)
+                return dateTime;
+            return null;
+        }
 
         /// <summary>
         /// 获取安全时间类型

@@ -78,7 +78,7 @@ namespace Cosmos.Judgments {
 
             Exception exception;
 
-            if (options == null) {
+            if (options is null) {
                 exception = new ArgumentNullException(nameof(options));
             } else {
                 exception = Types.CreateInstance<TException>(options);

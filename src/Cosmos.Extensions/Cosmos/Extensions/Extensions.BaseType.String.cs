@@ -113,11 +113,11 @@ namespace Cosmos {
 
             if (times == 1)
                 return text;
-            else if (times == 2)
+            if (times == 2)
                 return string.Concat(text, text);
-            else if (times == 3)
+            if (times == 3)
                 return string.Concat(text, text, text);
-            else if (times == 4)
+            if (times == 4)
                 return string.Concat(text, text, text, text);
 
             var res = new StringBuilder(text.Length * times);

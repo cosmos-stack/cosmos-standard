@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Cosmos.IO;
 using Newtonsoft.Json;
 
 namespace Cosmos.Serialization.Json.Newtonsoft {
@@ -54,7 +53,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft {
         public static async Task<T> UnpackAsync<T>(Stream stream, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return stream is null
                 ? default
-                : await DeserializeAsync<T>(JsonManager.DefaultEncoding.GetString(await stream.StreamToBytesAsync()), settings, withNodaTime);
+                : await DeserializeAsync<T>(JsonManager.DefaultEncoding.GetString(await stream.CastToBytesAsync()), settings, withNodaTime);
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft {
         public static async Task<object> UnpackAsync(Stream stream, Type type, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return stream is null
                 ? default
-                : await DeserializeAsync(JsonManager.DefaultEncoding.GetString(await stream.StreamToBytesAsync()), type, settings, withNodaTime);
+                : await DeserializeAsync(JsonManager.DefaultEncoding.GetString(await stream.CastToBytesAsync()), type, settings, withNodaTime);
         }
     }
 }

@@ -121,7 +121,7 @@ namespace Cosmos.Extensions {
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         public static void RaiseExceptionIfGreaterThanOrEqualToZero<T>(this IRuleBuilder<T, string> ruleBuilder, (long, string, string) error) {
-            ruleBuilder.Must((t, v) => !v.IsNumberic() || v.CastToDecimal() < 0).RaiseInternal(error);
+            ruleBuilder.Must((t, v) => !v.IsNumeric() || v.CastToDecimal() < 0).RaiseInternal(error);
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Cosmos.Extensions {
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         public static void RaiseExceptionIfGreaterThanZero<T>(this IRuleBuilder<T, string> ruleBuilder, (long, string, string) error) {
-            ruleBuilder.Must((t, v) => !v.IsNumberic() || v.CastToDecimal() < 0).RaiseInternal(error);
+            ruleBuilder.Must((t, v) => !v.IsNumeric() || v.CastToDecimal() < 0).RaiseInternal(error);
         }
 
         #endregion
@@ -209,7 +209,7 @@ namespace Cosmos.Extensions {
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         public static void RaiseExceptionIfLessThanOrEqualTo<T>(this IRuleBuilder<T, string> ruleBuilder, string value, (long, string, string) error) {
-            ruleBuilder.Must((t, v) => !v.IsNumberic() || v.CastToDecimal() > value.CastToDecimal(0)).RaiseInternal(error);
+            ruleBuilder.Must((t, v) => !v.IsNumeric() || v.CastToDecimal() > value.CastToDecimal()).RaiseInternal(error);
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace Cosmos.Extensions {
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         public static void RaiseExceptionIfLessThan<T>(this IRuleBuilder<T, string> ruleBuilder, string value, (long, string, string) error) {
-            ruleBuilder.Must((t, v) => !v.IsNumberic() || v.CastToDecimal() >= value.CastToDecimal(0)).RaiseInternal(error);
+            ruleBuilder.Must((t, v) => !v.IsNumeric() || v.CastToDecimal() >= value.CastToDecimal()).RaiseInternal(error);
         }
 
         #endregion
@@ -301,7 +301,7 @@ namespace Cosmos.Extensions {
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         public static void RaiseExceptionIfGreaterThanOrEqualTo<T>(this IRuleBuilder<T, string> ruleBuilder, string value, (long, string, string) error) {
-            ruleBuilder.Must((t, v) => !v.IsNumberic() || v.CastToDecimal() < value.CastToDecimal(0)).RaiseInternal(error);
+            ruleBuilder.Must((t, v) => !v.IsNumeric() || v.CastToDecimal() < value.CastToDecimal()).RaiseInternal(error);
         }
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace Cosmos.Extensions {
         /// <param name="error"></param>
         /// <typeparam name="T"></typeparam>
         public static void RaiseExceptionIfGreaterThan<T>(this IRuleBuilder<T, string> ruleBuilder, string value, (long, string, string) error) {
-            ruleBuilder.Must((t, v) => !v.IsNumberic() || v.CastToDecimal() < value.CastToDecimal(0)).RaiseInternal(error);
+            ruleBuilder.Must((t, v) => !v.IsNumeric() || v.CastToDecimal() < value.CastToDecimal()).RaiseInternal(error);
         }
 
         #endregion

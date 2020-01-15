@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Text.Json;
-using Cosmos.IO;
 
 namespace Cosmos.Serialization.Json.MicrosoftJson {
     /// <summary>
@@ -52,7 +51,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson {
         public static T Unpack<T>(Stream stream, JsonSerializerOptions options = null) {
             return stream == null
                 ? default
-                : DeserializeFromBytes<T>(stream.StreamToBytes(), options);
+                : DeserializeFromBytes<T>(stream.CastToBytes(), options);
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace Cosmos.Serialization.Json.MicrosoftJson {
         public static object Unpack(Stream stream, Type type, JsonSerializerOptions options = null) {
             return stream == null
                 ? null
-                : DeserializeFromBytes(stream.StreamToBytes(), type, options);
+                : DeserializeFromBytes(stream.CastToBytes(), type, options);
         }
     }
 }

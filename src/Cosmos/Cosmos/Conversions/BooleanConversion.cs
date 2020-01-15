@@ -44,6 +44,8 @@ namespace Cosmos.Conversions {
         }
 
         private static bool? GetBoolean(object obj) {
+            if (obj is string str && Internals.StringBooleanHelper.Is(str))
+                return Internals.StringBooleanHelper.To(str);
             return GlobalBooleanVerbaManager.Determining(obj.ToString().Trim().ToLower());
         }
     }

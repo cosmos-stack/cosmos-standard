@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using Cosmos.IO;
 using Jil;
 
 namespace Cosmos.Serialization.Json.Jil {
@@ -52,7 +51,7 @@ namespace Cosmos.Serialization.Json.Jil {
         public static T Unpack<T>(Stream stream, Options options = null) {
             return stream == null
                 ? default
-                : DeserializeFromBytes<T>(stream.StreamToBytes(), options);
+                : DeserializeFromBytes<T>(stream.CastToBytes(), options);
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace Cosmos.Serialization.Json.Jil {
         public static object Unpack(Stream stream, Type type, Options options = null) {
             return stream == null
                 ? null
-                : DeserializeFromBytes(stream.StreamToBytes(), type, options);
+                : DeserializeFromBytes(stream.CastToBytes(), type, options);
         }
     }
 }

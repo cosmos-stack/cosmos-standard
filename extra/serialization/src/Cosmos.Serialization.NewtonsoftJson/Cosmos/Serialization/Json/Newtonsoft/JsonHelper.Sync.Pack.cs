@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using Cosmos.IO;
 using Newtonsoft.Json;
 
 namespace Cosmos.Serialization.Json.Newtonsoft {
@@ -53,7 +52,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft {
         public static T Unpack<T>(Stream stream, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return stream is null
                 ? default
-                : Deserialize<T>(JsonManager.DefaultEncoding.GetString(stream.StreamToBytes()), settings, withNodaTime);
+                : Deserialize<T>(JsonManager.DefaultEncoding.GetString(stream.CastToBytes()), settings, withNodaTime);
         }
 
         /// <summary>
@@ -67,7 +66,7 @@ namespace Cosmos.Serialization.Json.Newtonsoft {
         public static object Unpack(Stream stream, Type type, JsonSerializerSettings settings = null, bool withNodaTime = false) {
             return stream is null
                 ? default
-                : Deserialize(JsonManager.DefaultEncoding.GetString(stream.StreamToBytes()), type, settings, withNodaTime);
+                : Deserialize(JsonManager.DefaultEncoding.GetString(stream.CastToBytes()), type, settings, withNodaTime);
         }
     }
 }

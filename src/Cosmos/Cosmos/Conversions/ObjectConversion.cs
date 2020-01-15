@@ -14,9 +14,7 @@ namespace Cosmos.Conversions {
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static string ToString(object obj) {
-            return obj?.ToString() ?? string.Empty;
-        }
+        public static string ToString(object obj) => obj?.ToString() ?? string.Empty;
 
         /// <summary>
         /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance.
@@ -24,47 +22,44 @@ namespace Cosmos.Conversions {
         /// <param name="fromObj"></param>
         /// <param name="targetType"></param>
         /// <returns></returns>
-        public static object To(object fromObj, Type targetType) {
-            return To(fromObj, targetType, targetType.GetDefaultValue());
-        }
+        public static object To(object fromObj, Type targetType) => To(fromObj, targetType, targetType.GetDefaultValue());
 
         /// <summary>
         /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance.
         /// </summary>
         /// <param name="fromObj"></param>
         /// <param name="targetType"></param>
-        /// <param name="defaultValue"></param>
+        /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static object To(object fromObj, Type targetType, object defaultValue) {
-            if (fromObj is null) {
-                return defaultValue;
-            }
+        public static object To(object fromObj, Type targetType, object defaultVal) {
 
-            if (fromObj is string && string.IsNullOrWhiteSpace(fromObj.ToString())) {
-                return defaultValue;
-            }
+            if (fromObj is null)
+                return defaultVal;
 
+            if (fromObj is string && string.IsNullOrWhiteSpace(fromObj.ToString()))
+                return defaultVal;
+            
             var fromObjType = Nullable.GetUnderlyingType(targetType) ?? targetType;
+
             try {
-                if (fromObjType.Name.ToLower() == "guid") {
+                if (fromObjType.Name.ToLower() == "guid")
                     return GuidConversion.ToGuid(fromObj);
-                }
 
-                if (fromObjType.GetTypeInfo().IsEnum) {
+                if (fromObjType.GetTypeInfo().IsEnum)
                     return Enum.Parse(fromObjType, fromObj.ToString());
-                }
 
-                if (fromObj is string fromStr && decimal.TryParse(fromStr, out decimal decimalRet)) {
-                    return Convert.ChangeType(decimalRet, fromObjType);
-                }
+                if (fromObj is string fromStr && decimal.TryParse(fromStr, out var decimalVal))
+                    return Convert.ChangeType(decimalVal, fromObjType);
 
-                if (fromObj is IConvertible) {
+                if (fromObj is IConvertible)
                     return Convert.ChangeType(fromObj, fromObjType);
-                }
 
                 return fromObj;
+
             } catch {
-                return defaultValue;
+
+                return defaultVal;
+
             }
         }
 
@@ -74,20 +69,16 @@ namespace Cosmos.Conversions {
         /// <param name="fromObj"></param>
         /// <param name="targetTypeInfo"></param>
         /// <returns></returns>
-        public static object To(object fromObj, TypeInfo targetTypeInfo) {
-            return To(fromObj, targetTypeInfo.AsType(), null);
-        }
+        public static object To(object fromObj, TypeInfo targetTypeInfo) => To(fromObj, targetTypeInfo.AsType(), default);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to another type of <see cref="object"/> instance.
         /// </summary>
         /// <param name="fromObj"></param>
         /// <param name="targetTypeInfo"></param>
-        /// <param name="defaultValue"></param>
+        /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static object To(object fromObj, TypeInfo targetTypeInfo, object defaultValue) {
-            return To(fromObj, targetTypeInfo.AsType(), defaultValue);
-        }
+        public static object To(object fromObj, TypeInfo targetTypeInfo, object defaultVal) => To(fromObj, targetTypeInfo.AsType(), defaultVal);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to a TTo instance.
@@ -95,9 +86,7 @@ namespace Cosmos.Conversions {
         /// <typeparam name="TTo"></typeparam>
         /// <param name="fromObj"></param>
         /// <returns></returns>
-        public static TTo To<TTo>(object fromObj) {
-            return To<TTo>(fromObj, default);
-        }
+        public static TTo To<TTo>(object fromObj) => To<TTo>(fromObj, default);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to a TTo instance.
@@ -122,43 +111,65 @@ namespace Cosmos.Conversions {
         /// <param name="splitChar"></param>
         /// <returns></returns>
         public static IEnumerable<TTo> ToList<TTo>(string listStr, char splitChar = ',') {
-            var ret = new List<TTo>();
+
+            var results = new List<TTo>();
+
             if (string.IsNullOrWhiteSpace(listStr)) {
-                return ret;
+                return results;
             }
 
             var array = listStr.Split(splitChar);
-            ret.AddRange(from each in array where !string.IsNullOrWhiteSpace(each) select To<TTo>(each));
+            results.AddRange(from each in array where !string.IsNullOrWhiteSpace(each) select To<TTo>(each));
 
-            return ret;
+            return results;
         }
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="DateTime"/>.
         /// </summary>
         /// <param name="obj"></param>
-        /// <param name="defaultRet"></param>
+        /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static DateTime ToDateTime(object obj, DateTime defaultRet = default(DateTime)) {
-            if (obj is null) {
-                return defaultRet;
-            }
+        public static DateTime ToDateTime(object obj, DateTime defaultVal = default) {
 
-            return DateTime.TryParse(obj.ToString(), out var ret) ? ret : defaultRet;
+            if (obj is null)
+                return defaultVal;
+
+            if (obj is string str)
+                return Internals.StringDateTimeHelper.To(str);
+            
+            str = obj.ToString();
+            if (Internals.StringDateTimeHelper.Is(str))
+                return Internals.StringDateTimeHelper.To(str, defaultVal: defaultVal);
+
+            try {
+                return Convert.ToDateTime(obj);
+            } catch {
+                return defaultVal;
+            }
         }
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="DateTime"/>.
         /// </summary>
         /// <param name="obj"></param>
-        /// <param name="defaultRet"></param>
         /// <returns></returns>
-        public static DateTime? ToNullableDateTime(object obj, DateTime? defaultRet = null) {
-            if (obj is null) {
-                return defaultRet;
-            }
+        public static DateTime? ToNullableDateTime(object obj) {
 
-            return DateTime.TryParse(obj.ToString(), out var result) ? result : defaultRet;
+            if (obj is null)
+                return null;
+
+            if (obj is string str && Internals.StringDateTimeHelper.Is(str))
+                return Internals.StringDateTimeHelper.To(str);
+
+            str = obj.ToString();
+            if (Internals.StringDateTimeHelper.Is(str))
+                return Internals.StringDateTimeHelper.To(str);
+
+            if (DateTime.TryParse(str, out var ret))
+                return ret;
+
+            return null;
         }
     }
 }
