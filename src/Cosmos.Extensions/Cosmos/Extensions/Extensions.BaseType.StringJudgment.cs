@@ -1,4 +1,9 @@
 using System;
+using System.Globalization;
+using System.Net;
+using System.Text;
+using Cosmos.Conversions;
+using Cosmos.Conversions.Internals;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
@@ -7,54 +12,208 @@ namespace Cosmos {
     /// String extensions
     /// </summary>
     public static partial class StringExtensions {
+
         /// <summary>
-        /// 判断指定字符串是否为 Guid
+        /// Is
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="str"></param>
+        /// <param name="action"></param>
+        /// <param name="ignoreCase"></param>
+        /// <param name="format"></param>
+        /// <param name="numberStyle"></param>
+        /// <param name="dateTimeStyle"></param>
+        /// <param name="formatProvider"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool IsGuid(this string @string) => GuidJudgment.IsValid(@string);
+        public static bool Is<T>(
+            this string str,
+            IgnoreCase ignoreCase = IgnoreCase.FALSE,
+            Action<T> action = null,
+            string format = null,
+            NumberStyles? numberStyle = null,
+            DateTimeStyles? dateTimeStyle = null,
+            IFormatProvider formatProvider = null) where T : struct {
+            return str.Is(
+                typeof(T),
+                ignoreCase,
+                _Helper.ConvertAct(action),
+                format,
+                numberStyle,
+                dateTimeStyle,
+                formatProvider);
+        }
+
+        /// <summary>
+        /// Is
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="action"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool Is<T>(this string str, Action<T> action = null) where T : class {
+            return str.Is(typeof(T), IgnoreCase.FALSE, o => action?.Invoke(o.As<T>()));
+        }
+
+        /// <summary>
+        /// Is
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="type"></param>
+        /// <param name="action"></param>
+        /// <param name="ignoreCase"></param>
+        /// <param name="format"></param>
+        /// <param name="numberStyle"></param>
+        /// <param name="dateTimeStyle"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static bool Is(
+            this string s,
+            Type type,
+            IgnoreCase ignoreCase = IgnoreCase.FALSE,
+            Action<object> action = null,
+            string format = null,
+            NumberStyles? numberStyle = null,
+            DateTimeStyles? dateTimeStyle = null,
+            IFormatProvider provider = null) {
+
+            if (type is null) {
+                throw new ArgumentNullException(nameof(type));
+            }
+
+            var typeIsAssignableFromEncoding = typeof(Encoding).IsAssignableFrom(type);
+
+            if (!type.IsValueType &&
+                type == typeof(Version) &&
+                type == typeof(IPAddress) &&
+                !typeIsAssignableFromEncoding) {
+                throw new ArgumentException("Unsupported type");
+            }
+
+            return type.IsEnum && StringEnumHelper.Is(s, type, ignoreCase.X(), action) ||
+                   type == typeof(byte) && StringByteHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<byte>(action)) ||
+                   type == typeof(sbyte) && StringSByteHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<sbyte>(action)) ||
+                   type == typeof(char) && StringCharHelper.Is(s, _Helper.ConvertAct<char>(action)) ||
+                   type == typeof(short) && StringShortHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<short>(action)) ||
+                   type == typeof(ushort) && StringUShortHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<ushort>(action)) ||
+                   type == typeof(int) && StringIntHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<int>(action)) ||
+                   type == typeof(uint) && StringUIntHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<uint>(action)) ||
+                   type == typeof(long) && StringLongHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<long>(action)) ||
+                   type == typeof(ulong) && StringULongHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<ulong>(action)) ||
+                   type == typeof(float) && StringFloatHelper.Is(s, numberStyle ?? NumberStyle, provider, _Helper.ConvertAct<float>(action)) ||
+                   type == typeof(double) && StringDoubleHelper.Is(s, numberStyle ?? NumberStyle, provider, _Helper.ConvertAct<double>(action)) ||
+                   type == typeof(decimal) && StringDecimalHelper.Is(s, numberStyle ?? NumberStyles.Number, provider, _Helper.ConvertAct<decimal>(action)) ||
+                   type == typeof(bool) && StringBooleanHelper.Is(s, _Helper.ConvertAct<bool>(action)) ||
+                   type == typeof(DateTime) && (format is null
+                       ? StringDateTimeHelper.Is(s, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTime>(action))
+                       : StringDateTimeExactHelper.Is(s, format, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTime>(action))) ||
+                   type == typeof(DateTimeOffset) && (format is null
+                       ? StringDateTimeOffsetHelper.Is(s, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTimeOffset>(action))
+                       : StringDateTimeOffsetExactHelper.Is(s, format, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTimeOffset>(action))) ||
+                   type == typeof(TimeSpan) && (format is null
+                       ? StringTimeSpanHelper.Is(s, provider, _Helper.ConvertAct<TimeSpan>(action))
+                       : StringTimeSpanExactHelper.Is(s, format, provider, _Helper.ConvertAct<TimeSpan>(action))) ||
+                   type == typeof(Guid) && (format is null
+                       ? StringGuidHelper.Is(s, _Helper.ConvertAct<Guid>(action))
+                       : StringGuidExactHelper.Is(s, format, _Helper.ConvertAct<Guid>(action))) ||
+                   type == typeof(Version) && StringVersionHelper.Is(s, action) ||
+                   type == typeof(IPAddress) && StringIpAddressHelper.Is(s, action) ||
+                   typeIsAssignableFromEncoding && StringEncodingHelper.Is(s, action);
+        }
+
+        private static NumberStyles NumberStyle = NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign |
+                                                  NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands | NumberStyles.AllowExponent;
+
+        /// <summary>
+        /// Is nullable
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="action"></param>
+        /// <param name="isNullAction"></param>
+        /// <param name="ignoreCase"></param>
+        /// <param name="format"></param>
+        /// <param name="numberStyle"></param>
+        /// <param name="dateTimeStyle"></param>
+        /// <param name="provider"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsNullable<T>(this string s, Action<T> action = null, Action isNullAction = null, bool ignoreCase = false, string format = null,
+            NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider provider = null) where T : struct {
+            return (s == null && NullableFunc()(isNullAction)) || Is(s, ignoreCase.X(), action, format, numberStyle, dateTimeStyle, provider);
+        }
+
+        /// <summary>
+        /// Is nullable
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="type"></param>
+        /// <param name="action"></param>
+        /// <param name="isNullAction"></param>
+        /// <param name="ignoreCase"></param>
+        /// <param name="format"></param>
+        /// <param name="numberStyle"></param>
+        /// <param name="dateTimeStyle"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
+        public static bool IsNullable(this string s, Type type, Action<object> action = null, Action isNullAction = null, bool ignoreCase = false, string format = null,
+            NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider provider = null) {
+            return (s == null && NullableFunc()(isNullAction)) || Is(s, type, ignoreCase.X(), action, format, numberStyle, dateTimeStyle, provider);
+        }
+
+        private static Func<Action, bool> NullableFunc() => act => {
+            act?.Invoke();
+            return true;
+        };
 
         /// <summary>
         /// 检查字符串是 null 还是 System.String.Empty 字符串
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty(this string @string) => string.IsNullOrEmpty(@string);
+        public static bool IsNullOrEmpty(this string str) => string.IsNullOrEmpty(str);
 
         /// <summary>
         /// 检查字符串不是 null 或 System.String.Empty 字符串
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsNotNullNorEmpty(this string @string) => !@string.IsNullOrEmpty();
+        public static bool IsNotNullNorEmpty(this string str) => !str.IsNullOrEmpty();
 
         /// <summary>
         /// 检查字符串是 null、空还是仅由空白字符组成
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsNullOrWhiteSpace(this string @string) => string.IsNullOrWhiteSpace(@string);
+        public static bool IsNullOrWhiteSpace(this string str) => string.IsNullOrWhiteSpace(str);
 
         /// <summary>
         /// 检查字符串不是 null、空或由空白字符串组成
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsNotNullNorWhiteSpace(this string @string) => !@string.IsNullOrWhiteSpace();
+        public static bool IsNotNullNorWhiteSpace(this string str) => !str.IsNullOrWhiteSpace();
 
         /// <summary>
-        /// 指示指定的字符串是否为 Int 类型
+        /// Is char
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsInt(this string @string) => NumericJudgment.IsInt32(@string);
+        public static bool IsChar(this string str) => StringCharHelper.Is(str);
 
         /// <summary>
-        /// 指示指定的字符串是否为数字
+        /// Is boolean
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsNumberic(this string @string) => NumericJudgment.IsNumeric(@string);
+        public static bool IsBoolean(this string str) => StringBooleanHelper.Is(str);
+
+        /// <summary>
+        /// Is encoding
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsEncoding(this string str) => StringEncodingHelper.Is(str);
 
         /// <summary>
         /// 判断是否为 Url 路径
@@ -69,6 +228,20 @@ namespace Cosmos {
         /// <param name="target"></param>
         /// <returns></returns>
         public static bool IsEmail(this string target) => StringJudgment.IsEmail(target);
+
+        /// <summary>
+        /// Is version
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsVersion(this string str) => StringVersionHelper.Is(str);
+
+        /// <summary>
+        /// Is IpAddress
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsIpAddress(this string str) => StringIpAddressHelper.Is(str);
 
         /// <summary>
         /// One Absent Char
