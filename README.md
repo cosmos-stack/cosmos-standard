@@ -19,13 +19,13 @@ This repository also include these inline common projects:
 
 - [Cosmos.Http](extra/http) - Http extensions for cosmos-standard
 - [Cosmos.Dependency](extra/dependency) - Dependency extensions for cosmos-standard
-- [Cosmos.Serialization](extra/serialization) - Serialization extensions for cosmos-standard
+- [Cosmos.Serialization](https://github.com/cosmos-loops/Serialization) - Serialization extensions for cosmos-standard
 
 ---
 
 ## Thanks
 
-People or projects that have made a great contribbution to this project:
+People or projects that have made a great contributions to this project:
 
 - Mr. [刘浩杨](https://github.com/liuhaoyang)
 - Mr. [何镇汐](https://github.com/UtilCore)
