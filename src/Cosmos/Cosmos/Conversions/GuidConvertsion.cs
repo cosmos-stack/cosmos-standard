@@ -6,31 +6,42 @@ namespace Cosmos.Conversions {
     /// </summary>
     public static class GuidConversion {
         /// <summary>
-        /// Convert from an <see cref="object"/> to <see cref="Guid"/>.
+        /// To GUID
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
         public static Guid ToGuid(object obj) {
-            if (obj is null) {
+            if (obj is null)
                 return Guid.Empty;
-            }
 
-            return Guid.TryParse(obj.ToString(), out var ret) ? ret : Guid.Empty;
+            if (obj is string str && Internals.StringGuidHelper.Is(str))
+                return Internals.StringGuidHelper.To(str);
+
+            str = obj.ToString();
+            if (Internals.StringGuidHelper.Is(str))
+                return Internals.StringGuidHelper.To(str);
+
+            return Guid.TryParse(str, out var guid) ? guid : Guid.Empty;
         }
 
         /// <summary>
-        /// Convert from an <see cref="object"/> to nullable <see cref=" Guid"/>.
+        /// To nullable GUID
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
         public static Guid? ToNullableGuid(object obj) {
-            if (obj is null) {
+            if (obj is null)
                 return null;
-            }
 
-            if (Guid.TryParse(obj.ToString(), out var ret)) {
-                return ret;
-            }
+            if (obj is string str && Internals.StringGuidHelper.Is(str))
+                return Internals.StringGuidHelper.To(str);
+
+            str = obj.ToString();
+            if (Internals.StringGuidHelper.Is(str))
+                return Internals.StringGuidHelper.To(str);
+
+            if (Guid.TryParse(str, out var guid))
+                return guid;
 
             return null;
         }

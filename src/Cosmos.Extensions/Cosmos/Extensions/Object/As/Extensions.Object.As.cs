@@ -27,7 +27,7 @@ namespace Cosmos {
                 return (T) @this;
             }
             catch (Exception) {
-                return default(T);
+                return default;
             }
         }
 

@@ -2,80 +2,60 @@
 using System.Linq;
 using Cosmos.Conversions;
 using Xunit;
+using Shouldly;
 
-namespace Cosmos.Test.Conversions
-{
-    public class GenericConversionTest
-    {
+namespace Cosmos.Test.Conversions {
+    public class GenericConversionTest {
         class One { }
 
         class Two : One { }
 
         [Fact]
-        public void NullObjTest()
-        {
-            One one = null;
-            var one1 = ObjectConversion.To<One>(one);
-
-            Assert.Equal(default(One), one1);
+        public void NullObjTest() {
+            ObjectConversion.To<One>(null).ShouldBe(default);
         }
 
         [Fact]
-        public void NullValueTypeTest()
-        {
-            var i = ObjectConversion.To<int>(null);
-
-            Assert.Equal(default(int), i);
+        public void NullValueTypeTest() {
+            ObjectConversion.To<int>(null).ShouldBe(default);
         }
 
         [Theory]
         [InlineData(1.0001D)]
-        public void ValueTypeTest(double input)
-        {
-            var i = ObjectConversion.To<int>(input);
-
-            Assert.Equal(1, i);
+        public void ValueTypeTest(double input) {
+            ObjectConversion.To<int>(input).ShouldBe(1);
         }
 
         [Fact]
-        public void PartnetClassTest()
-        {
+        public void ParentClazzTest() {
             One one = new Two();
             var one1 = ObjectConversion.To<One>(one);
             var two1 = ObjectConversion.To<Two>(one);
 
-            Assert.Equal(typeof(Two), one1.GetType());
-            Assert.Equal(typeof(Two), two1.GetType());
+            one1.GetType().ShouldBeOfType<Two>();
+            two1.GetType().ShouldBeOfType<Two>();
         }
 
         [Fact]
-        public void BoxedValueTypeTest()
-        {
-            int i = 100;
-            object o = (object)i;
-            var i2 = ObjectConversion.To<int>(o);
-
-            Assert.Equal(100, i2);
+        public void BoxedValueTypeTest() {
+            ObjectConversion.To<int>(100).ShouldBe(100);
         }
 
         [Fact]
-        public void ObjectToListTest()
-        {
-            object list = new List<string> { "1", "2", "3" };
+        public void ObjectToListTest() {
+            object list = new List<string> {"1", "2", "3"};
             var list2 = ObjectConversion.To<List<string>>(list);
 
-            Assert.Equal(3, list2.Count);
-            Assert.Equal("1", list2[0]);
+            list2.ShouldNotBeNull();
+            list2.ShouldNotBeEmpty();
+            list2.Count.ShouldBe(3);
+            list2[0].ShouldBe("1");
         }
 
         [Fact]
-        public void ObjectValueListFalureTest()
-        {
-            object list = new List<string> { "1", "2", "3" };
-            var list2 = ObjectConversion.To<List<One>>(list);
-            var def = default(List<One>);
-
-            Assert.Equal(def, list2);
+        public void ObjectValueListFailureTest() {
+            object list = new List<string> {"1", "2", "3"};
+            ObjectConversion.To<List<One>>(list).ShouldBeNull();
         }
 
         [Theory]
@@ -83,41 +63,40 @@ namespace Cosmos.Test.Conversions
         [InlineData("1,2,3,4,5,")]
         [InlineData("1.1,2.2,3.3,4.4,5.5")]
         [InlineData("1.1,2.2,3.3,4.4,5.5,")]
-        public void IntegerListTest(string str)
-        {
-            var list = ObjectConversion.ToList<int>(str);
+        public void IntegerListTest(string str) {
+            var list = ObjectConversion.ToList<int>(str).ToList();
 
-            Assert.NotNull(list);
-            Assert.Equal(5, list.Count());
-            Assert.Equal(1, list.First());
+            list.ShouldNotBeNull();
+            list.Count.ShouldBe(5);
+            list.First().ShouldBe(1);
         }
 
         [Theory]
         [InlineData("1.1,2.2,3.3,4.4,5.5")]
         [InlineData("1.1,2.2,3.3,4.4,5.5,")]
-        public void DoubleListTest(string str)
-        {
-            var list = ObjectConversion.ToList<double>(str);
+        public void DoubleListTest(string str) {
+            var list = ObjectConversion.ToList<double>(str).ToList();
 
-            Assert.NotNull(list);
-            Assert.Equal(5, list.Count());
-            Assert.Equal(1.1, list.First());
+            list.ShouldNotBeNull();
+            list.Count.ShouldBe(5);
+            list.First().ShouldBe(1.1);
         }
 
         [Theory]
         [InlineData("")]
         [InlineData(",,,,,")]
-        public void EmptyListTest(string str)
-        {
-            var list = ObjectConversion.ToList<int>(str);
-            var list1 = ObjectConversion.ToList<One>(str);
+        public void EmptyListTest(string str) {
+            var list0 = ObjectConversion.ToList<int>(str).ToList();
+            var list1 = ObjectConversion.ToList<One>(str).ToList();
 
-            Assert.NotNull(list);
-            Assert.NotNull(list1);
-            Assert.Equal(0, list.Count());
-            Assert.Equal(0, list1.Count());
-            Assert.Empty(list);
-            Assert.Empty(list1);
+            list0.ShouldNotBeNull();
+            list1.ShouldNotBeNull();
+
+            list0.Count.ShouldBe(0);
+            list1.Count.ShouldBe(0);
+
+            list0.ShouldBeEmpty();
+            list1.ShouldBeEmpty();
         }
     }
 }

@@ -1,27 +1,57 @@
 ﻿using System;
 using System.Reflection;
+using Cosmos.Conversions.Internals;
 
 namespace Cosmos {
     /// <summary>
     /// Enum Utilities
     /// </summary>
     public static class Enums {
-        /// <summary>
-        /// Get instance <br />
-        /// 获取实例
-        /// </summary>
-        /// <typeparam name="T">枚举</typeparam>
-        /// <param name="member">
-        /// 成员名或值,
-        /// 范例:Enum1枚举有成员A=0,则传入"A"或"0"获取 Enum1.A
-        /// </param>
-        public static T Of<T>(object member) {
-            var value = Conversions.ObjectConversion.ToString(member);
-            if (string.IsNullOrWhiteSpace(value)) {
-                throw new ArgumentNullException(nameof(member));
-            }
 
-            return (T) Enum.Parse(Types.Of<T>(), value, true);
+        /// <summary>
+        /// Of
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="ignoreCase"></param>
+        /// <param name="defaultVal"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static T Of<T>(string member, bool ignoreCase = false, T defaultVal = default) where T : struct, Enum {
+            return StringEnumHelper<T>.To(member, ignoreCase, defaultVal);
+        }
+
+        /// <summary>
+        /// Of
+        /// </summary>
+        /// <param name="member"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static T Of<T>(object member) where T : struct, Enum {
+            return Of<T>(Conversions.ObjectConversion.ToString(member));
+        }
+
+        /// <summary>
+        /// Of
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="enumType"></param>
+        /// <param name="ignoreCase"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static object Of(string member, Type enumType, bool ignoreCase = false, object defaultVal = default) {
+            return StringEnumHelper.To(member, enumType, ignoreCase, defaultVal);
+        }
+
+        /// <summary>
+        /// Of
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="enumType"></param>
+        /// <returns></returns>
+        public static object Of(object member, Type enumType) {
+            return Of(Conversions.ObjectConversion.ToString(member), enumType);
         }
 
         /// <summary>

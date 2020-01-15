@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using Cosmos.Conversions.Internals;
 
 namespace Cosmos.Conversions {
     /// <summary>
