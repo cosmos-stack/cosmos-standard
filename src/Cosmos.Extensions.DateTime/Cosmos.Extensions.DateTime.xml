@@ -4,6 +4,151 @@
         <name>Cosmos.Extensions.DateTime</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.ConversionExtensions">
+            <summary>
+            Conversion extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToDateInfo(System.String,Cosmos.Date.DateInfo)">
+            <summary>
+            To DateInfo
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToDateTimeSpan(System.String,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            To DateTimeSpan
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ConversionExtensions.CastToNullableDateTimeSpan(System.String)">
+            <summary>
+            To nullable TimeSpan
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Internals.StringDateInfoHelper">
+            <summary>
+            Internal core conversion helper from string to DateInfo
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateInfoHelper.Is(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{Cosmos.Date.DateInfo})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <param name="dtAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateInfoHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,Cosmos.Date.DateInfo}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{Cosmos.Date.DateInfo})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="tries"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <param name="dtAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateInfoHelper.To(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,Cosmos.Date.DateInfo)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateInfoHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,Cosmos.Date.DateInfo}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Internals.StringDateTimeSpanHelper">
+            <summary>
+            Internal core conversion helper from string to DateTimeSpan
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateTimeSpanHelper.Is(System.String,System.IFormatProvider,System.Action{Cosmos.Date.DateTimeSpan})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="formatProvider"></param>
+            <param name="tsAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateTimeSpanHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,Cosmos.Date.DateTimeSpan}},System.IFormatProvider,System.Action{Cosmos.Date.DateTimeSpan})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="tries"></param>
+            <param name="formatProvider"></param>
+            <param name="dtAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateTimeSpanHelper.To(System.String,System.IFormatProvider,Cosmos.Date.DateTimeSpan)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="formatProvider"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals.StringDateTimeSpanHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,Cosmos.Date.DateTimeSpan}},System.IFormatProvider)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Internals._Helper">
+            <summary>
+            Helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals._Helper.IsXXX``2(``0,System.Func{``0,System.Boolean},System.Func{``0,System.Action{``1},System.Boolean},System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{``0,``1}},System.Action{``1})">
+            <summary>
+            Is xxx
+            </summary>
+            <param name="from"></param>
+            <param name="fromTry"></param>
+            <param name="firstTry"></param>
+            <param name="tries"></param>
+            <param name="act"></param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Internals._Helper.ToXXX``2(``0,System.Func{``0,System.Action{``1},System.Boolean},System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{``0,``1}})">
+            <summary>
+            To xxx
+            </summary>
+            <param name="from"></param>
+            <param name="firstImpl"></param>
+            <param name="impls"></param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.DateTimeOutOfRangeException">
             <summary>
             DateTime out of range exception.
