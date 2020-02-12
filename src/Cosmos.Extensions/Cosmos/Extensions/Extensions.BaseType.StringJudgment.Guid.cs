@@ -1,4 +1,4 @@
-using Cosmos.Conversions.Internals;
+using Cosmos.Conversions.StringDeterminers;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
@@ -12,7 +12,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsGuid(this string str) => StringGuidHelper.Is(str) && GuidJudgment.IsValid(str);
+        public static bool IsGuid(this string str) => StringGuidDeterminer.Is(str) && GuidJudgment.IsValid(str);
 
         /// <summary>
         /// Is Guid
@@ -20,6 +20,6 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        public static bool IsGuidExact(this string str, string format) => StringGuidExactHelper.Is(str, format);
+        public static bool IsGuidExact(this string str, string format) => StringGuidDeterminer.Exact.Is(str, format);
     }
 }
