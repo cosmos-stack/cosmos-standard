@@ -1,5 +1,5 @@
 using System;
-using Cosmos.Conversions.Internals;
+using Cosmos.Conversions.StringDeterminers;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
@@ -15,7 +15,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static DateTime CastToDateTime(this string str, DateTime defaultVal = default)
-            => StringDateTimeHelper.To(str, defaultVal: defaultVal);
+            => StringDateTimeDeterminer.To(str, defaultVal: defaultVal);
 
         /// <summary>
         /// To DateTimeOffset
@@ -24,7 +24,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static DateTimeOffset CastToDateTimeOffset(this string str, DateTimeOffset defaultVal = default)
-            => StringDateTimeOffsetHelper.To(str, defaultVal: defaultVal);
+            => StringDateTimeOffsetDeterminer.To(str, defaultVal: defaultVal);
 
         /// <summary>
         /// To TimeSpan
@@ -33,7 +33,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static TimeSpan CastToTimeSpan(this string str, TimeSpan defaultVal = default)
-            => StringTimeSpanHelper.To(str, defaultVal: defaultVal);
+            => StringTimeSpanDeterminer.To(str, defaultVal: defaultVal);
 
         /// <summary>
         /// To nullable DateTime
@@ -41,7 +41,7 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <returns></returns>
         public static DateTime? CastToNullableDateTime(this string str) {
-            if (StringDateTimeHelper.Is(str))
+            if (StringDateTimeDeterminer.Is(str))
                 return CastToDateTime(str);
             return null;
         }
@@ -52,7 +52,7 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <returns></returns>
         public static DateTimeOffset? CastToNullableDateTimeOffset(this string str) {
-            if (StringDateTimeOffsetHelper.Is(str))
+            if (StringDateTimeOffsetDeterminer.Is(str))
                 return CastToDateTimeOffset(str);
             return null;
         }
@@ -63,7 +63,7 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <returns></returns>
         public static TimeSpan? CastToNullableTimeSpan(this string str) {
-            if (StringTimeSpanHelper.Is(str))
+            if (StringTimeSpanDeterminer.Is(str))
                 return CastToTimeSpan(str);
             return null;
         }

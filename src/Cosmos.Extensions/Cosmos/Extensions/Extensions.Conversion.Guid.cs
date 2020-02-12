@@ -1,5 +1,4 @@
 using System;
-using Cosmos.Conversions.Internals;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
@@ -14,7 +13,7 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <returns></returns>
         public static Guid CastToGuid(this string str)
-            => Conversions.GuidConversion.ToGuid(str);
+            => Conversions.GuidConverter.ToGuid(str);
 
         /// <summary>
         /// To GUID
@@ -23,7 +22,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static Guid CastToGuid(this string str, Guid defaultVal)
-            => Conversions.GuidConversion.ToNullableGuid(str).SafeValue(defaultVal);
+            => Conversions.GuidConverter.ToNullableGuid(str).SafeValue(defaultVal);
 
         /// <summary>
         /// To nullable GUID
@@ -31,6 +30,6 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <returns></returns>
         public static Guid? CastToNullableGuid(this string str)
-            => Conversions.GuidConversion.ToNullableGuid(str);
+            => Conversions.GuidConverter.ToNullableGuid(str);
     }
 }

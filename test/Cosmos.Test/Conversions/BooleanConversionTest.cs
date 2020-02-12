@@ -11,8 +11,8 @@ namespace Cosmos.Test.Conversions {
             One one = new One();
             One two = null;
 
-            Assert.False(BooleanConversion.ToBoolean(one));
-            Assert.False(BooleanConversion.ToBoolean(two));
+            Assert.False(BooleanConverter.ToBoolean(one));
+            Assert.False(BooleanConverter.ToBoolean(two));
         }
 
         [Fact]
@@ -20,22 +20,22 @@ namespace Cosmos.Test.Conversions {
             One one = new One();
             One two = null;
 
-            Assert.Null(BooleanConversion.ToNullableBoolean(one));
-            Assert.Null(BooleanConversion.ToNullableBoolean(two));
+            Assert.Null(BooleanConverter.ToNullableBoolean(one));
+            Assert.Null(BooleanConverter.ToNullableBoolean(two));
         }
 
         [Theory]
         [InlineData("yes")]
         [InlineData("1")]
         public void VerbaAliasTrueBooleanTest(string alias) {
-            Assert.True(BooleanConversion.ToBoolean(alias));
+            Assert.True(BooleanConverter.ToBoolean(alias));
         }
 
         [Theory]
         [InlineData("no")]
         [InlineData("0")]
         public void VerbaAliasFalseBooleanTest(string alias) {
-            Assert.False(BooleanConversion.ToBoolean(alias));
+            Assert.False(BooleanConverter.ToBoolean(alias));
         }
 
 
@@ -43,21 +43,21 @@ namespace Cosmos.Test.Conversions {
         [InlineData("yes")]
         [InlineData("1")]
         public void VerbaAliasTrueNullableBooleanTest(string alias) {
-            Assert.True(BooleanConversion.ToNullableBoolean(alias));
+            Assert.True(BooleanConverter.ToNullableBoolean(alias));
         }
 
         [Theory]
         [InlineData("no")]
         [InlineData("0")]
         public void VerbaAliasFalseNullableBooleanTest(string alias) {
-            Assert.False(BooleanConversion.ToNullableBoolean(alias));
+            Assert.False(BooleanConverter.ToNullableBoolean(alias));
         }
 
         [Theory]
         [InlineData("nono")]
         [InlineData("yeah")]
         public void VerbaAliasNullableBooleanTest(string alias) {
-            Assert.Null(BooleanConversion.ToNullableBoolean(alias));
+            Assert.Null(BooleanConverter.ToNullableBoolean(alias));
         }
     }
 }

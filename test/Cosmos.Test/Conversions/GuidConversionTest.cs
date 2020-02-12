@@ -9,7 +9,7 @@ namespace Cosmos.Test.Conversions {
             var guid = new Guid();
             var guidStr = guid.ToString();
 
-            var guid2 = GuidConversion.ToGuid(guidStr);
+            var guid2 = GuidConverter.ToGuid(guidStr);
 
             Assert.Equal(guid, guid2);
         }
@@ -18,7 +18,7 @@ namespace Cosmos.Test.Conversions {
         [InlineData("")]
         [InlineData("lalala")]
         public void StringToNullableGuidTest(string str) {
-            var guid = GuidConversion.ToNullableGuid(str);
+            var guid = GuidConverter.ToNullableGuid(str);
 
             Assert.Null(guid);
         }
@@ -31,7 +31,7 @@ namespace Cosmos.Test.Conversions {
         [InlineData(1)]
         [InlineData(1234.56789)]
         public void ConvertFailureTest(object obj) {
-            var guid = GuidConversion.ToGuid(obj);
+            var guid = GuidConverter.ToGuid(obj);
 
             Assert.Equal(Guid.Empty, guid);
         }

@@ -161,7 +161,7 @@ namespace Cosmos {
         /// <returns></returns>
         public static string CastToString(this string originalStr, ScaleStyles fromStyle = ScaleStyles.String, Encoding encoding = null) {
             return fromStyle switch {
-                ScaleStyles.Hexadecimal => HexadecimalConversion.ToString(originalStr, encoding),
+                ScaleStyles.Hexadecimal => HexadecimalConverter.ToString(originalStr, encoding),
                 _                       => originalStr
             };
         }
@@ -189,6 +189,6 @@ namespace Cosmos {
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static string CastToString(this object obj) => ObjectConversion.ToString(obj);
+        public static string CastToString(this object obj) => ObjectConverter.ToString(obj);
     }
 }

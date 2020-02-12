@@ -18,7 +18,7 @@ namespace Cosmos {
         /// <param name="targetType"></param>
         /// <returns></returns>
         public static object CastTo(this object obj, Type targetType) {
-            return ObjectConversion.To(obj, targetType);
+            return ObjectConverter.To(obj, targetType);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static object CastTo(this object obj, Type targetType, object defaultVal) {
-            return ObjectConversion.To(obj, targetType, defaultVal);
+            return ObjectConverter.To(obj, targetType, defaultVal);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Cosmos {
         /// <param name="targetType"></param>
         /// <returns></returns>
         public static object CastTo(this object obj, TypeInfo targetType) {
-            return ObjectConversion.To(obj, targetType);
+            return ObjectConverter.To(obj, targetType);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static object CastTo(this object obj, TypeInfo targetType, object defaultVal) {
-            return ObjectConversion.To(obj, targetType, defaultVal);
+            return ObjectConverter.To(obj, targetType, defaultVal);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Cosmos {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static T CastTo<T>(this object obj) {
-            return ObjectConversion.To<T>(obj);
+            return ObjectConverter.To<T>(obj);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Cosmos {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static T CastTo<T>(this object obj, T defaultVal) {
-            return ObjectConversion.To(obj, defaultVal);
+            return ObjectConverter.To(obj, defaultVal);
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿using Cosmos.Conversions.Internals;
+﻿using Cosmos.Conversions.StringDeterminers;
 
 namespace Cosmos.Judgments {
     /// <summary>
@@ -11,49 +11,49 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsInt16(string str) => StringShortHelper.Is(str);
+        public static bool IsInt16(string str) => StringShortDeterminer.Is(str);
         
         /// <summary>
         /// To judge whether the string is integer or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsInt32(string str) => StringIntHelper.Is(str);
+        public static bool IsInt32(string str) => StringIntDeterminer.Is(str);
 
         /// <summary>
         /// To judge whether the string is long or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsInt64(string str) => StringLongHelper.Is(str);
+        public static bool IsInt64(string str) => StringLongDeterminer.Is(str);
 
         /// <summary>
         /// To judge whether the string is ushort or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsUInt16(string str) => StringUShortHelper.Is(str);
+        public static bool IsUInt16(string str) => StringUShortDeterminer.Is(str);
 
         /// <summary>
         /// To judge whether the string is uinteger or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsUInt32(string str) => StringUIntHelper.Is(str);
+        public static bool IsUInt32(string str) => StringUIntDeterminer.Is(str);
 
         /// <summary>
         /// To judge whether the string is ulong or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsUInt64(string str) => StringULongHelper.Is(str);
+        public static bool IsUInt64(string str) => StringULongDeterminer.Is(str);
 
         /// <summary>
         /// To judge whether the string is numeric or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsNumeric(string str) => StringDecimalHelper.Is(str);
+        public static bool IsNumeric(string str) => StringDecimalDeterminer.Is(str);
 
         /// <summary>
         /// To judge whether the short value is between left and right.
