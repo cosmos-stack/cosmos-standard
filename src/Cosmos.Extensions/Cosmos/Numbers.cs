@@ -82,7 +82,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static int ParseToInt(object obj) => NumericConversion.ToInt32(obj);
+        public static int ParseToInt(object obj) => NumericConverter.ToInt32(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="int"/>.
@@ -90,14 +90,14 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static int ParseToInt(object obj, int defaultValue) => NumericConversion.ToInt32(obj, defaultValue);
+        public static int ParseToInt(object obj, int defaultValue) => NumericConverter.ToInt32(obj, defaultValue);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="long"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static long ParseToLong(object obj) => NumericConversion.ToInt64(obj);
+        public static long ParseToLong(object obj) => NumericConverter.ToInt64(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="long"/>.
@@ -105,14 +105,14 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static long ParseToLong(object obj, long defaultValue) => NumericConversion.ToInt64(obj, defaultValue);
+        public static long ParseToLong(object obj, long defaultValue) => NumericConverter.ToInt64(obj, defaultValue);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="float"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static float ParseToFloat(object obj) => NumericConversion.ToFloat(obj);
+        public static float ParseToFloat(object obj) => NumericConverter.ToFloat(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="float"/>.
@@ -120,14 +120,14 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static float ParseToFloat(object obj, float defaultValue) => NumericConversion.ToFloat(obj, defaultValue);
+        public static float ParseToFloat(object obj, float defaultValue) => NumericConverter.ToFloat(obj, defaultValue);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="double"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static double ParseToDouble(object obj) => NumericConversion.ToDouble(obj);
+        public static double ParseToDouble(object obj) => NumericConverter.ToDouble(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="double"/>.
@@ -135,7 +135,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static double ParseToDouble(object obj, double defaultValue) => NumericConversion.ToDouble(obj, defaultValue);
+        public static double ParseToDouble(object obj, double defaultValue) => NumericConverter.ToDouble(obj, defaultValue);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="double"/> with specified precision.
@@ -143,7 +143,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
-        public static double ParseToDouble(object obj, int digits) => NumericConversion.ToRoundDouble(obj, digits);
+        public static double ParseToDouble(object obj, int digits) => NumericConverter.ToRoundDouble(obj, digits);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="double"/> with specified precision.
@@ -152,14 +152,14 @@ namespace Cosmos {
         /// <param name="digits"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static double ParseToDouble(object obj, int digits, double defaultValue) => NumericConversion.ToRoundDouble(obj, digits, defaultValue);
+        public static double ParseToDouble(object obj, int digits, double defaultValue) => NumericConverter.ToRoundDouble(obj, digits, defaultValue);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="double"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static decimal ParseToDecimal(object obj) => NumericConversion.ToDecimal(obj);
+        public static decimal ParseToDecimal(object obj) => NumericConverter.ToDecimal(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="double"/>.
@@ -167,7 +167,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static decimal ParseToDecimal(object obj, decimal defaultValue) => NumericConversion.ToDecimal(obj, defaultValue);
+        public static decimal ParseToDecimal(object obj, decimal defaultValue) => NumericConverter.ToDecimal(obj, defaultValue);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="decimal"/> with specified precision.
@@ -175,7 +175,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
-        public static decimal ParseToDecimal(object obj, int digits) => NumericConversion.ToRoundDecimal(obj, digits);
+        public static decimal ParseToDecimal(object obj, int digits) => NumericConverter.ToRoundDecimal(obj, digits);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to <see cref="decimal"/> with specified precision.
@@ -184,35 +184,35 @@ namespace Cosmos {
         /// <param name="digits"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static decimal ParseToDecimal(object obj, int digits, decimal defaultValue) => NumericConversion.ToRoundDecimal(obj, digits, defaultValue);
+        public static decimal ParseToDecimal(object obj, int digits, decimal defaultValue) => NumericConverter.ToRoundDecimal(obj, digits, defaultValue);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="int"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static int? ParseToNullableInt(object obj) => NumericConversion.ToNullableInt32(obj);
+        public static int? ParseToNullableInt(object obj) => NumericConverter.ToNullableInt32(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="long"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static long? ParseToNullableLong(object obj) => NumericConversion.ToNullableInt64(obj);
+        public static long? ParseToNullableLong(object obj) => NumericConverter.ToNullableInt64(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="float"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static float? ParseToNullableFloat(object obj) => NumericConversion.ToNullableFloat(obj);
+        public static float? ParseToNullableFloat(object obj) => NumericConverter.ToNullableFloat(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="double"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static double? ParseToNullableDouble(object obj) => NumericConversion.ToNullableDouble(obj);
+        public static double? ParseToNullableDouble(object obj) => NumericConverter.ToNullableDouble(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="double"/> with specified precision.
@@ -220,14 +220,14 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
-        public static double? ParseToNullableDouble(object obj, int digits) => NumericConversion.ToRoundNullableDouble(obj, digits);
+        public static double? ParseToNullableDouble(object obj, int digits) => NumericConverter.ToRoundNullableDouble(obj, digits);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="decimal"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static decimal? ParseToNullableDecimal(object obj) => NumericConversion.ToNullableDecimal(obj);
+        public static decimal? ParseToNullableDecimal(object obj) => NumericConverter.ToNullableDecimal(obj);
 
         /// <summary>
         /// Convert from an <see cref="object"/> to nullable <see cref="decimal"/> with specified precision.
@@ -235,7 +235,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
-        public static decimal? ParseToNullableDecimal(object obj, int digits) => NumericConversion.ToRoundNullableDecimal(obj, digits);
+        public static decimal? ParseToNullableDecimal(object obj, int digits) => NumericConverter.ToRoundNullableDecimal(obj, digits);
 
         #endregion
 
