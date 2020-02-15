@@ -16,6 +16,30 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Asynchronous.Promise.Promises.Create``1(System.Action{System.Action{``0},System.Action{System.Exception}})">
+            <summary>
+            Create
+            </summary>
+            <param name="resolver"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.Promise.Promises.Resolved``1(``0)">
+            <summary>
+            Resolved
+            </summary>
+            <param name="promisedVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.Promise.Promises.Rejected``1(System.Exception)">
+            <summary>
+            Rejected
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.SyncRunner">
             <summary>
             Sync runner

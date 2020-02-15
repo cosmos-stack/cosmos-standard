@@ -4,12 +4,12 @@
         <name>Cosmos</name>
     </assembly>
     <members>
-        <member name="T:Cosmos.Conversions.Base32Conversion">
+        <member name="T:Cosmos.Conversions.Base32Converter">
             <summary>
             Base32 Conversion Utilities
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Base32Conversion.ToBase32String(System.Byte[])">
+        <member name="M:Cosmos.Conversions.Base32Converter.ToBase32String(System.Byte[])">
             <summary>
             Convert from <see cref="T:System.String"/> to base32 <see cref="T:System.String"/>.
             </summary>
@@ -17,7 +17,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.Conversions.Base32Conversion.ToBase32String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.Base32Converter.ToBase32String(System.String,System.Text.Encoding)">
             <summary>
             Convert from <see cref="T:System.String"/> to base32 <see cref="T:System.String"/>.
             </summary>
@@ -25,7 +25,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Base32Conversion.FromBase32String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.Base32Converter.FromBase32String(System.String,System.Text.Encoding)">
             <summary>
             Convert from base32 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
             </summary>
@@ -33,7 +33,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Base32Conversion.FromBase32StringToBytes(System.String)">
+        <member name="M:Cosmos.Conversions.Base32Converter.FromBase32StringToBytes(System.String)">
             <summary>
             Convert from base32 <see cref="T:System.String"/> to <see cref="T:System.Byte"/> array.
             </summary>
@@ -103,50 +103,476 @@
             </summary>
             <param name="base64UrlString"></param>
         </member>
-        <member name="T:Cosmos.Conversions.BooleanConversion">
+        <member name="T:Cosmos.Conversions.BooleanConverter">
             <summary>
             Boolean Conversion Utilities
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.BooleanConversion.ToBoolean(System.Object)">
+        <member name="M:Cosmos.Conversions.BooleanConverter.ToBoolean(System.Object)">
             <summary>
             Convert from <see cref="T:System.Object"/> to <see cref="T:System.Boolean"/>.
             </summary>
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BooleanConversion.ToNullableBoolean(System.Object)">
+        <member name="M:Cosmos.Conversions.BooleanConverter.ToNullableBoolean(System.Object)">
             <summary>
             Convert from <see cref="T:System.Object"/> to nullable <see cref="T:System.Boolean"/>.
             </summary>
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.GuidConversion">
+        <member name="T:Cosmos.Conversions.GuidConverter">
             <summary>
             GUID Converter
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.GuidConversion.ToGuid(System.Object)">
+        <member name="M:Cosmos.Conversions.GuidConverter.ToGuid(System.Object)">
             <summary>
             To GUID
             </summary>
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.GuidConversion.ToNullableGuid(System.Object)">
+        <member name="M:Cosmos.Conversions.GuidConverter.ToNullableGuid(System.Object)">
             <summary>
             To nullable GUID
             </summary>
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringBooleanHelper">
+        <member name="T:Cosmos.Conversions.NumericConverter">
+            <summary>
+            Numeric Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToInt16(System.Object,System.Int16)">
+            <summary>
+            To int16
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableInt16(System.Object)">
+            <summary>
+            To nullable int16
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToUInt16(System.Object,System.UInt16)">
+            <summary>
+            To uint16
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableUInt16(System.Object)">
+            <summary>
+            To nullable uint16
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToInt32(System.Object,System.Int32)">
+            <summary>
+            To int32
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableInt32(System.Object)">
+            <summary>
+            To nullable int32
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToUInt32(System.Object,System.UInt32)">
+            <summary>
+            To uint32
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableUInt32(System.Object)">
+            <summary>
+            To nullable uint32
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToInt64(System.Object,System.Int64)">
+            <summary>
+            To int64
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableInt64(System.Object)">
+            <summary>
+            To nullable int64
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToUInt64(System.Object,System.UInt64)">
+            <summary>
+            To int64
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableUInt64(System.Object)">
+            <summary>
+            To nullable uint64
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToFloat(System.Object,System.Single)">
+            <summary>
+            To float
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableFloat(System.Object)">
+            <summary>
+            To nullable float
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToDouble(System.Object,System.Double)">
+            <summary>
+            To double
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableDouble(System.Object)">
+            <summary>
+            To nullable double
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToRoundDouble(System.Object,System.Int32,System.Double)">
+            <summary>
+            To double with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <param name="defaultRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToRoundNullableDouble(System.Object,System.Int32)">
+            <summary>
+            To nullable double with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+            To decimal
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToNullableDecimal(System.Object)">
+            <summary>
+            To nullable decimal
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToRoundDecimal(System.Object,System.Int32,System.Decimal)">
+            <summary>
+            To decimal with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.NumericConverter.ToRoundNullableDecimal(System.Object,System.Int32)">
+            <summary>
+            To nullable decimal with specified precision.
+            </summary>
+            <param name="obj"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.ObjectConverter">
+            <summary>
+            Object Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.ToString(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.To(System.Object,System.Type)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.To(System.Object,System.Type,System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetType"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.To(System.Object,System.Reflection.TypeInfo)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetTypeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.To(System.Object,System.Reflection.TypeInfo,System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="targetTypeInfo"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.To``1(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to a TTo instance.
+            </summary>
+            <typeparam name="TTo"></typeparam>
+            <param name="fromObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.To``1(System.Object,``0)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to a TTo instance.
+            </summary>
+            <typeparam name="TTo"></typeparam>
+            <param name="fromObj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.ToList``1(System.String,System.Char)">
+            <summary>
+            Convert from string to a TTo instances list.
+            </summary>
+            <typeparam name="TTo"></typeparam>
+            <param name="listStr"></param>
+            <param name="splitChar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.ToDateTime(System.Object,System.DateTime)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ObjectConverter.ToNullableDateTime(System.Object)">
+            <summary>
+            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.BinaryConverter">
+            <summary>
+            Binary Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BinaryConverter.ToDecimalism(System.String)">
+            <summary>
+            Convert from binary to decimalism.
+            </summary>
+            <example>in: 101110; out: 46</example>
+            <param name="bin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.BinaryConverter.ToHexadecimal(System.String)">
+            <summary>
+            Convert from binary to hexadecimal.
+            </summary>
+            <example>in: 101110; out: 2E</example>
+            <param name="bin"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.ByteConverter">
+            <summary>
+            Bytes Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.ByteConverter.ToASCII(System.Byte[])">
+            <summary>
+            Convert from bytes to ASCII <see cref="T:System.String"/>.
+            </summary>
+            <example>in: new byte[] {65, 66, 67}; out: ABC</example>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.ByteConverter.ToBinary(System.Byte)">
+            <summary>
+            Convert from byte to binary.
+            </summary>
+            <example>in: (byte)128; out: 10000000</example>
+            <param name="byte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.ByteConverter.ToDecimalism(System.Byte,System.Byte)">
+            <summary>
+            Convert high address 'h' and low address 'l' to decimalism.
+            </summary>
+            <example>in: (byte)65, (byte)66; out: 16706</example>
+            <example>in: (byte)66, (byte)65; out: 16961</example>
+            <param name="h">high address byte</param>
+            <param name="l">low address byte</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.ByteConverter.ToDecimalism(System.Byte,System.Byte,System.Boolean)">
+            <summary>
+            Convert high address 'h' and low address 'l' to decimalism.
+            </summary>
+            <example>in: (byte)255, (byte)66; out: 65346</example>
+            <example>in: (byte)66, (byte)255; out: -190</example>
+            <param name="h">high address byte</param>
+            <param name="l">low address byte</param>
+            <param name="isRadix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.ByteConverter.ToHexadecimal(System.Byte)">
+            <summary>
+            Convert from byte to hexadecimal.
+            </summary>
+            <example>in: (byte)128; out: 80</example>
+            <param name="byte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.ByteConverter.ToHexadecimal(System.Byte[])">
+            <summary>
+            Convert from bytes to hexadecimal.
+            </summary>
+            <example>in: new byte[] {65, 66, 67}; out: 414243</example>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.ByteConverter.ToHexadecimal(System.Byte,System.Byte)">
+            <summary>
+            Convert from high address 'h' and low address 'l' to hexadecimal.
+            </summary>
+            <example>in: (byte)65, (byte)66; out: 4142</example>
+            <example>in: (byte)66, (byte)65; out: 4241</example>
+            <param name="h">high address byte</param>
+            <param name="l">low address byte</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.DecimalismConverter">
+            <summary>
+            Decimalism Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.DecimalismConverter.ToBinary(System.Int32)">
+            <summary>
+            Convert from decimalism to binary.
+            </summary>
+            <example>in: 46; out: 101110</example>
+            <param name="dec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.DecimalismConverter.ToHexadecimal(System.Int32)">
+            <summary>
+            Convert from decimal to hexadecimal.
+            </summary>
+            <example>in: 46; out: 2E</example>
+            <param name="dec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.DecimalismConverter.ToHexadecimal(System.Int32,System.Int32)">
+            <summary>
+            Convert from decimal to hexadecimal.
+            </summary>
+            <example>in: 46, 4; out: 002E</example>
+            <param name="dec"></param>
+            <param name="formatLength"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Scale.HexadecimalConverter">
+            <summary>
+            Hexadecimal Conversion Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConverter.ToDecimalism(System.String)">
+            <summary>
+            Convert from hexadecimal to decimalism.
+            </summary>
+            <example>in: 2E; out: 46</example>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConverter.ToBinary(System.String)">
+            <summary>
+            Convert from hexadecimal to binary.
+            </summary>
+            <example>in: 2E; out: 101110</example>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConverter.ToBytes(System.String)">
+            <summary>
+            Convert from hexadecimal to bytes.
+            </summary>
+            <example>in: 2E3D; out: result[0] is 46, result[1] is 61</example>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConverter.ToString(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from hexadecimal to <see cref="T:System.String"/>.
+            </summary>
+            <param name="hex"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Scale.HexadecimalConverter.FromString(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from <see cref="T:System.String"/> to hexadecimal.
+            </summary>
+            <example>in: A; out: 1000001</example>
+            <param name="str"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringBooleanDeterminer">
             <summary>
             Internal core conversion helper from string to boolean
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringBooleanHelper.Is(System.String,System.Action{System.Boolean})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringBooleanDeterminer.Is(System.String,System.Action{System.Boolean})">
             <summary>
             Is
             </summary>
@@ -154,7 +580,7 @@
             <param name="booleanAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringBooleanHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Boolean}},System.Action{System.Boolean})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringBooleanDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Boolean}},System.Action{System.Boolean})">
             <summary>
             Is
             </summary>
@@ -163,7 +589,7 @@
             <param name="booleanAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringBooleanHelper.To(System.String,System.Boolean)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringBooleanDeterminer.To(System.String,System.Boolean)">
             <summary>
             To
             </summary>
@@ -171,7 +597,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringBooleanHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Boolean}})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringBooleanDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Boolean}})">
             <summary>
             To
             </summary>
@@ -179,12 +605,12 @@
             <param name="impls"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringByteHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringByteDeterminer">
             <summary>
             Internal core conversion helper from string to byte
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringByteHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Byte})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringByteDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Byte})">
             <summary>
             Is
             </summary>
@@ -194,7 +620,7 @@
             <param name="byteAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringByteHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Byte}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Byte})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringByteDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Byte}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Byte})">
             <summary>
             Is
             </summary>
@@ -205,7 +631,7 @@
             <param name="byteAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringByteHelper.To(System.String,System.Byte,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringByteDeterminer.To(System.String,System.Byte,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -215,7 +641,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringByteHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Byte}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringByteDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Byte}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -225,12 +651,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringCharHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringCharDeterminer">
             <summary>
             Internal core conversion helper from string to char
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringCharHelper.Is(System.String,System.Action{System.Char})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringCharDeterminer.Is(System.String,System.Action{System.Char})">
             <summary>
             Is
             </summary>
@@ -238,7 +664,7 @@
             <param name="charAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringCharHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Char}},System.Action{System.Char})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringCharDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Char}},System.Action{System.Char})">
             <summary>
             Is
             </summary>
@@ -247,7 +673,7 @@
             <param name="charAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringCharHelper.To(System.String,System.Char)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringCharDeterminer.To(System.String,System.Char)">
             <summary>
             To
             </summary>
@@ -255,7 +681,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringCharHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Char}})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringCharDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Char}})">
             <summary>
             To
             </summary>
@@ -263,62 +689,12 @@
             <param name="impls"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringDateTimeExactHelper">
-            <summary>
-            Internal core conversion helper from string to DateTime Extra
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeExactHelper.Is(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
-            <summary>
-            Is
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="style"></param>
-            <param name="formatProvider"></param>
-            <param name="dtAct"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeExactHelper.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
-            <summary>
-            Is
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="tries"></param>
-            <param name="style"></param>
-            <param name="formatProvider"></param>
-            <param name="dtAct"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeExactHelper.To(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTime)">
-            <summary>
-            To
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="style"></param>
-            <param name="formatProvider"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeExactHelper.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
-            <summary>
-            To
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="impls"></param>
-            <param name="style"></param>
-            <param name="formatProvider"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.Internals.StringDateTimeHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer">
             <summary>
             Internal core conversion helper from string to DateTime
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeHelper.Is(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.Is(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
             <summary>
             Is
             </summary>
@@ -328,7 +704,7 @@
             <param name="dtAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
             <summary>
             Is
             </summary>
@@ -339,7 +715,7 @@
             <param name="dtAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeHelper.To(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTime)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.To(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTime)">
             <summary>
             To
             </summary>
@@ -349,7 +725,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -359,12 +735,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringDateTimeOffsetExactHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.Exact">
             <summary>
-            Internal core conversion helper from string to DateTime Extra
+            Exact DateTime Determiner
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetExactHelper.Is(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.Exact.Is(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
             <summary>
             Is
             </summary>
@@ -375,7 +751,7 @@
             <param name="dtAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetExactHelper.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.Exact.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTime})">
             <summary>
             Is
             </summary>
@@ -387,7 +763,7 @@
             <param name="dtAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetExactHelper.To(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTimeOffset)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.Exact.To(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTime)">
             <summary>
             To
             </summary>
@@ -398,7 +774,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetExactHelper.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeDeterminer.Exact.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTime}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -409,12 +785,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringDateTimeOffsetHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer">
             <summary>
             Internal core conversion helper from string to DateTimeOffset
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetHelper.Is(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.Is(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
             <summary>
             Is
             </summary>
@@ -424,7 +800,7 @@
             <param name="dtAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
             <summary>
             Is
             </summary>
@@ -435,7 +811,7 @@
             <param name="dtAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetHelper.To(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTimeOffset)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.To(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTimeOffset)">
             <summary>
             To
             </summary>
@@ -445,7 +821,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDateTimeOffsetHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -455,12 +831,62 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringDecimalHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.Exact">
+            <summary>
+            Exact DateTimeOffset Determiner
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.Exact.Is(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <param name="dtAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.Exact.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="tries"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <param name="dtAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.Exact.To(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.DateTimeOffset)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDateTimeOffsetDeterminer.Exact.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.DateTimeOffset}},System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="impls"></param>
+            <param name="style"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringDecimalDeterminer">
             <summary>
             Internal core conversion helper from string to decimal
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDecimalHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Decimal})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDecimalDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Decimal})">
             <summary>
             Is
             </summary>
@@ -470,7 +896,7 @@
             <param name="decimalAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDecimalHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Decimal}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Decimal})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDecimalDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Decimal}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Decimal})">
             <summary>
             Is
             </summary>
@@ -481,7 +907,7 @@
             <param name="decimalAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDecimalHelper.To(System.String,System.Decimal,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDecimalDeterminer.To(System.String,System.Decimal,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -491,7 +917,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDecimalHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Decimal}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDecimalDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Decimal}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -501,12 +927,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringDoubleHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringDoubleDeterminer">
             <summary>
             Internal core conversion helper from string to double
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDoubleHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Double})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDoubleDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Double})">
             <summary>
             Is
             </summary>
@@ -516,7 +942,7 @@
             <param name="doubleAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDoubleHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Double}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Double})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDoubleDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Double}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Double})">
             <summary>
             Is
             </summary>
@@ -527,7 +953,7 @@
             <param name="doubleAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDoubleHelper.To(System.String,System.Double,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDoubleDeterminer.To(System.String,System.Double,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -537,7 +963,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringDoubleHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Double}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringDoubleDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Double}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -547,12 +973,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringEncodingHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringEncodingDeterminer">
             <summary>
             Internal core conversion helper from string to encoding
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEncodingHelper.Is(System.String,System.Action{System.Text.Encoding})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEncodingDeterminer.Is(System.String,System.Action{System.Text.Encoding})">
             <summary>
             Is
             </summary>
@@ -560,7 +986,7 @@
             <param name="encodingAction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEncodingHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Text.Encoding}},System.Action{System.Text.Encoding})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEncodingDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Text.Encoding}},System.Action{System.Text.Encoding})">
             <summary>
             Is
             </summary>
@@ -569,7 +995,7 @@
             <param name="encodingAction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEncodingHelper.To(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEncodingDeterminer.To(System.String,System.Text.Encoding)">
             <summary>
             To
             </summary>
@@ -577,7 +1003,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEncodingHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Text.Encoding}})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEncodingDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Text.Encoding}})">
             <summary>
             To
             </summary>
@@ -585,12 +1011,12 @@
             <param name="impls"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringEnumHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer">
             <summary>
             Internal core conversion helper from string to Enum
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper.Is(System.String,System.Type,System.Boolean,System.Action{System.Object})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer.Is(System.String,System.Type,System.Boolean,System.Action{System.Object})">
             <summary>
             Is
             </summary>
@@ -600,7 +1026,7 @@
             <param name="enumAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper.Is(System.String,System.Type,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Object}},System.Boolean,System.Action{System.Object})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer.Is(System.String,System.Type,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Object}},System.Boolean,System.Action{System.Object})">
             <summary>
             Is
             </summary>
@@ -611,7 +1037,7 @@
             <param name="enumAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper.To(System.String,System.Type,System.Boolean,System.Object)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer.To(System.String,System.Type,System.Boolean,System.Object)">
             <summary>
             To
             </summary>
@@ -621,7 +1047,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper.To(System.String,System.Type,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Object}},System.Boolean)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer.To(System.String,System.Type,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Object}},System.Boolean)">
             <summary>
             To
             </summary>
@@ -631,12 +1057,12 @@
             <param name="ignoreCase"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringEnumHelper`1">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer`1">
             <summary>
             Internal core conversion helper from string to Enum
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper`1.Is(System.String,System.Boolean,System.Action{`0})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer`1.Is(System.String,System.Boolean,System.Action{`0})">
             <summary>
             Is
             </summary>
@@ -645,7 +1071,7 @@
             <param name="action"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper`1.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,`0}},System.Boolean,System.Action{`0})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer`1.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,`0}},System.Boolean,System.Action{`0})">
             <summary>
             Is
             </summary>
@@ -655,7 +1081,7 @@
             <param name="enumAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper`1.To(System.String,System.Boolean,`0)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer`1.To(System.String,System.Boolean,`0)">
             <summary>
             To
             </summary>
@@ -664,7 +1090,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringEnumHelper`1.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,`0}},System.Boolean)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringEnumDeterminer`1.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,`0}},System.Boolean)">
             <summary>
             To
             </summary>
@@ -673,12 +1099,12 @@
             <param name="ignoreCase"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringFloatHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringFloatDeterminer">
             <summary>
             Internal core conversion helper from string to float
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringFloatHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Single})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringFloatDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Single})">
             <summary>
             Is
             </summary>
@@ -688,7 +1114,7 @@
             <param name="floatAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringFloatHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Single}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Single})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringFloatDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Single}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Single})">
             <summary>
             Is
             </summary>
@@ -699,7 +1125,7 @@
             <param name="floatAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringFloatHelper.To(System.String,System.Single,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringFloatDeterminer.To(System.String,System.Single,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -709,7 +1135,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringFloatHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Single}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringFloatDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Single}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -719,54 +1145,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringGuidExactHelper">
-            <summary>
-            Internal core conversion helper from string to Guid exact
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidExactHelper.Is(System.String,System.String,System.Action{System.Guid})">
-            <summary>
-            Is
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="guidAct"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidExactHelper.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Guid}},System.Action{System.Guid})">
-            <summary>
-            Is
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="tries"></param>
-            <param name="guidAct"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidExactHelper.To(System.String,System.String,System.Guid)">
-            <summary>
-            To
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidExactHelper.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Guid}})">
-            <summary>
-            To
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.Internals.StringGuidHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer">
             <summary>
             Internal core conversion helper from string to Guid
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidHelper.Is(System.String,System.Action{System.Guid})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.Is(System.String,System.Action{System.Guid})">
             <summary>
             Is
             </summary>
@@ -774,7 +1158,7 @@
             <param name="guidAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Guid}},System.Action{System.Guid})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Guid}},System.Action{System.Guid})">
             <summary>
             Is
             </summary>
@@ -783,7 +1167,7 @@
             <param name="guidAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidHelper.To(System.String,System.Guid)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.To(System.String,System.Guid)">
             <summary>
             To
             </summary>
@@ -791,7 +1175,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringGuidHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Guid}})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Guid}})">
             <summary>
             To
             </summary>
@@ -799,12 +1183,54 @@
             <param name="impls"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringIntHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.Exact">
+            <summary>
+            Exact Guid Determiner
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.Exact.Is(System.String,System.String,System.Action{System.Guid})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="guidAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.Exact.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Guid}},System.Action{System.Guid})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="tries"></param>
+            <param name="guidAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.Exact.To(System.String,System.String,System.Guid)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringGuidDeterminer.Exact.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Guid}})">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringIntDeterminer">
             <summary>
             Internal core conversion helper from string to int32
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIntHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int32})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIntDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int32})">
             <summary>
             Is
             </summary>
@@ -814,7 +1240,7 @@
             <param name="intAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIntHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Int32}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int32})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIntDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Int32}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int32})">
             <summary>
             Is
             </summary>
@@ -825,7 +1251,7 @@
             <param name="intAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIntHelper.To(System.String,System.Int32,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIntDeterminer.To(System.String,System.Int32,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -835,7 +1261,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIntHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Int32}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIntDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Int32}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -845,12 +1271,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringIpAddressHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringIpAddressDeterminer">
             <summary>
             Internal core conversion helper from string to IpAddress
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIpAddressHelper.Is(System.String,System.Action{System.Net.IPAddress})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIpAddressDeterminer.Is(System.String,System.Action{System.Net.IPAddress})">
             <summary>
             Is
             </summary>
@@ -858,7 +1284,7 @@
             <param name="addressAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIpAddressHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Net.IPAddress}},System.Action{System.Net.IPAddress})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIpAddressDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Net.IPAddress}},System.Action{System.Net.IPAddress})">
             <summary>
             Is
             </summary>
@@ -867,7 +1293,7 @@
             <param name="addressAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIpAddressHelper.To(System.String,System.Net.IPAddress)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIpAddressDeterminer.To(System.String,System.Net.IPAddress)">
             <summary>
             To
             </summary>
@@ -875,7 +1301,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringIpAddressHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Net.IPAddress}})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringIpAddressDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Net.IPAddress}})">
             <summary>
             To
             </summary>
@@ -883,12 +1309,12 @@
             <param name="impls"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringLongHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringLongDeterminer">
             <summary>
             Internal core conversion helper from string to long
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringLongHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int64})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringLongDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int64})">
             <summary>
             Is
             </summary>
@@ -898,7 +1324,7 @@
             <param name="longAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringLongHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Int64}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int64})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringLongDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Int64}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int64})">
             <summary>
             Is
             </summary>
@@ -909,7 +1335,7 @@
             <param name="longAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringLongHelper.To(System.String,System.Int64,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringLongDeterminer.To(System.String,System.Int64,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -919,7 +1345,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringLongHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Int64}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringLongDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Int64}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -929,12 +1355,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringSByteHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringSByteDeterminer">
             <summary>
             Internal core conversion helper from string to sbyte
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringSByteHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.SByte})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringSByteDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.SByte})">
             <summary>
             Is
             </summary>
@@ -944,7 +1370,7 @@
             <param name="byteAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringSByteHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.SByte}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.SByte})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringSByteDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.SByte}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.SByte})">
             <summary>
             Is
             </summary>
@@ -955,7 +1381,7 @@
             <param name="byteAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringSByteHelper.To(System.String,System.SByte,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringSByteDeterminer.To(System.String,System.SByte,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -965,7 +1391,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringSByteHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.SByte}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringSByteDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.SByte}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -975,12 +1401,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringShortHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringShortDeterminer">
             <summary>
             Internal core conversion helper from string to short
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringShortHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int16})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringShortDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int16})">
             <summary>
             Is
             </summary>
@@ -990,7 +1416,7 @@
             <param name="shortAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringShortHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Int16}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int16})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringShortDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Int16}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.Int16})">
             <summary>
             Is
             </summary>
@@ -1001,7 +1427,7 @@
             <param name="shortAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringShortHelper.To(System.String,System.Int16,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringShortDeterminer.To(System.String,System.Int16,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1011,7 +1437,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringShortHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Int16}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringShortDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Int16}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1021,58 +1447,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringTimeSpanExactHelper">
-            <summary>
-            Internal core conversion helper from string to TimeSpan exact
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanExactHelper.Is(System.String,System.String,System.IFormatProvider,System.Action{System.TimeSpan})">
-            <summary>
-            Is
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="formatProvider"></param>
-            <param name="tsAct"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanExactHelper.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.TimeSpan}},System.IFormatProvider,System.Action{System.TimeSpan})">
-            <summary>
-            Is
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="tries"></param>
-            <param name="formatProvider"></param>
-            <param name="dtAct"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanExactHelper.To(System.String,System.String,System.IFormatProvider,System.TimeSpan)">
-            <summary>
-            To
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="formatProvider"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanExactHelper.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.TimeSpan}},System.IFormatProvider)">
-            <summary>
-            To
-            </summary>
-            <param name="str"></param>
-            <param name="format"></param>
-            <param name="impls"></param>
-            <param name="formatProvider"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.Internals.StringTimeSpanHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer">
             <summary>
             Internal core conversion helper from string to TimeSpan
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanHelper.Is(System.String,System.IFormatProvider,System.Action{System.TimeSpan})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.Is(System.String,System.IFormatProvider,System.Action{System.TimeSpan})">
             <summary>
             Is
             </summary>
@@ -1081,7 +1461,7 @@
             <param name="tsAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.TimeSpan}},System.IFormatProvider,System.Action{System.TimeSpan})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.TimeSpan}},System.IFormatProvider,System.Action{System.TimeSpan})">
             <summary>
             Is
             </summary>
@@ -1091,7 +1471,7 @@
             <param name="dtAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanHelper.To(System.String,System.IFormatProvider,System.TimeSpan)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.To(System.String,System.IFormatProvider,System.TimeSpan)">
             <summary>
             To
             </summary>
@@ -1100,7 +1480,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringTimeSpanHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.TimeSpan}},System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.TimeSpan}},System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1109,12 +1489,58 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringUIntHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.Exact">
+            <summary>
+            Exact TimeSpan Determiner
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.Exact.Is(System.String,System.String,System.IFormatProvider,System.Action{System.TimeSpan})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="formatProvider"></param>
+            <param name="tsAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.Exact.Is(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.TimeSpan}},System.IFormatProvider,System.Action{System.TimeSpan})">
+            <summary>
+            Is
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="tries"></param>
+            <param name="formatProvider"></param>
+            <param name="dtAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.Exact.To(System.String,System.String,System.IFormatProvider,System.TimeSpan)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="formatProvider"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringTimeSpanDeterminer.Exact.To(System.String,System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.TimeSpan}},System.IFormatProvider)">
+            <summary>
+            To
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <param name="impls"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringUIntDeterminer">
             <summary>
             Internal core conversion helper from string to uint
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUIntHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt32})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUIntDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt32})">
             <summary>
             Is
             </summary>
@@ -1124,7 +1550,7 @@
             <param name="intAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUIntHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.UInt32}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt32})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUIntDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.UInt32}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt32})">
             <summary>
             Is
             </summary>
@@ -1135,7 +1561,7 @@
             <param name="intAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUIntHelper.To(System.String,System.UInt32,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUIntDeterminer.To(System.String,System.UInt32,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1145,7 +1571,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUIntHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.UInt32}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUIntDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.UInt32}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1155,12 +1581,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringULongHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringULongDeterminer">
             <summary>
             Internal core conversion helper from string to ulong
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringULongHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt64})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringULongDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt64})">
             <summary>
             Is
             </summary>
@@ -1170,7 +1596,7 @@
             <param name="longAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringULongHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.UInt64}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt64})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringULongDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.UInt64}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt64})">
             <summary>
             Is
             </summary>
@@ -1181,7 +1607,7 @@
             <param name="longAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringULongHelper.To(System.String,System.UInt64,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringULongDeterminer.To(System.String,System.UInt64,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1191,7 +1617,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringULongHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.UInt64}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringULongDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.UInt64}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1201,12 +1627,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringUShortHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringUShortDeterminer">
             <summary>
             Internal core conversion helper from string to ushort
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUShortHelper.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt16})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUShortDeterminer.Is(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt16})">
             <summary>
             Is
             </summary>
@@ -1216,7 +1642,7 @@
             <param name="shortAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUShortHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.UInt16}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt16})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUShortDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.UInt16}},System.Globalization.NumberStyles,System.IFormatProvider,System.Action{System.UInt16})">
             <summary>
             Is
             </summary>
@@ -1227,7 +1653,7 @@
             <param name="shortAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUShortHelper.To(System.String,System.UInt16,System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUShortDeterminer.To(System.String,System.UInt16,System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1237,7 +1663,7 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringUShortHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.UInt16}},System.Globalization.NumberStyles,System.IFormatProvider)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringUShortDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.UInt16}},System.Globalization.NumberStyles,System.IFormatProvider)">
             <summary>
             To
             </summary>
@@ -1247,12 +1673,12 @@
             <param name="formatProvider"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.StringVersionHelper">
+        <member name="T:Cosmos.Conversions.StringDeterminers.StringVersionDeterminer">
             <summary>
             Internal core conversion helper from string to version
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringVersionHelper.Is(System.String,System.Action{System.Version})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringVersionDeterminer.Is(System.String,System.Action{System.Version})">
             <summary>
             Is
             </summary>
@@ -1260,7 +1686,7 @@
             <param name="versionAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringVersionHelper.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Version}},System.Action{System.Version})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringVersionDeterminer.Is(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{System.String,System.Version}},System.Action{System.Version})">
             <summary>
             Is
             </summary>
@@ -1269,7 +1695,7 @@
             <param name="versionAct"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringVersionHelper.To(System.String,System.Version)">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringVersionDeterminer.To(System.String,System.Version)">
             <summary>
             To
             </summary>
@@ -1277,7 +1703,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals.StringVersionHelper.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Version}})">
+        <member name="M:Cosmos.Conversions.StringDeterminers.StringVersionDeterminer.To(System.String,System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{System.String,System.Version}})">
             <summary>
             To
             </summary>
@@ -1285,17 +1711,12 @@
             <param name="impls"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Internals.EncodingHelper">
-            <summary>
-            Encoding helper
-            </summary>
-        </member>
-        <member name="T:Cosmos.Conversions.Internals._Helper">
+        <member name="T:Cosmos.Conversions.StringDeterminers._Helper">
             <summary>
             Helper
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.Internals._Helper.IsXXX``2(``0,System.Func{``0,System.Boolean},System.Func{``0,System.Action{``1},System.Boolean},System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{``0,``1}},System.Action{``1})">
+        <member name="M:Cosmos.Conversions.StringDeterminers._Helper.IsXXX``2(``0,System.Func{``0,System.Boolean},System.Func{``0,System.Action{``1},System.Boolean},System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionTry{``0,``1}},System.Action{``1})">
             <summary>
             Is xxx
             </summary>
@@ -1308,7 +1729,7 @@
             <typeparam name="TTo"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.Internals._Helper.ToXXX``2(``0,System.Func{``0,System.Action{``1},System.Boolean},System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{``0,``1}})">
+        <member name="M:Cosmos.Conversions.StringDeterminers._Helper.ToXXX``2(``0,System.Func{``0,System.Action{``1},System.Boolean},System.Collections.Generic.IEnumerable{Cosmos.Conversions.IConversionImpl{``0,``1}})">
             <summary>
             To xxx
             </summary>
@@ -1319,459 +1740,33 @@
             <typeparam name="TTo"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.NumericConversion">
-            <summary>
-            Numeric Conversion Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToInt16(System.Object,System.Int16)">
-            <summary>
-            To int16
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableInt16(System.Object)">
-            <summary>
-            To nullable int16
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToUInt16(System.Object,System.UInt16)">
-            <summary>
-            To uint16
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableUInt16(System.Object)">
-            <summary>
-            To nullable uint16
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToInt32(System.Object,System.Int32)">
-            <summary>
-            To int32
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableInt32(System.Object)">
-            <summary>
-            To nullable int32
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToUInt32(System.Object,System.UInt32)">
-            <summary>
-            To uint32
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableUInt32(System.Object)">
-            <summary>
-            To nullable uint32
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToInt64(System.Object,System.Int64)">
-            <summary>
-            To int64
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableInt64(System.Object)">
-            <summary>
-            To nullable int64
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToUInt64(System.Object,System.UInt64)">
-            <summary>
-            To int64
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableUInt64(System.Object)">
-            <summary>
-            To nullable uint64
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToFloat(System.Object,System.Single)">
-            <summary>
-            To float
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableFloat(System.Object)">
-            <summary>
-            To nullable float
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToDouble(System.Object,System.Double)">
-            <summary>
-            To double
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableDouble(System.Object)">
-            <summary>
-            To nullable double
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundDouble(System.Object,System.Int32,System.Double)">
-            <summary>
-            To double with specified precision.
-            </summary>
-            <param name="obj"></param>
-            <param name="digits"></param>
-            <param name="defaultRet"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundNullableDouble(System.Object,System.Int32)">
-            <summary>
-            To nullable double with specified precision.
-            </summary>
-            <param name="obj"></param>
-            <param name="digits"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToDecimal(System.Object,System.Decimal)">
-            <summary>
-            To decimal
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToNullableDecimal(System.Object)">
-            <summary>
-            To nullable decimal
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundDecimal(System.Object,System.Int32,System.Decimal)">
-            <summary>
-            To decimal with specified precision.
-            </summary>
-            <param name="obj"></param>
-            <param name="digits"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.NumericConversion.ToRoundNullableDecimal(System.Object,System.Int32)">
-            <summary>
-            To nullable decimal with specified precision.
-            </summary>
-            <param name="obj"></param>
-            <param name="digits"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.ObjectConversion">
-            <summary>
-            Object Conversion Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.ToString(System.Object)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Type)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
-            </summary>
-            <param name="fromObj"></param>
-            <param name="targetType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Type,System.Object)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
-            </summary>
-            <param name="fromObj"></param>
-            <param name="targetType"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Reflection.TypeInfo)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
-            </summary>
-            <param name="fromObj"></param>
-            <param name="targetTypeInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.To(System.Object,System.Reflection.TypeInfo,System.Object)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to another type of <see cref="T:System.Object"/> instance.
-            </summary>
-            <param name="fromObj"></param>
-            <param name="targetTypeInfo"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.To``1(System.Object)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to a TTo instance.
-            </summary>
-            <typeparam name="TTo"></typeparam>
-            <param name="fromObj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.To``1(System.Object,``0)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to a TTo instance.
-            </summary>
-            <typeparam name="TTo"></typeparam>
-            <param name="fromObj"></param>
-            <param name="defaultValue"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.ToList``1(System.String,System.Char)">
-            <summary>
-            Convert from string to a TTo instances list.
-            </summary>
-            <typeparam name="TTo"></typeparam>
-            <param name="listStr"></param>
-            <param name="splitChar"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.ToDateTime(System.Object,System.DateTime)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to <see cref="T:System.DateTime"/>.
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.ObjectConversion.ToNullableDateTime(System.Object)">
-            <summary>
-            Convert from an <see cref="T:System.Object"/> to nullable <see cref="T:System.DateTime"/>.
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.Scale.BinaryConversion">
-            <summary>
-            Binary Conversion Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BinaryConversion.ToDecimalism(System.String)">
-            <summary>
-            Convert from binary to decimalism.
-            </summary>
-            <example>in: 101110; out: 46</example>
-            <param name="bin"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BinaryConversion.ToHexadecimal(System.String)">
-            <summary>
-            Convert from binary to hexadecimal.
-            </summary>
-            <example>in: 101110; out: 2E</example>
-            <param name="bin"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.Scale.BytesConversion">
-            <summary>
-            Bytes Conversion Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToAscii(System.Byte[])">
-            <summary>
-            Convert from bytes to ASCII <see cref="T:System.String"/>.
-            </summary>
-            <example>in: new byte[] {65, 66, 67}; out: ABC</example>
-            <param name="bytes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToBinary(System.Byte)">
-            <summary>
-            Convert from byte to binary.
-            </summary>
-            <example>in: (byte)128; out: 10000000</example>
-            <param name="byte"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToDecimalism(System.Byte,System.Byte)">
-            <summary>
-            Convert high address 'h' and low address 'l' to decimalism.
-            </summary>
-            <example>in: (byte)65, (byte)66; out: 16706</example>
-            <example>in: (byte)66, (byte)65; out: 16961</example>
-            <param name="h">high address byte</param>
-            <param name="l">low address byte</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToDecimalism(System.Byte,System.Byte,System.Boolean)">
-            <summary>
-            Convert high address 'h' and low address 'l' to decimalism.
-            </summary>
-            <example>in: (byte)255, (byte)66; out: 65346</example>
-            <example>in: (byte)66, (byte)255; out: -190</example>
-            <param name="h">high address byte</param>
-            <param name="l">low address byte</param>
-            <param name="isRadix"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToHexadecimal(System.Byte)">
-            <summary>
-            Convert from byte to hexadecimal.
-            </summary>
-            <example>in: (byte)128; out: 80</example>
-            <param name="byte"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToHexadecimal(System.Byte[])">
-            <summary>
-            Convert from bytes to hexadecimal.
-            </summary>
-            <example>in: new byte[] {65, 66, 67}; out: 414243</example>
-            <param name="bytes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.BytesConversion.ToHexadecimal(System.Byte,System.Byte)">
-            <summary>
-            Convert from high address 'h' and low address 'l' to hexadecimal.
-            </summary>
-            <example>in: (byte)65, (byte)66; out: 4142</example>
-            <example>in: (byte)66, (byte)65; out: 4241</example>
-            <param name="h">high address byte</param>
-            <param name="l">low address byte</param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.Scale.DecimalismConversion">
-            <summary>
-            Decimalism Conversion Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.DecimalismConversion.ToBinary(System.Int32)">
-            <summary>
-            Convert from decimalism to binary.
-            </summary>
-            <example>in: 46; out: 101110</example>
-            <param name="dec"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.DecimalismConversion.ToHexadecimal(System.Int32)">
-            <summary>
-            Convert from decimal to hexadecimal.
-            </summary>
-            <example>in: 46; out: 2E</example>
-            <param name="dec"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.DecimalismConversion.ToHexadecimal(System.Int32,System.Int32)">
-            <summary>
-            Convert from decimal to hexadecimal.
-            </summary>
-            <example>in: 46, 4; out: 002E</example>
-            <param name="dec"></param>
-            <param name="formatLength"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.Scale.HexadecimalConversion">
-            <summary>
-            Hexadecimal Conversion Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToDecimalism(System.String)">
-            <summary>
-            Convert from hexadecimal to decimalism.
-            </summary>
-            <example>in: 2E; out: 46</example>
-            <param name="hex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToBinary(System.String)">
-            <summary>
-            Convert from hexadecimal to binary.
-            </summary>
-            <example>in: 2E; out: 101110</example>
-            <param name="hex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToBytes(System.String)">
-            <summary>
-            Convert from hexadecimal to bytes.
-            </summary>
-            <example>in: 2E3D; out: result[0] is 46, result[1] is 61</example>
-            <param name="hex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.ToString(System.String,System.Text.Encoding)">
-            <summary>
-            Convert from hexadecimal to <see cref="T:System.String"/>.
-            </summary>
-            <param name="hex"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.Scale.HexadecimalConversion.FromString(System.String,System.Text.Encoding)">
-            <summary>
-            Convert from <see cref="T:System.String"/> to hexadecimal.
-            </summary>
-            <example>in: A; out: 1000001</example>
-            <param name="str"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Conversions.TypeConversion">
+        <member name="T:Cosmos.Conversions.TypeConverter">
             <summary>
             Type conversion Utilities
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.TypeConversion.ToNonNullableType(System.Type)">
+        <member name="M:Cosmos.Conversions.TypeConverter.ToNonNullableType(System.Type)">
             <summary>
             Convert nullable type to underlying type.
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.TypeConversion.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Conversions.TypeConverter.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
             <summary>
             Convert nullable typeInfo to underlying typeInfo。
             </summary>
             <param name="typeInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.TypeConversion.ToSafeNonNullableType(System.Type)">
+        <member name="M:Cosmos.Conversions.TypeConverter.ToSafeNonNullableType(System.Type)">
             <summary>
             Convert nullable type to underlying type safety.
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.TypeConversion.ToSafeNonNullableTypeInfo(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Conversions.TypeConverter.ToSafeNonNullableTypeInfo(System.Reflection.TypeInfo)">
             <summary>
             Convert nullable typeInfo to underlying typeInfo safety.
             </summary>
@@ -2303,6 +2298,26 @@
             Prepare for rethrow
             </summary>
             <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.EncodingExtensions">
+            <summary>
+            Encoding helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.EncodingExtensions.Fixed(System.Text.Encoding)">
+            <summary>
+            Fixed
+            </summary>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.EncodingExtensions.Fixed(System.Text.Encoding,System.Text.Encoding)">
+            <summary>
+            Fixed
+            </summary>
+            <param name="encoding"></param>
+            <param name="defaultVal"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Judgments.AssertionJudgment">
@@ -3458,6 +3473,13 @@
             <param name="objColl">Object array</param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Types.OfUnderlyingType(System.Type)">
+            <summary>
+            Get underlying type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Types.DefaultValue``1">
             <summary>
             Get default value of special type T.
@@ -3497,6 +3519,48 @@
             </summary>
             <typeparam name="TGot">The given type TGot</typeparam>
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsNumericType``1">
+            <summary>
+            Is numeric type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsNumericType(System.Type)">
+            <summary>
+            Is numeric type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsNumericType(System.Reflection.TypeInfo)">
+            <summary>
+            Is numeric type
+            </summary>
+            <param name="typeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsNullableType``1">
+            <summary>
+            Is nullable type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsNullableType(System.Type)">
+            <summary>
+            Is nullable type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Types.IsNullableType(System.Reflection.TypeInfo)">
+            <summary>
+            Is nullable type
+            </summary>
+            <param name="typeInfo"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Types.CreateInstance``1(System.Object[])">

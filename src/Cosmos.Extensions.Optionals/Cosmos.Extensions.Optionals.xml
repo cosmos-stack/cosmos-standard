@@ -1813,6 +1813,13 @@
             <typeparam name="TImpl"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Optionals.OptionalExtensions.IsOptionalType(System.Type)">
+            <summary>
+            Is optional type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Optionals.StringExtensions">
             <summary>
             Extensions for string
@@ -1933,6 +1940,21 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="T:Cosmos.Optionals.IOptional">
+            <summary>
+            Interface for optional
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.IOptional.Key">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.IOptional.HasValue">
+            <summary>
+            Has value
+            </summary>
         </member>
         <member name="T:Cosmos.Optionals.IDynamicOptional">
             <summary>
@@ -2079,16 +2101,6 @@
             Interface for optional
             </summary>
             <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Cosmos.Optionals.IOptional`1.Key">
-            <summary>
-            Key
-            </summary>
-        </member>
-        <member name="P:Cosmos.Optionals.IOptional`1.HasValue">
-            <summary>
-            Has value
-            </summary>
         </member>
         <member name="P:Cosmos.Optionals.IOptional`1.Value">
             <summary>

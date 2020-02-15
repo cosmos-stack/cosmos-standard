@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
+using Cosmos.Judgments;
 
 namespace Cosmos {
     /// <summary>
@@ -30,6 +32,13 @@ namespace Cosmos {
                 types[i] = objColl[i].GetType();
             return types;
         }
+
+        /// <summary>
+        /// Get underlying type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static Type OfUnderlyingType(Type type) => Nullable.GetUnderlyingType(type) ?? type;
 
         #endregion
 
@@ -138,5 +147,56 @@ namespace Cosmos {
         public static Type GetRawTypeFromGenericClass<TGot, TGeneric>() => GetRawTypeFromGenericClass(typeof(TGot), typeof(TGeneric));
 
         #endregion
+
+        #region Numeric Type
+
+        /// <summary>
+        /// Is numeric type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsNumericType<T>() => IsNumericType(typeof(T));
+
+        /// <summary>
+        /// Is numeric type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsNumericType(Type type) => TypeJudgment.IsNumericType(type);
+
+        /// <summary>
+        /// Is numeric type
+        /// </summary>
+        /// <param name="typeInfo"></param>
+        /// <returns></returns>
+        public static bool IsNumericType(TypeInfo typeInfo) => TypeJudgment.IsNumericType(typeInfo);
+
+        #endregion
+
+        #region Nullable Type
+
+        /// <summary>
+        /// Is nullable type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsNullableType<T>() => IsNullableType(typeof(T));
+
+        /// <summary>
+        /// Is nullable type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsNullableType(Type type) => TypeJudgment.IsNullableType(type);
+
+        /// <summary>
+        /// Is nullable type
+        /// </summary>
+        /// <param name="typeInfo"></param>
+        /// <returns></returns>
+        public static bool IsNullableType(TypeInfo typeInfo) => TypeJudgment.IsNullableType(typeInfo);
+
+        #endregion
+
     }
 }

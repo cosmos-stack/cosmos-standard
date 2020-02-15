@@ -5,17 +5,7 @@ namespace Cosmos.Optionals {
     /// Interface for optional
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IOptional<T> {
-        /// <summary>
-        /// Key
-        /// </summary>
-        string Key { get; }
-
-        /// <summary>
-        /// Has value
-        /// </summary>
-        bool HasValue { get; }
-
+    public interface IOptional<T> : IOptional {
         /// <summary>
         /// Value
         /// </summary>
