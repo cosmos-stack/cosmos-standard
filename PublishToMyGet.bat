@@ -23,14 +23,6 @@ dotnet pack src/Cosmos.Extensions.Reflection -c Release -o nuget_pub
 dotnet pack src/Cosmos.Abstractions -c Release -o nuget_pub
 dotnet pack src/Cosmos.Standard -c Release -o nuget_pub
 
-::Extensions for dependency/ioc
-dotnet pack extra/dependency/src/Cosmos.Extensions.Autofac -c Release -o nuget_pub
-dotnet pack extra/dependency/src/Cosmos.Extensions.AspectCoreInjector -c Release -o nuget_pub
-dotnet pack extra/dependency/src/Cosmos.Extensions.DependencyInjection -c Release -o nuget_pub
-
-::Extensions for http
-dotnet pack extra/http/src/Cosmos.Extensions.Http -c Release -o nuget_pub
-
 for /R "nuget_pub" %%s in (*symbols.nupkg) do (
     del %%s
 )

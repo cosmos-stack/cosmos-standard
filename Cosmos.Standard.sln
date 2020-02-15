@@ -52,39 +52,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Test.ScannerTest0", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Asyncs", "src\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj", "{324B2399-958B-4E6B-90AF-4FD51DEB7681}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-extra", "src-extra", "{FD9EB5B3-126F-4139-9CDE-DAAE0D0AC1FC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependency", "dependency", "{0C6B14E0-AB7B-43B6-8163-A463179522AC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E4F33DAC-3726-4246-A0B0-7E1167025AC5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.AspectCoreInjector", "extra\dependency\src\Cosmos.Extensions.AspectCoreInjector\Cosmos.Extensions.AspectCoreInjector.csproj", "{924B899A-F15F-4147-BD9C-C30A8D7AFF35}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Autofac", "extra\dependency\src\Cosmos.Extensions.Autofac\Cosmos.Extensions.Autofac.csproj", "{9605BF73-97AC-4453-AAA6-18549CC3C11D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.DependencyInjection", "extra\dependency\src\Cosmos.Extensions.DependencyInjection\Cosmos.Extensions.DependencyInjection.csproj", "{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "http", "http", "{B41AC50F-BA96-4E63-B231-67DE42C033BF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6E783B6-4DBE-47B2-8D01-C0C98C50D9B3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Http", "extra\http\src\Cosmos.Extensions.Http\Cosmos.Extensions.Http.csproj", "{DDE555C8-09CB-4BC2-AF43-7DAEE5F3B04D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Reflection", "src\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj", "{5542C90C-367D-4327-BB7A-A01ACA2A2949}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F8932762-6701-4DD4-84F4-FC06CBED066E}"
-ProjectSection(SolutionItems) = preProject
-	extra\dependency\build\misc.props = extra\dependency\build\misc.props
-	extra\dependency\build\package.props = extra\dependency\build\package.props
-	extra\dependency\build\common.props = extra\dependency\build\common.props
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{0A45A6AA-B899-4FED-9027-F350A122B015}"
-ProjectSection(SolutionItems) = preProject
-	extra\http\build\package.props = extra\http\build\package.props
-	extra\http\build\misc.props = extra\http\build\misc.props
-	extra\http\build\common.props = extra\http\build\common.props
-EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Optionals", "src\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj", "{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B}"
 EndProject
@@ -152,22 +120,6 @@ Global
 		{324B2399-958B-4E6B-90AF-4FD51DEB7681}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{324B2399-958B-4E6B-90AF-4FD51DEB7681}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{324B2399-958B-4E6B-90AF-4FD51DEB7681}.Release|Any CPU.Build.0 = Release|Any CPU
-		{924B899A-F15F-4147-BD9C-C30A8D7AFF35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{924B899A-F15F-4147-BD9C-C30A8D7AFF35}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{924B899A-F15F-4147-BD9C-C30A8D7AFF35}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{924B899A-F15F-4147-BD9C-C30A8D7AFF35}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9605BF73-97AC-4453-AAA6-18549CC3C11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9605BF73-97AC-4453-AAA6-18549CC3C11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9605BF73-97AC-4453-AAA6-18549CC3C11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9605BF73-97AC-4453-AAA6-18549CC3C11D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDE555C8-09CB-4BC2-AF43-7DAEE5F3B04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDE555C8-09CB-4BC2-AF43-7DAEE5F3B04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDE555C8-09CB-4BC2-AF43-7DAEE5F3B04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDE555C8-09CB-4BC2-AF43-7DAEE5F3B04D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5542C90C-367D-4327-BB7A-A01ACA2A2949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5542C90C-367D-4327-BB7A-A01ACA2A2949}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5542C90C-367D-4327-BB7A-A01ACA2A2949}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -199,17 +151,7 @@ Global
 		{749A5F2F-8769-4FE9-9485-44999D813BA5} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 		{99689F56-23DE-42F3-8797-137D7B77D613} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 		{324B2399-958B-4E6B-90AF-4FD51DEB7681} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
-		{0C6B14E0-AB7B-43B6-8163-A463179522AC} = {FD9EB5B3-126F-4139-9CDE-DAAE0D0AC1FC}
-		{E4F33DAC-3726-4246-A0B0-7E1167025AC5} = {0C6B14E0-AB7B-43B6-8163-A463179522AC}
-		{924B899A-F15F-4147-BD9C-C30A8D7AFF35} = {E4F33DAC-3726-4246-A0B0-7E1167025AC5}
-		{9605BF73-97AC-4453-AAA6-18549CC3C11D} = {E4F33DAC-3726-4246-A0B0-7E1167025AC5}
-		{2ABA6A49-694B-495E-915E-F0CA1E3F9ED5} = {E4F33DAC-3726-4246-A0B0-7E1167025AC5}
-		{B41AC50F-BA96-4E63-B231-67DE42C033BF} = {FD9EB5B3-126F-4139-9CDE-DAAE0D0AC1FC}
-		{F6E783B6-4DBE-47B2-8D01-C0C98C50D9B3} = {B41AC50F-BA96-4E63-B231-67DE42C033BF}
-		{DDE555C8-09CB-4BC2-AF43-7DAEE5F3B04D} = {F6E783B6-4DBE-47B2-8D01-C0C98C50D9B3}
 		{5542C90C-367D-4327-BB7A-A01ACA2A2949} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
-		{F8932762-6701-4DD4-84F4-FC06CBED066E} = {0C6B14E0-AB7B-43B6-8163-A463179522AC}
-		{0A45A6AA-B899-4FED-9027-F350A122B015} = {B41AC50F-BA96-4E63-B231-67DE42C033BF}
 		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
 		{F7ED45F3-8BB1-4620-A267-9F02510134E4} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 	EndGlobalSection

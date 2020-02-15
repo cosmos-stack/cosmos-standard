@@ -17,8 +17,8 @@ Cosmos.Standard is the core repository of [Cosmosloops Labs.](https://github.com
 
 This repository also include these inline common projects:
 
-- [Cosmos.Http](extra/http) - Http extensions for cosmos-standard
-- [Cosmos.Dependency](extra/dependency) - Dependency extensions for cosmos-standard
+- [Cosmos.Http](https://github.com/cosmos-loops/Http) - Http extensions for cosmos-standard
+- [Cosmos.Dependency](https://github.com/cosmos-loops/Dependency) - Dependency extensions for cosmos-standard
 - [Cosmos.Serialization](https://github.com/cosmos-loops/Serialization) - Serialization extensions for cosmos-standard
 
 ---
