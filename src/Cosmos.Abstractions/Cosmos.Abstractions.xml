@@ -135,6 +135,12 @@
             MessagePack 序列化器接口
             </summary>
         </member>
+        <member name="T:Cosmos.Serialization.IObjectSerializer">
+            <summary>
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
+            </summary>
+        </member>
         <member name="T:Cosmos.Serialization.IObjectSerializer`1">
             <summary>
             Object Serializer Meta Interface<br />
@@ -196,17 +202,71 @@
             <param name="type">指定的被序列化对象类型</param>
             <returns>反序列化结果</returns>
         </member>
-        <member name="T:Cosmos.Serialization.IObjectSerializer">
-            <summary>
-            Object Serializer Meta Interface<br />
-            对象序列化器元接口
-            </summary>
-        </member>
         <member name="T:Cosmos.Serialization.IProtobufSerializer">
             <summary>
             Interface of Protobuf serializer<br />
             Google ProtoBuf 序列化器接口
             </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.ISerializer">
+            <summary> 
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializer.SerializeToStream``1(``0)">
+            <summary>
+            Serialize<br />
+            序列化
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStream``1(System.IO.Stream)">
+            <summary>
+            Deserialize<br />
+            反序列化
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStream(System.IO.Stream,System.Type)">
+            <summary>
+            Deserialize<br />
+            反序列化
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializer.SerializeToStreamAsync``1(``0)">
+            <summary>
+            Serialize async<br />
+            异步序列化
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStreamAsync``1(System.IO.Stream)">
+            <summary>
+            Deserialize async<br />
+            异步反序列化
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStreamAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Deserialize async<br />
+            异步反序列化
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Serialization.ITomlSerializer">
             <summary>
