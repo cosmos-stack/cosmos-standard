@@ -16,7 +16,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static ReadOnlyCollection<T> WrapInReadOnlyCollection<T>(this IList<T> source) {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
             return new ReadOnlyCollection<T>(source);
         }
