@@ -400,13 +400,13 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
-        public static T ValueOrThrow<T, TException>(this IOptional<T> optional, TException exception) 
+        public static T ValueOrThrow<T, TException>(this IOptional<T> optional, TException exception)
             where TException : Exception {
             if (optional.HasValue)
                 return optional.Value;
             throw exception;
         }
-        
+
         /// <summary>
         /// Value or throw
         /// </summary>
@@ -414,13 +414,13 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
-        public static T ValueOrThrow<T, TException>(this IOptional<T,TException> optional) 
+        public static T ValueOrThrow<T, TException>(this IOptional<T, TException> optional)
             where TException : Exception {
             if (optional.HasValue)
                 return optional.Value;
             throw optional.Exception;
-        } 
-        
+        }
+
         #endregion
 
         #region Flatten
@@ -446,6 +446,20 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         public static Either<T, TException> Flatten<T, TException, TImpl>(this IOptionalImpl<Either<T, TException>, TException, TImpl> optional) {
             return optional.FlatMap(innerOptional => innerOptional);
+        }
+
+        #endregion
+
+        #region Is Optional Type
+
+        /// <summary>
+        /// Is optional type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsOptionalType(this Type type) {
+            return !(type is null) && typeof(IOptional).IsAssignableFrom(type);
+
         }
 
         #endregion

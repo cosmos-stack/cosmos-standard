@@ -1,4 +1,4 @@
-using Cosmos.Conversions.Internals;
+using Cosmos.Conversions.StringDeterminers;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
@@ -14,7 +14,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static DateInfo CastToDateInfo(this string str, DateInfo defaultVal = default)
-            => StringDateInfoHelper.To(str, defaultVal: defaultVal);
+            => StringDateInfoDeterminer.To(str, defaultVal: defaultVal);
 
         /// <summary>
         /// To DateTimeSpan
@@ -23,7 +23,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static DateTimeSpan CastToDateTimeSpan(this string str, DateTimeSpan defaultVal = default)
-            => StringDateTimeSpanHelper.To(str, defaultVal: defaultVal);
+            => StringDateTimeSpanDeterminer.To(str, defaultVal: defaultVal);
 
         /// <summary>
         /// To nullable TimeSpan
@@ -31,7 +31,7 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <returns></returns>
         public static DateTimeSpan? CastToNullableDateTimeSpan(this string str) {
-            if (StringDateTimeSpanHelper.Is(str))
+            if (StringDateTimeSpanDeterminer.Is(str))
                 return CastToDateTimeSpan(str);
             return null;
         }

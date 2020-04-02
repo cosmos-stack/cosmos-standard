@@ -1,5 +1,5 @@
 using System;
-using Cosmos.Conversions.Internals;
+using Cosmos.Conversions.StringDeterminers;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
@@ -38,7 +38,7 @@ namespace Cosmos {
         /// <param name="str"></param>
         /// <returns></returns>
         public static TEnum CastToEnum<TEnum>(this string str) where TEnum : struct
-            => StringEnumHelper<TEnum>.To(str);
+            => StringEnumDeterminer<TEnum>.To(str);
 
         /// <summary>
         /// 将指定的字符串转换为枚举
@@ -48,7 +48,7 @@ namespace Cosmos {
         /// <param name="ignoreCase"> 是否区分大小写 </param>
         /// <returns></returns>
         public static TEnum CastToEnum<TEnum>(this string str, bool ignoreCase) where TEnum : struct
-            => StringEnumHelper<TEnum>.To(str, ignoreCase);
+            => StringEnumDeterminer<TEnum>.To(str, ignoreCase);
 
         /// <summary>
         /// 将指定的字符串转换为枚举
@@ -58,7 +58,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static TEnum CastToEnum<TEnum>(this string str, TEnum defaultVal) where TEnum : struct
-            => StringEnumHelper<TEnum>.To(str, defaultVal: defaultVal);
+            => StringEnumDeterminer<TEnum>.To(str, defaultVal: defaultVal);
 
         /// <summary>
         /// 将指定的字符串转换为枚举
@@ -69,6 +69,6 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static TEnum CastToEnum<TEnum>(this string str, bool ignoreCase, TEnum defaultVal) where TEnum : struct
-            => StringEnumHelper<TEnum>.To(str, ignoreCase, defaultVal);
+            => StringEnumDeterminer<TEnum>.To(str, ignoreCase, defaultVal);
     }
 }

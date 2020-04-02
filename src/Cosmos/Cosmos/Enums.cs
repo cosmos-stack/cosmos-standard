@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using Cosmos.Conversions.Internals;
+using Cosmos.Conversions.StringDeterminers;
 
 namespace Cosmos {
     /// <summary>
@@ -18,7 +18,7 @@ namespace Cosmos {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static T Of<T>(string member, bool ignoreCase = false, T defaultVal = default) where T : struct, Enum {
-            return StringEnumHelper<T>.To(member, ignoreCase, defaultVal);
+            return StringEnumDeterminer<T>.To(member, ignoreCase, defaultVal);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Cosmos {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static T Of<T>(object member) where T : struct, Enum {
-            return Of<T>(Conversions.ObjectConversion.ToString(member));
+            return Of<T>(Conversions.ObjectConverter.ToString(member));
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static object Of(string member, Type enumType, bool ignoreCase = false, object defaultVal = default) {
-            return StringEnumHelper.To(member, enumType, ignoreCase, defaultVal);
+            return StringEnumDeterminer.To(member, enumType, ignoreCase, defaultVal);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Cosmos {
         /// <param name="enumType"></param>
         /// <returns></returns>
         public static object Of(object member, Type enumType) {
-            return Of(Conversions.ObjectConversion.ToString(member), enumType);
+            return Of(Conversions.ObjectConverter.ToString(member), enumType);
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace Cosmos {
         /// <param name="type">枚举类型</param>
         /// <param name="member">成员名、值、实例均可</param>
         public static int ValueOf(Type type, object member) {
-            var value = Conversions.ObjectConversion.ToString(member);
+            var value = Conversions.ObjectConverter.ToString(member);
             if (string.IsNullOrWhiteSpace(value)) {
                 throw new ArgumentNullException(nameof(member));
             }

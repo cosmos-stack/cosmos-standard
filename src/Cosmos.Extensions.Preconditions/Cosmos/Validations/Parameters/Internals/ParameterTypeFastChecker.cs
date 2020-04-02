@@ -33,7 +33,7 @@ namespace Cosmos.Validations.Parameters.Internals {
         }
 
         private static ParameterTypeValidation _Is(this Parameter parameter, Type targetType) {
-            var parameterType = TypeConversion.ToSafeNonNullableType(parameter.Type);
+            var parameterType = TypeConverter.ToSafeNonNullableType(parameter.Type);
             return new ParameterTypeValidation(parameterType.Is(targetType), parameterType);
         }
     }

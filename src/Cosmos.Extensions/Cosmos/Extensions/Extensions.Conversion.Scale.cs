@@ -1,8 +1,8 @@
 using System;
 using System.Text;
 using Cosmos.Conversions;
-using Cosmos.Conversions.Internals;
 using Cosmos.Conversions.Scale;
+using Cosmos.Conversions.StringDeterminers;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
@@ -17,7 +17,7 @@ namespace Cosmos {
         /// <returns></returns>
         // ReSharper disable once InconsistentNaming
         public static string CastToASCII(this byte[] bytes)
-            => BytesConversion.ToAscii(bytes);
+            => ByteConverter.ToASCII(bytes);
 
         /// <summary>
         /// Convert char to ascii value
@@ -65,7 +65,7 @@ namespace Cosmos {
         /// <param name="byte"></param>
         /// <returns></returns>
         public static string CastToBinary(this byte @byte)
-            => BytesConversion.ToBinary(@byte);
+            => ByteConverter.ToBinary(@byte);
 
         /// <summary>
         /// To binary
@@ -73,7 +73,7 @@ namespace Cosmos {
         /// <param name="decimal"></param>
         /// <returns></returns>
         public static string CastToBinary(this int @decimal)
-            => DecimalismConversion.ToBinary(@decimal);
+            => DecimalismConverter.ToBinary(@decimal);
 
         /// <summary>
         /// To binary
@@ -81,7 +81,7 @@ namespace Cosmos {
         /// <param name="hex"></param>
         /// <returns></returns>
         public static string CastToBinary(this string hex)
-            => HexadecimalConversion.ToBinary(hex);
+            => HexadecimalConverter.ToBinary(hex);
 
         /// <summary>
         /// To decimalism
@@ -90,7 +90,7 @@ namespace Cosmos {
         /// <param name="lowAddrByte"></param>
         /// <returns></returns>
         public static int CastToDecimalism(this byte highAddrByte, byte lowAddrByte)
-            => BytesConversion.ToDecimalism(highAddrByte, lowAddrByte);
+            => ByteConverter.ToDecimalism(highAddrByte, lowAddrByte);
 
         /// <summary>
         /// To decimalism
@@ -100,7 +100,7 @@ namespace Cosmos {
         /// <param name="isRadix"></param>
         /// <returns></returns>
         public static int CastToDecimalism(this byte highAddrByte, byte lowAddrByte, bool isRadix)
-            => BytesConversion.ToDecimalism(highAddrByte, lowAddrByte, isRadix);
+            => ByteConverter.ToDecimalism(highAddrByte, lowAddrByte, isRadix);
 
         /// <summary>
         /// To decimalism
@@ -110,9 +110,9 @@ namespace Cosmos {
         /// <returns></returns>
         public static int CastToDecimalism(this string scaleStr, ScaleStyles fromStyle = ScaleStyles.Hexadecimal) {
             return fromStyle switch {
-                ScaleStyles.Binary      => BinaryConversion.ToDecimalism(scaleStr),
-                ScaleStyles.Hexadecimal => HexadecimalConversion.ToDecimalism(scaleStr),
-                _                       => StringIntHelper.To(scaleStr)
+                ScaleStyles.Binary      => BinaryConverter.ToDecimalism(scaleStr),
+                ScaleStyles.Hexadecimal => HexadecimalConverter.ToDecimalism(scaleStr),
+                _                       => StringIntDeterminer.To(scaleStr)
             };
         }
 
@@ -122,7 +122,7 @@ namespace Cosmos {
         /// <param name="byte"></param>
         /// <returns></returns>
         public static string CastToHexadecimal(this byte @byte)
-            => BytesConversion.ToHexadecimal(@byte);
+            => ByteConverter.ToHexadecimal(@byte);
 
         /// <summary>
         /// To hexadecimal
@@ -130,7 +130,7 @@ namespace Cosmos {
         /// <param name="bytes"></param>
         /// <returns></returns>
         public static string CastToHexadecimal(this byte[] bytes)
-            => BytesConversion.ToHexadecimal(bytes);
+            => ByteConverter.ToHexadecimal(bytes);
 
         /// <summary>
         /// To hexadecimal
@@ -139,7 +139,7 @@ namespace Cosmos {
         /// <param name="lowAddrByte"></param>
         /// <returns></returns>
         public static string CastToHexadecimal(this byte highAddrByte, byte lowAddrByte)
-            => BytesConversion.ToHexadecimal(highAddrByte, lowAddrByte);
+            => ByteConverter.ToHexadecimal(highAddrByte, lowAddrByte);
 
         /// <summary>
         /// To hexadecimal
@@ -147,7 +147,7 @@ namespace Cosmos {
         /// <param name="decimal"></param>
         /// <returns></returns>
         public static string CastToHexadecimal(this int @decimal)
-            => DecimalismConversion.ToHexadecimal(@decimal);
+            => DecimalismConverter.ToHexadecimal(@decimal);
 
         /// <summary>
         /// To hexadecimal
@@ -156,7 +156,7 @@ namespace Cosmos {
         /// <param name="formatLength"></param>
         /// <returns></returns>
         public static string CastToHexadecimal(this int @decimal, int formatLength)
-            => DecimalismConversion.ToHexadecimal(@decimal, formatLength);
+            => DecimalismConverter.ToHexadecimal(@decimal, formatLength);
 
         /// <summary>
         /// To hexadecimal
@@ -167,8 +167,8 @@ namespace Cosmos {
         /// <returns></returns>
         public static string CastToHexadecimal(this string scaleStr, ScaleStyles fromStyle = ScaleStyles.Binary, Encoding encoding = null) {
             return fromStyle switch {
-                ScaleStyles.Binary => BinaryConversion.ToHexadecimal(scaleStr),
-                ScaleStyles.String => HexadecimalConversion.FromString(scaleStr, encoding),
+                ScaleStyles.Binary => BinaryConverter.ToHexadecimal(scaleStr),
+                ScaleStyles.String => HexadecimalConverter.FromString(scaleStr, encoding),
                 _                  => scaleStr
             };
         }

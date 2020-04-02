@@ -44,7 +44,7 @@ namespace Cosmos.Date.Chinese {
             var year = dt.Year.ToString().ToCharArray();
             var yearStr = new string[year.Length];
             for (var i = 0; i < year.Length; i++)
-                yearStr[i] = hzNumP[NumericConversion.ToInt32(year[i])];
+                yearStr[i] = hzNumP[NumericConverter.ToInt32(year[i])];
             return $"{string.Join("", yearStr)}年";
         }
 

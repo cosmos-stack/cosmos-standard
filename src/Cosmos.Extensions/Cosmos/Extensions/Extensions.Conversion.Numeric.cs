@@ -1,4 +1,5 @@
 using Cosmos.Conversions;
+using Cosmos.Conversions.StringDeterminers;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
@@ -42,7 +43,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static short CastToShort(this string str, short defaultVal = default)
-            => Conversions.Internals.StringShortHelper.To(str, defaultVal);
+            => StringShortDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To short
@@ -51,7 +52,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static short CastToShort(this string str, params IConversionImpl<string, short>[] impls)
-            => Conversions.Internals.StringShortHelper.To(str, impls);
+            => StringShortDeterminer.To(str, impls);
 
         /// <summary>
         /// To ushort
@@ -60,7 +61,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static ushort CastToUShort(this string str, ushort defaultVal = default)
-            => Conversions.Internals.StringUShortHelper.To(str, defaultVal);
+            => StringUShortDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To ushort
@@ -69,7 +70,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static ushort CastToUShort(this string str, params IConversionImpl<string, ushort>[] impls)
-            => Conversions.Internals.StringUShortHelper.To(str, impls);
+            => StringUShortDeterminer.To(str, impls);
 
         /// <summary>
         /// To int32
@@ -78,7 +79,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static int CastToInt(this string str, int defaultVal = default)
-            => Conversions.Internals.StringIntHelper.To(str, defaultVal);
+            => StringIntDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To int32
@@ -87,7 +88,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static int CastToInt(this string str, params IConversionImpl<string, int>[] impls)
-            => Conversions.Internals.StringIntHelper.To(str, impls);
+            => StringIntDeterminer.To(str, impls);
 
         /// <summary>
         /// To uint32
@@ -96,7 +97,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static uint CastToUInt(this string str, uint defaultVal = default)
-            => Conversions.Internals.StringUIntHelper.To(str, defaultVal);
+            => StringUIntDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To uint32
@@ -105,7 +106,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static uint CastToUInt(this string str, params IConversionImpl<string, uint>[] impls)
-            => Conversions.Internals.StringUIntHelper.To(str, impls);
+            => StringUIntDeterminer.To(str, impls);
 
         /// <summary>
         /// To long
@@ -114,7 +115,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static long CastToLong(this string str, long defaultVal = default)
-            => Conversions.Internals.StringLongHelper.To(str, defaultVal);
+            => StringLongDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To long
@@ -123,7 +124,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static long CastToLong(this string str, params IConversionImpl<string, long>[] impls)
-            => Conversions.Internals.StringLongHelper.To(str, impls);
+            => StringLongDeterminer.To(str, impls);
 
         /// <summary>
         /// To ulong
@@ -132,7 +133,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static ulong CastToULong(this string str, ulong defaultVal = default)
-            => Conversions.Internals.StringULongHelper.To(str, defaultVal);
+            => StringULongDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To ulong
@@ -141,7 +142,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static ulong CastToULong(this string str, params IConversionImpl<string, ulong>[] impls)
-            => Conversions.Internals.StringULongHelper.To(str, impls);
+            => StringULongDeterminer.To(str, impls);
 
         /// <summary>
         /// To float
@@ -150,7 +151,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static float CastToFloat(this string str, float defaultVal = default)
-            => Conversions.Internals.StringFloatHelper.To(str, defaultVal);
+            => StringFloatDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To float
@@ -159,7 +160,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static float CastToFloat(this string str, params IConversionImpl<string, float>[] impls)
-            => Conversions.Internals.StringFloatHelper.To(str, impls);
+            => StringFloatDeterminer.To(str, impls);
 
         /// <summary>
         /// To float
@@ -168,7 +169,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static double CastToDouble(this string str, double defaultVal = default)
-            => Conversions.Internals.StringDoubleHelper.To(str, defaultVal);
+            => StringDoubleDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To float
@@ -177,7 +178,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static double CastToDouble(this string str, params IConversionImpl<string, double>[] impls)
-            => Conversions.Internals.StringDoubleHelper.To(str, impls);
+            => StringDoubleDeterminer.To(str, impls);
 
         /// <summary>
         /// To decimal
@@ -186,7 +187,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static decimal CastToDecimal(this string str, decimal defaultVal = default)
-            => Conversions.Internals.StringDecimalHelper.To(str, defaultVal);
+            => StringDecimalDeterminer.To(str, defaultVal);
 
         /// <summary>
         /// To decimal
@@ -195,7 +196,7 @@ namespace Cosmos {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static decimal CastToDecimal(this string str, params IConversionImpl<string, decimal>[] impls)
-            => Conversions.Internals.StringDecimalHelper.To(str, impls);
+            => StringDecimalDeterminer.To(str, impls);
 
         /// <summary>
         /// To int16

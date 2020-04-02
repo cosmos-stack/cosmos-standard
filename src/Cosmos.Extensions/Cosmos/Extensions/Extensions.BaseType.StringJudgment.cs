@@ -4,6 +4,7 @@ using System.Net;
 using System.Text;
 using Cosmos.Conversions;
 using Cosmos.Conversions.Internals;
+using Cosmos.Conversions.StringDeterminers;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
@@ -91,35 +92,35 @@ namespace Cosmos {
                 throw new ArgumentException("Unsupported type");
             }
 
-            return type.IsEnum && StringEnumHelper.Is(s, type, ignoreCase.X(), action) ||
-                   type == typeof(byte) && StringByteHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<byte>(action)) ||
-                   type == typeof(sbyte) && StringSByteHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<sbyte>(action)) ||
-                   type == typeof(char) && StringCharHelper.Is(s, _Helper.ConvertAct<char>(action)) ||
-                   type == typeof(short) && StringShortHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<short>(action)) ||
-                   type == typeof(ushort) && StringUShortHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<ushort>(action)) ||
-                   type == typeof(int) && StringIntHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<int>(action)) ||
-                   type == typeof(uint) && StringUIntHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<uint>(action)) ||
-                   type == typeof(long) && StringLongHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<long>(action)) ||
-                   type == typeof(ulong) && StringULongHelper.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<ulong>(action)) ||
-                   type == typeof(float) && StringFloatHelper.Is(s, numberStyle ?? NumberStyle, provider, _Helper.ConvertAct<float>(action)) ||
-                   type == typeof(double) && StringDoubleHelper.Is(s, numberStyle ?? NumberStyle, provider, _Helper.ConvertAct<double>(action)) ||
-                   type == typeof(decimal) && StringDecimalHelper.Is(s, numberStyle ?? NumberStyles.Number, provider, _Helper.ConvertAct<decimal>(action)) ||
-                   type == typeof(bool) && StringBooleanHelper.Is(s, _Helper.ConvertAct<bool>(action)) ||
+            return type.IsEnum && StringEnumDeterminer.Is(s, type, ignoreCase.X(), action) ||
+                   type == typeof(byte) && StringByteDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<byte>(action)) ||
+                   type == typeof(sbyte) && StringSByteDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<sbyte>(action)) ||
+                   type == typeof(char) && StringCharDeterminer.Is(s, _Helper.ConvertAct<char>(action)) ||
+                   type == typeof(short) && StringShortDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<short>(action)) ||
+                   type == typeof(ushort) && StringUShortDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<ushort>(action)) ||
+                   type == typeof(int) && StringIntDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<int>(action)) ||
+                   type == typeof(uint) && StringUIntDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<uint>(action)) ||
+                   type == typeof(long) && StringLongDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<long>(action)) ||
+                   type == typeof(ulong) && StringULongDeterminer.Is(s, numberStyle ?? NumberStyles.Integer, provider, _Helper.ConvertAct<ulong>(action)) ||
+                   type == typeof(float) && StringFloatDeterminer.Is(s, numberStyle ?? NumberStyle, provider, _Helper.ConvertAct<float>(action)) ||
+                   type == typeof(double) && StringDoubleDeterminer.Is(s, numberStyle ?? NumberStyle, provider, _Helper.ConvertAct<double>(action)) ||
+                   type == typeof(decimal) && StringDecimalDeterminer.Is(s, numberStyle ?? NumberStyles.Number, provider, _Helper.ConvertAct<decimal>(action)) ||
+                   type == typeof(bool) && StringBooleanDeterminer.Is(s, _Helper.ConvertAct<bool>(action)) ||
                    type == typeof(DateTime) && (format is null
-                       ? StringDateTimeHelper.Is(s, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTime>(action))
-                       : StringDateTimeExactHelper.Is(s, format, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTime>(action))) ||
+                       ? StringDateTimeDeterminer.Is(s, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTime>(action))
+                       : StringDateTimeDeterminer.Exact.Is(s, format, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTime>(action))) ||
                    type == typeof(DateTimeOffset) && (format is null
-                       ? StringDateTimeOffsetHelper.Is(s, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTimeOffset>(action))
-                       : StringDateTimeOffsetExactHelper.Is(s, format, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTimeOffset>(action))) ||
+                       ? StringDateTimeOffsetDeterminer.Is(s, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTimeOffset>(action))
+                       : StringDateTimeOffsetDeterminer.Exact.Is(s, format, dateTimeStyle ?? DateTimeStyles.None, provider, _Helper.ConvertAct<DateTimeOffset>(action))) ||
                    type == typeof(TimeSpan) && (format is null
-                       ? StringTimeSpanHelper.Is(s, provider, _Helper.ConvertAct<TimeSpan>(action))
-                       : StringTimeSpanExactHelper.Is(s, format, provider, _Helper.ConvertAct<TimeSpan>(action))) ||
+                       ? StringTimeSpanDeterminer.Is(s, provider, _Helper.ConvertAct<TimeSpan>(action))
+                       : StringTimeSpanDeterminer.Exact.Is(s, format, provider, _Helper.ConvertAct<TimeSpan>(action))) ||
                    type == typeof(Guid) && (format is null
-                       ? StringGuidHelper.Is(s, _Helper.ConvertAct<Guid>(action))
-                       : StringGuidExactHelper.Is(s, format, _Helper.ConvertAct<Guid>(action))) ||
-                   type == typeof(Version) && StringVersionHelper.Is(s, action) ||
-                   type == typeof(IPAddress) && StringIpAddressHelper.Is(s, action) ||
-                   typeIsAssignableFromEncoding && StringEncodingHelper.Is(s, action);
+                       ? StringGuidDeterminer.Is(s, _Helper.ConvertAct<Guid>(action))
+                       : StringGuidDeterminer.Exact.Is(s, format, _Helper.ConvertAct<Guid>(action))) ||
+                   type == typeof(Version) && StringVersionDeterminer.Is(s, action) ||
+                   type == typeof(IPAddress) && StringIpAddressDeterminer.Is(s, action) ||
+                   typeIsAssignableFromEncoding && StringEncodingDeterminer.Is(s, action);
         }
 
         private static NumberStyles NumberStyle = NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign |
@@ -199,21 +200,21 @@ namespace Cosmos {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsChar(this string str) => StringCharHelper.Is(str);
+        public static bool IsChar(this string str) => StringCharDeterminer.Is(str);
 
         /// <summary>
         /// Is boolean
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsBoolean(this string str) => StringBooleanHelper.Is(str);
+        public static bool IsBoolean(this string str) => StringBooleanDeterminer.Is(str);
 
         /// <summary>
         /// Is encoding
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsEncoding(this string str) => StringEncodingHelper.Is(str);
+        public static bool IsEncoding(this string str) => StringEncodingDeterminer.Is(str);
 
         /// <summary>
         /// 判断是否为 Url 路径
@@ -234,14 +235,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsVersion(this string str) => StringVersionHelper.Is(str);
+        public static bool IsVersion(this string str) => StringVersionDeterminer.Is(str);
 
         /// <summary>
         /// Is IpAddress
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsIpAddress(this string str) => StringIpAddressHelper.Is(str);
+        public static bool IsIpAddress(this string str) => StringIpAddressDeterminer.Is(str);
 
         /// <summary>
         /// One Absent Char

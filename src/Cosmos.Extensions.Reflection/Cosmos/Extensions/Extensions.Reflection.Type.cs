@@ -20,7 +20,7 @@ namespace Cosmos {
         /// <param name="type"></param>
         /// <returns></returns>
         public static Type ToNonNullableType(this Type type)
-            => Conversions.TypeConversion.ToNonNullableType(type);
+            => Conversions.TypeConverter.ToNonNullableType(type);
 
         /// <summary>
         /// Get non-nullable inderlying <see cref="TypeInfo"/>
@@ -28,7 +28,7 @@ namespace Cosmos {
         /// <param name="typeinfo"></param>
         /// <returns></returns>
         public static TypeInfo ToNonNullableTypeInfo(this TypeInfo typeinfo)
-            => Conversions.TypeConversion.ToNonNullableTypeInfo(typeinfo);
+            => Conversions.TypeConverter.ToNonNullableTypeInfo(typeinfo);
 
         #endregion
 
