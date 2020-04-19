@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Exceptions;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
@@ -26,6 +27,24 @@ namespace Cosmos {
         }
 
         /// <summary>
+        /// If true then throw exception
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="exception"></param>
+        public static void IfTrueThenThrow(this bool @this, Exception exception) {
+            @this.IfTrue(() => ExceptionHelper.PrepareForRethrow(exception));
+        }
+
+        /// <summary>
+        /// If false then throw exception
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="exception"></param>
+        public static void IfFalseThenThrow(this bool @this, Exception exception) {
+            @this.IfFalse(() => ExceptionHelper.PrepareForRethrow(exception));
+        }
+
+        /// <summary>
         /// If this then that...
         /// </summary>
         /// <param name="condition"></param>
@@ -34,8 +53,7 @@ namespace Cosmos {
         public static void Ifttt(this bool condition, Action @this, Action that) {
             if (condition) {
                 @this?.Invoke();
-            }
-            else {
+            } else {
                 that?.Invoke();
             }
         }
@@ -50,14 +68,9 @@ namespace Cosmos {
         /// <returns></returns>
         public static TValue Ifttt<TValue>(this bool condition, Func<TValue> @this, Func<TValue> @that) {
             if (condition) {
-                if (@this == null)
-                    return default;
-                return @this.Invoke();
-            }
-            else {
-                if (that == null)
-                    return default;
-                return that.Invoke();
+                return @this == null ? default : @this.Invoke();
+            } else {
+                return that == null ? default : that.Invoke();
             }
         }
 
@@ -66,9 +79,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static byte ToBinary(this bool @this) {
-            return Convert.ToByte(@this);
-        }
+        public static byte ToBinary(this bool @this) => Convert.ToByte(@this);
 
         /// <summary>
         /// If true then this, else that...
@@ -77,9 +88,7 @@ namespace Cosmos {
         /// <param name="trueString"></param>
         /// <param name="falseString"></param>
         /// <returns></returns>
-        public static string ToString(this bool @this, string trueString, string falseString) {
-            return @this ? trueString : falseString;
-        }
+        public static string ToString(this bool @this, string trueString, string falseString) => @this ? trueString : falseString;
 
         /// <summary>
         /// If null or whitespace then...

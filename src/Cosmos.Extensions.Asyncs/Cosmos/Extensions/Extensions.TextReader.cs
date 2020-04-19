@@ -7,7 +7,7 @@ namespace Cosmos.Asynchronous {
     /// <summary>
     /// TextReader Extensions
     /// </summary>
-    public static partial class TextReaderExtensions {
+    public static partial class TaskExtensions {
         /// <summary>
         /// Get enumerable
         /// </summary>
@@ -15,7 +15,7 @@ namespace Cosmos.Asynchronous {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<string> GetEnumerable(this TextReader textReader) {
-            if (textReader == null)
+            if (textReader is null)
                 throw new ArgumentNullException(nameof(textReader));
 
             string line;

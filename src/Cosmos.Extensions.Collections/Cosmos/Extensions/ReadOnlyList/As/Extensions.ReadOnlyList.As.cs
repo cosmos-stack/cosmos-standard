@@ -17,7 +17,7 @@ namespace Cosmos.Collections {
         /// <exception cref="ArgumentNullException"></exception>
         public static IList<T> AsList<T>(this IReadOnlyList<T> list) {
             // Validate parameters.
-            if (list == null) throw new ArgumentNullException(nameof(list));
+            if (list is null) throw new ArgumentNullException(nameof(list));
 
             // Wrap and return.
             return new ReadOnlyListWrapper<T>(list);

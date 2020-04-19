@@ -18,9 +18,9 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IReadOnlyCollection<SetAddRangeResult<T>> AddRange<T>(this ISet<T> set, IEnumerable<T> items) {
-            if (set == null)
+            if (set is null)
                 throw new ArgumentNullException(nameof(set));
-            if (items == null)
+            if (items is null)
                 throw new ArgumentNullException(nameof(items));
 
             var added = new List<SetAddRangeResult<T>>(items is ICollection<T> collection ? collection.Count : 1);

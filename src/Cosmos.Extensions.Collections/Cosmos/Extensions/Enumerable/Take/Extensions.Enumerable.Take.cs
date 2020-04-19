@@ -11,15 +11,15 @@ namespace Cosmos.Collections {
         /// <summary>
         /// Take last
         /// </summary>
-        /// <param name="source"></param>
+        /// <param name="src"></param>
         /// <param name="count"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static IEnumerable<T> TakeLast<T>(this IEnumerable<T> source, int count) {
-            if (source == null)
-                throw new ArgumentNullException(nameof(source));
+        public static IEnumerable<T> TakeLast<T>(this IEnumerable<T> src, int count) {
+            if (src is null)
+                throw new ArgumentNullException(nameof(src));
             if (count < 0)
                 throw new ArgumentOutOfRangeException(nameof(count), count, $"The {nameof(count)} parameter must be a non-negative number.");
 
@@ -29,21 +29,21 @@ namespace Cosmos.Collections {
 
             // Start sniffing.
             // Read-only collection.
-            if (source is IReadOnlyCollection<T> ro)
+            if (src is IReadOnlyCollection<T> ro)
                 return ro.ReadOnlyCollectionTakeLast(count);
 
             // Collection.
-            if (source is ICollection<T> c)
+            if (src is ICollection<T> c)
                 return c.CollectionTakeLast(count);
 
             // Default.
-            return source.EnumerableTakeLast(count);
+            return src.EnumerableTakeLast(count);
         }
 
-        private static IEnumerable<T> EnumerableTakeLast<T>(this IEnumerable<T> source, int count) {
+        private static IEnumerable<T> EnumerableTakeLast<T>(this IEnumerable<T> src, int count) {
             var window = new Queue<T>(count);
 
-            foreach (T item in source) {
+            foreach (T item in src) {
                 window.Enqueue(item);
                 if (window.Count > count)
                     window.Dequeue();
@@ -52,28 +52,28 @@ namespace Cosmos.Collections {
             return window;
         }
 
-        private static IEnumerable<T> CollectionTakeLast<T>(this ICollection<T> source, int count) {
-            count = Math.Min(source.Count, count);
+        private static IEnumerable<T> CollectionTakeLast<T>(this ICollection<T> src, int count) {
+            count = Math.Min(src.Count, count);
 
             if (count == 0)
                 return Enumerable.Empty<T>();
 
-            if (count == source.Count)
-                return source;
+            if (count == src.Count)
+                return src;
 
-            return source.Skip(source.Count - count);
+            return src.Skip(src.Count - count);
         }
 
-        private static IEnumerable<T> ReadOnlyCollectionTakeLast<T>(this IReadOnlyCollection<T> source, int count) {
-            count = Math.Min(source.Count, count);
+        private static IEnumerable<T> ReadOnlyCollectionTakeLast<T>(this IReadOnlyCollection<T> src, int count) {
+            count = Math.Min(src.Count, count);
 
             if (count == 0)
                 return Enumerable.Empty<T>();
 
-            if (count == source.Count)
-                return source;
+            if (count == src.Count)
+                return src;
 
-            return source.Skip(source.Count - count);
+            return src.Skip(src.Count - count);
         }
     }
 }

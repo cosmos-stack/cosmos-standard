@@ -17,7 +17,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IReadOnlyCollection<T> Append<T>(this IReadOnlyCollection<T> source, T item) {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
             return new AppendedReadOnlyCollection<T>(source, item);
         }

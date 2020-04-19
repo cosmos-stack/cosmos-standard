@@ -9,9 +9,7 @@ namespace System {
         /// <param name="val1"></param>
         /// <param name="val2"></param>
         /// <returns></returns>
-        public static byte Max(this byte val1, byte val2) {
-            return Math.Max(val1, val2);
-        }
+        public static byte Max(this byte val1, byte val2) => Math.Max(val1, val2);
 
         /// <summary>
         /// Gets min one.
@@ -19,8 +17,6 @@ namespace System {
         /// <param name="val1"></param>
         /// <param name="val2"></param>
         /// <returns></returns>
-        public static byte Min(this byte val1, byte val2) {
-            return Math.Min(val1, val2);
-        }
+        public static byte Min(this byte val1, byte val2) => Math.Min(val1, val2);
     }
 }

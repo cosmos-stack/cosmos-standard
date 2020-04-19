@@ -18,9 +18,9 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static TValue GetValueOrDefault<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue) {
-            if (dictionary == null)
+            if (dictionary is null)
                 throw new ArgumentNullException(nameof(dictionary));
-            if (key == null)
+            if (key is null)
                 throw new ArgumentNullException(nameof(key));
             return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
         }
@@ -35,9 +35,9 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static TValue GetValueOrDefault<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TKey key) {
-            if (dictionary == null)
+            if (dictionary is null)
                 throw new ArgumentNullException(nameof(dictionary));
-            if (key == null)
+            if (key is null)
                 throw new ArgumentNullException(nameof(key));
             return dictionary.GetValueOrDefault(key, default);
         }
@@ -53,7 +53,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static TValue GetValueOrDefaultCascading<TKey, TValue>(this IEnumerable<IReadOnlyDictionary<TKey, TValue>> dictionaries, TKey key, TValue defaultValue) {
-            if (dictionaries == null)
+            if (dictionaries is null)
                 throw new ArgumentNullException(nameof(dictionaries));
             return dictionaries.TryGetValueCascading(key, out TValue value) ? value : defaultValue;
         }
@@ -79,7 +79,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static TValue? TryGetValue<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TKey key) where TValue : struct {
-            if (dictionary == null)
+            if (dictionary is null)
                 throw new ArgumentNullException(nameof(dictionary));
             return dictionary.TryGetValue(key, out TValue value) ? value : (TValue?) null;
         }
@@ -95,7 +95,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static bool TryGetValueCascading<TKey, TValue>(this IEnumerable<IReadOnlyDictionary<TKey, TValue>> dictionaries, TKey key, out TValue value) {
-            if (dictionaries == null)
+            if (dictionaries is null)
                 throw new ArgumentNullException(nameof(dictionaries));
             value = default;
 

@@ -110,11 +110,11 @@ namespace Cosmos.Collections {
         /// <exception cref="InvalidOperationException"></exception>
         public static int BinarySearch<TSource, TValue>(this IReadOnlyList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value,
             IComparer<TValue> comparer) {
-            if (list == null)
+            if (list is null)
                 throw new ArgumentNullException(nameof(list));
-            if (map == null)
+            if (map is null)
                 throw new ArgumentNullException(nameof(map));
-            if (comparer == null)
+            if (comparer is null)
                 throw new ArgumentNullException(nameof(comparer));
             if (index < 0)
                 throw new ArgumentOutOfRangeException(nameof(index), index, $"The {nameof(index)} parameter must be a non-negative value.");

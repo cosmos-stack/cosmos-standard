@@ -22,7 +22,7 @@ namespace Cosmos.Collections {
             this IReadOnlyDictionary<TFromKey, TFromValue> source)
             where TFromKey : TToKey
             where TFromValue : TToValue {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
             return new CastingReadOnlyDictionaryWrapper<TFromKey, TFromValue, TToKey, TToValue>(source);
         }

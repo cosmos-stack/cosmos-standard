@@ -7,7 +7,7 @@ namespace Cosmos.Asynchronous {
     /// <summary>
     /// ValueTask extensions
     /// </summary>
-    public static class ValueTaskExtensions {
+    public static partial class TaskExtensions {
         /// <summary>
         /// Run in AsyncContext
         /// </summary>

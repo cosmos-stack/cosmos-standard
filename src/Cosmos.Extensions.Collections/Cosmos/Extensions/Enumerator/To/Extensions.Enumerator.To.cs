@@ -17,7 +17,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> enumerator) {
-            if (enumerator == null)
+            if (enumerator is null)
                 throw new ArgumentNullException(nameof(enumerator));
 
             IEnumerable<T> Implementation() {
@@ -36,7 +36,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<T> ToEnumerableAfter<T>(this IEnumerator<T> enumerator) {
-            if (enumerator == null)
+            if (enumerator is null)
                 throw new ArgumentNullException(nameof(enumerator));
 
             IEnumerable<T> Implementation() {

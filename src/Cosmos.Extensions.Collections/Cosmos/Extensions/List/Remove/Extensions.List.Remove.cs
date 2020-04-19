@@ -34,7 +34,7 @@ namespace Cosmos.Collections {
         /// <typeparam name="TCheck"></typeparam>
         /// <returns></returns>
         public static IEnumerable<TSource> RemoveDuplicates<TSource, TCheck>(this IList<TSource> values, Func<TSource, TCheck> duplicatePredicate) {
-            if (duplicatePredicate == null)
+            if (duplicatePredicate is null)
                 throw new ArgumentNullException(nameof(duplicatePredicate));
 
             var duplicateCheck = new HashSet<TCheck>();
@@ -76,10 +76,10 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<T> RemoveWhere<T>(this IList<T> source, Func<T, bool> predicate) {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
 
-            if (predicate == null)
+            if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
 
             for (var i = source.Count - 1; i >= 0; --i) {
@@ -104,7 +104,7 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<T> SafeRemoveRange<T>(this List<T> source, int index, int count) {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
 
             if (index < 0 || count < 0)
