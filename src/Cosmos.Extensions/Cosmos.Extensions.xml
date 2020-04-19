@@ -1327,6 +1327,20 @@
             <param name="this"></param>
             <param name="action"></param>
         </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IfTrueThenThrow(System.Boolean,System.Exception)">
+            <summary>
+            If true then throw exception
+            </summary>
+            <param name="this"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.IfFalseThenThrow(System.Boolean,System.Exception)">
+            <summary>
+            If false then throw exception
+            </summary>
+            <param name="this"></param>
+            <param name="exception"></param>
+        </member>
         <member name="M:Cosmos.BaseTypeExtensions.Ifttt(System.Boolean,System.Action,System.Action)">
             <summary>
             If this then that...
@@ -1374,6 +1388,87 @@
             </summary>
             <param name="string"></param>
             <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Convert byte array to string
+            </summary>
+            <param name="bytes"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetStringByUtf8(System.Byte[])">
+            <summary>
+            Convert byte array to string by Utf8
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetStringByUtf7(System.Byte[])">
+            <summary>
+            Convert byte array to string by Utf7
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetStringByUtf32(System.Byte[])">
+            <summary>
+            Convert byte array to string by Utf32
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetStringByASCII(System.Byte[])">
+            <summary>
+            Convert byte array to string by ASCII
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetStringByBigEndianUnicode(System.Byte[])">
+            <summary>
+            Convert byte array to string by BigEndian unicode
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetStringByDefault(System.Byte[])">
+            <summary>
+            Convert byte array to string by default
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.GetStringByUnicode(System.Byte[])">
+            <summary>
+            Convert byte array to string by Unicode
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.ToBase64Bytes(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Convert normal byte normal to base64 byte array
+            </summary>
+            <param name="bytes"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.DecodeBase64ToBytes(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Convert base64 byte array to normal byte array
+            </summary>
+            <param name="bytes"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.BaseTypeExtensions.DecodeBase64ToString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Convert base64 byte array to normal string
+            </summary>
+            <param name="bytes"></param>
+            <param name="encoding"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.BaseTypeExtensions.GetCountDaysOfMonth(System.DateTime)">
             <summary>
@@ -2587,6 +2682,21 @@
             <param name="oldValues"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.StringExtensions.FromBase64StringToBytes(System.String)">
+            <summary>
+            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.Byte"/> array.
+            </summary>
+            <param name="base64String"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.FromBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base64String"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.StringExtensions.IndexWholePhrase(System.String,System.String,System.Int32)">
             <summary>
             Index whole phrase
@@ -3044,6 +3154,63 @@
             </summary>
             <param name="original"></param>
             <param name="maxLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to byte array
+            </summary>
+            <param name="value"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToUtf8Bytes(System.String)">
+            <summary>
+            Convert string to byte array by utf8
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToUtf7Bytes(System.String)">
+            <summary>
+            Convert string to byte array by utf7
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToUtf32Bytes(System.String)">
+            <summary>
+            Convert string to byte array by utf32
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToASCIIBytes(System.String)">
+            <summary>
+            Convert string to byte array by ASCII
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToBigEndianUnicodeBytes(System.String)">
+            <summary>
+            Convert string to byte array by BigEndian Unicode
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToDefaultBytes(System.String)">
+            <summary>
+            Convert string to byte array by default
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StringExtensions.ToUnicodeBytes(System.String)">
+            <summary>
+            Convert string to byte array by unicode
+            </summary>
+            <param name="value"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.StringExtensions.TrimAll(System.Collections.Generic.IList{System.String})">
@@ -4394,6 +4561,109 @@
             <param name="hander"></param>
             <param name="sender"></param>
             <param name="e"></param>
+        </member>
+        <member name="T:Cosmos.StreamExtensions">
+            <summary>
+            Extensions for stream
+            </summary>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TrySeek(System.IO.Stream,System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Try seek
+            </summary>
+            <param name="stream"></param>
+            <param name="offset"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TryRead(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Try read
+            </summary>
+            <param name="stream"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TryReadAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Try read async
+            </summary>
+            <param name="stream"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TryReadByte(System.IO.Stream)">
+            <summary>
+            Try read byte
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TryWrite(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Try write
+            </summary>
+            <param name="stream"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TryWriteAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Try write async
+            </summary>
+            <param name="stream"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TryWriteByte(System.IO.Stream,System.Byte)">
+            <summary>
+            Try write byte
+            </summary>
+            <param name="stream"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TrySetReadTimeout(System.IO.Stream,System.Int32)">
+            <summary>
+            Try set read timeout
+            </summary>
+            <param name="stream"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TrySetReadTimeout(System.IO.Stream,System.TimeSpan)">
+            <summary>
+            Try set read timeout
+            </summary>
+            <param name="stream"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.Int32)">
+            <summary>
+            Try set write timeout
+            </summary>
+            <param name="stream"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.StreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.TimeSpan)">
+            <summary>
+            Try set write timeout
+            </summary>
+            <param name="stream"></param>
+            <param name="timeout"></param>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.ObjectExtensions">
             <summary>

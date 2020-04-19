@@ -152,6 +152,15 @@
             <summary>
             Task extensions
             </summary>
+            <summary>
+            TaskCompletionSource extensions
+            </summary>
+            <summary>
+            TextReader Extensions
+            </summary>
+            <summary>
+            ValueTask extensions
+            </summary>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext(System.Threading.Tasks.Task)">
             <summary>
@@ -169,12 +178,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="T:Cosmos.Asynchronous.TaskCompletionSourceExtensions">
-            <summary>
-            TaskCompletionSource extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
             <summary>
             Try CompleteFromCompletedTask
             </summary>
@@ -183,7 +187,7 @@
             <param name="completedTask"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -191,7 +195,7 @@
             <param name="continuationAction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task,System.Object},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task,System.Object},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -200,7 +204,7 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -209,7 +213,7 @@
             <param name="continuationFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,System.Object,``0},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,System.Object,``0},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -219,7 +223,7 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -228,7 +232,7 @@
             <param name="continuationAction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0},System.Object},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0},System.Object},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -238,7 +242,7 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},``1})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},``1})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -248,7 +252,7 @@
             <param name="continuationFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},System.Object,``1},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},System.Object,``1},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -259,19 +263,14 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ToCancellationTokenSource(System.Threading.Tasks.Task)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ToCancellationTokenSource(System.Threading.Tasks.Task)">
             <summary>
             To CancellationTokenSource
             </summary>
             <param name="task"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Asynchronous.TextReaderExtensions">
-            <summary>
-            TextReader Extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TextReaderExtensions.GetEnumerable(System.IO.TextReader)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.GetEnumerable(System.IO.TextReader)">
             <summary>
             Get enumerable
             </summary>
@@ -279,12 +278,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="T:Cosmos.Asynchronous.ValueTaskExtensions">
-            <summary>
-            ValueTask extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.ValueTaskExtensions.RunInContext``1(System.Threading.Tasks.ValueTask{``0}@)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext``1(System.Threading.Tasks.ValueTask{``0}@)">
             <summary>
             Run in AsyncContext
             </summary>
@@ -12547,6 +12541,26 @@
             <typeparam name="TP4"></typeparam>
             <typeparam name="TP5"></typeparam>
             <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:System.Runtime.Remoting.Messaging.CallContext">
+            <summary>
+            CallContext for .NET Standard and .NET Core
+            for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
+            </summary>
+        </member>
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext.SetData(System.String,System.Object)">
+            <summary>
+            Set data
+            </summary>
+            <param name="name"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:System.Runtime.Remoting.Messaging.CallContext.GetData(System.String)">
+            <summary>
+            Get data
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
