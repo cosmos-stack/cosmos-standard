@@ -25,9 +25,7 @@ namespace Cosmos {
         /// <typeparam name="TV"></typeparam>
         /// <param name="keySelector"></param>
         /// <returns></returns>
-        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector) {
-            return new CommonEqualityComparer<TV>(keySelector);
-        }
+        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector) => new CommonEqualityComparer<TV>(keySelector);
 
         /// <summary>
         /// Create comparer
@@ -36,9 +34,7 @@ namespace Cosmos {
         /// <param name="keySelector"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
-        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector, IEqualityComparer<TV> comparer) {
-            return new CommonEqualityComparer<TV>(keySelector, comparer);
-        }
+        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector, IEqualityComparer<TV> comparer) => new CommonEqualityComparer<TV>(keySelector, comparer);
 
         private class CommonEqualityComparer<TV> : IEqualityComparer<T> {
             private readonly IEqualityComparer<TV> _comparer;

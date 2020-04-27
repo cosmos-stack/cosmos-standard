@@ -10,8 +10,7 @@ namespace Cosmos {
         /// <returns></returns>
         public static bool IsUpper(this string text) {
             foreach (var ch in text) {
-                if (!char.IsLetter(ch)
-                 || char.IsLower(ch))
+                if (!char.IsLetter(ch) || char.IsLower(ch))
                     return false;
             }
 
@@ -25,8 +24,7 @@ namespace Cosmos {
         /// <returns></returns>
         public static bool IsLower(this string text) {
             foreach (var ch in text) {
-                if (char.IsLetter(ch)
-                 && char.IsUpper(ch))
+                if (char.IsLetter(ch) && char.IsUpper(ch))
                     return false;
             }
 

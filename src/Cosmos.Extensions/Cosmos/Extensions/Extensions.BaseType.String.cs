@@ -17,12 +17,11 @@ namespace Cosmos {
         /// <param name="values"></param>
         /// <returns></returns>
         public static string Fill(this string original, params object[] values) {
-            string texto =
-                original.Replace("\\n", Environment.NewLine)
-                        .Replace("<br>", Environment.NewLine)
-                        .Replace("<BR>", Environment.NewLine);
+            var s = original.Replace("\\n", Environment.NewLine)
+                            .Replace("<br>", Environment.NewLine)
+                            .Replace("<BR>", Environment.NewLine);
 
-            return string.Format(texto, values);
+            return string.Format(s, values);
         }
 
         /// <summary>
@@ -60,12 +59,12 @@ namespace Cosmos {
             if (original.Length == 0)
                 return "_";
 
-            StringBuilder res = new StringBuilder(original.Length + 1);
+            var res = new StringBuilder(original.Length + 1);
             if (!char.IsLetter(original[0]) && original[0] != '_')
                 res.Append('_');
 
-            for (int i = 0; i < original.Length; i++) {
-                char c = original[i];
+            for (var i = 0; i < original.Length; i++) {
+                var c = original[i];
                 if (char.IsLetterOrDigit(c) || c == '_')
                     res.Append(c);
                 else
@@ -82,21 +81,14 @@ namespace Cosmos {
         /// <param name="separator"></param>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string UseAsSeparatorFor<T>(this string separator, IEnumerable<T> list) {
-            return list.JoinToString(separator);
-        }
+        public static string UseAsSeparatorFor<T>(this string separator, IEnumerable<T> list) => list.JoinToString(separator);
 
         /// <summary>
         /// Avoid null
         /// </summary>
         /// <param name="original"></param>
         /// <returns></returns>
-        public static string AvoidNull(this string original) {
-            if (original == null)
-                return string.Empty;
-
-            return original;
-        }
+        public static string AvoidNull(this string original) => original ?? string.Empty;
 
         /// <summary>
         /// Repeat
@@ -111,14 +103,16 @@ namespace Cosmos {
             if (text.Length == 1)
                 return new string(text[0], times);
 
-            if (times == 1)
-                return text;
-            if (times == 2)
-                return string.Concat(text, text);
-            if (times == 3)
-                return string.Concat(text, text, text);
-            if (times == 4)
-                return string.Concat(text, text, text, text);
+            switch (times) {
+                case 1:
+                    return text;
+                case 2:
+                    return string.Concat(text, text);
+                case 3:
+                    return string.Concat(text, text, text);
+                case 4:
+                    return string.Concat(text, text, text, text);
+            }
 
             var res = new StringBuilder(text.Length * times);
             for (var i = 0; i < times; i++) {
@@ -157,7 +151,7 @@ namespace Cosmos {
         public static string OnlyLettersNumbers(this string text) {
             var res = new StringBuilder(text.Length);
 
-            foreach (char car in text) {
+            foreach (var car in text) {
                 if (char.IsLetterOrDigit(car))
                     res.Append(car);
             }
@@ -174,7 +168,7 @@ namespace Cosmos {
         public static string FilterChars(this string text, Predicate<char> onlyThese) {
             var res = new StringBuilder(text.Length);
 
-            foreach (char car in text) {
+            foreach (var car in text) {
                 if (onlyThese(car))
                     res.Append(car);
             }
@@ -188,14 +182,7 @@ namespace Cosmos {
         /// <param name="match"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static string SafeGroupValue(this Match match, string name) {
-            var group = match.Groups[name];
-
-            if (group == null)
-                return null;
-
-            return match.Groups[name].Value;
-        }
+        public static string SafeGroupValue(this Match match, string name) => match.Groups[name]?.Value;
 
     }
 }

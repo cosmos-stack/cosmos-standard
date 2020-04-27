@@ -10,9 +10,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int Read(ref int value) {
-            return Interlocked.CompareExchange(ref value, 0, 0);
-        }
+        public static int Read(ref int value) => Interlocked.CompareExchange(ref value, 0, 0);
 
         /// <summary>
         /// Read
@@ -20,8 +18,6 @@ namespace Cosmos {
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Read<T>(ref T value) where T : class {
-            return Interlocked.CompareExchange(ref value, null, null);
-        }
+        public static T Read<T>(ref T value) where T : class => Interlocked.CompareExchange(ref value, null, null);
     }
 }

@@ -44,9 +44,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="expression">表达式</param>
         /// <param name="member">属性</param>
-        public static Expression Property(this Expression expression, MemberInfo member) {
-            return Expression.MakeMemberAccess(expression, member);
-        }
+        public static Expression Property(this Expression expression, MemberInfo member) => Expression.MakeMemberAccess(expression, member);
 
         #endregion
 
@@ -58,9 +56,9 @@ namespace Cosmos {
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
         public static Expression And(this Expression left, Expression right) {
-            if (left == null)
+            if (left is null)
                 return right;
-            if (right == null)
+            if (right is null)
                 return left;
             return Expression.AndAlso(left, right);
         }
@@ -71,11 +69,10 @@ namespace Cosmos {
         /// <typeparam name="T">对象类型</typeparam>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> left,
-            Expression<Func<T, bool>> right) {
-            if (left == null)
+        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> left, Expression<Func<T, bool>> right) {
+            if (left is null)
                 return right;
-            if (right == null)
+            if (right is null)
                 return left;
             return left.Compose(right, Expression.AndAlso);
         }
@@ -90,9 +87,9 @@ namespace Cosmos {
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
         public static Expression Or(this Expression left, Expression right) {
-            if (left == null)
+            if (left is null)
                 return right;
-            if (right == null)
+            if (right is null)
                 return left;
             return Expression.OrElse(left, right);
         }
@@ -103,11 +100,10 @@ namespace Cosmos {
         /// <typeparam name="T">对象类型</typeparam>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> left,
-            Expression<Func<T, bool>> right) {
-            if (left == null)
+        public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> left, Expression<Func<T, bool>> right) {
+            if (left is null)
                 return right;
-            if (right == null)
+            if (right is null)
                 return left;
             return left.Compose(right, Expression.OrElse);
         }
@@ -133,18 +129,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression Equal(this Expression left, Expression right) {
-            return Expression.Equal(left, right);
-        }
+        public static Expression Equal(this Expression left, Expression right) => Expression.Equal(left, right);
 
         /// <summary>
         /// 创建等于运算表达式
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression Equal(this Expression left, object value) {
-            return left.Equal(Lambdas.Constant(left, value));
-        }
+        public static Expression Equal(this Expression left, object value) => left.Equal(Lambdas.Constant(left, value));
 
         #endregion
 
@@ -155,18 +147,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression NotEqual(this Expression left, Expression right) {
-            return Expression.NotEqual(left, right);
-        }
+        public static Expression NotEqual(this Expression left, Expression right) => Expression.NotEqual(left, right);
 
         /// <summary>
         /// 创建不等于运算表达式
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression NotEqual(this Expression left, object value) {
-            return left.NotEqual(Lambdas.Constant(left, value));
-        }
+        public static Expression NotEqual(this Expression left, object value) => left.NotEqual(Lambdas.Constant(left, value));
 
         #endregion
 
@@ -177,18 +165,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression Greater(this Expression left, Expression right) {
-            return Expression.GreaterThan(left, right);
-        }
+        public static Expression Greater(this Expression left, Expression right) => Expression.GreaterThan(left, right);
 
         /// <summary>
         /// 创建大于运算表达式
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression Greater(this Expression left, object value) {
-            return left.Greater(Lambdas.Constant(left, value));
-        }
+        public static Expression Greater(this Expression left, object value) => left.Greater(Lambdas.Constant(left, value));
 
         #endregion
 
@@ -199,18 +183,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression GreaterEqual(this Expression left, Expression right) {
-            return Expression.GreaterThanOrEqual(left, right);
-        }
+        public static Expression GreaterEqual(this Expression left, Expression right) => Expression.GreaterThanOrEqual(left, right);
 
         /// <summary>
         /// 创建大于等于运算表达式
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression GreaterEqual(this Expression left, object value) {
-            return left.GreaterEqual(Lambdas.Constant(left, value));
-        }
+        public static Expression GreaterEqual(this Expression left, object value) => left.GreaterEqual(Lambdas.Constant(left, value));
 
         #endregion
 
@@ -221,18 +201,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression Less(this Expression left, Expression right) {
-            return Expression.LessThan(left, right);
-        }
+        public static Expression Less(this Expression left, Expression right) => Expression.LessThan(left, right);
 
         /// <summary>
         /// 创建小于运算表达式
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression Less(this Expression left, object value) {
-            return left.Less(Lambdas.Constant(left, value));
-        }
+        public static Expression Less(this Expression left, object value) => left.Less(Lambdas.Constant(left, value));
 
         #endregion
 
@@ -243,18 +219,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="right">右操作数</param>
-        public static Expression LessEqual(this Expression left, Expression right) {
-            return Expression.LessThanOrEqual(left, right);
-        }
+        public static Expression LessEqual(this Expression left, Expression right) => Expression.LessThanOrEqual(left, right);
 
         /// <summary>
         /// 创建小于等于运算表达式
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression LessEqual(this Expression left, object value) {
-            return left.LessEqual(Lambdas.Constant(left, value));
-        }
+        public static Expression LessEqual(this Expression left, object value) => left.LessEqual(Lambdas.Constant(left, value));
 
         #endregion
 
@@ -265,9 +237,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression StartsWith(this Expression left, object value) {
-            return left.Call("StartsWith", new[] {typeof(string)}, value);
-        }
+        public static Expression StartsWith(this Expression left, object value) => left.Call("StartsWith", new[] {typeof(string)}, value);
 
         #endregion
 
@@ -278,9 +248,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression EndsWith(this Expression left, object value) {
-            return left.Call("EndsWith", new[] {typeof(string)}, value);
-        }
+        public static Expression EndsWith(this Expression left, object value) => left.Call("EndsWith", new[] {typeof(string)}, value);
 
         #endregion
 
@@ -291,9 +259,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="left">左操作数</param>
         /// <param name="value">值</param>
-        public static Expression Contains(this Expression left, object value) {
-            return left.Call("Contains", new[] {typeof(string)}, value);
-        }
+        public static Expression Contains(this Expression left, object value) => left.Call("Contains", new[] {typeof(string)}, value);
 
         #endregion
 
@@ -306,28 +272,19 @@ namespace Cosmos {
         /// <param name="operator">运算符</param>
         /// <param name="value">值</param>
         public static Expression Operation(this Expression left, Operator @operator, object value) {
-            switch (@operator) {
-                case Operator.Equal:
-                    return left.Equal(value);
-                case Operator.NotEqual:
-                    return left.NotEqual(value);
-                case Operator.Greater:
-                    return left.Greater(value);
-                case Operator.GreaterEqual:
-                    return left.GreaterEqual(value);
-                case Operator.Less:
-                    return left.Less(value);
-                case Operator.LessEqual:
-                    return left.LessEqual(value);
-                case Operator.Starts:
-                    return left.StartsWith(value);
-                case Operator.Ends:
-                    return left.EndsWith(value);
-                case Operator.Contains:
-                    return left.Contains(value);
-            }
+            return @operator switch {
+                Operator.Equal        => left.Equal(value),
+                Operator.NotEqual     => left.NotEqual(value),
+                Operator.Greater      => left.Greater(value),
+                Operator.GreaterEqual => left.GreaterEqual(value),
+                Operator.Less         => left.Less(value),
+                Operator.LessEqual    => left.LessEqual(value),
+                Operator.Starts       => left.StartsWith(value),
+                Operator.Ends         => left.EndsWith(value),
+                Operator.Contains     => left.Contains(value),
+                _                     => throw new NotImplementedException()
+            };
 
-            throw new NotImplementedException();
         }
 
         #endregion
@@ -340,10 +297,8 @@ namespace Cosmos {
         /// <param name="instance">调用的实例</param>
         /// <param name="methodName">方法名</param>
         /// <param name="values">参数值列表</param>
-        public static Expression Call(this Expression instance, string methodName, params Expression[] values) {
-            // ReSharper disable once AssignNullToNotNullAttribute
-            return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName), values);
-        }
+        public static Expression Call(this Expression instance, string methodName, params Expression[] values) =>
+            Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName), values);
 
         /// <summary>
         /// 创建调用方法表达式
@@ -406,12 +361,8 @@ namespace Cosmos {
         /// <typeparam name="TDelegate">委托类型</typeparam>
         /// <param name="body">表达式</param>
         /// <param name="parameters">参数列表</param>
-        public static Expression<TDelegate> ToLambda<TDelegate>(this Expression body,
-            params ParameterExpression[] parameters) {
-            if (body == null)
-                return null;
-            return Expression.Lambda<TDelegate>(body, parameters);
-        }
+        public static Expression<TDelegate> ToLambda<TDelegate>(this Expression body, params ParameterExpression[] parameters) =>
+            body is null ? null : Expression.Lambda<TDelegate>(body, parameters);
 
         #endregion
 

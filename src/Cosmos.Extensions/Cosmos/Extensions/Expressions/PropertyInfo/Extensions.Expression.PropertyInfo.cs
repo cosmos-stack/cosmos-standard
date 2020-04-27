@@ -20,7 +20,7 @@ namespace Cosmos.Expressions {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public static PropertyInfo GetPropertyInfo<T, TProperty>(this Expression<Func<T, TProperty>> expression) {
-            if (expression == null)
+            if (expression is null)
                 throw new ArgumentNullException(nameof(expression));
 
             var member = expression.Body as MemberExpression;
@@ -28,10 +28,13 @@ namespace Cosmos.Expressions {
             ArgumentException CreateExpressionNotPropertyException() =>
                 new ArgumentException($"The expression parameter ({nameof(expression)}) is not a property expression.");
 
-            if (member == null && expression.Body.NodeType == ExpressionType.Convert)
-                member = (expression.Body as UnaryExpression).Operand as MemberExpression;
+            if (member is null && expression.Body.NodeType == ExpressionType.Convert) {
+                var operand = (expression.Body as UnaryExpression)?.Operand;
+                if (operand != null)
+                    member = operand as MemberExpression;
+            }
 
-            if (member == null)
+            if (member is null)
                 throw CreateExpressionNotPropertyException();
 
             if (!(member.Member is PropertyInfo propertyInfo))
@@ -70,9 +73,9 @@ namespace Cosmos.Expressions {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<PropertyInfo> GetPropertyInfos<T>(this T source, IEnumerable<Expression<Func<T, object>>> expressions) {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (expressions == null)
+            if (expressions is null)
                 throw new ArgumentNullException(nameof(expressions));
 
             return expressions.GetPropertyInfos();

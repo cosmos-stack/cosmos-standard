@@ -92,10 +92,8 @@ namespace Cosmos {
 
                 var indexPreviousCar = index - 1;
                 var indexNextCar = index + toCheck.Length;
-                if ((index == 0
-                  || !Char.IsLetter(text[indexPreviousCar]))
-                 && (index + toCheck.Length == text.Length
-                  || !Char.IsLetter(text[indexNextCar])))
+                if ((index == 0 || !char.IsLetter(text[indexPreviousCar])) &&
+                    (index + toCheck.Length == text.Length || !char.IsLetter(text[indexNextCar])))
                     return true;
 
                 startIndex = index + toCheck.Length;

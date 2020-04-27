@@ -34,9 +34,7 @@ namespace Cosmos {
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static int CountOccurrences(this string text, char toCheck) {
-            return text.CountOccurrences(toCheck.ToString());
-        }
+        public static int CountOccurrences(this string text, char toCheck) => text.CountOccurrences(toCheck.ToString());
 
         /// <summary>
         /// Count Occurrences

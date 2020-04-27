@@ -51,9 +51,7 @@ namespace Cosmos {
         /// <param name="action"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool Is<T>(this string str, Action<T> action = null) where T : class {
-            return str.Is(typeof(T), IgnoreCase.FALSE, o => action?.Invoke(o.As<T>()));
-        }
+        public static bool Is<T>(this string str, Action<T> action = null) where T : class => str.Is(typeof(T), IgnoreCase.FALSE, o => action?.Invoke(o.As<T>()));
 
         /// <summary>
         /// Is

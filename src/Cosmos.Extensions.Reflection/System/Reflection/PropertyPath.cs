@@ -9,11 +9,10 @@ namespace System.Reflection {
         internal PropertyPath() : this(null) { }
 
         internal PropertyPath(PropertyPath root) {
-            if (root == null) {
+            if (root is null) {
                 _path = new Queue<PropertyInfo>();
                 Root = this;
-            }
-            else {
+            } else {
                 Root = root;
             }
 
@@ -38,7 +37,7 @@ namespace System.Reflection {
         /// <param name="property"></param>
         /// <exception cref="ArgumentNullException"></exception>
         protected void Append(PropertyInfo property) {
-            if (property == null)
+            if (property is null)
                 throw new ArgumentNullException(nameof(property));
 
             Root._path.Enqueue(property);

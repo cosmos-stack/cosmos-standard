@@ -12,7 +12,7 @@ namespace Cosmos.Collections {
         /// <param name="source"></param>
         /// <returns></returns>
         public static IEnumerable<TSource> Disorder<TSource>(this IEnumerable<TSource> source) {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
             return source.OrderBy(o => Guid.NewGuid());
         }

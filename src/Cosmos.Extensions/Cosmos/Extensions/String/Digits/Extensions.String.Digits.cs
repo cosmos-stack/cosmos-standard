@@ -14,10 +14,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string OnlyDigits(this string text) //ver
-        {
-            return text.OnlyDigits(null);
-        }
+        public static string OnlyDigits(this string text) => text.OnlyDigits(null);
 
         /// <summary>
         /// Only Digits
@@ -27,7 +24,7 @@ namespace Cosmos {
         /// <returns></returns>
         public static string OnlyDigits(this string text, IEnumerable<char> exceptions) {
             var res = new StringBuilder();
-            foreach (char car in text) {
+            foreach (var car in text) {
                 if (char.IsDigit(car) || exceptions.Contains(car))
                     res.Append(car);
             }
@@ -40,11 +37,6 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static int TotalDigits(this string text) {
-            if (text.IsNullOrEmpty())
-                return 0;
-
-            return text.ToCharArray().FindAll(char.IsDigit).Length;
-        }
+        public static int TotalDigits(this string text) => text.IsNullOrEmpty() ? 0 : text.ToCharArray().FindAll(char.IsDigit).Length;
     }
 }

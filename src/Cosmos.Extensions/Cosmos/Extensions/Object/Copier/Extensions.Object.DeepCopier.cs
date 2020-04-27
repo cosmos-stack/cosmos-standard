@@ -9,8 +9,6 @@ namespace Cosmos {
         /// <typeparam name="T"></typeparam>
         /// <param name="original"></param>
         /// <returns></returns>
-        public static T DeepCopy<T>(this T original) {
-            return DeepCopier.Copy(original);
-        }
+        public static T DeepCopy<T>(this T original) => DeepCopier.Copy(original);
     }
 }

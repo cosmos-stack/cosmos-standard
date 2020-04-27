@@ -42,6 +42,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
+        // ReSharper disable once InconsistentNaming
         public static byte[] ToASCIIBytes(this string value) => value.ToBytes(Encoding.ASCII);
 
         /// <summary>

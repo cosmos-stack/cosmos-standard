@@ -27,11 +27,11 @@ namespace Cosmos {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public static TypeBuilder DefinePoco(this ModuleBuilder moduleBuilder, string name, IEnumerable<KeyValuePair<string, Type>> properties) {
-            if (moduleBuilder == null)
+            if (moduleBuilder is null)
                 throw new ArgumentNullException(nameof(moduleBuilder));
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException(nameof(name));
-            if (properties == null)
+            if (properties is null)
                 throw new ArgumentNullException(nameof(properties));
 
             var typeBuilder = moduleBuilder.DefineType(name, TypeAttributes.Public);

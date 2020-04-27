@@ -12,7 +12,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="builder"></param>
         public static void Reverse(this StringBuilder builder) {
-            if (builder == null || builder.Length == 0)
+            if (builder is null || builder.Length == 0)
                 return;
 
             var destination = new char[builder.Length];
@@ -29,7 +29,7 @@ namespace Cosmos {
         /// <param name="builder"></param>
         /// <returns></returns>
         public static StringBuilder ToReverseBuilder(this StringBuilder builder) {
-            if (builder == null || builder.Length == 0)
+            if (builder is null || builder.Length == 0)
                 return builder;
 
             var destination = new char[builder.Length];
@@ -44,7 +44,7 @@ namespace Cosmos {
         /// <param name="builder"></param>
         /// <returns></returns>
         public static string ToReverseString(this StringBuilder builder) {
-            if (builder == null || builder.Length == 0)
+            if (builder is null || builder.Length == 0)
                 return string.Empty;
             return builder.ToReverseBuilder().ToString();
         }

@@ -49,9 +49,9 @@ namespace Cosmos {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<PropertyInfo> Exclude<T>(this IEnumerable<PropertyInfo> properties, IEnumerable<Expression<Func<T, object>>> expressions) {
-            if (properties == null)
+            if (properties is null)
                 throw new ArgumentNullException(nameof(properties));
-            if (expressions == null)
+            if (expressions is null)
                 throw new ArgumentNullException(nameof(expressions));
 
             ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(expressions.GetPropertyInfos());

@@ -72,18 +72,14 @@ namespace Cosmos {
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsMorning(this DateTime @this) {
-            return @this.TimeOfDay < new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
-        }
+        public static bool IsMorning(this DateTime @this) => @this.TimeOfDay < new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
 
         /// <summary>
         /// 判断是否为下午
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsAfternoon(this DateTime @this) {
-            return @this.TimeOfDay >= new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
-        }
+        public static bool IsAfternoon(this DateTime @this) => @this.TimeOfDay >= new DateTime(2000, 1, 1, 12, 0, 0).TimeOfDay;
 
         /// <summary>
         /// 判断是否是未来
@@ -105,9 +101,7 @@ namespace Cosmos {
         /// <param name="date"></param>
         /// <param name="dateToCompare"></param>
         /// <returns></returns>
-        public static bool IsDateEqual(this DateTime date, DateTime dateToCompare) {
-            return (date.Date == dateToCompare.Date);
-        }
+        public static bool IsDateEqual(this DateTime date, DateTime dateToCompare) => date.Date == dateToCompare.Date;
 
         /// <summary>
         /// 判断两个时间是否相同
@@ -115,8 +109,6 @@ namespace Cosmos {
         /// <param name="time"></param>
         /// <param name="timeToCompare"></param>
         /// <returns></returns>
-        public static bool IsTimeEqual(this DateTime time, DateTime timeToCompare) {
-            return (time.TimeOfDay == timeToCompare.TimeOfDay);
-        }
+        public static bool IsTimeEqual(this DateTime time, DateTime timeToCompare) => time.TimeOfDay == timeToCompare.TimeOfDay;
     }
 }

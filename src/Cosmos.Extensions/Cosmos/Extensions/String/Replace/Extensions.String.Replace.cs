@@ -14,10 +14,9 @@ namespace Cosmos {
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceIgnoringCase(this string original, string oldValue, string newValue) {
-            return Replace(original, oldValue, newValue, StringComparison.OrdinalIgnoreCase);
-        }
-
+        public static string ReplaceIgnoringCase(this string original, string oldValue, string newValue) =>
+            Replace(original, oldValue, newValue, StringComparison.OrdinalIgnoreCase);
+        
         /// <summary>
         /// Replace only whole phrase
         /// </summary>

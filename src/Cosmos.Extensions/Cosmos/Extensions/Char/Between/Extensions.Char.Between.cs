@@ -17,10 +17,6 @@ namespace Cosmos {
             return @char >= xiao && @char <= da;
         }
 
-        private static (char min, char max) Fix(char min, char max) {
-            if (min >= max)
-                return (max, min);
-            return (min, max);
-        }
+        private static (char min, char max) Fix(char min, char max) => min >= max ? (max, min) : (min, max);
     }
 }

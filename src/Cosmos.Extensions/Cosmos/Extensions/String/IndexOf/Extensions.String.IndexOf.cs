@@ -38,9 +38,7 @@ namespace Cosmos {
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static int IndexOfIgnoreCase(this string text, string toCheck) {
-            return text.IndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
-        }
+        public static int IndexOfIgnoreCase(this string text, string toCheck) => text.IndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
         /// Last index of ignore case
@@ -48,9 +46,7 @@ namespace Cosmos {
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static int LastIndexOfIgnoreCase(this string text, string toCheck) {
-            return text.LastIndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
-        }
+        public static int LastIndexOfIgnoreCase(this string text, string toCheck) => text.LastIndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
         /// Last index of ignore case
@@ -60,9 +56,8 @@ namespace Cosmos {
         /// <param name="startIndex"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public static int LastIndexOfIgnoreCase(this string text, string toCheck, int startIndex, int count) {
-            return text.LastIndexOf(toCheck, startIndex, count, StringComparison.OrdinalIgnoreCase);
-        }
+        public static int LastIndexOfIgnoreCase(this string text, string toCheck, int startIndex, int count) =>
+            text.LastIndexOf(toCheck, startIndex, count, StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
         /// Index of ignore case
@@ -71,9 +66,7 @@ namespace Cosmos {
         /// <param name="startIndex"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static int IndexOfIgnoreCase(this string text, int startIndex, string toCheck) {
-            return text.IndexOf(toCheck, startIndex, StringComparison.OrdinalIgnoreCase);
-        }
+        public static int IndexOfIgnoreCase(this string text, int startIndex, string toCheck) => text.IndexOf(toCheck, startIndex, StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
         /// Last index of any
@@ -82,7 +75,7 @@ namespace Cosmos {
         /// <param name="toCheck"></param>
         /// <returns></returns>
         public static int LastIndexOfAny(this string text, params string[] toCheck) {
-            if (toCheck == null || toCheck.Length == 0)
+            if (toCheck is null || toCheck.Length == 0)
                 throw new ArgumentNullException($"The parameter '{nameof(toCheck)}' cannot be null or empty.", nameof(toCheck));
 
             var res = -1;

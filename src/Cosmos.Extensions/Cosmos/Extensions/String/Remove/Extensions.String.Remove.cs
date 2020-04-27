@@ -13,9 +13,7 @@ namespace Cosmos {
         /// <param name="text"></param>
         /// <param name="removeText"></param>
         /// <returns></returns>
-        public static string Remove(this string text, string removeText) {
-            return text.Replace(removeText, String.Empty);
-        }
+        public static string Remove(this string text, string removeText) => text.Replace(removeText, string.Empty);
 
         /// <summary>
         /// Remove from ignore case
@@ -89,9 +87,8 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string RemoveAccentsIgnoreCaseAndÑ(this string text) {
-            return text.IsNullOrEmpty() ? text : text.RemoveAccentsIgnoreCase().Replace('Ñ', 'N').Replace('ñ', 'n');
-        }
+        public static string RemoveAccentsIgnoreCaseAndÑ(this string text) =>
+            text.IsNullOrEmpty() ? text : text.RemoveAccentsIgnoreCase().Replace('Ñ', 'N').Replace('ñ', 'n');
 
         /// <summary>
         /// Remove accents ignore case

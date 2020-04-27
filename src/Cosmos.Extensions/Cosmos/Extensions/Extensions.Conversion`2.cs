@@ -20,9 +20,7 @@ namespace Cosmos {
         /// <typeparam name="TFrom"></typeparam>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
-        public static TTo CastTo<TFrom, TTo>(TFrom fromObj, TTo defaultVal = default) {
-            return CastTo(fromObj, DefaultContext, defaultVal);
-        }
+        public static TTo CastTo<TFrom, TTo>(TFrom fromObj, TTo defaultVal = default) => CastTo(fromObj, DefaultContext, defaultVal);
 
         /// <summary>
         /// Cast to
@@ -114,8 +112,7 @@ namespace Cosmos {
         /// <typeparam name="TFrom"></typeparam>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
-        public static TTo CastTo<TFrom, TTo>(TFrom fromObj, EnumValidation validation = EnumValidation.None) where TTo : struct, Enum {
-            return EnumsNET.Enums.ToObject<TTo>(fromObj, validation);
-        }
+        public static TTo CastTo<TFrom, TTo>(TFrom fromObj, EnumValidation validation = EnumValidation.None) where TTo : struct, Enum =>
+            EnumsNET.Enums.ToObject<TTo>(fromObj, validation);
     }
 }

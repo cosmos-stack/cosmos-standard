@@ -46,9 +46,7 @@ namespace Cosmos {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(Try<T> left, Try<T> right) {
-            return !(left == right);
-        }
+        public static bool operator !=(Try<T> left, Try<T> right) => !(left == right);
 
         /// <inheritdoc/>
         public abstract override string ToString();

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cosmos {
     /// <summary>
@@ -35,10 +36,7 @@ namespace Cosmos {
         /// Scan, and return instances.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<TClass> ScanAndReturnInstances() {
-            foreach (var type in Scan()) {
-                yield return type.CreateInstance<TClass>();
-            }
-        }
+        public virtual IEnumerable<TClass> ScanAndReturnInstances() =>
+            Scan().Select(type => type.CreateInstance<TClass>());
     }
 }

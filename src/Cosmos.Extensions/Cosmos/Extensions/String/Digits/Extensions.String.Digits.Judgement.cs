@@ -10,8 +10,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool ContainsOnlyDigits(this string text) //ver
-        {
+        public static bool ContainsOnlyDigits(this string text) {
             foreach (var car in text) {
                 if (!char.IsDigit(car)) return false;
             }
@@ -24,8 +23,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool NotContainsDigits(this string text) //Ver
-        {
+        public static bool NotContainsDigits(this string text) {
             foreach (var car in text) {
                 if (char.IsDigit(car)) return false;
             }
@@ -38,8 +36,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool ContainsDigit(this string text) //ver
-        {
+        public static bool ContainsDigit(this string text) {
             foreach (var car in text) {
                 if (char.IsDigit(car)) return true;
             }
@@ -52,10 +49,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool IncludeDigits(this string text) //ver
-        {
-            return text.IncludeDigits(0);
-        }
+        public static bool IncludeDigits(this string text) => text.IncludeDigits(0);
 
         /// <summary>
         /// Include digits
@@ -63,8 +57,7 @@ namespace Cosmos {
         /// <param name="text"></param>
         /// <param name="minCount"></param>
         /// <returns></returns>
-        public static bool IncludeDigits(this string text, int minCount) //ver
-        {
+        public static bool IncludeDigits(this string text, int minCount) {
             var count = 0;
             foreach (var car in text) {
                 if (char.IsDigit(car))

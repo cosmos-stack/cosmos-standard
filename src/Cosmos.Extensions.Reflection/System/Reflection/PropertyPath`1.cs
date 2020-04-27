@@ -20,12 +20,10 @@ namespace System.Reflection {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public PropertyPath<TResult> ThenEnumerable<TResult>(Expression<Func<T, IEnumerable<TResult>>> expression) {
-            if (expression == null)
+            if (expression is null)
                 throw new ArgumentNullException(nameof(expression));
 
-            var propertyInfo = (expression.Body as MemberExpression)?.Member as PropertyInfo;
-
-            if (propertyInfo == null)
+            if (!((expression.Body as MemberExpression)?.Member is PropertyInfo propertyInfo))
                 throw new InvalidOperationException($"The {nameof(expression)} parameter must be an expression backed by a PropertyInfo.");
 
             Append(propertyInfo);
@@ -42,12 +40,10 @@ namespace System.Reflection {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public PropertyPath<TResult> Then<TResult>(Expression<Func<T, TResult>> expression) {
-            if (expression == null)
+            if (expression is null)
                 throw new ArgumentNullException(nameof(expression));
 
-            var propertyInfo = (expression.Body as MemberExpression)?.Member as PropertyInfo;
-
-            if (propertyInfo == null)
+            if (!((expression.Body as MemberExpression)?.Member is PropertyInfo propertyInfo))
                 throw new InvalidOperationException($"The {nameof(expression)} parameter must be an expression backed by a PropertyInfo.");
 
             Append(propertyInfo);

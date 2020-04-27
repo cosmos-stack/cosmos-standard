@@ -64,7 +64,7 @@ namespace Cosmos {
 
         // ReSharper disable once ParameterOnlyUsedForPreconditionCheck.Local
         private static void GuardParameter<T>(T[] target, string nameOfT) {
-            if (target == null || target.Length == 0)
+            if (target is null || target.Length == 0)
                 throw new ArgumentException($"Parameter '{nameOfT}' cannot be null or empty.", nameOfT);
         }
     }

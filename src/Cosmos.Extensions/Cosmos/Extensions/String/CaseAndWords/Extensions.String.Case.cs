@@ -33,9 +33,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        static bool AllCapitals(string input) {
-            return input.ToCharArray().All(Char.IsUpper);
-        }
+        static bool AllCapitals(string input) => input.ToCharArray().All(char.IsUpper);
 
         /// <summary>
         /// To camel case

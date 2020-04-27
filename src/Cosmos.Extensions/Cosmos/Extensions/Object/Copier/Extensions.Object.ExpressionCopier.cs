@@ -21,9 +21,7 @@ namespace Cosmos {
         /// <typeparam name="T"></typeparam>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static T ExpressionCopy<T>(this T source) {
-            return Copier<T>.Copy(source);
-        }
+        public static T ExpressionCopy<T>(this T source) => Copier<T>.Copy(source);
 
         private static class Copier<T> {
             // ReSharper disable once InconsistentNaming
@@ -48,8 +46,7 @@ namespace Cosmos {
                         if (_check.ContainsKey(item.Name)) {
                             var memberBinding = Expression.Bind(item, _check[item.Name]);
                             memberBindings.Add(memberBinding);
-                        }
-                        else {
+                        } else {
                             if (typeof(T).GetProperty(item.Name) != null || typeof(T).GetField(item.Name) != null) {
                                 var memberBinding = Expression.Bind(
                                     item,

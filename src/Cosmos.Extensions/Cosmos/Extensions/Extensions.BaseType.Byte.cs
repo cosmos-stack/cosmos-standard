@@ -39,6 +39,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
+        // ReSharper disable once InconsistentNaming
         public static string GetStringByASCII(this byte[] bytes) => bytes.GetString(Encoding.ASCII);
 
         /// <summary>
@@ -68,8 +69,7 @@ namespace Cosmos {
         /// <param name="bytes"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static byte[] ToBase64Bytes(this byte[] bytes, Encoding encoding = null) 
-            => bytes.ToBase64String().ToBytes(encoding);
+        public static byte[] ToBase64Bytes(this byte[] bytes, Encoding encoding = null) => bytes.ToBase64String().ToBytes(encoding);
 
         /// <summary>
         /// Convert base64 byte array to normal byte array
@@ -77,8 +77,7 @@ namespace Cosmos {
         /// <param name="bytes"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static byte[] DecodeBase64ToBytes(this byte[] bytes, Encoding encoding = null)
-            => bytes.GetString(encoding).FromBase64StringToBytes();
+        public static byte[] DecodeBase64ToBytes(this byte[] bytes, Encoding encoding = null) => bytes.GetString(encoding).FromBase64StringToBytes();
 
         /// <summary>
         /// Convert base64 byte array to normal string
@@ -86,7 +85,6 @@ namespace Cosmos {
         /// <param name="bytes"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string DecodeBase64ToString(this byte[] bytes, Encoding encoding = null)
-            => bytes.GetString(encoding).FromBase64String();
+        public static string DecodeBase64ToString(this byte[] bytes, Encoding encoding = null) => bytes.GetString(encoding).FromBase64String();
     }
 }

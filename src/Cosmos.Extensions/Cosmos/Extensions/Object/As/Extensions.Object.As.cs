@@ -12,9 +12,7 @@ namespace Cosmos {
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static T As<T>(this object @this) {
-            return (T) @this;
-        }
+        public static T As<T>(this object @this) => (T) @this;
 
         /// <summary>
         /// As or default
@@ -25,8 +23,7 @@ namespace Cosmos {
         public static T AsOrDefault<T>(this object @this) {
             try {
                 return (T) @this;
-            }
-            catch (Exception) {
+            } catch (Exception) {
                 return default;
             }
         }
@@ -41,8 +38,7 @@ namespace Cosmos {
         public static T AsOrDefault<T>(this object @this, T defaultValue) {
             try {
                 return (T) @this;
-            }
-            catch (Exception) {
+            } catch (Exception) {
                 return defaultValue;
             }
         }
@@ -57,8 +53,7 @@ namespace Cosmos {
         public static T AsOrDefault<T>(this object @this, Func<T> defaultValueFactory) {
             try {
                 return (T) @this;
-            }
-            catch (Exception) {
+            } catch (Exception) {
                 return defaultValueFactory();
             }
         }
@@ -73,8 +68,7 @@ namespace Cosmos {
         public static T AsOrDefault<T>(this object @this, Func<object, T> defaultValueFactory) {
             try {
                 return (T) @this;
-            }
-            catch (Exception) {
+            } catch (Exception) {
                 return defaultValueFactory(@this);
             }
         }

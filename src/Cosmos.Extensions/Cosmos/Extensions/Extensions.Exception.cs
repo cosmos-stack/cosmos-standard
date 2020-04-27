@@ -15,7 +15,7 @@ namespace Cosmos {
         /// <param name="ex"></param>
         /// <returns></returns>
         public static Exception Unwrap(this Exception ex) {
-            if (ex == null) {
+            if (ex is null) {
                 throw new ArgumentNullException(nameof(ex));
             }
 
@@ -35,15 +35,15 @@ namespace Cosmos {
         /// <param name="canbeSubClass"></param>
         /// <returns></returns>
         public static Exception Unwrap(this Exception ex, Type untilType, bool canbeSubClass = true) {
-            if (ex == null)
+            if (ex is null)
                 throw new ArgumentNullException(nameof(ex));
-            if (untilType == null)
+            if (untilType is null)
                 throw new ArgumentNullException(nameof(untilType));
             if (!untilType.IsSubclassOf(typeof(Exception)))
-                throw new ArgumentException($"Type '{untilType}' does not devide from {typeof(Exception)}",
-                    nameof(untilType));
-            if (ex.InnerException == null)
+                throw new ArgumentException($"Type '{untilType}' does not devide from {typeof(Exception)}", nameof(untilType));
+            if (ex.InnerException is null)
                 return null;
+
             var exception = ex.Unwrap();
             return exception.GetType() == untilType || canbeSubClass && exception.GetType().IsSubclassOf(untilType)
                 ? exception
@@ -85,8 +85,7 @@ namespace Cosmos {
                 if (ex.InnerException != null) {
                     sb.Append(ex.InnerException.ToUnwrappedString());
                 }
-            }
-            else {
+            } else {
                 sb.Append(ex.ToUnwrappedString());
             }
 

@@ -20,11 +20,11 @@ namespace Cosmos {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static (PropertyBuilder PropertyBuilder, FieldBuilder FieldBuilder) DefineAutoImplementedProperty(this TypeBuilder typeBuilder, string name, Type propertyType) {
-            if (typeBuilder == null)
+            if (typeBuilder is null)
                 throw new ArgumentNullException(nameof(typeBuilder));
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException(nameof(name));
-            if (propertyType == null)
+            if (propertyType is null)
                 throw new ArgumentNullException(nameof(propertyType));
 
             // Create the field.
@@ -47,13 +47,13 @@ namespace Cosmos {
         }
 
         private static MethodBuilder DefineAutoImplementedPropertyGetMethodBuilder(this TypeBuilder typeBuilder, string name, Type propertyType, FieldBuilder fieldBuilder) {
-            if (typeBuilder == null)
+            if (typeBuilder is null)
                 throw new ArgumentNullException(nameof(typeBuilder));
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException(nameof(name));
-            if (propertyType == null)
+            if (propertyType is null)
                 throw new ArgumentNullException(nameof(propertyType));
-            if (fieldBuilder == null)
+            if (fieldBuilder is null)
                 throw new ArgumentNullException(nameof(fieldBuilder));
 
             var methodBuilder = typeBuilder.DefineMethod($"get_{name}", PROPERTY_GET_SET_METHOD_ATTRIBUTES, propertyType, Type.EmptyTypes);
@@ -72,13 +72,13 @@ namespace Cosmos {
         }
 
         private static MethodBuilder DefineAutoImplementedPropertySetMethodBuilder(this TypeBuilder typeBuilder, string name, Type propertyType, FieldBuilder fieldBuilder) {
-            if (typeBuilder == null)
+            if (typeBuilder is null)
                 throw new ArgumentNullException(nameof(typeBuilder));
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException(nameof(name));
-            if (propertyType == null)
+            if (propertyType is null)
                 throw new ArgumentNullException(nameof(propertyType));
-            if (fieldBuilder == null)
+            if (fieldBuilder is null)
                 throw new ArgumentNullException(nameof(fieldBuilder));
 
             var methodBuilder = typeBuilder.DefineMethod($"set_{name}", PROPERTY_GET_SET_METHOD_ATTRIBUTES, null, new Type[] {propertyType});

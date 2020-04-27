@@ -13,9 +13,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public static string NullToEmpty(string @string) {
-            return @string.AvoidNull();
-        }
+        public static string NullToEmpty(string @string) => @string.AvoidNull();
 
         /// <summary>
         /// Convert empty to null.<br />
@@ -23,11 +21,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public static string EmptyToNull(string @string) {
-            if (@string.IsNullOrEmpty())
-                return null;
-            return @string;
-        }
+        public static string EmptyToNull(string @string) => @string.IsNullOrEmpty() ? null : @string;
 
         /// <summary>
         /// Returns the common prefix.<br />
@@ -82,9 +76,7 @@ namespace Cosmos {
         /// <param name="source"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static string Repeat(string source, int times) {
-            return source.Repeat(times);
-        }
+        public static string Repeat(string source, int times) => source.Repeat(times);
 
         /// <summary>
         /// Repeat<br />
@@ -93,9 +85,7 @@ namespace Cosmos {
         /// <param name="source"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static string Repeat(char source, int times) {
-            return source.Repeat(times);
-        }
+        public static string Repeat(char source, int times) => source.Repeat(times);
 
         /// <summary>
         /// Padding left
@@ -104,9 +94,7 @@ namespace Cosmos {
         /// <param name="width"></param>
         /// <param name="appendChar"></param>
         /// <returns></returns>
-        public static string PadStart(string source, int width, char appendChar) {
-            return source.PadLeft(width, appendChar);
-        }
+        public static string PadStart(string source, int width, char appendChar) => source.PadLeft(width, appendChar);
 
         /// <summary>
         /// Padding right
@@ -115,8 +103,6 @@ namespace Cosmos {
         /// <param name="width"></param>
         /// <param name="appendChar"></param>
         /// <returns></returns>
-        public static string PadEnd(string source, int width, char appendChar) {
-            return source.PadRight(width, appendChar);
-        }
+        public static string PadEnd(string source, int width, char appendChar) => source.PadRight(width, appendChar);
     }
 }

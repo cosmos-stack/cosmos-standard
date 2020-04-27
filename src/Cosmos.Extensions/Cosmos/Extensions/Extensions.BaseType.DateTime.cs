@@ -12,8 +12,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static int GetCountDaysOfMonth(this DateTime date)
-            => DateTime.DaysInMonth(date.Year, date.Month);
+        public static int GetCountDaysOfMonth(this DateTime date) => DateTime.DaysInMonth(date.Year, date.Month);
 
         /// <summary>
         /// 获得下一个工作日
@@ -292,8 +291,7 @@ namespace Cosmos {
             if (end.DayOfWeek != endDayOfWeek) {
                 if (endDayOfWeek < end.DayOfWeek) {
                     end = end.AddDays(7 - (end.DayOfWeek - endDayOfWeek));
-                }
-                else {
+                } else {
                     end = end.AddDays(endDayOfWeek - end.DayOfWeek);
                 }
             }

@@ -11,7 +11,7 @@ namespace Cosmos.Expressions {
     /// </summary>
     public static partial class ExpressionExtensions {
         private static ParameterExpression CreateParameterExpression(this Type type) {
-            if (type == null)
+            if (type is null)
                 throw new ArgumentNullException(nameof(type));
             return Expression.Parameter(type, "o");
         }
@@ -33,9 +33,9 @@ namespace Cosmos.Expressions {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public static MemberExpression CreateGetPropertyExpression(this PropertyInfo propertyInfo, ParameterExpression parameterExpression) {
-            if (propertyInfo == null)
+            if (propertyInfo is null)
                 throw new ArgumentNullException(nameof(propertyInfo));
-            if (parameterExpression == null)
+            if (parameterExpression is null)
                 throw new ArgumentNullException(nameof(parameterExpression));
 
             if (!propertyInfo.DeclaringType.GetTypeInfo().IsAssignableFrom(parameterExpression.Type.GetTypeInfo()))
@@ -67,12 +67,12 @@ namespace Cosmos.Expressions {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Expression<Func<T, TProperty>> CreateGetPropertyLambdaExpression<T, TProperty>(this PropertyInfo propertyInfo, ParameterExpression parameterExpression) {
-            if (propertyInfo == null)
+            if (propertyInfo is null)
                 throw new ArgumentNullException(nameof(propertyInfo));
-            if (parameterExpression == null)
+            if (parameterExpression is null)
                 throw new ArgumentNullException(nameof(parameterExpression));
 
-            MemberExpression propertyExpression = propertyInfo.CreateGetPropertyExpression(parameterExpression);
+            var propertyExpression = propertyInfo.CreateGetPropertyExpression(parameterExpression);
 
             Expression expression = propertyExpression;
             var type = typeof(TProperty);

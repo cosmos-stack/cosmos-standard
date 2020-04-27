@@ -10,10 +10,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool IncludeLetters(this string text) //ver
-        {
-            return text.IncludeLetters(0);
-        }
+        public static bool IncludeLetters(this string text) => text.IncludeLetters(0);
 
         /// <summary>
         /// Include Letters
@@ -21,8 +18,7 @@ namespace Cosmos {
         /// <param name="text"></param>
         /// <param name="minCount"></param>
         /// <returns></returns>
-        public static bool IncludeLetters(this string text, int minCount) //ver
-        {
+        public static bool IncludeLetters(this string text, int minCount) {
             var count = 0;
             foreach (var car in text) {
                 if (char.IsLetter(car))

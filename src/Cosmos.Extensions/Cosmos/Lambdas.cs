@@ -21,27 +21,21 @@ namespace Cosmos {
         /// 获取成员
         /// </summary>
         /// <param name="expression">表达式,范例：t => t.Name</param>
-        public static MemberInfo GetMember(Expression expression) {
-            return GetMemberExpression(expression)?.Member;
-        }
+        public static MemberInfo GetMember(Expression expression) => GetMemberExpression(expression)?.Member;
 
         /// <summary>
         /// 获取成员表达式
         /// </summary>
         /// <param name="expression">表达式</param>
         public static MemberExpression GetMemberExpression(Expression expression) {
-            if (expression == null)
+            if (expression is null)
                 return null;
-            switch (expression.NodeType) {
-                case ExpressionType.Lambda:
-                    return GetMemberExpression(((LambdaExpression) expression).Body);
-                case ExpressionType.Convert:
-                    return GetMemberExpression(((UnaryExpression) expression).Operand);
-                case ExpressionType.MemberAccess:
-                    return (MemberExpression) expression;
-            }
-
-            return null;
+            return expression.NodeType switch {
+                ExpressionType.Lambda       => GetMemberExpression(((LambdaExpression) expression).Body),
+                ExpressionType.Convert      => GetMemberExpression(((UnaryExpression) expression).Operand),
+                ExpressionType.MemberAccess => (MemberExpression) expression,
+                _                           => null
+            };
         }
 
         #endregion
@@ -52,15 +46,13 @@ namespace Cosmos {
         /// 获取成员名称，范例：t => t.Name,返回 Name
         /// </summary>
         /// <param name="expression">表达式,范例：t => t.Name</param>
-        public static string GetName(Expression expression) {
-            return GetMemberName(GetMemberExpression(expression));
-        }
+        public static string GetName(Expression expression) => GetMemberName(GetMemberExpression(expression));
 
         /// <summary>
         /// 获取成员名称
         /// </summary>
         private static string GetMemberName(MemberExpression memberExpression) {
-            if (memberExpression == null)
+            if (memberExpression is null)
                 return string.Empty;
             var result = memberExpression.ToString();
             return result.Substring(result.IndexOf(".", StringComparison.Ordinal) + 1);
@@ -77,7 +69,7 @@ namespace Cosmos {
         /// <param name="expression">属性集合表达式,范例：t => new object[]{t.A,t.B}</param>
         public static List<string> GetNames<T>(Expression<Func<T, object[]>> expression) {
             var result = new List<string>();
-            if (expression == null)
+            if (expression is null)
                 return result;
             if (!(expression.Body is NewArrayExpression arrayExpression))
                 return result;
@@ -105,7 +97,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="expression">表达式,范例：t => t.Name == "A"</param>
         public static object GetValue(Expression expression) {
-            if (expression == null)
+            if (expression is null)
                 return null;
             switch (expression.NodeType) {
                 case ExpressionType.Lambda:
@@ -143,7 +135,7 @@ namespace Cosmos {
         /// 获取属性表达式的值
         /// </summary>
         private static object GetMemberValue(MemberExpression expression) {
-            if (expression == null)
+            if (expression is null)
                 return null;
             var field = expression.Member as FieldInfo;
             if (field != null) {
@@ -152,12 +144,12 @@ namespace Cosmos {
             }
 
             var property = expression.Member as PropertyInfo;
-            if (property == null)
+            if (property is null)
                 return null;
-            if (expression.Expression == null)
+            if (expression.Expression is null)
                 return property.GetValue(null);
             var value = GetMemberValue(expression.Expression as MemberExpression);
-            return value == null ? null : property.GetValue(value);
+            return value is null ? null : property.GetValue(value);
         }
 
         /// <summary>
@@ -177,7 +169,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="expression">表达式，范例：t.Name</param>
         public static ParameterExpression GetParameter(Expression expression) {
-            if (expression == null)
+            if (expression is null)
                 return null;
             switch (expression.NodeType) {
                 case ExpressionType.Lambda:
@@ -212,7 +204,7 @@ namespace Cosmos {
         /// <param name="expression">谓词表达式,范例1：t => t.Name == "A" ，结果1。
         /// 范例2：t => t.Name == "A" &amp;&amp; t.Age =1 ，结果2。</param>
         public static int GetConditionCount(LambdaExpression expression) {
-            if (expression == null)
+            if (expression is null)
                 return 0;
             var result = expression.ToString().Replace("AndAlso", "|").Replace("OrElse", "|");
             return result.Split('|').Count();
@@ -284,8 +276,7 @@ namespace Cosmos {
         /// <param name="expression">表达式</param>
         /// <param name="value">值</param>
         public static ConstantExpression Constant(Expression expression, object value) {
-            var memberExpression = expression as MemberExpression;
-            if (memberExpression == null)
+            if (!(expression is MemberExpression memberExpression))
                 return Expression.Constant(value);
             return Expression.Constant(value, memberExpression.Type);
         }
@@ -310,9 +301,7 @@ namespace Cosmos {
         /// <summary>
         /// 创建参数
         /// </summary>
-        private static ParameterExpression CreateParameter<T>() {
-            return Expression.Parameter(typeof(T), "t");
-        }
+        private static ParameterExpression CreateParameter<T>() => Expression.Parameter(typeof(T), "t");
 
         #endregion
 

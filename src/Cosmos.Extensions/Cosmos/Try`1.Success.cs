@@ -31,19 +31,13 @@ namespace Cosmos {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public bool Equals(Success<T> other) {
-            return !(other is null) && EqualityComparer<T>.Default.Equals(Value, other.Value);
-        }
+        public bool Equals(Success<T> other) => !(other is null) && EqualityComparer<T>.Default.Equals(Value, other.Value);
 
         /// <inheritdoc />
-        public override bool Equals(object obj) {
-            return obj is Success<T> success && Equals(success);
-        }
+        public override bool Equals(object obj) => obj is Success<T> success && Equals(success);
 
         /// <inheritdoc />
-        public override int GetHashCode() {
-            return EqualityComparer<T>.Default.GetHashCode(Value);
-        }
+        public override int GetHashCode() => EqualityComparer<T>.Default.GetHashCode(Value);
 
         /// <inheritdoc />
         public override void Deconstruct(out T value, out Exception exception) {

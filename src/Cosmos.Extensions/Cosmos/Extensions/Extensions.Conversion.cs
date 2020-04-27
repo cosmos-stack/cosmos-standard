@@ -17,9 +17,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="targetType"></param>
         /// <returns></returns>
-        public static object CastTo(this object obj, Type targetType) {
-            return ObjectConverter.To(obj, targetType);
-        }
+        public static object CastTo(this object obj, Type targetType) => ObjectConverter.To(obj, targetType);
 
         /// <summary>
         /// Convert object to given type.
@@ -28,9 +26,7 @@ namespace Cosmos {
         /// <param name="targetType"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static object CastTo(this object obj, Type targetType, object defaultVal) {
-            return ObjectConverter.To(obj, targetType, defaultVal);
-        }
+        public static object CastTo(this object obj, Type targetType, object defaultVal) => ObjectConverter.To(obj, targetType, defaultVal);
 
         /// <summary>
         /// Convert object to given type.
@@ -38,9 +34,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <param name="targetType"></param>
         /// <returns></returns>
-        public static object CastTo(this object obj, TypeInfo targetType) {
-            return ObjectConverter.To(obj, targetType);
-        }
+        public static object CastTo(this object obj, TypeInfo targetType) => ObjectConverter.To(obj, targetType);
 
         /// <summary>
         /// Convert object to given type.
@@ -49,9 +43,7 @@ namespace Cosmos {
         /// <param name="targetType"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static object CastTo(this object obj, TypeInfo targetType, object defaultVal) {
-            return ObjectConverter.To(obj, targetType, defaultVal);
-        }
+        public static object CastTo(this object obj, TypeInfo targetType, object defaultVal) => ObjectConverter.To(obj, targetType, defaultVal);
 
         /// <summary>
         /// Convert object to given type.
@@ -59,9 +51,7 @@ namespace Cosmos {
         /// <param name="obj"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T CastTo<T>(this object obj) {
-            return ObjectConverter.To<T>(obj);
-        }
+        public static T CastTo<T>(this object obj) => ObjectConverter.To<T>(obj);
 
         /// <summary>
         /// Convert object to given type.
@@ -70,9 +60,7 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T CastTo<T>(this object obj, T defaultVal) {
-            return ObjectConverter.To(obj, defaultVal);
-        }
+        public static T CastTo<T>(this object obj, T defaultVal) => ObjectConverter.To(obj, defaultVal);
 
         /// <summary>
         /// Cast to
@@ -81,9 +69,7 @@ namespace Cosmos {
         /// <param name="enumTye"></param>
         /// <param name="validation"></param>
         /// <returns></returns>
-        public static object CastTo(object fromObj, Type enumTye, EnumValidation validation) {
-            return EnumsNET.Enums.ToObject(enumTye, fromObj, validation);
-        }
+        public static object CastTo(object fromObj, Type enumTye, EnumValidation validation) => EnumsNET.Enums.ToObject(enumTye, fromObj, validation);
 
         /// <summary>
         /// Cast to
@@ -133,9 +119,8 @@ namespace Cosmos {
         /// <param name="defaultVal"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T CastTo<T>(this string str, CastingContext context = default, T defaultVal = default) where T : class {
-            return str.CastTo(typeof(T), context, defaultVal).AsOrDefault(defaultVal);
-        }
+        public static T CastTo<T>(this string str, CastingContext context = default, T defaultVal = default) where T : class =>
+            str.CastTo(typeof(T), context, defaultVal).AsOrDefault(defaultVal);
 
         /// <summary>
         /// Cast to
