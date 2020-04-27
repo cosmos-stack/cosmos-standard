@@ -12,9 +12,9 @@
     <Description>Cosmos extension library</Description>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
-  </ItemGroup>
+<!--  <ItemGroup>-->
+<!--    <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />-->
+<!--  </ItemGroup>-->
 
   <ItemGroup>
     <ProjectReference Include="..\Cosmos\Cosmos.csproj" />

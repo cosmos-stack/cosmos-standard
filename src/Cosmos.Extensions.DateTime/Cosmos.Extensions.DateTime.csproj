@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
-        <PackageReference Include="NodaTime" Version="3.0.0-beta01" />
+        <PackageReference Include="NodaTime" Version="3.0.0-beta02" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='net461' OR '$(TargetFramework)'=='net451'">

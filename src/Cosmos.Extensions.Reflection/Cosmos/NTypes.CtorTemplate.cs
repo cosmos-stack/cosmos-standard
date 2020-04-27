@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using Natasha.CSharp;
+using Natasha.Error.Model;
 
 /*
  * Author: LanX
@@ -63,7 +65,7 @@ namespace Cosmos {
                     }
                 }
 
-                Initor[i] = NDomain.Random().Func<object[], object>($"return new {type.GetDevelopName()}({parameterScript});");
+                Initor[i] = NDelegate.Random().Func<object[], object>($"return new {type.GetDevelopName()}({parameterScript});");
 
             }
 
@@ -109,8 +111,8 @@ namespace Cosmos {
                 }
                 return new CtorMatchedResult(values[maxIndex],maxIndex);
 ");
-            GetIndex = NDomain
-                      .Random(ComplierResultError.ThrowException)
+            GetIndex = NDelegate
+                      .Random(c=>c.SyntaxOptions(s=>s.ErrorBehavior = ExceptionBehavior.Throw))
                       .UnsafeFunc<IEnumerable<CtorArgDescriptor>, CtorMatchedResult>(script.ToString());
 
         }
