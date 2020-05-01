@@ -12,7 +12,7 @@ namespace Cosmos {
         /// </summary>
         /// <param name="exception">The exception to wrapp.</param>
         internal Failure(Exception exception) {
-            Exception = exception ?? throw new ArgumentNullException(nameof(exception));
+            Exception = exception ?? new ArgumentNullException(nameof(exception));
         }
 
         /// <inheritdoc />
