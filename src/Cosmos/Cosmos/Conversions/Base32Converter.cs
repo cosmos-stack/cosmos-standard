@@ -52,9 +52,8 @@ namespace Cosmos.Conversions {
         /// <param name="str"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string ToBase32String(string str, Encoding encoding = null) {
-            return ToBase32String(encoding.Fixed().GetBytes(str));
-        }
+        public static string ToBase32String(string str, Encoding encoding = null) =>
+            ToBase32String(encoding.Fixed().GetBytes(str));
 
         /// <summary>
         /// Convert from base32 <see cref="string"/> to <see cref="string"/>.
@@ -62,9 +61,8 @@ namespace Cosmos.Conversions {
         /// <param name="base32String"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string FromBase32String(string base32String, Encoding encoding = null) {
-            return encoding.Fixed().GetString(FromBase32StringToBytes(base32String));
-        }
+        public static string FromBase32String(string base32String, Encoding encoding = null) =>
+            encoding.Fixed().GetString(FromBase32StringToBytes(base32String));
 
         /// <summary>
         /// Convert from base32 <see cref="string"/> to <see cref="byte"/> array.

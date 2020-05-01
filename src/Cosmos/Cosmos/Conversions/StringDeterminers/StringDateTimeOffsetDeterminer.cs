@@ -23,13 +23,11 @@ namespace Cosmos.Conversions.StringDeterminers {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = DateTimeFormatInfo.CurrentInfo;
+            var result = DateTimeOffset.TryParse(str, formatProvider.SafeD(), style, out var dateTimeOffset);
 
-            var result = DateTimeOffset.TryParse(str, formatProvider, style, out var dateTimeOffset);
-
-            if (result)
+            if (result) {
                 dtAct?.Invoke(dateTimeOffset);
+            }
 
             return result;
         }
@@ -63,13 +61,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateTimeOffset To(string str,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            DateTimeOffset defaultVal = default) {
-
-            if (formatProvider is null)
-                formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-            return DateTimeOffset.TryParse(str, formatProvider, style, out var offset) ? offset : defaultVal;
-        }
+            DateTimeOffset defaultVal = default) =>
+            DateTimeOffset.TryParse(str, formatProvider.SafeD(), style, out var offset) ? offset : defaultVal;
 
         /// <summary>
         /// To
@@ -82,13 +75,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateTimeOffset To(string str,
             IEnumerable<IConversionImpl<string, DateTimeOffset>> impls,
             DateTimeStyles style = DateTimeStyles.None,
-            IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+            IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeD(), act), impls);
 
         /// <summary>
         /// Exact DateTimeOffset Determiner
@@ -112,13 +100,11 @@ namespace Cosmos.Conversions.StringDeterminers {
                 if (string.IsNullOrWhiteSpace(str))
                     return false;
 
-                if (formatProvider is null)
-                    formatProvider = DateTimeFormatInfo.CurrentInfo;
+                var result = DateTimeOffset.TryParseExact(str, format, formatProvider.SafeD(), style, out var dateTimeOffset);
 
-                var result = DateTimeOffset.TryParseExact(str, format, formatProvider, style, out var dateTimeOffset);
-
-                if (result)
+                if (result) {
                     dtAct?.Invoke(dateTimeOffset);
+                }
 
                 return result;
             }
@@ -156,13 +142,8 @@ namespace Cosmos.Conversions.StringDeterminers {
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                DateTimeOffset defaultVal = default) {
-
-                if (formatProvider is null)
-                    formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-                return DateTimeOffset.TryParseExact(str, format, formatProvider, style, out var offset) ? offset : defaultVal;
-            }
+                DateTimeOffset defaultVal = default) =>
+                DateTimeOffset.TryParseExact(str, format, formatProvider.SafeD(), style, out var offset) ? offset : defaultVal;
 
             /// <summary>
             /// To
@@ -177,13 +158,8 @@ namespace Cosmos.Conversions.StringDeterminers {
                 string format,
                 IEnumerable<IConversionImpl<string, DateTimeOffset>> impls,
                 DateTimeStyles style = DateTimeStyles.None,
-                IFormatProvider formatProvider = null) {
-
-                if (formatProvider is null)
-                    formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-                return _Helper.ToXXX(str, (s, act) => Is(s, format, style, formatProvider, act), impls);
-            }
+                IFormatProvider formatProvider = null) =>
+                _Helper.ToXXX(str, (s, act) => Is(s, format, style, formatProvider.SafeD(), act), impls);
         }
     }
 }

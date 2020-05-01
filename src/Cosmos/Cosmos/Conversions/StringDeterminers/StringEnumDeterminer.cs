@@ -17,8 +17,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool Is(string s, Type enumType, bool ignoreCase = false, Action<object> enumAct = null) {
             var result = EnumsNET.Enums.TryParse(enumType, s, ignoreCase, out var @enum);
 
-            if (result)
+            if (result) {
                 enumAct?.Invoke(@enum);
+            }
 
             return result;
         }
@@ -32,14 +33,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="ignoreCase"></param>
         /// <param name="enumAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            Type enumType,
-            IEnumerable<IConversionTry<string, object>> tries,
-            bool ignoreCase = false,
-            Action<object> enumAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, enumType, ignoreCase, act), tries, enumAct);
-        }
+        public static bool Is(string str, Type enumType, IEnumerable<IConversionTry<string, object>> tries, bool ignoreCase = false, Action<object> enumAct = null) =>
+            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, enumType, ignoreCase, act), tries, enumAct);
 
         /// <summary>
         /// To
@@ -49,13 +44,10 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="ignoreCase"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static object To(string s, Type enumType, bool ignoreCase = false, object defaultVal = default) {
-            if (defaultVal is null)
-                defaultVal = Activator.CreateInstance(enumType);
-            return EnumsNET.Enums.TryParse(enumType, s, ignoreCase, out var result)
+        public static object To(string s, Type enumType, bool ignoreCase = false, object defaultVal = default) =>
+            EnumsNET.Enums.TryParse(enumType, s, ignoreCase, out var result)
                 ? result
-                : defaultVal;
-        }
+                : defaultVal ?? Activator.CreateInstance(enumType);
 
         /// <summary>
         /// To
@@ -65,8 +57,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="impls"></param>
         /// <param name="ignoreCase"></param>
         /// <returns></returns>
-        public static object To(string str, Type enumType, IEnumerable<IConversionImpl<string, object>> impls, bool ignoreCase = false) {
-            return _Helper.ToXXX(str, (s, act) => Is(s, enumType, ignoreCase, act), impls);
-        }
+        public static object To(string str, Type enumType, IEnumerable<IConversionImpl<string, object>> impls, bool ignoreCase = false) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, enumType, ignoreCase, act), impls);
     }
 }

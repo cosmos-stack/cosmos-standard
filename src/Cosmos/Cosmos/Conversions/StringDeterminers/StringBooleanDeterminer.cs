@@ -31,9 +31,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="tries"></param>
         /// <param name="booleanAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, bool>> tries, Action<bool> booleanAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, booleanAct);
-        }
+        public static bool Is(string str, IEnumerable<IConversionTry<string, bool>> tries, Action<bool> booleanAct = null) =>
+            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, booleanAct);
 
         /// <summary>
         /// To
@@ -54,8 +53,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="str"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static bool To(string str, IEnumerable<IConversionImpl<string, bool>> impls) {
-            return _Helper.ToXXX(str, Is, impls);
-        }
+        public static bool To(string str, IEnumerable<IConversionImpl<string, bool>> impls) =>
+            _Helper.ToXXX(str, Is, impls);
     }
 }

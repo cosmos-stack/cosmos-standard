@@ -23,13 +23,11 @@ namespace Cosmos.Conversions.StringDeterminers {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = DateTimeFormatInfo.CurrentInfo;
+            var result = DateTime.TryParse(str, formatProvider.SafeD(), style, out var dateTime);
 
-            var result = DateTime.TryParse(str, formatProvider, style, out var dateTime);
-
-            if (result)
+            if (result) {
                 dtAct?.Invoke(dateTime);
+            }
 
             return result;
         }
@@ -63,15 +61,10 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateTime To(string str,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            DateTime defaultVal = default) {
-
-            if (formatProvider is null)
-                formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-            return DateTime.TryParse(str, formatProvider, style, out var dateTime)
+            DateTime defaultVal = default) =>
+            DateTime.TryParse(str, formatProvider.SafeD(), style, out var dateTime)
                 ? dateTime
                 : defaultVal;
-        }
 
         /// <summary>
         /// To
@@ -84,13 +77,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateTime To(string str,
             IEnumerable<IConversionImpl<string, DateTime>> impls,
             DateTimeStyles style = DateTimeStyles.None,
-            IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+            IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeD(), act), impls);
 
         /// <summary>
         /// Exact DateTime Determiner
@@ -114,10 +102,7 @@ namespace Cosmos.Conversions.StringDeterminers {
                 if (string.IsNullOrWhiteSpace(str))
                     return false;
 
-                if (formatProvider is null)
-                    formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-                var result = DateTime.TryParseExact(str, format, formatProvider, style, out var dateTime);
+                var result = DateTime.TryParseExact(str, format, formatProvider.SafeD(), style, out var dateTime);
 
                 if (result)
                     dtAct?.Invoke(dateTime);
@@ -158,13 +143,8 @@ namespace Cosmos.Conversions.StringDeterminers {
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                DateTime defaultVal = default) {
-
-                if (formatProvider is null)
-                    formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-                return DateTime.TryParseExact(str, format, formatProvider, style, out var dateTime) ? dateTime : defaultVal;
-            }
+                DateTime defaultVal = default) =>
+                DateTime.TryParseExact(str, format, formatProvider.SafeD(), style, out var dateTime) ? dateTime : defaultVal;
 
             /// <summary>
             /// To
@@ -179,13 +159,10 @@ namespace Cosmos.Conversions.StringDeterminers {
                 string format,
                 IEnumerable<IConversionImpl<string, DateTime>> impls,
                 DateTimeStyles style = DateTimeStyles.None,
-                IFormatProvider formatProvider = null) {
-
-                if (formatProvider is null)
-                    formatProvider = DateTimeFormatInfo.CurrentInfo;
-
-                return _Helper.ToXXX(str, (s, act) => Is(s, format, style, formatProvider, act), impls);
-            }
+                IFormatProvider formatProvider = null) =>
+                _Helper.ToXXX(str, (s, act) => Is(s, format, style, formatProvider.SafeD(), act), impls);
         }
+
+       
     }
 }

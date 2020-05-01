@@ -18,8 +18,9 @@ namespace Cosmos.Conversions.StringDeterminers {
 
             var result = Version.TryParse(str, out var n);
 
-            if (result)
+            if (result) {
                 versionAct?.Invoke(n);
+            }
 
             return result;
         }
@@ -31,9 +32,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="tries"></param>
         /// <param name="versionAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, Version>> tries, Action<Version> versionAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, versionAct);
-        }
+        public static bool Is(string str, IEnumerable<IConversionTry<string, Version>> tries, Action<Version> versionAct = null) =>
+            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, versionAct);
 
         /// <summary>
         /// To
@@ -44,7 +44,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static Version To(string str, Version defaultVal = default) {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
-
             return Version.TryParse(str, out var result) ? result : defaultVal;
         }
 
@@ -54,8 +53,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="str"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static Version To(string str, IEnumerable<IConversionImpl<string, Version>> impls) {
-            return _Helper.ToXXX(str, Is, impls);
-        }
+        public static Version To(string str, IEnumerable<IConversionImpl<string, Version>> impls) =>
+            _Helper.ToXXX(str, Is, impls);
     }
 }

@@ -7,6 +7,13 @@ namespace Cosmos.Conversions.StringDeterminers {
     /// Internal core conversion helper from string to double
     /// </summary>
     public static class StringDoubleDeterminer {
+        private const NumberStyles NUMBER_STYLES = NumberStyles.AllowLeadingWhite
+                                                 | NumberStyles.AllowTrailingWhite
+                                                 | NumberStyles.AllowLeadingSign
+                                                 | NumberStyles.AllowDecimalPoint
+                                                 | NumberStyles.AllowThousands
+                                                 | NumberStyles.AllowExponent;
+
         /// <summary>
         /// Is
         /// </summary>
@@ -17,21 +24,18 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(
             string str,
-            NumberStyles style = NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint |
-                                 NumberStyles.AllowThousands | NumberStyles.AllowExponent,
+            NumberStyles style = NUMBER_STYLES,
             IFormatProvider formatProvider = null,
             Action<double> doubleAct = null) {
 
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
+            var result = double.TryParse(str, style, formatProvider.SafeN(), out var number);
 
-            var result = double.TryParse(str, style, formatProvider, out var number);
-
-            if (result)
+            if (result) {
                 doubleAct?.Invoke(number);
+            }
 
             return result;
         }
@@ -45,19 +49,10 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="doubleAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            IEnumerable<IConversionTry<string, double>> tries,
-            NumberStyles style = NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint |
-                                 NumberStyles.AllowThousands | NumberStyles.AllowExponent,
-            IFormatProvider formatProvider = null,
-            Action<double> doubleAct = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
+        public static bool Is(string str, IEnumerable<IConversionTry<string, double>> tries,
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<double> doubleAct = null) {
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, doubleAct);
+                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, doubleAct);
         }
 
         /// <summary>
@@ -69,15 +64,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static double To(string str, double defaultVal = default,
-            NumberStyles style = NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint |
-                                 NumberStyles.AllowThousands | NumberStyles.AllowExponent,
-            IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return double.TryParse(str, style, formatProvider, out var number) ? number : defaultVal;
-        }
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) =>
+            double.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
 
         /// <summary>
         /// To
@@ -88,14 +76,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static double To(string str, IEnumerable<IConversionImpl<string, double>> impls,
-            NumberStyles style = NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint |
-                                 NumberStyles.AllowThousands | NumberStyles.AllowExponent,
-            IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
     }
 }

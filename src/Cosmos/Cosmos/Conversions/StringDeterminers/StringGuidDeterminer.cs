@@ -18,8 +18,9 @@ namespace Cosmos.Conversions.StringDeterminers {
 
             var result = Guid.TryParse(str, out var guid);
 
-            if (result)
+            if (result) {
                 guidAct?.Invoke(guid);
+            }
 
             return result;
         }
@@ -31,9 +32,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="tries"></param>
         /// <param name="guidAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, Guid>> tries, Action<Guid> guidAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, guidAct);
-        }
+        public static bool Is(string str, IEnumerable<IConversionTry<string, Guid>> tries, Action<Guid> guidAct = null) =>
+            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, guidAct);
 
         /// <summary>
         /// To
@@ -44,7 +44,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static Guid To(string str, Guid defaultVal = default) {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
-
             return Guid.TryParse(str, out var guid) ? guid : defaultVal;
         }
 
@@ -54,9 +53,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="str"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static Guid To(string str, IEnumerable<IConversionImpl<string, Guid>> impls) {
-            return _Helper.ToXXX(str, Is, impls);
-        }
+        public static Guid To(string str, IEnumerable<IConversionImpl<string, Guid>> impls) => _Helper.ToXXX(str, Is, impls);
 
         /// <summary>
         /// Exact Guid Determiner
@@ -75,8 +72,9 @@ namespace Cosmos.Conversions.StringDeterminers {
 
                 var result = Guid.TryParseExact(str, format, out var guid);
 
-                if (result)
+                if (result) {
                     guidAct?.Invoke(guid);
+                }
 
                 return result;
             }
@@ -89,9 +87,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             /// <param name="tries"></param>
             /// <param name="guidAct"></param>
             /// <returns></returns>
-            public static bool Is(string str, string format, IEnumerable<IConversionTry<string, Guid>> tries, Action<Guid> guidAct = null) {
-                return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, format, act), tries, guidAct);
-            }
+            public static bool Is(string str, string format, IEnumerable<IConversionTry<string, Guid>> tries, Action<Guid> guidAct = null) =>
+                _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, format, act), tries, guidAct);
 
             /// <summary>
             /// To
@@ -103,7 +100,6 @@ namespace Cosmos.Conversions.StringDeterminers {
             public static Guid To(string str, string format, Guid defaultVal = default) {
                 if (string.IsNullOrWhiteSpace(str))
                     return defaultVal;
-
                 return Guid.TryParse(str, out var guid) ? guid : defaultVal;
             }
 
@@ -114,9 +110,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             /// <param name="format"></param>
             /// <param name="impls"></param>
             /// <returns></returns>
-            public static Guid To(string str, string format, IEnumerable<IConversionImpl<string, Guid>> impls) {
-                return _Helper.ToXXX(str, (s, act) => Is(s, format, act), impls);
-            }
+            public static Guid To(string str, string format, IEnumerable<IConversionImpl<string, Guid>> impls) =>
+                _Helper.ToXXX(str, (s, act) => Is(s, format, act), impls);
         }
     }
 }

@@ -24,13 +24,11 @@ namespace Cosmos.Conversions.StringDeterminers {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
+            var result = decimal.TryParse(str, style, formatProvider.SafeN(), out var number);
 
-            var result = decimal.TryParse(str, style, formatProvider, out var number);
-
-            if (result)
+            if (result) {
                 decimalAct?.Invoke(number);
+            }
 
             return result;
         }
@@ -50,12 +48,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             NumberStyles style = NumberStyles.Number,
             IFormatProvider formatProvider = null,
             Action<decimal> decimalAct = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, decimalAct);
+                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, decimalAct);
         }
 
         /// <summary>
@@ -67,13 +61,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static decimal To(string str, decimal defaultVal = default,
-            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return decimal.TryParse(str, style, formatProvider, out var number) ? number : defaultVal;
-        }
+            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) =>
+            decimal.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
 
         /// <summary>
         /// To
@@ -84,12 +73,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static decimal To(string str, IEnumerable<IConversionImpl<string, decimal>> impls,
-            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
     }
 }

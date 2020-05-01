@@ -10,72 +10,56 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool IsToday(DateTime dt) {
-            return dt.Date == DateTime.Today;
-        }
+        public static bool IsToday(DateTime dt) => dt.Date == DateTime.Today;
 
         /// <summary>
         /// To judge whether the day is today.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool IsToday(DateTime? dt) {
-            return IsToday(dt.GetValueOrDefault());
-        }
+        public static bool IsToday(DateTime? dt) => IsToday(dt.GetValueOrDefault());
 
         /// <summary>
         /// To judge whether the day is today.
         /// </summary>
         /// <param name="dtOffset"></param>
         /// <returns></returns>
-        public static bool IsToday(DateTimeOffset dtOffset) {
-            return IsToday(dtOffset.Date);
-        }
+        public static bool IsToday(DateTimeOffset dtOffset) => IsToday(dtOffset.Date);
 
         /// <summary>
         /// To judge whether the day is today.
         /// </summary>
         /// <param name="dtOffset"></param>
         /// <returns></returns>
-        public static bool IsToday(DateTimeOffset? dtOffset) {
-            return IsToday(dtOffset.GetValueOrDefault());
-        }
+        public static bool IsToday(DateTimeOffset? dtOffset) => IsToday(dtOffset.GetValueOrDefault());
 
         /// <summary>
         /// To judge whether the day is weekend.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool IsWeekend(DateTime dt) {
-            return dt.DayOfWeek == DayOfWeek.Sunday || dt.DayOfWeek == DayOfWeek.Saturday;
-        }
+        public static bool IsWeekend(DateTime dt) => dt.DayOfWeek == DayOfWeek.Sunday || dt.DayOfWeek == DayOfWeek.Saturday;
 
         /// <summary>
         /// To judge whether the day is weekend.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool IsWeekend(DateTime? dt) {
-            return IsWeekend(dt.GetValueOrDefault());
-        }
+        public static bool IsWeekend(DateTime? dt) => IsWeekend(dt.GetValueOrDefault());
 
         /// <summary>
         /// To judge whether the day is weekday.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool IsWeekday(DateTime dt) {
-            return !IsWeekend(dt);
-        }
+        public static bool IsWeekday(DateTime dt) => !IsWeekend(dt);
 
         /// <summary>
         /// To judge whether the day is weekday.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool IsWeekday(DateTime? dt) {
-            return IsWeekday(dt.GetValueOrDefault());
-        }
+        public static bool IsWeekday(DateTime? dt) => IsWeekday(dt.GetValueOrDefault());
 
         /// <summary>
         /// To judge whether the day is valid.

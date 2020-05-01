@@ -15,22 +15,17 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="byteAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null,
-            Action<sbyte> byteAct = null) {
+        public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
+            IFormatProvider formatProvider = null, Action<sbyte> byteAct = null) {
 
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
+            var result = sbyte.TryParse(str, style, formatProvider.SafeN(), out var number);
 
-            var result = sbyte.TryParse(str, style, formatProvider, out var number);
-
-            if (result)
+            if (result) {
                 byteAct?.Invoke(number);
+            }
 
             return result;
         }
@@ -44,18 +39,10 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="byteAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            IEnumerable<IConversionTry<string, sbyte>> tries,
-            NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null,
-            Action<sbyte> byteAct = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
+        public static bool Is(string str, IEnumerable<IConversionTry<string, sbyte>> tries,
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<sbyte> byteAct = null) {
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, byteAct);
+                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, byteAct);
         }
 
         /// <summary>
@@ -68,13 +55,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static sbyte To(string str, sbyte defaultVal = default,
             NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            if (!sbyte.TryParse(str, style, formatProvider, out var number))
+            if (!sbyte.TryParse(str, style, formatProvider.SafeN(), out var number))
                 number = defaultVal;
-
             return number;
         }
 
@@ -87,12 +69,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static sbyte To(string str, IEnumerable<IConversionImpl<string, sbyte>> impls,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
     }
 }

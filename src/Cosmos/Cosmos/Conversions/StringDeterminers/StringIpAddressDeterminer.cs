@@ -19,8 +19,9 @@ namespace Cosmos.Conversions.StringDeterminers {
 
             var result = IPAddress.TryParse(str, out var address);
 
-            if (result)
+            if (result) {
                 addressAct?.Invoke(address);
+            }
 
             return result;
         }
@@ -32,9 +33,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="tries"></param>
         /// <param name="addressAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, IPAddress>> tries, Action<IPAddress> addressAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, addressAct);
-        }
+        public static bool Is(string str, IEnumerable<IConversionTry<string, IPAddress>> tries, Action<IPAddress> addressAct = null) =>
+            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, addressAct);
 
         /// <summary>
         /// To
@@ -45,7 +45,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static IPAddress To(string str, IPAddress defaultVal = default) {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
-
             return IPAddress.TryParse(str, out var address) ? address : defaultVal;
         }
 
@@ -55,8 +54,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="str"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static IPAddress To(string str, IEnumerable<IConversionImpl<string, IPAddress>> impls) {
-            return _Helper.ToXXX(str, Is, impls);
-        }
+        public static IPAddress To(string str, IEnumerable<IConversionImpl<string, IPAddress>> impls) =>
+            _Helper.ToXXX(str, Is, impls);
     }
 }

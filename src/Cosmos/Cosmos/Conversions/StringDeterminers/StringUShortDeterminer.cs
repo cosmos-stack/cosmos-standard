@@ -24,13 +24,11 @@ namespace Cosmos.Conversions.StringDeterminers {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
+            var result = ushort.TryParse(str, style, formatProvider.SafeN(), out var number);
 
-            var result = ushort.TryParse(str, style, formatProvider, out var number);
-
-            if (result)
+            if (result) {
                 shortAct?.Invoke(number);
+            }
 
             return result;
         }
@@ -50,12 +48,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null,
             Action<ushort> shortAct = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, shortAct);
+                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, shortAct);
         }
 
         /// <summary>
@@ -67,13 +61,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static ushort To(string str, ushort defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return ushort.TryParse(str, style, formatProvider, out var number) ? number : defaultVal;
-        }
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
+            ushort.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
 
         /// <summary>
         /// To
@@ -84,12 +73,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static ushort To(string str, IEnumerable<IConversionImpl<string, ushort>> impls,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
     }
 }

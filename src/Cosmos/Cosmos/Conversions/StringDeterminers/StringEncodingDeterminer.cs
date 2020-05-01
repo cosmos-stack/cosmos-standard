@@ -37,8 +37,9 @@ namespace Cosmos.Conversions.StringDeterminers {
                 }
             }
 
-            if (result)
+            if (result) {
                 encodingAction?.Invoke(encoding);
+            }
 
             return result;
         }
@@ -50,9 +51,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="tries"></param>
         /// <param name="encodingAction"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, Encoding>> tries, Action<Encoding> encodingAction = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, encodingAction);
-        }
+        public static bool Is(string str, IEnumerable<IConversionTry<string, Encoding>> tries, Action<Encoding> encodingAction = null) =>
+            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, encodingAction);
 
         /// <summary>
         /// To
@@ -61,12 +61,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static Encoding To(string str, Encoding defaultVal = null) {
-            if (defaultVal is null)
-                defaultVal = Encoding.Default;
-
             Encoding result = null;
-
-            return Is(str, encoding => result = encoding) ? result : defaultVal;
+            return Is(str, encoding => result = encoding) ? result : defaultVal.Fixed(Encoding.Default);
         }
 
         /// <summary>
@@ -75,8 +71,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="str"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static Encoding To(string str, IEnumerable<IConversionImpl<string, Encoding>> impls) {
-            return _Helper.ToXXX(str, Is, impls);
-        }
+        public static Encoding To(string str, IEnumerable<IConversionImpl<string, Encoding>> impls) =>
+            _Helper.ToXXX(str, Is, impls);
     }
 }

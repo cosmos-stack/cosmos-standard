@@ -12,8 +12,7 @@ namespace Cosmos.Judgments {
         /// <param name="pattern"></param>
         /// <param name="options">regex options, default is RegexOptions.IgnoreCase</param>
         /// <returns></returns>
-        public static bool IsMatch(string str, string pattern, RegexOptions options = RegexOptions.IgnoreCase) {
-            return Regex.IsMatch(str, pattern, options);
-        }
+        public static bool IsMatch(string str, string pattern, RegexOptions options = RegexOptions.IgnoreCase) =>
+            Regex.IsMatch(str, pattern, options);
     }
 }

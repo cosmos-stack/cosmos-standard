@@ -12,7 +12,7 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static bool ToBoolean(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return false;
             }
 
@@ -27,7 +27,7 @@ namespace Cosmos.Conversions {
         /// <param name="obj"></param>
         /// <returns></returns>
         public static bool? ToNullableBoolean(object obj) {
-            if (obj == null) {
+            if (obj is null) {
                 return null;
             }
 

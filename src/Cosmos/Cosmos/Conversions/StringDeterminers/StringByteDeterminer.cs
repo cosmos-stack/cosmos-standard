@@ -24,10 +24,7 @@ namespace Cosmos.Conversions.StringDeterminers {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            var result = byte.TryParse(str, style, formatProvider, out var number);
+            var result = byte.TryParse(str, style, formatProvider.SafeN(), out var number);
 
             if (result)
                 byteAct?.Invoke(number);
@@ -50,12 +47,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null,
             Action<byte> byteAct = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, byteAct);
+                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, byteAct);
         }
 
         /// <summary>
@@ -67,13 +60,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static byte To(string str, byte defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return byte.TryParse(str, style, formatProvider, out var number) ? number : defaultVal;
-        }
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
+            byte.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
 
         /// <summary>
         /// To
@@ -83,13 +71,10 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static byte To(string str, IEnumerable<IConversionImpl<string, byte>> impls,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+        public static byte To(string str,
+            IEnumerable<IConversionImpl<string, byte>> impls,
+            NumberStyles style = NumberStyles.Integer,
+            IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
     }
 }

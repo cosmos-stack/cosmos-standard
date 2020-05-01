@@ -15,22 +15,17 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="intAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null,
-            Action<uint> intAct = null) {
+        public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
+            IFormatProvider formatProvider = null, Action<uint> intAct = null) {
 
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
+            var result = uint.TryParse(str, style, formatProvider.SafeN(), out var number);
 
-            var result = uint.TryParse(str, style, formatProvider, out var number);
-
-            if (result)
+            if (result) {
                 intAct?.Invoke(number);
+            }
 
             return result;
         }
@@ -44,18 +39,10 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="intAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            IEnumerable<IConversionTry<string, uint>> tries,
-            NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null,
-            Action<uint> intAct = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
+        public static bool Is(string str, IEnumerable<IConversionTry<string, uint>> tries,
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<uint> intAct = null) {
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, intAct);
+                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, intAct);
         }
 
         /// <summary>
@@ -67,13 +54,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static uint To(string str, uint defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return uint.TryParse(str, style, formatProvider, out var number) ? number : defaultVal;
-        }
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
+            uint.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
 
         /// <summary>
         /// To
@@ -84,12 +66,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static uint To(string str, IEnumerable<IConversionImpl<string, uint>> impls,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-
-            if (formatProvider is null)
-                formatProvider = NumberFormatInfo.CurrentInfo;
-
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
-        }
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
     }
 }

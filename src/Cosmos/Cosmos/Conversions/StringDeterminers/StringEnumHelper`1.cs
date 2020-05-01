@@ -16,8 +16,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool Is(string str, bool ignoreCase = false, Action<TEnum> action = null) {
             var result = Enum.TryParse(str, ignoreCase, out TEnum @enum);
 
-            if (result)
+            if (result) {
                 action?.Invoke(@enum);
+            }
 
             return result;
         }
@@ -30,13 +31,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="ignoreCase"></param>
         /// <param name="enumAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            IEnumerable<IConversionTry<string, TEnum>> tries,
-            bool ignoreCase = false,
-            Action<TEnum> enumAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, ignoreCase, act), tries, enumAct);
-        }
+        public static bool Is(string str, IEnumerable<IConversionTry<string, TEnum>> tries, bool ignoreCase = false, Action<TEnum> enumAct = null) =>
+            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, ignoreCase, act), tries, enumAct);
 
         /// <summary>
         /// To
@@ -45,9 +41,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="ignoreCase"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static TEnum To(string str, bool ignoreCase = false, TEnum defaultVal = default) {
-            return Enum.TryParse(str, ignoreCase, out TEnum @enum) ? @enum : defaultVal;
-        }
+        public static TEnum To(string str, bool ignoreCase = false, TEnum defaultVal = default) =>
+            Enum.TryParse(str, ignoreCase, out TEnum @enum) ? @enum : defaultVal;
 
         /// <summary>
         /// To
@@ -56,8 +51,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="impls"></param>
         /// <param name="ignoreCase"></param>
         /// <returns></returns>
-        public static TEnum To(string str, IEnumerable<IConversionImpl<string, TEnum>> impls, bool ignoreCase = false) {
-            return _Helper.ToXXX(str, (s, act) => Is(s, ignoreCase, act), impls);
-        }
+        public static TEnum To(string str, IEnumerable<IConversionImpl<string, TEnum>> impls, bool ignoreCase = false) =>
+            _Helper.ToXXX(str, (s, act) => Is(s, ignoreCase, act), impls);
     }
 }

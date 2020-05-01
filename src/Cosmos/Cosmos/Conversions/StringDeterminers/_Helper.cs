@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Cosmos.Conversions.StringDeterminers {
     /// <summary>
@@ -76,5 +77,9 @@ namespace Cosmos.Conversions.StringDeterminers {
 
             return result;
         }
+
+        public static IFormatProvider SafeN(this IFormatProvider formatProvider) => formatProvider ?? NumberFormatInfo.CurrentInfo;
+
+        public static IFormatProvider SafeD(this IFormatProvider formatProvider) => formatProvider ?? DateTimeFormatInfo.CurrentInfo;
     }
 }

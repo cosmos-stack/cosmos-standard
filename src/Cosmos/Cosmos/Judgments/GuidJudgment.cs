@@ -11,19 +11,14 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty(Guid guid) {
-            return guid == Guid.Empty;
-        }
+        public static bool IsNullOrEmpty(Guid guid) => guid == Guid.Empty;
 
         /// <summary>
         /// To judge whether the <see cref="Guid"/> is null or empty.
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty(Guid? guid) {
-            return guid is null || IsNullOrEmpty(guid.Value);
-        }
-
+        public static bool IsNullOrEmpty(Guid? guid) => guid is null || IsNullOrEmpty(guid.Value);
 
         private static readonly Regex GuidSchema
             = new Regex("^[A-Fa-f0-9]{32}$|" +
@@ -35,9 +30,7 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="guidStr"></param>
         /// <returns></returns>
-        public static bool IsValid(string guidStr) {
-            return !string.IsNullOrWhiteSpace(guidStr) && GuidSchema.Match(guidStr).Success;
-
-        }
+        public static bool IsValid(string guidStr) =>
+            !string.IsNullOrWhiteSpace(guidStr) && GuidSchema.Match(guidStr).Success;
     }
 }
