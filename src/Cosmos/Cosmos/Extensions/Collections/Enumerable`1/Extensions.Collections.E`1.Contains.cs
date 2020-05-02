@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace System {
-    /// <summary>
-    /// Extensions
-    /// </summary>
-    public static class Extensions {
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Collections {
+    public static partial class CollectionExtensions {
         /// <summary>
-        /// Contains
+        /// Contains<br />
+        /// 包含
         /// </summary>
         /// <param name="me"></param>
         /// <param name="condition"></param>

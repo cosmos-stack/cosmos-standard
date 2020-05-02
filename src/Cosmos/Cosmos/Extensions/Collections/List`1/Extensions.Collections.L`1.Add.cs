@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Collections {
@@ -20,13 +21,7 @@ namespace Cosmos.Collections {
             }
 
             var counter = 0;
-            foreach (var item in collection) {
-                if (counter >= limit)
-                    break;
-
-                source.Add(item);
-                ++counter;
-            }
+            source.AddRange(collection.TakeWhile(item => counter++ < limit));
         }
     }
 }

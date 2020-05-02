@@ -22,24 +22,22 @@ namespace Cosmos.Joiners {
             TContainer container, Action<TContainer, string> containerUpdateFunc,
             IEnumerable<T> list, string delimiter,
             Func<T, bool> predicate, Func<T, string> to, Func<T, T> replaceFunc = null) {
-            if (list == null)
+            if (list is null)
                 return;
 
-            bool head = true;
+            var head = true;
 
             foreach (var item in list) {
                 var checker = item;
                 if (!(predicate?.Invoke(checker) ?? true)) {
                     if (replaceFunc == null)
                         continue;
-                    else
-                        checker = replaceFunc(item);
+                    checker = replaceFunc(item);
                 }
 
                 if (head) {
                     head = false;
-                }
-                else {
+                } else {
                     containerUpdateFunc.Invoke(container, delimiter);
                 }
 

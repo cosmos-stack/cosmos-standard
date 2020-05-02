@@ -2320,6 +2320,1325 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Collections.CollectionExtensions">
+            <summary>
+            Collection extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            Contains
+            </summary>
+            <param name="me"></param>
+            <param name="condition"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.Disorder``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            打乱一个集合的顺序
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.Merge``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Merge
+            </summary>
+            <param name="source"></param>
+            <param name="collection"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.Merge``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Merge
+            </summary>
+            <param name="source"></param>
+            <param name="collection"></param>
+            <param name="limit"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Join to string
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Join to string
+            </summary>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.Boolean},System.Func{System.String,System.String})">
+            <summary>
+            Join to string
+            </summary>
+            <param name="list"></param>
+            <param name="predicate"></param>
+            <param name="replaceFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString(System.Collections.Generic.IEnumerable{System.String},System.String,System.Func{System.String,System.Boolean},System.Func{System.String,System.String})">
+            <summary>
+            Join to string
+            </summary>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="predicate"></param>
+            <param name="replaceFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},System.Func{``0,``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="predicate"></param>
+            <param name="replaceFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,Cosmos.ITypeConverter{``0,System.String},System.Func{``0,``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="converter"></param>
+            <param name="replaceFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String},System.Func{``0,``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="to"></param>
+            <param name="replaceFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},Cosmos.ITypeConverter{``0,System.String},System.Func{``0,``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="predicate"></param>
+            <param name="converter"></param>
+            <param name="replaceFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinOnePerLine``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToStringFormat``1(System.Collections.Generic.IEnumerable{``0},System.String,System.IFormatProvider)">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.JoinToString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="predicate"></param>
+            <param name="to"></param>
+            <param name="replaceFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionExtensions.AddRange``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Add range
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="collection"></param>
+            <param name="limit"></param>
+        </member>
+        <member name="T:Cosmos.Joiners.CommonJoinUtils">
+            <summary>
+            Common join utils
+            </summary>
+        </member>
+        <member name="M:Cosmos.Joiners.CommonJoinUtils.JoinToString``2(``1,System.Action{``1,System.String},System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,``0})">
+            <summary>
+            Join to string
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TContainer"></typeparam>
+            <param name="container"></param>
+            <param name="containerUpdateFunc"></param>
+            <param name="list"></param>
+            <param name="delimiter"></param>
+            <param name="predicate"></param>
+            <param name="to"></param>
+            <param name="replaceFunc"></param>
+        </member>
+        <member name="T:Cosmos.Joiners.IJoiner">
+            <summary>
+            Joiner Interface<br />
+            连接器接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.SkipNulls">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.UseForNull(System.String)">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.UseForNull(System.Func{System.String,System.String})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.WithKeyValueSeparator(System.String)">
+            <summary>
+            With KeyValue Separator
+            </summary>
+            <param name="separator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.WithKeyValueSeparator(System.Char)">
+            <summary>
+            With KeyValue Separator
+            </summary>
+            <param name="separator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.Join(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.Join(System.String,System.String[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="str1"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.Join``1(System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.Join``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.Join``1(Cosmos.ITypeConverter{``0,System.String},``0,``0[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="converter"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.Join``1(System.Func{``0,System.String},``0,``0[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="to"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.AppendTo(System.Text.StringBuilder,System.String,System.String[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="str1"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.AppendTo``1(System.Text.StringBuilder,Cosmos.ITypeConverter{``0,System.String},``0,``0[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="converter"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IJoiner.AppendTo``1(System.Text.StringBuilder,System.Func{``0,System.String},``0,``0[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="to"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Joiners.IMapJoiner">
+            <summary>
+            MapJoiner Interface<br />
+            MapJoiner 接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.SkipNulls">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.SkipNulls(Cosmos.Joiners.SkipNullType)">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.UseForNull(System.String,System.String)">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.UseForNull(System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.UseForNull``2(``0,``1)">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.UseForNull``2(System.Func{``0,``0},System.Func{``1,``1})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.FromTuple">
+            <summary>
+            Switch to tuple mode<br />
+            切换为 Tuple 模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.Join(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.Join(System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.Join(System.String,System.String,System.String[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="str1"></param>
+            <param name="str2"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.Join``1(System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.Join``1(System.Collections.Generic.IEnumerable{``0},``0,``0,Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.Join``1(Cosmos.ITypeConverter{``0,System.String},``0,``0,``0[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="converter"></param>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <param name="restTs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.AppendTo(System.Text.StringBuilder,System.String,System.String,System.String[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="str1"></param>
+            <param name="str2"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},``0,``0,Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.IMapJoiner.AppendTo``1(System.Text.StringBuilder,Cosmos.ITypeConverter{``0,System.String},``0,``0,``0[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="converter"></param>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <param name="restTs"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Joiners.ITupleJoiner">
+            <summary>
+            TupleJoiner Interface<br />
+            TupleJoiner 接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.SkipNulls">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.SkipNulls(Cosmos.Joiners.SkipNullType)">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.UseForNull``2(System.Func{``0,``1,``0},System.Func{``0,``1,``1})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="tupleKeyFunc"></param>
+            <param name="tupleValueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.Join(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.Join(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}},System.String,System.String)">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.Join(System.ValueTuple{System.String,System.String},System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.Join``2(System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.Join``2(System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},``0,``1,System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.Join``2(System.Func{``0,System.String},System.Func{``1,System.String},System.ValueTuple{``0,``1},System.ValueTuple{``0,``1}[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}},System.String,System.String)">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.AppendTo(System.Text.StringBuilder,System.ValueTuple{System.String,System.String},System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.AppendTo``2(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.AppendTo``2(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},``0,``1,System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.ITupleJoiner.AppendTo``2(System.Text.StringBuilder,System.Func{``0,System.String},System.Func{``1,System.String},System.ValueTuple{``0,``1},System.ValueTuple{``0,``1}[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="builder"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Joiners.Joiner">
+            <summary>
+            Joiner<br />
+            连接器
+            </summary>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#SkipNulls">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#UseForNull(System.String)">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#UseForNull(System.Func{System.String,System.String})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.WithKeyValueSeparator(System.String)">
+            <summary>
+            With KeyValue Separator
+            </summary>
+            <param name="separator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.WithKeyValueSeparator(System.Char)">
+            <summary>
+            With KeyValue Separator
+            </summary>
+            <param name="separator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#Join(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#Join``1(System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#Join``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#Join(System.String,System.String[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="str1"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#Join``1(Cosmos.ITypeConverter{``0,System.String},``0,``0[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="converter"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#Join``1(System.Func{``0,System.String},``0,``0[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="to"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#AppendTo(System.Text.StringBuilder,System.String,System.String[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="str1"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#AppendTo``1(System.Text.StringBuilder,Cosmos.ITypeConverter{``0,System.String},``0,``0[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="converter"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IJoiner#AppendTo``1(System.Text.StringBuilder,System.Func{``0,System.String},``0,``0[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="to"></param>
+            <param name="item1"></param>
+            <param name="restItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.On(System.String)">
+            <summary>
+            On, create a new <see cref="T:Cosmos.Joiners.Joiner"/> instance.<br />
+            On 操作，创建一个新 <see cref="T:Cosmos.Joiners.Joiner"/> 实例。
+            </summary>
+            <param name="on"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.On(System.Char)">
+            <summary>
+            On, create a new <see cref="T:Cosmos.Joiners.Joiner"/> instance.<br />
+            On 操作，创建一个新 <see cref="T:Cosmos.Joiners.Joiner"/> 实例。
+            </summary>
+            <param name="on"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#SkipNulls">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#SkipNulls(Cosmos.Joiners.SkipNullType)">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#UseForNull(System.String,System.String)">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#UseForNull(System.Func{System.String,System.String},System.Func{System.String,System.String})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#UseForNull``2(``0,``1)">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#UseForNull``2(System.Func{``0,``0},System.Func{``1,``1})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#FromTuple">
+            <summary>
+            Switch to tuple mode<br />
+            切换为 Tuple 模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#Join(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#Join(System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#Join``1(System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#Join``1(System.Collections.Generic.IEnumerable{``0},``0,``0,Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#Join(System.String,System.String,System.String[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="str1"></param>
+            <param name="str2"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#Join``1(Cosmos.ITypeConverter{``0,System.String},``0,``0,``0[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="converter"></param>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <param name="restTs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#AppendTo(System.Text.StringBuilder,System.String,System.String,System.String[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="str1"></param>
+            <param name="str2"></param>
+            <param name="restStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#AppendTo``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},``0,``0,Cosmos.ITypeConverter{``0,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#IMapJoiner#AppendTo``1(System.Text.StringBuilder,Cosmos.ITypeConverter{``0,System.String},``0,``0,``0[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="converter"></param>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <param name="restTs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#SkipNulls">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#SkipNulls(Cosmos.Joiners.SkipNullType)">
+            <summary>
+            Skip null<br />
+            跳过 null
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#UseForNull``2(System.Func{``0,``1,``0},System.Func{``0,``1,``1})">
+            <summary>
+            If null, then use the special value.<br />
+            如果为 null，则使用指定的值来替代
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="tupleKeyFunc"></param>
+            <param name="tupleValueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#Join(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#Join(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}},System.String,System.String)">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#Join``2(System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#Join``2(System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},``0,``1,System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#Join(System.ValueTuple{System.String,System.String},System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#Join``2(System.Func{``0,System.String},System.Func{``1,System.String},System.ValueTuple{``0,``1},System.ValueTuple{``0,``1}[])">
+            <summary>
+            Join<br />
+            连接
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#AppendTo(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}},System.String,System.String)">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#AppendTo(System.Text.StringBuilder,System.ValueTuple{System.String,System.String},System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <param name="builder"></param>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#AppendTo``2(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#AppendTo``2(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},``0,``1,System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="builder"></param>
+            <param name="list"></param>
+            <param name="defaultKey"></param>
+            <param name="defaultValue"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Joiners.Joiner.Cosmos#Joiners#ITupleJoiner#AppendTo``2(System.Text.StringBuilder,System.Func{``0,System.String},System.Func{``1,System.String},System.ValueTuple{``0,``1},System.ValueTuple{``0,``1}[])">
+            <summary>
+            Append to...<br />
+            附加到...
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="builder"></param>
+            <param name="keyFunc"></param>
+            <param name="valueFunc"></param>
+            <param name="tuple1"></param>
+            <param name="restTuples"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Joiners.SkipNullType">
+            <summary>
+            Skip null types<br />
+            跳过 null 的类型
+            </summary>
+        </member>
+        <member name="F:Cosmos.Joiners.SkipNullType.Nothing">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="F:Cosmos.Joiners.SkipNullType.WhenBoth">
+            <summary>
+            When both
+            </summary>
+        </member>
+        <member name="F:Cosmos.Joiners.SkipNullType.WhenEither">
+            <summary>
+            When either
+            </summary>
+        </member>
+        <member name="F:Cosmos.Joiners.SkipNullType.WhenKeyIsNull">
+            <summary>
+            When key is null
+            </summary>
+        </member>
+        <member name="F:Cosmos.Joiners.SkipNullType.WhenValueIsNull">
+            <summary>
+            When value is null
+            </summary>
+        </member>
         <member name="T:Cosmos.Judgments.AssertionJudgment">
             <summary>
             Assertion Judgment
@@ -3281,6 +4600,297 @@
             <summary>
             Gets a func for unix utc_now.
             </summary>
+        </member>
+        <member name="T:Cosmos.Try">
+            <summary>
+            Try
+            </summary>
+        </member>
+        <member name="M:Cosmos.Try.Create``1(System.Func{``0})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try.LiftValue``1(``0)">
+            <summary>
+            Lifts a value.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try.LiftException``1(System.Exception)">
+            <summary>
+            Lifts
+            </summary>
+            <param name="ex"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.TryExtensions">
+            <summary>
+            Extensions for Try
+            </summary>
+        </member>
+        <member name="M:Cosmos.TryExtensions.Select``2(Cosmos.Try{``0},System.Func{``0,``1})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TryExtensions.SelectMany``2(Cosmos.Try{``0},System.Func{``0,Cosmos.Try{``1}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TryExtensions.SelectMany``3(Cosmos.Try{``0},System.Func{``0,Cosmos.Try{``1}},System.Func{``0,``1,``2})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="convert"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TIntermediate"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.TryExtensions.Where``1(Cosmos.Try{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Where
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Try`1">
+            <summary>
+            Try
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Try`1.IsFailure">
+            <summary>
+            Is failure
+            </summary>
+        </member>
+        <member name="P:Cosmos.Try`1.IsSuccess">
+            <summary>
+            Is success
+            </summary>
+        </member>
+        <member name="P:Cosmos.Try`1.Exception">
+            <summary>
+            Exception
+            </summary>
+        </member>
+        <member name="P:Cosmos.Try`1.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:Cosmos.Try`1.op_Equality(Cosmos.Try{`0},Cosmos.Try{`0})">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.op_Inequality(Cosmos.Try{`0},Cosmos.Try{`0})">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Try`1.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Try`1.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Try`1.Deconstruct(`0@,System.Exception@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.Try`1.ExceptionAs``1">
+            <summary>
+            Exception as
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Recover(System.Func{System.Exception,`0})">
+            <summary>
+            Recover
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.RecoverWith(System.Func{System.Exception,Cosmos.Try{`0}})">
+            <summary>
+            Recover with
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+            <summary>
+            Match
+            </summary>
+            <param name="whenValue"></param>
+            <param name="whenException"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Map``1(System.Func{`0,``0})">
+            <summary>
+            Map
+            </summary>
+            <param name="map"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Tap(System.Action{`0},System.Action{System.Exception})">
+            <summary>
+            Tap
+            </summary>
+            <param name="successFunction"></param>
+            <param name="failureFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Try`1.Bind``1(System.Func{`0,Cosmos.Try{``0}})">
+            <summary>
+            Bind
+            </summary>
+            <param name="bind"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Failure`1">
+            <summary>
+            Failure
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Failure`1.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cosmos.Failure`1"/> class.
+            </summary>
+            <param name="exception">The exception to wrapp.</param>
+        </member>
+        <member name="P:Cosmos.Failure`1.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Failure`1.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Failure`1.Exception">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Failure`1.Value">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Equals(Cosmos.Failure{`0})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Failure`1.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Failure`1.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Failure`1.Deconstruct(`0@,System.Exception@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Recover(System.Func{System.Exception,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.RecoverWith(System.Func{System.Exception,Cosmos.Try{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Failure`1.Tap(System.Action{`0},System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Success`1">
+            <summary>
+            Success
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Success`1.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Success`1.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Success`1.Exception">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Success`1.Value">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Equals(Cosmos.Success{`0})">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Success`1.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Deconstruct(`0@,System.Exception@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Recover(System.Func{System.Exception,`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.RecoverWith(System.Func{System.Exception,Cosmos.Try{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Success`1.Tap(System.Action{`0},System.Action{System.Exception})">
+            <inheritdoc />
         </member>
         <member name="T:Cosmos.TypeClass">
             <summary>

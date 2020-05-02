@@ -1842,19 +1842,5 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:System.Extensions">
-            <summary>
-            Extensions
-            </summary>
-        </member>
-        <member name="M:System.Extensions.Contains``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
-            <summary>
-            Contains
-            </summary>
-            <param name="me"></param>
-            <param name="condition"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
     </members>
 </doc>
