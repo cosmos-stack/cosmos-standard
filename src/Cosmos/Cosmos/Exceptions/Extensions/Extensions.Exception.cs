@@ -2,7 +2,7 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos {
+namespace Cosmos.Exceptions {
     /// <summary>
     /// Exception extensions<br />
     /// 异常扩展
@@ -32,9 +32,9 @@ namespace Cosmos {
         /// </summary>
         /// <param name="ex"></param>
         /// <param name="untilType"></param>
-        /// <param name="canbeSubClass"></param>
+        /// <param name="mayDerivedClass"></param>
         /// <returns></returns>
-        public static Exception Unwrap(this Exception ex, Type untilType, bool canbeSubClass = true) {
+        public static Exception Unwrap(this Exception ex, Type untilType, bool mayDerivedClass = true) {
             if (ex is null)
                 throw new ArgumentNullException(nameof(ex));
             if (untilType is null)
@@ -45,7 +45,7 @@ namespace Cosmos {
                 return null;
 
             var exception = ex.Unwrap();
-            return exception.GetType() == untilType || canbeSubClass && exception.GetType().IsSubclassOf(untilType)
+            return exception.GetType() == untilType || mayDerivedClass && exception.GetType().IsSubclassOf(untilType)
                 ? exception
                 : Unwrap(exception, untilType);
         }
