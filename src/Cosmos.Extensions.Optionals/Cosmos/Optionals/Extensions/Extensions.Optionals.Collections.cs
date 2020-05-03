@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 
+// ReSharper disable once CheckNamespace
 namespace Cosmos.Optionals {
     /// <summary>
     /// Extensions for collections
     /// </summary>
-    public static class CollectionExtensions {
+    public static partial class OptionalsExtensions {
         /// <summary>
         /// Flattens a sequence of maybe into a sequence containing all inner values.
         /// Empty elements are discarded.
@@ -71,14 +72,10 @@ namespace Cosmos.Optionals {
         public static IOptional<T> FindOrNone<TKey, T>(this IEnumerable<KeyValuePair<TKey, T>> source, TKey key, OptionalType type = OptionalType.ReferenceType) {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (source is IDictionary<TKey, T> dictionary) {
+            if (source is IDictionary<TKey, T> dictionary)
                 return dictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type);
-            }
-
-            if (source is IReadOnlyDictionary<TKey, T> readOnlyDictionary) {
+            if (source is IReadOnlyDictionary<TKey, T> readOnlyDictionary)
                 return readOnlyDictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type);
-            }
-
             return source
                   .FirstOrNone(pair => EqualityComparer<TKey>.Default.Equals(pair.Key, key))
                   .Map(pair => pair.Value);

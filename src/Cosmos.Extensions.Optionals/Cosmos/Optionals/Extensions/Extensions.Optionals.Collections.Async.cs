@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 
 // ReSharper disable ArgumentsStyleLiteral
 // ReSharper disable ArgumentsStyleAnonymousFunction
-
+// ReSharper disable once CheckNamespace
 namespace Cosmos.Optionals {
     /// <summary>
     /// Extensions for collections
     /// </summary>
-    public static class AsyncCollectionExtensions {
+    public static partial class OptionalsExtensions {
 
         #region Maybe
 
@@ -27,7 +27,7 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(mapping));
             return option.Map(mapping).Match(
                 someFactory: async valueTask => {
-                    if (valueTask == null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
+                    if (valueTask is null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var value = await valueTask.ConfigureAwait(continueOnCapturedContext: false);
                     return value.ToMaybe();
                 },
@@ -88,7 +88,7 @@ namespace Cosmos.Optionals {
                 throw new ArgumentNullException(nameof(mapping));
             return option.Map(mapping).Match(
                 someFactory: resultOptionTask => {
-                    if (resultOptionTask == null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
+                    if (resultOptionTask is null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     return resultOptionTask;
                 },
                 noneFactory: () => Task.FromResult(Optional.None<TResult>())
@@ -211,7 +211,7 @@ namespace Cosmos.Optionals {
             return option.Match(
                 someFactory: async value => {
                     var predicateTask = predicate(value);
-                    if (predicateTask == null) throw new InvalidOperationException($"{nameof(predicate)} must not return a null task.");
+                    if (predicateTask is null) throw new InvalidOperationException($"{nameof(predicate)} must not return a null task.");
 
                     var condition = await predicateTask.ConfigureAwait(continueOnCapturedContext: false);
                     return option.Filter(condition);

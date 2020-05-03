@@ -1,5 +1,6 @@
 using System;
 
+// ReSharper disable once CheckNamespace
 namespace Cosmos.Optionals {
     /// <summary>
     /// Extensions for optional
@@ -14,9 +15,7 @@ namespace Cosmos.Optionals {
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Maybe<T> ToMaybe<T>(this T value) {
-            return Optional.Some(value);
-        }
+        public static Maybe<T> ToMaybe<T>(this T value) => Optional.Some(value);
 
         /// <summary>
         /// Maybe
@@ -25,9 +24,7 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
-        public static Either<T, TException> ToMaybe<T, TException>(this T value) {
-            return Optional.Some<T, TException>(value);
-        }
+        public static Either<T, TException> ToMaybe<T, TException>(this T value) => Optional.Some<T, TException>(value);
 
         #endregion
 
@@ -384,9 +381,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TImpl"></typeparam>
         /// <returns></returns>
-        public static T ValueOrException<T, TImpl>(this Optional<T, T, TImpl> optional) {
-            return optional.HasValue ? optional.Value : optional.Exception;
-        }
+        public static T ValueOrException<T, TImpl>(this Optional<T, T, TImpl> optional) =>
+            optional.HasValue ? optional.Value : optional.Exception;
 
         #endregion
 
@@ -432,9 +428,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TImpl"></typeparam>
         /// <returns></returns>
-        public static Maybe<T> Flatten<T, TImpl>(this IOptionalImpl<Maybe<T>, TImpl> optional) {
-            return optional.FlatMap(innerOptional => innerOptional);
-        }
+        public static Maybe<T> Flatten<T, TImpl>(this IOptionalImpl<Maybe<T>, TImpl> optional) =>
+            optional.FlatMap(innerOptional => innerOptional);
 
         /// <summary>
         /// Flatten
@@ -444,9 +439,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <typeparam name="TImpl"></typeparam>
         /// <returns></returns>
-        public static Either<T, TException> Flatten<T, TException, TImpl>(this IOptionalImpl<Either<T, TException>, TException, TImpl> optional) {
-            return optional.FlatMap(innerOptional => innerOptional);
-        }
+        public static Either<T, TException> Flatten<T, TException, TImpl>(this IOptionalImpl<Either<T, TException>, TException, TImpl> optional) =>
+            optional.FlatMap(innerOptional => innerOptional);
 
         #endregion
 
@@ -457,10 +451,7 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsOptionalType(this Type type) {
-            return !(type is null) && typeof(IOptional).IsAssignableFrom(type);
-
-        }
+        public static bool IsOptionalType(this Type type) => !(type is null) && typeof(IOptional).IsAssignableFrom(type);
 
         #endregion
 

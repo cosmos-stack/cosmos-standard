@@ -1,10 +1,11 @@
 using System;
 
+// ReSharper disable once CheckNamespace
 namespace Cosmos.Optionals {
     /// <summary>
     /// Extensions for linq
     /// </summary>
-    public static class LinqExtensions {
+    public static partial class OptionalsExtensions {
         /// <summary>
         /// Select
         /// </summary>
