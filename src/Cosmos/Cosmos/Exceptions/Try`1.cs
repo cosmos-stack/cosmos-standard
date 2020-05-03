@@ -1,6 +1,6 @@
 using System;
 
-namespace Cosmos {
+namespace Cosmos.Exceptions {
     /// <summary>
     /// Try
     /// </summary>

@@ -1,6 +1,7 @@
 using System;
 
-namespace Cosmos {
+// ReSharper disable once CheckNamespace
+namespace Cosmos.Exceptions {
     /// <summary>
     /// Extensions for Try
     /// </summary>

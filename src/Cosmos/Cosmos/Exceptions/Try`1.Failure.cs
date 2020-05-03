@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.ExceptionServices;
 
-namespace Cosmos {
+namespace Cosmos.Exceptions {
     /// <summary>
     /// Failure
     /// </summary>
