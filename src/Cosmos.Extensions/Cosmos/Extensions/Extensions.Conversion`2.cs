@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using Cosmos.Conversions;
 using Cosmos.Judgments;
+using Cosmos.Optionals;
 using EnumsNET;
 
 // ReSharper disable once CheckNamespace

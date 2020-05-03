@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Cosmos.Optionals;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
@@ -14,7 +15,7 @@ namespace Cosmos {
         public static byte[] ToBytes(this string value, Encoding encoding = null) =>
             value is null
                 ? throw new ArgumentNullException(nameof(value))
-                : encoding.Fixed().GetBytes(value);
+                : encoding.SafeValue().GetBytes(value);
 
         /// <summary>
         /// Convert string to byte array by utf8

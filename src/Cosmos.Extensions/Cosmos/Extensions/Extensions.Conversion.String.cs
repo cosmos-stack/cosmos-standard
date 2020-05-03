@@ -1,6 +1,7 @@
 using System.Text;
 using Cosmos.Conversions;
 using Cosmos.Conversions.Scale;
+using Cosmos.Optionals;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {

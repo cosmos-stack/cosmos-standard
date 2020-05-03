@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Cosmos.Optionals;
 
 namespace Cosmos.Conversions.StringDeterminers {
     /// <summary>
@@ -62,7 +63,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static Encoding To(string str, Encoding defaultVal = null) {
             Encoding result = null;
-            return Is(str, encoding => result = encoding) ? result : defaultVal.Fixed(Encoding.Default);
+            return Is(str, encoding => result = encoding) ? result : defaultVal.SafeValue(Encoding.Default);
         }
 
         /// <summary>

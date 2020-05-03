@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Cosmos.Optionals;
 
 namespace Cosmos.Conversions.Scale {
     /// <summary>
@@ -55,7 +56,7 @@ namespace Cosmos.Conversions.Scale {
                 }
             }
 
-            return encoding.Fixed().GetString(bytes);
+            return encoding.SafeValue().GetString(bytes);
         }
 
         /// <summary>
@@ -66,6 +67,6 @@ namespace Cosmos.Conversions.Scale {
         /// <param name="encoding"></param>
         /// <returns></returns>
         public static string FromString(string str, Encoding encoding = null)
-            => BitConverter.ToString(encoding.Fixed().GetBytes(str)).Replace("-", " ");
+            => BitConverter.ToString(encoding.SafeValue().GetBytes(str)).Replace("-", " ");
     }
 }

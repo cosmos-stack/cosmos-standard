@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using Cosmos.Optionals;
 
 namespace Cosmos.Conversions {
     /// <summary>
@@ -53,7 +54,7 @@ namespace Cosmos.Conversions {
         /// <param name="encoding"></param>
         /// <returns></returns>
         public static string ToBase32String(string str, Encoding encoding = null) =>
-            ToBase32String(encoding.Fixed().GetBytes(str));
+            ToBase32String(encoding.SafeValue().GetBytes(str));
 
         /// <summary>
         /// Convert from base32 <see cref="string"/> to <see cref="string"/>.
@@ -62,7 +63,7 @@ namespace Cosmos.Conversions {
         /// <param name="encoding"></param>
         /// <returns></returns>
         public static string FromBase32String(string base32String, Encoding encoding = null) =>
-            encoding.Fixed().GetString(FromBase32StringToBytes(base32String));
+            encoding.SafeValue().GetString(FromBase32StringToBytes(base32String));
 
         /// <summary>
         /// Convert from base32 <see cref="string"/> to <see cref="byte"/> array.

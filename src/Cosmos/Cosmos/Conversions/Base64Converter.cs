@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Cosmos.Optionals;
 
 namespace Cosmos.Conversions {
     /// <summary>
@@ -16,7 +17,7 @@ namespace Cosmos.Conversions {
         /// <param name="encoding"></param>
         /// <returns></returns>
         public static string ToBase64String(string str, Encoding encoding = null) =>
-            ToBase64String(encoding.Fixed().GetBytes(str));
+            ToBase64String(encoding.SafeValue().GetBytes(str));
 
         /// <summary>
         /// Convert from <see cref="string"/> to base64 <see cref="string"/>.
@@ -33,7 +34,7 @@ namespace Cosmos.Conversions {
         /// <param name="encoding"></param>
         /// <returns></returns>
         public static string FromBase64String(string base64String, Encoding encoding = null) =>
-            encoding.Fixed().GetString(FromBase64StringToBytes(base64String));
+            encoding.SafeValue().GetString(FromBase64StringToBytes(base64String));
 
         /// <summary>
         /// Convert from base64 <see cref="string"/> to <see cref="byte"/> array.
@@ -49,7 +50,7 @@ namespace Cosmos.Conversions {
         /// <param name="encoding"></param>
         /// <returns></returns>
         public static string ToBase64UrlString(string str, Encoding encoding = null) =>
-            ToBase64UrlString(encoding.Fixed().GetBytes(str));
+            ToBase64UrlString(encoding.SafeValue().GetBytes(str));
 
         /// <summary>
         /// Convert from <see cref="string"/> to base64url <see cref="string"/>.
@@ -65,7 +66,7 @@ namespace Cosmos.Conversions {
         /// <param name="base64UrlString"></param>
         /// <param name="encoding"></param>
         public static string FromBase64UrlString(string base64UrlString, Encoding encoding = null)
-            => encoding.Fixed().GetString(FromBase64UrlStringToBytes(base64UrlString));
+            => encoding.SafeValue().GetString(FromBase64UrlStringToBytes(base64UrlString));
 
         /// <summary>
         /// Convert from base64url <see cref="string"/> to <see cref="string"/>.

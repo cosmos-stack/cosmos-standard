@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Optionals;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos {
