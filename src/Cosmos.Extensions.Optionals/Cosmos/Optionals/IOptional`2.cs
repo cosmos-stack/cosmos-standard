@@ -11,6 +11,11 @@ namespace Cosmos.Optionals {
         /// Exception
         /// </summary>
         TException Exception { get; }
+        
+        /// <summary>
+        /// Gets UnderlyingType for exception
+        /// </summary>
+        Type UnderlyingExceptionType { get; }
 
         /// <summary>
         /// Value or

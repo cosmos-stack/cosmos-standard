@@ -44,7 +44,13 @@ namespace Cosmos.Optionals {
         public string Key => Either.Key;
 
         /// <inheritdoc />
+        public virtual Type UnderlyingType => Either.UnderlyingType;
+
+        /// <inheritdoc />
         public TException Exception => Either.Exception;
+
+        /// <inheritdoc />
+        public virtual Type UnderlyingExceptionType => Either.UnderlyingExceptionType;
 
         /// <inheritdoc />
         public bool Contains(T value) => Either.Contains(value);

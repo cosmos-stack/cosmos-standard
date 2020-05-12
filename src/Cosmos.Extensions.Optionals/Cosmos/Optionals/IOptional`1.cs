@@ -12,6 +12,11 @@ namespace Cosmos.Optionals {
         T Value { get; }
 
         /// <summary>
+        /// Gets UnderlyingType of value
+        /// </summary>
+        Type UnderlyingType { get; }
+
+        /// <summary>
         /// Contains
         /// </summary>
         /// <param name="value"></param>

@@ -42,6 +42,9 @@ namespace Cosmos.Optionals {
         public string Key => Internal.Key;
 
         /// <inheritdoc />
+        public virtual Type UnderlyingType => Internal.UnderlyingType;
+
+        /// <inheritdoc />
         public bool Contains(T value) => Internal.Contains(value);
 
         /// <inheritdoc />

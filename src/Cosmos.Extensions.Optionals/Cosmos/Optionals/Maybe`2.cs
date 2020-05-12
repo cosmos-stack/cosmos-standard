@@ -57,6 +57,24 @@ namespace Cosmos.Optionals {
         /// <inheritdoc />
         public string Key => _o2.Key;
 
+        /// <summary>
+        /// Gets UnderlyingType of the first item
+        /// </summary>
+        public Type UnderlyingType1 => _o1.UnderlyingType;
+
+        /// <summary>
+        /// Gets UnderlyingType of the second item
+        /// </summary>
+        public Type UnderlyingType2 => _o2.UnderlyingType;
+
+        /// <inheritdoc />
+        public Type UnderlyingType => _o2.UnderlyingType;
+
+        /// <summary>
+        /// Gets all underlying type for this <see cref="Maybe{T1,T2}"/>.
+        /// </summary>
+        public (Type, Type) UnderlyingTypes => (UnderlyingType1, UnderlyingType2);
+
         #region Index
 
         /// <summary>

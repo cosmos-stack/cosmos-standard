@@ -122,6 +122,6 @@ namespace Cosmos.Optionals {
         /// Not null
         /// </summary>
         /// <returns></returns>
-        TImpl NotNull();
+        TImpl NotNull(); 
     }
 }

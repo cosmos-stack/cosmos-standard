@@ -83,9 +83,43 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public bool HasValue => _hasValue && _o1.HasValue && _o2.HasValue && _o3.HasValue && _o4.HasValue && _o5.HasValue;
- 
+
         /// <inheritdoc />
         public string Key => _o5.Key;
+
+        /// <summary>
+        /// Gets UnderlyingType of the first item
+        /// </summary>
+        public Type UnderlyingType1 => _o1.UnderlyingType;
+
+        /// <summary>
+        /// Gets UnderlyingType of the second item
+        /// </summary>
+        public Type UnderlyingType2 => _o2.UnderlyingType;
+
+        /// <summary>
+        /// Gets UnderlyingType of the third item
+        /// </summary>
+        public Type UnderlyingType3 => _o3.UnderlyingType;
+
+        /// <summary>
+        /// Gets UnderlyingType of the forth item
+        /// </summary>
+        public Type UnderlyingType4 => _o4.UnderlyingType;
+
+        /// <summary>
+        /// Gets UnderlyingType of the fifth item
+        /// </summary>
+        public Type UnderlyingType5 => _o5.UnderlyingType;
+
+        /// <inheritdoc />
+        public Type UnderlyingType => _o5.UnderlyingType;
+
+        /// <summary>
+        /// Gets all underlying type for this <see cref="Maybe{T1,T2,T3,T4,T5}"/>.
+        /// </summary>
+        public (Type, Type, Type, Type, Type) UnderlyingTypes =>
+            (UnderlyingType1, UnderlyingType2, UnderlyingType3, UnderlyingType4, UnderlyingType5);
 
         #region Index
 
@@ -116,7 +150,7 @@ namespace Cosmos.Optionals {
                 : default;
 
         #endregion
-        
+
         #region Deconstruct
 
         /// <summary>
@@ -127,7 +161,7 @@ namespace Cosmos.Optionals {
         /// <param name="item3"></param>
         /// <param name="item4"></param>
         /// <param name="item5"></param>
-        public void Deconstruct(out T1 item1, out T2 item2, out T3 item3, out T4 item4,out T5 item5) {
+        public void Deconstruct(out T1 item1, out T2 item2, out T3 item3, out T4 item4, out T5 item5) {
             item1 = _o1.Value;
             item2 = _o2.Value;
             item3 = _o3.Value;
@@ -143,7 +177,7 @@ namespace Cosmos.Optionals {
         /// <param name="maybe3"></param>
         /// <param name="maybe4"></param>
         /// <param name="maybe5"></param>
-        public void Deconstruct(out Maybe<T1> maybe1, out Maybe<T2> maybe2, out Maybe<T3> maybe3, out Maybe<T4> maybe4,out Maybe<T5> maybe5) {
+        public void Deconstruct(out Maybe<T1> maybe1, out Maybe<T2> maybe2, out Maybe<T3> maybe3, out Maybe<T4> maybe4, out Maybe<T5> maybe5) {
             maybe1 = _o1;
             maybe2 = _o2;
             maybe3 = _o3;

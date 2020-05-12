@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cosmos.Optionals.Internals;
+using Cosmos.Reflection;
 
 // ReSharper disable InconsistentNaming
 
@@ -16,17 +17,20 @@ namespace Cosmos.Optionals {
         private readonly string _key;
         private readonly bool _hasValue;
         private readonly T _value;
+        private readonly Type _underlyingType;
 
         internal Maybe(T value, bool hasValue) {
             _hasValue = hasValue;
             _value = value;
             _key = NamedMaybeConstants.KEY;
+            _underlyingType = Types.Of<T>();
         }
 
         internal Maybe(T value, string key, bool hasValue) {
             _hasValue = hasValue;
             _value = value;
             _key = string.IsNullOrWhiteSpace(key) ? NamedMaybeConstants.KEY : key;
+            _underlyingType = Types.Of<T>();
         }
 
         /// <inheritdoc />
@@ -38,6 +42,9 @@ namespace Cosmos.Optionals {
         /// <inheritdoc />
         public string Key => _key;
 
+        /// <inheritdoc />
+        public Type UnderlyingType => _underlyingType;
+        
         #region Equals
 
         /// <inheritdoc />

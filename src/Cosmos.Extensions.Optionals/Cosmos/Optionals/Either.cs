@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cosmos.Reflection;
 
 namespace Cosmos.Optionals {
     /// <summary>
@@ -14,11 +15,15 @@ namespace Cosmos.Optionals {
         private readonly bool _hasValue;
         private readonly T _value;
         private readonly TException _exception;
+        private readonly Type _underlyingType;
+        private readonly Type _underlyingExceptionType;
 
         internal Either(T value, TException exception, bool hasValue) {
             _hasValue = hasValue;
             _value = value;
             _exception = exception;
+            _underlyingType = Types.Of<T>();
+            _underlyingExceptionType = Types.Of<TException>();
         }
 
         /// <inheritdoc />
@@ -32,6 +37,12 @@ namespace Cosmos.Optionals {
 
         /// <inheritdoc />
         public string Key => "EitherKey";
+
+        /// <inheritdoc />
+        public Type UnderlyingType => _underlyingType;
+
+        /// <inheritdoc />
+        public Type UnderlyingExceptionType => _underlyingExceptionType;
 
         #region Equals
 
