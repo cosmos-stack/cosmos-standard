@@ -31,8 +31,7 @@ namespace Cosmos.Optionals {
         /// <param name="string"></param>
         /// <returns></returns>
         public static string SafeValue(this string @string) => (@string ?? string.Empty).Trim();
-
-
+        
         /// <summary>
         /// Return a safe <see cref="Encoding"/> value.<br />
         /// 返回一个 <see cref="Encoding"/> 安全值。
