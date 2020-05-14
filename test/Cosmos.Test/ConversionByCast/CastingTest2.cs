@@ -1,4 +1,5 @@
 using System.Text;
+using Cosmos.Conversions;
 using Shouldly;
 using Xunit;
 
