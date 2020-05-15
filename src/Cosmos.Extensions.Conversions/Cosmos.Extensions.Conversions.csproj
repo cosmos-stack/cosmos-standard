@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\build\common.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Conversions</AssemblyName>
+        <PackageId>Cosmos.Extensions.Conversions</PackageId>
+        <Description>Cosmos Conversions extension library</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
+        <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'=='net451'">
+        <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.0.0" />
+    </ItemGroup>
+</Project>

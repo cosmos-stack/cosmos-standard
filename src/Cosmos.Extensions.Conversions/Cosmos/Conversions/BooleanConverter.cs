@@ -1,4 +1,4 @@
-﻿using Cosmos.Conversions.StringDeterminers;
+﻿using Cosmos.Conversions.Determiners;
 using Cosmos.Verba.Boolean;
 
 namespace Cosmos.Conversions {

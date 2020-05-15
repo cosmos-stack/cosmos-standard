@@ -1,5 +1,3 @@
-using System;
-
 namespace Cosmos.Conversions {
     /// <summary>
     /// Guid format styles
