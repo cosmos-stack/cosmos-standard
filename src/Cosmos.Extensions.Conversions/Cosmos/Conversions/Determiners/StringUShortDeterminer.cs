@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to ushort
     /// </summary>
-    public static class StringUShortDeterminer {
+    internal static class StringUShortDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -15,21 +16,15 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="shortAct"></param>
         /// <returns></returns>
-        public static bool Is(
-            string str,
-            NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null,
-            Action<ushort> shortAct = null) {
-
+        public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
+            IFormatProvider formatProvider = null, Action<ushort> shortAct = null) {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
-            var result = ushort.TryParse(str, style, formatProvider.SafeN(), out var number);
-
-            if (result) {
+            var result = ushort.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            if (!result)
+                result = ValueDeterminer.IsXxxAgain<ushort>(str);
+            if (result)
                 shortAct?.Invoke(number);
-            }
-
             return result;
         }
 
@@ -48,8 +43,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null,
             Action<ushort> shortAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, shortAct);
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, shortAct);
         }
 
         /// <summary>
@@ -61,8 +56,15 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static ushort To(string str, ushort defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
-            ushort.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
+            if (ushort.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+                return number;
+            try {
+                return Convert.ToUInt16(Convert.ToDecimal(str));
+            } catch {
+                return ValueConverter.ToXxxAgain(str, defaultVal);
+            }
+        }
 
         /// <summary>
         /// To
@@ -74,6 +76,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static ushort To(string str, IEnumerable<IConversionImpl<string, ushort>> impls,
             NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
+            ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
     }
 }

@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to Guid
     /// </summary>
-    public static class StringGuidDeterminer {
+    internal static class StringGuidDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -15,13 +16,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool Is(string str, Action<Guid> guidAct = null) {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
             var result = Guid.TryParse(str, out var guid);
-
-            if (result) {
+            if (result)
                 guidAct?.Invoke(guid);
-            }
-
             return result;
         }
 
@@ -33,7 +30,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="guidAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, Guid>> tries, Action<Guid> guidAct = null) =>
-            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, guidAct);
+            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, guidAct);
 
         /// <summary>
         /// To
@@ -53,7 +50,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="str"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static Guid To(string str, IEnumerable<IConversionImpl<string, Guid>> impls) => _Helper.ToXXX(str, Is, impls);
+        public static Guid To(string str, IEnumerable<IConversionImpl<string, Guid>> impls) =>
+            ValueConverter.ToXxx(str, Is, impls);
 
         /// <summary>
         /// Exact Guid Determiner
@@ -69,13 +67,9 @@ namespace Cosmos.Conversions.StringDeterminers {
             public static bool Is(string str, string format, Action<Guid> guidAct = null) {
                 if (string.IsNullOrWhiteSpace(str))
                     return false;
-
                 var result = Guid.TryParseExact(str, format, out var guid);
-
-                if (result) {
+                if (result)
                     guidAct?.Invoke(guid);
-                }
-
                 return result;
             }
 
@@ -88,7 +82,7 @@ namespace Cosmos.Conversions.StringDeterminers {
             /// <param name="guidAct"></param>
             /// <returns></returns>
             public static bool Is(string str, string format, IEnumerable<IConversionTry<string, Guid>> tries, Action<Guid> guidAct = null) =>
-                _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, format, act), tries, guidAct);
+                ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, format, act), tries, guidAct);
 
             /// <summary>
             /// To
@@ -111,7 +105,7 @@ namespace Cosmos.Conversions.StringDeterminers {
             /// <param name="impls"></param>
             /// <returns></returns>
             public static Guid To(string str, string format, IEnumerable<IConversionImpl<string, Guid>> impls) =>
-                _Helper.ToXXX(str, (s, act) => Is(s, format, act), impls);
+                ValueConverter.ToXxx(str, (s, act) => Is(s, format, act), impls);
         }
     }
 }

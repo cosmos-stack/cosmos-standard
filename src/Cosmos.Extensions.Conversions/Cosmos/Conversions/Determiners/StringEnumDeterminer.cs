@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to Enum
     /// </summary>
-    public static class StringEnumDeterminer {
+    internal static class StringEnumDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -16,11 +17,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(string s, Type enumType, bool ignoreCase = false, Action<object> enumAct = null) {
             var result = EnumsNET.Enums.TryParse(enumType, s, ignoreCase, out var @enum);
-
-            if (result) {
+            if (result) 
                 enumAct?.Invoke(@enum);
-            }
-
             return result;
         }
 
@@ -34,7 +32,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="enumAct"></param>
         /// <returns></returns>
         public static bool Is(string str, Type enumType, IEnumerable<IConversionTry<string, object>> tries, bool ignoreCase = false, Action<object> enumAct = null) =>
-            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, enumType, ignoreCase, act), tries, enumAct);
+            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, enumType, ignoreCase, act), tries, enumAct);
 
         /// <summary>
         /// To
@@ -58,6 +56,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="ignoreCase"></param>
         /// <returns></returns>
         public static object To(string str, Type enumType, IEnumerable<IConversionImpl<string, object>> impls, bool ignoreCase = false) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, enumType, ignoreCase, act), impls);
+            ValueConverter.ToXxx(str, (s, act) => Is(s, enumType, ignoreCase, act), impls);
     }
 }

@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to decimal
     /// </summary>
-    public static class StringDecimalDeterminer {
+    internal static class StringDecimalDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -20,16 +21,13 @@ namespace Cosmos.Conversions.StringDeterminers {
             NumberStyles style = NumberStyles.Number,
             IFormatProvider formatProvider = null,
             Action<decimal> decimalAct = null) {
-
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
-            var result = decimal.TryParse(str, style, formatProvider.SafeN(), out var number);
-
-            if (result) {
+            var result = decimal.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            if (!result)
+                result = ValueDeterminer.IsXxxAgain<decimal>(str);
+            if (result)
                 decimalAct?.Invoke(number);
-            }
-
             return result;
         }
 
@@ -48,8 +46,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             NumberStyles style = NumberStyles.Number,
             IFormatProvider formatProvider = null,
             Action<decimal> decimalAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, decimalAct);
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, decimalAct);
         }
 
         /// <summary>
@@ -61,8 +59,15 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static decimal To(string str, decimal defaultVal = default,
-            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) =>
-            decimal.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
+            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) {
+            if (decimal.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+                return number;
+            try {
+                return Convert.ToDecimal(str);
+            } catch {
+                return ValueConverter.ToXxxAgain(str, defaultVal);
+            }
+        }
 
         /// <summary>
         /// To
@@ -73,7 +78,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static decimal To(string str, IEnumerable<IConversionImpl<string, decimal>> impls,
-            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
+            NumberStyles style = NumberStyles.Number, IFormatProvider formatProvider = null) {
+            return ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
+        }
     }
 }

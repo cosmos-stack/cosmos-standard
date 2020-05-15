@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to IpAddress
     /// </summary>
-    public static class StringIpAddressDeterminer {
+    internal static class StringIpAddressDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -16,13 +17,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool Is(string str, Action<IPAddress> addressAct = null) {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
             var result = IPAddress.TryParse(str, out var address);
-
-            if (result) {
+            if (result) 
                 addressAct?.Invoke(address);
-            }
-
             return result;
         }
 
@@ -34,7 +31,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="addressAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, IPAddress>> tries, Action<IPAddress> addressAct = null) =>
-            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, addressAct);
+            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, addressAct);
 
         /// <summary>
         /// To
@@ -55,6 +52,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static IPAddress To(string str, IEnumerable<IConversionImpl<string, IPAddress>> impls) =>
-            _Helper.ToXXX(str, Is, impls);
+            ValueConverter.ToXxx(str, Is, impls);
     }
 }

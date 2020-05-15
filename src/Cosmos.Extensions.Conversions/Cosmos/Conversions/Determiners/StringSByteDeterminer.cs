@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to sbyte
     /// </summary>
-    public static class StringSByteDeterminer {
+    internal static class StringSByteDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -17,16 +18,13 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null, Action<sbyte> byteAct = null) {
-
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
-            var result = sbyte.TryParse(str, style, formatProvider.SafeN(), out var number);
-
-            if (result) {
+            var result = sbyte.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            if (!result) 
+                result = ValueDeterminer.IsXxxAgain<sbyte>(str);
+            if (result) 
                 byteAct?.Invoke(number);
-            }
-
             return result;
         }
 
@@ -41,8 +39,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, sbyte>> tries,
             NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<sbyte> byteAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, byteAct);
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, byteAct);
         }
 
         /// <summary>
@@ -55,9 +53,13 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static sbyte To(string str, sbyte defaultVal = default,
             NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
-            if (!sbyte.TryParse(str, style, formatProvider.SafeN(), out var number))
-                number = defaultVal;
-            return number;
+            if (sbyte.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+                return number;
+            try {
+                return Convert.ToSByte(Convert.ToDecimal(str));
+            } catch {
+                return ValueConverter.ToXxxAgain(str, defaultVal);
+            }
         }
 
         /// <summary>
@@ -70,6 +72,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static sbyte To(string str, IEnumerable<IConversionImpl<string, sbyte>> impls,
             NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
+            ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
     }
 }

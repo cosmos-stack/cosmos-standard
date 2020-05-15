@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to uint
     /// </summary>
-    public static class StringUIntDeterminer {
+    internal static class StringUIntDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -17,16 +18,13 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null, Action<uint> intAct = null) {
-
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
-            var result = uint.TryParse(str, style, formatProvider.SafeN(), out var number);
-
-            if (result) {
+            var result = uint.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            if (!result)
+                result = ValueDeterminer.IsXxxAgain<uint>(str);
+            if (result)
                 intAct?.Invoke(number);
-            }
-
             return result;
         }
 
@@ -41,8 +39,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, uint>> tries,
             NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<uint> intAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, intAct);
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, intAct);
         }
 
         /// <summary>
@@ -54,8 +52,15 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static uint To(string str, uint defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
-            uint.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
+            if (uint.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+                return number;
+            try {
+                return Convert.ToUInt32(Convert.ToDecimal(str));
+            } catch {
+                return ValueConverter.ToXxxAgain(str, defaultVal);
+            }
+        }
 
         /// <summary>
         /// To
@@ -67,6 +72,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static uint To(string str, IEnumerable<IConversionImpl<string, uint>> impls,
             NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
+            ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
     }
 }

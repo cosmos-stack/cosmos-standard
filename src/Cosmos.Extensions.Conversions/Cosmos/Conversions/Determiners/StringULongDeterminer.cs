@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to ulong
     /// </summary>
-    public static class StringULongDeterminer {
+    internal static class StringULongDeterminer {
+        // ReSharper disable once InconsistentNaming
         private const NumberStyles NUMBER_STYLES = NumberStyles.AllowLeadingWhite
                                                  | NumberStyles.AllowTrailingWhite
                                                  | NumberStyles.AllowLeadingSign
@@ -24,16 +26,13 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NUMBER_STYLES,
             IFormatProvider formatProvider = null, Action<ulong> longAct = null) {
-
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
-            var result = ulong.TryParse(str, style, formatProvider.SafeN(), out var number);
-
-            if (result) {
+            var result = ulong.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            if (!result) 
+                result = ValueDeterminer.IsXxxAgain<ulong>(str);
+            if (result) 
                 longAct?.Invoke(number);
-            }
-
             return result;
         }
 
@@ -48,8 +47,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, ulong>> tries,
             NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<ulong> longAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, longAct);
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, longAct);
         }
 
         /// <summary>
@@ -61,8 +60,15 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static ulong To(string str, ulong defaultVal = default,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) =>
-            ulong.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) {
+            if (ulong.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+                return number;
+            try {
+                return Convert.ToUInt64(Convert.ToDecimal(str));
+            } catch {
+                return ValueConverter.ToXxxAgain(str, defaultVal);
+            }
+        }
 
         /// <summary>
         /// To
@@ -74,6 +80,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static ulong To(string str, IEnumerable<IConversionImpl<string, ulong>> impls,
             NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
+            ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
     }
 }

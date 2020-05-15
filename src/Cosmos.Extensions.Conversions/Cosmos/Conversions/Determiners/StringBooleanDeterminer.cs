@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to boolean
     /// </summary>
-    public static class StringBooleanDeterminer {
+    internal static class StringBooleanDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -15,12 +16,11 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool Is(string str, Action<bool> booleanAct = null) {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
             var result = bool.TryParse(str, out var boolean);
-
+            if (!result)
+                result = ValueDeterminer.IsXxxAgain<bool>(str);
             if (result)
                 booleanAct?.Invoke(boolean);
-
             return result;
         }
 
@@ -32,7 +32,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="booleanAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, bool>> tries, Action<bool> booleanAct = null) =>
-            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, booleanAct);
+            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, booleanAct);
 
         /// <summary>
         /// To
@@ -43,8 +43,7 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool To(string str, bool defaultVal = default) {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
-
-            return bool.TryParse(str, out var boolean) ? boolean : defaultVal;
+            return bool.TryParse(str, out var boolean) ? boolean : ValueConverter.ToXxxAgain(str, defaultVal);
         }
 
         /// <summary>
@@ -54,6 +53,6 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static bool To(string str, IEnumerable<IConversionImpl<string, bool>> impls) =>
-            _Helper.ToXXX(str, Is, impls);
+            ValueConverter.ToXxx(str, Is, impls);
     }
 }

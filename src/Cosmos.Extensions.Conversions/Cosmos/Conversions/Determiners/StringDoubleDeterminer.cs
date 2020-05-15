@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
-    /// Internal core conversion helper from string to long
+    /// Internal core conversion helper from string to double
     /// </summary>
-    public static class StringLongDeterminer {
+    internal static class StringDoubleDeterminer {
+        // ReSharper disable once InconsistentNaming
         private const NumberStyles NUMBER_STYLES = NumberStyles.AllowLeadingWhite
                                                  | NumberStyles.AllowTrailingWhite
                                                  | NumberStyles.AllowLeadingSign
@@ -20,23 +22,20 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="str"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="longAct"></param>
+        /// <param name="doubleAct"></param>
         /// <returns></returns>
         public static bool Is(
             string str,
             NumberStyles style = NUMBER_STYLES,
             IFormatProvider formatProvider = null,
-            Action<long> longAct = null) {
-
+            Action<double> doubleAct = null) {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
-            var result = long.TryParse(str, style, formatProvider.SafeN(), out var number);
-
-            if (result) {
-                longAct?.Invoke(number);
-            }
-
+            var result = double.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            if (!result)
+                result = ValueDeterminer.IsXxxAgain<double>(str);
+            if (result)
+                doubleAct?.Invoke(number);
             return result;
         }
 
@@ -47,12 +46,12 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="tries"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="longAct"></param>
+        /// <param name="doubleAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, long>> tries,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<long> longAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeN(), act), tries, longAct);
+        public static bool Is(string str, IEnumerable<IConversionTry<string, double>> tries,
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<double> doubleAct = null) {
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, doubleAct);
         }
 
         /// <summary>
@@ -63,9 +62,16 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static long To(string str, long defaultVal = default,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) =>
-            long.TryParse(str, style, formatProvider.SafeN(), out var number) ? number : defaultVal;
+        public static double To(string str, double defaultVal = default,
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) {
+            if (double.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+                return number;
+            try {
+                return Convert.ToDouble(Convert.ToDecimal(str));
+            } catch {
+                return ValueConverter.ToXxxAgain(str, defaultVal);
+            }
+        }
 
         /// <summary>
         /// To
@@ -75,8 +81,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static long To(string str, IEnumerable<IConversionImpl<string, long>> impls,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeN(), act), impls);
+        public static double To(string str, IEnumerable<IConversionImpl<string, double>> impls,
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) {
+            return ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
+        }
     }
 }

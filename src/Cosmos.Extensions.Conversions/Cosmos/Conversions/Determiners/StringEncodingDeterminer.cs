@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cosmos.Optionals;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to encoding
     /// </summary>
-    public static class StringEncodingDeterminer {
+    internal static class StringEncodingDeterminer {
 
         /// <summary>
         /// Is
@@ -17,12 +17,10 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="encodingAction"></param>
         /// <returns></returns>
         public static bool Is(string str, Action<Encoding> encodingAction = null) {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(str)) 
                 return false;
-
             bool result;
             Encoding encoding;
-
             if (string.Equals("ANSI", str, StringComparison.OrdinalIgnoreCase)) {
                 result = true;
                 encoding = Encoding.Default;
@@ -52,8 +50,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="tries"></param>
         /// <param name="encodingAction"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, Encoding>> tries, Action<Encoding> encodingAction = null) =>
-            _Helper.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, encodingAction);
+        public static bool Is(string str, IEnumerable<IConversionTry<string, Encoding>> tries, Action<Encoding> encodingAction = null) {
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, encodingAction);
+        }
 
         /// <summary>
         /// To
@@ -63,7 +62,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <returns></returns>
         public static Encoding To(string str, Encoding defaultVal = null) {
             Encoding result = null;
-            return Is(str, encoding => result = encoding) ? result : defaultVal.SafeValue(Encoding.Default);
+            return Is(str, encoding => result = encoding) 
+                ? result 
+                : defaultVal.SafeValue(Encoding.Default);
         }
 
         /// <summary>
@@ -73,6 +74,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="impls"></param>
         /// <returns></returns>
         public static Encoding To(string str, IEnumerable<IConversionImpl<string, Encoding>> impls) =>
-            _Helper.ToXXX(str, Is, impls);
+            ValueConverter.ToXxx(str, Is, impls);
+        
+        private static Encoding SafeValue(this Encoding encoding, Encoding @default) =>
+            encoding ?? @default ?? Encoding.UTF8;
     }
 }

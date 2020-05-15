@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.Determiners {
     /// <summary>
     /// Internal core conversion helper from string to DateTimeOffset
     /// </summary>
-    public static class StringDateTimeOffsetDeterminer {
+    internal static class StringDateTimeOffsetDeterminer {
         /// <summary>
         /// Is
         /// </summary>
@@ -19,16 +20,13 @@ namespace Cosmos.Conversions.StringDeterminers {
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
             Action<DateTimeOffset> dtAct = null) {
-
             if (string.IsNullOrWhiteSpace(str))
                 return false;
-
-            var result = DateTimeOffset.TryParse(str, formatProvider.SafeD(), style, out var dateTimeOffset);
-
-            if (result) {
+            var result = DateTimeOffset.TryParse(str, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
+            if (!result)
+                result = ValueDeterminer.IsXxxAgain<DateTimeOffset>(str);
+            if (result)
                 dtAct?.Invoke(dateTimeOffset);
-            }
-
             return result;
         }
 
@@ -46,7 +44,7 @@ namespace Cosmos.Conversions.StringDeterminers {
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
             Action<DateTimeOffset> dtAct = null) {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
+            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider, act), tries, dtAct);
         }
 
@@ -61,8 +59,11 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateTimeOffset To(string str,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            DateTimeOffset defaultVal = default) =>
-            DateTimeOffset.TryParse(str, formatProvider.SafeD(), style, out var offset) ? offset : defaultVal;
+            DateTimeOffset defaultVal = default) {
+            return DateTimeOffset.TryParse(str, formatProvider.SafeDateTime(), style, out var offset)
+                ? offset
+                : defaultVal;
+        }
 
         /// <summary>
         /// To
@@ -75,8 +76,9 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateTimeOffset To(string str,
             IEnumerable<IConversionImpl<string, DateTimeOffset>> impls,
             DateTimeStyles style = DateTimeStyles.None,
-            IFormatProvider formatProvider = null) =>
-            _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider.SafeD(), act), impls);
+            IFormatProvider formatProvider = null) {
+            return ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeDateTime(), act), impls);
+        }
 
         /// <summary>
         /// Exact DateTimeOffset Determiner
@@ -96,16 +98,11 @@ namespace Cosmos.Conversions.StringDeterminers {
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
                 Action<DateTimeOffset> dtAct = null) {
-
                 if (string.IsNullOrWhiteSpace(str))
                     return false;
-
-                var result = DateTimeOffset.TryParseExact(str, format, formatProvider.SafeD(), style, out var dateTimeOffset);
-
-                if (result) {
+                var result = DateTimeOffset.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
+                if (result)
                     dtAct?.Invoke(dateTimeOffset);
-                }
-
                 return result;
             }
 
@@ -125,7 +122,7 @@ namespace Cosmos.Conversions.StringDeterminers {
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
                 Action<DateTimeOffset> dtAct = null) {
-                return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
+                return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                     (s, act) => Is(s, format, style, formatProvider, act), tries, dtAct);
             }
 
@@ -142,8 +139,11 @@ namespace Cosmos.Conversions.StringDeterminers {
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                DateTimeOffset defaultVal = default) =>
-                DateTimeOffset.TryParseExact(str, format, formatProvider.SafeD(), style, out var offset) ? offset : defaultVal;
+                DateTimeOffset defaultVal = default) {
+                return DateTimeOffset.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var offset)
+                    ? offset
+                    : defaultVal;
+            }
 
             /// <summary>
             /// To
@@ -158,8 +158,9 @@ namespace Cosmos.Conversions.StringDeterminers {
                 string format,
                 IEnumerable<IConversionImpl<string, DateTimeOffset>> impls,
                 DateTimeStyles style = DateTimeStyles.None,
-                IFormatProvider formatProvider = null) =>
-                _Helper.ToXXX(str, (s, act) => Is(s, format, style, formatProvider.SafeD(), act), impls);
+                IFormatProvider formatProvider = null) {
+                return ValueConverter.ToXxx(str, (s, act) => Is(s, format, style, formatProvider.SafeDateTime(), act), impls);
+            }
         }
     }
 }
