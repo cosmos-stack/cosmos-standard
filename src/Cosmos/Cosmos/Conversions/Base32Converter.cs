@@ -1,6 +1,5 @@
 using System;
 using System.Text;
-using Cosmos.Optionals;
 
 namespace Cosmos.Conversions {
     /// <summary>
@@ -139,5 +138,7 @@ namespace Cosmos.Conversions {
 
             throw new ArgumentException("Byte is not a Base32 value.", nameof(b));
         }
+
+        private static Encoding SafeValue(this Encoding encoding) => encoding ?? Encoding.UTF8;
     }
 }

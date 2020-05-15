@@ -7,7 +7,7 @@ namespace Cosmos.Test.Conversions {
         [Theory]
         [InlineData("2017-02-10 10:10:10")]
         public void StringDatetimeTest(string datetime) {
-            var dt = ObjectConverter.ToDateTime(datetime);
+            var dt = DateTimeConverter.ToDateTime(datetime);
 
             Assert.Equal(2017, dt.Year);
             Assert.Equal(2, dt.Month);
@@ -21,7 +21,7 @@ namespace Cosmos.Test.Conversions {
         [Theory]
         [InlineData("2017-02-10 10:10:10.011")]
         public void StringDatetimeWithMillisecondTest(string datetime) {
-            var dt = ObjectConverter.ToDateTime(datetime);
+            var dt = DateTimeConverter.ToDateTime(datetime);
 
             Assert.Equal(2017, dt.Year);
             Assert.Equal(2, dt.Month);
@@ -37,7 +37,7 @@ namespace Cosmos.Test.Conversions {
         [InlineData("2017-01-01 00:00:00.001")]
         public void StringDefaultDatetimeTest(string datetime) {
             var def = new DateTime(2017, 1, 1, 0, 0, 0, 001);
-            var dt = ObjectConverter.ToDateTime(datetime, def);
+            var dt = DateTimeConverter.ToDateTime(datetime, def);
 
             Assert.Equal(def, dt);
         }
@@ -45,7 +45,7 @@ namespace Cosmos.Test.Conversions {
         [Theory]
         [InlineData("2017-02-30 10:10:10")]
         public void StringNullDefaultDatetimeTest(string datetime) {
-            var dt = ObjectConverter.ToNullableDateTime(datetime);
+            var dt = DateTimeConverter.ToNullableDateTime(datetime);
             Assert.Equal(default, dt);
         }
     }

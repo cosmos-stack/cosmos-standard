@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Cosmos.Judgments;
+using Cosmos.Reflection;
 
 namespace Cosmos.Conversions {
     /// <summary>

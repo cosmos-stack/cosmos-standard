@@ -31,9 +31,13 @@ namespace Cosmos.Test.Conversions {
             One one = new Two();
             var one1 = ObjectConverter.To<One>(one);
             var two1 = ObjectConverter.To<Two>(one);
+            var one2 = ObjectConverter.To<One, One>(one);
+            var two2 = ObjectConverter.To<One, Two>(one);
 
-            one1.GetType().ShouldBeOfType<Two>();
-            two1.GetType().ShouldBeOfType<Two>();
+            Assert.Equal(typeof(Two), one1.GetType());
+            Assert.Equal(typeof(Two), two1.GetType());
+            Assert.Equal(typeof(Two), one2.GetType());
+            Assert.Equal(typeof(Two), two2.GetType());
         }
 
         [Fact]

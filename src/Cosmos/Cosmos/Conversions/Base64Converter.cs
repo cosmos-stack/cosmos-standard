@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using Cosmos.Optionals;
 
 namespace Cosmos.Conversions {
     /// <summary>
@@ -87,5 +86,6 @@ namespace Cosmos.Conversions {
             return Convert.FromBase64String(sb.ToString());
         }
 
+        private static Encoding SafeValue(this Encoding encoding) => encoding ?? Encoding.UTF8;
     }
 }
