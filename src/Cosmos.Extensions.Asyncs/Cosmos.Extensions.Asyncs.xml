@@ -4,6 +4,205 @@
         <name>Cosmos.Extensions.Asyncs</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Asynchronous.AsyncReturns">
+            <summary>
+            Async returns
+            </summary>
+            <summary>
+            Async returns
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Canceled``1(System.Threading.CancellationToken)">
+            <summary>
+            Returns canceled
+            </summary>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Canceled``1(System.OperationCanceledException)">
+            <summary>
+            Returns canceled
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.CompletedTask">
+            <summary>
+            Returns Completed Task
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Delegate(System.Action)">
+            <summary>
+            Returns Delegate
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Delegate``1(System.Func{``0})">
+            <summary>
+            Returns Delegate
+            </summary>
+            <param name="func"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Delegate``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Returns Delegate
+            </summary>
+            <param name="taskFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Exception``1(System.Exception)">
+            <summary>
+            Returns exception
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Exception``1(System.Func{System.Exception})">
+            <summary>
+            Returns exception
+            </summary>
+            <param name="exceptionFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Default``1">
+            <summary>
+            Returns default
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Value``1(``0)">
+            <summary>
+            Returns value
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Value``1(System.Func{``0})">
+            <summary>
+            Returns value
+            </summary>
+            <param name="valueFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(``0,``0)">
+            <summary>
+            Return value or
+            </summary>
+            <param name="value"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(``0,System.Func{``0})">
+            <summary>
+            Return value or
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(System.Func{``0},``0)">
+            <summary>
+            Return value or
+            </summary>
+            <param name="valueFunc"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(System.Func{``0},System.Func{``0})">
+            <summary>
+            Return value or
+            </summary>
+            <param name="valueFunc"></param>
+            <param name="defaultValFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrDefault``1(``0)">
+            <summary>
+            Return value or default
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrDefault``1(System.Func{``0})">
+            <summary>
+            Return value or default
+            </summary>
+            <param name="valueFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrException``1(``0,System.Exception)">
+            <summary>
+            Value or default
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrException``1(``0,System.Func{System.Exception})">
+            <summary>
+            Value or default
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrException``1(System.Func{``0},System.Func{System.Exception})">
+            <summary>
+            Value or default
+            </summary>
+            <param name="valueFunc"></param>
+            <param name="exceptionFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Asynchronous.AsyncReturns.ForValueTask">
+            <summary>
+            Returns for value task
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ForValueTask.Exception``1(System.Exception)">
+            <summary>
+            Returns exception
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ForValueTask.Default``1">
+            <summary>
+            Returns default
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ForValueTask.Value``1(``0)">
+            <summary>
+            Returns value task
+            </summary>
+            <param name="result"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.Promise.Promises">
             <summary>
             Promises Utilities
@@ -52,11 +251,25 @@
             <param name="task"></param>
             <param name="cancellationToken"></param>
         </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCalling(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            For asynchronous calling
+            </summary>
+            <param name="taskFunc"></param>
+            <param name="cancellationToken"></param>
+        </member>
         <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafety(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
             <summary>
             For asynchronous calling safety
             </summary>
             <param name="task"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafety(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            For asynchronous calling safety
+            </summary>
+            <param name="taskFunc"></param>
             <param name="cancellationToken"></param>
         </member>
         <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCalling``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
@@ -68,12 +281,32 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCalling``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling
+            </summary>
+            <param name="taskFunc"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
         <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
             <summary>
             From asynchronous calling safety
             </summary>
             <typeparam name="TResult"></typeparam>
             <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="taskFunc"></param>
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
@@ -84,6 +317,36 @@
             <typeparam name="TResult"></typeparam>
             <param name="task"></param>
             <param name="defaultValue"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Func{System.Threading.Tasks.Task{``0}},``0,System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="taskFunc"></param>
+            <param name="defaultValue"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Threading.Tasks.Task{``0},System.Func{``0},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="defaultValueFunc"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Func{System.Threading.Tasks.Task{``0}},System.Func{``0},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="taskFunc"></param>
+            <param name="defaultValueFunc"></param>
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
@@ -132,6 +395,14 @@
             From result
             </summary>
             <param name="result"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ValueTaskFactory.FromException``1(System.Exception)">
+            <summary>
+            From exception
+            </summary>
+            <param name="exception"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
@@ -12541,26 +12812,6 @@
             <typeparam name="TP4"></typeparam>
             <typeparam name="TP5"></typeparam>
             <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:System.Runtime.Remoting.Messaging.CallContext">
-            <summary>
-            CallContext for .NET Standard and .NET Core
-            for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
-            </summary>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.SetData(System.String,System.Object)">
-            <summary>
-            Set data
-            </summary>
-            <param name="name"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.GetData(System.String)">
-            <summary>
-            Get data
-            </summary>
-            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
