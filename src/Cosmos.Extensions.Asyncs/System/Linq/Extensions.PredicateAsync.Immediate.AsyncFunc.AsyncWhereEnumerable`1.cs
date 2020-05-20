@@ -18,8 +18,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class PredicateAsyncExtensions {
+namespace System.Linq
+{
+    public static partial class PredicateAsyncExtensions
+    {
         /// <summary>
         /// All
         /// </summary>
@@ -28,7 +30,8 @@ namespace System.Linq {
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<bool> All<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
+        public static Task<bool> All<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).All(predicate, cancellationToken);
         }
 
@@ -40,7 +43,8 @@ namespace System.Linq {
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<bool> Any<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default) {
+        public static Task<bool> Any<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate, CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).Any(predicate, cancellationToken);
         }
 
@@ -53,7 +57,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<int> Count<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).Count(predicate, cancellationToken);
         }
 
@@ -66,7 +71,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<TSource> First<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).First(predicate, cancellationToken);
         }
 
@@ -79,7 +85,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<TSource> FirstOrDefault<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).FirstOrDefault(predicate, cancellationToken);
         }
 
@@ -92,7 +99,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<TSource> Last<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).Last(predicate, cancellationToken);
         }
 
@@ -105,7 +113,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<TSource> LastOrDefault<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).LastOrDefault(predicate, cancellationToken);
         }
 
@@ -118,7 +127,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<long> LongCount<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).LongCount(predicate, cancellationToken);
         }
 
@@ -131,7 +141,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<TSource> Single<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).Single(predicate, cancellationToken);
         }
 
@@ -144,7 +155,8 @@ namespace System.Linq {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static Task<TSource> SingleOrDefault<TSource>(this Task<AsyncWhereEnumerable<TSource>> source, Func<TSource, Task<bool>> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return source.AsEnumerable(cancellationToken).SingleOrDefault(predicate, cancellationToken);
         }
     }

@@ -1,11 +1,13 @@
 ﻿using System;
 using RSG;
 
-namespace Cosmos.Asynchronous.Promise {
+namespace Cosmos.Asynchronous.Promise
+{
     /// <summary>
     /// Promises Utilities
     /// </summary>
-    public static class Promises {
+    public static class Promises
+    {
         /// <summary>
         /// Create
         /// </summary>

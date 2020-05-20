@@ -17,8 +17,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Select result
         /// </summary>
@@ -26,7 +28,8 @@ namespace System.Linq {
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<TSource>> SelectResult<TSource>(this IEnumerable<Task<TSource>> source, CancellationToken cancellationToken = default) {
+        public static Task<IEnumerable<TSource>> SelectResult<TSource>(this IEnumerable<Task<TSource>> source, CancellationToken cancellationToken = default)
+        {
             return Task.FromResult(source.Select(x => x.Result));
         }
     }

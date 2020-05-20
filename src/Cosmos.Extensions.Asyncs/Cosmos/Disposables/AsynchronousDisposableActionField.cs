@@ -1,12 +1,14 @@
 using System;
 using System.Threading;
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// Asynchronous Disposable Action Field
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class AsynchronousDisposableActionField<T> {
+    public sealed class AsynchronousDisposableActionField<T>
+    {
         private AsynchronousDisposableAction<T> _field;
 
         /// <summary>
@@ -14,7 +16,8 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="action"></param>
         /// <param name="context"></param>
-        public AsynchronousDisposableActionField(Action<T> action, T context) {
+        public AsynchronousDisposableActionField(Action<T> action, T context)
+        {
             _field = new AsynchronousDisposableAction<T>(action, context);
         }
 
@@ -34,8 +37,10 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="contextUpdater"></param>
         /// <returns></returns>
-        public bool TryUpdateContext(Func<T, T> contextUpdater) {
-            while (true) {
+        public bool TryUpdateContext(Func<T, T> contextUpdater)
+        {
+            while (true)
+            {
                 var origin = Interlocked.CompareExchange(ref _field, _field, _field);
                 if (origin == null) return false;
                 var updatedContext = new AsynchronousDisposableAction<T>(origin, contextUpdater);

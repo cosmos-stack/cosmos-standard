@@ -2,12 +2,14 @@ using System;
 using System.Collections.Concurrent;
 using System.Threading;
 
-namespace Cosmos.Collections.Concurrent {
+namespace Cosmos.Collections.Concurrent
+{
     /// <summary>
     /// Bounded concurrent queue
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BoundedConcurrentQueue<T> {
+    public class BoundedConcurrentQueue<T>
+    {
         // ReSharper disable once InconsistentNaming
         private const int NON_BOUNDED = -1;
         private readonly ConcurrentQueue<T> _queue = new ConcurrentQueue<T>();
@@ -17,7 +19,8 @@ namespace Cosmos.Collections.Concurrent {
         /// <summary>
         /// Create a new instance of <see cref="BoundedConcurrentQueue{T}"/>.
         /// </summary>
-        public BoundedConcurrentQueue() {
+        public BoundedConcurrentQueue()
+        {
             _queueLimit = NON_BOUNDED;
         }
 
@@ -26,7 +29,8 @@ namespace Cosmos.Collections.Concurrent {
         /// </summary>
         /// <param name="queueLimit"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public BoundedConcurrentQueue(int queueLimit) {
+        public BoundedConcurrentQueue(int queueLimit)
+        {
             if (queueLimit <= 0)
                 throw new ArgumentOutOfRangeException(nameof(queueLimit), "queue limit must be positive");
 
@@ -43,16 +47,20 @@ namespace Cosmos.Collections.Concurrent {
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public bool TryDequeue(out T item) {
+        public bool TryDequeue(out T item)
+        {
             if (_queueLimit == NON_BOUNDED)
                 return _queue.TryDequeue(out item);
 
             var result = false;
-            try {
-                //...
-            } finally // prevent state corrupt while aborting
+            try
             {
-                if (_queue.TryDequeue(out item)) {
+                //...
+            }
+            finally // prevent state corrupt while aborting
+            {
+                if (_queue.TryDequeue(out item))
+                {
                     Interlocked.Decrement(ref _counter);
                     result = true;
                 }
@@ -66,20 +74,28 @@ namespace Cosmos.Collections.Concurrent {
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public bool TryEnqueue(T item) {
-            if (_queueLimit == NON_BOUNDED) {
+        public bool TryEnqueue(T item)
+        {
+            if (_queueLimit == NON_BOUNDED)
+            {
                 _queue.Enqueue(item);
                 return true;
             }
 
             var result = true;
 
-            try {
+            try
+            {
                 //...
-            } finally {
-                if (Interlocked.Increment(ref _counter) <= _queueLimit) {
+            }
+            finally
+            {
+                if (Interlocked.Increment(ref _counter) <= _queueLimit)
+                {
                     _queue.Enqueue(item);
-                } else {
+                }
+                else
+                {
                     Interlocked.Decrement(ref _counter);
                     result = false;
                 }

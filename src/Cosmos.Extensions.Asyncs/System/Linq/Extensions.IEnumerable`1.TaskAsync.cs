@@ -17,8 +17,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Take async
         /// </summary>
@@ -29,7 +31,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TSource>> TakeAsync<TSource>(
             this IEnumerable<TSource> source, int count,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, count, Enumerable.Take, cancellationToken);
         }
 
@@ -44,7 +47,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> TakeWhileAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.TakeWhile, cancellationToken);
         }
 
@@ -59,7 +63,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> TakeWhileAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.TakeWhile, cancellationToken);
         }
     }

@@ -18,8 +18,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Cast to
         /// </summary>
@@ -29,7 +31,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TResult>> Cast<TResult>(
             this Task<IEnumerable> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.Cast<TResult>, cancellationToken);
         }
 
@@ -42,7 +45,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TResult>> CastAsync<TResult>(
             this IEnumerable source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.Cast<TResult>, cancellationToken);
         }
 
@@ -55,7 +59,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TResult>> OfType<TResult>(
             this Task<IEnumerable> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.OfType<TResult>, cancellationToken);
         }
 
@@ -68,7 +73,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TResult>> OfTypeAsync<TResult>(
             this IEnumerable source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.OfType<TResult>, cancellationToken);
         }
     }

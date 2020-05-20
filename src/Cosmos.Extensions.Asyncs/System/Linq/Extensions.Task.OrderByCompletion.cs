@@ -18,15 +18,18 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Order by completion
         /// </summary>
         /// <param name="tasks"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<T>[] OrderByCompletion<T>(this IEnumerable<Task<T>> tasks) {
+        public static Task<T>[] OrderByCompletion<T>(this IEnumerable<Task<T>> tasks)
+        {
             //Credit to: https://github.com/NeoLegends/AsyncLinq
 
             var taskArray = tasks.ToArray();
@@ -37,7 +40,8 @@ namespace System.Linq {
 
             var lastIndex = -1;
 
-            for (var i = 0; i != numTasks; ++i) {
+            for (var i = 0; i != numTasks; ++i)
+            {
                 tcs[i] = new TaskCompletionSource<T>();
                 ret[i] = tcs[i].Task;
                 taskArray[i].ContinueWith(Continuation, CancellationToken.None, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
@@ -45,18 +49,21 @@ namespace System.Linq {
 
             return ret;
 
-            void Continuation(Task<T> task) {
+            void Continuation(Task<T> task)
+            {
                 var index = Interlocked.Increment(ref lastIndex);
                 tcs[index].TryCompleteFromCompletedTask(task);
             }
         }
 
-        internal static bool TryCompleteFromCompletedTask<TResult>(this TaskCompletionSource<TResult> @this, Task<TResult> task) {
+        internal static bool TryCompleteFromCompletedTask<TResult>(this TaskCompletionSource<TResult> @this, Task<TResult> task)
+        {
             Contract.Requires(@this != null);
             Contract.Requires(task != null);
             Contract.Requires(task.IsCompleted);
 
-            if (task.IsFaulted) {
+            if (task.IsFaulted)
+            {
                 Contract.Assume(task.Exception != null);
                 Contract.Assume(task.Exception.InnerExceptions != null);
                 Contract.Assume(Contract.ForAll(task.Exception.InnerExceptions, x => x != null));

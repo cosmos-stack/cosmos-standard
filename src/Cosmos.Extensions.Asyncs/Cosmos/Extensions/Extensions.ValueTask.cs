@@ -1,5 +1,4 @@
 #if !NET451
-
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace

@@ -16,17 +16,20 @@ using System.Threading;
  *  MIT
  */
 
-namespace System.Linq {
+namespace System.Linq
+{
     /// <summary>
     /// Async Enumerable
     /// </summary>
-    public class AsyncEnumerable : IEnumerable {
+    public class AsyncEnumerable : IEnumerable
+    {
         /// <summary>
         /// Create a new instance of <see cref="AsyncEnumerable"/>.
         /// </summary>
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncEnumerable(IEnumerable source, CancellationToken cancellationToken) {
+        public AsyncEnumerable(IEnumerable source, CancellationToken cancellationToken)
+        {
             CancellationToken = cancellationToken;
             Source = source;
         }
@@ -41,7 +44,8 @@ namespace System.Linq {
         /// </summary>
         public IEnumerable Source { get; set; }
 
-        IEnumerator IEnumerable.GetEnumerator() {
+        IEnumerator IEnumerable.GetEnumerator()
+        {
             return new AsyncEnumerator(Source.GetEnumerator(), CancellationToken);
         }
 
@@ -51,7 +55,8 @@ namespace System.Linq {
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public static AsyncEnumerable CreateFrom(IEnumerable source, CancellationToken cancellationToken) {
+        public static AsyncEnumerable CreateFrom(IEnumerable source, CancellationToken cancellationToken)
+        {
             return new AsyncEnumerable(source, cancellationToken);
         }
     }

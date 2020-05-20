@@ -19,17 +19,20 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq.Async {
+namespace System.Linq.Async
+{
     /// <summary>
     /// Async Where Enumerable
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsyncWhereEnumerable<T> : IEnumerable<T> {
+    public class AsyncWhereEnumerable<T> : IEnumerable<T>
+    {
         /// <summary>
         /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
         /// </summary>
         /// <param name="source"></param>
-        public AsyncWhereEnumerable(Task<IEnumerable<T>> source) {
+        public AsyncWhereEnumerable(Task<IEnumerable<T>> source)
+        {
             SourceTask = source;
         }
 
@@ -37,7 +40,8 @@ namespace System.Linq.Async {
         /// Create a new instance of <see cref="AsyncWhereEnumerable{T}"/>.
         /// </summary>
         /// <param name="source"></param>
-        public AsyncWhereEnumerable(IEnumerable<T> source) {
+        public AsyncWhereEnumerable(IEnumerable<T> source)
+        {
             Source = source;
         }
 
@@ -46,7 +50,8 @@ namespace System.Linq.Async {
         /// </summary>
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncWhereEnumerable(IEnumerable<T> source, CancellationToken cancellationToken) {
+        public AsyncWhereEnumerable(IEnumerable<T> source, CancellationToken cancellationToken)
+        {
             Source = source;
             CancellationToken = cancellationToken;
         }
@@ -57,7 +62,8 @@ namespace System.Linq.Async {
         /// <param name="source"></param>
         /// <param name="predicate"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncWhereEnumerable(IEnumerable<T> source, Func<T, Task<bool>> predicate, CancellationToken cancellationToken) {
+        public AsyncWhereEnumerable(IEnumerable<T> source, Func<T, Task<bool>> predicate, CancellationToken cancellationToken)
+        {
             CancellationToken = cancellationToken;
             Predicate = predicate;
             Source = source;
@@ -72,7 +78,8 @@ namespace System.Linq.Async {
         /// <param name="source"></param>
         /// <param name="predicate"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncWhereEnumerable(IEnumerable<T> source, Func<T, int, Task<bool>> predicate, CancellationToken cancellationToken) {
+        public AsyncWhereEnumerable(IEnumerable<T> source, Func<T, int, Task<bool>> predicate, CancellationToken cancellationToken)
+        {
             CancellationToken = cancellationToken;
             Predicate2 = predicate;
             Source = source;
@@ -87,7 +94,8 @@ namespace System.Linq.Async {
         /// <param name="source"></param>
         /// <param name="predicate"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncWhereEnumerable(Task<IEnumerable<T>> source, Func<T, Task<bool>> predicate, CancellationToken cancellationToken) {
+        public AsyncWhereEnumerable(Task<IEnumerable<T>> source, Func<T, Task<bool>> predicate, CancellationToken cancellationToken)
+        {
             CancellationToken = cancellationToken;
             Predicate = predicate;
             SourceTask = source;
@@ -102,7 +110,8 @@ namespace System.Linq.Async {
         /// <param name="source"></param>
         /// <param name="predicate"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncWhereEnumerable(Task<IEnumerable<T>> source, Func<T, int, Task<bool>> predicate, CancellationToken cancellationToken) {
+        public AsyncWhereEnumerable(Task<IEnumerable<T>> source, Func<T, int, Task<bool>> predicate, CancellationToken cancellationToken)
+        {
             CancellationToken = cancellationToken;
             Predicate2 = predicate;
             SourceTask = source;
@@ -141,72 +150,89 @@ namespace System.Linq.Async {
 
         /// <inheritdoc />
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        public IEnumerator<T> GetEnumerator() {
+        public IEnumerator<T> GetEnumerator()
+        {
             IEnumerator<T> enumerator;
 
-            if (Source == null && SourceTask != null) {
+            if (Source == null && SourceTask != null)
+            {
                 Source = SourceTask.Result;
             }
 
-            if (Predicate != null) {
-                if (SkipFilterPredicate) {
-                    if (OrderByPredicateCompletion) {
+            if (Predicate != null)
+            {
+                if (SkipFilterPredicate)
+                {
+                    if (OrderByPredicateCompletion)
+                    {
                         var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).OrderByCompletion()
-                                                .Select(x => x.Result.Item1);
+                           .Select(x => x.Result.Item1);
                         enumerator = enumerator2.GetEnumerator();
                     }
-                    else if (StartPredicateConcurrently) {
+                    else if (StartPredicateConcurrently)
+                    {
                         var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).ToList().Select(x => x.Result.Item1);
                         enumerator = enumerator2.GetEnumerator();
                     }
-                    else {
+                    else
+                    {
                         var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).Select(x => x.Result.Item1);
                         enumerator = enumerator2.GetEnumerator();
                     }
                 }
-                else {
-                    if (OrderByPredicateCompletion) {
+                else
+                {
+                    if (OrderByPredicateCompletion)
+                    {
                         var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).OrderByCompletion()
-                                                .Where(x => x.Result.Item2).Select(x => x.Result.Item1);
+                           .Where(x => x.Result.Item2).Select(x => x.Result.Item1);
                         enumerator = enumerator2.GetEnumerator();
                     }
-                    else if (StartPredicateConcurrently) {
+                    else if (StartPredicateConcurrently)
+                    {
                         var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).ToList().Where(x => x.Result.Item2)
-                                                .Select(x => x.Result.Item1);
+                           .Select(x => x.Result.Item1);
                         enumerator = enumerator2.GetEnumerator();
                     }
-                    else {
+                    else
+                    {
                         var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).Where(x => x.Result.Item2)
-                                                .Select(x => x.Result.Item1);
+                           .Select(x => x.Result.Item1);
                         enumerator = enumerator2.GetEnumerator();
                     }
                 }
             }
-            else if (Predicate2 != null) {
-                if (OrderByPredicateCompletion) {
+            else if (Predicate2 != null)
+            {
+                if (OrderByPredicateCompletion)
+                {
                     var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).OrderByCompletion()
-                                            .Where(x => x.Result.Item2).Select(x => x.Result.Item1);
+                       .Where(x => x.Result.Item2).Select(x => x.Result.Item1);
                     enumerator = enumerator2.GetEnumerator();
                 }
-                else if (StartPredicateConcurrently) {
+                else if (StartPredicateConcurrently)
+                {
                     var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).ToList().Where(x => x.Result.Item2)
-                                            .Select(x => x.Result.Item1);
+                       .Select(x => x.Result.Item1);
                     enumerator = enumerator2.GetEnumerator();
                 }
-                else {
+                else
+                {
                     var enumerator2 = Source.Select(x => Task.Run(() => new Tuple<T, bool>(x, Predicate(x).Result), CancellationToken)).Where(x => x.Result.Item2)
-                                            .Select(x => x.Result.Item1);
+                       .Select(x => x.Result.Item1);
                     enumerator = enumerator2.GetEnumerator();
                 }
             }
-            else {
+            else
+            {
                 enumerator = Source.GetEnumerator();
             }
 
             return enumerator;
         }
 
-        IEnumerator IEnumerable.GetEnumerator() {
+        IEnumerator IEnumerable.GetEnumerator()
+        {
             return GetEnumerator();
         }
 
@@ -216,7 +242,8 @@ namespace System.Linq.Async {
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public static AsyncWhereEnumerable<T> CreateFrom(IEnumerable<T> source, CancellationToken cancellationToken) {
+        public static AsyncWhereEnumerable<T> CreateFrom(IEnumerable<T> source, CancellationToken cancellationToken)
+        {
             return new AsyncWhereEnumerable<T>(source, cancellationToken);
         }
     }

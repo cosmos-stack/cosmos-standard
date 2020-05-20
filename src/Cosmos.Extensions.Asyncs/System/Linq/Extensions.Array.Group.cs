@@ -17,8 +17,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Group by
         /// </summary>
@@ -31,7 +33,8 @@ namespace System.Linq {
         public static Task<IEnumerable<IGrouping<TKey, TSource>>> GroupBy<TSource, TKey>(
             this Task<TSource[]> source,
             Func<TSource, TKey> keySelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -49,7 +52,8 @@ namespace System.Linq {
             this Task<TSource[]> source,
             Func<TSource, TKey> keySelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -68,7 +72,8 @@ namespace System.Linq {
             this Task<TSource[]> source,
             Func<TSource, TKey> keySelector,
             Func<TSource, TElement> elementSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -89,7 +94,8 @@ namespace System.Linq {
             Func<TSource, TKey> keySelector,
             Func<TSource, TElement> elementSelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -108,7 +114,8 @@ namespace System.Linq {
             this Task<TSource[]> source,
             Func<TSource, TKey> keySelector,
             Func<TKey, IEnumerable<TSource>, TResult> resultSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, resultSelector, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -130,7 +137,8 @@ namespace System.Linq {
             Func<TSource, TKey> keySelector,
             Func<TSource, TElement> elementSelector,
             Func<TKey, IEnumerable<TElement>, TResult> resultSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, resultSelector, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -151,7 +159,8 @@ namespace System.Linq {
             Func<TSource, TKey> keySelector,
             Func<TKey, IEnumerable<TSource>, TResult> resultSelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, resultSelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -175,7 +184,8 @@ namespace System.Linq {
             Func<TSource, TElement> elementSelector,
             Func<TKey, IEnumerable<TElement>, TResult> resultSelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, keySelector, elementSelector, resultSelector, comparer, Enumerable.GroupBy, cancellationToken);
         }
 
@@ -199,7 +209,8 @@ namespace System.Linq {
             Func<TOuter, TKey> outerKeySelector,
             Func<TInner, TKey> innerKeySelector,
             Func<TOuter, IEnumerable<TInner>, TResult> resultSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(outer, inner, outerKeySelector, innerKeySelector, resultSelector, Enumerable.GroupJoin, cancellationToken);
         }
 
@@ -225,7 +236,8 @@ namespace System.Linq {
             Func<TInner, TKey> innerKeySelector,
             Func<TOuter, IEnumerable<TInner>, TResult> resultSelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(outer, inner, outerKeySelector, innerKeySelector, resultSelector, comparer, Enumerable.GroupJoin, cancellationToken);
         }
     }
