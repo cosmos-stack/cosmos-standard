@@ -1,8 +1,10 @@
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Interface for conversion impl
     /// </summary>
-    public interface IConversionImpl<in TFrom, TTo> {
+    public interface IConversionImpl<in TFrom, TTo>
+    {
         /// <summary>
         /// To
         /// </summary>

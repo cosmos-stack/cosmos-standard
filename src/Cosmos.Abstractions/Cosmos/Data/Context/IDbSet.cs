@@ -1,4 +1,5 @@
-﻿namespace Cosmos.Data.Context {
+﻿namespace Cosmos.Data.Context
+{
     /// <summary>
     /// DbSet Meta Interface<br />
     /// DbSet 元接口

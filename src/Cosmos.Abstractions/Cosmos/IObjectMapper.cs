@@ -1,11 +1,13 @@
 using System;
 
-namespace Cosmos {
+namespace Cosmos
+{
     /// <summary>
     /// Object Mapper Meta Interface<br />
     /// 对象映射元接口
     /// </summary>
-    public interface IObjectMapper : IGenericObjectMapper {
+    public interface IObjectMapper : IGenericObjectMapper
+    {
         /// <summary>
         /// Map to<br />
         /// 映射至……

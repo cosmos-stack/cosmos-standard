@@ -73,7 +73,34 @@
             对象映射元接口
             </summary>
         </member>
-        <member name="M:Cosmos.IObjectMapper.MapTo``2(``0)">
+        <member name="M:Cosmos.IObjectMapper.MapTo(System.Type,System.Type,System.Object)">
+            <summary>
+            Map to<br />
+            映射至……
+            </summary>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+            <param name="source"></param>
+            <returns>映射结果</returns>
+        </member>
+        <member name="M:Cosmos.IObjectMapper.MapTo(System.Type,System.Type,System.Object,System.Object)">
+            <summary>
+            Map to<br />
+            映射至……
+            </summary>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns>映射结果</returns>
+        </member>
+        <member name="T:Cosmos.IGenericObjectMapper">
+            <summary>
+            Object Generic Mapper Meta Interface<br />
+            对象泛型映射元接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.IGenericObjectMapper.MapTo``2(``0)">
             <summary>
             Map to<br />
             映射至……
@@ -83,7 +110,7 @@
             <param name="fromObject">被映射的对象</param>
             <returns>映射结果</returns>
         </member>
-        <member name="M:Cosmos.IObjectMapper.MapTo``2(``0,``1)">
+        <member name="M:Cosmos.IGenericObjectMapper.MapTo``2(``0,``1)">
             <summary>
             Map to<br />
             映射至……

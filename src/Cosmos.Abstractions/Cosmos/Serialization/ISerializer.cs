@@ -2,12 +2,14 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Cosmos.Serialization {
+namespace Cosmos.Serialization
+{
     /// <summary> 
     /// Object Serializer Meta Interface<br />
     /// 对象序列化器元接口
     /// </summary>
-    public interface ISerializer {
+    public interface ISerializer
+    {
         /// <summary>
         /// Serialize<br />
         /// 序列化
@@ -34,7 +36,7 @@ namespace Cosmos.Serialization {
         /// <param name="type"></param>
         /// <returns></returns>
         object DeserializeFromStream(Stream stream, Type type);
-        
+
         /// <summary>
         /// Serialize async<br />
         /// 异步序列化
@@ -43,7 +45,7 @@ namespace Cosmos.Serialization {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         Task<Stream> SerializeToStreamAsync<T>(T o);
-        
+
         /// <summary>
         /// Deserialize async<br />
         /// 异步反序列化
