@@ -21,6 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
     </ItemGroup>
 </Project>

@@ -1,11 +1,13 @@
 ﻿using System;
 using NodaTime;
 
-namespace Cosmos.Date {
+namespace Cosmos.Date
+{
     /// <summary>
     /// DateInfo
     /// </summary>
-    public class DateInfo {
+    public class DateInfo
+    {
         // ReSharper disable once InconsistentNaming
         private DateTime _internalDateTime { get; set; }
 
@@ -16,7 +18,8 @@ namespace Cosmos.Date {
         /// 创建一个新的 <see cref="DateInfo"/> 实例。
         /// </summary>
         /// <param name="dt"></param>
-        public DateInfo(DateTime dt) {
+        public DateInfo(DateTime dt)
+        {
             _internalDateTime = dt.SetTime(0, 0, 0, 0);
         }
 
@@ -27,7 +30,8 @@ namespace Cosmos.Date {
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <param name="day"></param>
-        public DateInfo(int year, int month, int day) {
+        public DateInfo(int year, int month, int day)
+        {
             _internalDateTime = new DateTime(year, month, day, 0, 0, 0, 0);
         }
 
@@ -35,7 +39,8 @@ namespace Cosmos.Date {
         /// Year<br />
         /// 年
         /// </summary>
-        public virtual int Year {
+        public virtual int Year
+        {
             get => _internalDateTime.Year;
             set => _internalDateTime = _internalDateTime.SetYear(value);
         }
@@ -44,7 +49,8 @@ namespace Cosmos.Date {
         /// Month<br />
         /// 月份
         /// </summary>
-        public virtual int Month {
+        public virtual int Month
+        {
             get => _internalDateTime.Month;
             set => _internalDateTime = _internalDateTime.SetMonth(DateChecker.CheckMonth(value));
         }
@@ -53,7 +59,8 @@ namespace Cosmos.Date {
         /// Day<br />
         /// 日
         /// </summary>
-        public virtual int Day {
+        public virtual int Day
+        {
             get => _internalDateTime.Day;
             set => _internalDateTime = _internalDateTime.SetDay(value);
         }
@@ -79,8 +86,10 @@ namespace Cosmos.Date {
 
         internal DateTime DateTimeRef => _internalDateTime;
 
-        private static class DateChecker {
-            public static int CheckMonth(int monthValue) {
+        private static class DateChecker
+        {
+            public static int CheckMonth(int monthValue)
+            {
                 if (monthValue < 0 || monthValue > 12)
                     throw new ArgumentOutOfRangeException(nameof(monthValue), monthValue, "Month should be from 1 to 12.");
                 return monthValue;
@@ -93,7 +102,8 @@ namespace Cosmos.Date {
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public DateInfo AddDays(int days) {
+        public DateInfo AddDays(int days)
+        {
             _internalDateTime += days.Days();
             return this;
         }
@@ -104,7 +114,8 @@ namespace Cosmos.Date {
         /// </summary>
         /// <param name="months"></param>
         /// <returns></returns>
-        public DateInfo AddMonths(int months) {
+        public DateInfo AddMonths(int months)
+        {
             _internalDateTime += months.Months();
             return this;
         }
@@ -115,7 +126,8 @@ namespace Cosmos.Date {
         /// </summary>
         /// <param name="years"></param>
         /// <returns></returns>
-        public DateInfo AddYears(int years) {
+        public DateInfo AddYears(int years)
+        {
             _internalDateTime += years.Years();
             return this;
         }
@@ -126,7 +138,8 @@ namespace Cosmos.Date {
         /// </summary>
         /// <param name="duration"></param>
         /// <returns></returns>
-        public DateInfo AddDuration(Duration duration) {
+        public DateInfo AddDuration(Duration duration)
+        {
             _internalDateTime = _internalDateTime.AddDuration(duration);
             return this;
         }
@@ -141,7 +154,8 @@ namespace Cosmos.Date {
         /// 将 <see cref="DateTime"/> 转换为 <see cref="DateInfo"/>。
         /// </summary>
         /// <param name="di"></param>
-        public static implicit operator DateTime(DateInfo di) {
+        public static implicit operator DateTime(DateInfo di)
+        {
             return di.ToDateTime();
         }
 
@@ -150,7 +164,8 @@ namespace Cosmos.Date {
         /// 将 <see cref="DateInfo"/> 转换为 <see cref="DateTime"/>。
         /// </summary>
         /// <param name="dt"></param>
-        public static implicit operator DateInfo(DateTime dt) {
+        public static implicit operator DateInfo(DateTime dt)
+        {
             return new DateInfo(dt);
         }
 
@@ -160,7 +175,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="t"></param>
         /// <returns></returns>
-        public static DateInfo operator +(DateInfo d, TimeSpan t) {
+        public static DateInfo operator +(DateInfo d, TimeSpan t)
+        {
             return new DateInfo(d._internalDateTime + t);
         }
 
@@ -170,7 +186,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="t"></param>
         /// <returns></returns>
-        public static DateInfo operator -(DateInfo d, TimeSpan t) {
+        public static DateInfo operator -(DateInfo d, TimeSpan t)
+        {
             return new DateInfo(d._internalDateTime - t);
         }
 
@@ -180,7 +197,8 @@ namespace Cosmos.Date {
         /// <param name="d1"></param>
         /// <param name="d2"></param>
         /// <returns></returns>
-        public static bool operator >(DateInfo d1, DateInfo d2) {
+        public static bool operator >(DateInfo d1, DateInfo d2)
+        {
             if (d1 == null || d2 == null)
                 return false;
             if (d1.Year > d2.Year)
@@ -200,7 +218,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool operator >(DateInfo d, DateTime dt) {
+        public static bool operator >(DateInfo d, DateTime dt)
+        {
             if (d == null)
                 return false;
             if (d.Year > dt.Year)
@@ -220,7 +239,8 @@ namespace Cosmos.Date {
         /// <param name="d1"></param>
         /// <param name="d2"></param>
         /// <returns></returns>
-        public static bool operator <(DateInfo d1, DateInfo d2) {
+        public static bool operator <(DateInfo d1, DateInfo d2)
+        {
             if (d1 == null || d2 == null)
                 return false;
             if (d1.Year < d2.Year)
@@ -240,7 +260,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool operator <(DateInfo d, DateTime dt) {
+        public static bool operator <(DateInfo d, DateTime dt)
+        {
             if (d == null)
                 return false;
             if (d.Year < dt.Year)
@@ -260,7 +281,8 @@ namespace Cosmos.Date {
         /// <param name="d1"></param>
         /// <param name="d2"></param>
         /// <returns></returns>
-        public static bool operator >=(DateInfo d1, DateInfo d2) {
+        public static bool operator >=(DateInfo d1, DateInfo d2)
+        {
             if (d1 == null || d2 == null)
                 return false;
             return !(d1 < d2);
@@ -272,7 +294,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool operator >=(DateInfo d, DateTime dt) {
+        public static bool operator >=(DateInfo d, DateTime dt)
+        {
             if (d == null)
                 return false;
             return !(d < dt);
@@ -284,7 +307,8 @@ namespace Cosmos.Date {
         /// <param name="d1"></param>
         /// <param name="d2"></param>
         /// <returns></returns>
-        public static bool operator <=(DateInfo d1, DateInfo d2) {
+        public static bool operator <=(DateInfo d1, DateInfo d2)
+        {
             if (d1 == null || d2 == null)
                 return false;
             return !(d1 > d2);
@@ -296,7 +320,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool operator <=(DateInfo d, DateTime dt) {
+        public static bool operator <=(DateInfo d, DateTime dt)
+        {
             if (d == null)
                 return false;
             return !(d > dt);
@@ -308,7 +333,8 @@ namespace Cosmos.Date {
         /// <param name="d1"></param>
         /// <param name="d2"></param>
         /// <returns></returns>
-        public static bool operator ==(DateInfo d1, DateInfo d2) {
+        public static bool operator ==(DateInfo d1, DateInfo d2)
+        {
             if (d1 == null || d2 == null)
                 return false;
             return d1.Year == d2.Year && d1.Month == d2.Month && d1.Day == d2.Day;
@@ -320,7 +346,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool operator ==(DateInfo d, DateTime dt) {
+        public static bool operator ==(DateInfo d, DateTime dt)
+        {
             if (d == null)
                 return false;
             return d.Year == dt.Year && d.Month == dt.Month && d.Day == dt.Day;
@@ -332,7 +359,8 @@ namespace Cosmos.Date {
         /// <param name="d1"></param>
         /// <param name="d2"></param>
         /// <returns></returns>
-        public static bool operator !=(DateInfo d1, DateInfo d2) {
+        public static bool operator !=(DateInfo d1, DateInfo d2)
+        {
             if (d1 == null || d2 == null)
                 return false;
             return !(d1 == d2);
@@ -344,7 +372,8 @@ namespace Cosmos.Date {
         /// <param name="d"></param>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool operator !=(DateInfo d, DateTime dt) {
+        public static bool operator !=(DateInfo d, DateTime dt)
+        {
             if (d == null)
                 return false;
             return !(d == dt);
@@ -356,11 +385,13 @@ namespace Cosmos.Date {
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool Equals(object obj) {
+        public override bool Equals(object obj)
+        {
             if (obj == null)
                 return false;
 
-            if (obj is DateInfo date) {
+            if (obj is DateInfo date)
+            {
                 return _internalDateTime.Equals(date._internalDateTime);
             }
 
@@ -372,7 +403,8 @@ namespace Cosmos.Date {
         /// 获取哈希值
         /// </summary>
         /// <returns></returns>
-        public override int GetHashCode() {
+        public override int GetHashCode()
+        {
             return Day.GetHashCode() ^ Month.GetHashCode() ^ Year.GetHashCode();
         }
     }

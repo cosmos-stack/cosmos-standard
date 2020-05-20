@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Date;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.StringDeterminers
+{
     /// <summary>
     /// Internal core conversion helper from string to DateTimeSpan
     /// </summary>
-    public static class StringDateTimeSpanDeterminer {
+    public static class StringDateTimeSpanDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -15,8 +17,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="tsAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, IFormatProvider formatProvider = null, Action<DateTimeSpan> tsAct = null) {
-
+        public static bool Is(string str, IFormatProvider formatProvider = null, Action<DateTimeSpan> tsAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
@@ -25,7 +27,8 @@ namespace Cosmos.Conversions.StringDeterminers {
 
             var result = TimeSpan.TryParse(str, formatProvider, out var timeSpan);
 
-            if (result) {
+            if (result)
+            {
                 var dateTimeSpan = new DateTimeSpan {TimeSpan = timeSpan};
                 tsAct?.Invoke(dateTimeSpan);
             }
@@ -44,7 +47,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool Is(string str,
             IEnumerable<IConversionTry<string, DateTimeSpan>> tries,
             IFormatProvider formatProvider = null,
-            Action<DateTimeSpan> dtAct = null) {
+            Action<DateTimeSpan> dtAct = null)
+        {
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, formatProvider, act), tries, dtAct);
         }
@@ -56,8 +60,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="formatProvider"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static DateTimeSpan To(string str, IFormatProvider formatProvider = null, DateTimeSpan defaultVal = default) {
-
+        public static DateTimeSpan To(string str, IFormatProvider formatProvider = null, DateTimeSpan defaultVal = default)
+        {
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
@@ -73,8 +77,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         /// <param name="impls"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static DateTimeSpan To(string str, IEnumerable<IConversionImpl<string, DateTimeSpan>> impls, IFormatProvider formatProvider = null) {
-
+        public static DateTimeSpan To(string str, IEnumerable<IConversionImpl<string, DateTimeSpan>> impls, IFormatProvider formatProvider = null)
+        {
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 

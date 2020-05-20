@@ -4,12 +4,14 @@ using NodaTime;
 using NodaTime.Calendars;
 using NodaTime.Extensions;
 
-namespace Cosmos.Date.Islamic {
+namespace Cosmos.Date.Islamic
+{
     /// <summary>
     /// Islamic Date<br />
     /// 伊斯兰历日期
     /// </summary>
-    public class IslamicDateInfo {
+    public class IslamicDateInfo
+    {
         private static CalendarSystem _islamicCalendar = CalendarSystem.GetIslamicCalendar(IslamicLeapYearPattern.Base16, IslamicEpoch.Civil);
 
         private DateTime InternalDateTime { get; set; }
@@ -28,7 +30,8 @@ namespace Cosmos.Date.Islamic {
         /// 创建一个 <see cref="IslamicDateInfo"/> 的新实例
         /// </summary>
         /// <param name="dt"></param>
-        public IslamicDateInfo(IslamicDateTime dt) {
+        public IslamicDateInfo(IslamicDateTime dt)
+        {
             InternalDateTime = dt.InternalTime;
             InternalLocalDate = new LocalDate(dt.IslamicYear, dt.IslamicMonth, dt.IslamicDay, dt.InternalCalendarSystem);
             Calendar = dt.InternalCalendarSystem;
@@ -47,7 +50,8 @@ namespace Cosmos.Date.Islamic {
         /// </summary>
         /// <param name="dt"></param>
         /// <param name="calendar"></param>
-        public IslamicDateInfo(DateTime dt, CalendarSystem calendar) {
+        public IslamicDateInfo(DateTime dt, CalendarSystem calendar)
+        {
             var ld = new LocalDate(dt.Year, dt.Month, dt.Day, CalendarSystem.Iso);
             ld = ld.WithCalendar(_islamicCalendar);
 
@@ -62,7 +66,8 @@ namespace Cosmos.Date.Islamic {
         /// </summary>
         /// <param name="date"></param>
         /// <param name="calendar"></param>
-        public IslamicDateInfo(DateInfo date, CalendarSystem calendar) {
+        public IslamicDateInfo(DateInfo date, CalendarSystem calendar)
+        {
             var ld = new LocalDate(date.Year, date.Month, date.Day, CalendarSystem.Iso);
             ld = ld.WithCalendar(_islamicCalendar);
 
@@ -71,7 +76,8 @@ namespace Cosmos.Date.Islamic {
             Calendar = calendar;
         }
 
-        private IslamicDateInfo(LocalDate ld) {
+        private IslamicDateInfo(LocalDate ld)
+        {
             InternalDateTime = ld.ToDateTimeUnspecified();
             InternalLocalDate = ld;
             Calendar = ld.Calendar;
@@ -128,7 +134,8 @@ namespace Cosmos.Date.Islamic {
         /// 明天
         /// </summary>
         /// <returns></returns>
-        public IslamicDateInfo Tomorrow() {
+        public IslamicDateInfo Tomorrow()
+        {
             return AddDays(1);
         }
 
@@ -137,7 +144,8 @@ namespace Cosmos.Date.Islamic {
         /// 昨天
         /// </summary>
         /// <returns></returns>
-        public IslamicDateInfo Yesterday() {
+        public IslamicDateInfo Yesterday()
+        {
             return AddDays(-1);
         }
 
@@ -147,7 +155,8 @@ namespace Cosmos.Date.Islamic {
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
-        public IslamicDateInfo AddDays(int days) {
+        public IslamicDateInfo AddDays(int days)
+        {
             return new IslamicDateInfo(InternalLocalDate.PlusDays(days));
         }
 
@@ -157,7 +166,8 @@ namespace Cosmos.Date.Islamic {
         /// </summary>
         /// <param name="months"></param>
         /// <returns></returns>
-        public IslamicDateInfo AddMonths(int months) {
+        public IslamicDateInfo AddMonths(int months)
+        {
             return new IslamicDateInfo(InternalLocalDate.PlusMonths(months));
         }
 
@@ -207,7 +217,8 @@ namespace Cosmos.Date.Islamic {
         /// Convert <see cref="IslamicDateInfo"/> to <see cref="DateInfo"/>
         /// </summary>
         /// <param name="di"></param>
-        public static implicit operator DateInfo(IslamicDateInfo di) {
+        public static implicit operator DateInfo(IslamicDateInfo di)
+        {
             return di.InternalDateTime;
         }
 
@@ -215,7 +226,8 @@ namespace Cosmos.Date.Islamic {
         /// Convert <see cref="DateInfo"/> to <see cref="IslamicDateInfo"/>
         /// </summary>
         /// <param name="dt"></param>
-        public static implicit operator IslamicDateInfo(DateInfo dt) {
+        public static implicit operator IslamicDateInfo(DateInfo dt)
+        {
             return new IslamicDateInfo(dt);
         }
 
@@ -233,7 +245,8 @@ namespace Cosmos.Date.Islamic {
         /// <param name="day"></param>
         /// <param name="calendar"></param>
         /// <returns></returns>
-        public static IslamicDateInfo Of(int year, int month, int day, CalendarSystem calendar = null) {
+        public static IslamicDateInfo Of(int year, int month, int day, CalendarSystem calendar = null)
+        {
             return new IslamicDateInfo(DateTimeFactory.Create(year, month, day), calendar ?? _islamicCalendar);
         }
 
@@ -246,7 +259,8 @@ namespace Cosmos.Date.Islamic {
         /// <param name="day"></param>
         /// <param name="calendar"></param>
         /// <returns></returns>
-        public static IslamicDateInfo OfLunar(int year, int month, int day, CalendarSystem calendar = null) {
+        public static IslamicDateInfo OfLunar(int year, int month, int day, CalendarSystem calendar = null)
+        {
             var ld = new LocalDate(year, month, day, calendar ?? _islamicCalendar);
             return new IslamicDateInfo(ld);
         }

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Date;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.StringDeterminers
+{
     /// <summary>
     /// Internal core conversion helper from string to DateInfo
     /// </summary>
-    public static class StringDateInfoDeterminer {
+    public static class StringDateInfoDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -19,8 +21,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static bool Is(string str,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateInfo> dtAct = null) {
-
+            Action<DateInfo> dtAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
 
@@ -29,7 +31,8 @@ namespace Cosmos.Conversions.StringDeterminers {
 
             var result = DateTime.TryParse(str, formatProvider, style, out var dateTime);
 
-            if (result) {
+            if (result)
+            {
                 var dateInfo = new DateInfo(dateTime);
                 dtAct?.Invoke(dateInfo);
             }
@@ -50,7 +53,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             IEnumerable<IConversionTry<string, DateInfo>> tries,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateInfo> dtAct = null) {
+            Action<DateInfo> dtAct = null)
+        {
             return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider, act), tries, dtAct);
         }
@@ -66,8 +70,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateInfo To(string str,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            DateInfo defaultVal = default) {
-
+            DateInfo defaultVal = default)
+        {
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
@@ -85,8 +89,8 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static DateInfo To(string str,
             IEnumerable<IConversionImpl<string, DateInfo>> impls,
             DateTimeStyles style = DateTimeStyles.None,
-            IFormatProvider formatProvider = null) {
-
+            IFormatProvider formatProvider = null)
+        {
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 

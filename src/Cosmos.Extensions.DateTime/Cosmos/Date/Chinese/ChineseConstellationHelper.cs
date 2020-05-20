@@ -1,13 +1,16 @@
 ﻿using System;
 
-namespace Cosmos.Date.Chinese {
+namespace Cosmos.Date.Chinese
+{
     /// <summary>
     /// Chinese Constellation helper<br />
     /// 二十八星宿辅助类
     /// </summary>
-    public static class ChineseConstellationHelper {
+    public static class ChineseConstellationHelper
+    {
         // ReSharper disable once InconsistentNaming
-        private static readonly string[] NAMES = {
+        private static readonly string[] NAMES =
+        {
             //四        五      六         日        一      二      三  
             "角木蛟",
             "亢金龙",
@@ -41,7 +44,8 @@ namespace Cosmos.Date.Chinese {
 
         // ReSharper disable once IdentifierTypo
         // ReSharper disable once InconsistentNaming
-        private static readonly string[] NAMEZ = {
+        private static readonly string[] NAMEZ =
+        {
             "角木蛟",
             "亢金龙",
             "女土蝠",
@@ -81,7 +85,8 @@ namespace Cosmos.Date.Chinese {
         /// <param name="dt"></param>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public static string Get(DateTime dt, bool traditionalChineseCharacters = false) {
+        public static string Get(DateTime dt, bool traditionalChineseCharacters = false)
+        {
             var dict = traditionalChineseCharacters ? NAMEZ : NAMES;
             var offset = (dt - ChineseConstellationReferDay).Days;
             var modStarDay = offset % 28;
@@ -95,7 +100,8 @@ namespace Cosmos.Date.Chinese {
         /// <param name="dt"></param>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public static string Get(DateInfo dt, bool traditionalChineseCharacters = false) {
+        public static string Get(DateInfo dt, bool traditionalChineseCharacters = false)
+        {
             var dict = traditionalChineseCharacters ? NAMEZ : NAMES;
             var offset = (dt - ChineseConstellationReferDay).Days;
             var modStarDay = offset % 28;
@@ -109,7 +115,8 @@ namespace Cosmos.Date.Chinese {
         /// <param name="dt"></param>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public static string Get(ChineseDateTime dt, bool traditionalChineseCharacters = false) {
+        public static string Get(ChineseDateTime dt, bool traditionalChineseCharacters = false)
+        {
             return Get(dt.InternalTime, traditionalChineseCharacters);
         }
 
@@ -120,7 +127,8 @@ namespace Cosmos.Date.Chinese {
         /// <param name="dt"></param>
         /// <param name="traditionalChineseCharacters"></param>
         /// <returns></returns>
-        public static string Get(ChineseDateInfo dt, bool traditionalChineseCharacters = false) {
+        public static string Get(ChineseDateInfo dt, bool traditionalChineseCharacters = false)
+        {
             return Get(dt.InternalTime, traditionalChineseCharacters);
         }
     }
