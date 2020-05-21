@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to float
     /// </summary>
-    internal static class StringFloatDeterminer {
+    internal static class StringFloatDeterminer
+    {
         // ReSharper disable once InconsistentNaming
         private const NumberStyles NUMBER_STYLES = NumberStyles.AllowLeadingWhite
                                                  | NumberStyles.AllowTrailingWhite
@@ -25,7 +27,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="floatAct"></param>
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NUMBER_STYLES,
-            IFormatProvider formatProvider = null, Action<float> floatAct = null) {
+            IFormatProvider formatProvider = null, Action<float> floatAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = float.TryParse(str, style, formatProvider.SafeNumber(), out var number);
@@ -46,7 +49,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="floatAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, float>> tries,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<float> floatAct = null) {
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<float> floatAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, floatAct);
         }
@@ -60,12 +64,16 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static float To(string str, float defaultVal = default,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) {
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null)
+        {
             if (float.TryParse(str, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try {
+            try
+            {
                 return Convert.ToSingle(Convert.ToDecimal(str));
-            } catch {
+            }
+            catch
+            {
                 return ValueConverter.ToXxxAgain(str, defaultVal);
             }
         }

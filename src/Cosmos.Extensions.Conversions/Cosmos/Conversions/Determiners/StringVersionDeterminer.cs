@@ -2,22 +2,25 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to version
     /// </summary>
-    internal static class StringVersionDeterminer {
+    internal static class StringVersionDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
         /// <param name="str"></param>
         /// <param name="versionAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<Version> versionAct = null) {
+        public static bool Is(string str, Action<Version> versionAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = Version.TryParse(str, out var n);
-            if (result) 
+            if (result)
                 versionAct?.Invoke(n);
             return result;
         }
@@ -38,7 +41,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="str"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static Version To(string str, Version defaultVal = default) {
+        public static Version To(string str, Version defaultVal = default)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
             return Version.TryParse(str, out var result) ? result : defaultVal;

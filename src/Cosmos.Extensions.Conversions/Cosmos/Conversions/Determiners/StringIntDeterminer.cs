@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to int32
     /// </summary>
-    internal static class StringIntDeterminer {
+    internal static class StringIntDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -17,7 +19,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="intAct"></param>
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null, Action<int> intAct = null) {
+            IFormatProvider formatProvider = null, Action<int> intAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = int.TryParse(str, style, formatProvider.SafeNumber(), out var number);
@@ -42,7 +45,8 @@ namespace Cosmos.Conversions.Determiners {
             IEnumerable<IConversionTry<string, int>> tries,
             NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null,
-            Action<int> intAct = null) {
+            Action<int> intAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, intAct);
         }
@@ -56,12 +60,16 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static int To(string str, int defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null)
+        {
             if (int.TryParse(str, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try {
+            try
+            {
                 return Convert.ToInt32(Convert.ToDecimal(str));
-            } catch {
+            }
+            catch
+            {
                 return ValueConverter.ToXxxAgain(str, defaultVal);
             }
         }

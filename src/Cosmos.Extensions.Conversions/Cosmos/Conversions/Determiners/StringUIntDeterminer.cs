@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to uint
     /// </summary>
-    internal static class StringUIntDeterminer {
+    internal static class StringUIntDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -17,7 +19,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="intAct"></param>
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null, Action<uint> intAct = null) {
+            IFormatProvider formatProvider = null, Action<uint> intAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = uint.TryParse(str, style, formatProvider.SafeNumber(), out var number);
@@ -38,7 +41,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="intAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, uint>> tries,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<uint> intAct = null) {
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<uint> intAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, intAct);
         }
@@ -52,12 +56,16 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static uint To(string str, uint defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null)
+        {
             if (uint.TryParse(str, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try {
+            try
+            {
                 return Convert.ToUInt32(Convert.ToDecimal(str));
-            } catch {
+            }
+            catch
+            {
                 return ValueConverter.ToXxxAgain(str, defaultVal);
             }
         }

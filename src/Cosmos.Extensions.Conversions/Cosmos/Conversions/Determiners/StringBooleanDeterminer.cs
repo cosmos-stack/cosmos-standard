@@ -2,18 +2,21 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to boolean
     /// </summary>
-    internal static class StringBooleanDeterminer {
+    internal static class StringBooleanDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
         /// <param name="str"></param>
         /// <param name="booleanAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<bool> booleanAct = null) {
+        public static bool Is(string str, Action<bool> booleanAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = bool.TryParse(str, out var boolean);
@@ -40,7 +43,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="str"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static bool To(string str, bool defaultVal = default) {
+        public static bool To(string str, bool defaultVal = default)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
             return bool.TryParse(str, out var boolean) ? boolean : ValueConverter.ToXxxAgain(str, defaultVal);

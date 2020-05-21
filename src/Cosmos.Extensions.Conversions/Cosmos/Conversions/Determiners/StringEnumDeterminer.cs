@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to Enum
     /// </summary>
-    internal static class StringEnumDeterminer {
+    internal static class StringEnumDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -15,9 +17,10 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="ignoreCase"></param>
         /// <param name="enumAct"></param>
         /// <returns></returns>
-        public static bool Is(string s, Type enumType, bool ignoreCase = false, Action<object> enumAct = null) {
+        public static bool Is(string s, Type enumType, bool ignoreCase = false, Action<object> enumAct = null)
+        {
             var result = EnumsNET.Enums.TryParse(enumType, s, ignoreCase, out var @enum);
-            if (result) 
+            if (result)
                 enumAct?.Invoke(@enum);
             return result;
         }

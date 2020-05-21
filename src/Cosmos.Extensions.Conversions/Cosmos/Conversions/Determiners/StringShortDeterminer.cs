@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to short
     /// </summary>
-    internal static class StringShortDeterminer {
+    internal static class StringShortDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -17,7 +19,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="shortAct"></param>
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null, Action<short> shortAct = null) {
+            IFormatProvider formatProvider = null, Action<short> shortAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = short.TryParse(str, style, formatProvider.SafeNumber(), out var number);
@@ -38,7 +41,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="shortAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, short>> tries,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<short> shortAct = null) {
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null, Action<short> shortAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, shortAct);
         }
@@ -52,12 +56,16 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static short To(string str, short defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null)
+        {
             if (short.TryParse(str, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try {
+            try
+            {
                 return Convert.ToInt16(Convert.ToDecimal(str));
-            } catch {
+            }
+            catch
+            {
                 return ValueConverter.ToXxxAgain(str, defaultVal);
             }
         }

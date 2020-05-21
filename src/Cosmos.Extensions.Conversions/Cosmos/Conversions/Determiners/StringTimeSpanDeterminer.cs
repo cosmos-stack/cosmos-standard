@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to TimeSpan
     /// </summary>
-    internal static class StringTimeSpanDeterminer {
+    internal static class StringTimeSpanDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -14,11 +16,12 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="formatProvider"></param>
         /// <param name="tsAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, IFormatProvider formatProvider = null, Action<TimeSpan> tsAct = null) {
+        public static bool Is(string str, IFormatProvider formatProvider = null, Action<TimeSpan> tsAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = TimeSpan.TryParse(str, formatProvider.SafeDateTime(), out var timeSpan);
-            if (result) 
+            if (result)
                 tsAct?.Invoke(timeSpan);
             return result;
         }
@@ -32,7 +35,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="dtAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, TimeSpan>> tries,
-            IFormatProvider formatProvider = null, Action<TimeSpan> dtAct = null) {
+            IFormatProvider formatProvider = null, Action<TimeSpan> dtAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, formatProvider, act), tries, dtAct);
         }
@@ -60,7 +64,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <summary>
         /// Exact TimeSpan Determiner
         /// </summary>
-        public static class Exact {
+        public static class Exact
+        {
             /// <summary>
             /// Is
             /// </summary>
@@ -69,11 +74,12 @@ namespace Cosmos.Conversions.Determiners {
             /// <param name="formatProvider"></param>
             /// <param name="tsAct"></param>
             /// <returns></returns>
-            public static bool Is(string str, string format, IFormatProvider formatProvider = null, Action<TimeSpan> tsAct = null) {
+            public static bool Is(string str, string format, IFormatProvider formatProvider = null, Action<TimeSpan> tsAct = null)
+            {
                 if (string.IsNullOrWhiteSpace(str))
                     return false;
                 var result = TimeSpan.TryParseExact(str, format, formatProvider.SafeDateTime(), out var timeSpan);
-                if (result) 
+                if (result)
                     tsAct?.Invoke(timeSpan);
                 return result;
             }
@@ -88,7 +94,8 @@ namespace Cosmos.Conversions.Determiners {
             /// <param name="dtAct"></param>
             /// <returns></returns>
             public static bool Is(string str, string format, IEnumerable<IConversionTry<string, TimeSpan>> tries,
-                IFormatProvider formatProvider = null, Action<TimeSpan> dtAct = null) {
+                IFormatProvider formatProvider = null, Action<TimeSpan> dtAct = null)
+            {
                 return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                     (s, act) => Is(s, format, formatProvider, act), tries, dtAct);
             }

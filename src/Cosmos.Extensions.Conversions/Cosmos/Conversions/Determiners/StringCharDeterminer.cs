@@ -2,18 +2,21 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to char
     /// </summary>
-    internal static class StringCharDeterminer {
+    internal static class StringCharDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
         /// <param name="str"></param>
         /// <param name="charAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<char> charAct = null) {
+        public static bool Is(string str, Action<char> charAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = char.TryParse(str, out var c);

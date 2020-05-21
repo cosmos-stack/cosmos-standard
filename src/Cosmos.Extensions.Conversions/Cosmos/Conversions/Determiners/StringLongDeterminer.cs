@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to long
     /// </summary>
-    internal static class StringLongDeterminer {
+    internal static class StringLongDeterminer
+    {
         // ReSharper disable once InconsistentNaming
         private const NumberStyles NUMBER_STYLES = NumberStyles.AllowLeadingWhite
                                                  | NumberStyles.AllowTrailingWhite
@@ -25,13 +27,14 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="longAct"></param>
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NUMBER_STYLES,
-            IFormatProvider formatProvider = null, Action<long> longAct = null) {
+            IFormatProvider formatProvider = null, Action<long> longAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = long.TryParse(str, style, formatProvider.SafeNumber(), out var number);
-            if (!result) 
+            if (!result)
                 result = ValueDeterminer.IsXxxAgain<long>(str);
-            if (result) 
+            if (result)
                 longAct?.Invoke(number);
             return result;
         }
@@ -46,7 +49,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="longAct"></param>
         /// <returns></returns>
         public static bool Is(string str, IEnumerable<IConversionTry<string, long>> tries,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<long> longAct = null) {
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<long> longAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, longAct);
         }
@@ -60,12 +64,16 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static long To(string str, long defaultVal = default,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) {
+            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null)
+        {
             if (long.TryParse(str, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try {
+            try
+            {
                 return Convert.ToInt64(Convert.ToDecimal(str));
-            } catch {
+            }
+            catch
+            {
                 return ValueConverter.ToXxxAgain(str, defaultVal);
             }
         }

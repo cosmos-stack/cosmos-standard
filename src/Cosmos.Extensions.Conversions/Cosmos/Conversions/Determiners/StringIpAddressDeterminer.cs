@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Net;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to IpAddress
     /// </summary>
-    internal static class StringIpAddressDeterminer {
+    internal static class StringIpAddressDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
         /// <param name="str"></param>
         /// <param name="addressAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<IPAddress> addressAct = null) {
+        public static bool Is(string str, Action<IPAddress> addressAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = IPAddress.TryParse(str, out var address);
-            if (result) 
+            if (result)
                 addressAct?.Invoke(address);
             return result;
         }
@@ -39,7 +42,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="str"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static IPAddress To(string str, IPAddress defaultVal = default) {
+        public static IPAddress To(string str, IPAddress defaultVal = default)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
             return IPAddress.TryParse(str, out var address) ? address : defaultVal;

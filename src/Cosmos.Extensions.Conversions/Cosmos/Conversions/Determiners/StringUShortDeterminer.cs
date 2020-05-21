@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to ushort
     /// </summary>
-    internal static class StringUShortDeterminer {
+    internal static class StringUShortDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -17,7 +19,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="shortAct"></param>
         /// <returns></returns>
         public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null, Action<ushort> shortAct = null) {
+            IFormatProvider formatProvider = null, Action<ushort> shortAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = ushort.TryParse(str, style, formatProvider.SafeNumber(), out var number);
@@ -42,7 +45,8 @@ namespace Cosmos.Conversions.Determiners {
             IEnumerable<IConversionTry<string, ushort>> tries,
             NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null,
-            Action<ushort> shortAct = null) {
+            Action<ushort> shortAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, shortAct);
         }
@@ -56,12 +60,16 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static ushort To(string str, ushort defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) {
+            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null)
+        {
             if (ushort.TryParse(str, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try {
+            try
+            {
                 return Convert.ToUInt16(Convert.ToDecimal(str));
-            } catch {
+            }
+            catch
+            {
                 return ValueConverter.ToXxxAgain(str, defaultVal);
             }
         }

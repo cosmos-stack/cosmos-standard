@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to DateTime
     /// </summary>
-    internal static class StringDateTimeDeterminer {
+    internal static class StringDateTimeDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -19,7 +21,8 @@ namespace Cosmos.Conversions.Determiners {
         public static bool Is(string str,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateTime> dtAct = null) {
+            Action<DateTime> dtAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = DateTime.TryParse(str, formatProvider.SafeDateTime(), style, out var dateTime);
@@ -43,7 +46,8 @@ namespace Cosmos.Conversions.Determiners {
             IEnumerable<IConversionTry<string, DateTime>> tries,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateTime> dtAct = null) {
+            Action<DateTime> dtAct = null)
+        {
             return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider, act), tries, dtAct);
         }
@@ -59,7 +63,8 @@ namespace Cosmos.Conversions.Determiners {
         public static DateTime To(string str,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            DateTime defaultVal = default) {
+            DateTime defaultVal = default)
+        {
             return DateTime.TryParse(str, formatProvider.SafeDateTime(), style, out var dateTime)
                 ? dateTime
                 : defaultVal;
@@ -76,14 +81,16 @@ namespace Cosmos.Conversions.Determiners {
         public static DateTime To(string str,
             IEnumerable<IConversionImpl<string, DateTime>> impls,
             DateTimeStyles style = DateTimeStyles.None,
-            IFormatProvider formatProvider = null) {
+            IFormatProvider formatProvider = null)
+        {
             return ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeDateTime(), act), impls);
         }
 
         /// <summary>
         /// Exact DateTime Determiner
         /// </summary>
-        public static class Exact {
+        public static class Exact
+        {
             /// <summary>
             /// Is
             /// </summary>
@@ -97,7 +104,8 @@ namespace Cosmos.Conversions.Determiners {
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                Action<DateTime> dtAct = null) {
+                Action<DateTime> dtAct = null)
+            {
                 if (string.IsNullOrWhiteSpace(str))
                     return false;
                 var result = DateTime.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var dateTime);
@@ -121,7 +129,8 @@ namespace Cosmos.Conversions.Determiners {
                 IEnumerable<IConversionTry<string, DateTime>> tries,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                Action<DateTime> dtAct = null) {
+                Action<DateTime> dtAct = null)
+            {
                 return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
                     (s, act) => Is(s, format, style, formatProvider, act), tries, dtAct);
             }
@@ -139,7 +148,8 @@ namespace Cosmos.Conversions.Determiners {
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                DateTime defaultVal = default) {
+                DateTime defaultVal = default)
+            {
                 return DateTime.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var dateTime)
                     ? dateTime
                     : ValueConverter.ToXxxAgain(str, defaultVal);
@@ -158,7 +168,8 @@ namespace Cosmos.Conversions.Determiners {
                 string format,
                 IEnumerable<IConversionImpl<string, DateTime>> impls,
                 DateTimeStyles style = DateTimeStyles.None,
-                IFormatProvider formatProvider = null) {
+                IFormatProvider formatProvider = null)
+            {
                 return ValueConverter.ToXxx(str, (s, act) => Is(s, format, style, formatProvider.SafeDateTime(), act), impls);
             }
         }

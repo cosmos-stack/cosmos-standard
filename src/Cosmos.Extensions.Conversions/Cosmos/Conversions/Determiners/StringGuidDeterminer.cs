@@ -2,18 +2,21 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions.Determiners {
+namespace Cosmos.Conversions.Determiners
+{
     /// <summary>
     /// Internal core conversion helper from string to Guid
     /// </summary>
-    internal static class StringGuidDeterminer {
+    internal static class StringGuidDeterminer
+    {
         /// <summary>
         /// Is
         /// </summary>
         /// <param name="str"></param>
         /// <param name="guidAct"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<Guid> guidAct = null) {
+        public static bool Is(string str, Action<Guid> guidAct = null)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
             var result = Guid.TryParse(str, out var guid);
@@ -38,7 +41,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <param name="str"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static Guid To(string str, Guid defaultVal = default) {
+        public static Guid To(string str, Guid defaultVal = default)
+        {
             if (string.IsNullOrWhiteSpace(str))
                 return defaultVal;
             return Guid.TryParse(str, out var guid) ? guid : defaultVal;
@@ -56,7 +60,8 @@ namespace Cosmos.Conversions.Determiners {
         /// <summary>
         /// Exact Guid Determiner
         /// </summary>
-        public static class Exact {
+        public static class Exact
+        {
             /// <summary>
             /// Is
             /// </summary>
@@ -64,7 +69,8 @@ namespace Cosmos.Conversions.Determiners {
             /// <param name="format"></param>
             /// <param name="guidAct"></param>
             /// <returns></returns>
-            public static bool Is(string str, string format, Action<Guid> guidAct = null) {
+            public static bool Is(string str, string format, Action<Guid> guidAct = null)
+            {
                 if (string.IsNullOrWhiteSpace(str))
                     return false;
                 var result = Guid.TryParseExact(str, format, out var guid);
@@ -91,7 +97,8 @@ namespace Cosmos.Conversions.Determiners {
             /// <param name="format"></param>
             /// <param name="defaultVal"></param>
             /// <returns></returns>
-            public static Guid To(string str, string format, Guid defaultVal = default) {
+            public static Guid To(string str, string format, Guid defaultVal = default)
+            {
                 if (string.IsNullOrWhiteSpace(str))
                     return defaultVal;
                 return Guid.TryParse(str, out var guid) ? guid : defaultVal;
