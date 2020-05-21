@@ -1,15 +1,17 @@
 using System;
 
-namespace Cosmos.CharMatchers {
+namespace Cosmos.CharMatchers
+{
     /// <summary>
-    /// Interface to flag 'Is' mode of char matcher
+    /// Interface to flag 'None' mode of char matcher
     /// </summary>
-    public interface IIsModeCharMatcher : ICharMatcher {
+    public interface INoneOfModeCharMatcher : ICharMatcher
+    {
         /// <summary>
         /// Negate
         /// </summary>
         /// <returns></returns>
-        IIsNotModeCharMatcher Negate();
+        IAnyOfModeCharMatcher Negate();
 
         /// <summary>
         /// In range
@@ -149,6 +151,5 @@ namespace Cosmos.CharMatchers {
         /// <param name="character"></param>
         /// <returns></returns>
         bool Apply(char character);
-
     }
 }

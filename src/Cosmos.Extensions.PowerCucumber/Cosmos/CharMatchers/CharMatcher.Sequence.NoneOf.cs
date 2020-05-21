@@ -1,15 +1,18 @@
 using System;
 using System.Text;
+using Cosmos.Text;
 
-namespace Cosmos.CharMatchers {
+namespace Cosmos.CharMatchers
+{
     /// <summary>
     /// Char matcher
     /// </summary>
-    public partial class CharMatcher : INoneOfModeCharMatcher {
-
+    public partial class CharMatcher : INoneOfModeCharMatcher
+    {
         #region Negate
 
-        IAnyOfModeCharMatcher INoneOfModeCharMatcher.Negate() {
+        IAnyOfModeCharMatcher INoneOfModeCharMatcher.Negate()
+        {
             Options.Negate();
             return this;
         }
@@ -18,7 +21,8 @@ namespace Cosmos.CharMatchers {
 
         #region InRange
 
-        string INoneOfModeCharMatcher.InRange(char startInclusive, char endInclusive) {
+        string INoneOfModeCharMatcher.InRange(char startInclusive, char endInclusive)
+        {
             var @string = Options.GetSequenceChars();
             var (min, max) = CharMatcherUtils.GetMinAndMax(startInclusive, endInclusive);
             var sb = new StringBuilder();
@@ -31,7 +35,8 @@ namespace Cosmos.CharMatchers {
 
         #region ForPredicate
 
-        string INoneOfModeCharMatcher.ForPredicate(Func<char, bool> predicate) {
+        string INoneOfModeCharMatcher.ForPredicate(Func<char, bool> predicate)
+        {
             var @string = Options.GetSequenceChars();
             var sb = new StringBuilder();
             foreach (var @char in @string)
@@ -43,15 +48,18 @@ namespace Cosmos.CharMatchers {
 
         #region Match
 
-        bool INoneOfModeCharMatcher.MatchesAnyOf(string sequence) {
+        bool INoneOfModeCharMatcher.MatchesAnyOf(string sequence)
+        {
             return !SequenceUtils.MatchesAnyOf(sequence, Options);
         }
 
-        bool INoneOfModeCharMatcher.MatchesAllOf(string sequence) {
+        bool INoneOfModeCharMatcher.MatchesAllOf(string sequence)
+        {
             return !SequenceUtils.MatchesAllOf(sequence, Options);
         }
 
-        bool INoneOfModeCharMatcher.MatchesNoneOf(string sequence) {
+        bool INoneOfModeCharMatcher.MatchesNoneOf(string sequence)
+        {
             return SequenceUtils.MatchesAnyOf(sequence, Options);
         }
 
@@ -59,15 +67,18 @@ namespace Cosmos.CharMatchers {
 
         #region IndexIn
 
-        int INoneOfModeCharMatcher.IndexIn(string sequence) {
+        int INoneOfModeCharMatcher.IndexIn(string sequence)
+        {
             return SequenceUtils.IndexIn(sequence, Options.GetSequenceChars());
         }
 
-        int INoneOfModeCharMatcher.IndexIn(string sequence, int startIndex) {
+        int INoneOfModeCharMatcher.IndexIn(string sequence, int startIndex)
+        {
             return SequenceUtils.IndexIn(sequence, Options.GetSequenceChars(), startIndex);
         }
 
-        int INoneOfModeCharMatcher.LastIndexIn(string sequence) {
+        int INoneOfModeCharMatcher.LastIndexIn(string sequence)
+        {
             return SequenceUtils.LastIndexIn(sequence, Options.GetSequenceChars());
         }
 
@@ -75,7 +86,8 @@ namespace Cosmos.CharMatchers {
 
         #region CountIn
 
-        int INoneOfModeCharMatcher.CountIn(string sequence) {
+        int INoneOfModeCharMatcher.CountIn(string sequence)
+        {
             return SequenceUtils.CountIn(sequence, Options.GetSequenceChars());
         }
 
@@ -83,19 +95,23 @@ namespace Cosmos.CharMatchers {
 
         #region Operation from
 
-        string INoneOfModeCharMatcher.RemoveFrom(string sequence) {
+        string INoneOfModeCharMatcher.RemoveFrom(string sequence)
+        {
             return SequenceUtils.RemoveFrom(sequence, Options);
         }
 
-        string INoneOfModeCharMatcher.RetainFrom(string sequence) {
+        string INoneOfModeCharMatcher.RetainFrom(string sequence)
+        {
             return SequenceUtils.RemoveFrom(sequence, Options, true);
         }
 
-        string INoneOfModeCharMatcher.ReplaceFrom(string sequence, char replacement) {
+        string INoneOfModeCharMatcher.ReplaceFrom(string sequence, char replacement)
+        {
             return SequenceUtils.ReplaceFrom(sequence, $"{replacement}", Options);
         }
 
-        string INoneOfModeCharMatcher.ReplaceFrom(string sequence, string replacement) {
+        string INoneOfModeCharMatcher.ReplaceFrom(string sequence, string replacement)
+        {
             return SequenceUtils.ReplaceFrom(sequence, replacement, Options);
         }
 
@@ -103,15 +119,18 @@ namespace Cosmos.CharMatchers {
 
         #region Trim
 
-        string INoneOfModeCharMatcher.TrimFrom(string sequence) {
+        string INoneOfModeCharMatcher.TrimFrom(string sequence)
+        {
             return SequenceUtils.TrimFrom(sequence, Options);
         }
 
-        string INoneOfModeCharMatcher.TrimLeadingForm(string sequence) {
+        string INoneOfModeCharMatcher.TrimLeadingForm(string sequence)
+        {
             return SequenceUtils.TrimStartFrom(sequence, Options);
         }
 
-        string INoneOfModeCharMatcher.TrimTrailingFrom(string sequence) {
+        string INoneOfModeCharMatcher.TrimTrailingFrom(string sequence)
+        {
             return SequenceUtils.TrimEndFrom(sequence, Options);
         }
 
@@ -119,11 +138,13 @@ namespace Cosmos.CharMatchers {
 
         #region Collapse
 
-        string INoneOfModeCharMatcher.CollapseFrom(string sequence, char replacement) {
+        string INoneOfModeCharMatcher.CollapseFrom(string sequence, char replacement)
+        {
             return SequenceUtils.CollapseFrom(sequence, replacement, Options);
         }
 
-        string INoneOfModeCharMatcher.TrimAndCollapseFrom(string sequence, char replacement) {
+        string INoneOfModeCharMatcher.TrimAndCollapseFrom(string sequence, char replacement)
+        {
             var here = ((INoneOfModeCharMatcher) this);
             var middle = here.TrimFrom(sequence);
             return here.CollapseFrom(middle, replacement);
@@ -133,12 +154,11 @@ namespace Cosmos.CharMatchers {
 
         #region Apply
 
-        bool INoneOfModeCharMatcher.Apply(char character) {
+        bool INoneOfModeCharMatcher.Apply(char character)
+        {
             return !Options.GetSequenceChars().Contains(character);
         }
 
         #endregion
-
     }
-
 }
