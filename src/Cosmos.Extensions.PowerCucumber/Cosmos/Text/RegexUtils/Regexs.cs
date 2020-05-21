@@ -1,12 +1,14 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Cosmos.RegexUtils {
+namespace Cosmos.Text.RegexUtils
+{
     /// <summary>
     /// Regex Utilities<br />
     /// 表达式工具集
     /// </summary>
     // ReSharper disable once InconsistentNaming
-    public static class Regexs {
+    public static class Regexs
+    {
         /// <summary>
         /// 验证输入与模式是否匹配
         /// </summary>

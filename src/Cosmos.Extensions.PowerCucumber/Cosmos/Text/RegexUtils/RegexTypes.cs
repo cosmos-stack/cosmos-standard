@@ -13,13 +13,16 @@
  * Changed and updated by Alex Lewis
  */
 
-namespace Cosmos.RegexUtils {
+namespace Cosmos.Text.RegexUtils
+{
     /// <summary>
     /// This class is used to fake an enum. You'll be able to use it as an enum.
     /// Note: type save enum, found on stackoverflow: http://stackoverflow.com/a/424414/603309
     /// </summary>
-    public sealed class RegexTypes {
-        private RegexTypes(int value, string name) {
+    public sealed class RegexTypes
+    {
+        private RegexTypes(int value, string name)
+        {
             Name = name;
             Value = value;
         }
