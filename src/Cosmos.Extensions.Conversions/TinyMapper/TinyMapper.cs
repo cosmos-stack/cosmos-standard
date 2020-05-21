@@ -9,12 +9,14 @@ using TinyMapper.Core.Extensions;
 using TinyMapper.Mappers;
 using TinyMapper.Reflection;
 
-namespace TinyMapper {
+namespace TinyMapper
+{
     /// <summary>
     /// TinyMapper is an object to object mapper for .NET. The main advantage is performance.
     /// TinyMapper allows easily map object to object, i.e. properties or fields from one object to another.
     /// </summary>
-    internal static class TinyMapper {
+    internal static class TinyMapper
+    {
         // ReSharper disable once InconsistentNaming
         private static readonly Dictionary<TypePair, Mapper> _mappers = new Dictionary<TypePair, Mapper>();
 
@@ -27,7 +29,8 @@ namespace TinyMapper {
         // ReSharper disable once InconsistentNaming
         private static readonly object _mappersLock = new object();
 
-        static TinyMapper() {
+        static TinyMapper()
+        {
             _targetMapperBuilder = new TargetMapperBuilder(DynamicAssemblyBuilder.Get());
             _config = new TinyMapperConfig(_targetMapperBuilder);
         }
@@ -38,9 +41,11 @@ namespace TinyMapper {
         /// <typeparam name="TSource">Source type.</typeparam>
         /// <typeparam name="TTarget">Target type.</typeparam>
         /// <remarks>The method is thread safe.</remarks>
-        public static void Bind<TSource, TTarget>() {
+        public static void Bind<TSource, TTarget>()
+        {
             var typePair = TypePair.Create<TSource, TTarget>();
-            lock (_mappersLock) {
+            lock (_mappersLock)
+            {
                 _mappers[typePair] = _targetMapperBuilder.Build(typePair);
             }
         }
@@ -51,13 +56,15 @@ namespace TinyMapper {
         /// <param name="sourceType">Source type.</param>
         /// <param name="targetType">Target type.</param>
         /// <remarks>The method is thread safe.</remarks>
-        public static void Bind(Type sourceType, Type targetType) {
+        public static void Bind(Type sourceType, Type targetType)
+        {
             if (sourceType is null)
                 throw new ArgumentNullException(nameof(sourceType));
             if (targetType is null)
                 throw new ArgumentNullException(nameof(targetType));
             var typePair = TypePair.Create(sourceType, targetType);
-            lock (_mappersLock) {
+            lock (_mappersLock)
+            {
                 _mappers[typePair] = _targetMapperBuilder.Build(typePair);
             }
         }
@@ -69,13 +76,15 @@ namespace TinyMapper {
         /// <typeparam name="TTarget">Target type.</typeparam>
         /// <param name="config">BindingConfig for custom binding.</param>
         /// <remarks>The method is thread safe.</remarks>
-        public static void Bind<TSource, TTarget>(Action<IDefaultBindingConfig<TSource, TTarget>> config) {
+        public static void Bind<TSource, TTarget>(Action<IDefaultBindingConfig<TSource, TTarget>> config)
+        {
             var typePair = TypePair.Create<TSource, TTarget>();
 
             var bindingConfig = new DefaultBindingConfigOf<TSource, TTarget>();
             config(bindingConfig);
 
-            lock (_mappersLock) {
+            lock (_mappersLock)
+            {
                 _mappers[typePair] = _targetMapperBuilder.Build(typePair, bindingConfig);
             }
         }
@@ -87,9 +96,11 @@ namespace TinyMapper {
         /// <typeparam name="TTarget">Target type.</typeparam>
         /// <returns>True if exists, otherwise - False.</returns>
         /// <remarks>The method is thread safe.</remarks>
-        public static bool BindingExists<TSource, TTarget>() {
+        public static bool BindingExists<TSource, TTarget>()
+        {
             var typePair = TypePair.Create<TSource, TTarget>();
-            lock (_mappersLock) {
+            lock (_mappersLock)
+            {
                 return _mappers.ContainsKey(typePair);
             }
         }
@@ -101,9 +112,11 @@ namespace TinyMapper {
         /// <param name="targetType">Target type.</param>
         /// <returns>True if exists, otherwise - False.</returns>
         /// <remarks>The method is thread safe.</remarks>
-        public static bool BindingExists(Type sourceType, Type targetType) {
+        public static bool BindingExists(Type sourceType, Type targetType)
+        {
             var typePair = TypePair.Create(sourceType, targetType);
-            lock (_mappersLock) {
+            lock (_mappersLock)
+            {
                 return _mappers.ContainsKey(typePair);
             }
         }
@@ -117,7 +130,8 @@ namespace TinyMapper {
         /// <param name="source">Source object.</param>
         /// <param name="target">Target object.</param>
         /// <returns>Mapped object.</returns>
-        public static TTarget Map<TSource, TTarget>(TSource source, TTarget target = default) {
+        public static TTarget Map<TSource, TTarget>(TSource source, TTarget target = default)
+        {
             var typePair = TypePair.Create<TSource, TTarget>();
 
             var mapper = GetMapper(typePair);
@@ -135,7 +149,8 @@ namespace TinyMapper {
         /// <param name="source">Source object.</param>
         /// <param name="target">Target object.</param>
         /// <returns>Mapped object.</returns>
-        public static object Map(Type sourceType, Type targetType, object source, object target = null) {
+        public static object Map(Type sourceType, Type targetType, object source, object target = null)
+        {
             var typePair = TypePair.Create(sourceType, targetType);
 
             var mapper = GetMapper(typePair);
@@ -148,7 +163,8 @@ namespace TinyMapper {
         /// Configure the Mapper.
         /// </summary>
         /// <param name="config">Lambda to provide config settings</param>
-        public static void Config(Action<ITinyMapperConfig> config) {
+        public static void Config(Action<ITinyMapperConfig> config)
+        {
             config(_config);
         }
 
@@ -159,8 +175,10 @@ namespace TinyMapper {
         /// <typeparam name="TTarget">Target type.</typeparam>
         /// <param name="source">Source object [Not null].</param>
         /// <returns>Mapped object. The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.</returns>
-        public static TTarget Map<TTarget>(object source) {
-            if (source.IsNull()) {
+        public static TTarget Map<TTarget>(object source)
+        {
+            if (source.IsNull())
+            {
                 throw Error.ArgumentNull("Source cannot be null. Use TinyMapper.Map<TSource, TTarget> method instead.");
             }
 
@@ -173,72 +191,74 @@ namespace TinyMapper {
         }
 
         [SuppressMessage("ReSharper", "All")]
-        private static Mapper GetMapper(TypePair typePair) {
+        private static Mapper GetMapper(TypePair typePair)
+        {
             Mapper mapper;
 
-            if (_mappers.TryGetValue(typePair, out mapper) == false) {
+            if (_mappers.TryGetValue(typePair, out mapper) == false)
+            {
                 throw new DefaultMapperException(
                     $"No binding found for '{typePair.Source.Name}' to '{typePair.Target.Name}'. " +
                     $"Call TinyMapper.Bind<{typePair.Source.Name}, {typePair.Target.Name}>()");
             }
 
-//            _mappersLock.EnterUpgradeableReadLock();
-//            try
-//            {
-//                if (_mappers.TryGetValue(typePair, out mapper) == false)
-//                {
-//                    if (_config.EnablePolymorphicMapping && (mapper = GetPolymorphicMapping(typePair)) != null)
-//                    {
-//                        return mapper;
-//                    }
-//                    else if (_config.EnableAutoBinding)
-//                    {
-//                        mapper = _targetMapperBuilder.Build(typePair);
-//                        _mappersLock.EnterWriteLock();
-//                        try
-//                        {
-//                            _mappers[typePair] = mapper;
-//                        }
-//                        finally
-//                        {
-//                            _mappersLock.ExitWriteLock();
-//                        }
-//                    }
-//                    else
-//                    {
-//                        throw new TinyMapperException($"Unable to find a binding for type '{typePair.Source?.Name}' to '{typePair.Target?.Name}'.");
-//                    }
-//                }
-//            }
-//            finally
-//            {
-//                _mappersLock.ExitUpgradeableReadLock();
-//            }
+            //            _mappersLock.EnterUpgradeableReadLock();
+            //            try
+            //            {
+            //                if (_mappers.TryGetValue(typePair, out mapper) == false)
+            //                {
+            //                    if (_config.EnablePolymorphicMapping && (mapper = GetPolymorphicMapping(typePair)) != null)
+            //                    {
+            //                        return mapper;
+            //                    }
+            //                    else if (_config.EnableAutoBinding)
+            //                    {
+            //                        mapper = _targetMapperBuilder.Build(typePair);
+            //                        _mappersLock.EnterWriteLock();
+            //                        try
+            //                        {
+            //                            _mappers[typePair] = mapper;
+            //                        }
+            //                        finally
+            //                        {
+            //                            _mappersLock.ExitWriteLock();
+            //                        }
+            //                    }
+            //                    else
+            //                    {
+            //                        throw new TinyMapperException($"Unable to find a binding for type '{typePair.Source?.Name}' to '{typePair.Target?.Name}'.");
+            //                    }
+            //                }
+            //            }
+            //            finally
+            //            {
+            //                _mappersLock.ExitUpgradeableReadLock();
+            //            }
 
             return mapper;
         }
 
         //Note: Lock should already be acquired for the mapper
-//        private static Mapper GetPolymorphicMapping(TypePair types)
-//        {
-//            // Walk the polymorphic heirarchy until we find a mapping match
-//            Type source = types.Source;
-//
-//            do
-//            {
-//                Mapper result;
-//                foreach (Type iface in source.GetInterfaces())
-//                {
-//                    if (_mappers.TryGetValue(TypePair.Create(iface, types.Target), out result))
-//                        return result;
-//                }
-//
-//                if (_mappers.TryGetValue(TypePair.Create(source, types.Target), out result))
-//                    return result;
-//            }
-//            while ((source = Helpers.BaseType(source)) != null);
-//
-//            return null;
-//        }
+        //        private static Mapper GetPolymorphicMapping(TypePair types)
+        //        {
+        //            // Walk the polymorphic heirarchy until we find a mapping match
+        //            Type source = types.Source;
+        //
+        //            do
+        //            {
+        //                Mapper result;
+        //                foreach (Type iface in source.GetInterfaces())
+        //                {
+        //                    if (_mappers.TryGetValue(TypePair.Create(iface, types.Target), out result))
+        //                        return result;
+        //                }
+        //
+        //                if (_mappers.TryGetValue(TypePair.Create(source, types.Target), out result))
+        //                    return result;
+        //            }
+        //            while ((source = Helpers.BaseType(source)) != null);
+        //
+        //            return null;
+        //        }
     }
 }

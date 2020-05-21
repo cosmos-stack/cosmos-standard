@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace TinyMapper.Bindings {
-    internal sealed class BindingFieldPath {
-        public BindingFieldPath(List<string> sourcePath, List<string> targetPath) {
+namespace TinyMapper.Bindings
+{
+    internal sealed class BindingFieldPath
+    {
+        public BindingFieldPath(List<string> sourcePath, List<string> targetPath)
+        {
             SourcePath = sourcePath;
             TargetPath = targetPath;
             HasPath = sourcePath.Count != 1 || targetPath.Count != 1;

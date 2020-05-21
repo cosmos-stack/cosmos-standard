@@ -5,20 +5,24 @@ using TinyMapper.Core.DataStructures;
 using TinyMapper.Core.Extensions;
 using TinyMapper.Mappers.Caches;
 
-namespace TinyMapper.Mappers.Classes.Members {
-    internal sealed class MemberMapper {
+namespace TinyMapper.Mappers.Classes.Members
+{
+    internal sealed class MemberMapper
+    {
         private readonly IMapperBuilderConfig _config;
         private readonly MapperCache _mapperCache;
 
-
-        public MemberMapper(MapperCache mapperCache, IMapperBuilderConfig config) {
+        public MemberMapper(MapperCache mapperCache, IMapperBuilderConfig config)
+        {
             _mapperCache = mapperCache;
             _config = config;
         }
 
-        public MemberEmitterDescription Build(TypePair parentTypePair, List<MappingMemberPath> members) {
+        public MemberEmitterDescription Build(TypePair parentTypePair, List<MappingMemberPath> members)
+        {
             var emitComposite = new EmitComposite();
-            foreach (var path in members) {
+            foreach (var path in members)
+            {
                 var emitter = Build(parentTypePair, path);
                 emitComposite.Add(emitter);
             }
@@ -28,26 +32,30 @@ namespace TinyMapper.Mappers.Classes.Members {
             return result;
         }
 
-        private static IEmitterType StoreFiled(FieldInfo field, IEmitterType targetObject, IEmitterType value) {
+        private static IEmitterType StoreFiled(FieldInfo field, IEmitterType targetObject, IEmitterType value)
+        {
             return EmitField.Store(field, targetObject, value);
         }
 
-        private static IEmitterType StoreProperty(PropertyInfo property, IEmitterType targetObject, IEmitterType value) {
+        private static IEmitterType StoreProperty(PropertyInfo property, IEmitterType targetObject, IEmitterType value)
+        {
             return EmitProperty.Store(property, targetObject, value);
         }
 
-        private static IEmitterType StoreTargetObjectMember(MappingMember member, IEmitterType targetObject, IEmitterType convertedMember) {
+        private static IEmitterType StoreTargetObjectMember(MappingMember member, IEmitterType targetObject, IEmitterType convertedMember)
+        {
             IEmitterType result = null;
             member.Target
-                  .ToOption()
-                  .Match(x => x.IsField(), x => result = StoreFiled((FieldInfo) x, targetObject, convertedMember))
-                  .Match(x => x.IsProperty(), x => result = StoreProperty((PropertyInfo) x, targetObject, convertedMember));
+               .ToOption()
+               .Match(x => x.IsField(), x => result = StoreFiled((FieldInfo) x, targetObject, convertedMember))
+               .Match(x => x.IsProperty(), x => result = StoreProperty((PropertyInfo) x, targetObject, convertedMember));
             return result;
         }
 
-        private IEmitter Build(TypePair parentTypePair, MappingMemberPath memberPath) {
-
-            if (memberPath.OneLevelTarget) {
+        private IEmitter Build(TypePair parentTypePair, MappingMemberPath memberPath)
+        {
+            if (memberPath.OneLevelTarget)
+            {
                 var sourceObject = EmitArgument.Load(memberPath.TypePair.Source, 1);
                 var targetObject = EmitArgument.Load(memberPath.TypePair.Target, 2);
 
@@ -58,7 +66,9 @@ namespace TinyMapper.Mappers.Classes.Members {
 
                 var result = StoreTargetObjectMember(memberPath.Tail, targetObject, convertedMember);
                 return result;
-            } else {
+            }
+            else
+            {
                 var targetObject = EmitArgument.Load(memberPath.Head.TypePair.Target, 2);
                 var targetMember = LoadMember(memberPath.Target, targetObject, memberPath.Target.Count - 1);
 
@@ -72,9 +82,11 @@ namespace TinyMapper.Mappers.Classes.Members {
             }
         }
 
-        private IEmitterType ConvertMember(TypePair parentTypePair, MappingMember member, IEmitterType sourceMemeber, IEmitterType targetMember) {
+        private IEmitterType ConvertMember(TypePair parentTypePair, MappingMember member, IEmitterType sourceMemeber, IEmitterType targetMember)
+        {
             //            if (member.TypePair.IsDeepCloneable && _config.GetBindingConfig(parentTypePair).HasNoValue)
-            if (member.TypePair.IsDeepCloneable) {
+            if (member.TypePair.IsDeepCloneable)
+            {
                 return sourceMemeber;
             }
 
@@ -84,9 +96,11 @@ namespace TinyMapper.Mappers.Classes.Members {
             return result;
         }
 
-        private MapperCacheItem CreateMapperCacheItem(TypePair parentTypePair, MappingMember mappingMember) {
+        private MapperCacheItem CreateMapperCacheItem(TypePair parentTypePair, MappingMember mappingMember)
+        {
             var mapperCacheItemOption = _mapperCache.Get(mappingMember.TypePair);
-            if (mapperCacheItemOption.HasValue) {
+            if (mapperCacheItemOption.HasValue)
+            {
                 return mapperCacheItemOption.Value;
             }
 
@@ -96,32 +110,38 @@ namespace TinyMapper.Mappers.Classes.Members {
             return mapperCacheItem;
         }
 
-        private IEmitterType LoadField(IEmitterType source, FieldInfo field) {
+        private IEmitterType LoadField(IEmitterType source, FieldInfo field)
+        {
             return EmitField.Load(source, field);
         }
 
-        private IEmitterType LoadMember(List<MemberInfo> members, IEmitterType sourceObject, int loadLevel) {
+        private IEmitterType LoadMember(List<MemberInfo> members, IEmitterType sourceObject, int loadLevel)
+        {
             var dummySource = sourceObject;
-            if (members.Count == 1) {
+            if (members.Count == 1)
+            {
                 return LoadMember(members[0], dummySource);
             }
 
-            for (var i = 0; i < loadLevel; i++) {
+            for (var i = 0; i < loadLevel; i++)
+            {
                 dummySource = LoadMember(members[i], dummySource);
             }
 
             return dummySource;
         }
 
-        private IEmitterType LoadMember(MemberInfo member, IEmitterType sourceObject) {
+        private IEmitterType LoadMember(MemberInfo member, IEmitterType sourceObject)
+        {
             IEmitterType result = null;
             member.ToOption()
-                  .Match(x => x.IsField(), x => result = LoadField(sourceObject, (FieldInfo) x))
-                  .Match(x => x.IsProperty(), x => result = LoadProperty(sourceObject, (PropertyInfo) x));
+               .Match(x => x.IsField(), x => result = LoadField(sourceObject, (FieldInfo) x))
+               .Match(x => x.IsProperty(), x => result = LoadProperty(sourceObject, (PropertyInfo) x));
             return result;
         }
 
-        private IEmitterType LoadProperty(IEmitterType source, PropertyInfo property) {
+        private IEmitterType LoadProperty(IEmitterType source, PropertyInfo property)
+        {
             return EmitProperty.Load(source, property);
         }
     }

@@ -1,10 +1,12 @@
 ﻿using System;
 
-namespace TinyMapper {
+namespace TinyMapper
+{
     /// <summary>
     /// Configuration for TinyMapper
     /// </summary>
-    internal interface ITinyMapperConfig {
+    internal interface ITinyMapperConfig
+    {
         /// <summary>
         /// Custom name matching function used for auto bindings
         /// </summary>

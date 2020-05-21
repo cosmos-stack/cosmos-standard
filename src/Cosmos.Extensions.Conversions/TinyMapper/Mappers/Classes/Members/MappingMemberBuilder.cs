@@ -6,19 +6,24 @@ using TinyMapper.Bindings;
 using TinyMapper.Core.DataStructures;
 using TinyMapper.Core.Extensions;
 
-namespace TinyMapper.Mappers.Classes.Members {
-    internal sealed class MappingMemberBuilder {
+namespace TinyMapper.Mappers.Classes.Members
+{
+    internal sealed class MappingMemberBuilder
+    {
         private readonly IMapperBuilderConfig _config;
 
-        public MappingMemberBuilder(IMapperBuilderConfig config) {
+        public MappingMemberBuilder(IMapperBuilderConfig config)
+        {
             _config = config;
         }
 
-        public List<MappingMemberPath> Build(TypePair typePair) {
+        public List<MappingMemberPath> Build(TypePair typePair)
+        {
             return ParseMappingTypes(typePair);
         }
 
-        private static MemberInfo[] GetPublicMembers(Type type) {
+        private static MemberInfo[] GetPublicMembers(Type type)
+        {
             var flags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
             var properties = type.GetProperties(flags);
             var fields = type.GetFields(flags);
@@ -28,14 +33,18 @@ namespace TinyMapper.Mappers.Classes.Members {
             return members;
         }
 
-        private static List<MemberInfo> GetSourceMembers(Type sourceType) {
+        private static List<MemberInfo> GetSourceMembers(Type sourceType)
+        {
             var result = new List<MemberInfo>();
 
             var members = GetPublicMembers(sourceType);
-            foreach (var member in members) {
-                if (member.IsProperty()) {
+            foreach (var member in members)
+            {
+                if (member.IsProperty())
+                {
                     var method = ((PropertyInfo) member).GetGetMethod();
-                    if (method.IsNull()) {
+                    if (method.IsNull())
+                    {
                         continue;
                     }
                 }
@@ -46,14 +55,18 @@ namespace TinyMapper.Mappers.Classes.Members {
             return result;
         }
 
-        private static List<MemberInfo> GetTargetMembers(Type targetType) {
+        private static List<MemberInfo> GetTargetMembers(Type targetType)
+        {
             var result = new List<MemberInfo>();
 
             var members = GetPublicMembers(targetType);
-            foreach (var member in members) {
-                if (member.IsProperty()) {
+            foreach (var member in members)
+            {
+                if (member.IsProperty())
+                {
                     var method = ((PropertyInfo) member).GetSetMethod();
-                    if (method.IsNull() || method.GetParameters().Length != 1) {
+                    if (method.IsNull() || method.GetParameters().Length != 1)
+                    {
                         continue;
                     }
                 }
@@ -68,23 +81,32 @@ namespace TinyMapper.Mappers.Classes.Members {
             Option<BindingConfig> bindingConfig,
             TypePair typePair,
             MemberInfo sourceMember,
-            Dictionary<string, string> targetBindings) {
+            Dictionary<string, string> targetBindings)
+        {
             Option<List<string>> targetName;
             var binds = sourceMember.GetAttributes<BindAttribute>();
             var bind = binds.FirstOrDefault(x => x.TargetType.IsNull());
-            if (bind.IsNull()) {
+            if (bind.IsNull())
+            {
                 bind = binds.FirstOrDefault(x => typePair.Target.IsAssignableFrom(x.TargetType));
             }
 
-            if (bind.IsNotNull()) {
+            if (bind.IsNotNull())
+            {
                 // ReSharper disable once PossibleNullReferenceException
                 targetName = new Option<List<string>>(new List<string> {bind.MemberName});
-            } else {
+            }
+            else
+            {
                 targetName = bindingConfig.Map(x => x.GetBindField(sourceMember.Name));
-                if (targetName.HasNoValue) {
-                    if (targetBindings.TryGetValue(sourceMember.Name, out var targetMemberName)) {
+                if (targetName.HasNoValue)
+                {
+                    if (targetBindings.TryGetValue(sourceMember.Name, out var targetMemberName))
+                    {
                         targetName = new Option<List<string>>(new List<string> {targetMemberName});
-                    } else {
+                    }
+                    else
+                    {
                         targetName = new Option<List<string>>(new List<string> {sourceMember.Name});
                     }
                 }
@@ -93,15 +115,19 @@ namespace TinyMapper.Mappers.Classes.Members {
             return targetName.Value;
         }
 
-        private Dictionary<string, string> GetTest(TypePair typePair, List<MemberInfo> targetMembers) {
+        private Dictionary<string, string> GetTest(TypePair typePair, List<MemberInfo> targetMembers)
+        {
             var result = new Dictionary<string, string>();
-            foreach (MemberInfo member in targetMembers) {
+            foreach (MemberInfo member in targetMembers)
+            {
                 var bindAttribute = member.GetAttribute<BindAttribute>();
-                if (bindAttribute.HasNoValue) {
+                if (bindAttribute.HasNoValue)
+                {
                     continue;
                 }
 
-                if (bindAttribute.Value.TargetType.IsNull() || typePair.Source.IsAssignableFrom(bindAttribute.Value.TargetType)) {
+                if (bindAttribute.Value.TargetType.IsNull() || typePair.Source.IsAssignableFrom(bindAttribute.Value.TargetType))
+                {
                     result[bindAttribute.Value.MemberName] = member.Name;
                 }
             }
@@ -109,23 +135,28 @@ namespace TinyMapper.Mappers.Classes.Members {
             return result;
         }
 
-        private bool IsIgnore(Option<BindingConfig> bindingConfig, TypePair typePair, MemberInfo sourceMember) {
+        private bool IsIgnore(Option<BindingConfig> bindingConfig, TypePair typePair, MemberInfo sourceMember)
+        {
             var ignores = sourceMember.GetAttributes<IgnoreAttribute>();
-            if (ignores.Any(x => x.TargetType.IsNull())) {
+            if (ignores.Any(x => x.TargetType.IsNull()))
+            {
                 return true;
             }
 
-            if (ignores.FirstOrDefault(x => typePair.Target.IsAssignableFrom(x.TargetType)).IsNotNull()) {
+            if (ignores.FirstOrDefault(x => typePair.Target.IsAssignableFrom(x.TargetType)).IsNotNull())
+            {
                 return true;
             }
 
             return bindingConfig.Map(x => x.IsIgnoreSourceField(sourceMember.Name)).Value;
         }
 
-        private List<MemberInfo> GetSourceMemberPath(List<string> fieldPath, Type sourceType) {
+        private List<MemberInfo> GetSourceMemberPath(List<string> fieldPath, Type sourceType)
+        {
             var result = new List<MemberInfo>();
             var dummyType = sourceType;
-            foreach (var path in fieldPath) {
+            foreach (var path in fieldPath)
+            {
                 var member = GetSourceMembers(dummyType).Single(x => string.Equals(x.Name, path, StringComparison.Ordinal));
                 result.Add(member);
                 dummyType = member.GetMemberType();
@@ -134,7 +165,8 @@ namespace TinyMapper.Mappers.Classes.Members {
             return result;
         }
 
-        private List<MappingMemberPath> ParseMappingTypes(TypePair typePair) {
+        private List<MappingMemberPath> ParseMappingTypes(TypePair typePair)
+        {
             var result = new List<MappingMemberPath>();
 
             var sourceMembers = GetSourceMembers(typePair.Source);
@@ -144,47 +176,55 @@ namespace TinyMapper.Mappers.Classes.Members {
 
             var bindingConfig = _config.GetBindingConfig(typePair);
 
-            foreach (var sourceMember in sourceMembers) {
-                if (IsIgnore(bindingConfig, typePair, sourceMember)) {
+            foreach (var sourceMember in sourceMembers)
+            {
+                if (IsIgnore(bindingConfig, typePair, sourceMember))
+                {
                     continue;
                 }
 
                 var targetNames = GetTargetName(bindingConfig, typePair, sourceMember, targetBindings);
 
-                foreach (var targetName in targetNames) {
+                foreach (var targetName in targetNames)
+                {
                     var targetMember = targetMembers.FirstOrDefault(x => _config.NameMatching(targetName, x.Name));
-                    if (targetMember.IsNull()) {
+                    if (targetMember.IsNull())
+                    {
                         result.AddRange(GetBindMappingMemberPath(typePair, bindingConfig, sourceMember));
                         continue;
                     }
 
                     var concreteBindingType = bindingConfig.Map(x => x.GetBindType(targetName));
-                    if (concreteBindingType.HasValue) {
+                    if (concreteBindingType.HasValue)
+                    {
                         var mappingTypePair = new TypePair(sourceMember.GetMemberType(), concreteBindingType.Value);
                         result.Add(new MappingMemberPath(sourceMember, targetMember, mappingTypePair));
-                    } else {
+                    }
+                    else
+                    {
                         result.Add(new MappingMemberPath(sourceMember, targetMember));
                     }
 
                     result.AddRange(GetBindMappingMemberPath(typePair, bindingConfig, sourceMember));
                 }
-
             }
 
             return result;
         }
 
-        private List<MappingMemberPath> GetBindMappingMemberPath(TypePair typePair, Option<BindingConfig> bindingConfig, MemberInfo sourceMember) {
+        private List<MappingMemberPath> GetBindMappingMemberPath(TypePair typePair, Option<BindingConfig> bindingConfig, MemberInfo sourceMember)
+        {
             var result = new List<MappingMemberPath>();
 
             var bindFieldPath = bindingConfig.Map(x => x.GetBindFieldPath(sourceMember.Name));
 
-            if (bindFieldPath.HasValue) {
-                foreach (var item in bindFieldPath.Value) {
+            if (bindFieldPath.HasValue)
+            {
+                foreach (var item in bindFieldPath.Value)
+                {
                     var sourceMemberPath = GetSourceMemberPath(item.SourcePath, typePair.Source);
                     var targetMemberPath = GetSourceMemberPath(item.TargetPath, typePair.Target);
                     result.Add(new MappingMemberPath(sourceMemberPath, targetMemberPath));
-
                 }
             }
 

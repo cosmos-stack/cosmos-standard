@@ -1,16 +1,19 @@
 using System;
 
-namespace Cosmos.Conversions.Mapper {
+namespace Cosmos.Conversions.Mapper
+{
     /// <summary>
     /// Default mapping binder
     /// </summary>
-    public static class DefaultMappingBinder {
+    public static class DefaultMappingBinder
+    {
         /// <summary>
         /// Bind
         /// </summary>
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TTarget"></typeparam>
-        public static void Bind<TSource, TTarget>() {
+        public static void Bind<TSource, TTarget>()
+        {
             TinyMapper.TinyMapper.Bind<TSource, TTarget>();
         }
 
@@ -19,7 +22,8 @@ namespace Cosmos.Conversions.Mapper {
         /// </summary>
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TTarget"></typeparam>
-        public static void Bind<TSource, TTarget>(Action<IDefaultBindingConfig<TSource, TTarget>> bindingConfigure) {
+        public static void Bind<TSource, TTarget>(Action<IDefaultBindingConfig<TSource, TTarget>> bindingConfigure)
+        {
             TinyMapper.TinyMapper.Bind(bindingConfigure);
         }
 
@@ -28,7 +32,8 @@ namespace Cosmos.Conversions.Mapper {
         /// </summary>
         /// <param name="sourceType"></param>
         /// <param name="targetType"></param>
-        public static void Bind(Type sourceType, Type targetType) {
+        public static void Bind(Type sourceType, Type targetType)
+        {
             TinyMapper.TinyMapper.Bind(sourceType, targetType);
         }
 
@@ -38,7 +43,8 @@ namespace Cosmos.Conversions.Mapper {
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TTarget"></typeparam>
         /// <returns></returns>
-        public static bool HasBound<TSource, TTarget>() {
+        public static bool HasBound<TSource, TTarget>()
+        {
             return TinyMapper.TinyMapper.BindingExists<TSource, TTarget>();
         }
 
@@ -48,7 +54,8 @@ namespace Cosmos.Conversions.Mapper {
         /// <param name="sourceType"></param>
         /// <param name="targetType"></param>
         /// <returns></returns>
-        public static bool HasBound(Type sourceType, Type targetType) {
+        public static bool HasBound(Type sourceType, Type targetType)
+        {
             return TinyMapper.TinyMapper.BindingExists(sourceType, targetType);
         }
     }

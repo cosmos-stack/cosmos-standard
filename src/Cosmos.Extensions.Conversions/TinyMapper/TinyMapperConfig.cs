@@ -1,21 +1,26 @@
 ﻿using System;
 using TinyMapper.Mappers;
 
-namespace TinyMapper {
-    internal sealed class TinyMapperConfig : ITinyMapperConfig {
+namespace TinyMapper
+{
+    internal sealed class TinyMapperConfig : ITinyMapperConfig
+    {
         private readonly TargetMapperBuilder _targetMapperBuilder;
 
-        public TinyMapperConfig(TargetMapperBuilder targetMapperBuilder) {
+        public TinyMapperConfig(TargetMapperBuilder targetMapperBuilder)
+        {
             _targetMapperBuilder = targetMapperBuilder ?? throw new ArgumentNullException();
         }
 
-        public void NameMatching(Func<string, string, bool> nameMatching) {
+        public void NameMatching(Func<string, string, bool> nameMatching)
+        {
             if (nameMatching is null)
                 throw new ArgumentNullException();
             _targetMapperBuilder.SetNameMatching(nameMatching);
         }
 
-        public void Reset() {
+        public void Reset()
+        {
             _targetMapperBuilder.SetNameMatching(TargetMapperBuilder.DefaultNameMatching);
         }
     }

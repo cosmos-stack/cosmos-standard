@@ -3,8 +3,10 @@ using System.Reflection;
 using TinyMapper.Core.DataStructures;
 using TinyMapper.Core.Extensions;
 
-namespace TinyMapper.Mappers.Classes.Members {
-    internal sealed class MappingMemberPath {
+namespace TinyMapper.Mappers.Classes.Members
+{
+    internal sealed class MappingMemberPath
+    {
         public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target)
             : this(source, target, new TypePair(source[source.Count - 1].GetMemberType(), target[target.Count - 1].GetMemberType())) { }
 
@@ -14,7 +16,8 @@ namespace TinyMapper.Mappers.Classes.Members {
         public MappingMemberPath(MemberInfo source, MemberInfo target, TypePair typePair)
             : this(new List<MemberInfo> {source}, new List<MemberInfo> {target}, typePair) { }
 
-        public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target, TypePair typePair) {
+        public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target, TypePair typePair)
+        {
             Source = source;
             OneLevelSource = source.Count == 1;
             OneLevelTarget = target.Count == 1;

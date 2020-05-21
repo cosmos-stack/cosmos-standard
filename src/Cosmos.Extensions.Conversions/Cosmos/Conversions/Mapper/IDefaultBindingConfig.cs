@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Cosmos.Conversions.Mapper {
+namespace Cosmos.Conversions.Mapper
+{
     /// <summary>
     /// Default mapping binding configuration
     /// </summary>
     /// <typeparam name="TSource"></typeparam>
     /// <typeparam name="TTarget"></typeparam>
-    public interface IDefaultBindingConfig<TSource, TTarget> {
+    public interface IDefaultBindingConfig<TSource, TTarget>
+    {
         /// <summary>
         /// Bind
         /// </summary>

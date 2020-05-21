@@ -4,8 +4,10 @@ using TinyMapper.Core.DataStructures;
 using TinyMapper.Mappers.Classes.Members;
 using TinyMapper.Reflection;
 
-namespace TinyMapper.Mappers {
-    internal interface IMapperBuilderConfig {
+namespace TinyMapper.Mappers
+{
+    internal interface IMapperBuilderConfig
+    {
         IDynamicAssembly Assembly { get; }
         Func<string, string, bool> NameMatching { get; }
         Option<BindingConfig> GetBindingConfig(TypePair typePair);

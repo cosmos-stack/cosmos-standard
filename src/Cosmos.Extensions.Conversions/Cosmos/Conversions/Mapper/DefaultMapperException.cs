@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Cosmos.Conversions.Mapper {
+namespace Cosmos.Conversions.Mapper
+{
     /// <summary>
     /// Exception during mapping or binding
     /// </summary>
     [Serializable]
-    public class DefaultMapperException : CosmosException {
-
+    public class DefaultMapperException : CosmosException
+    {
         // ReSharper disable once InconsistentNaming
         private const string FLAG = "__COSMOS_DEFMAPPER";
 

@@ -11,8 +11,10 @@ using TinyMapper.Core.Extensions;
 using TinyMapper.Mappers.Caches;
 using TinyMapper.Mappers.Classes.Members;
 
-namespace TinyMapper.Mappers.Collections {
-    internal sealed class CollectionMapperBuilder : MapperBuilder {
+namespace TinyMapper.Mappers.Collections
+{
+    internal sealed class CollectionMapperBuilder : MapperBuilder
+    {
         private readonly MapperCache _mapperCache;
         private const string ConvertItemKeyMethod = "ConvertItemKey";
         private const string ConvertItemMethod = "ConvertItem";
@@ -24,25 +26,34 @@ namespace TinyMapper.Mappers.Collections {
         private const string EnumerableToListTemplateMethod = "EnumerableToListTemplate";
         private const string EnumerableOfDeepCloneableToListTemplateMethod = "EnumerableOfDeepCloneableToListTemplate";
 
-        public CollectionMapperBuilder(MapperCache mapperCache, IMapperBuilderConfig config) : base(config) {
+        public CollectionMapperBuilder(MapperCache mapperCache, IMapperBuilderConfig config) : base(config)
+        {
             _mapperCache = mapperCache;
         }
 
         protected override string ScopeName => "CollectionMappers";
 
-        protected override Mapper BuildCore(TypePair typePair) {
+        protected override Mapper BuildCore(TypePair typePair)
+        {
             Type parentType = typeof(CollectionMapper<,>).MakeGenericType(typePair.Source, typePair.Target);
             TypeBuilder typeBuilder = _assembly.DefineType(GetMapperFullName(), parentType);
 
             _mapperCache.AddStub(typePair);
 
-            if (IsIEnumerableToList(typePair)) {
+            if (IsIEnumerableToList(typePair))
+            {
                 EmitEnumerableToList(parentType, typeBuilder, typePair);
-            } else if (IsIEnumerableToArray(typePair)) {
+            }
+            else if (IsIEnumerableToArray(typePair))
+            {
                 EmitEnumerableToArray(parentType, typeBuilder, typePair);
-            } else if (IsDictionaryToDictionary(typePair)) {
+            }
+            else if (IsDictionaryToDictionary(typePair))
+            {
                 EmitDictionaryToDictionary(parentType, typeBuilder, typePair);
-            } else if (IsEnumerableToEnumerable(typePair)) {
+            }
+            else if (IsEnumerableToEnumerable(typePair))
+            {
                 EmitEnumerableToEnumerable(parentType, typeBuilder, typePair);
             }
 
@@ -54,33 +65,41 @@ namespace TinyMapper.Mappers.Collections {
             return rootMapper;
         }
 
-        protected override Mapper BuildCore(TypePair parentTypePair, MappingMember mappingMember) {
+        protected override Mapper BuildCore(TypePair parentTypePair, MappingMember mappingMember)
+        {
             return BuildCore(mappingMember.TypePair);
         }
 
-        protected override bool IsSupportedCore(TypePair typePair) {
+        protected override bool IsSupportedCore(TypePair typePair)
+        {
             return typePair.IsEnumerableTypes;
         }
 
-        private static bool IsDictionaryToDictionary(TypePair typePair) {
+        private static bool IsDictionaryToDictionary(TypePair typePair)
+        {
             return typePair.Source.IsDictionaryOf() && typePair.Target.IsDictionaryOf();
         }
 
-        private static bool IsIEnumerableToArray(TypePair typePair) {
+        private static bool IsIEnumerableToArray(TypePair typePair)
+        {
             return typePair.Source.IsIEnumerable() && typePair.Target.IsArray;
         }
 
-        private static bool IsIEnumerableToList(TypePair typePair) {
+        private static bool IsIEnumerableToList(TypePair typePair)
+        {
             return typePair.Source.IsIEnumerable() && typePair.Target.IsListOf();
         }
 
-        private bool IsEnumerableToEnumerable(TypePair typePair) {
+        private bool IsEnumerableToEnumerable(TypePair typePair)
+        {
             return typePair.Source.IsIEnumerable() && typePair.Target.IsIEnumerable();
         }
 
-        private MapperCacheItem CreateMapperCacheItem(TypePair typePair) {
+        private MapperCacheItem CreateMapperCacheItem(TypePair typePair)
+        {
             var mapperCacheItemOption = _mapperCache.Get(typePair);
-            if (mapperCacheItemOption.HasValue) {
+            if (mapperCacheItemOption.HasValue)
+            {
                 return mapperCacheItemOption.Value;
             }
 
@@ -90,7 +109,8 @@ namespace TinyMapper.Mappers.Collections {
             return mapperCacheItem;
         }
 
-        private void EmitConvertItem(TypeBuilder typeBuilder, TypePair typePair, string methodName = ConvertItemMethod) {
+        private void EmitConvertItem(TypeBuilder typeBuilder, TypePair typePair, string methodName = ConvertItemMethod)
+        {
             MapperCacheItem mapperCacheItem = CreateMapperCacheItem(typePair);
 
             MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodName, OVERRIDE_PROTECTED, typeof(object), new[] {typeof(object)});
@@ -103,7 +123,8 @@ namespace TinyMapper.Mappers.Collections {
             EmitReturn.Return(callMapMethod).Emit(new CodeGenerator(methodBuilder.GetILGenerator()));
         }
 
-        private void EmitDictionaryToDictionary(Type parentType, TypeBuilder typeBuilder, TypePair typePair) {
+        private void EmitDictionaryToDictionary(Type parentType, TypeBuilder typeBuilder, TypePair typePair)
+        {
             EmitDictionaryToTarget(parentType, typeBuilder, typePair, DictionaryToDictionaryMethod, DictionaryToDictionaryTemplateMethod);
         }
 
@@ -112,7 +133,8 @@ namespace TinyMapper.Mappers.Collections {
             TypeBuilder typeBuilder,
             TypePair typePair,
             string methodName,
-            string templateMethodName) {
+            string templateMethodName)
+        {
             MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodName, OVERRIDE_PROTECTED, typePair.Target, new[] {typeof(IEnumerable)});
 
             KeyValuePair<Type, Type> sourceTypes = typePair.Source.GetDictionaryItemTypes();
@@ -128,27 +150,31 @@ namespace TinyMapper.Mappers.Collections {
             EmitReturn.Return(returnValue).Emit(new CodeGenerator(methodBuilder.GetILGenerator()));
         }
 
-        private void EmitEnumerableToArray(Type parentType, TypeBuilder typeBuilder, TypePair typePair) {
+        private void EmitEnumerableToArray(Type parentType, TypeBuilder typeBuilder, TypePair typePair)
+        {
             var collectionItemTypePair = GetCollectionItemTypePair(typePair);
 
             EmitEnumerableToTarget(parentType, typeBuilder, typePair, collectionItemTypePair, EnumerableToArrayMethod, EnumerableToArrayTemplateMethod);
         }
 
-        private void EmitEnumerableToList(Type parentType, TypeBuilder typeBuilder, TypePair typePair) {
+        private void EmitEnumerableToList(Type parentType, TypeBuilder typeBuilder, TypePair typePair)
+        {
             var collectionItemTypePair = GetCollectionItemTypePair(typePair);
             var templateMethod = collectionItemTypePair.IsDeepCloneable ? EnumerableOfDeepCloneableToListTemplateMethod : EnumerableToListTemplateMethod;
 
             EmitEnumerableToTarget(parentType, typeBuilder, typePair, collectionItemTypePair, EnumerableToListMethod, templateMethod);
         }
 
-        private void EmitEnumerableToEnumerable(Type parentType, TypeBuilder typeBuilder, TypePair typePair) {
+        private void EmitEnumerableToEnumerable(Type parentType, TypeBuilder typeBuilder, TypePair typePair)
+        {
             var collectionItemTypePair = GetCollectionItemTypePair(typePair);
             var templateMethod = collectionItemTypePair.IsDeepCloneable ? EnumerableOfDeepCloneableToListTemplateMethod : EnumerableToListTemplateMethod;
 
             EmitEnumerableToTarget(parentType, typeBuilder, typePair, collectionItemTypePair, EnumerableToListMethod, templateMethod);
         }
 
-        private static TypePair GetCollectionItemTypePair(TypePair typePair) {
+        private static TypePair GetCollectionItemTypePair(TypePair typePair)
+        {
             Type sourceItemType = typePair.Source.GetCollectionItemType();
             Type targetItemType = typePair.Target.GetCollectionItemType();
 
@@ -161,7 +187,8 @@ namespace TinyMapper.Mappers.Collections {
             TypePair typePair,
             TypePair collectionItemTypePair,
             string methodName,
-            string templateMethodName) {
+            string templateMethodName)
+        {
             MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodName, OVERRIDE_PROTECTED, typePair.Target, new[] {typeof(IEnumerable)});
 
             EmitConvertItem(typeBuilder, collectionItemTypePair);

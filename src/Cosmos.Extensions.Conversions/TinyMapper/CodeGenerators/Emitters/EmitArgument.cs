@@ -1,26 +1,32 @@
 ﻿using System;
 using System.Reflection.Emit;
 
-namespace TinyMapper.CodeGenerators.Emitters {
-    internal static class EmitArgument {
-        public static IEmitterType Load(Type type, int index) {
+namespace TinyMapper.CodeGenerators.Emitters
+{
+    internal static class EmitArgument
+    {
+        public static IEmitterType Load(Type type, int index)
+        {
             var result = new EmitLoadArgument(type, index);
             return result;
         }
 
-
-        private sealed class EmitLoadArgument : IEmitterType {
+        private sealed class EmitLoadArgument : IEmitterType
+        {
             private readonly int _index;
 
-            public EmitLoadArgument(Type type, int index) {
+            public EmitLoadArgument(Type type, int index)
+            {
                 ObjectType = type;
                 _index = index;
             }
 
             public Type ObjectType { get; }
 
-            public void Emit(CodeGenerator generator) {
-                switch (_index) {
+            public void Emit(CodeGenerator generator)
+            {
+                switch (_index)
+                {
                     case 0:
                         generator.Emit(OpCodes.Ldarg_0);
                         break;

@@ -1,8 +1,11 @@
 ﻿using System;
 
-namespace TinyMapper.Core.DataStructures {
-    internal struct Option<T> {
-        public Option(T value, bool hasValue = true) {
+namespace TinyMapper.Core.DataStructures
+{
+    internal struct Option<T>
+    {
+        public Option(T value, bool hasValue = true)
+        {
             HasValue = hasValue;
             Value = value;
         }
@@ -15,12 +18,15 @@ namespace TinyMapper.Core.DataStructures {
 
         public T Value { get; }
 
-        public Option<T> Match(Func<T, bool> predicate, Action<T> action) {
-            if (HasNoValue) {
+        public Option<T> Match(Func<T, bool> predicate, Action<T> action)
+        {
+            if (HasNoValue)
+            {
                 return Empty;
             }
 
-            if (predicate(Value)) {
+            if (predicate(Value))
+            {
                 action(Value);
             }
 
@@ -28,12 +34,15 @@ namespace TinyMapper.Core.DataStructures {
         }
 
         public Option<T> MatchType<TTarget>(Action<TTarget> action)
-            where TTarget : T {
-            if (HasNoValue) {
+        where TTarget : T
+        {
+            if (HasNoValue)
+            {
                 return Empty;
             }
 
-            if (Value.GetType() == typeof(TTarget)) {
+            if (Value.GetType() == typeof(TTarget))
+            {
                 action((TTarget) Value);
             }
 
@@ -41,8 +50,10 @@ namespace TinyMapper.Core.DataStructures {
         }
 
         public Option<T> ThrowOnEmpty<TException>()
-            where TException : Exception, new() {
-            if (HasValue) {
+        where TException : Exception, new()
+        {
+            if (HasValue)
+            {
                 return this;
             }
 
@@ -50,8 +61,10 @@ namespace TinyMapper.Core.DataStructures {
         }
 
         public Option<T> ThrowOnEmpty<TException>(Func<TException> func)
-            where TException : Exception {
-            if (HasValue) {
+        where TException : Exception
+        {
+            if (HasValue)
+            {
                 return this;
             }
 

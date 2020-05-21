@@ -4,28 +4,35 @@ using System.Collections.Generic;
 using System.Linq;
 using TinyMapper.Core.DataStructures;
 
-namespace TinyMapper.Core.Extensions {
-    internal static class EnumerableExtensions {
+namespace TinyMapper.Core.Extensions
+{
+    internal static class EnumerableExtensions
+    {
         public static List<TResult> ConvertAll<TFrom, TResult>(
             this IEnumerable<TFrom> value,
-            Func<TFrom, TResult> converter) {
+            Func<TFrom, TResult> converter)
+        {
             return value.Select(converter).ToList();
         }
 
-        public static int Count(this IEnumerable source) {
-            if (source is ICollection collection) {
+        public static int Count(this IEnumerable source)
+        {
+            if (source is ICollection collection)
+            {
                 return collection.Count;
             }
 
             var count = 0;
-            foreach (var item in source) {
+            foreach (var item in source)
+            {
                 count++;
             }
 
             return count;
         }
 
-        public static bool IsNullOrEmpty<T>(this IEnumerable<T> value) {
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> value)
+        {
             return value.IsNull() || !value.Any();
         }
 
@@ -35,8 +42,10 @@ namespace TinyMapper.Core.Extensions {
         /// <typeparam name="T"></typeparam>
         /// <param name="value">Input collection</param>
         /// <param name="action">Given function</param>
-        public static void Iter<T>(this IEnumerable<T> value, Action<T> action) {
-            foreach (var item in value) {
+        public static void Iter<T>(this IEnumerable<T> value, Action<T> action)
+        {
+            foreach (var item in value)
+            {
                 action(item);
             }
         }
@@ -48,9 +57,11 @@ namespace TinyMapper.Core.Extensions {
         /// <typeparam name="T"></typeparam>
         /// <param name="value">Input collection</param>
         /// <param name="action">Given function</param>
-        public static void IterI<T>(this IEnumerable<T> value, Action<int, T> action) {
+        public static void IterI<T>(this IEnumerable<T> value, Action<int, T> action)
+        {
             var i = 0;
-            foreach (var item in value) {
+            foreach (var item in value)
+            {
                 action(i++, item);
             }
         }
@@ -65,19 +76,25 @@ namespace TinyMapper.Core.Extensions {
         public static void IterSafe<T>(
             this IEnumerable<T> value,
             Action<T> action,
-            Action<Exception> exceptionHandler = null) {
-            foreach (var item in value) {
-                try {
+            Action<Exception> exceptionHandler = null)
+        {
+            foreach (var item in value)
+            {
+                try
+                {
                     action(item);
-                } catch (Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     exceptionHandler?.Invoke(ex);
                 }
             }
         }
 
-        public static IEnumerable<T> ToValue<T>(this IEnumerable<Option<T>> value) {
+        public static IEnumerable<T> ToValue<T>(this IEnumerable<Option<T>> value)
+        {
             return value.Where(x => x.HasValue)
-                        .Select(x => x.Value);
+               .Select(x => x.Value);
         }
     }
 }

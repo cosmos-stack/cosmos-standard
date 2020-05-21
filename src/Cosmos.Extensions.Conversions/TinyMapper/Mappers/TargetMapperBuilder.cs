@@ -11,8 +11,10 @@ using TinyMapper.Mappers.Types.Convertible;
 using TinyMapper.Mappers.Types.Custom;
 using TinyMapper.Reflection;
 
-namespace TinyMapper.Mappers {
-    internal sealed class TargetMapperBuilder : IMapperBuilderConfig {
+namespace TinyMapper.Mappers
+{
+    internal sealed class TargetMapperBuilder : IMapperBuilderConfig
+    {
         public static readonly Func<string, string, bool> DefaultNameMatching = (source, target) => string.Equals(source, target, StringComparison.Ordinal);
 
         private readonly Dictionary<TypePair, BindingConfig> _bindingConfigs = new Dictionary<TypePair, BindingConfig>();
@@ -21,8 +23,8 @@ namespace TinyMapper.Mappers {
         private readonly ConvertibleTypeMapperBuilder _convertibleTypeMapperBuilder;
         private readonly CustomTypeMapperBuilder _customTypeMapperBuilder;
 
-        public TargetMapperBuilder(IDynamicAssembly assembly) {
-            
+        public TargetMapperBuilder(IDynamicAssembly assembly)
+        {
             Assembly = assembly;
 
             var mapperCache = new MapperCache();
@@ -38,44 +40,54 @@ namespace TinyMapper.Mappers {
 
         public IDynamicAssembly Assembly { get; }
 
-        public Option<BindingConfig> GetBindingConfig(TypePair typePair) {
+        public Option<BindingConfig> GetBindingConfig(TypePair typePair)
+        {
             var result = _bindingConfigs.GetValue(typePair);
             return result;
         }
 
-        public MapperBuilder GetMapperBuilder(TypePair parentTypePair, MappingMember mappingMember) {
-            if (_customTypeMapperBuilder.IsSupported(parentTypePair, mappingMember)) {
+        public MapperBuilder GetMapperBuilder(TypePair parentTypePair, MappingMember mappingMember)
+        {
+            if (_customTypeMapperBuilder.IsSupported(parentTypePair, mappingMember))
+            {
                 return _customTypeMapperBuilder;
             }
 
             return GetTypeMapperBuilder(mappingMember.TypePair);
         }
 
-        public MapperBuilder GetMapperBuilder(TypePair typePair) {
+        public MapperBuilder GetMapperBuilder(TypePair typePair)
+        {
             return GetTypeMapperBuilder(typePair);
         }
 
-        public void SetNameMatching(Func<string, string, bool> nameMatching) {
+        public void SetNameMatching(Func<string, string, bool> nameMatching)
+        {
             NameMatching = nameMatching;
         }
 
-        public Mapper Build(TypePair typePair, BindingConfig bindingConfig) {
+        public Mapper Build(TypePair typePair, BindingConfig bindingConfig)
+        {
             _bindingConfigs[typePair] = bindingConfig;
             return Build(typePair);
         }
 
-        public Mapper Build(TypePair typePair) {
+        public Mapper Build(TypePair typePair)
+        {
             var mapperBuilder = GetTypeMapperBuilder(typePair);
             var mapper = mapperBuilder.Build(typePair);
             return mapper;
         }
 
-        private MapperBuilder GetTypeMapperBuilder(TypePair typePair) {
-            if (_convertibleTypeMapperBuilder.IsSupported(typePair)) {
+        private MapperBuilder GetTypeMapperBuilder(TypePair typePair)
+        {
+            if (_convertibleTypeMapperBuilder.IsSupported(typePair))
+            {
                 return _convertibleTypeMapperBuilder;
             }
 
-            if (_collectionMapperBuilder.IsSupported(typePair)) {
+            if (_collectionMapperBuilder.IsSupported(typePair))
+            {
                 return _collectionMapperBuilder;
             }
 

@@ -1,5 +1,7 @@
-namespace Cosmos.Conversions.Mapper {
-    internal static class DefaultMapperCache {
+namespace Cosmos.Conversions.Mapper
+{
+    internal static class DefaultMapperCache
+    {
         /// <summary>
         /// Gets a default mapper instance.
         /// </summary>
