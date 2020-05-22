@@ -2,9 +2,12 @@ using System;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions.Core {
-    internal static partial class XConv {
-        public static bool FromObjToNumericType<N>(object fromObj, N defaultVal, Type xType, out object result) {
+namespace Cosmos.Conversions.Core
+{
+    internal static partial class XConv
+    {
+        public static bool FromObjToNumericType<N>(object fromObj, N defaultVal, Type xType, out object result)
+        {
             var valueUpdated = true;
             result = defaultVal;
 
@@ -36,7 +39,8 @@ namespace Cosmos.Conversions.Core {
             return valueUpdated;
         }
 
-        private static bool FromObjToNullableNumericType(object fromObj, Type innerType, out object result) {
+        private static bool FromObjToNullableNumericType(object fromObj, Type innerType, out object result)
+        {
             var valueUpdated = true;
             result = null;
 

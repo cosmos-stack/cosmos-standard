@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 // ReSharper disable InconsistentNaming
 
-namespace Cosmos.Conversions.Core {
-    internal static class ValueDeterminer {
+namespace Cosmos.Conversions.Core
+{
+    internal static class ValueDeterminer
+    {
         /// <summary>
         /// Is xxx
         /// </summary>
@@ -22,15 +24,18 @@ namespace Cosmos.Conversions.Core {
             Func<O, bool> fromTry,
             Func<O, Action<X>, bool> firstTry,
             IEnumerable<IConversionTry<O, X>> tries,
-            Action<X> act = null) {
+            Action<X> act = null)
+        {
             if (fromTry(from))
                 return false;
             if (firstTry(from, act))
                 return true;
             if (tries is null)
                 return false;
-            foreach (var @try in tries) {
-                if (@try.Is(from, out var to)) {
+            foreach (var @try in tries)
+            {
+                if (@try.Is(from, out var to))
+                {
                     act?.Invoke(to);
                     return true;
                 }
@@ -39,11 +44,15 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        public static bool IsXxxAgain<X>(string str) {
-            try {
+        public static bool IsXxxAgain<X>(string str)
+        {
+            try
+            {
                 var _ = Convert.ChangeType(str, typeof(X));
                 return true;
-            } catch {
+            }
+            catch
+            {
                 return false;
             }
         }

@@ -2,13 +2,17 @@ using System;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions.Core {
-    internal static partial class XConv {
-        private static bool FromNumericTypeToString<N>(N numericVal, CastingContext context, string defaultStr, out object result) {
+namespace Cosmos.Conversions.Core
+{
+    internal static partial class XConv
+    {
+        private static bool FromNumericTypeToString<N>(N numericVal, CastingContext context, string defaultStr, out object result)
+        {
             var valueUpdated = true;
             result = defaultStr;
 
-            switch (numericVal) {
+            switch (numericVal)
+            {
                 case short _1:
                     result = StringConv.Int16ToString(_1, defaultStr);
                     break;
@@ -44,7 +48,8 @@ namespace Cosmos.Conversions.Core {
             return valueUpdated;
         }
 
-        private static bool FromNullableNumericTypeToString(object numericVal, Type oType, CastingContext context, out object result) {
+        private static bool FromNullableNumericTypeToString(object numericVal, Type oType, CastingContext context, out object result)
+        {
             var valueUpdated = true;
             result = null;
 

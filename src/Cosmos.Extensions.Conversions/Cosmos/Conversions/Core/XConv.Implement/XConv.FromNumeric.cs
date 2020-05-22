@@ -2,17 +2,23 @@ using System;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions.Core {
-    internal static partial class XConv {
+namespace Cosmos.Conversions.Core
+{
+    internal static partial class XConv
+    {
         public static X FromNumericTo<X>(
             Type oType, bool oTypeNullableFlag, object oVal, CastingContext context,
-            Type xType, bool xTypeNullableFlag, X defaultVal = default) {
+            Type xType, bool xTypeNullableFlag, X defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (oTypeNullableFlag) {
+            if (oTypeNullableFlag)
+            {
                 valueUpdated = FromNullableNumericTypeToTypeProxy(oType, oVal, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromNumericTypeToTypeProxy(oVal, defaultVal, context, xType, out result);
             }
 
@@ -25,13 +31,17 @@ namespace Cosmos.Conversions.Core {
 
         public static object FromNumericTo(
             Type oType, bool oTypeNullableFlag, object oVal, CastingContext context,
-            Type xType, bool xTypeNullableFlag, object defaultVal = default) {
+            Type xType, bool xTypeNullableFlag, object defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (oTypeNullableFlag) {
+            if (oTypeNullableFlag)
+            {
                 valueUpdated = FromNullableNumericTypeToTypeProxy(oType, oVal, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromNumericTypeToTypeProxy(oVal, defaultVal, context, xType, out result);
             }
 
@@ -42,12 +52,14 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        private static bool FromNumericTypeToTypeProxy<X>(object oVal, X defaultVal, CastingContext context, Type xType, out object result) {
+        private static bool FromNumericTypeToTypeProxy<X>(object oVal, X defaultVal, CastingContext context, Type xType, out object result)
+        {
             if (defaultVal is string defaultStr)
                 return FromNumericTypeToString(oVal, context, defaultStr, out result);
             if (TypeHelper.IsNumericType(xType))
                 return FromNumericTypeToNumericType(oVal, defaultVal, xType, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = oVal;
                 return true;
             }
@@ -56,13 +68,15 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromNullableNumericTypeToTypeProxy(Type oType, object oVal, CastingContext context, Type xType, out object result) {
+        private static bool FromNullableNumericTypeToTypeProxy(Type oType, object oVal, CastingContext context, Type xType, out object result)
+        {
             var innerType = Nullable.GetUnderlyingType(xType);
             if (innerType == TypeClass.StringClass)
                 return FromNullableNumericTypeToString(oVal, oType, context, out result);
             if (TypeHelper.IsNumericType(innerType))
                 return FromNumericTypeToNullableNumericType(oVal, innerType, out result);
-            if (innerType == TypeClass.ObjectClass) {
+            if (innerType == TypeClass.ObjectClass)
+            {
                 result = oVal;
                 return true;
             }

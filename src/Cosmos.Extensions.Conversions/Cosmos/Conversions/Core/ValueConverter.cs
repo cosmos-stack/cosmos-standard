@@ -4,12 +4,14 @@ using System.Linq;
 
 // ReSharper disable InconsistentNaming
 
-namespace Cosmos.Conversions.Core {
+namespace Cosmos.Conversions.Core
+{
     /// <summary>
     /// Helper
     /// </summary>
     // ReSharper disable once InconsistentNaming
-    internal static class ValueConverter {
+    internal static class ValueConverter
+    {
         public static Action<X> ConvertAct<X>(Action<object> action) where X : struct =>
             action is null ? null : new Action<X>(o => action(o));
 
@@ -29,7 +31,8 @@ namespace Cosmos.Conversions.Core {
         public static X ToXxx<O, X>(
             O from,
             Func<O, Action<X>, bool> firstImpl,
-            IEnumerable<IConversionImpl<O, X>> impls) {
+            IEnumerable<IConversionImpl<O, X>> impls)
+        {
             X result = default;
             if (firstImpl(from, to => result = to))
                 return result;
@@ -40,10 +43,14 @@ namespace Cosmos.Conversions.Core {
             return result;
         }
 
-        public static X ToXxxAgain<X>(string str, X defaultVal) {
-            try {
+        public static X ToXxxAgain<X>(string str, X defaultVal)
+        {
+            try
+            {
                 return Convert.ChangeType(str, typeof(X)).AsOr(defaultVal);
-            } catch {
+            }
+            catch
+            {
                 return defaultVal;
             }
         }

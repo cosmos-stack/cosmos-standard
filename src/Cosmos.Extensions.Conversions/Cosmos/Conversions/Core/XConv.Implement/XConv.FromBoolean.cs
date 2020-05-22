@@ -2,15 +2,21 @@ using System;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions.Core {
-    internal static partial class XConv {
-        public static X FromBooleanTo<X>(bool oVal, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default) {
+namespace Cosmos.Conversions.Core
+{
+    internal static partial class XConv
+    {
+        public static X FromBooleanTo<X>(bool oVal, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromBooleanToNullableTypeProxy(oVal, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromBooleanToTypeProxy(oVal, defaultVal, context, xType, out result);
             }
 
@@ -21,13 +27,17 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        public static object FromBooleanTo(bool oVal, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default) {
+        public static object FromBooleanTo(bool oVal, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromBooleanToNullableTypeProxy(oVal, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromBooleanToTypeProxy(oVal, defaultVal, context, xType, out result);
             }
 
@@ -38,12 +48,14 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        private static bool FromBooleanToTypeProxy<X>(bool oVal, X defaultVal, CastingContext context, Type xType, out object result) {
+        private static bool FromBooleanToTypeProxy<X>(bool oVal, X defaultVal, CastingContext context, Type xType, out object result)
+        {
             if (xType == TypeClass.StringClass)
                 return FromBooleanToString(oVal, context, out result);
             if (TypeHelper.IsNumericType(xType))
                 return FromBooleanToNumericType<X>(oVal, context, xType, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = oVal;
                 return true;
             }
@@ -52,12 +64,14 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromBooleanToTypeProxy(bool oVal, object defaultVal, CastingContext context, Type xType, out object result) {
+        private static bool FromBooleanToTypeProxy(bool oVal, object defaultVal, CastingContext context, Type xType, out object result)
+        {
             if (xType == TypeClass.StringClass)
                 return FromBooleanToString(oVal, context, out result);
             if (TypeHelper.IsNumericType(xType))
                 return FromBooleanToNumericType(oVal, context, xType, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = oVal;
                 return true;
             }
@@ -66,13 +80,15 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromBooleanToNullableTypeProxy(bool oVal, CastingContext context, Type xType, out object result) {
+        private static bool FromBooleanToNullableTypeProxy(bool oVal, CastingContext context, Type xType, out object result)
+        {
             var innerType = Nullable.GetUnderlyingType(xType);
             if (innerType == TypeClass.StringClass)
                 return FromBooleanToString(oVal, context, out result);
             if (TypeHelper.IsNumericType(innerType))
                 return FromBooleanToNullableNumericType(oVal, context, innerType, out result);
-            if (innerType == TypeClass.ObjectClass) {
+            if (innerType == TypeClass.ObjectClass)
+            {
                 result = oVal;
                 return true;
             }

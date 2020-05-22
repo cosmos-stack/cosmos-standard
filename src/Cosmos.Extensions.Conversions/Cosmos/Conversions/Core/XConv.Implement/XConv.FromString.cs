@@ -3,15 +3,21 @@ using Cosmos.Text;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions.Core {
-    internal static partial class XConv {
-        public static X FromStringTo<X>(string @from, Type xType, bool xTypeNullableFlag, X defaultVal = default) {
+namespace Cosmos.Conversions.Core
+{
+    internal static partial class XConv
+    {
+        public static X FromStringTo<X>(string @from, Type xType, bool xTypeNullableFlag, X defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromStringToNullableTypeProxy(from, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromStringToTypeProxy(from, defaultVal, xType, out result);
             }
 
@@ -22,13 +28,17 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        public static object FromStringTo(string @from, Type xType, bool xTypeNullableFlag, object defaultVal = default) {
+        public static object FromStringTo(string @from, Type xType, bool xTypeNullableFlag, object defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromStringToNullableTypeProxy(from, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromStringToTypeProxy(from, defaultVal, xType, out result);
             }
 
@@ -39,7 +49,8 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        private static bool FromStringToTypeProxy<X>(string from, X defaultVal, Type xType, out object result) {
+        private static bool FromStringToTypeProxy<X>(string from, X defaultVal, Type xType, out object result)
+        {
             if (TypeHelper.IsNumericType(xType))
                 return FromStringToNumericType(from, defaultVal, xType, out result);
             if (xType == TypeClass.GuidClass)
@@ -48,7 +59,8 @@ namespace Cosmos.Conversions.Core {
                 return FromStringToDateTimeType(from, defaultVal, xType, out result);
             if (TypeHelper.IsEnumType(xType))
                 return FromStringToEnum(from, defaultVal, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = defaultVal;
                 return true;
             }
@@ -58,7 +70,8 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromStringToTypeProxy(string from, object defaultVal, Type xType, out object result) {
+        private static bool FromStringToTypeProxy(string from, object defaultVal, Type xType, out object result)
+        {
             if (TypeHelper.IsNumericType(xType))
                 return FromStringToNumericType(from, defaultVal, xType, out result);
             if (xType == TypeClass.GuidClass)
@@ -67,7 +80,8 @@ namespace Cosmos.Conversions.Core {
                 return FromStringToDateTimeType(from, defaultVal, xType, out result);
             if (TypeHelper.IsEnumType(xType))
                 return FromStringToEnum(from, xType, defaultVal, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = from;
                 return true;
             }
@@ -77,7 +91,8 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromStringToNullableTypeProxy(string from, Type xType, out object result) {
+        private static bool FromStringToNullableTypeProxy(string from, Type xType, out object result)
+        {
             var innerType = Nullable.GetUnderlyingType(xType);
             if (TypeHelper.IsNumericType(innerType))
                 return FromStringToNullableNumericType(from, innerType, out result);
@@ -87,7 +102,8 @@ namespace Cosmos.Conversions.Core {
                 return FromStringToNullableDateTimeType(from, innerType, out result);
             if (TypeHelper.IsEnumType(xType))
                 return FromStringToNullableEnum(from, innerType, out result);
-            if (innerType == TypeClass.ObjectClass) {
+            if (innerType == TypeClass.ObjectClass)
+            {
                 result = from;
                 return true;
             }

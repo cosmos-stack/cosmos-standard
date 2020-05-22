@@ -2,15 +2,21 @@ using System;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions.Core {
-    internal static partial class XConv {
-        public static X FromEnumTo<X>(Type enumType, object enumVal, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default) {
+namespace Cosmos.Conversions.Core
+{
+    internal static partial class XConv
+    {
+        public static X FromEnumTo<X>(Type enumType, object enumVal, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromEnumToNullableTypeProxy(enumType, enumVal, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromEnumToTypeProxy(enumType, enumVal, defaultVal, context, xType, out result);
             }
 
@@ -21,13 +27,17 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        public static object FromEnumTo(Type enumType, object enumVal, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default) {
+        public static object FromEnumTo(Type enumType, object enumVal, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromEnumToNullableTypeProxy(enumType, enumVal, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromEnumToTypeProxy(enumType, enumVal, defaultVal, context, xType, out result);
             }
 
@@ -38,12 +48,14 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        private static bool FromEnumToTypeProxy<X>(Type enumType, object enumVal, X defaultVal, CastingContext context, Type xType, out object result) {
+        private static bool FromEnumToTypeProxy<X>(Type enumType, object enumVal, X defaultVal, CastingContext context, Type xType, out object result)
+        {
             if (defaultVal is string defaultStr)
                 return FromEnumToString(enumType, enumVal, defaultStr, out result);
             if (TypeHelper.IsNumericType(xType))
                 return FromEnumToNumericType(enumType, enumVal, defaultVal, xType, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = enumVal;
                 return true;
             }
@@ -52,12 +64,14 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromEnumToTypeProxy(Type enumType, object enumVal, object defaultVal, CastingContext context, Type xType, out object result) {
+        private static bool FromEnumToTypeProxy(Type enumType, object enumVal, object defaultVal, CastingContext context, Type xType, out object result)
+        {
             if (defaultVal is string defaultStr)
                 return FromEnumToString(enumType, enumVal, defaultStr, out result);
             if (TypeHelper.IsNumericType(xType))
                 return FromEnumToNumericType(enumType, enumVal, defaultVal, xType, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = enumVal;
                 return true;
             }
@@ -66,13 +80,15 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromEnumToNullableTypeProxy(Type enumType, object enumVal, CastingContext context, Type xType, out object result) {
+        private static bool FromEnumToNullableTypeProxy(Type enumType, object enumVal, CastingContext context, Type xType, out object result)
+        {
             var innerType = Nullable.GetUnderlyingType(xType);
             if (TypeHelper.IsNumericType(innerType))
                 return FromEnumToNullableNumericType(enumType, enumVal, innerType, out result);
             if (innerType == TypeClass.StringClass)
                 return FromEnumToString(enumType, enumVal, "", out result);
-            if (innerType == TypeClass.ObjectClass) {
+            if (innerType == TypeClass.ObjectClass)
+            {
                 result = enumVal;
                 return true;
             }

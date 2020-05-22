@@ -2,15 +2,21 @@ using System;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions.Core {
-    internal static partial class XConv {
-        public static X FromGuidTo<X>(Guid guid, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default) {
+namespace Cosmos.Conversions.Core
+{
+    internal static partial class XConv
+    {
+        public static X FromGuidTo<X>(Guid guid, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromGuidToNullableTypeProxy(guid, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromGuidToTypeProxy(guid, defaultVal, context, xType, out result);
             }
 
@@ -21,13 +27,17 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        public static object FromGuidTo(Guid guid, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default) {
+        public static object FromGuidTo(Guid guid, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
+        {
             bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag) {
+            if (xTypeNullableFlag)
+            {
                 valueUpdated = FromGuidToNullableTypeProxy(guid, context, xType, out result);
-            } else {
+            }
+            else
+            {
                 valueUpdated = FromGuidToTypeProxy(guid, defaultVal, context, xType, out result);
             }
 
@@ -38,8 +48,10 @@ namespace Cosmos.Conversions.Core {
                     : defaultVal;
         }
 
-        public static X FromNullableGuidTo<X>(Guid? guid, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default) {
-            if (guid.HasValue) {
+        public static X FromNullableGuidTo<X>(Guid? guid, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
+        {
+            if (guid.HasValue)
+            {
                 return FromGuidTo(guid.Value, context, xType, xTypeNullableFlag, defaultVal);
             }
 
@@ -48,8 +60,10 @@ namespace Cosmos.Conversions.Core {
                 : defaultVal;
         }
 
-        public static object FromNullableGuidTo(Guid? guid, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default) {
-            if (guid.HasValue) {
+        public static object FromNullableGuidTo(Guid? guid, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
+        {
+            if (guid.HasValue)
+            {
                 return FromGuidTo(guid.Value, context, xType, xTypeNullableFlag, defaultVal);
             }
 
@@ -58,10 +72,12 @@ namespace Cosmos.Conversions.Core {
                 : defaultVal;
         }
 
-        private static bool FromGuidToTypeProxy<X>(Guid from, X defaultVal, CastingContext context, Type xType, out object result) {
+        private static bool FromGuidToTypeProxy<X>(Guid from, X defaultVal, CastingContext context, Type xType, out object result)
+        {
             if (defaultVal is string defaultStr)
                 return FromGuidToString(from, context, defaultStr, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = from;
                 return true;
             }
@@ -70,10 +86,12 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromGuidToTypeProxy(Guid from, object defaultVal, CastingContext context, Type xType, out object result) {
+        private static bool FromGuidToTypeProxy(Guid from, object defaultVal, CastingContext context, Type xType, out object result)
+        {
             if (defaultVal is string defaultStr)
                 return FromGuidToString(from, context, defaultStr, out result);
-            if (xType == TypeClass.ObjectClass) {
+            if (xType == TypeClass.ObjectClass)
+            {
                 result = from;
                 return true;
             }
@@ -82,11 +100,13 @@ namespace Cosmos.Conversions.Core {
             return false;
         }
 
-        private static bool FromGuidToNullableTypeProxy(Guid from, CastingContext context, Type xType, out object result) {
+        private static bool FromGuidToNullableTypeProxy(Guid from, CastingContext context, Type xType, out object result)
+        {
             var innerType = Nullable.GetUnderlyingType(xType);
             if (innerType == TypeClass.StringClass)
                 return FromGuidToString(from, context, string.Empty, out result);
-            if (innerType == TypeClass.ObjectClass) {
+            if (innerType == TypeClass.ObjectClass)
+            {
                 result = from;
                 return true;
             }
