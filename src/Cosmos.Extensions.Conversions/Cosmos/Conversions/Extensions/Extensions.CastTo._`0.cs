@@ -4,11 +4,13 @@ using Cosmos.Conversions.Core;
 using Cosmos.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Extensions for CastTo opts
     /// </summary>
-    public static partial class CastToExtensions {
+    public static partial class CastToExtensions
+    {
         /// <summary>
         /// Cast <see cref="object"/> to given type.
         /// </summary>
@@ -82,8 +84,8 @@ namespace Cosmos.Conversions {
         /// <param name="type"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public static object CastToNullable(this string str, Type type, CastingContext context = null) {
-
+        public static object CastToNullable(this string str, Type type, CastingContext context = null)
+        {
             object result = default;
             context ??= CastingContext.DefaultContext;
 
@@ -106,8 +108,8 @@ namespace Cosmos.Conversions {
         /// <returns></returns>
         public static object CastToNullable(this string str, Type type, IgnoreCase ignoreCase,
             string format = null, NumberStyles? numberStyles = null, DateTimeStyles? dateTimeStyles = null,
-            IFormatProvider formatProvider = null) {
-
+            IFormatProvider formatProvider = null)
+        {
             object result = default;
             return str.IsNullable(type, (t) => result = t, () => result = null,
                 ignoreCase.X(), format, numberStyles, dateTimeStyles, formatProvider)

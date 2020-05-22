@@ -2,12 +2,13 @@ using System;
 using Cosmos.Conversions.Core;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Extensions for CastTo opts
     /// </summary>
-    public static partial class CastToExtensions {
-
+    public static partial class CastToExtensions
+    {
         #region DateTime
 
         /// <summary>
@@ -64,6 +65,5 @@ namespace Cosmos.Conversions {
         public static TimeSpan? CastToNullableTimeSpan(this string str) => DateTimeConv.StringToNullableTimeSpan(str);
 
         #endregion
-
     }
 }

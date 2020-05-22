@@ -1,11 +1,12 @@
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Object converter
     /// </summary>
-    public static class StringConverter {
-
+    public static class StringConverter
+    {
         #region Object
 
         /// <summary>
@@ -231,6 +232,5 @@ namespace Cosmos.Conversions {
         public static string ToString(decimal? num, int digits, string defaultVal = "") => StringConv.DecimalToString(num, digits, defaultVal);
 
         #endregion
-
     }
 }

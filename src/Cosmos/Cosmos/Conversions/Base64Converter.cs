@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Text;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Base64 Conversion Utilities
     /// </summary>
-    public static class Base64Conversion {
+    public static class Base64Converter
+    {
         // ReSharper disable once InconsistentNaming
         private const string BASE64 = "===========================================+=+=/0123456789=======ABCDEFGHIJKLMNOPQRSTUVWXYZ====/=abcdefghijklmnopqrstuvwxyz=====";
 
@@ -71,9 +73,11 @@ namespace Cosmos.Conversions {
         /// Convert from base64url <see cref="string"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="base64UrlString"></param>
-        public static byte[] FromBase64UrlStringToBytes(string base64UrlString) {
+        public static byte[] FromBase64UrlStringToBytes(string base64UrlString)
+        {
             var sb = new StringBuilder();
-            foreach (var c in base64UrlString) {
+            foreach (var c in base64UrlString)
+            {
                 if (c >= 128) continue;
                 var k = BASE64[c];
                 if (k == '=') continue;

@@ -1,9 +1,12 @@
 using System;
 using Cosmos.Conversions.Determiners;
 
-namespace Cosmos.Conversions.Core {
-    internal static class DateTimeConv {
-        public static DateTime ObjectToDateTime(object obj, DateTime defaultVal = default) {
+namespace Cosmos.Conversions.Core
+{
+    internal static class DateTimeConv
+    {
+        public static DateTime ObjectToDateTime(object obj, DateTime defaultVal = default)
+        {
             if (obj is null)
                 return defaultVal;
             if (obj is string str)
@@ -11,18 +14,23 @@ namespace Cosmos.Conversions.Core {
             str = obj.ToString();
             if (StringDateTimeDeterminer.Is(str))
                 return StringToDateTime(str, defaultVal);
-            try {
+            try
+            {
                 return Convert.ToDateTime(obj);
-            } catch {
+            }
+            catch
+            {
                 return defaultVal;
             }
         }
 
-        public static DateTime StringToDateTime(string str, DateTime defaultVal = default) {
+        public static DateTime StringToDateTime(string str, DateTime defaultVal = default)
+        {
             return StringToNullableDateTime(str) ?? defaultVal;
         }
 
-        public static DateTime? ObjectToNullableDateTime(object obj) {
+        public static DateTime? ObjectToNullableDateTime(object obj)
+        {
             if (obj is null)
                 return null;
             if (obj is string str)
@@ -30,7 +38,8 @@ namespace Cosmos.Conversions.Core {
             return StringToNullableDateTime(obj.ToString());
         }
 
-        public static DateTime? StringToNullableDateTime(string str) {
+        public static DateTime? StringToNullableDateTime(string str)
+        {
             if (StringDateTimeDeterminer.Is(str))
                 return StringDateTimeDeterminer.To(str);
             if (DateTime.TryParse(str, out var dateTime))
@@ -38,7 +47,8 @@ namespace Cosmos.Conversions.Core {
             return null;
         }
 
-        public static DateTimeOffset ObjectToDateTimeOffset(object obj, DateTimeOffset defaultVal = default) {
+        public static DateTimeOffset ObjectToDateTimeOffset(object obj, DateTimeOffset defaultVal = default)
+        {
             if (obj is null)
                 return defaultVal;
             if (obj is string str)
@@ -49,11 +59,13 @@ namespace Cosmos.Conversions.Core {
             return DateTimeOffset.TryParse(str, out var dateTimeOffset) ? dateTimeOffset : defaultVal;
         }
 
-        public static DateTimeOffset StringToDateTimeOffset(string str, DateTimeOffset defaultVal = default) {
+        public static DateTimeOffset StringToDateTimeOffset(string str, DateTimeOffset defaultVal = default)
+        {
             return StringToNullableDateTimeOffset(str) ?? defaultVal;
         }
 
-        public static DateTimeOffset? ObjectToNullableDateTimeOffset(object obj) {
+        public static DateTimeOffset? ObjectToNullableDateTimeOffset(object obj)
+        {
             if (obj is null)
                 return null;
             if (obj is string str)
@@ -61,7 +73,8 @@ namespace Cosmos.Conversions.Core {
             return StringToNullableDateTimeOffset(obj.ToString());
         }
 
-        public static DateTimeOffset? StringToNullableDateTimeOffset(string str) {
+        public static DateTimeOffset? StringToNullableDateTimeOffset(string str)
+        {
             if (StringDateTimeOffsetDeterminer.Is(str))
                 return StringDateTimeOffsetDeterminer.To(str);
             if (DateTimeOffset.TryParse(str, out var dateTimeOffset))
@@ -69,7 +82,8 @@ namespace Cosmos.Conversions.Core {
             return null;
         }
 
-        public static TimeSpan ObjectToTimeSpan(object obj, TimeSpan defaultVal = default) {
+        public static TimeSpan ObjectToTimeSpan(object obj, TimeSpan defaultVal = default)
+        {
             if (obj is null)
                 return defaultVal;
             if (obj is string str)
@@ -80,11 +94,13 @@ namespace Cosmos.Conversions.Core {
             return TimeSpan.TryParse(str, out var timeSpan) ? timeSpan : defaultVal;
         }
 
-        public static TimeSpan StringToTimeSpan(string str, TimeSpan defaultVal = default) {
+        public static TimeSpan StringToTimeSpan(string str, TimeSpan defaultVal = default)
+        {
             return StringToNullableTimeSpan(str) ?? defaultVal;
         }
 
-        public static TimeSpan? ObjectToNullableTimeSpan(object obj) {
+        public static TimeSpan? ObjectToNullableTimeSpan(object obj)
+        {
             if (obj is null)
                 return null;
             if (obj is string str)
@@ -92,7 +108,8 @@ namespace Cosmos.Conversions.Core {
             return StringToNullableTimeSpan(obj.ToString());
         }
 
-        public static TimeSpan? StringToNullableTimeSpan(string str) {
+        public static TimeSpan? StringToNullableTimeSpan(string str)
+        {
             if (StringTimeSpanDeterminer.Is(str))
                 return StringTimeSpanDeterminer.To(str);
             if (TimeSpan.TryParse(str, out var dateTimeOffset))

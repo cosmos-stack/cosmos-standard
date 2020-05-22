@@ -3,9 +3,10 @@ using System.Globalization;
 using System.Net;
 using Cosmos.Conversions.Determiners;
 
-namespace Cosmos.Conversions.Core {
-    internal static class TypeIs {
-
+namespace Cosmos.Conversions.Core
+{
+    internal static class TypeIs
+    {
         #region Constants
 
         private const NumberStyles INT_NUMBER_STYLE = NumberStyles.Integer;
@@ -71,6 +72,5 @@ namespace Cosmos.Conversions.Core {
 
         public static bool __encodingIs(string s, Action<object> action, bool typeIsAssignableFromEncoding) =>
             typeIsAssignableFromEncoding && StringEncodingDeterminer.Is(s, action);
-
     }
 }

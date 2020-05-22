@@ -1,18 +1,22 @@
 ﻿using Cosmos.Conversions.Determiners;
 using Cosmos.Verba.Boolean;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Boolean Conversion Utilities
     /// </summary>
-    public static class BooleanConverter {
+    public static class BooleanConverter
+    {
         /// <summary>
         /// Convert from <see cref="object"/> to <see cref="bool"/>.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static bool ToBoolean(object obj) {
-            if (obj is null) {
+        public static bool ToBoolean(object obj)
+        {
+            if (obj is null)
+            {
                 return false;
             }
 
@@ -26,25 +30,30 @@ namespace Cosmos.Conversions {
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static bool? ToNullableBoolean(object obj) {
-            if (obj is null) {
+        public static bool? ToNullableBoolean(object obj)
+        {
+            if (obj is null)
+            {
                 return null;
             }
 
             var boolean = GetBoolean(obj);
 
-            if (boolean.HasValue) {
+            if (boolean.HasValue)
+            {
                 return boolean.Value;
             }
 
-            if (bool.TryParse(obj.ToString(), out var ret)) {
+            if (bool.TryParse(obj.ToString(), out var ret))
+            {
                 return ret;
             }
 
             return null;
         }
 
-        private static bool? GetBoolean(object obj) {
+        private static bool? GetBoolean(object obj)
+        {
             if (obj is string str && StringBooleanDeterminer.Is(str))
                 return StringBooleanDeterminer.To(str);
             return GlobalBooleanVerbaManager.Determining(obj.ToString().Trim().ToLower());

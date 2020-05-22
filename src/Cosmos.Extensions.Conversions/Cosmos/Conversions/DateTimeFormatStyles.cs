@@ -1,8 +1,10 @@
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Datetime target types
     /// </summary>
-    public enum DateTimeFormatStyles {
+    public enum DateTimeFormatStyles
+    {
         /// <summary>
         /// Normal
         /// </summary>

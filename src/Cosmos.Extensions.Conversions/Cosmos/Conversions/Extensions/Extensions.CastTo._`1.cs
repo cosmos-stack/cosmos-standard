@@ -4,11 +4,13 @@ using Cosmos.Conversions.Core;
 using Cosmos.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Extensions for CastTo opts
     /// </summary>
-    public static partial class CastToExtensions {
+    public static partial class CastToExtensions
+    {
         /// <summary>
         /// Convert object to given type.
         /// </summary>
@@ -62,8 +64,8 @@ namespace Cosmos.Conversions {
         /// <returns></returns>
         public static T CastTo<T>(this string str, IgnoreCase ignoreCase, T defaultVal = default,
             string format = null, NumberStyles? numberStyles = null, DateTimeStyles? dateTimeStyles = null,
-            IFormatProvider formatProvider = null) where T : struct {
-
+            IFormatProvider formatProvider = null) where T : struct
+        {
             T result = default;
             return str.Is<T>(ignoreCase, t => result = t, format, numberStyles, dateTimeStyles, formatProvider)
                 ? result
@@ -77,8 +79,8 @@ namespace Cosmos.Conversions {
         /// <param name="context"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T? CastToNullable<T>(this string str, CastingContext context = default) where T : struct {
-
+        public static T? CastToNullable<T>(this string str, CastingContext context = default) where T : struct
+        {
             T? result = default;
             context ??= CastingContext.DefaultContext;
 
@@ -101,8 +103,8 @@ namespace Cosmos.Conversions {
         /// <returns></returns>
         public static T? CastToNullable<T>(this string str, IgnoreCase ignoreCase,
             string format = null, NumberStyles? numberStyles = null, DateTimeStyles? dateTimeStyles = null,
-            IFormatProvider formatProvider = null) where T : struct {
-
+            IFormatProvider formatProvider = null) where T : struct
+        {
             T? result = default;
             return str.IsNullable<T>((t) => result = t, () => result = null,
                 ignoreCase.X(), format, numberStyles, dateTimeStyles, formatProvider)

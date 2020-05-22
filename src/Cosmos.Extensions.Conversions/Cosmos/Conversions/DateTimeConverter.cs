@@ -1,12 +1,13 @@
 using System;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// DateTime converter
     /// </summary>
-    public static class DateTimeConverter {
-
+    public static class DateTimeConverter
+    {
         #region DateTime
 
         /// <summary>
@@ -108,6 +109,5 @@ namespace Cosmos.Conversions {
         public static TimeSpan? ToNullableTimeSpan(string str) => DateTimeConv.StringToNullableTimeSpan(str);
 
         #endregion
-
     }
 }

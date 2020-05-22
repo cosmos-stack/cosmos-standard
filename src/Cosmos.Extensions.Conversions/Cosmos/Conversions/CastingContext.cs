@@ -1,12 +1,13 @@
 using System;
 using System.Globalization;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Casting context
     /// </summary>
-    public class CastingContext {
-
+    public class CastingContext
+    {
         /// <summary>
         /// Default casting context
         /// </summary>
@@ -71,7 +72,5 @@ namespace Cosmos.Conversions {
         /// Number if false
         /// </summary>
         public sbyte NumericFalse { get; set; } = 0;
-
-
     }
 }

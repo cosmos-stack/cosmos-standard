@@ -1,8 +1,10 @@
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Scale styles
     /// </summary>
-    public enum ScaleStyles {
+    public enum ScaleStyles
+    {
         /// <summary>
         /// String
         /// </summary>

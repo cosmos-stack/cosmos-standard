@@ -1,8 +1,10 @@
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Guid format styles
     /// </summary>
-    public enum GuidFormatStyles {
+    public enum GuidFormatStyles
+    {
         /// <summary>
         /// B
         /// </summary>
@@ -24,9 +26,12 @@ namespace Cosmos.Conversions {
         P
     }
 
-    internal static class GuidFormatStylesExtensions {
-        public static string X(this GuidFormatStyles styles) {
-            return styles switch {
+    internal static class GuidFormatStylesExtensions
+    {
+        public static string X(this GuidFormatStyles styles)
+        {
+            return styles switch
+            {
                 GuidFormatStyles.B => "B",
                 GuidFormatStyles.D => "D",
                 GuidFormatStyles.N => "N",

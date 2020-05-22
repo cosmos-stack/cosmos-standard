@@ -3,11 +3,13 @@ using System.Reflection;
 using Cosmos.Judgments;
 using Cosmos.Reflection;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Type conversion Utilities
     /// </summary>
-    public static class TypeConverter {
+    public static class TypeConverter
+    {
         /// <summary>
         /// Convert nullable type to underlying type.
         /// </summary>

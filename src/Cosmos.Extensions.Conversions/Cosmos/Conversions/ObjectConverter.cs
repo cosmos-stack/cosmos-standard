@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Object Conversion Utilities
     /// </summary>
-    public static class ObjectConverter {
-
+    public static class ObjectConverter
+    {
         #region 0
 
         /// <summary>
@@ -97,11 +98,12 @@ namespace Cosmos.Conversions {
         /// <param name="listStr"></param>
         /// <param name="splitChar"></param>
         /// <returns></returns>
-        public static IEnumerable<TTo> ToList<TTo>(string listStr, char splitChar = ',') {
-
+        public static IEnumerable<TTo> ToList<TTo>(string listStr, char splitChar = ',')
+        {
             var results = new List<TTo>();
 
-            if (string.IsNullOrWhiteSpace(listStr)) {
+            if (string.IsNullOrWhiteSpace(listStr))
+            {
                 return results;
             }
 
@@ -112,6 +114,5 @@ namespace Cosmos.Conversions {
         }
 
         #endregion
-
     }
 }

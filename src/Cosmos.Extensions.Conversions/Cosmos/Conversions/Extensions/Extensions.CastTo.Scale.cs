@@ -5,11 +5,13 @@ using Cosmos.Conversions.Determiners;
 using Cosmos.Conversions.Scale;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Extensions for CastTo opts
     /// </summary>
-    public static partial class CastToExtensions {
+    public static partial class CastToExtensions
+    {
         /// <summary>
         /// To ASCII
         /// </summary>
@@ -17,7 +19,7 @@ namespace Cosmos.Conversions {
         /// <returns></returns>
         // ReSharper disable once InconsistentNaming
         public static string CastToASCII(this byte[] bytes) => ByteConverter.ToASCII(bytes);
-        
+
         /// <summary>
         /// To binary
         /// </summary>
@@ -62,8 +64,10 @@ namespace Cosmos.Conversions {
         /// <param name="scaleStr"></param>
         /// <param name="fromStyle"></param>
         /// <returns></returns>
-        public static int CastToDecimalism(this string scaleStr, ScaleStyles fromStyle = ScaleStyles.Hexadecimal) {
-            return fromStyle switch {
+        public static int CastToDecimalism(this string scaleStr, ScaleStyles fromStyle = ScaleStyles.Hexadecimal)
+        {
+            return fromStyle switch
+            {
                 ScaleStyles.Binary      => BinaryConverter.ToDecimalism(scaleStr),
                 ScaleStyles.Hexadecimal => HexadecimalConverter.ToDecimalism(scaleStr),
                 _                       => StringIntDeterminer.To(scaleStr)
@@ -114,8 +118,10 @@ namespace Cosmos.Conversions {
         /// <param name="fromStyle"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string CastToHexadecimal(this string scaleStr, ScaleStyles fromStyle = ScaleStyles.Binary, Encoding encoding = null) {
-            return fromStyle switch {
+        public static string CastToHexadecimal(this string scaleStr, ScaleStyles fromStyle = ScaleStyles.Binary, Encoding encoding = null)
+        {
+            return fromStyle switch
+            {
                 ScaleStyles.Binary => BinaryConverter.ToHexadecimal(scaleStr),
                 ScaleStyles.String => HexadecimalConverter.FromString(scaleStr, encoding),
                 _                  => scaleStr

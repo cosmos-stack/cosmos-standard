@@ -3,12 +3,13 @@ using Cosmos.Conversions.Core;
 using Cosmos.Conversions.Scale;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Extensions for CastTo opts
     /// </summary>
-    public static partial class CastToExtensions {
-
+    public static partial class CastToExtensions
+    {
         #region Object
 
         /// <summary>
@@ -223,14 +224,15 @@ namespace Cosmos.Conversions {
         /// <param name="fromStyle"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string CastToString(this string originalStr, ScaleStyles fromStyle = ScaleStyles.String, Encoding encoding = null) {
-            return fromStyle switch {
+        public static string CastToString(this string originalStr, ScaleStyles fromStyle = ScaleStyles.String, Encoding encoding = null)
+        {
+            return fromStyle switch
+            {
                 ScaleStyles.Hexadecimal => HexadecimalConverter.ToString(originalStr, encoding),
                 _                       => originalStr
             };
         }
 
         #endregion
-
     }
 }

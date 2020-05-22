@@ -2547,6 +2547,11 @@
         <member name="M:Cosmos.Conversions.Mapper.DefaultMapper.MapTo(System.Type,System.Type,System.Object,System.Object)">
             <inheritdoc />
         </member>
+        <member name="F:Cosmos.Conversions.Mapper.DefaultMapperCache.Instance">
+            <summary>
+            Gets a default mapper instance.
+            </summary>
+        </member>
         <member name="T:Cosmos.Conversions.Mapper.DefaultMapperException">
             <summary>
             Exception during mapping or binding
@@ -2601,6 +2606,75 @@
             </summary>
             <param name="info"></param>
             <param name="context"></param>
+        </member>
+        <member name="T:Cosmos.Conversions.Mapper.DefaultMappingBinder">
+            <summary>
+            Default mapping binder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.DefaultMappingBinder.Bind``2">
+            <summary>
+            Bind
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.DefaultMappingBinder.Bind``2(System.Action{Cosmos.Conversions.Mapper.IDefaultBindingConfig{``0,``1}})">
+            <summary>
+            Bind
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.DefaultMappingBinder.Bind(System.Type,System.Type)">
+            <summary>
+            Bind
+            </summary>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.DefaultMappingBinder.HasBound``2">
+            <summary>
+            Has bound
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.DefaultMappingBinder.HasBound(System.Type,System.Type)">
+            <summary>
+            Has bound
+            </summary>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Mapper.IDefaultBindingConfig`2">
+            <summary>
+            Default mapping binding configuration
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.IDefaultBindingConfig`2.Bind(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Linq.Expressions.Expression{System.Func{`1,System.Object}})">
+            <summary>
+            Bind
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.IDefaultBindingConfig`2.Bind(System.Linq.Expressions.Expression{System.Func{`1,System.Object}},System.Type)">
+            <summary>
+            Bind
+            </summary>
+            <param name="target"></param>
+            <param name="targetType"></param>
+        </member>
+        <member name="M:Cosmos.Conversions.Mapper.IDefaultBindingConfig`2.Ignore(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Bind
+            </summary>
+            <param name="expression"></param>
         </member>
         <member name="T:Cosmos.Conversions.NumericConverter">
             <summary>
@@ -3790,7 +3864,7 @@
             <param name="targetType">Target type.</param>
             <remarks>The method is thread safe.</remarks>
         </member>
-        <member name="M:TinyMapper.TinyMapper.Bind``2(System.Action{TinyMapper.Bindings.IBindingConfig{``0,``1}})">
+        <member name="M:TinyMapper.TinyMapper.Bind``2(System.Action{Cosmos.Conversions.Mapper.IDefaultBindingConfig{``0,``1}})">
             <summary>
             Create a one-way mapping between Source and Target types.
             </summary>
@@ -3805,6 +3879,15 @@
             </summary>
             <typeparam name="TSource">Source type.</typeparam>
             <typeparam name="TTarget">Target type.</typeparam>
+            <returns>True if exists, otherwise - False.</returns>
+            <remarks>The method is thread safe.</remarks>
+        </member>
+        <member name="M:TinyMapper.TinyMapper.BindingExists(System.Type,System.Type)">
+            <summary>
+            Find out if a binding exists from Source to Target.
+            </summary>
+            <param name="sourceType">Source type.</param>
+            <param name="targetType">Target type.</param>
             <returns>True if exists, otherwise - False.</returns>
             <remarks>The method is thread safe.</remarks>
         </member>

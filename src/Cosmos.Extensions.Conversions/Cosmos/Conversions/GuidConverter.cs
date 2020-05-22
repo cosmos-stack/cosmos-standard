@@ -1,12 +1,13 @@
 using System;
 using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Guid converter
     /// </summary>
-    public static class GuidConverter {
-        
+    public static class GuidConverter
+    {
         /// <summary>
         /// Convert <see cref="object"/> to <see cref="Guid"/>
         /// </summary>

@@ -1,11 +1,12 @@
 ﻿using Cosmos.Conversions.Core;
 
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Numeric Conversion Utilities
     /// </summary>
-    public static class NumericConverter {
-
+    public static class NumericConverter
+    {
         #region Int16/short
 
         /// <summary>
@@ -362,7 +363,6 @@ namespace Cosmos.Conversions {
         /// <returns></returns>
         public static decimal ToRoundDecimal(string str, int digits, decimal defaultVal = 0M) => NumericConv.StringToRoundDecimal(str, digits, defaultVal);
 
-
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="decimal"/> with specified precision.
         /// </summary>
@@ -380,6 +380,5 @@ namespace Cosmos.Conversions {
         public static decimal? ToRoundNullableDecimal(string str, int digits) => NumericConv.StringToNullableRoundDecimal(str, digits);
 
         #endregion
-
     }
 }

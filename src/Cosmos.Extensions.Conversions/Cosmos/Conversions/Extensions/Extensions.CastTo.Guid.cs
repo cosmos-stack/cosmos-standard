@@ -2,11 +2,13 @@ using System;
 using Cosmos.Conversions.Core;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Extensions for CastTo opts
     /// </summary>
-    public static partial class CastToExtensions {
+    public static partial class CastToExtensions
+    {
         /// <summary>
         /// To GUID
         /// </summary>

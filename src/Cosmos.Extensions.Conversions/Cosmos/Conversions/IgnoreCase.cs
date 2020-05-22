@@ -1,8 +1,10 @@
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Ignore case
     /// </summary>
-    public enum IgnoreCase {
+    public enum IgnoreCase
+    {
         // ReSharper disable once InconsistentNaming
         /// <summary>
         /// True
@@ -16,17 +18,22 @@ namespace Cosmos.Conversions {
         FALSE
     }
 
-    internal static class IgnoreCaseExtensions {
-        public static bool X(this IgnoreCase ignoreCase) {
-            return ignoreCase switch {
+    internal static class IgnoreCaseExtensions
+    {
+        public static bool X(this IgnoreCase ignoreCase)
+        {
+            return ignoreCase switch
+            {
                 IgnoreCase.TRUE  => true,
                 IgnoreCase.FALSE => false,
                 _                => false
             };
         }
 
-        public static IgnoreCase X(this bool b) {
-            return b switch {
+        public static IgnoreCase X(this bool b)
+        {
+            return b switch
+            {
                 true  => IgnoreCase.TRUE,
                 false => IgnoreCase.FALSE
             };

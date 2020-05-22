@@ -1,12 +1,13 @@
 using Cosmos.Conversions.Core;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Conversions {
+namespace Cosmos.Conversions
+{
     /// <summary>
     /// Extensions for CastTo opts
     /// </summary>
-    public static partial class CastToExtensions {
-
+    public static partial class CastToExtensions
+    {
         #region Int16/short
 
         /// <summary>
@@ -249,7 +250,7 @@ namespace Cosmos.Conversions {
         /// <typeparam name="TEnum"></typeparam>
         /// <returns></returns>
         public static long CastToLong<TEnum>(this TEnum @enum, long defaultVal = default) where TEnum : struct => NumericConv.EnumToInt64(@enum, defaultVal);
-        
+
         /// <summary>
         /// Cast <see cref="string"/> to <see cref="long"/>
         /// </summary>
@@ -328,7 +329,7 @@ namespace Cosmos.Conversions {
         /// <typeparam name="TEnum"></typeparam>
         /// <returns></returns>
         public static ulong CastToUInt64<TEnum>(this TEnum @enum, ulong defaultVal = default) where TEnum : struct => NumericConv.EnumToUInt64(@enum, defaultVal);
-        
+
         #endregion
 
         #region Float32/float
@@ -390,6 +391,5 @@ namespace Cosmos.Conversions {
         public static decimal CastToDecimal(this string str, params IConversionImpl<string, decimal>[] impls) => NumericConv.StringToDecimal(str, impls);
 
         #endregion
-
     }
 }
