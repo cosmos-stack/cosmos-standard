@@ -1,9 +1,11 @@
-namespace Cosmos.Joiners {
+namespace Cosmos.Joiners
+{
     /// <summary>
     /// Skip null types<br />
     /// 跳过 null 的类型
     /// </summary>
-    public enum SkipNullType {
+    public enum SkipNullType
+    {
         /// <summary>
         /// Nothing
         /// </summary>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using Cosmos.Collections;
 
-namespace Cosmos.Joiners {
-    public partial class Joiner : IMapJoiner {
-
+namespace Cosmos.Joiners
+{
+    public partial class Joiner : IMapJoiner
+    {
         #region SkipValueNulls
 
         /// <summary>
@@ -14,7 +15,8 @@ namespace Cosmos.Joiners {
         /// 跳过 null
         /// </summary>
         /// <returns></returns>
-        IMapJoiner IMapJoiner.SkipNulls() {
+        IMapJoiner IMapJoiner.SkipNulls()
+        {
             Options.SetSkipValueNulls();
             return this;
         }
@@ -25,7 +27,8 @@ namespace Cosmos.Joiners {
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        IMapJoiner IMapJoiner.SkipNulls(SkipNullType type) {
+        IMapJoiner IMapJoiner.SkipNulls(SkipNullType type)
+        {
             Options.SetSkipValueNulls(type);
             return this;
         }
@@ -41,7 +44,8 @@ namespace Cosmos.Joiners {
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        IMapJoiner IMapJoiner.UseForNull(string key, string value) {
+        IMapJoiner IMapJoiner.UseForNull(string key, string value)
+        {
             Options.SetMapReplace<string, string, string, string>(k => key, s => value);
             return this;
         }
@@ -53,7 +57,8 @@ namespace Cosmos.Joiners {
         /// <param name="keyFunc"></param>
         /// <param name="valueFunc"></param>
         /// <returns></returns>
-        IMapJoiner IMapJoiner.UseForNull(Func<string, string> keyFunc, Func<string, string> valueFunc) {
+        IMapJoiner IMapJoiner.UseForNull(Func<string, string> keyFunc, Func<string, string> valueFunc)
+        {
             Options.SetMapReplace(keyFunc, valueFunc);
             return this;
         }
@@ -67,7 +72,8 @@ namespace Cosmos.Joiners {
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        IMapJoiner IMapJoiner.UseForNull<T1, T2>(T1 key, T2 value) {
+        IMapJoiner IMapJoiner.UseForNull<T1, T2>(T1 key, T2 value)
+        {
             Options.SetMapReplace<T1, T1, T2, T2>(t => key, t => value);
             return this;
         }
@@ -81,7 +87,8 @@ namespace Cosmos.Joiners {
         /// <param name="keyFunc"></param>
         /// <param name="valueFunc"></param>
         /// <returns></returns>
-        IMapJoiner IMapJoiner.UseForNull<T1, T2>(Func<T1, T1> keyFunc, Func<T2, T2> valueFunc) {
+        IMapJoiner IMapJoiner.UseForNull<T1, T2>(Func<T1, T1> keyFunc, Func<T2, T2> valueFunc)
+        {
             Options.SetMapReplace(keyFunc, valueFunc);
             return this;
         }
@@ -107,7 +114,8 @@ namespace Cosmos.Joiners {
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        string IMapJoiner.Join(IEnumerable<string> list) {
+        string IMapJoiner.Join(IEnumerable<string> list)
+        {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             var defaultKey = replacer.KeyFunc?.Invoke(string.Empty) ?? string.Empty;
             var defaultValue = replacer.ValueFunc?.Invoke(string.Empty) ?? string.Empty;
@@ -126,7 +134,8 @@ namespace Cosmos.Joiners {
         /// <param name="defaultKey"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        string IMapJoiner.Join(IEnumerable<string> list, string defaultKey, string defaultValue) {
+        string IMapJoiner.Join(IEnumerable<string> list, string defaultKey, string defaultValue)
+        {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             var middle = new List<string>();
             JoinToKeyValuePairString(
@@ -143,7 +152,8 @@ namespace Cosmos.Joiners {
         /// <param name="list"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        string IMapJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter) {
+        string IMapJoiner.Join<T>(IEnumerable<T> list, ITypeConverter<T, string> converter)
+        {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             var defaultKey = replacer.KeyFunc == null ? default : replacer.KeyFunc(default);
             var defaultValue = replacer.ValueFunc == null ? default : replacer.ValueFunc(default);
@@ -164,7 +174,8 @@ namespace Cosmos.Joiners {
         /// <param name="defaultValue"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        string IMapJoiner.Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter) {
+        string IMapJoiner.Join<T>(IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
+        {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             var middle = new List<string>();
             JoinToKeyValuePairString(
@@ -181,7 +192,8 @@ namespace Cosmos.Joiners {
         /// <param name="str2"></param>
         /// <param name="restStrings"></param>
         /// <returns></returns>
-        string IMapJoiner.Join(string str1, string str2, params string[] restStrings) {
+        string IMapJoiner.Join(string str1, string str2, params string[] restStrings)
+        {
             var list = new List<string> {str1, str2};
             list.AddRange(restStrings);
             return ((IMapJoiner) this).Join(list);
@@ -197,7 +209,8 @@ namespace Cosmos.Joiners {
         /// <param name="t2"></param>
         /// <param name="restTs"></param>
         /// <returns></returns>
-        string IMapJoiner.Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs) {
+        string IMapJoiner.Join<T>(ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
+        {
             var list = new List<T> {t1, t2};
             list.AddRange(restTs);
             return ((IMapJoiner) this).Join(list, converter);
@@ -206,7 +219,8 @@ namespace Cosmos.Joiners {
         private void JoinToKeyValuePairString<T, TContainer>(
             TContainer container, Action<TContainer, string, string, int> containerUpdateFunc,
             IEnumerable<T> list, T defaultKey, T defaultValue, Func<T, string> keyFunc, Func<T, string> valueFunc,
-            (Func<T, T> KeyFunc, Func<T, T> ValueFunc) replacer) {
+            (Func<T, T> KeyFunc, Func<T, T> ValueFunc) replacer)
+        {
             if (list == null)
                 return;
 
@@ -219,7 +233,8 @@ namespace Cosmos.Joiners {
 
             var timesToLoops = instances.Count / 2;
             var index = 0;
-            for (var i = 0; i < timesToLoops; i++) {
+            for (var i = 0; i < timesToLoops; i++)
+            {
                 var k = instances[index++];
                 var v = instances[index++];
                 var key = keyFunc(k);
@@ -227,7 +242,8 @@ namespace Cosmos.Joiners {
 
                 if (JoinerUtils.SkipMap(Options, key, value))
                     continue;
-                else if (JoinerUtils.NeedFixMapValue(Options, key, value)) {
+                else if (JoinerUtils.NeedFixMapValue(Options, key, value))
+                {
                     key = JoinerUtils.FixMapKeySafety(k, key, value, defaultKey, keyFunc, replacer.KeyFunc, Options.SkipValueNullType);
                     value = JoinerUtils.FixMapValueSafety(v, value, key, defaultValue, valueFunc, replacer.ValueFunc, Options.SkipValueNullType);
                 }
@@ -247,7 +263,8 @@ namespace Cosmos.Joiners {
         /// <param name="builder"></param>
         /// <param name="list"></param>
         /// <returns></returns>
-        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list) {
+        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list)
+        {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             var defaultKey = replacer.KeyFunc?.Invoke(string.Empty) ?? string.Empty;
             var defaultValue = replacer.ValueFunc?.Invoke(string.Empty) ?? string.Empty;
@@ -266,7 +283,8 @@ namespace Cosmos.Joiners {
         /// <param name="defaultKey"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue) {
+        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, IEnumerable<string> list, string defaultKey, string defaultValue)
+        {
             var replacer = Options.GetMapReplace<string, string, string, string>();
             JoinToKeyValuePairString(
                 builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
@@ -283,7 +301,8 @@ namespace Cosmos.Joiners {
         /// <param name="str2"></param>
         /// <param name="restStrings"></param>
         /// <returns></returns>
-        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings) {
+        StringBuilder IMapJoiner.AppendTo(StringBuilder builder, string str1, string str2, params string[] restStrings)
+        {
             var list = new List<string> {str1, str2};
             list.AddRange(restStrings);
             return ((IMapJoiner) this).AppendTo(builder, list);
@@ -298,7 +317,8 @@ namespace Cosmos.Joiners {
         /// <param name="list"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter) {
+        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, ITypeConverter<T, string> converter)
+        {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             var defaultKey = replacer.KeyFunc == null ? default : replacer.KeyFunc(default);
             var defaultValue = replacer.ValueFunc == null ? default : replacer.ValueFunc(default);
@@ -319,7 +339,8 @@ namespace Cosmos.Joiners {
         /// <param name="defaultValue"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter) {
+        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, IEnumerable<T> list, T defaultKey, T defaultValue, ITypeConverter<T, string> converter)
+        {
             var replacer = Options.GetMapReplace<T, T, T, T>();
             JoinToKeyValuePairString(
                 builder, (c, k, v, i) => c.Append($"{(i > 0 ? _on : string.Empty)}{k}{Options.MapSeparator}{v}"),
@@ -338,7 +359,8 @@ namespace Cosmos.Joiners {
         /// <param name="t2"></param>
         /// <param name="restTs"></param>
         /// <returns></returns>
-        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs) {
+        StringBuilder IMapJoiner.AppendTo<T>(StringBuilder builder, ITypeConverter<T, string> converter, T t1, T t2, params T[] restTs)
+        {
             var list = new List<T> {t1, t2};
             list.AddRange(restTs);
             return ((IMapJoiner) this).AppendTo(builder, list, converter);
@@ -348,20 +370,22 @@ namespace Cosmos.Joiners {
 
         #region Private class
 
-        private partial class JoinerOptions {
-
+        private partial class JoinerOptions
+        {
             #region Skip Value Nulls - Map
 
             public bool SkipValueNullsFlag { get; private set; }
 
             public SkipNullType SkipValueNullType { get; private set; } = SkipNullType.Nothing;
 
-            public void SetSkipValueNulls() {
+            public void SetSkipValueNulls()
+            {
                 SkipValueNullsFlag = true;
                 SkipValueNullType = SkipNullType.WhenBoth;
             }
 
-            public void SetSkipValueNulls(SkipNullType type) {
+            public void SetSkipValueNulls(SkipNullType type)
+            {
                 SkipValueNullsFlag = type != SkipNullType.Nothing;
                 SkipValueNullType = type;
             }
@@ -373,13 +397,15 @@ namespace Cosmos.Joiners {
             private JoinerObjectReplacer MapReplacer { get; set; }
             private bool MapValueReplacerFlag { get; set; }
 
-            public (Func<T1, T2> KeyFunc, Func<T3, T4> ValueFunc) GetMapReplace<T1, T2, T3, T4>() {
+            public (Func<T1, T2> KeyFunc, Func<T3, T4> ValueFunc) GetMapReplace<T1, T2, T3, T4>()
+            {
                 var keyFunc = MapValueReplacerFlag ? MapReplacer?.GetMapKey<T1, T2>() : null;
                 var valueFunc = MapValueReplacerFlag ? MapReplacer?.GetMapValue<T3, T4>() : null;
                 return (keyFunc, valueFunc);
             }
 
-            public void SetMapReplace<T1, T2, T3, T4>(Func<T1, T2> mapKeyFunc, Func<T3, T4> mapValueFunc) {
+            public void SetMapReplace<T1, T2, T3, T4>(Func<T1, T2> mapKeyFunc, Func<T3, T4> mapValueFunc)
+            {
                 MapValueReplacerFlag = true;
                 MapReplacer = JoinerObjectReplacer.CreateForMap(mapKeyFunc, mapValueFunc);
                 SetSkipValueNulls(SkipNullType.Nothing);
@@ -391,22 +417,27 @@ namespace Cosmos.Joiners {
 
             public string MapSeparator { get; private set; }
 
-            public void SetMapSeparator(string separator) {
+            public void SetMapSeparator(string separator)
+            {
                 MapSeparator = separator;
             }
 
-            public void SetMapSeparator(char separator) {
+            public void SetMapSeparator(char separator)
+            {
                 MapSeparator = $"{separator}";
             }
 
             #endregion
-
         }
 
-        private static partial class JoinerUtils {
-            public static bool SkipMap(JoinerOptions options, string key, string value) {
-                if (options.SkipValueNullsFlag) {
-                    switch (options.SkipValueNullType) {
+        private static partial class JoinerUtils
+        {
+            public static bool SkipMap(JoinerOptions options, string key, string value)
+            {
+                if (options.SkipValueNullsFlag)
+                {
+                    switch (options.SkipValueNullType)
+                    {
                         case SkipNullType.Nothing:
                             return false;
 
@@ -427,8 +458,10 @@ namespace Cosmos.Joiners {
                 return false;
             }
 
-            public static bool NeedFixMapValue(JoinerOptions options, string key, string value) {
-                switch (options.SkipValueNullType) {
+            public static bool NeedFixMapValue(JoinerOptions options, string key, string value)
+            {
+                switch (options.SkipValueNullType)
+                {
                     case SkipNullType.Nothing:
                         return string.IsNullOrWhiteSpace(key) || string.IsNullOrWhiteSpace(value);
 
@@ -448,7 +481,8 @@ namespace Cosmos.Joiners {
                 return false;
             }
 
-            public static string FixMapKeySafety<T>(T k, string key, string value, T defaultKey, Func<T, string> to, Func<T, T> keyFunc, SkipNullType type) {
+            public static string FixMapKeySafety<T>(T k, string key, string value, T defaultKey, Func<T, string> to, Func<T, T> keyFunc, SkipNullType type)
+            {
                 if (!string.IsNullOrWhiteSpace(key))
                     return key;
 
@@ -461,7 +495,8 @@ namespace Cosmos.Joiners {
                 return key;
             }
 
-            public static string FixMapValueSafety<T>(T v, string value, string key, T defaultValue, Func<T, string> to, Func<T, T> valueFunc, SkipNullType type) {
+            public static string FixMapValueSafety<T>(T v, string value, string key, T defaultValue, Func<T, string> to, Func<T, T> valueFunc, SkipNullType type)
+            {
                 if (!string.IsNullOrWhiteSpace(value))
                     return value;
 
@@ -474,7 +509,8 @@ namespace Cosmos.Joiners {
                 return value;
             }
 
-            public static Func<string, bool> GetMapPredicate(JoinerOptions options) {
+            public static Func<string, bool> GetMapPredicate(JoinerOptions options)
+            {
                 if (options.SkipValueNullsFlag)
                     return s => s != options.MapSeparator;
                 return null;
@@ -482,7 +518,5 @@ namespace Cosmos.Joiners {
         }
 
         #endregion
-
     }
-
 }

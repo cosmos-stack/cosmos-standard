@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cosmos.Joiners {
+namespace Cosmos.Joiners
+{
     /// <summary>
     /// TupleJoiner Interface<br />
     /// TupleJoiner 接口
     /// </summary>
-    public interface ITupleJoiner {
+    public interface ITupleJoiner
+    {
         /// <summary>
         /// Skip null<br />
         /// 跳过 null

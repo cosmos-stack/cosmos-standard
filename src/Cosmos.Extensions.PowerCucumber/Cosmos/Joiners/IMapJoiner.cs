@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cosmos.Joiners {
+namespace Cosmos.Joiners
+{
     /// <summary>
     /// MapJoiner Interface<br />
     /// MapJoiner 接口
     /// </summary>
-    public interface IMapJoiner {
+    public interface IMapJoiner
+    {
         /// <summary>
         /// Skip null<br />
         /// 跳过 null

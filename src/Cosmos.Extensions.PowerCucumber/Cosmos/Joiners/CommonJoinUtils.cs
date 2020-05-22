@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cosmos.Joiners {
+namespace Cosmos.Joiners
+{
     /// <summary>
     /// Common join utils
     /// </summary>
-    public static class CommonJoinUtils {
+    public static class CommonJoinUtils
+    {
         /// <summary>
         /// Join to string
         /// </summary>
@@ -21,23 +23,29 @@ namespace Cosmos.Joiners {
         public static void JoinToString<T, TContainer>(
             TContainer container, Action<TContainer, string> containerUpdateFunc,
             IEnumerable<T> list, string delimiter,
-            Func<T, bool> predicate, Func<T, string> to, Func<T, T> replaceFunc = null) {
+            Func<T, bool> predicate, Func<T, string> to, Func<T, T> replaceFunc = null)
+        {
             if (list is null)
                 return;
 
             var head = true;
 
-            foreach (var item in list) {
+            foreach (var item in list)
+            {
                 var checker = item;
-                if (!(predicate?.Invoke(checker) ?? true)) {
+                if (!(predicate?.Invoke(checker) ?? true))
+                {
                     if (replaceFunc == null)
                         continue;
                     checker = replaceFunc(item);
                 }
 
-                if (head) {
+                if (head)
+                {
                     head = false;
-                } else {
+                }
+                else
+                {
                     containerUpdateFunc.Invoke(container, delimiter);
                 }
 

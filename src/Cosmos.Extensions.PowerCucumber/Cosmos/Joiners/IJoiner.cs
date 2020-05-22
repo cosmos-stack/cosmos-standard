@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cosmos.Joiners {
+namespace Cosmos.Joiners
+{
     /// <summary>
     /// Joiner Interface<br />
     /// 连接器接口
     /// </summary>
-    public interface IJoiner {
+    public interface IJoiner
+    {
         /// <summary>
         /// Skip null<br />
         /// 跳过 null
@@ -169,5 +171,4 @@ namespace Cosmos.Joiners {
         /// <returns></returns>
         StringBuilder AppendTo<T>(StringBuilder builder, Func<T, string> to, T item1, params T[] restItems);
     }
-
 }
