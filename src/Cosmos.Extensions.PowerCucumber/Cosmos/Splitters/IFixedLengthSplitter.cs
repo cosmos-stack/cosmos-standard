@@ -2,36 +2,32 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Serialization;
 
-namespace Cosmos.Splitters {
+namespace Cosmos.Splitters
+{
     /// <summary>
-    /// Splitter interface
+    /// Fixed length splitter interface
     /// </summary>
-    public interface ISplitter {
-        /// <summary>
-        /// Omit empty strings
-        /// </summary>
-        /// <returns></returns>
-        ISplitter OmitEmptyStrings();
-
+    public interface IFixedLengthSplitter
+    {
         /// <summary>
         /// Trim results
         /// </summary>
         /// <returns></returns>
-        ISplitter TrimResults();
+        IFixedLengthSplitter TrimResults();
 
         /// <summary>
         /// Trim results
         /// </summary>
         /// <param name="trimFunc"></param>
         /// <returns></returns>
-        ISplitter TrimResults(Func<string, string> trimFunc);
+        IFixedLengthSplitter TrimResults(Func<string, string> trimFunc);
 
         /// <summary>
         /// Limit
         /// </summary>
         /// <param name="limit"></param>
         /// <returns></returns>
-        ISplitter Limit(int limit);
+        IFixedLengthSplitter Limit(int limit);
 
         /// <summary>
         /// With KeyValue separator
@@ -81,7 +77,7 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        IEnumerable<T> Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
+        IEnumerable<T> Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper);
 
         /// <summary>
         /// Split to list
@@ -117,6 +113,6 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        List<T> SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
+        List<T> SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper);
     }
 }

@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cosmos.Serialization;
+using Cosmos.Text;
 
-namespace Cosmos.Splitters {
+namespace Cosmos.Splitters
+{
     /// <summary>
     /// Splitter<br />
     /// 字符串分割器
     /// </summary>
-    public partial class Splitter : IMapSplitter {
-
+    public partial class Splitter : IMapSplitter
+    {
         #region TrimResults
 
         /// <summary>
@@ -17,7 +19,8 @@ namespace Cosmos.Splitters {
         /// 修整结果两端
         /// </summary>
         /// <returns></returns>
-        IMapSplitter IMapSplitter.TrimResults() {
+        IMapSplitter IMapSplitter.TrimResults()
+        {
             Options.SetTrimResults(k => k.Trim(), v => v.Trim());
             return this;
         }
@@ -29,7 +32,8 @@ namespace Cosmos.Splitters {
         /// <param name="keyTrimFunc"></param>
         /// <param name="valueTrimFunc"></param>
         /// <returns></returns>
-        IMapSplitter IMapSplitter.TrimResults(Func<string, string> keyTrimFunc, Func<string, string> valueTrimFunc) {
+        IMapSplitter IMapSplitter.TrimResults(Func<string, string> keyTrimFunc, Func<string, string> valueTrimFunc)
+        {
             Options.SetTrimResults(keyTrimFunc, valueTrimFunc);
             return this;
         }
@@ -44,7 +48,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="limit"></param>
         /// <returns></returns>
-        IMapSplitter IMapSplitter.Limit(int limit) {
+        IMapSplitter IMapSplitter.Limit(int limit)
+        {
             Options.SetLimitLength(limit);
             return this;
         }
@@ -94,7 +99,7 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+        IEnumerable<KeyValuePair<string, T>> IMapSplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper)
             => InternalSplitToKeyValuePair(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
         /// <summary>
@@ -138,10 +143,11 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        public Dictionary<string, T> SplitToDictionary<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+        public Dictionary<string, T> SplitToDictionary<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper)
             => ((IMapSplitter) this).Split<TMiddle, T>(originalString, serializer, mapper).ToDictionary(k => k.Key, v => v.Value);
 
-        private IEnumerable<KeyValuePair<string, TValue>> InternalSplitToKeyValuePair<TValue>(string originalString, Func<string, TValue> to) {
+        private IEnumerable<KeyValuePair<string, TValue>> InternalSplitToKeyValuePair<TValue>(string originalString, Func<string, TValue> to)
+        {
             if (string.IsNullOrWhiteSpace(originalString))
                 return Enumerable.Empty<KeyValuePair<string, TValue>>();
 
@@ -150,7 +156,8 @@ namespace Cosmos.Splitters {
                 ? ((IFixedLengthSplitter) this).Split(originalString)
                 : ((ISplitter) this).Split(originalString);
 
-            foreach (var item in middle) {
+            foreach (var item in middle)
+            {
                 var (k, v) = SplitterUtils.SplitMap(Options, item);
                 result.Add(SplitterUtils.OptionalMap(Options, k, v, to));
             }
@@ -162,17 +169,19 @@ namespace Cosmos.Splitters {
 
         #region Private class
 
-        private partial class SplitterOptions {
-
+        private partial class SplitterOptions
+        {
             #region WithKeyValueSeparator
 
             public string MapSeparator { get; private set; }
 
-            public void SetMapSeparator(string separator) {
+            public void SetMapSeparator(string separator)
+            {
                 MapSeparator = separator;
             }
 
-            public void SetMapSeparator(char separator) {
+            public void SetMapSeparator(char separator)
+            {
                 MapSeparator = $"{separator}";
             }
 
@@ -186,34 +195,34 @@ namespace Cosmos.Splitters {
 
             public Func<string, string> ValueTrimFunc { get; private set; }
 
-            public void SetTrimResults(Func<string, string> keyFunc, Func<string, string> valueFunc) {
+            public void SetTrimResults(Func<string, string> keyFunc, Func<string, string> valueFunc)
+            {
                 MapTrimResultsFlag = true;
                 KeyTrimFunc = keyFunc ?? (k => k.Trim());
                 ValueTrimFunc = valueFunc ?? (v => v.Trim());
             }
 
             #endregion
-
         }
 
-        private static partial class SplitterUtils {
-            public static KeyValuePair<string, TValue> OptionalMap<TValue>(SplitterOptions options, string key, string value, Func<string, TValue> to) {
+        private static partial class SplitterUtils
+        {
+            public static KeyValuePair<string, TValue> OptionalMap<TValue>(SplitterOptions options, string key, string value, Func<string, TValue> to)
+            {
                 return options.MapTrimResultsFlag
                     ? new KeyValuePair<string, TValue>(options.KeyTrimFunc(key), to(options.ValueTrimFunc(value)))
                     : new KeyValuePair<string, TValue>(key, to(value));
             }
 
-            public static (string, string) SplitMap(SplitterOptions options, string middleString) {
+            public static (string, string) SplitMap(SplitterOptions options, string middleString)
+            {
                 var t = middleString.Split(options.MapSeparator);
                 var key = t[0];
                 var value = t.Length > 1 ? t[1] : string.Empty;
                 return (key, value);
             }
-
         }
 
         #endregion
-
     }
-
 }

@@ -7,12 +7,14 @@ using Cosmos.Serialization;
 
 // ReSharper disable InconsistentNaming
 
-namespace Cosmos.Splitters {
+namespace Cosmos.Splitters
+{
     /// <summary>
     /// Splitter<br />
     /// 字符串分割器
     /// </summary>
-    public partial class Splitter : ISplitter {
+    public partial class Splitter : ISplitter
+    {
         private readonly bool _regexMode;
         private readonly bool _fixedLengthMode;
         private readonly string[] _on;
@@ -22,7 +24,8 @@ namespace Cosmos.Splitters {
 
         private SplitterOptions Options { get; set; } = new SplitterOptions();
 
-        private Splitter(string[] on) {
+        private Splitter(string[] on)
+        {
             _on = on;
             _pattern = string.Empty;
             _regexPattern = null;
@@ -31,7 +34,8 @@ namespace Cosmos.Splitters {
             _fixedLengthMode = false;
         }
 
-        private Splitter(string pattern) {
+        private Splitter(string pattern)
+        {
             _on = new string[0];
             _pattern = pattern;
             _regexPattern = null;
@@ -40,7 +44,8 @@ namespace Cosmos.Splitters {
             _fixedLengthMode = false;
         }
 
-        private Splitter(Regex regexPattern) {
+        private Splitter(Regex regexPattern)
+        {
             _on = new string[0];
             _pattern = string.Empty;
             _regexPattern = regexPattern;
@@ -49,7 +54,8 @@ namespace Cosmos.Splitters {
             _fixedLengthMode = false;
         }
 
-        private Splitter(int fixedLength) {
+        private Splitter(int fixedLength)
+        {
             _on = new string[0];
             _pattern = string.Empty;
             _regexPattern = null;
@@ -65,7 +71,8 @@ namespace Cosmos.Splitters {
         /// 移除空字符串
         /// </summary>
         /// <returns></returns>
-        public ISplitter OmitEmptyStrings() {
+        public ISplitter OmitEmptyStrings()
+        {
             Options.SetOmitEmptyStrings();
             return this;
         }
@@ -80,7 +87,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="separator"></param>
         /// <returns></returns>
-        IMapSplitter ISplitter.WithKeyValueSeparator(string separator) {
+        IMapSplitter ISplitter.WithKeyValueSeparator(string separator)
+        {
             Options.SetMapSeparator(separator);
             return this;
         }
@@ -91,7 +99,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="separator"></param>
         /// <returns></returns>
-        IMapSplitter ISplitter.WithKeyValueSeparator(char separator) {
+        IMapSplitter ISplitter.WithKeyValueSeparator(char separator)
+        {
             Options.SetMapSeparator(separator);
             return this;
         }
@@ -105,7 +114,8 @@ namespace Cosmos.Splitters {
         /// 修整结果两端
         /// </summary>
         /// <returns></returns>
-        ISplitter ISplitter.TrimResults() {
+        ISplitter ISplitter.TrimResults()
+        {
             Options.SetTrimResults();
             return this;
         }
@@ -116,7 +126,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="trimFunc"></param>
         /// <returns></returns>
-        ISplitter ISplitter.TrimResults(Func<string, string> trimFunc) {
+        ISplitter ISplitter.TrimResults(Func<string, string> trimFunc)
+        {
             Options.SetTrimResults(trimFunc);
             return this;
         }
@@ -131,7 +142,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="limit"></param>
         /// <returns></returns>
-        ISplitter ISplitter.Limit(int limit) {
+        ISplitter ISplitter.Limit(int limit)
+        {
             Options.SetLimitLength(limit);
             return this;
         }
@@ -183,7 +195,7 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        IEnumerable<T> ISplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+        IEnumerable<T> ISplitter.Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper)
             => InternalSplitToEnumerable(originalString, s => mapper.MapTo<TMiddle, T>(serializer.Deserialize<TMiddle>(s)));
 
         /// <summary>
@@ -227,10 +239,11 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        List<T> ISplitter.SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper)
+        List<T> ISplitter.SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper)
             => ((ISplitter) this).Split<TMiddle, T>(originalString, serializer, mapper).ToList();
 
-        private IEnumerable<TValue> InternalSplitToEnumerable<TValue>(string originalString, Func<string, TValue> to) {
+        private IEnumerable<TValue> InternalSplitToEnumerable<TValue>(string originalString, Func<string, TValue> to)
+        {
             if (string.IsNullOrWhiteSpace(originalString))
                 return Enumerable.Empty<TValue>();
 
@@ -239,10 +252,12 @@ namespace Cosmos.Splitters {
                 ? SplitterUtils.SplitPatternList(Options, originalString, _pattern, _regexPattern)
                 : SplitterUtils.SplitList(Options, originalString, _on);
 
-            if (_doesUseInLimitedMode()) {
+            if (_doesUseInLimitedMode())
+            {
                 result.AddRange(SplitterUtils.OptionalRange(Options, middle), Options.LimitLength);
             }
-            else {
+            else
+            {
                 result.AddRange(SplitterUtils.OptionalRange(Options, middle));
             }
 
@@ -260,7 +275,8 @@ namespace Cosmos.Splitters {
         /// <param name="on"></param>
         /// <param name="on2"></param>
         /// <returns></returns>
-        public static ISplitter On(string on, params string[] on2) {
+        public static ISplitter On(string on, params string[] on2)
+        {
             var o = new string[(on2?.Length ?? 0) + 1];
             o[0] = on;
             if (o.Length > 1 && on2 != null && on2.Length > 0)
@@ -274,7 +290,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="pattern"></param>
         /// <returns></returns>
-        public static ISplitter On(Regex pattern) {
+        public static ISplitter On(Regex pattern)
+        {
             return new Splitter(pattern);
         }
 
@@ -284,7 +301,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="separatorPattern"></param>
         /// <returns></returns>
-        public static ISplitter OnPattern(string separatorPattern) {
+        public static ISplitter OnPattern(string separatorPattern)
+        {
             return new Splitter(separatorPattern);
         }
 
@@ -298,7 +316,8 @@ namespace Cosmos.Splitters {
         /// </summary>
         /// <param name="length"></param>
         /// <returns></returns>
-        public static IFixedLengthSplitter FixedLength(int length) {
+        public static IFixedLengthSplitter FixedLength(int length)
+        {
             if (length <= 0)
                 throw new ArgumentOutOfRangeException(nameof(length), length, "The fixedLength must be greater than zero.");
             return new Splitter(length);
@@ -308,13 +327,14 @@ namespace Cosmos.Splitters {
 
         #region Private class
 
-        private partial class SplitterOptions {
-
+        private partial class SplitterOptions
+        {
             #region OmitEmptyStrings
 
             private bool OmitEmptyStrings { get; set; }
 
-            public void SetOmitEmptyStrings() {
+            public void SetOmitEmptyStrings()
+            {
                 OmitEmptyStrings = true;
             }
 
@@ -326,7 +346,8 @@ namespace Cosmos.Splitters {
 
             public int LimitLength { get; private set; } = -1;
 
-            public void SetLimitLength(int limit) {
+            public void SetLimitLength(int limit)
+            {
                 if (limit <= 0)
                     LimitLength = -1;
                 else
@@ -341,30 +362,35 @@ namespace Cosmos.Splitters {
 
             public Func<string, string> TrimFunc { get; private set; }
 
-            public void SetTrimResults() {
+            public void SetTrimResults()
+            {
                 TrimResultsFlag = true;
                 TrimFunc = s => s.Trim();
             }
 
-            public void SetTrimResults(Func<string, string> func) {
+            public void SetTrimResults(Func<string, string> func)
+            {
                 TrimResultsFlag = true;
                 TrimFunc = func ?? (s => s.Trim());
             }
 
             #endregion
-
         }
 
-        private static partial class SplitterUtils {
-            public static IEnumerable<string> OptionalRange(SplitterOptions options, string[] middleStrings) {
+        private static partial class SplitterUtils
+        {
+            public static IEnumerable<string> OptionalRange(SplitterOptions options, string[] middleStrings)
+            {
                 return options.TrimResultsFlag ? middleStrings.Select(options.TrimFunc) : middleStrings;
             }
 
-            public static string[] SplitList(SplitterOptions options, string originalString, string[] on) {
+            public static string[] SplitList(SplitterOptions options, string originalString, string[] on)
+            {
                 return originalString.Split(on, options.GetStringSplitOptions());
             }
 
-            public static string[] SplitPatternList(SplitterOptions options, string originalString, string stringPattern, Regex regexPattern) {
+            public static string[] SplitPatternList(SplitterOptions options, string originalString, string stringPattern, Regex regexPattern)
+            {
                 return regexPattern == null
                     ? Regex.Split(originalString, stringPattern)
                     : options.LimitLength > 0
@@ -374,7 +400,5 @@ namespace Cosmos.Splitters {
         }
 
         #endregion
-
     }
-
 }

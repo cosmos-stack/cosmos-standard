@@ -2,51 +2,40 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Serialization;
 
-namespace Cosmos.Splitters {
+namespace Cosmos.Splitters
+{
     /// <summary>
-    /// Fixed length splitter interface
+    /// MapSplitter interface
     /// </summary>
-    public interface IFixedLengthSplitter {
+    public interface IMapSplitter
+    {
         /// <summary>
         /// Trim results
         /// </summary>
         /// <returns></returns>
-        IFixedLengthSplitter TrimResults();
+        IMapSplitter TrimResults();
 
         /// <summary>
         /// Trim results
         /// </summary>
-        /// <param name="trimFunc"></param>
+        /// <param name="keyTrimFunc"></param>
+        /// <param name="valueTrimFunc"></param>
         /// <returns></returns>
-        IFixedLengthSplitter TrimResults(Func<string, string> trimFunc);
+        IMapSplitter TrimResults(Func<string, string> keyTrimFunc, Func<string, string> valueTrimFunc);
 
         /// <summary>
         /// Limit
         /// </summary>
         /// <param name="limit"></param>
         /// <returns></returns>
-        IFixedLengthSplitter Limit(int limit);
-
-        /// <summary>
-        /// With KeyValue separator
-        /// </summary>
-        /// <param name="separator"></param>
-        /// <returns></returns>
-        IMapSplitter WithKeyValueSeparator(char separator);
-
-        /// <summary>
-        /// With KeyValue separator
-        /// </summary>
-        /// <param name="separator"></param>
-        /// <returns></returns>
-        IMapSplitter WithKeyValueSeparator(string separator);
+        IMapSplitter Limit(int limit);
 
         /// <summary>
         /// Split
         /// </summary>
         /// <param name="originalString"></param>
         /// <returns></returns>
-        IEnumerable<string> Split(string originalString);
+        IEnumerable<KeyValuePair<string, string>> Split(string originalString);
 
         /// <summary>
         /// Split
@@ -55,7 +44,7 @@ namespace Cosmos.Splitters {
         /// <param name="originalString"></param>
         /// <param name="serializer"></param>
         /// <returns></returns>
-        IEnumerable<T> Split<T>(string originalString, IObjectSerializer serializer);
+        IEnumerable<KeyValuePair<string, T>> Split<T>(string originalString, IObjectSerializer serializer);
 
         /// <summary>
         /// Split
@@ -64,7 +53,7 @@ namespace Cosmos.Splitters {
         /// <param name="originalString"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        IEnumerable<T> Split<T>(string originalString, ITypeConverter<string, T> converter);
+        IEnumerable<KeyValuePair<string, T>> Split<T>(string originalString, ITypeConverter<string, T> converter);
 
         /// <summary>
         /// Split
@@ -75,35 +64,35 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        IEnumerable<T> Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
+        IEnumerable<KeyValuePair<string, T>> Split<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper);
 
         /// <summary>
-        /// Split to list
+        /// Split to dictionary
         /// </summary>
         /// <param name="originalString"></param>
         /// <returns></returns>
-        List<string> SplitToList(string originalString);
+        Dictionary<string, string> SplitToDictionary(string originalString);
 
         /// <summary>
-        /// Split to list
+        /// Split to dictionary
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="originalString"></param>
         /// <param name="serializer"></param>
         /// <returns></returns>
-        List<T> SplitToList<T>(string originalString, IObjectSerializer serializer);
+        Dictionary<string, T> SplitToDictionary<T>(string originalString, IObjectSerializer serializer);
 
         /// <summary>
-        /// Split to list
+        /// Split to dictionary
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="originalString"></param>
         /// <param name="converter"></param>
         /// <returns></returns>
-        List<T> SplitToList<T>(string originalString, ITypeConverter<string, T> converter);
+        Dictionary<string, T> SplitToDictionary<T>(string originalString, ITypeConverter<string, T> converter);
 
         /// <summary>
-        /// Split to list
+        /// Split to dictionary
         /// </summary>
         /// <typeparam name="TMiddle"></typeparam>
         /// <typeparam name="T"></typeparam>
@@ -111,6 +100,6 @@ namespace Cosmos.Splitters {
         /// <param name="serializer"></param>
         /// <param name="mapper"></param>
         /// <returns></returns>
-        List<T> SplitToList<TMiddle, T>(string originalString, IObjectSerializer serializer, IObjectMapper mapper);
+        Dictionary<string, T> SplitToDictionary<TMiddle, T>(string originalString, IObjectSerializer serializer, IGenericObjectMapper mapper);
     }
 }
