@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// Disposable objects
     /// </summary>
-    public abstract class DisposableObjects : IDisposable {
+    public abstract class DisposableObjects : IDisposable
+    {
         private readonly CollectionDisposableObjects _collectionDisposableObjects;
         private readonly List<string> _disposableActionRegister;
 
         /// <summary>
         /// Create a new instance of <see cref="DisposableObjects"/>.
         /// </summary>
-        protected DisposableObjects() {
+        protected DisposableObjects()
+        {
             _collectionDisposableObjects = CollectionDisposableObjects.Create();
             _disposableActionRegister = new List<string>();
         }
@@ -23,8 +26,10 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="obj"></param>
         /// <typeparam name="TDisposableObj"></typeparam>
-        protected void AddDisposableObject<TDisposableObj>(TDisposableObj obj) where TDisposableObj : class, IDisposable {
-            if (obj != null) {
+        protected void AddDisposableObject<TDisposableObj>(TDisposableObj obj) where TDisposableObj : class, IDisposable
+        {
+            if (obj != null)
+            {
                 _collectionDisposableObjects.Add(obj);
             }
         }
@@ -33,8 +38,10 @@ namespace Cosmos.Disposables {
         /// Add a set of disposable objects
         /// </summary>
         /// <param name="objs"></param>
-        protected void AddDisposableObjects(params object[] objs) {
-            foreach (var obj in objs.Select(x => x as IDisposable).Where(o => o != null)) {
+        protected void AddDisposableObjects(params object[] objs)
+        {
+            foreach (var obj in objs.Select(x => x as IDisposable).Where(o => o != null))
+            {
                 _collectionDisposableObjects.Add(obj);
             }
         }
@@ -44,11 +51,13 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="name"></param>
         /// <param name="action"></param>
-        protected void AddDisposableAction(string name, Action action) {
+        protected void AddDisposableAction(string name, Action action)
+        {
             if (_disposableActionRegister.Contains(name))
                 return;
 
-            if (action != null) {
+            if (action != null)
+            {
                 var disposable = AnonymousDisposableObject.Create(action);
                 _collectionDisposableObjects.Add(disposable);
                 _disposableActionRegister.Add(name);
@@ -60,11 +69,13 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="name"></param>
         /// <param name="action"></param>
-        protected void AddDisposableAction(string name, DisposableAction action) {
+        protected void AddDisposableAction(string name, DisposableAction action)
+        {
             if (_disposableActionRegister.Contains(name))
                 return;
 
-            if (action != null) {
+            if (action != null)
+            {
                 var disposable = AnonymousDisposableObject.Create(action);
                 _collectionDisposableObjects.Add(disposable);
                 _disposableActionRegister.Add(name);
@@ -76,11 +87,13 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="name"></param>
         /// <param name="anonymous"></param>
-        protected void AddDisposableAction(string name, AnonymousDisposableObject anonymous) {
+        protected void AddDisposableAction(string name, AnonymousDisposableObject anonymous)
+        {
             if (_disposableActionRegister.Contains(name))
                 return;
 
-            if (anonymous != null) {
+            if (anonymous != null)
+            {
                 _collectionDisposableObjects.Add(anonymous);
                 _disposableActionRegister.Add(name);
             }
@@ -89,7 +102,8 @@ namespace Cosmos.Disposables {
         /// <summary>
         /// Dispose
         /// </summary>
-        public void Dispose() {
+        public void Dispose()
+        {
             _collectionDisposableObjects.Dispose();
         }
     }

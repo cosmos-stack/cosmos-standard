@@ -8,11 +8,13 @@
  *      MIT
  */
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// A disposable implement which does nothing when disposed.
     /// </summary>
-    public sealed class NoopDisposableObject : IDisposable {
+    public sealed class NoopDisposableObject : IDisposable
+    {
         /// <summary>
         /// Gets a <see cref="NoopDisposableObject"/> cache.
         /// </summary>

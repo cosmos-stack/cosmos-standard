@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// Generic Disable Action. <br />
     /// When the derived class of this class is disposed, the specified <see cref="Action{T}"/> will be executed.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class DisposableAction<T> : IDisposableAction, IDisposable {
+    public sealed class DisposableAction<T> : IDisposableAction, IDisposable
+    {
         private readonly Action<T> _action;
         private readonly T _context;
 
@@ -15,7 +17,8 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="action"></param>
         /// <param name="context"></param>
-        public DisposableAction(Action<T> action, T context) {
+        public DisposableAction(Action<T> action, T context)
+        {
             _action = action;
             _context = context;
         }
@@ -25,7 +28,8 @@ namespace Cosmos.Disposables {
         /// </summary>
         /// <param name="originalDisposableAction"></param>
         /// <param name="contextUpdater"></param>
-        public DisposableAction(DisposableAction<T> originalDisposableAction, Func<T, T> contextUpdater) {
+        public DisposableAction(DisposableAction<T> originalDisposableAction, Func<T, T> contextUpdater)
+        {
             _action = originalDisposableAction._action;
             _context = contextUpdater(originalDisposableAction._context);
         }
@@ -38,7 +42,8 @@ namespace Cosmos.Disposables {
         /// <summary>
         /// Dispose
         /// </summary>
-        public void Dispose() {
+        public void Dispose()
+        {
             Invoke();
         }
 

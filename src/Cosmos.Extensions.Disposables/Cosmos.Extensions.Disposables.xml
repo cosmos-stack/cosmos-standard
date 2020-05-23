@@ -243,7 +243,7 @@
         </member>
         <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose(`0)">
             <summary>
-            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose(`0)"/>
+            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose"/>
             </summary>
             <param name="context"></param>
         </member>

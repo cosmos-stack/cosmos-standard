@@ -8,11 +8,13 @@
  *      MIT
  */
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// Anonymous Disposable Object
     /// </summary>
-    public sealed class AnonymousDisposableObject : SingleDisposableObject<Action> {
+    public sealed class AnonymousDisposableObject : SingleDisposableObject<Action>
+    {
         /// <summary>
         /// Create a new <see cref="AnonymousDisposableObject"/> instance.
         /// </summary>
@@ -40,7 +42,8 @@ namespace Cosmos.Disposables {
         /// Add dispose <see cref="Action"/>.
         /// </summary>
         /// <param name="dispose"></param>
-        public void Add(Action dispose) {
+        public void Add(Action dispose)
+        {
             if (dispose == null)
                 return;
             if (!TryUpdateContext(x => x + dispose))
@@ -51,7 +54,8 @@ namespace Cosmos.Disposables {
         /// Add dispose <see cref="Action"/>.
         /// </summary>
         /// <param name="disposableAction"></param>
-        public void Add(DisposableAction disposableAction) {
+        public void Add(DisposableAction disposableAction)
+        {
             Add(disposableAction?.InternalAction);
         }
 

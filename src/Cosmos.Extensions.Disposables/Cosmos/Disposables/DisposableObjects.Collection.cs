@@ -12,11 +12,13 @@ using System.Threading;
  *      MIT
  */
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// Collection disposable objects
     /// </summary>
-    public sealed class CollectionDisposableObjects : SingleDisposableObject<ImmutableQueue<IDisposable>> {
+    public sealed class CollectionDisposableObjects : SingleDisposableObject<ImmutableQueue<IDisposable>>
+    {
         /// <summary>
         /// Count
         /// </summary>
@@ -32,7 +34,8 @@ namespace Cosmos.Disposables {
         /// Create a new instance of <see cref="CollectionDisposableObjects"/>.
         /// </summary>
         /// <param name="disposables"></param>
-        public CollectionDisposableObjects(IEnumerable<IDisposable> disposables) : base(ImmutableQueue.CreateRange(disposables)) {
+        public CollectionDisposableObjects(IEnumerable<IDisposable> disposables) : base(ImmutableQueue.CreateRange(disposables))
+        {
             Volatile.Write(ref _count, disposables?.Count() ?? 0);
         }
 
@@ -42,7 +45,8 @@ namespace Cosmos.Disposables {
         public int Count => Volatile.Read(ref _count);
 
         /// <inheritdoc />
-        protected override void Dispose(ImmutableQueue<IDisposable> context) {
+        protected override void Dispose(ImmutableQueue<IDisposable> context)
+        {
             foreach (var disposable in context)
                 disposable.Dispose();
             Volatile.Write(ref _count, 0);
@@ -52,7 +56,8 @@ namespace Cosmos.Disposables {
         /// Add
         /// </summary>
         /// <param name="disposable"></param>
-        public void Add(IDisposable disposable) {
+        public void Add(IDisposable disposable)
+        {
             if (disposable == null)
                 return;
             if (!TryUpdateContext(x => x.Enqueue(disposable)))

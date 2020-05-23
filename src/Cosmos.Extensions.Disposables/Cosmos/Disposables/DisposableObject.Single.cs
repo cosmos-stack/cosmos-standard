@@ -9,12 +9,14 @@ using System.Threading;
  *      MIT
  */
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// Single Disposable Object
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class SingleDisposableObject<T> : IDisposable {
+    public abstract class SingleDisposableObject<T> : IDisposable
+    {
         private readonly DisposableActionField<T> _context;
 
         private readonly ManualResetEventSlim _slim = new ManualResetEventSlim();
@@ -23,7 +25,8 @@ namespace Cosmos.Disposables {
         /// Create a single disposable object for such context
         /// </summary>
         /// <param name="context"></param>
-        protected SingleDisposableObject(T context) {
+        protected SingleDisposableObject(T context)
+        {
             _context = new DisposableActionField<T>(Dispose, context);
         }
 
@@ -51,17 +54,21 @@ namespace Cosmos.Disposables {
         /// <summary>
         /// Disposes this instance.
         /// </summary>
-        public void Dispose() {
+        public void Dispose()
+        {
             var context = _context.TryGetAndUnset();
-            if (context == null) {
+            if (context == null)
+            {
                 _slim.Wait();
                 return;
             }
 
-            try {
+            try
+            {
                 context.Invoke();
             }
-            finally {
+            finally
+            {
                 _slim.Set();
             }
         }
