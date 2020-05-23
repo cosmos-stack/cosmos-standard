@@ -1,4 +1,5 @@
-﻿using Shouldly;
+﻿using Cosmos.Text;
+using Shouldly;
 using Xunit;
 
 namespace Cosmos.Test.Guava.GuavaStrings {

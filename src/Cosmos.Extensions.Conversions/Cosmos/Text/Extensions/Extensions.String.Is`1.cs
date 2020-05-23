@@ -4,12 +4,13 @@ using Cosmos.Conversions;
 using Cosmos.Conversions.Core;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Text {
+namespace Cosmos.Text
+{
     /// <summary>
     /// String determiner extensions
     /// </summary>
-    public static partial class StringDeterminerExtensions {
-
+    public static partial class StringDeterminerExtensions
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -23,7 +24,8 @@ namespace Cosmos.Text {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool Is<T>(this string str, IgnoreCase ignoreCase = IgnoreCase.FALSE, Action<T> action = null,
-            string format = null, NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider formatProvider = null) where T : struct {
+            string format = null, NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider formatProvider = null) where T : struct
+        {
             return str.Is(typeof(T), ignoreCase, ValueConverter.ConvertAct(action), format, numberStyle, dateTimeStyle, formatProvider);
         }
 

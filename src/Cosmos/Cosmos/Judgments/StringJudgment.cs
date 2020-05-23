@@ -2,19 +2,21 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Judgments {
+namespace Cosmos.Judgments
+{
     /// <summary>
     /// String Judgment Utilities
     /// </summary>
-    public static class StringJudgment {
-
+    public static class StringJudgment
+    {
         /// <summary>
         /// To judge whether the string starts with the specified strings.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool StartWithThese(string str, params string[] values) {
+        public static bool StartWithThese(string str, params string[] values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
@@ -27,7 +29,8 @@ namespace Cosmos.Judgments {
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool StartWithThese(string str, ICollection<string> values) {
+        public static bool StartWithThese(string str, ICollection<string> values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || !values.Any())
                 return false;
 
@@ -40,7 +43,8 @@ namespace Cosmos.Judgments {
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool EndWithThese(string str, params string[] values) {
+        public static bool EndWithThese(string str, params string[] values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
@@ -53,7 +57,8 @@ namespace Cosmos.Judgments {
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool EndWithThese(string str, ICollection<string> values) {
+        public static bool EndWithThese(string str, ICollection<string> values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || !values.Any())
                 return false;
 

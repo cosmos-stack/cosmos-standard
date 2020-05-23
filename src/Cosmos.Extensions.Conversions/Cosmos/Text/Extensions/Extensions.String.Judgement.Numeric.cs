@@ -2,12 +2,13 @@ using Cosmos.Conversions.Determiners;
 using Cosmos.Numeric;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Text {
+namespace Cosmos.Text
+{
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StingJudgementExtensions {
-
+    public static partial class StingJudgementExtensions
+    {
         /// <summary>
         /// Is numeric
         /// </summary>

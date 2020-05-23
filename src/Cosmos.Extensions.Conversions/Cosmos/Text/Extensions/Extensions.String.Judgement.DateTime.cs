@@ -1,11 +1,13 @@
 using Cosmos.Conversions.Determiners;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Text {
+namespace Cosmos.Text
+{
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StingJudgementExtensions {
+    public static partial class StingJudgementExtensions
+    {
         /// <summary>
         /// Is DateTime
         /// </summary>
@@ -50,6 +52,5 @@ namespace Cosmos.Text {
         /// <param name="format"></param>
         /// <returns></returns>
         public static bool IsTimeSpanExact(this string str, string format) => StringTimeSpanDeterminer.Exact.Is(str, format);
-
     }
 }

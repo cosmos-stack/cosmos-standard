@@ -1,18 +1,21 @@
 ﻿using System;
 using Cosmos.Judgments;
 
-namespace Cosmos {
+namespace Cosmos
+{
     /// <summary>
     /// String arguments checking extensions
     /// </summary>
-    public static partial class PreconditionsExtensions {
+    public static partial class PreconditionsExtensions
+    {
         /// <summary>
         /// 检查字符串是否为 null、String.Empty 或 Blank
         /// </summary>
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void CheckNull(this string argument, string argumentName, string message = null) {
+        public static void CheckNull(this string argument, string argumentName, string message = null)
+        {
             AssertionJudgment.Require2Validation<ArgumentNullException>(
                 !string.IsNullOrWhiteSpace(argument),
                 argumentName, message ?? $"{nameof(argument)} can not be null or white space.");

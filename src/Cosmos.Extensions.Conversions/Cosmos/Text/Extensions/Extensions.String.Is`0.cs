@@ -6,11 +6,13 @@ using Cosmos.Conversions;
 using Cosmos.Conversions.Core;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Text {
+namespace Cosmos.Text
+{
     /// <summary>
     /// String determiner extensions
     /// </summary>
-    public static partial class StringDeterminerExtensions {
+    public static partial class StringDeterminerExtensions
+    {
         /// <summary>
         /// Is
         /// </summary>
@@ -26,8 +28,8 @@ namespace Cosmos.Text {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public static bool Is(this string s, Type type, IgnoreCase ignoreCase = IgnoreCase.FALSE, Action<object> action = null,
-            string format = null, NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider provider = null) {
-
+            string format = null, NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider provider = null)
+        {
             if (type is null)
                 throw new ArgumentNullException(nameof(type));
 
@@ -45,7 +47,8 @@ namespace Cosmos.Text {
                 || TypeIs.__ipAddressIs(s, type, action)
                 || TypeIs.__encodingIs(s, action, typeIsAssignableFromEncoding);
 
-            void __unsupportedTypeCheck(Type t, out bool flag) {
+            void __unsupportedTypeCheck(Type t, out bool flag)
+            {
                 flag = typeof(Encoding).IsAssignableFrom(t);
                 if (!t.IsValueType && !flag && t == typeof(Version) && t == typeof(IPAddress))
                     throw new ArgumentException("Unsupported type");

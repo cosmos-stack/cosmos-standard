@@ -2,11 +2,13 @@ using System;
 using Cosmos.Conversions.Determiners;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Text {
+namespace Cosmos.Text
+{
     /// <summary>
     /// String extensions
     /// </summary>
-    public static partial class StingJudgementExtensions {
+    public static partial class StingJudgementExtensions
+    {
         /// <summary>
         /// Is Enum
         /// </summary>

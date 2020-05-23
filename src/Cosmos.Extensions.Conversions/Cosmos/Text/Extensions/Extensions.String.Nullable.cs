@@ -3,11 +3,13 @@ using System.Globalization;
 using Cosmos.Conversions;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Text {
+namespace Cosmos.Text
+{
     /// <summary>
     /// String determiner extensions
     /// </summary>
-    public static partial class StringDeterminerExtensions {
+    public static partial class StringDeterminerExtensions
+    {
         /// <summary>
         /// Is nullable
         /// </summary>
@@ -29,7 +31,8 @@ namespace Cosmos.Text {
             string format = null,
             NumberStyles? numberStyle = null,
             DateTimeStyles? dateTimeStyle = null,
-            IFormatProvider provider = null) where T : struct {
+            IFormatProvider provider = null) where T : struct
+        {
             return s is null && NullableFunc()(isNullAction)
                 || Is(s, ignoreCase.X(), action, format, numberStyle, dateTimeStyle, provider);
         }
@@ -56,12 +59,14 @@ namespace Cosmos.Text {
             string format = null,
             NumberStyles? numberStyle = null,
             DateTimeStyles? dateTimeStyle = null,
-            IFormatProvider provider = null) {
+            IFormatProvider provider = null)
+        {
             return s is null && NullableFunc()(isNullAction)
                 || Is(s, type, ignoreCase.X(), action, format, numberStyle, dateTimeStyle, provider);
         }
 
-        private static Func<Action, bool> NullableFunc() => act => {
+        private static Func<Action, bool> NullableFunc() => act =>
+        {
             act?.Invoke();
             return true;
         };
