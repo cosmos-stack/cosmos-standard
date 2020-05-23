@@ -1,17 +1,20 @@
 using System;
 using System.Runtime.ExceptionServices;
 
-namespace Cosmos.Exceptions {
+namespace Cosmos.Exceptions
+{
     /// <summary>
     /// Failure
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Failure<T> : Try<T> {
+    public class Failure<T> : Try<T>
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="Failure{T}"/> class.
         /// </summary>
         /// <param name="exception">The exception to wrapp.</param>
-        internal Failure(Exception exception) {
+        internal Failure(Exception exception)
+        {
             Exception = exception ?? new ArgumentNullException(nameof(exception));
         }
 
@@ -44,7 +47,8 @@ namespace Cosmos.Exceptions {
         public override int GetHashCode() => Exception.GetHashCode();
 
         /// <inheritdoc />
-        public override void Deconstruct(out T value, out Exception exception) {
+        public override void Deconstruct(out T value, out Exception exception)
+        {
             value = default;
             exception = Exception;
         }
@@ -53,23 +57,29 @@ namespace Cosmos.Exceptions {
         public override Try<T> Recover(Func<Exception, T> recoverFunction) => RecoverWith(ex => Try.LiftValue(recoverFunction(ex)));
 
         /// <inheritdoc />
-        public override Try<T> RecoverWith(Func<Exception, Try<T>> recoverFunction) {
-            try {
+        public override Try<T> RecoverWith(Func<Exception, Try<T>> recoverFunction)
+        {
+            try
+            {
                 return recoverFunction(Exception);
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 return new Failure<T>(ex);
             }
         }
 
         /// <inheritdoc />
-        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, TResult> whenException) {
+        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, TResult> whenException)
+        {
             if (whenException is null)
                 throw new ArgumentNullException(nameof(whenException));
             return whenException(Exception);
         }
 
         /// <inheritdoc />
-        public override Try<T> Tap(Action<T> successFunction = null, Action<Exception> failureFunction = null) {
+        public override Try<T> Tap(Action<T> successFunction = null, Action<Exception> failureFunction = null)
+        {
             failureFunction?.Invoke(Exception);
             return this;
         }
