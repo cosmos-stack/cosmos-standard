@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cosmos.Judgments {
+namespace Cosmos.Judgments
+{
     /// <summary>
     /// Collection Judgment Utilities
     /// </summary>
-    public static class CollectionJudgment {
+    public static class CollectionJudgment
+    {
         /// <summary>
         /// To judge whether the collection is null or not.
         /// </summary>
@@ -19,7 +21,8 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="coll"></param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty(IEnumerable coll) {
+        public static bool IsNullOrEmpty(IEnumerable coll)
+        {
             if (coll is null)
                 return true;
 
@@ -50,7 +53,8 @@ namespace Cosmos.Judgments {
         /// <param name="leftColl"></param>
         /// <param name="rightColl"></param>
         /// <returns></returns>
-        public static bool ContainsEqualCount<T>(ICollection<T> leftColl, ICollection<T> rightColl) {
+        public static bool ContainsEqualCount<T>(ICollection<T> leftColl, ICollection<T> rightColl)
+        {
             if (leftColl is null && rightColl is null)
                 return true;
 

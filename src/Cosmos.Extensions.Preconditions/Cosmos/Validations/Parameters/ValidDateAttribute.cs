@@ -5,12 +5,14 @@ using Cosmos.Extensions;
 using Cosmos.Optionals;
 using Cosmos.Validations.Parameters.Internals;
 
-namespace Cosmos.Validations.Parameters {
+namespace Cosmos.Validations.Parameters
+{
     /// <summary>
     /// Valid date
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class ValidDateAttribute : ParameterInterceptorAttribute, IValidationParameter {
+    public class ValidDateAttribute : ParameterInterceptorAttribute, IValidationParameter
+    {
         /// <summary>
         /// Message
         /// </summary>
@@ -22,7 +24,8 @@ namespace Cosmos.Validations.Parameters {
         /// <param name="context"></param>
         /// <param name="next"></param>
         /// <returns></returns>
-        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next) {
+        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
+        {
             if (context.Parameter.IsDateTimeType())
                 context.Parameter.TryTo<DateTime?>().SafeValue().CheckValidDate(context.Parameter.Name, Message);
             return next(context);

@@ -2,15 +2,18 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Extensions;
+using Cosmos.Numeric;
 using Cosmos.Optionals;
 using Cosmos.Validations.Parameters.Internals;
 
-namespace Cosmos.Validations.Parameters {
+namespace Cosmos.Validations.Parameters
+{
     /// <summary>
     /// Not out of range
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotOutOfRangeAttribute : ParameterInterceptorAttribute, IValidationParameter {
+    public class NotOutOfRangeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    {
         /// <inheritdoc />
         public string Message { get; set; }
 
@@ -30,7 +33,8 @@ namespace Cosmos.Validations.Parameters {
         /// <param name="context"></param>
         /// <param name="next"></param>
         /// <returns></returns>
-        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next) {
+        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
+        {
             if (context.Parameter.IsIntType())
                 context.Parameter.TryTo<int?>().SafeValue().CheckOutOfRange(IntMin, IntMax, context.Parameter.Name, Message);
             else if (context.Parameter.IsLongType())

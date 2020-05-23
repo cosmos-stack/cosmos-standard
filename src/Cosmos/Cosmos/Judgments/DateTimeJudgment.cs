@@ -1,10 +1,12 @@
 ﻿using System;
 
-namespace Cosmos.Judgments {
+namespace Cosmos.Judgments
+{
     /// <summary>
     /// Datetime Judgment Utilities
     /// </summary>
-    public static class DateTimeJudgment {
+    public static class DateTimeJudgment
+    {
         /// <summary>
         /// To judge whether the day is today.
         /// </summary>
@@ -66,7 +68,8 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static bool IsValid(DateTime dt) {
+        public static bool IsValid(DateTime dt)
+        {
             var min = new DateTime(1900, 1, 1);
             var max = new DateTime(9999, 12, 31, 23, 59, 59, 999);
             return dt >= min && dt <= max;

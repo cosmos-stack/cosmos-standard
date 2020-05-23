@@ -2,24 +2,29 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Exceptions {
+namespace Cosmos.Exceptions
+{
     /// <summary>
     /// Exception extensions<br />
     /// 异常扩展
     /// </summary>
-    public static class ExceptionExtensions {
+    public static class ExceptionExtensions
+    {
         /// <summary>
         /// Unwrap<br />
         /// 解包
         /// </summary>
         /// <param name="ex"></param>
         /// <returns></returns>
-        public static Exception Unwrap(this Exception ex) {
-            if (ex is null) {
+        public static Exception Unwrap(this Exception ex)
+        {
+            if (ex is null)
+            {
                 throw new ArgumentNullException(nameof(ex));
             }
 
-            while (ex.InnerException != null) {
+            while (ex.InnerException != null)
+            {
                 ex = ex.InnerException;
             }
 
@@ -34,7 +39,8 @@ namespace Cosmos.Exceptions {
         /// <param name="untilType"></param>
         /// <param name="mayDerivedClass"></param>
         /// <returns></returns>
-        public static Exception Unwrap(this Exception ex, Type untilType, bool mayDerivedClass = true) {
+        public static Exception Unwrap(this Exception ex, Type untilType, bool mayDerivedClass = true)
+        {
             if (ex is null)
                 throw new ArgumentNullException(nameof(ex));
             if (untilType is null)
@@ -58,8 +64,9 @@ namespace Cosmos.Exceptions {
         /// <param name="ex"></param>
         /// <returns></returns>
         public static Exception Unwrap<TException>(this Exception ex)
-            where TException : Exception {
-            return ex.Unwrap(Types.Of<TException>());
+        where TException : Exception
+        {
+            return ex.Unwrap(Reflection.Types.Of<TException>());
         }
 
         /// <summary>
@@ -68,7 +75,8 @@ namespace Cosmos.Exceptions {
         /// </summary>
         /// <param name="ex"></param>
         /// <returns></returns>
-        public static string ToUnwrappedString(this Exception ex) {
+        public static string ToUnwrappedString(this Exception ex)
+        {
             return ex.Unwrap().Message;
         }
 
@@ -78,14 +86,19 @@ namespace Cosmos.Exceptions {
         /// </summary>
         /// <param name="ex"></param>
         /// <returns></returns>
-        public static string ToFullUnwrappedString(this Exception ex) {
+        public static string ToFullUnwrappedString(this Exception ex)
+        {
             var sb = new StringBuilder();
-            if (ex is CosmosException cosmosException) {
+            if (ex is CosmosException cosmosException)
+            {
                 sb.AppendLine(cosmosException.GetFullMessage());
-                if (ex.InnerException != null) {
+                if (ex.InnerException != null)
+                {
                     sb.Append(ex.InnerException.ToUnwrappedString());
                 }
-            } else {
+            }
+            else
+            {
                 sb.Append(ex.ToUnwrappedString());
             }
 

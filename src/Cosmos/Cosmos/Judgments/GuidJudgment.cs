@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Judgments {
+namespace Cosmos.Judgments
+{
     /// <summary>
     /// Guid Judgment Utilities
     /// </summary>
-    public static class GuidJudgment {
+    public static class GuidJudgment
+    {
         /// <summary>
         /// To judge whether the <see cref="Guid"/> is null or empty.
         /// </summary>

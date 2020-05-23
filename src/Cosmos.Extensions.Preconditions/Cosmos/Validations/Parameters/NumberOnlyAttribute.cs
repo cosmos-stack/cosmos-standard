@@ -1,6 +1,7 @@
 using System;
 
-namespace Cosmos.Validations.Parameters {
+namespace Cosmos.Validations.Parameters
+{
     /// <summary>
     /// Number only
     /// </summary>

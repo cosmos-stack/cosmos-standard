@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Cosmos.Judgments;
 
-namespace Cosmos {
+namespace Cosmos
+{
     /// <summary>
     /// Argument checking extensions
     /// </summary>
-    public static partial class PreconditionsExtensions {
+    public static partial class PreconditionsExtensions
+    {
         /// <summary>
         /// 检查 Guid 是否为空
         /// </summary>
@@ -63,7 +65,8 @@ namespace Cosmos {
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void CheckNull<TKey, TValue>(this KeyValuePair<TKey, TValue> argument, string argumentName, string message = null) {
+        public static void CheckNull<TKey, TValue>(this KeyValuePair<TKey, TValue> argument, string argumentName, string message = null)
+        {
             AssertionJudgment.Require2Validation<ArgumentNullException>(
                 !string.IsNullOrWhiteSpace(argument.ToString()),
                 argumentName, message ?? $"{nameof(argument)} contains nothing.");

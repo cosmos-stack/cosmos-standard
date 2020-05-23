@@ -1,19 +1,21 @@
 using System;
 
-namespace Cosmos.Validations {
+namespace Cosmos.Validations
+{
     /// <summary>
     /// Validation exception extensions.
     /// </summary>
-    public static class ValidationExceptionExtensions {
+    public static class ValidationExceptionExtensions
+    {
         /// <summary>
         /// Throw as ValidationException.
         /// </summary>
         /// <param name="exception"></param>
         /// <exception cref="ValidationException"></exception>
-        public static void ThrowAsValidationError(this ArgumentNullException exception) {
+        public static void ThrowAsValidationError(this ArgumentNullException exception)
+        {
             if (exception is null)
                 return;
-
             ValidationErrors.NullAndRaise(exception);
         }
 
@@ -21,10 +23,10 @@ namespace Cosmos.Validations {
         /// Throw as ValidationException.
         /// </summary>
         /// <param name="exception"></param>
-        public static void ThrowAsValidationError(this ArgumentOutOfRangeException exception) {
+        public static void ThrowAsValidationError(this ArgumentOutOfRangeException exception)
+        {
             if (exception is null)
                 return;
-
             ValidationErrors.OutOfRangeAndRaise(exception);
         }
 
@@ -32,10 +34,10 @@ namespace Cosmos.Validations {
         /// Throw as ValidationException.
         /// </summary>
         /// <param name="exception"></param>
-        public static void ThrowAsValidationError(this ArgumentInvalidException exception) {
+        public static void ThrowAsValidationError(this ArgumentInvalidException exception)
+        {
             if (exception is null)
                 return;
-
             ValidationErrors.InvalidAndRaise(exception);
         }
     }

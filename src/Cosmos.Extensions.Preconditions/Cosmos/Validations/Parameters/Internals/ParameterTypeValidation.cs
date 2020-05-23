@@ -1,18 +1,21 @@
 using System;
 
-namespace Cosmos.Validations.Parameters.Internals {
+namespace Cosmos.Validations.Parameters.Internals
+{
     /// <summary>
     /// Parameter type validation<br />
     /// 参数类型验证
     /// </summary>
-    public class ParameterTypeValidation : IOperationResult<bool> {
+    public class ParameterTypeValidation : IOperationResult<bool>
+    {
         /// <summary>
         /// Create a new instance of <see cref="ParameterTypeValidation"/><br />
         /// 创建一个参数类型验证实例
         /// </summary>
         /// <param name="result"></param>
         /// <param name="parameterType"></param>
-        public ParameterTypeValidation(bool result, Type parameterType) {
+        public ParameterTypeValidation(bool result, Type parameterType)
+        {
             Result = result;
             ParameterType = parameterType;
         }
@@ -32,7 +35,8 @@ namespace Cosmos.Validations.Parameters.Internals {
         /// </summary>
         /// <param name="result">被转换的参数类型验证对象</param>
         /// <returns>返回布尔值结果</returns>
-        public static implicit operator bool(ParameterTypeValidation result) {
+        public static implicit operator bool(ParameterTypeValidation result)
+        {
             return result.Result;
         }
     }

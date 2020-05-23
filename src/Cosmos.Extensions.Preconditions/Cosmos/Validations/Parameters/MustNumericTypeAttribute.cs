@@ -2,13 +2,16 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Judgments;
+using Cosmos.Reflection;
 using Cosmos.Validations.Parameters.Internals;
 
-namespace Cosmos.Validations.Parameters {
+namespace Cosmos.Validations.Parameters
+{
     /// <summary>
     /// Music numeric type
     /// </summary>
-    public class MustNumericTypeAttribute : ParameterInterceptorAttribute, IValidationParameter {
+    public class MustNumericTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    {
         /// <summary>
         /// Message
         /// </summary>
@@ -26,7 +29,8 @@ namespace Cosmos.Validations.Parameters {
         /// <param name="next"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentInvalidException"></exception>
-        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next) {
+        public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
+        {
             var condition = MayBeNullable
                 ? TypeJudgment.IsNumericType(context.Parameter.Type)
                 : TypeJudgment.IsNumericType(context.Parameter.Type) && !TypeJudgment.IsNullableType(context.Parameter.Type);

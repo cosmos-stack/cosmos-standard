@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using Cosmos.Exceptions;
 
-namespace Cosmos.Validations {
+namespace Cosmos.Validations
+{
     /// <summary>
     /// Validation exception
     /// </summary>
     [Serializable]
-    public class ValidationException : CosmosException {
+    public class ValidationException : CosmosException
+    {
         private const string ValidationFlag = "__VALID_FLG";
         private const string ValidationMessageInfoKey = "__VALIDATION_MESSAGES";
         private readonly IEnumerable<string> _validationMessage = Enumerable.Empty<string>();
@@ -17,7 +20,8 @@ namespace Cosmos.Validations {
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
         /// </summary>
-        public ValidationException() {
+        public ValidationException()
+        {
             Flag = ValidationFlag;
         }
 
@@ -53,7 +57,8 @@ namespace Cosmos.Validations {
         /// Create a new instance of <see cref="ValidationException"/>.
         /// </summary>
         /// <param name="validationMessage"></param>
-        public ValidationException(IEnumerable<string> validationMessage) : base(string.Empty, ValidationFlag) {
+        public ValidationException(IEnumerable<string> validationMessage) : base(string.Empty, ValidationFlag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -62,7 +67,8 @@ namespace Cosmos.Validations {
         /// </summary>
         /// <param name="validationMessage"></param>
         /// <param name="flag"></param>
-        public ValidationException(IEnumerable<string> validationMessage, string flag) : base(string.Empty, flag) {
+        public ValidationException(IEnumerable<string> validationMessage, string flag) : base(string.Empty, flag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -71,7 +77,8 @@ namespace Cosmos.Validations {
         /// </summary>
         /// <param name="message"></param>
         /// <param name="validationMessage"></param>
-        public ValidationException(string message, IEnumerable<string> validationMessage) : base(message, ValidationFlag) {
+        public ValidationException(string message, IEnumerable<string> validationMessage) : base(message, ValidationFlag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -81,7 +88,8 @@ namespace Cosmos.Validations {
         /// <param name="message"></param>
         /// <param name="validationMessage"></param>
         /// <param name="flag"></param>
-        public ValidationException(string message, IEnumerable<string> validationMessage, string flag) : base(message, flag) {
+        public ValidationException(string message, IEnumerable<string> validationMessage, string flag) : base(message, flag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -122,7 +130,8 @@ namespace Cosmos.Validations {
         /// </summary>
         /// <param name="errorCode"></param>
         /// <param name="validationMessage"></param>
-        public ValidationException(long errorCode, IEnumerable<string> validationMessage) : base(errorCode, string.Empty, ValidationFlag) {
+        public ValidationException(long errorCode, IEnumerable<string> validationMessage) : base(errorCode, string.Empty, ValidationFlag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -132,7 +141,8 @@ namespace Cosmos.Validations {
         /// <param name="errorCode"></param>
         /// <param name="validationMessage"></param>
         /// <param name="flag"></param>
-        public ValidationException(long errorCode, IEnumerable<string> validationMessage, string flag) : base(errorCode, string.Empty, flag) {
+        public ValidationException(long errorCode, IEnumerable<string> validationMessage, string flag) : base(errorCode, string.Empty, flag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -142,7 +152,8 @@ namespace Cosmos.Validations {
         /// <param name="errorCode"></param>
         /// <param name="message"></param>
         /// <param name="validationMessage"></param>
-        public ValidationException(long errorCode, string message, IEnumerable<string> validationMessage) : base(errorCode, message, ValidationFlag) {
+        public ValidationException(long errorCode, string message, IEnumerable<string> validationMessage) : base(errorCode, message, ValidationFlag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -153,7 +164,8 @@ namespace Cosmos.Validations {
         /// <param name="message"></param>
         /// <param name="validationMessage"></param>
         /// <param name="flag"></param>
-        public ValidationException(long errorCode, string message, IEnumerable<string> validationMessage, string flag) : base(errorCode, message, flag) {
+        public ValidationException(long errorCode, string message, IEnumerable<string> validationMessage, string flag) : base(errorCode, message, flag)
+        {
             _validationMessage = validationMessage ?? throw new ArgumentNullException(nameof(validationMessage));
         }
 
@@ -162,7 +174,8 @@ namespace Cosmos.Validations {
         /// </summary>
         /// <param name="info"></param>
         /// <param name="streamingContext"></param>
-        protected ValidationException(SerializationInfo info, StreamingContext streamingContext) : base(info, streamingContext) {
+        protected ValidationException(SerializationInfo info, StreamingContext streamingContext) : base(info, streamingContext)
+        {
             _validationMessage = (IEnumerable<string>) info.GetValue(ValidationMessageInfoKey, typeof(IEnumerable<string>));
             Flag = ValidationFlag;
         }
@@ -171,13 +184,15 @@ namespace Cosmos.Validations {
         /// Create a new instance of <see cref="ValidationException"/>.
         /// </summary>
         /// <param name="options"></param>
-        public ValidationException(CosmosExceptionOptions options) : base(options) {
+        public ValidationException(CosmosExceptionOptions options) : base(options)
+        {
             if (options != null && options.ExtraErrors.TryGetValue(ValidationMessageInfoKey, out var value) && value is IEnumerable<string> messages)
                 _validationMessage = messages;
         }
 
         /// <inheritdoc />
-        public override void GetObjectData(SerializationInfo info, StreamingContext streamingContext) {
+        public override void GetObjectData(SerializationInfo info, StreamingContext streamingContext)
+        {
             base.GetObjectData(info, streamingContext);
             info.AddValue(ValidationMessageInfoKey, _validationMessage);
         }
@@ -191,15 +206,19 @@ namespace Cosmos.Validations {
         public override string GetFullMessage() => ToString();
 
         /// <inheritdoc />
-        public override string ToString() {
+        public override string ToString()
+        {
             var sb = new StringBuilder();
 
-            if (Message != null) {
+            if (Message != null)
+            {
                 sb.Append(Message);
             }
 
-            if (ValidationMessage != null) {
-                foreach (var message in ValidationMessage) {
+            if (ValidationMessage != null)
+            {
+                foreach (var message in ValidationMessage)
+                {
                     sb.AppendLine();
                     sb.Append("  ");
                     sb.Append(message);
