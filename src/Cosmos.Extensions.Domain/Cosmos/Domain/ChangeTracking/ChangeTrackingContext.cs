@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Cosmos.Conversions;
 using Cosmos.Domain.Core;
+using Cosmos.Expressions;
 using Cosmos.Optionals;
+using Cosmos.Reflection;
 
-namespace Cosmos.Domain.ChangeTracking {
+namespace Cosmos.Domain.ChangeTracking
+{
     /// <summary>
     /// Change tracking context
     /// </summary>
-    public sealed class ChangeTrackingContext {
+    public sealed class ChangeTrackingContext
+    {
         private readonly ChangedValueDescriptorCollection _changedValueCollection;
 
         /// <summary>
         /// Create a new instance of <see cref="ChangeTrackingContext"/>.
         /// </summary>
-        public ChangeTrackingContext() {
+        public ChangeTrackingContext()
+        {
             _changedValueCollection = new ChangedValueDescriptorCollection();
         }
 
@@ -23,8 +29,9 @@ namespace Cosmos.Domain.ChangeTracking {
         /// Create a new instance of <see cref="ChangeTrackingContext"/>.
         /// </summary>
         /// <param name="collection"></param>
-        public ChangeTrackingContext(ChangedValueDescriptorCollection collection) {
-            _changedValueCollection = collection == null
+        public ChangeTrackingContext(ChangedValueDescriptorCollection collection)
+        {
+            _changedValueCollection = collection is null
                 ? new ChangedValueDescriptorCollection()
                 : new ChangedValueDescriptorCollection(collection);
         }
@@ -38,7 +45,8 @@ namespace Cosmos.Domain.ChangeTracking {
         /// <param name="valueAfterChange"></param>
         /// <typeparam name="TValue"></typeparam>
         public void Add<TValue>(string propertyName, string description, TValue valueBeforeChange,
-            TValue valueAfterChange) {
+            TValue valueAfterChange)
+        {
             if (Equals(valueBeforeChange, valueAfterChange))
                 return;
 
@@ -57,7 +65,8 @@ namespace Cosmos.Domain.ChangeTracking {
         /// <param name="rightObj"></param>
         /// <typeparam name="TObject"></typeparam>
         public void Add<TObject>(IChangeTrackable<TObject> leftObj, TObject rightObj)
-            where TObject : IDomainObject {
+        where TObject : IDomainObject
+        {
             if (Equals(leftObj, null))
                 return;
             if (Equals(rightObj, null))
@@ -75,7 +84,8 @@ namespace Cosmos.Domain.ChangeTracking {
         /// <typeparam name="TProperty"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         public void Add<TObject, TProperty, TValue>(Expression<Func<TObject, TProperty>> expression, TValue newValue)
-            where TObject : IDomainObject {
+        where TObject : IDomainObject
+        {
             var name = Lambdas.GetName(expression);
             var desc = Reflections.GetDescription(Lambdas.GetMember(expression));
             var value = Lambdas.GetValue(expression);
@@ -89,7 +99,8 @@ namespace Cosmos.Domain.ChangeTracking {
         /// <param name="rightObjs"></param>
         /// <typeparam name="TObject"></typeparam>
         public void Add<TObject>(IEnumerable<IChangeTrackable<TObject>> leftObjs, IEnumerable<TObject> rightObjs)
-            where TObject : IDomainObject {
+        where TObject : IDomainObject
+        {
             if (Equals(leftObjs, null))
                 return;
             if (Equals(rightObjs, null))
@@ -110,36 +121,31 @@ namespace Cosmos.Domain.ChangeTracking {
         /// Populate
         /// </summary>
         /// <param name="collection"></param>
-        public void Populate(ChangedValueDescriptorCollection collection) {
+        public void Populate(ChangedValueDescriptorCollection collection) =>
             _changedValueCollection.Populate(collection);
-        }
 
         /// <summary>
         /// Flush cache
         /// </summary>
-        public void FlushCache() {
+        public void FlushCache() =>
             _changedValueCollection.FlushCache();
-        }
 
         /// <summary>
         /// Get changed value descriptor
         /// </summary>
         /// <returns></returns>
-        public ChangedValueDescriptorCollection GetChangedValueDescriptor() {
-            return _changedValueCollection;
-        }
+        public ChangedValueDescriptorCollection GetChangedValueDescriptor() =>
+            _changedValueCollection;
 
         /// <summary>
         /// Output
         /// </summary>
         /// <returns></returns>
-        public string Output() {
-            return _changedValueCollection.ToString();
-        }
+        public string Output() =>
+            _changedValueCollection.ToString();
 
         /// <inheritdoc />
-        public override string ToString() {
-            return Output();
-        }
+        public override string ToString() =>
+            Output();
     }
 }

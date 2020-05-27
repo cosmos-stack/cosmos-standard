@@ -11,17 +11,19 @@
         <PackageId>Cosmos.Standard</PackageId>
         <Description>Cosmos standard library</Description>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.DateTime\Cosmos.Extensions.DateTime.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Domain\Cosmos.Extensions.Domain.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.PowerCucumber\Cosmos.Extensions.PowerCucumber.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Preconditions\Cosmos.Extensions.Preconditions.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj" />
-        <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
         <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
     </ItemGroup>
-    
+
 </Project>

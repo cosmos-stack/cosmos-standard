@@ -1,4 +1,5 @@
 ﻿using Cosmos.Judgments;
+using Cosmos.Numeric;
 using Xunit;
 
 namespace Cosmos.Test.Judgements

@@ -1,10 +1,12 @@
 using System.Runtime.Serialization;
 
-namespace System {
+namespace System
+{
     /// <summary>
     /// The exception that is thrown when a invalid parameter is passed to a method that does not accept it as a valid argument.
     /// </summary>
-    public class ArgumentInvalidException : ArgumentException {
+    public class ArgumentInvalidException : ArgumentException
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.ArgumentInvalidException"></see> class.
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Shouldly;
 using Xunit;
-using Splitter = Cosmos.Splitters.Splitter;
+using Cosmos.Splitters;
 
 namespace Cosmos.Test.Guava.GuavaSplitter {
     public class FixedLengthSplitterTests {

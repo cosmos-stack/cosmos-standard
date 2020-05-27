@@ -18,7 +18,7 @@
 
     <ItemGroup Condition="'$(TargetFramework)'!='net451'">
         <PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
-        <PackageReference Include="FluentValidation" Version="9.0.0-preview4" />
+        <PackageReference Include="FluentValidation" Version="9.0.0-preview5" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='net451'">
@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.PowerCucumber\Cosmos.Extensions.PowerCucumber.csproj" />
     </ItemGroup>
 
 </Project>

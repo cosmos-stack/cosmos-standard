@@ -1,10 +1,12 @@
 using System;
 
-namespace Cosmos.Domain.EntityDescriptors {
+namespace Cosmos.Domain.EntityDescriptors
+{
     /// <summary>
     /// Interface for updating audited
     /// </summary>
-    public interface IUpdatingAudited {
+    public interface IUpdatingAudited
+    {
         /// <summary>
         /// Last updated time
         /// </summary>

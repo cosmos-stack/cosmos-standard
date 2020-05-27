@@ -1,11 +1,12 @@
 ﻿using Cosmos.Conversions.Determiners;
 
-namespace Cosmos.Numeric {
+namespace Cosmos.Numeric
+{
     /// <summary>
     /// Numeric Judgment Utilities
     /// </summary>
-    public static class NumericJudgment {
-
+    public static class NumericJudgment
+    {
         /// <summary>
         /// To judge whether the string is short or not.
         /// </summary>

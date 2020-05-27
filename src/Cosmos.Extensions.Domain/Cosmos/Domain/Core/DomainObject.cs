@@ -5,13 +5,15 @@ using Cosmos.Domain.ChangeTracking;
 using Cosmos.Validations;
 using Cosmos.Validations.Abstractions;
 
-namespace Cosmos.Domain.Core {
+namespace Cosmos.Domain.Core
+{
     /// <summary>
     /// Domain object
     /// </summary>
     /// <typeparam name="TObject"></typeparam>
     public abstract class DomainObject<TObject> : IDomainObject, IValidatable<TObject>, IChangeTrackable<TObject>
-        where TObject : class, IDomainObject, IValidatable<TObject> {
+    where TObject : class, IDomainObject, IValidatable<TObject>
+    {
         private readonly ValidationContext<TObject> _validationContext;
         private readonly DescriptionContext _descriptionContext;
         private readonly ChangeTrackingContext _changeTrackingContext;
@@ -19,7 +21,8 @@ namespace Cosmos.Domain.Core {
         /// <summary>
         /// Create a new instance of <see cref="DomainObject{T}"/>.
         /// </summary>
-        protected DomainObject() {
+        protected DomainObject()
+        {
             _validationContext = new ValidationContext<TObject>(AssignableType(this));
             _descriptionContext = new DescriptionContext();
             _changeTrackingContext = new ChangeTrackingContext();
@@ -28,22 +31,26 @@ namespace Cosmos.Domain.Core {
         #region Validation
 
         /// <inheritdoc />
-        public void SetValidateHandler(IValidationHandler handler) {
+        public void SetValidateHandler(IValidationHandler handler)
+        {
             _validationContext.SetHandler(op => op.HandleAll(handler));
         }
 
         /// <inheritdoc />
-        public void AddStrategy(IValidateStrategy<TObject> strategy) {
+        public void AddStrategy(IValidateStrategy<TObject> strategy)
+        {
             _validationContext.AddStrategy(strategy);
         }
 
         /// <inheritdoc />
-        public void AddStrategyList(IEnumerable<IValidateStrategy<TObject>> strategies) {
+        public void AddStrategyList(IEnumerable<IValidateStrategy<TObject>> strategies)
+        {
             _validationContext.AddStrategyList(strategies);
         }
 
         /// <inheritdoc />
-        public ValidationResultCollection Validate() {
+        public ValidationResultCollection Validate()
+        {
             _validationContext.Validate();
             return _validationContext.GetValidationResultCollection();
         }
@@ -65,7 +72,8 @@ namespace Cosmos.Domain.Core {
         /// <param name="newValue"></param>
         /// <typeparam name="TProperty"></typeparam>
         /// <typeparam name="TValue"></typeparam>
-        protected void AddChange<TProperty, TValue>(Expression<Func<TObject, TProperty>> expression, TValue newValue) {
+        protected void AddChange<TProperty, TValue>(Expression<Func<TObject, TProperty>> expression, TValue newValue)
+        {
             _changeTrackingContext.Add(expression, newValue);
         }
 
@@ -78,7 +86,8 @@ namespace Cosmos.Domain.Core {
         /// <param name="valueAfterChange"></param>
         /// <typeparam name="TValue"></typeparam>
         protected void AddChange<TValue>(string propertyName, string description, TValue valueBeforeChange,
-            TValue valueAfterChange) {
+            TValue valueAfterChange)
+        {
             _changeTrackingContext.Add(propertyName, description, valueBeforeChange, valueAfterChange);
         }
 
@@ -87,7 +96,8 @@ namespace Cosmos.Domain.Core {
         /// </summary>
         /// <param name="objectBeforeChangeTrackable"></param>
         /// <param name="objectAfterChange"></param>
-        protected void AddChange(IChangeTrackable<TObject> objectBeforeChangeTrackable, TObject objectAfterChange) {
+        protected void AddChange(IChangeTrackable<TObject> objectBeforeChangeTrackable, TObject objectAfterChange)
+        {
             _changeTrackingContext.Add(objectBeforeChangeTrackable, objectAfterChange);
         }
 
@@ -96,7 +106,8 @@ namespace Cosmos.Domain.Core {
         /// </summary>
         /// <param name="leftObjs"></param>
         /// <param name="rightObjs"></param>
-        protected void AddChange(IEnumerable<IChangeTrackable<TObject>> leftObjs, IEnumerable<TObject> rightObjs) {
+        protected void AddChange(IEnumerable<IChangeTrackable<TObject>> leftObjs, IEnumerable<TObject> rightObjs)
+        {
             _changeTrackingContext.Add(leftObjs, rightObjs);
         }
 
@@ -105,7 +116,8 @@ namespace Cosmos.Domain.Core {
         /// </summary>
         /// <param name="newObj"></param>
         /// <returns></returns>
-        public ChangedValueDescriptorCollection GetChanges(TObject newObj) {
+        public ChangedValueDescriptorCollection GetChanges(TObject newObj)
+        {
             _changeTrackingContext.FlushCache();
             if (Equals(newObj, null))
                 return _changeTrackingContext.GetChangedValueDescriptor();
@@ -126,7 +138,8 @@ namespace Cosmos.Domain.Core {
         /// Add description
         /// </summary>
         /// <param name="description"></param>
-        protected void AddDescription(string description) {
+        protected void AddDescription(string description)
+        {
             _descriptionContext.Add(description);
         }
 
@@ -136,7 +149,8 @@ namespace Cosmos.Domain.Core {
         /// <param name="name"></param>
         /// <param name="value"></param>
         /// <typeparam name="TValue"></typeparam>
-        protected void AddDescription<TValue>(string name, TValue value) {
+        protected void AddDescription<TValue>(string name, TValue value)
+        {
             _descriptionContext.Add(name, value);
         }
 
@@ -149,7 +163,8 @@ namespace Cosmos.Domain.Core {
         #endregion
 
         /// <inheritdoc />
-        public override string ToString() {
+        public override string ToString()
+        {
             _descriptionContext.FlushCache();
             AddDescription();
             return _descriptionContext.Output();

@@ -1,6 +1,7 @@
 ﻿using System;
 
-namespace Cosmos.Domain {
+namespace Cosmos.Domain
+{
     /// <summary>
     /// Entity map ignore scanning
     /// </summary>

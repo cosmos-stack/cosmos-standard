@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Exceptions;
 using Xunit;
 
 namespace Cosmos.Test {

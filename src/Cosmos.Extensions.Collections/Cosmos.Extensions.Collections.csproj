@@ -13,8 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.1.0" />
-        <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
+        <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.2.1" />
     </ItemGroup>
 
     <ItemGroup>
