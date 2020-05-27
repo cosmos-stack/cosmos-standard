@@ -1,11 +1,13 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optionals extensions
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// Return a safe <see cref="Guid"/> value.<br />
         /// 获取安全的 Guid 类型

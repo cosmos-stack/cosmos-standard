@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using Cosmos.Optionals.DynamicOptionals;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Dynamic maybe
     /// </summary>
-    public readonly struct DynamicMaybe : IDynamicOptional {
+    public readonly struct DynamicMaybe : IDynamicOptional
+    {
         private readonly DynamicOptionalObject _dynamicOptionalObject;
 
-        internal DynamicMaybe(DynamicOptionalObject optionalObject) {
+        internal DynamicMaybe(DynamicOptionalObject optionalObject)
+        {
             _dynamicOptionalObject = optionalObject ?? throw new ArgumentNullException(nameof(optionalObject));
         }
 
@@ -45,7 +48,8 @@ namespace Cosmos.Optionals {
         /// To enumerable
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Maybe<dynamic>> ToEnumerable() {
+        public IEnumerable<Maybe<dynamic>> ToEnumerable()
+        {
             foreach (var item in _dynamicOptionalObject)
                 yield return new NamedOptionalBuilder.NamedOptionalLevel1Builder<dynamic>(item.Value, item.Key).Build();
         }
@@ -54,7 +58,8 @@ namespace Cosmos.Optionals {
         /// Get enumrtator
         /// </summary>
         /// <returns></returns>
-        public IEnumerator<Maybe<dynamic>> GetEnumerator() {
+        public IEnumerator<Maybe<dynamic>> GetEnumerator()
+        {
             foreach (var item in _dynamicOptionalObject)
                 yield return new NamedOptionalBuilder.NamedOptionalLevel1Builder<dynamic>(item.Value, item.Key).Build();
         }
@@ -64,12 +69,14 @@ namespace Cosmos.Optionals {
         #region Contains / Exists
 
         /// <inheritdoc />
-        public bool Contains(string key) {
+        public bool Contains(string key)
+        {
             return _dynamicOptionalObject.Contains(key);
         }
 
         /// <inheritdoc />
-        public bool Exists(Func<string, bool> predicate) {
+        public bool Exists(Func<string, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return _dynamicOptionalObject.Exists(predicate);
@@ -80,12 +87,14 @@ namespace Cosmos.Optionals {
         #region Value or
 
         /// <inheritdoc />
-        public dynamic ValueOr(string key, dynamic alternative) {
+        public dynamic ValueOr(string key, dynamic alternative)
+        {
             return Contains(key) ? _dynamicOptionalObject[key] : alternative;
         }
 
         /// <inheritdoc />
-        public dynamic ValueOr(string key, Func<dynamic> alternativeFactory) {
+        public dynamic ValueOr(string key, Func<dynamic> alternativeFactory)
+        {
             if (alternativeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeFactory));
             return Contains(key) ? _dynamicOptionalObject[key] : alternativeFactory();
@@ -96,24 +105,28 @@ namespace Cosmos.Optionals {
         #region Or / Else
 
         /// <inheritdoc />
-        public Maybe<dynamic> Or(string key, dynamic alternative) {
+        public Maybe<dynamic> Or(string key, dynamic alternative)
+        {
             return Contains(key) ? this[key] : Optional.Some(alternative);
         }
 
         /// <inheritdoc />
-        public Maybe<dynamic> Or(string key, Func<dynamic> alternativeFactory) {
+        public Maybe<dynamic> Or(string key, Func<dynamic> alternativeFactory)
+        {
             if (alternativeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeFactory));
             return Contains(key) ? this[key] : Optional.Some(alternativeFactory());
         }
 
         /// <inheritdoc />
-        public Maybe<dynamic> Else(string key, Maybe<dynamic> alternativeMaybe) {
+        public Maybe<dynamic> Else(string key, Maybe<dynamic> alternativeMaybe)
+        {
             return Contains(key) ? this[key] : alternativeMaybe;
         }
 
         /// <inheritdoc />
-        public Maybe<dynamic> Else(string key, Func<Maybe<dynamic>> alternativeMaybeFactory) {
+        public Maybe<dynamic> Else(string key, Func<Maybe<dynamic>> alternativeMaybeFactory)
+        {
             if (alternativeMaybeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeMaybeFactory));
             return Contains(key) ? this[key] : alternativeMaybeFactory();
@@ -141,7 +154,8 @@ namespace Cosmos.Optionals {
         #region Join
 
         /// <inheritdoc />
-        public DynamicMaybe Join(dynamic value, string key) {
+        public DynamicMaybe Join(dynamic value, string key)
+        {
             return DynamicOptionalBuilder.Returns(_dynamicOptionalObject).SilenceMay(value, key).Build();
         }
 
@@ -155,7 +169,8 @@ namespace Cosmos.Optionals {
         /// <param name="predicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public DynamicMaybe Where(Func<string, dynamic, bool> predicate) {
+        public DynamicMaybe Where(Func<string, dynamic, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             var dictionary = Filter(_dynamicOptionalObject, predicate).ToDictionary(k => k.Key, v => v.Value);
@@ -169,7 +184,8 @@ namespace Cosmos.Optionals {
         /// <param name="predicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public DynamicMaybe Where(Func<dynamic, bool> predicate) {
+        public DynamicMaybe Where(Func<dynamic, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             var dictionary = Filter(_dynamicOptionalObject, predicate).ToDictionary(k => k.Key, v => v.Value);
@@ -177,15 +193,19 @@ namespace Cosmos.Optionals {
             return DynamicOptionalBuilder.Returns(dictionary, queueLikeList).Build();
         }
 
-        private static IEnumerable<KeyValuePair<string, dynamic>> Filter(DynamicOptionalObject dynamicOptionalObject, Func<string, dynamic, bool> predicate) {
-            foreach (var pair in dynamicOptionalObject) {
+        private static IEnumerable<KeyValuePair<string, dynamic>> Filter(DynamicOptionalObject dynamicOptionalObject, Func<string, dynamic, bool> predicate)
+        {
+            foreach (var pair in dynamicOptionalObject)
+            {
                 if (predicate.Invoke(pair.Key, pair.Value))
                     yield return pair;
             }
         }
 
-        private static IEnumerable<KeyValuePair<string, dynamic>> Filter(DynamicOptionalObject dynamicOptionalObject, Func<dynamic, bool> predicate) {
-            foreach (var pair in dynamicOptionalObject) {
+        private static IEnumerable<KeyValuePair<string, dynamic>> Filter(DynamicOptionalObject dynamicOptionalObject, Func<dynamic, bool> predicate)
+        {
+            foreach (var pair in dynamicOptionalObject)
+            {
                 if (predicate.Invoke(pair.Value))
                     yield return pair;
             }
@@ -198,7 +218,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public IEnumerable<T> Select<T>(Func<string, dynamic, T> selector) {
+        public IEnumerable<T> Select<T>(Func<string, dynamic, T> selector)
+        {
             if (selector is null)
                 throw new ArgumentNullException(nameof(selector));
             foreach (var pair in _dynamicOptionalObject)
@@ -209,7 +230,8 @@ namespace Cosmos.Optionals {
         /// To Dictionary
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, dynamic> ToDictionary() {
+        public IDictionary<string, dynamic> ToDictionary()
+        {
             var result = new Dictionary<string, dynamic>();
             foreach (var pair in _dynamicOptionalObject)
                 result.Add(pair.Key, pair.Value);
@@ -221,13 +243,15 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <returns></returns>
         // ReSharper disable once InconsistentNaming
-        public IDictionary<T, V> ToDictionary<T, V>(Func<KeyValuePair<string, dynamic>, T> keySelector, Func<KeyValuePair<string, dynamic>, V> valueSelector) {
+        public IDictionary<T, V> ToDictionary<T, V>(Func<KeyValuePair<string, dynamic>, T> keySelector, Func<KeyValuePair<string, dynamic>, V> valueSelector)
+        {
             if (keySelector is null)
                 throw new ArgumentNullException(nameof(keySelector));
             if (valueSelector is null)
                 throw new ArgumentNullException(nameof(valueSelector));
             var result = new Dictionary<T, V>();
-            foreach (var pair in _dynamicOptionalObject) {
+            foreach (var pair in _dynamicOptionalObject)
+            {
                 var key = keySelector(pair);
                 var value = valueSelector(pair);
                 result.Add(key, value);
@@ -237,6 +261,5 @@ namespace Cosmos.Optionals {
         }
 
         #endregion
-
     }
 }

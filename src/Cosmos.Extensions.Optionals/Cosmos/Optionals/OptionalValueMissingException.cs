@@ -1,10 +1,12 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optional value missing exception
     /// </summary>
-    public class OptionalValueMissingException : CosmosException {
+    public class OptionalValueMissingException : CosmosException
+    {
         // ReSharper disable once InconsistentNaming
         private const string FLAG = "OPTIONAL_VAL_MISSING_FLG";
 

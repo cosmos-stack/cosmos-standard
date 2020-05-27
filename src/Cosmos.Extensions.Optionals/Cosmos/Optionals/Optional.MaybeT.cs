@@ -1,9 +1,10 @@
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optional utilities
     /// </summary>
-    public static partial class Optional {
-
+    public static partial class Optional
+    {
         #region From
 
         /// <summary>
@@ -355,6 +356,5 @@ namespace Cosmos.Optionals {
             => new Maybe<T1, T2, T3, T4, T5, T6, T7>(default, default, default, default, default, default, default, false);
 
         #endregion
-
     }
 }

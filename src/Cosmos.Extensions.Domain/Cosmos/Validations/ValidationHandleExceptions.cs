@@ -2,17 +2,20 @@
 using System.Linq;
 using Cosmos.Validations.Abstractions;
 
-namespace Cosmos.Validations {
+namespace Cosmos.Validations
+{
     /// <summary>
     /// Validation handler exceptions
     /// </summary>
-    public static class ValidationHandleExceptions {
+    public static class ValidationHandleExceptions
+    {
         /// <summary>
         /// Handle
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        public static ValidationHandleOperation Handle(this ValidationResultCollection collection) {
+        public static ValidationHandleOperation Handle(this ValidationResultCollection collection)
+        {
             return new ValidationHandleOperation(collection);
         }
 
@@ -23,7 +26,8 @@ namespace Cosmos.Validations {
         /// <param name="handler"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static ValidationHandleOperation HandleAll(this ValidationHandleOperation op, IValidationHandler handler) {
+        public static ValidationHandleOperation HandleAll(this ValidationHandleOperation op, IValidationHandler handler)
+        {
             if (op == null)
                 throw new ArgumentNullException(nameof(op));
             if (handler == null)
@@ -41,7 +45,8 @@ namespace Cosmos.Validations {
         /// <param name="handler"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static ValidationHandleOperation HandleForSuccess(this ValidationHandleOperation op, IValidationHandler handler) {
+        public static ValidationHandleOperation HandleForSuccess(this ValidationHandleOperation op, IValidationHandler handler)
+        {
             if (op == null)
                 throw new ArgumentNullException(nameof(op));
             if (handler == null)
@@ -59,7 +64,8 @@ namespace Cosmos.Validations {
         /// <param name="handler"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static ValidationHandleOperation HandleForFailure(this ValidationHandleOperation op, IValidationHandler handler) {
+        public static ValidationHandleOperation HandleForFailure(this ValidationHandleOperation op, IValidationHandler handler)
+        {
             if (op == null)
                 throw new ArgumentNullException(nameof(op));
             if (handler == null)
@@ -78,7 +84,8 @@ namespace Cosmos.Validations {
         /// <param name="handler"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static ValidationHandleOperation HandleForStrategy(this ValidationHandleOperation op, string name, IValidationHandler handler) {
+        public static ValidationHandleOperation HandleForStrategy(this ValidationHandleOperation op, string name, IValidationHandler handler)
+        {
             if (op == null)
                 throw new ArgumentNullException(nameof(op));
             if (handler == null)

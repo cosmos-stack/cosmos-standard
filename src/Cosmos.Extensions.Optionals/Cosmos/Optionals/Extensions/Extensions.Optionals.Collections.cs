@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Extensions for collections
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// Flattens a sequence of maybe into a sequence containing all inner values.
         /// Empty elements are discarded.
@@ -15,7 +17,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> MapValues<T>(this IEnumerable<Maybe<T>> source) {
+        public static IEnumerable<T> MapValues<T>(this IEnumerable<Maybe<T>> source)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             foreach (var maybe in source)
@@ -32,7 +35,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> MapValues<T, TException>(this IEnumerable<Either<T, TException>> source) {
+        public static IEnumerable<T> MapValues<T, TException>(this IEnumerable<Either<T, TException>> source)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             foreach (var either in source)
@@ -49,7 +53,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<TException> MapExceptions<T, TException>(this IEnumerable<Either<T, TException>> source) {
+        public static IEnumerable<TException> MapExceptions<T, TException>(this IEnumerable<Either<T, TException>> source)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             foreach (var either in source)
@@ -69,7 +74,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IOptional<T> FindOrNone<TKey, T>(this IEnumerable<KeyValuePair<TKey, T>> source, TKey key, OptionalType type = OptionalType.ReferenceType) {
+        public static IOptional<T> FindOrNone<TKey, T>(this IEnumerable<KeyValuePair<TKey, T>> source, TKey key, OptionalType type = OptionalType.ReferenceType)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (source is IDictionary<TKey, T> dictionary)
@@ -77,8 +83,8 @@ namespace Cosmos.Optionals {
             if (source is IReadOnlyDictionary<TKey, T> readOnlyDictionary)
                 return readOnlyDictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type);
             return source
-                  .FirstOrNone(pair => EqualityComparer<TKey>.Default.Equals(pair.Key, key))
-                  .Map(pair => pair.Value);
+               .FirstOrNone(pair => EqualityComparer<TKey>.Default.Equals(pair.Key, key))
+               .Map(pair => pair.Value);
         }
 
         /// <summary>
@@ -88,17 +94,24 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> FirstOrNone<T>(this IEnumerable<T> source) {
+        public static Maybe<T> FirstOrNone<T>(this IEnumerable<T> source)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (source is IList<T> list) {
+            if (source is IList<T> list)
+            {
                 if (list.Count > 0)
                     return list[0].ToMaybe();
-            } else if (source is IReadOnlyList<T> readOnlyList) {
+            }
+            else if (source is IReadOnlyList<T> readOnlyList)
+            {
                 if (readOnlyList.Count > 0)
                     return readOnlyList[0].ToMaybe();
-            } else {
-                using (var enumerator = source.GetEnumerator()) {
+            }
+            else
+            {
+                using (var enumerator = source.GetEnumerator())
+                {
                     if (enumerator.MoveNext())
                         return enumerator.Current.ToMaybe();
                 }
@@ -116,12 +129,14 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> FirstOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate) {
+        public static Maybe<T> FirstOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
-            foreach (var element in source) {
+            foreach (var element in source)
+            {
                 if (predicate(element))
                     return element.ToMaybe();
             }
@@ -136,24 +151,34 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> LastOrNone<T>(this IEnumerable<T> source) {
+        public static Maybe<T> LastOrNone<T>(this IEnumerable<T> source)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (source is IList<T> list) {
+            if (source is IList<T> list)
+            {
                 var count = list.Count;
                 if (count > 0)
                     return list[count].ToMaybe();
-            } else if (source is IReadOnlyList<T> readOnlyList) {
+            }
+            else if (source is IReadOnlyList<T> readOnlyList)
+            {
                 var count = readOnlyList.Count;
                 if (count > 0)
                     return readOnlyList[count].ToMaybe();
-            } else {
-                using (var enumerator = source.GetEnumerator()) {
-                    if (enumerator.MoveNext()) {
+            }
+            else
+            {
+                using (var enumerator = source.GetEnumerator())
+                {
+                    if (enumerator.MoveNext())
+                    {
                         T t;
-                        do {
+                        do
+                        {
                             t = enumerator.Current;
-                        } while (enumerator.MoveNext());
+                        }
+                        while (enumerator.MoveNext());
 
                         return t.ToMaybe();
                     }
@@ -172,31 +197,44 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> LastOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate) {
+        public static Maybe<T> LastOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
-            if (source is IList<T> list) {
-                for (var i = list.Count - 1; i >= 0; --i) {
+            if (source is IList<T> list)
+            {
+                for (var i = list.Count - 1; i >= 0; --i)
+                {
                     var result = list[i];
                     if (predicate(result))
                         return result.ToMaybe();
                 }
-            } else if (source is IReadOnlyList<T> readOnlyList) {
-                for (var i = readOnlyList.Count - 1; i >= 0; --i) {
+            }
+            else if (source is IReadOnlyList<T> readOnlyList)
+            {
+                for (var i = readOnlyList.Count - 1; i >= 0; --i)
+                {
                     var result = readOnlyList[i];
                     if (predicate(result))
                         return result.ToMaybe();
                 }
-            } else {
-                using (var enumerator = source.GetEnumerator()) {
-                    if (enumerator.MoveNext()) {
+            }
+            else
+            {
+                using (var enumerator = source.GetEnumerator())
+                {
+                    if (enumerator.MoveNext())
+                    {
                         var result = enumerator.Current;
-                        if (predicate(result)) {
-                            while (enumerator.MoveNext()) {
+                        if (predicate(result))
+                        {
+                            while (enumerator.MoveNext())
+                            {
                                 var element = enumerator.Current;
-                                if (predicate(element)) {
+                                if (predicate(element))
+                                {
                                     result = element;
                                 }
                             }
@@ -218,21 +256,30 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> SingleOrNone<T>(this IEnumerable<T> source) {
+        public static Maybe<T> SingleOrNone<T>(this IEnumerable<T> source)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (source is IList<T> list) {
-                switch (list.Count) {
+            if (source is IList<T> list)
+            {
+                switch (list.Count)
+                {
                     case 0: return Optional.None<T>();
                     case 1: return list[0].ToMaybe();
                 }
-            } else if (source is IReadOnlyList<T> readOnlyList) {
-                switch (readOnlyList.Count) {
+            }
+            else if (source is IReadOnlyList<T> readOnlyList)
+            {
+                switch (readOnlyList.Count)
+                {
                     case 0: return Optional.None<T>();
                     case 1: return readOnlyList[0].ToMaybe();
                 }
-            } else {
-                using (var enumerator = source.GetEnumerator()) {
+            }
+            else
+            {
+                using (var enumerator = source.GetEnumerator())
+                {
                     if (!enumerator.MoveNext())
                         return Optional.None<T>();
                     var result = enumerator.Current;
@@ -253,16 +300,21 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> SingleOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate) {
+        public static Maybe<T> SingleOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
-            using (var enumerator = source.GetEnumerator()) {
-                while (enumerator.MoveNext()) {
+            using (var enumerator = source.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
                     var result = enumerator.Current;
-                    if (predicate(result)) {
-                        while (enumerator.MoveNext()) {
+                    if (predicate(result))
+                    {
+                        while (enumerator.MoveNext())
+                        {
                             if (predicate(enumerator.Current))
                                 return Optional.None<T>();
                         }
@@ -283,22 +335,34 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> ElementAtOrNone<T>(this IEnumerable<T> source, int index) {
+        public static Maybe<T> ElementAtOrNone<T>(this IEnumerable<T> source, int index)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (index >= 0) {
-                if (source is IList<T> list) {
-                    if (index < list.Count) {
+            if (index >= 0)
+            {
+                if (source is IList<T> list)
+                {
+                    if (index < list.Count)
+                    {
                         return list[index].ToMaybe();
                     }
-                } else if (source is IReadOnlyList<T> readOnlyList) {
-                    if (index < readOnlyList.Count) {
+                }
+                else if (source is IReadOnlyList<T> readOnlyList)
+                {
+                    if (index < readOnlyList.Count)
+                    {
                         return readOnlyList[index].ToMaybe();
                     }
-                } else {
-                    using (var enumerator = source.GetEnumerator()) {
-                        while (enumerator.MoveNext()) {
-                            if (index == 0) {
+                }
+                else
+                {
+                    using (var enumerator = source.GetEnumerator())
+                    {
+                        while (enumerator.MoveNext())
+                        {
+                            if (index == 0)
+                            {
                                 return enumerator.Current.ToMaybe();
                             }
 

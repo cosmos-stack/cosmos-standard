@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace Cosmos.Validations.Abstractions {
+namespace Cosmos.Validations.Abstractions
+{
     /// <summary>
     /// Interface for validator
     /// </summary>
@@ -11,7 +12,8 @@ namespace Cosmos.Validations.Abstractions {
     /// </summary>
     /// <typeparam name="TObject"></typeparam>
     public interface IValidator<out TObject> : IValidator
-        where TObject : class, IValidatable {
+    where TObject : class, IValidatable
+    {
         /// <summary>
         /// Validate
         /// </summary>

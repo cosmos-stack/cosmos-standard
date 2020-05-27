@@ -1,11 +1,13 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Unsafe extensions for optional
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// Convert <see cref="Maybe{T}"/> to nullable version of <typeparamref name="T"/><br />
         /// 将指定的 <see cref="Maybe{T}"/> 转换为可空版本。
@@ -34,8 +36,10 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="OptionalValueMissingException"></exception>
-        public static T ValueOrFailure<T>(this Maybe<T> option) {
-            if (option.HasValue) {
+        public static T ValueOrFailure<T>(this Maybe<T> option)
+        {
+            if (option.HasValue)
+            {
                 return option.Value;
             }
 
@@ -73,8 +77,10 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="OptionalValueMissingException"></exception>
-        public static T ValueOrFailure<T, TException>(this Either<T, TException> option) {
-            if (option.HasValue) {
+        public static T ValueOrFailure<T, TException>(this Either<T, TException> option)
+        {
+            if (option.HasValue)
+            {
                 return option.Value;
             }
 
@@ -90,8 +96,10 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="OptionalValueMissingException"></exception>
-        public static T ValueOrFailure<T>(this Maybe<T> option, string errorMessage) {
-            if (option.HasValue) {
+        public static T ValueOrFailure<T>(this Maybe<T> option, string errorMessage)
+        {
+            if (option.HasValue)
+            {
                 return option.Value;
             }
 
@@ -108,11 +116,13 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="OptionalValueMissingException"></exception>
-        public static T ValueOrFailure<T>(this Maybe<T> option, Func<string> errorMessageFactory) {
+        public static T ValueOrFailure<T>(this Maybe<T> option, Func<string> errorMessageFactory)
+        {
             if (errorMessageFactory is null)
                 throw new ArgumentNullException(nameof(errorMessageFactory));
 
-            if (option.HasValue) {
+            if (option.HasValue)
+            {
                 return option.Value;
             }
 
@@ -129,8 +139,10 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="OptionalValueMissingException"></exception>
-        public static T ValueOrFailure<T, TException>(this Either<T, TException> option, string errorMessage) {
-            if (option.HasValue) {
+        public static T ValueOrFailure<T, TException>(this Either<T, TException> option, string errorMessage)
+        {
+            if (option.HasValue)
+            {
                 return option.Value;
             }
 
@@ -148,12 +160,15 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="OptionalValueMissingException"></exception>
-        public static T ValueOrFailure<T, TException>(this Either<T, TException> option, Func<TException, string> errorMessageFactory) {
-            if (errorMessageFactory is null) {
+        public static T ValueOrFailure<T, TException>(this Either<T, TException> option, Func<TException, string> errorMessageFactory)
+        {
+            if (errorMessageFactory is null)
+            {
                 throw new ArgumentNullException(nameof(errorMessageFactory));
             }
 
-            if (option.HasValue) {
+            if (option.HasValue)
+            {
                 return option.Value;
             }
 

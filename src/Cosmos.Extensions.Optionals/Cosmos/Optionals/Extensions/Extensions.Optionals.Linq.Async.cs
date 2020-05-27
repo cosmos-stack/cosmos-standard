@@ -2,11 +2,13 @@ using System;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Extensions for linq
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// Select
         /// </summary>
@@ -16,7 +18,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Task<Maybe<TResult>> Select<TSource, TResult>(this Task<Maybe<TSource>> source, Func<TSource, TResult> selector) {
+        public static Task<Maybe<TResult>> Select<TSource, TResult>(this Task<Maybe<TSource>> source, Func<TSource, TResult> selector)
+        {
             if (source is null) throw new ArgumentNullException(nameof(source));
             if (selector is null) throw new ArgumentNullException(nameof(selector));
             return source.MapAsync(selector);
@@ -31,7 +34,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Task<Maybe<TResult>> SelectMany<TSource, TResult>(this Task<Maybe<TSource>> source, Func<TSource, Task<Maybe<TResult>>> selector) {
+        public static Task<Maybe<TResult>> SelectMany<TSource, TResult>(this Task<Maybe<TSource>> source, Func<TSource, Task<Maybe<TResult>>> selector)
+        {
             if (source is null) throw new ArgumentNullException(nameof(source));
             if (selector is null) throw new ArgumentNullException(nameof(selector));
             return source.FlatMapAsync(selector);
@@ -51,7 +55,8 @@ namespace Cosmos.Optionals {
         public static Task<Maybe<TResult>> SelectMany<TSource, TCollection, TResult>(
             this Task<Maybe<TSource>> source,
             Func<TSource, Task<Maybe<TCollection>>> collectionSelector,
-            Func<TSource, TCollection, TResult> resultSelector) {
+            Func<TSource, TCollection, TResult> resultSelector)
+        {
             if (source is null) throw new ArgumentNullException(nameof(source));
             if (collectionSelector is null) throw new ArgumentNullException(nameof(collectionSelector));
             if (resultSelector is null) throw new ArgumentNullException(nameof(resultSelector));
@@ -66,7 +71,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Task<Maybe<TSource>> Where<TSource>(this Task<Maybe<TSource>> source, Func<TSource, bool> predicate) {
+        public static Task<Maybe<TSource>> Where<TSource>(this Task<Maybe<TSource>> source, Func<TSource, bool> predicate)
+        {
             if (source is null) throw new ArgumentNullException(nameof(source));
             if (predicate is null) throw new ArgumentNullException(nameof(predicate));
             return source.FilterAsync(predicate);
@@ -82,7 +88,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Task<Either<TResult, TException>> Select<TSource, TException, TResult>(this Task<Either<TSource, TException>> source, Func<TSource, TResult> selector) {
+        public static Task<Either<TResult, TException>> Select<TSource, TException, TResult>(this Task<Either<TSource, TException>> source, Func<TSource, TResult> selector)
+        {
             if (source is null) throw new ArgumentNullException(nameof(source));
             if (selector is null) throw new ArgumentNullException(nameof(selector));
             return source.MapAsync(selector);
@@ -100,7 +107,8 @@ namespace Cosmos.Optionals {
         /// <exception cref="ArgumentNullException"></exception>
         public static Task<Either<TResult, TException>> SelectMany<TSource, TException, TResult>(
             this Task<Either<TSource, TException>> source,
-            Func<TSource, Task<Either<TResult, TException>>> selector) {
+            Func<TSource, Task<Either<TResult, TException>>> selector)
+        {
             if (source is null) throw new ArgumentNullException(nameof(source));
             if (selector is null) throw new ArgumentNullException(nameof(selector));
             return source.FlatMapAsync(selector);
@@ -121,7 +129,8 @@ namespace Cosmos.Optionals {
         public static Task<Either<TResult, TException>> SelectMany<TSource, TException, TCollection, TResult>(
             this Task<Either<TSource, TException>> source,
             Func<TSource, Task<Either<TCollection, TException>>> collectionSelector,
-            Func<TSource, TCollection, TResult> resultSelector) {
+            Func<TSource, TCollection, TResult> resultSelector)
+        {
             if (source is null) throw new ArgumentNullException(nameof(source));
             if (collectionSelector is null) throw new ArgumentNullException(nameof(collectionSelector));
             if (resultSelector is null) throw new ArgumentNullException(nameof(resultSelector));

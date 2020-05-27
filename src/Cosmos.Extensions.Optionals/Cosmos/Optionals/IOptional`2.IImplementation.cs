@@ -1,6 +1,7 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Interface for optional
     /// </summary>
@@ -9,7 +10,8 @@ namespace Cosmos.Optionals {
     /// <typeparam name="TException"></typeparam>
     public interface IOptionalImpl<T, TException, TImpl> : IOptional<T, TException>,
                                                            IEquatable<T>,
-                                                           IComparable<T> {
+                                                           IComparable<T>
+    {
         /// <summary>
         /// Or
         /// </summary>

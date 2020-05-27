@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using Cosmos.Validations.Abstractions;
 using FluentValidation.Results;
 
-namespace Cosmos.Validations {
+namespace Cosmos.Validations
+{
     /// <summary>
     /// Validation handle operation
     /// </summary>
-    public sealed class ValidationHandleOperation {
+    public sealed class ValidationHandleOperation
+    {
         private readonly ValidationResultCollection _collection;
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationHandleOperation"/>.
         /// </summary>
         /// <param name="collection"></param>
-        public ValidationHandleOperation(ValidationResultCollection collection) {
+        public ValidationHandleOperation(ValidationResultCollection collection)
+        {
             _collection = collection ?? throw new ArgumentNullException(nameof(collection));
         }
 
-        internal void Handle(IValidationHandler handler, Action<IEnumerable<ValidationResult>> filterFunc = null) {
+        internal void Handle(IValidationHandler handler, Action<IEnumerable<ValidationResult>> filterFunc = null)
+        {
             if (handler == null)
                 throw new ArgumentNullException(nameof(handler));
             var coll = filterFunc == null ? _collection : _collection.Filter(filterFunc);
@@ -29,7 +33,8 @@ namespace Cosmos.Validations {
             handler.Handle(coll);
         }
 
-        internal void Handle(IValidationHandler handler, string strategyName) {
+        internal void Handle(IValidationHandler handler, string strategyName)
+        {
             if (handler == null)
                 throw new ArgumentNullException(nameof(handler));
             var coll = _collection.Filter(strategyName);
@@ -46,7 +51,8 @@ namespace Cosmos.Validations {
         /// <param name="appendAction"></param>
         /// <typeparam name="TException"></typeparam>
         public void RaiseException<TException>(Action<TException, ValidationResultCollection> appendAction = null)
-            where TException : CosmosException, new() {
+        where TException : CosmosException, new()
+        {
             _collection.RaiseException(appendAction);
         }
     }

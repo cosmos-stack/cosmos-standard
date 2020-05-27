@@ -1,8 +1,10 @@
-namespace Cosmos.Optionals.NamedOptionals {
+namespace Cosmos.Optionals.NamedOptionals
+{
     /// <summary>
     /// Interface for named optional builder
     /// </summary>
-    public interface INamedOptionalBuilder {
+    public interface INamedOptionalBuilder
+    {
         /// <summary>
         /// May
         /// </summary>

@@ -1,10 +1,12 @@
 // ReSharper disable once CheckNamespace
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Extensions for string
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// None if empty
         /// </summary>

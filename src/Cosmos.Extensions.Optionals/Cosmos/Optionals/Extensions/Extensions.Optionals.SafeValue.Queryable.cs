@@ -4,11 +4,13 @@ using System.Linq;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optionals extensions
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// Return a safe <see cref="IQueryable{T}"/> value.<br />
         /// 安全获得 <see cref="IQueryable{T}"/> 集合
@@ -46,6 +48,5 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         public static IQueryable SafeQueryable(this IEnumerable enumerable) =>
             enumerable.AsQueryable().SafeQueryable();
-
     }
 }

@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Cosmos.Optionals.DynamicOptionals;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Dynamic optional builder
     /// </summary>
-    public class DynamicOptionalBuilder : IDynamicOptionalBuilder {
+    public class DynamicOptionalBuilder : IDynamicOptionalBuilder
+    {
         private readonly Dictionary<string, dynamic> _dynamicDictionary;
         private readonly List<string> _queueLikeList;
         private object _dynamicLockObj = new object();
 
-        private DynamicOptionalBuilder() {
+        private DynamicOptionalBuilder()
+        {
             _dynamicDictionary = new Dictionary<string, dynamic>();
             _queueLikeList = new List<string>();
         }
 
-        private DynamicOptionalBuilder(DynamicOptionalObject dynamicOptionalObject) {
+        private DynamicOptionalBuilder(DynamicOptionalObject dynamicOptionalObject)
+        {
 #if NET451 || NET461 || NETSTANDARD2_0
             _dynamicDictionary = new Dictionary<string, dynamic>();
-            foreach (var pair in dynamicOptionalObject) {
+            foreach (var pair in dynamicOptionalObject)
+            {
                 _dynamicDictionary.Add(pair.Key, pair.Value);
             }
 #else
@@ -41,10 +46,12 @@ namespace Cosmos.Optionals {
             Returns(new DynamicOptionalObject(dynamicDictionary, queueLikeList));
 
         /// <inheritdoc />
-        public IDynamicOptionalBuilder May(dynamic value, string key) {
+        public IDynamicOptionalBuilder May(dynamic value, string key)
+        {
             if (string.IsNullOrWhiteSpace(key))
                 throw new ArgumentNullException(nameof(key));
-            lock (_dynamicLockObj) {
+            lock (_dynamicLockObj)
+            {
                 if (_queueLikeList.Contains(key))
                     throw new InvalidOperationException("Key has been repeated in the dictionary.");
                 _queueLikeList.Add(key);
@@ -55,13 +62,18 @@ namespace Cosmos.Optionals {
         }
 
         /// <inheritdoc />
-        public IDynamicOptionalBuilder SilenceMay(dynamic value, string key) {
+        public IDynamicOptionalBuilder SilenceMay(dynamic value, string key)
+        {
             if (string.IsNullOrWhiteSpace(key))
                 throw new ArgumentNullException(nameof(key));
-            lock (_dynamicLockObj) {
-                if (_queueLikeList.Contains(key)) {
+            lock (_dynamicLockObj)
+            {
+                if (_queueLikeList.Contains(key))
+                {
                     _dynamicDictionary[key] = value;
-                } else {
+                }
+                else
+                {
                     _queueLikeList.Add(key);
                     _dynamicDictionary.Add(key, value);
                 }
@@ -75,7 +87,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <returns></returns>
         [SuppressMessage("ReSharper", "InconsistentlySynchronizedField")]
-        public DynamicMaybe Build() {
+        public DynamicMaybe Build()
+        {
             var dynamicObj = new DynamicOptionalObject(_dynamicDictionary, _queueLikeList);
 
             return new DynamicMaybe(dynamicObj);

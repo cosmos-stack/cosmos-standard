@@ -1,10 +1,12 @@
 ﻿using FluentValidation.Results;
 
-namespace Cosmos.Validations.Abstractions {
+namespace Cosmos.Validations.Abstractions
+{
     /// <summary>
     /// Interface for validate strategy
     /// </summary>
-    public interface IValidateStrategy {
+    public interface IValidateStrategy
+    {
         /// <summary>
         /// Strategy Name
         /// </summary>
@@ -16,7 +18,8 @@ namespace Cosmos.Validations.Abstractions {
     /// </summary>
     /// <typeparam name="TObject"></typeparam>
     public interface IValidateStrategy<in TObject> : IValidateStrategy
-        where TObject : class, IValidatable {
+    where TObject : class, IValidatable
+    {
         /// <summary>
         /// Validate
         /// </summary>

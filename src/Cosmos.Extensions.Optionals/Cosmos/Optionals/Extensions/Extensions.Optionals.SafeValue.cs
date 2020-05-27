@@ -1,11 +1,13 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optionals extensions
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// Return a safe value<br />
         /// 安全返回值
@@ -31,7 +33,7 @@ namespace Cosmos.Optionals {
         /// <param name="string"></param>
         /// <returns></returns>
         public static string SafeValue(this string @string) => (@string ?? string.Empty).Trim();
-        
+
         /// <summary>
         /// Return a safe <see cref="Encoding"/> value.<br />
         /// 返回一个 <see cref="Encoding"/> 安全值。

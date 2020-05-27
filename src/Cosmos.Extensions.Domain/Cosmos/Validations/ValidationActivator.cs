@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using Cosmos.Validations.Abstractions;
 
-namespace Cosmos.Validations {
+namespace Cosmos.Validations
+{
     /// <summary>
     /// Validate activator
     /// </summary>
-    public static class ValidationActivator {
+    public static class ValidationActivator
+    {
         /// <summary>
         /// Validate
         /// </summary>
@@ -13,7 +15,8 @@ namespace Cosmos.Validations {
         /// <typeparam name="TObject"></typeparam>
         /// <returns></returns>
         public static ValidationResultCollection Validate<TObject>(TObject instance)
-            where TObject : class, IValidatable<TObject> {
+        where TObject : class, IValidatable<TObject>
+        {
             return instance.Validate();
         }
 
@@ -26,7 +29,8 @@ namespace Cosmos.Validations {
         /// <returns></returns>
         public static ValidationResultCollection Validate<TObject>(TObject instance,
             IValidateStrategy<TObject> strategy)
-            where TObject : class, IValidatable<TObject> {
+        where TObject : class, IValidatable<TObject>
+        {
             instance.AddStrategy(strategy);
             return instance.Validate();
         }
@@ -41,7 +45,8 @@ namespace Cosmos.Validations {
         /// <returns></returns>
         public static ValidationResultCollection Validate<TObject>(TObject instance,
             IValidateStrategy<TObject> strategy, IValidationHandler handler)
-            where TObject : class, IValidatable<TObject> {
+        where TObject : class, IValidatable<TObject>
+        {
             instance.AddStrategy(strategy);
             instance.SetValidateHandler(handler);
             return instance.Validate();
@@ -56,7 +61,8 @@ namespace Cosmos.Validations {
         /// <returns></returns>
         public static ValidationResultCollection Validate<TObject>(TObject instance,
             IEnumerable<IValidateStrategy<TObject>> strategies)
-            where TObject : class, IValidatable<TObject> {
+        where TObject : class, IValidatable<TObject>
+        {
             instance.AddStrategyList(strategies);
             return instance.Validate();
         }
@@ -71,7 +77,8 @@ namespace Cosmos.Validations {
         /// <returns></returns>
         public static ValidationResultCollection Validate<TObject>(TObject instance,
             IEnumerable<IValidateStrategy<TObject>> strategies, IValidationHandler handler)
-            where TObject : class, IValidatable<TObject> {
+        where TObject : class, IValidatable<TObject>
+        {
             instance.AddStrategyList(strategies);
             instance.SetValidateHandler(handler);
             return instance.Validate();

@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Extensions for Dictionary
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// TryGetValue wrapper with option types.
         /// It returns Some of the value when a value for the give key is present

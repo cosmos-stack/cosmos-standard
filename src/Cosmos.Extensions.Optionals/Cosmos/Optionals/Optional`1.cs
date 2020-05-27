@@ -1,13 +1,14 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Base optional for Some and None.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TImpl"></typeparam>
-    public abstract class Optional<T, TImpl> : IOptionalImpl<T, TImpl> {
-
+    public abstract class Optional<T, TImpl> : IOptionalImpl<T, TImpl>
+    {
         /// <summary>
         /// Internal Maybe instance
         /// </summary>
@@ -20,7 +21,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="value"></param>
         /// <param name="hasValue"></param>
-        protected Optional(T value, bool hasValue) {
+        protected Optional(T value, bool hasValue)
+        {
             Internal = new Maybe<T>(value, hasValue);
         }
 
@@ -28,7 +30,8 @@ namespace Cosmos.Optionals {
         /// Create a new instance of <see cref="Optional{T, TImpl}"/>.
         /// </summary>
         /// <param name="internal"></param>
-        protected Optional(Maybe<T> @internal) {
+        protected Optional(Maybe<T> @internal)
+        {
             Internal = @internal;
         }
 
@@ -36,8 +39,8 @@ namespace Cosmos.Optionals {
         public virtual bool HasValue => Internal.HasValue;
 
         /// <inheritdoc />
-        public virtual T Value => Internal.Value; 
-        
+        public virtual T Value => Internal.Value;
+
         /// <inheritdoc />
         public string Key => Internal.Key;
 

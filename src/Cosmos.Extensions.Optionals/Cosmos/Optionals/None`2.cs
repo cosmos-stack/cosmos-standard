@@ -1,6 +1,7 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// None
     /// </summary>
@@ -8,13 +9,15 @@ namespace Cosmos.Optionals {
     /// <typeparam name="TException"></typeparam>
     public sealed class None<T, TException> : Optional<T, TException, None<T, TException>>,
                                               IEquatable<None<T, TException>>,
-                                              IComparable<None<T, TException>> {
+                                              IComparable<None<T, TException>>
+    {
         internal None(TException exception) : base(default, exception, false) { }
 
         #region Equals
 
         /// <inheritdoc />
-        public override bool Equals(T other) {
+        public override bool Equals(T other)
+        {
             if (other is null)
                 return true;
             return Either.Equals(other);
@@ -25,7 +28,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public override bool Equals(None<T, TException> other) {
+        public override bool Equals(None<T, TException> other)
+        {
             if (other is null)
                 return false;
             return Either.Equals(other.Either);
@@ -36,7 +40,8 @@ namespace Cosmos.Optionals {
         #region CompareTo
 
         /// <inheritdoc />
-        public override int CompareTo(T other) {
+        public override int CompareTo(T other)
+        {
             if (other is null)
                 return 0;
             return Either.CompareTo(other);
@@ -47,7 +52,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public override int CompareTo(None<T, TException> other) {
+        public override int CompareTo(None<T, TException> other)
+        {
             if (other is null)
                 return 1;
             return Either.CompareTo(other.Either);
@@ -62,7 +68,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="some"></param>
         /// <returns></returns>
-        public static implicit operator Maybe<T>(None<T, TException> some) {
+        public static implicit operator Maybe<T>(None<T, TException> some)
+        {
             return some.WithoutException();
         }
 
@@ -71,7 +78,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="some"></param>
         /// <returns></returns>
-        public static implicit operator None<T>(None<T, TException> some) {
+        public static implicit operator None<T>(None<T, TException> some)
+        {
             return some.WithoutException().ToWrappedNone();
         }
 
@@ -124,6 +132,5 @@ namespace Cosmos.Optionals {
         public override None<T, TException> NotNull(Func<TException> exceptionFactory) => default;
 
         #endregion
-
     }
 }

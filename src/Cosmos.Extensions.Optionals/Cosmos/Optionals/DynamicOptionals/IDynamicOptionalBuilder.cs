@@ -1,8 +1,10 @@
-namespace Cosmos.Optionals.DynamicOptionals {
+namespace Cosmos.Optionals.DynamicOptionals
+{
     /// <summary>
     /// Interface for dynamic optional builder
     /// </summary>
-    public interface IDynamicOptionalBuilder {
+    public interface IDynamicOptionalBuilder
+    {
         /// <summary>
         /// May
         /// </summary>

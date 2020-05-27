@@ -1,8 +1,10 @@
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Interface for optional
     /// </summary>
-    public interface IOptional {
+    public interface IOptional
+    {
         /// <summary>
         /// Key
         /// </summary>

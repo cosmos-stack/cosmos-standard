@@ -5,11 +5,13 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 
-namespace Cosmos.Optionals.DynamicOptionals {
+namespace Cosmos.Optionals.DynamicOptionals
+{
     /// <summary>
     /// Dynamic optional object
     /// </summary>
-    internal class DynamicOptionalObject {
+    internal class DynamicOptionalObject
+    {
         private readonly Dictionary<string, dynamic> _dynamicDictionary;
         private readonly IList<string> _queueLikeList;
 
@@ -18,11 +20,15 @@ namespace Cosmos.Optionals.DynamicOptionals {
         /// </summary>
         /// <param name="dynamicDictionary"></param>
         /// <param name="queueLikeList"></param>
-        public DynamicOptionalObject(IDictionary<string, dynamic> dynamicDictionary, IEnumerable<string> queueLikeList) {
-            if (dynamicDictionary != null) {
+        public DynamicOptionalObject(IDictionary<string, dynamic> dynamicDictionary, IEnumerable<string> queueLikeList)
+        {
+            if (dynamicDictionary != null)
+            {
                 _dynamicDictionary = new Dictionary<string, dynamic>(dynamicDictionary);
                 _queueLikeList = new List<string>(queueLikeList);
-            } else {
+            }
+            else
+            {
                 _dynamicDictionary = new Dictionary<string, dynamic>();
                 _queueLikeList = new List<string>();
             }
@@ -43,8 +49,10 @@ namespace Cosmos.Optionals.DynamicOptionals {
         /// </summary>
         /// <param name="index"></param>
         /// <exception cref="IndexOutOfRangeException"></exception>
-        public dynamic this[int index] {
-            get {
+        public dynamic this[int index]
+        {
+            get
+            {
                 if (index < 0 || index >= _queueLikeList.Count)
                     throw new IndexOutOfRangeException($"Index value {index} is out of range.");
                 return this[_queueLikeList[index]];
@@ -65,9 +73,11 @@ namespace Cosmos.Optionals.DynamicOptionals {
         /// Get dynamic object
         /// </summary>
         /// <returns></returns>
-        public dynamic GetDynamicObject() {
+        public dynamic GetDynamicObject()
+        {
             dynamic dynamicObject = new ExpandoObject();
-            foreach (var item in _dynamicDictionary) {
+            foreach (var item in _dynamicDictionary)
+            {
                 dynamicObject[item.Key] = item.Value;
             }
 
@@ -82,7 +92,8 @@ namespace Cosmos.Optionals.DynamicOptionals {
         /// To enumerable
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<KeyValuePair<string, dynamic>> ToEnumerable() {
+        public IEnumerable<KeyValuePair<string, dynamic>> ToEnumerable()
+        {
             return _dynamicDictionary;
         }
 
@@ -90,7 +101,8 @@ namespace Cosmos.Optionals.DynamicOptionals {
         /// Get enumrtator
         /// </summary>
         /// <returns></returns>
-        public IEnumerator<KeyValuePair<string, dynamic>> GetEnumerator() {
+        public IEnumerator<KeyValuePair<string, dynamic>> GetEnumerator()
+        {
             return _dynamicDictionary.GetEnumerator();
         }
 
@@ -103,7 +115,8 @@ namespace Cosmos.Optionals.DynamicOptionals {
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public bool Contains(string key) {
+        public bool Contains(string key)
+        {
             return _queueLikeList.Contains(key) && _dynamicDictionary.ContainsKey(key);
         }
 
@@ -113,7 +126,8 @@ namespace Cosmos.Optionals.DynamicOptionals {
         /// <param name="predicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public bool Exists(Func<string, bool> predicate) {
+        public bool Exists(Func<string, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return _queueLikeList.Any(predicate) && _dynamicDictionary.Keys.Any(predicate);
@@ -123,10 +137,13 @@ namespace Cosmos.Optionals.DynamicOptionals {
 
         #region Keys / Values
 
-        public string Key {
-            get {
+        public string Key
+        {
+            get
+            {
                 var sb = new StringBuilder();
-                foreach (var key in Keys) {
+                foreach (var key in Keys)
+                {
                     sb.Append($"{key}-");
                 }
 
@@ -145,6 +162,5 @@ namespace Cosmos.Optionals.DynamicOptionals {
         public IEnumerable<dynamic> Values => new ReadOnlyCollection<dynamic>(_dynamicDictionary.Values.ToList());
 
         #endregion
-
     }
 }

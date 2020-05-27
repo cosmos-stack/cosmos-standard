@@ -1,12 +1,13 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Extensions for optional
     /// </summary>
-    public static class OptionalExtensions {
-
+    public static class OptionalExtensions
+    {
         #region Maybe
 
         /// <summary>
@@ -38,7 +39,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static IOptional<T> Some<T>(this T value,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             return type == OptionalType.ReferenceType
                 ? Optional.Wrapped.Some(value)
                 : Optional.Some(value) as IOptional<T>;
@@ -54,7 +56,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T> Some<T>(this T value, Func<T, bool> predicate,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return predicate(value) ? value.Some(type) : value.None(type);
@@ -69,7 +72,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static IOptional<T, TException> Some<T, TException>(this T value,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             return type == OptionalType.ReferenceType
                 ? Optional.Wrapped.Some<T, TException>(value)
                 : Optional.Some<T, TException>(value) as IOptional<T, TException>;
@@ -87,7 +91,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> Some<T, TException>(this T value, Func<T, bool> predicate, TException exception,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return predicate(value) ? value.Some<T, TException>(type) : value.None(exception, type);
@@ -105,7 +110,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> Some<T, TException>(this T value, Func<T, bool> predicate, Func<TException> exceptionFactory,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             if (exceptionFactory is null)
@@ -125,7 +131,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> Some<T, TException>(this T value, Func<T, bool> predicate, Func<T, TException> exceptionFactory,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             if (exceptionFactory is null)
@@ -145,7 +152,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static IOptional<T> SomeNotNull<T>(this T value,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             return value.Some(val => val != null, type);
         }
 
@@ -159,7 +167,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static IOptional<T, TException> SomeNotNull<T, TException>(this T value, TException exception,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             return value.Some(val => val != null, exception, type);
         }
 
@@ -174,7 +183,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> SomeNotNull<T, TException>(this T value, Func<TException> exceptionFactory,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
             return value.Some(val => val != null, exceptionFactory, type);
@@ -191,7 +201,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> SomeNotNull<T, TException>(this T value, Func<T, TException> exceptionFactory,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
             return value.Some(val => val != null, exceptionFactory, type);
@@ -209,7 +220,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static IOptional<T> None<T>(this T value,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             return type == OptionalType.ReferenceType
                 ? Optional.Wrapped.None<T>()
                 : Optional.None<T>() as IOptional<T>;
@@ -225,7 +237,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static IOptional<T, TException> None<T, TException>(this T value, TException exception,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             return type == OptionalType.ReferenceType
                 ? Optional.Wrapped.None<T, TException>(exception)
                 : Optional.None<T, TException>(exception) as IOptional<T, TException>;
@@ -241,7 +254,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T> None<T>(this T value, Func<T, bool> predicate,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return value.Some(val => !predicate(val), type);
@@ -259,7 +273,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> None<T, TException>(this T value, Func<T, bool> predicate, TException exception,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return value.Some(val => !predicate(val), exception, type);
@@ -277,7 +292,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> None<T, TException>(this T value, Func<T, bool> predicate, Func<TException> exceptionFactory,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             if (exceptionFactory is null)
@@ -297,7 +313,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> None<T, TException>(this T value, Func<T, bool> predicate, Func<T, TException> exceptionFactory,
-            OptionalType type = OptionalType.ReferenceType) {
+            OptionalType type = OptionalType.ReferenceType)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             if (exceptionFactory is null)
@@ -317,7 +334,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static IOptional<T> ToOptional<T>(this T? value,
-            OptionalType type = OptionalType.ReferenceType) where T : struct {
+            OptionalType type = OptionalType.ReferenceType) where T : struct
+        {
             return value.HasValue
                 ? type == OptionalType.ReferenceType
                     ? Optional.Wrapped.Some(value.Value)
@@ -337,7 +355,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static IOptional<T, TException> ToOptional<T, TException>(this T? value, TException exception,
-            OptionalType type = OptionalType.ReferenceType) where T : struct {
+            OptionalType type = OptionalType.ReferenceType) where T : struct
+        {
             return value.HasValue
                 ? type == OptionalType.ReferenceType
                     ? Optional.Wrapped.Some<T, TException>(value.Value)
@@ -358,7 +377,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static IOptional<T, TException> ToOptional<T, TException>(this T? value, Func<TException> exceptionFactory,
-            OptionalType type = OptionalType.ReferenceType) where T : struct {
+            OptionalType type = OptionalType.ReferenceType) where T : struct
+        {
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
             return value.HasValue
@@ -397,7 +417,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static T ValueOrThrow<T, TException>(this IOptional<T> optional, TException exception)
-            where TException : Exception {
+        where TException : Exception
+        {
             if (optional.HasValue)
                 return optional.Value;
             throw exception;
@@ -411,7 +432,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static T ValueOrThrow<T, TException>(this IOptional<T, TException> optional)
-            where TException : Exception {
+        where TException : Exception
+        {
             if (optional.HasValue)
                 return optional.Value;
             throw optional.Exception;
@@ -454,6 +476,5 @@ namespace Cosmos.Optionals {
         public static bool IsOptionalType(this Type type) => !(type is null) && typeof(IOptional).IsAssignableFrom(type);
 
         #endregion
-
     }
 }

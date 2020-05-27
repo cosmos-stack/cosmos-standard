@@ -1,11 +1,13 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Extensions for linq
     /// </summary>
-    public static partial class OptionalsExtensions {
+    public static partial class OptionalsExtensions
+    {
         /// <summary>
         /// Select
         /// </summary>
@@ -15,7 +17,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<TResult> Select<TSource, TResult>(this Maybe<TSource> source, Func<TSource, TResult> selector) {
+        public static Maybe<TResult> Select<TSource, TResult>(this Maybe<TSource> source, Func<TSource, TResult> selector)
+        {
             if (selector is null)
                 throw new ArgumentNullException(nameof(selector));
             return source.Map(selector);
@@ -30,7 +33,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<TResult> SelectMany<TSource, TResult>(this Maybe<TSource> source, Func<TSource, Maybe<TResult>> selector) {
+        public static Maybe<TResult> SelectMany<TSource, TResult>(this Maybe<TSource> source, Func<TSource, Maybe<TResult>> selector)
+        {
             if (selector is null)
                 throw new ArgumentNullException(nameof(selector));
             return source.FlatMap(selector);
@@ -50,7 +54,8 @@ namespace Cosmos.Optionals {
         public static Maybe<TResult> SelectMany<TSource, TCollection, TResult>(
             this Maybe<TSource> source,
             Func<TSource, Maybe<TCollection>> collectionSelector,
-            Func<TSource, TCollection, TResult> resultSelector) {
+            Func<TSource, TCollection, TResult> resultSelector)
+        {
             if (collectionSelector is null)
                 throw new ArgumentNullException(nameof(collectionSelector));
             if (resultSelector is null)
@@ -66,7 +71,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<TSource> Where<TSource>(this Maybe<TSource> source, Func<TSource, bool> predicate) {
+        public static Maybe<TSource> Where<TSource>(this Maybe<TSource> source, Func<TSource, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return source.Filter(predicate);
@@ -82,7 +88,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Either<TResult, TException> Select<TSource, TException, TResult>(this Either<TSource, TException> source, Func<TSource, TResult> selector) {
+        public static Either<TResult, TException> Select<TSource, TException, TResult>(this Either<TSource, TException> source, Func<TSource, TResult> selector)
+        {
             if (selector is null)
                 throw new ArgumentNullException(nameof(selector));
             return source.Map(selector);
@@ -100,7 +107,8 @@ namespace Cosmos.Optionals {
         /// <exception cref="ArgumentNullException"></exception>
         public static Either<TResult, TException> SelectMany<TSource, TException, TResult>(
             this Either<TSource, TException> source,
-            Func<TSource, Either<TResult, TException>> selector) {
+            Func<TSource, Either<TResult, TException>> selector)
+        {
             if (selector is null)
                 throw new ArgumentNullException(nameof(selector));
             return source.FlatMap(selector);
@@ -121,7 +129,8 @@ namespace Cosmos.Optionals {
         public static Either<TResult, TException> SelectMany<TSource, TException, TCollection, TResult>(
             this Either<TSource, TException> source,
             Func<TSource, Either<TCollection, TException>> collectionSelector,
-            Func<TSource, TCollection, TResult> resultSelector) {
+            Func<TSource, TCollection, TResult> resultSelector)
+        {
             if (collectionSelector is null) throw new ArgumentNullException(nameof(collectionSelector));
             if (resultSelector is null) throw new ArgumentNullException(nameof(resultSelector));
             return source.FlatMap(src => collectionSelector(src).Map(elem => resultSelector(src, elem)));

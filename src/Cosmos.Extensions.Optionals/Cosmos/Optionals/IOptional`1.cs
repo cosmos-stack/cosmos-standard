@@ -1,11 +1,13 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Interface for optional
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IOptional<T> : IOptional {
+    public interface IOptional<T> : IOptional
+    {
         /// <summary>
         /// Value
         /// </summary>

@@ -252,6 +252,12 @@
         <member name="P:Cosmos.Optionals.Either`2.Key">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Optionals.Either`2.UnderlyingType">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Either`2.UnderlyingExceptionType">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Either`2.Equals(Cosmos.Optionals.Either{`0,`1})">
             <inheritdoc />
         </member>
@@ -1837,7 +1843,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToNonNullableType(System.Type)">
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SafeType(System.Type)">
             <summary>
             Return a non-nullable type version for the given <see cref="T:System.Type"/>.<br />
             获取所给定的可空类型的不可空类型
@@ -1845,7 +1851,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SafeType(System.Reflection.TypeInfo)">
             <summary>
             Return a non-nullable type version for the given <see cref="T:System.Reflection.TypeInfo"/>.<br />
             获取所给定的可空类型的不可空类型
@@ -2303,6 +2309,11 @@
             Value
             </summary>
         </member>
+        <member name="P:Cosmos.Optionals.IOptional`1.UnderlyingType">
+            <summary>
+            Gets UnderlyingType of value
+            </summary>
+        </member>
         <member name="M:Cosmos.Optionals.IOptional`1.Contains(`0)">
             <summary>
             Contains
@@ -2465,6 +2476,11 @@
         <member name="P:Cosmos.Optionals.IOptional`2.Exception">
             <summary>
             Exception
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.IOptional`2.UnderlyingExceptionType">
+            <summary>
+            Gets UnderlyingType for exception
             </summary>
         </member>
         <member name="M:Cosmos.Optionals.IOptional`2.ValueOr(System.Func{`1,`0})">
@@ -2659,6 +2675,9 @@
             <inheritdoc />
         </member>
         <member name="P:Cosmos.Optionals.Maybe`1.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`1.UnderlyingType">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Maybe`1.Equals(Cosmos.Optionals.Maybe{`0})">
@@ -2982,6 +3001,24 @@
         <member name="P:Cosmos.Optionals.Maybe`2.Key">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.UnderlyingType1">
+            <summary>
+            Gets UnderlyingType of the first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.UnderlyingType2">
+            <summary>
+            Gets UnderlyingType of the second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.UnderlyingType">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`2.UnderlyingTypes">
+            <summary>
+            Gets all underlying type for this <see cref="T:Cosmos.Optionals.Maybe`2"/>.
+            </summary>
+        </member>
         <member name="P:Cosmos.Optionals.Maybe`2.Item(System.Int32)">
             <summary>
             Index
@@ -3224,6 +3261,29 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`3.Key">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.UnderlyingType1">
+            <summary>
+            Gets UnderlyingType of the first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.UnderlyingType2">
+            <summary>
+            Gets UnderlyingType of the second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.UnderlyingType3">
+            <summary>
+            Gets UnderlyingType of the third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.UnderlyingType">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`3.UnderlyingTypes">
+            <summary>
+            Gets all underlying type for this <see cref="T:Cosmos.Optionals.Maybe`3"/>.
+            </summary>
         </member>
         <member name="P:Cosmos.Optionals.Maybe`3.Item(System.Int32)">
             <summary>
@@ -3475,6 +3535,34 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`4.Key">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.UnderlyingType1">
+            <summary>
+            Gets UnderlyingType of the first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.UnderlyingType2">
+            <summary>
+            Gets UnderlyingType of the second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.UnderlyingType3">
+            <summary>
+            Gets UnderlyingType of the third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.UnderlyingType4">
+            <summary>
+            Gets UnderlyingType of the forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.UnderlyingType">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`4.UnderlyingTypes">
+            <summary>
+            Gets all underlying type for this <see cref="T:Cosmos.Optionals.Maybe`4"/>.
+            </summary>
         </member>
         <member name="P:Cosmos.Optionals.Maybe`4.Item(System.Int32)">
             <summary>
@@ -3734,6 +3822,39 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`5.Key">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.UnderlyingType1">
+            <summary>
+            Gets UnderlyingType of the first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.UnderlyingType2">
+            <summary>
+            Gets UnderlyingType of the second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.UnderlyingType3">
+            <summary>
+            Gets UnderlyingType of the third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.UnderlyingType4">
+            <summary>
+            Gets UnderlyingType of the forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.UnderlyingType5">
+            <summary>
+            Gets UnderlyingType of the fifth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.UnderlyingType">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`5.UnderlyingTypes">
+            <summary>
+            Gets all underlying type for this <see cref="T:Cosmos.Optionals.Maybe`5"/>.
+            </summary>
         </member>
         <member name="P:Cosmos.Optionals.Maybe`5.Item(System.Int32)">
             <summary>
@@ -4001,6 +4122,44 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`6.Key">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingType1">
+            <summary>
+            Gets UnderlyingType of the first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingType2">
+            <summary>
+            Gets UnderlyingType of the second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingType3">
+            <summary>
+            Gets UnderlyingType of the third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingType4">
+            <summary>
+            Gets UnderlyingType of the forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingType5">
+            <summary>
+            Gets UnderlyingType of the fifth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingType6">
+            <summary>
+            Gets UnderlyingType of the sixth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingType">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`6.UnderlyingTypes">
+            <summary>
+            Gets all underlying type for this <see cref="T:Cosmos.Optionals.Maybe`6"/>.
+            </summary>
         </member>
         <member name="P:Cosmos.Optionals.Maybe`6.Item(System.Int32)">
             <summary>
@@ -4276,6 +4435,49 @@
         </member>
         <member name="P:Cosmos.Optionals.Maybe`7.Key">
             <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType1">
+            <summary>
+            Gets UnderlyingType of the first item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType2">
+            <summary>
+            Gets UnderlyingType of the second item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType3">
+            <summary>
+            Gets UnderlyingType of the third item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType4">
+            <summary>
+            Gets UnderlyingType of the forth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType5">
+            <summary>
+            Gets UnderlyingType of the fifth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType6">
+            <summary>
+            Gets UnderlyingType of the sixth item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType7">
+            <summary>
+            Gets UnderlyingType of the seventh item
+            </summary>
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingType">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Maybe`7.UnderlyingTypes">
+            <summary>
+            Gets all underlying type for this <see cref="T:Cosmos.Optionals.Maybe`7"/>.
+            </summary>
         </member>
         <member name="P:Cosmos.Optionals.Maybe`7.Item(System.Int32)">
             <summary>
@@ -5415,6 +5617,9 @@
         <member name="P:Cosmos.Optionals.Optional`2.Key">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Optionals.Optional`2.UnderlyingType">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Optionals.Optional`2.Contains(`0)">
             <inheritdoc />
         </member>
@@ -5536,7 +5741,13 @@
         <member name="P:Cosmos.Optionals.Optional`3.Key">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.Optionals.Optional`3.UnderlyingType">
+            <inheritdoc />
+        </member>
         <member name="P:Cosmos.Optionals.Optional`3.Exception">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Optionals.Optional`3.UnderlyingExceptionType">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Optionals.Optional`3.Contains(`0)">

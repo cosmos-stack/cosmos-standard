@@ -1,8 +1,10 @@
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optional type
     /// </summary>
-    public enum OptionalType {
+    public enum OptionalType
+    {
         /// <summary>
         /// Value type
         /// </summary>

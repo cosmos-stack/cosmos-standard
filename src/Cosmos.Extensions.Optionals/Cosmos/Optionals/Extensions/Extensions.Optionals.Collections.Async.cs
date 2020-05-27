@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 // ReSharper disable ArgumentsStyleLiteral
 // ReSharper disable ArgumentsStyleAnonymousFunction
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Extensions for collections
     /// </summary>
-    public static partial class OptionalsExtensions {
-
+    public static partial class OptionalsExtensions
+    {
         #region Maybe
 
         /// <summary>
@@ -22,11 +23,13 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static Task<Maybe<TResult>> MapAsync<T, TResult>(this Maybe<T> option, Func<T, Task<TResult>> mapping) {
+        public static Task<Maybe<TResult>> MapAsync<T, TResult>(this Maybe<T> option, Func<T, Task<TResult>> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
             return option.Map(mapping).Match(
-                someFactory: async valueTask => {
+                someFactory: async valueTask =>
+                {
                     if (valueTask is null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var value = await valueTask.ConfigureAwait(continueOnCapturedContext: false);
                     return value.ToMaybe();
@@ -45,7 +48,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<TResult>> MapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, TResult> mapping, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<TResult>> MapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, TResult> mapping, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -64,7 +68,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<TResult>> MapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Task<TResult>> mapping, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<TResult>> MapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Task<TResult>> mapping, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -83,11 +88,13 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Maybe<T> option, Func<T, Task<Maybe<TResult>>> mapping) {
+        public static Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Maybe<T> option, Func<T, Task<Maybe<TResult>>> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
             return option.Map(mapping).Match(
-                someFactory: resultOptionTask => {
+                someFactory: resultOptionTask =>
+                {
                     if (resultOptionTask is null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     return resultOptionTask;
                 },
@@ -105,7 +112,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Maybe<TResult>> mapping, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Maybe<TResult>> mapping, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -125,7 +133,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Task<Maybe<TResult>>> mapping,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -144,10 +153,12 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Task<Maybe<TResult>> FlatMapAsync<T, TResult, TException>(this Maybe<T> option, Func<T, Task<Either<TResult, TException>>> mapping) {
+        public static Task<Maybe<TResult>> FlatMapAsync<T, TResult, TException>(this Maybe<T> option, Func<T, Task<Either<TResult, TException>>> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
-            return option.FlatMapAsync(async value => {
+            return option.FlatMapAsync(async value =>
+            {
                 var resultOptionTask = mapping(value) ?? throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                 var resultOption = await (resultOptionTask).ConfigureAwait(false);
                 return resultOption.WithoutException();
@@ -166,7 +177,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult, TException>(this Task<Maybe<T>> optionTask, Func<T, Either<TResult, TException>> mapping,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -187,7 +199,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult, TException>(this Task<Maybe<T>> optionTask, Func<T, Task<Either<TResult, TException>>> mapping,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -205,11 +218,13 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static Task<Maybe<T>> FilterAsync<T>(this Maybe<T> option, Func<T, Task<bool>> predicate) {
+        public static Task<Maybe<T>> FilterAsync<T>(this Maybe<T> option, Func<T, Task<bool>> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return option.Match(
-                someFactory: async value => {
+                someFactory: async value =>
+                {
                     var predicateTask = predicate(value);
                     if (predicateTask is null) throw new InvalidOperationException($"{nameof(predicate)} must not return a null task.");
 
@@ -229,7 +244,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> FilterAsync<T>(this Task<Maybe<T>> optionTask, Func<T, bool> predicate, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<T>> FilterAsync<T>(this Task<Maybe<T>> optionTask, Func<T, bool> predicate, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (predicate is null)
@@ -247,7 +263,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> FilterAsync<T>(this Task<Maybe<T>> optionTask, Func<T, Task<bool>> predicate, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<T>> FilterAsync<T>(this Task<Maybe<T>> optionTask, Func<T, Task<bool>> predicate, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (predicate is null)
@@ -263,7 +280,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Task<Maybe<T>> NotNullAsync<T>(this Task<Maybe<T>> optionTask) {
+        public static Task<Maybe<T>> NotNullAsync<T>(this Task<Maybe<T>> optionTask)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             return optionTask.FilterAsync(value => value != null);
@@ -278,7 +296,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static async Task<Maybe<T>> OrAsync<T>(this Maybe<T> option, Func<Task<T>> alternativeFactory) {
+        public static async Task<Maybe<T>> OrAsync<T>(this Maybe<T> option, Func<Task<T>> alternativeFactory)
+        {
             if (alternativeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeFactory));
 
@@ -301,7 +320,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> OrAsync<T>(this Task<Maybe<T>> optionTask, Func<T> alternativeFactory, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<T>> OrAsync<T>(this Task<Maybe<T>> optionTask, Func<T> alternativeFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeFactory is null)
@@ -320,7 +340,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> OrAsync<T>(this Task<Maybe<T>> optionTask, Func<Task<T>> alternativeFactory, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<T>> OrAsync<T>(this Task<Maybe<T>> optionTask, Func<Task<T>> alternativeFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeFactory is null)
@@ -339,7 +360,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static async Task<Maybe<T>> ElseAsync<T>(this Maybe<T> option, Func<Task<Maybe<T>>> alternativeOptionFactory) {
+        public static async Task<Maybe<T>> ElseAsync<T>(this Maybe<T> option, Func<Task<Maybe<T>>> alternativeOptionFactory)
+        {
             if (alternativeOptionFactory is null)
                 throw new ArgumentNullException(nameof(alternativeOptionFactory));
 
@@ -361,7 +383,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> ElseAsync<T>(this Task<Maybe<T>> optionTask, Func<Maybe<T>> alternativeOptionFactory, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<T>> ElseAsync<T>(this Task<Maybe<T>> optionTask, Func<Maybe<T>> alternativeOptionFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeOptionFactory is null)
@@ -380,7 +403,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> ElseAsync<T>(this Task<Maybe<T>> optionTask, Func<Task<Maybe<T>>> alternativeOptionFactory, bool executeOnCapturedContext = false) {
+        public static async Task<Maybe<T>> ElseAsync<T>(this Task<Maybe<T>> optionTask, Func<Task<Maybe<T>>> alternativeOptionFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeOptionFactory is null)
@@ -412,7 +436,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TException>> WithExceptionAsync<T, TException>(this Task<Maybe<T>> optionTask, Func<TException> exceptionFactory,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (exceptionFactory is null)
@@ -429,7 +454,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> FlattenAsync<T>(this Task<Maybe<Maybe<T>>> optionTask) {
+        public static async Task<Maybe<T>> FlattenAsync<T>(this Task<Maybe<Maybe<T>>> optionTask)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
 
@@ -452,12 +478,14 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static Task<Either<TResult, TException>> MapAsync<T, TException, TResult>(this Either<T, TException> option, Func<T, Task<TResult>> mapping) {
+        public static Task<Either<TResult, TException>> MapAsync<T, TException, TResult>(this Either<T, TException> option, Func<T, Task<TResult>> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
 
             return option.Map(mapping).Match(
-                someFactory: async valueTask => {
+                someFactory: async valueTask =>
+                {
                     if (valueTask is null)
                         throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var value = await valueTask.ConfigureAwait(continueOnCapturedContext: false);
@@ -479,7 +507,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<TResult, TException>> MapAsync<T, TException, TResult>(this Task<Either<T, TException>> optionTask, Func<T, TResult> mapping,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -501,7 +530,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<TResult, TException>> MapAsync<T, TException, TResult>(this Task<Either<T, TException>> optionTask, Func<T, Task<TResult>> mapping,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -522,10 +552,12 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         public static Task<Either<T, TExceptionResult>> MapExceptionAsync<T, TException, TExceptionResult>(this Either<T, TException> option,
-            Func<TException, Task<TExceptionResult>> mapping) {
+            Func<TException, Task<TExceptionResult>> mapping)
+        {
             return option.MapException(mapping).Match(
                 someFactory: value => Task.FromResult(Optional.Some<T, TExceptionResult>(value)),
-                noneFactory: async exceptionTask => {
+                noneFactory: async exceptionTask =>
+                {
                     if (exceptionTask is null)
                         throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var exception = await exceptionTask.ConfigureAwait(continueOnCapturedContext: false);
@@ -546,7 +578,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TExceptionResult>> MapExceptionAsync<T, TException, TExceptionResult>(this Task<Either<T, TException>> optionTask,
-            Func<TException, TExceptionResult> mapping, bool executeOnCapturedContext = false) {
+            Func<TException, TExceptionResult> mapping, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -568,7 +601,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TExceptionResult>> MapExceptionAsync<T, TException, TExceptionResult>(this Task<Either<T, TException>> optionTask,
-            Func<TException, Task<TExceptionResult>> mapping, bool executeOnCapturedContext = false) {
+            Func<TException, Task<TExceptionResult>> mapping, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -590,12 +624,14 @@ namespace Cosmos.Optionals {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public static Task<Either<TResult, TException>> FlatMapAsync<T, TException, TResult>(
-            this Either<T, TException> option, Func<T, Task<Either<TResult, TException>>> mapping) {
+            this Either<T, TException> option, Func<T, Task<Either<TResult, TException>>> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
 
             return option.Map(mapping).Match(
-                someFactory: resultOptionTask => {
+                someFactory: resultOptionTask =>
+                {
                     if (resultOptionTask is null)
                         throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     return resultOptionTask;
@@ -616,7 +652,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<TResult, TException>> FlatMapAsync<T, TException, TResult>(this Task<Either<T, TException>> optionTask,
-            Func<T, Either<TResult, TException>> mapping, bool executeOnCapturedContext = false) {
+            Func<T, Either<TResult, TException>> mapping, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -638,7 +675,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<TResult, TException>> FlatMapAsync<T, TException, TResult>(this Task<Either<T, TException>> optionTask,
-            Func<T, Task<Either<TResult, TException>>> mapping, bool executeOnCapturedContext = false) {
+            Func<T, Task<Either<TResult, TException>>> mapping, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -674,13 +712,15 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Task<Either<TResult, TException>> FlatMapAsync<T, TException, TResult>(this Either<T, TException> option, Func<T, Task<Maybe<TResult>>> mapping,
-            Func<TException> exceptionFactory) {
+            Func<TException> exceptionFactory)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
 
-            return option.FlatMapAsync(async value => {
+            return option.FlatMapAsync(async value =>
+            {
                 var resultOptionTask = mapping(value) ?? throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                 var resultOption = await (resultOptionTask).ConfigureAwait(false);
                 return resultOption.WithException(exceptionFactory());
@@ -715,7 +755,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<TResult, TException>> FlatMapAsync<T, TException, TResult>(this Task<Either<T, TException>> optionTask, Func<T, Maybe<TResult>> mapping,
-            Func<TException> exceptionFactory, bool executeOnCapturedContext = false) {
+            Func<TException> exceptionFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -755,7 +796,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<TResult, TException>> FlatMapAsync<T, TException, TResult>(this Task<Either<T, TException>> optionTask,
-            Func<T, Task<Maybe<TResult>>> mapping, Func<TException> exceptionFactory, bool executeOnCapturedContext = false) {
+            Func<T, Task<Maybe<TResult>>> mapping, Func<TException> exceptionFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (mapping is null)
@@ -790,14 +832,16 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static Task<Either<T, TException>> FilterAsync<T, TException>(this Either<T, TException> option, Func<T, Task<bool>> predicate, Func<TException> exceptionFactory) {
+        public static Task<Either<T, TException>> FilterAsync<T, TException>(this Either<T, TException> option, Func<T, Task<bool>> predicate, Func<TException> exceptionFactory)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
 
             return option.Match(
-                someFactory: async value => {
+                someFactory: async value =>
+                {
                     var predicateTask = predicate(value);
                     if (predicateTask is null)
                         throw new InvalidOperationException($"{nameof(predicate)} must not return a null task.");
@@ -835,7 +879,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TException>> FilterAsync<T, TException>(this Task<Either<T, TException>> optionTask, Func<T, bool> predicate,
-            Func<TException> exceptionFactory, bool executeOnCapturedContext = false) {
+            Func<TException> exceptionFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (predicate is null)
@@ -873,7 +918,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TException>> FilterAsync<T, TException>(this Task<Either<T, TException>> optionTask, Func<T, Task<bool>> predicate,
-            Func<TException> exceptionFactory, bool executeOnCapturedContext = false) {
+            Func<TException> exceptionFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (predicate is null)
@@ -905,7 +951,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Task<Either<T, TException>> NotNullAsync<T, TException>(this Task<Either<T, TException>> optionTask, Func<TException> exceptionFactory) {
+        public static Task<Either<T, TException>> NotNullAsync<T, TException>(this Task<Either<T, TException>> optionTask, Func<TException> exceptionFactory)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (exceptionFactory is null)
@@ -923,7 +970,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static async Task<Either<T, TException>> OrAsync<T, TException>(this Either<T, TException> option, Func<Task<T>> alternativeFactory) {
+        public static async Task<Either<T, TException>> OrAsync<T, TException>(this Either<T, TException> option, Func<Task<T>> alternativeFactory)
+        {
             if (alternativeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeFactory));
 
@@ -948,7 +996,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TException>> OrAsync<T, TException>(this Task<Either<T, TException>> optionTask, Func<T> alternativeFactory,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeFactory is null)
@@ -969,7 +1018,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TException>> OrAsync<T, TException>(this Task<Either<T, TException>> optionTask, Func<Task<T>> alternativeFactory,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeFactory is null)
@@ -989,7 +1039,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static async Task<Either<T, TException>> ElseAsync<T, TException>(this Either<T, TException> option, Func<Task<Either<T, TException>>> alternativeOptionFactory) {
+        public static async Task<Either<T, TException>> ElseAsync<T, TException>(this Either<T, TException> option, Func<Task<Either<T, TException>>> alternativeOptionFactory)
+        {
             if (alternativeOptionFactory is null)
                 throw new ArgumentNullException(nameof(alternativeOptionFactory));
 
@@ -1013,7 +1064,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TException>> ElseAsync<T, TException>(this Task<Either<T, TException>> optionTask, Func<Either<T, TException>> alternativeOptionFactory,
-            bool executeOnCapturedContext = false) {
+            bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeOptionFactory is null)
@@ -1034,7 +1086,8 @@ namespace Cosmos.Optionals {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static async Task<Either<T, TException>> ElseAsync<T, TException>(this Task<Either<T, TException>> optionTask,
-            Func<Task<Either<T, TException>>> alternativeOptionFactory, bool executeOnCapturedContext = false) {
+            Func<Task<Either<T, TException>>> alternativeOptionFactory, bool executeOnCapturedContext = false)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
             if (alternativeOptionFactory is null)
@@ -1052,7 +1105,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Maybe<T>> WithoutExceptionAsync<T, TException>(this Task<Either<T, TException>> optionTask) {
+        public static async Task<Maybe<T>> WithoutExceptionAsync<T, TException>(this Task<Either<T, TException>> optionTask)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
 
@@ -1068,7 +1122,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static async Task<Either<T, TException>> FlattenAsync<T, TException>(this Task<Either<Either<T, TException>, TException>> optionTask) {
+        public static async Task<Either<T, TException>> FlattenAsync<T, TException>(this Task<Either<Either<T, TException>, TException>> optionTask)
+        {
             if (optionTask is null)
                 throw new ArgumentNullException(nameof(optionTask));
 
@@ -1077,6 +1132,5 @@ namespace Cosmos.Optionals {
         }
 
         #endregion
-
     }
 }
