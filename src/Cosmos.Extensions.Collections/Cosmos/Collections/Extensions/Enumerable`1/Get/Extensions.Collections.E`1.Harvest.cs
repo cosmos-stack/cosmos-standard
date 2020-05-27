@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions {
+    public static partial class EnumerableExtensions
+    {
         /// <summary>
         /// Harvest
         /// </summary>
@@ -28,7 +30,8 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> Harvest<T>(this IEnumerable<T> source, Func<T, bool> predicate, ICollection<T> harvester) {
+        public static IEnumerable<T> Harvest<T>(this IEnumerable<T> source, Func<T, bool> predicate, ICollection<T> harvester)
+        {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
             if (harvester == null)
@@ -36,7 +39,8 @@ namespace Cosmos.Collections {
             if (predicate == null)
                 predicate = t => true;
 
-            foreach (var item in source) {
+            foreach (var item in source)
+            {
                 if (!predicate(item))
                     continue;
 

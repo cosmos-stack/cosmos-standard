@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Collection extensions
     /// </summary>
-    public static partial class CollectionExtensions {
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// Add range
         /// </summary>
@@ -16,7 +18,8 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IList<T> AddRange<T>(this IList<T> source, IList<T> collection) {
+        public static IList<T> AddRange<T>(this IList<T> source, IList<T> collection)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (collection is null)
@@ -33,8 +36,10 @@ namespace Cosmos.Collections {
         /// <param name="source"></param>
         /// <param name="collection"></param>
         /// <param name="limit"></param>
-        public static void AddRange<T>(this List<T> source, IEnumerable<T> collection, int limit) {
-            if (limit <= 0) {
+        public static void AddRange<T>(this List<T> source, IEnumerable<T> collection, int limit)
+        {
+            if (limit <= 0)
+            {
                 source.AddRange(collection);
                 return;
             }
@@ -51,7 +56,8 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IList<T> AddRangeInto<T>(this IList<T> source, IList<T> target) {
+        public static IList<T> AddRangeInto<T>(this IList<T> source, IList<T> target)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (target is null)

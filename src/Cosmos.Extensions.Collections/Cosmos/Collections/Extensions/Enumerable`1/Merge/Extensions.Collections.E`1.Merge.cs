@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
-    public static partial class CollectionExtensions {
+namespace Cosmos.Collections
+{
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// Merge<br />
         /// 合并集合
@@ -13,7 +15,8 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> Merge<T>(this IEnumerable<T> left, IEnumerable<T> right) {
+        public static IEnumerable<T> Merge<T>(this IEnumerable<T> left, IEnumerable<T> right)
+        {
             if (left is null) throw new ArgumentNullException(nameof(left));
             foreach (var item in left)
                 yield return item;
@@ -33,18 +36,23 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> Merge<T>(this IEnumerable<T> left, IEnumerable<T> right, int limit) {
+        public static IEnumerable<T> Merge<T>(this IEnumerable<T> left, IEnumerable<T> right, int limit)
+        {
             if (left is null) throw new ArgumentNullException(nameof(left));
             foreach (var item in left)
                 yield return item;
             if (right is null)
                 yield break;
-            if (limit <= 0) {
+            if (limit <= 0)
+            {
                 foreach (var item in right)
                     yield return item;
-            } else {
+            }
+            else
+            {
                 var counter = 0;
-                foreach (var item in right) {
+                foreach (var item in right)
+                {
                     if (counter++ >= limit)
                         yield break;
                     yield return item;

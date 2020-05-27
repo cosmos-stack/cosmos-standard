@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Cosmos.Collections.Internals {
-    internal sealed class ReadOnlyListWrapper<T> : IList<T> {
+namespace Cosmos.Collections.Internals
+{
+    internal sealed class ReadOnlyListWrapper<T> : IList<T>
+    {
         private readonly IReadOnlyList<T> _list;
 
-        internal ReadOnlyListWrapper(IReadOnlyList<T> list) {
+        internal ReadOnlyListWrapper(IReadOnlyList<T> list)
+        {
             _list = list ?? throw new ArgumentNullException(nameof(list));
         }
 
-        private object ThrowNotSupportedException([CallerMemberName] string member = "") {
+        private object ThrowNotSupportedException([CallerMemberName] string member = "")
+        {
             if (member == null)
                 throw new ArgumentNullException(nameof(member));
             throw new NotSupportedException($"{GetType().FullName} does not support the {member} member.");
@@ -36,7 +40,8 @@ namespace Cosmos.Collections.Internals {
 
         public bool IsReadOnly => true;
 
-        public int IndexOf(T item) {
+        public int IndexOf(T item)
+        {
             IEqualityComparer<T> comparer = EqualityComparer<T>.Default;
             return _list.Select((t, i) => new {Item = t, Index = i}).FirstOrDefault(p => comparer.Equals(p.Item, item))?.Index ?? -1;
         }
@@ -45,7 +50,8 @@ namespace Cosmos.Collections.Internals {
 
         public void RemoveAt(int index) => ThrowNotSupportedException();
 
-        public T this[int index] {
+        public T this[int index]
+        {
             get => _list[index];
             set => ThrowNotSupportedException();
         }

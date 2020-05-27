@@ -3,11 +3,13 @@ using System.Collections;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Collection extensions
     /// </summary>
-    public static partial class CollectionExtensions {
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// 将多层的集合展开并整理为单层集合
         /// </summary>

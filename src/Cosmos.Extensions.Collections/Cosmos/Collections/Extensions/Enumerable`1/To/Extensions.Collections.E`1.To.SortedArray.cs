@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
-    public static partial class CollectionExtensions {
+namespace Cosmos.Collections
+{
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// To sorted array
         /// </summary>
@@ -12,7 +14,8 @@ namespace Cosmos.Collections {
         /// <param name="comparer"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source, Comparison<TSource> comparer) {
+        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source, Comparison<TSource> comparer)
+        {
             var res = source.ToArray();
             Array.Sort(res, comparer);
             return res;
@@ -24,7 +27,8 @@ namespace Cosmos.Collections {
         /// <param name="source"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source) where TSource : IComparable<TSource> {
+        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source) where TSource : IComparable<TSource>
+        {
             var res = source.ToArray();
             Array.Sort(res);
             return res;

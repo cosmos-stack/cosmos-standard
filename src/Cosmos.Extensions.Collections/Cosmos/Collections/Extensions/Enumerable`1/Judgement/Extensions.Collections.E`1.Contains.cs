@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
-    public static partial class CollectionExtensions {
+namespace Cosmos.Collections
+{
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// Contains<br />
         /// 包含

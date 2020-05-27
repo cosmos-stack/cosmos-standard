@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions {
+    public static partial class EnumerableExtensions
+    {
         /// <summary>
         /// To hashset
         /// </summary>
@@ -26,7 +28,8 @@ namespace Cosmos.Collections {
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static HashSet<T> ToHashSet<T>(this IEnumerable<T> src, IEqualityComparer<T> comparer)
-            where T : IComparable<T> {
+        where T : IComparable<T>
+        {
             if (src is null)
                 throw new ArgumentNullException(nameof(src));
             if (comparer is null)
@@ -54,7 +57,8 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TKey"></typeparam>
         /// <returns></returns>
-        public static HashSet<TKey> ToHashSet<T, TKey>(this IEnumerable<T> src, Func<T, TKey> keyFunc) where TKey : IComparable<TKey> {
+        public static HashSet<TKey> ToHashSet<T, TKey>(this IEnumerable<T> src, Func<T, TKey> keyFunc) where TKey : IComparable<TKey>
+        {
             if (keyFunc is null) throw new ArgumentNullException(nameof(keyFunc));
             return src.Select(i => keyFunc(i)).ToHashSet(EqualityComparer<TKey>.Default);
         }
@@ -66,6 +70,5 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static HashSet<T> ToHashSetIgnoringDuplicates<T>(this IEnumerable<T> src) where T : IComparable<T> => src.ToHashSet(true);
-
     }
 }

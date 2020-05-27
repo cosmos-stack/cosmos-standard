@@ -2,20 +2,24 @@ using System.Collections.Generic;
 using Cosmos.Collections.Internals;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Enumerable extensions
     /// </summary>
-    public static partial class EnumerableExtensions {
+    public static partial class EnumerableExtensions
+    {
         /// <summary>
         /// Null if empty
         /// </summary>
         /// <param name="source"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<T> NullIfEmpty<T>(this IEnumerable<T> source) {
+        public static IEnumerable<T> NullIfEmpty<T>(this IEnumerable<T> source)
+        {
             // Get the enumerator in a releasable disposable.
-            using (var disposable = new InternalReleasableDisposable<IEnumerator<T>>(source.GetEnumerator())) {
+            using (var disposable = new InternalReleasableDisposable<IEnumerator<T>>(source.GetEnumerator()))
+            {
                 // Get the enumerator.
                 IEnumerator<T> enumerator = disposable.Disposable;
 

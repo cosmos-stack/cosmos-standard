@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cosmos.Collections.Internals {
+namespace Cosmos.Collections.Internals
+{
     internal class CastingReadOnlyDictionaryWrapper<TFromKey, TFromValue, TToKey, TToValue> :
         IReadOnlyDictionary<TToKey, TToValue>
-        where TFromKey : TToKey
-        where TFromValue : TToValue {
-
+    where TFromKey : TToKey
+    where TFromValue : TToValue
+    {
         private readonly IReadOnlyDictionary<TFromKey, TFromValue> _source;
 
-        internal CastingReadOnlyDictionaryWrapper(IReadOnlyDictionary<TFromKey, TFromValue> source) {
+        internal CastingReadOnlyDictionaryWrapper(IReadOnlyDictionary<TFromKey, TFromValue> source)
+        {
             _source = source ?? throw new ArgumentNullException(nameof(source));
         }
 
-        public IEnumerator<KeyValuePair<TToKey, TToValue>> GetEnumerator() {
+        public IEnumerator<KeyValuePair<TToKey, TToValue>> GetEnumerator()
+        {
             return _source.Select(p => new KeyValuePair<TToKey, TToValue>(p.Key, p.Value)).GetEnumerator();
         }
 
@@ -25,7 +28,8 @@ namespace Cosmos.Collections.Internals {
 
         public bool ContainsKey(TToKey key) => _source.ContainsKey((TFromKey) key);
 
-        public bool TryGetValue(TToKey key, out TToValue value) {
+        public bool TryGetValue(TToKey key, out TToValue value)
+        {
             var result = _source.TryGetValue((TFromKey) key, out var typedValue);
 
             value = typedValue;

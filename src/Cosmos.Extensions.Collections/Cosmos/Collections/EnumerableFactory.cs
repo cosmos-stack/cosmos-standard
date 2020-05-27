@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Enumerable factory
     /// </summary>
-    public static class EnumerableFactory {
+    public static class EnumerableFactory
+    {
         /// <summary>
         /// Create list
         /// </summary>
@@ -19,22 +21,25 @@ namespace Cosmos.Collections {
         /// <param name="listParams"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<T> OfList<T>(params IEnumerable<T>[] listParams) {
+        public static List<T> OfList<T>(params IEnumerable<T>[] listParams)
+        {
             var ret = OfList<T>();
-            if (listParams != null) {
-                foreach (var list in listParams) {
+            if (listParams != null)
+            {
+                foreach (var list in listParams)
+                {
                     ret.AddRange(list);
                 }
             }
 
             return ret;
         }
-        
+
         /// <summary>
         /// ReadOnly Collection
         /// </summary>
-        public static class ReadOnly {
-
+        public static class ReadOnly
+        {
             /// <summary>
             /// Create readonly list
             /// </summary>
@@ -50,7 +55,8 @@ namespace Cosmos.Collections {
             /// <returns></returns>
             public static ReadOnlyCollection<T> EmptyCollection<T>() => EmptyReadOnlyCollectionSingleton<T>.Instance;
 
-            private static class EmptyReadOnlyCollectionSingleton<T> {
+            private static class EmptyReadOnlyCollectionSingleton<T>
+            {
                 internal static readonly ReadOnlyCollection<T> Instance = new ReadOnlyCollection<T>(new T[0]);
             }
 
@@ -62,11 +68,10 @@ namespace Cosmos.Collections {
             /// <returns></returns>
             public static ReadOnlyDictionary<TKey, TValue> EmptyDictionary<TKey, TValue>() => EmptyReadOnlyDictionarySingleton<TKey, TValue>.Instance;
 
-            private static class EmptyReadOnlyDictionarySingleton<TKey, TValue> {
+            private static class EmptyReadOnlyDictionarySingleton<TKey, TValue>
+            {
                 internal static readonly ReadOnlyDictionary<TKey, TValue> Instance = new ReadOnlyDictionary<TKey, TValue>(new Dictionary<TKey, TValue>());
             }
         }
-
-
     }
 }

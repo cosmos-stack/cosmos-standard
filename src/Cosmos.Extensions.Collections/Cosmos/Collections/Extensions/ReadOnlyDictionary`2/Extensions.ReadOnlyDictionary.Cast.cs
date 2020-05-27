@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Cosmos.Collections.Internals;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// ReadOnly dictionary extensions
     /// </summary>
-    public static partial class ReadOnlyDictionaryExtensions {
+    public static partial class ReadOnlyDictionaryExtensions
+    {
         /// <summary>
         /// Cast
         /// </summary>
@@ -20,8 +22,9 @@ namespace Cosmos.Collections {
         /// <exception cref="ArgumentNullException"></exception>
         public static IReadOnlyDictionary<TToKey, TToValue> Cast<TFromKey, TFromValue, TToKey, TToValue>(
             this IReadOnlyDictionary<TFromKey, TFromValue> source)
-            where TFromKey : TToKey
-            where TFromValue : TToValue {
+        where TFromKey : TToKey
+        where TFromValue : TToValue
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             return new CastingReadOnlyDictionaryWrapper<TFromKey, TFromValue, TToKey, TToValue>(source);

@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Collection extensions
     /// </summary>
-    public static partial class CollectionExtensions {
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// Safe remove range<br />
         /// 安全地移除指定范围内的成员
@@ -17,7 +19,8 @@ namespace Cosmos.Collections {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> SafeRemoveRange<T>(this List<T> source, int index, int count) {
+        public static IEnumerable<T> SafeRemoveRange<T>(this List<T> source, int index, int count)
+        {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
 

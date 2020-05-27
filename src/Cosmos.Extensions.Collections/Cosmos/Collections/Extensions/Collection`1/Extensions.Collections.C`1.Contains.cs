@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using Cosmos.Judgments;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
-    public static partial class CollectionExtensions {
+namespace Cosmos.Collections
+{
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// 检查一个集合是否拥有指定数量的成员
         /// </summary>

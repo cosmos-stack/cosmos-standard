@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Collection extensions
     /// </summary>
-    public static partial class CollectionExtensions {
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// Binary search
         /// </summary>
@@ -79,7 +81,6 @@ namespace Cosmos.Collections {
         public static int BinarySearch<TSource, TValue>(this IList<TSource> list, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer) =>
             list.BinarySearch(0, list.Count, map, value, comparer);
 
-
         /// <summary>
         /// Binary search
         /// </summary>
@@ -108,7 +109,8 @@ namespace Cosmos.Collections {
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer) {
+        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer)
+        {
             if (list is null)
                 throw new ArgumentNullException(nameof(list));
             if (map is null)
@@ -130,7 +132,8 @@ namespace Cosmos.Collections {
             var high = index + length - 1;
 
             // While low < high.
-            while (low <= high) {
+            while (low <= high)
+            {
                 // The midpoint.
                 var midpoint = low + ((high - low) >> 1);
 

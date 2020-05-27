@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos.Collections {
-    public static partial class CollectionExtensions {
+namespace Cosmos.Collections
+{
+    public static partial class CollectionExtensions
+    {
         /// <summary>
         /// Binary Search
         /// </summary>

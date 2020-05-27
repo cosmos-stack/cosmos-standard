@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using DotNetCore.Collections.Paginable;
 
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Enumerable Utilities
     /// </summary>
-    public static class Enumerables {
-
+    public static class Enumerables
+    {
         #region Merge
 
         /// <summary>
@@ -19,7 +20,8 @@ namespace Cosmos.Collections {
         /// <param name="right"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<T> Merge<T>(IEnumerator<T> left, IEnumerator<T> right) {
+        public static IEnumerable<T> Merge<T>(IEnumerator<T> left, IEnumerator<T> right)
+        {
             while (left.MoveNext()) yield return left.Current;
             while (right.MoveNext()) yield return right.Current;
         }
@@ -31,7 +33,8 @@ namespace Cosmos.Collections {
         /// <param name="last"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<T> Merge<T>(IEnumerator<T> left, T last) {
+        public static IEnumerable<T> Merge<T>(IEnumerator<T> left, T last)
+        {
             while (left.MoveNext()) yield return left.Current;
             yield return last;
         }
@@ -43,7 +46,8 @@ namespace Cosmos.Collections {
         /// <param name="right"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<T> Merge<T>(T first, IEnumerator<T> right) {
+        public static IEnumerable<T> Merge<T>(T first, IEnumerator<T> right)
+        {
             yield return first;
             while (right.MoveNext()) yield return right.Current;
         }
@@ -59,16 +63,20 @@ namespace Cosmos.Collections {
         /// <param name="enumerableFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<T> Flatten<T>(IEnumerable<T> inputs, Func<T, IEnumerable<T>> enumerableFunc) {
-            if (inputs != null) {
+        public static IEnumerable<T> Flatten<T>(IEnumerable<T> inputs, Func<T, IEnumerable<T>> enumerableFunc)
+        {
+            if (inputs != null)
+            {
                 var stack = new Stack<T>(inputs);
-                while (stack.Count > 0) {
+                while (stack.Count > 0)
+                {
                     var current = stack.Pop();
                     if (current == null) continue;
                     yield return current;
 
                     var enumerable = enumerableFunc?.Invoke(current);
-                    if (enumerable != null) {
+                    if (enumerable != null)
+                    {
                         foreach (var child in enumerable) stack.Push(child);
                     }
                 }
@@ -82,7 +90,8 @@ namespace Cosmos.Collections {
         /// <param name="inputs"></param>
         /// <param name="enumerate"></param>
         /// <returns></returns>
-        public static IEnumerable Flatten(IEnumerable inputs, Func<object, IEnumerable> enumerate) {
+        public static IEnumerable Flatten(IEnumerable inputs, Func<object, IEnumerable> enumerate)
+        {
             return Flatten(inputs.Cast<object>(), o => (enumerate(o) ?? new object[0]).Cast<object>());
         }
 
@@ -140,6 +149,5 @@ namespace Cosmos.Collections {
         public static IReadOnlyList<T> CreateAsReadOnly<T>(params IEnumerable<T>[] listParams) => EnumerableFactory.ReadOnly.OfList(listParams);
 
         #endregion
-
     }
 }
