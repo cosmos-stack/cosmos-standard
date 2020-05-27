@@ -161,12 +161,12 @@
             Build and throw exception as validation error
             </summary>
         </member>
-        <member name="T:Cosmos.ReflectionExtensions">
+        <member name="T:Cosmos.Reflection.ReflectionExtensions">
             <summary>
             Type extensions
             </summary>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.AttributeExists``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.AttributeExists``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             To judge the attribute exists or not
             </summary>
@@ -175,7 +175,7 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>是否存在</returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.AttributeNotExists``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.AttributeNotExists``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             To judge the attribute dosn't exist or not
             </summary>
@@ -184,7 +184,7 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>是否不存在</returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
             <summary>
             Get attribute from memberinfo
             </summary>
@@ -192,7 +192,7 @@
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             Get attributes from memberinfo
             </summary>
@@ -201,7 +201,7 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>存在返回第一个，不存在返回null</returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo)">
             <summary>
             Get Attributes from memberinfo
             </summary>
@@ -209,7 +209,7 @@
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             Get attributes from memberinfo
             </summary>
@@ -218,21 +218,21 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>存在返回第一个，不存在返回 null</returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetFullName(System.Reflection.MethodInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetFullName(System.Reflection.MethodInfo)">
             <summary>
             Get full name of method including type name and method name
             </summary>
             <param name="method"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Reflection.MethodInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.ToComputeSignature(System.Reflection.MethodInfo)">
             <summary>
             To compute signature
             </summary>
             <param name="method"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.DefinePoco(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.KeyValuePair{System.String,System.Type}[])">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.DefinePoco(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.KeyValuePair{System.String,System.Type}[])">
             <summary>
             Define poco
             </summary>
@@ -241,7 +241,7 @@
             <param name="properties"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.DefinePoco(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Type}})">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.DefinePoco(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Type}})">
             <summary>
             Define poco
             </summary>
@@ -252,7 +252,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
             <summary>
             Exclude
             </summary>
@@ -262,7 +262,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
             <summary>
             Exclude
             </summary>
@@ -272,7 +272,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
             <summary>
             Exclude
             </summary>
@@ -281,7 +281,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
             <summary>
             Exclude
             </summary>
@@ -291,35 +291,35 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToNonNullableType(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.ToNonNullableType(System.Type)">
             <summary>
             Get non-nullable inderlying <see cref="T:System.Type"/>
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
             <summary>
-            Get non-nullable inderlying <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/>
+            Get non-nullable inderlying <see cref="M:Cosmos.Reflection.ReflectionExtensions.TypeInfo(System.Object)"/>
             </summary>
-            <param name="typeinfo"></param>
+            <param name="typeInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.TypeInfo(System.Object)">
             <summary>
-            Get object's <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/>
+            Get object's <see cref="M:Cosmos.Reflection.ReflectionExtensions.TypeInfo(System.Object)"/>
             </summary>
             <param name="object"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToTypeInfo(System.Type[])">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.ToTypeInfo(System.Type[])">
             <summary>
-            Convert <see cref="T:System.Type"/> array to <see cref="M:Cosmos.ReflectionExtensions.TypeInfo(System.Object)"/> list
+            Convert <see cref="T:System.Type"/> array to <see cref="M:Cosmos.Reflection.ReflectionExtensions.TypeInfo(System.Object)"/> list
             </summary>
             <param name="types"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetPropertyValue(System.Object,System.String)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetPropertyValue(System.Object,System.String)">
             <summary>
             Gets property value
             </summary>
@@ -327,7 +327,7 @@
             <param name="propertyName">Property name in this object</param>
             <returns>Value of the specific property in this object</returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
             <summary>
             Sets property value
             </summary>
@@ -335,7 +335,7 @@
             <param name="propertyName"></param>
             <param name="value"></param>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetProperties(System.Type,System.Reflection.PropertyAccessType)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessType)">
             <summary>
             Get properties
             </summary>
@@ -345,7 +345,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.GetProperties``1(System.Reflection.PropertyAccessType)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.GetProperties``1(Cosmos.Reflection.PropertyAccessType)">
             <summary>
             Get properties
             </summary>
@@ -353,21 +353,21 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.ToComputeSignature(System.Reflection.TypeInfo)">
             <summary>
             To compute signature
             </summary>
             <param name="typeinfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.ToComputeSignature(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.ToComputeSignature(System.Type)">
             <summary>
             To compute signature
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType(System.Type,System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsAssignableToGenericType(System.Type,System.Type)">
             <summary>
             To judge the given type is assignable to the generic type or not
             </summary>
@@ -375,7 +375,7 @@
             <param name="genericType">泛型类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsAssignableToGenericType(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
             <summary>
             To judge the <paramref name="givenType"/> is assignable to the <paramref name="genericType"/> or not
             </summary>
@@ -383,7 +383,7 @@
             <param name="genericType">泛型类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType``1(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsAssignableToGenericType``1(System.Type)">
             <summary>
             To judge the <paramref name="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
             </summary>
@@ -391,7 +391,7 @@
             <param name="givenType">给定类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableToGenericType``1(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsAssignableToGenericType``1(System.Reflection.TypeInfo)">
             <summary>
             To judge the <paramref name="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
             </summary>
@@ -399,7 +399,7 @@
             <param name="givenType">给定类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor(System.Type,System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsGenericImplementationFor(System.Type,System.Type)">
             <summary>
             To judge the given type is assignable to the generic type or not
             </summary>
@@ -407,7 +407,7 @@
             <param name="genericType">泛型类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsGenericImplementationFor(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
             <summary>
             To judge the <paramref name="givenType"/> is assignable to the <paramref name="genericType"/> or not
             </summary>
@@ -415,7 +415,7 @@
             <param name="genericType">泛型类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor``1(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsGenericImplementationFor``1(System.Type)">
             <summary>
             To judge the <paramref name="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
             </summary>
@@ -423,7 +423,7 @@
             <param name="givenType">给定类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsGenericImplementationFor``1(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsGenericImplementationFor``1(System.Reflection.TypeInfo)">
             <summary>
             To judge the <paramref nae="givenType"/> is assignable to the <typeparamref name="TGeneric"/> or not
             </summary>
@@ -431,7 +431,7 @@
             <param name="givenType">给定类型</param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
             <summary>
             Find typeinfo from the given type's parameters' type
             </summary>
@@ -439,7 +439,7 @@
             <param name="typeinfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.FindGenericType(System.Type,System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.FindGenericType(System.Type,System.Type)">
             <summary>
             Find typeinfo from the given type's parameters' type
             </summary>
@@ -447,7 +447,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableFrom``1(System.Object)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsAssignableFrom``1(System.Object)">
             <summary>
             Is assignable from...
             </summary>
@@ -455,7 +455,7 @@
             <param name="this"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableFrom(System.Object,System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsAssignableFrom(System.Object,System.Type)">
             <summary>
             Is assignable from...
             </summary>
@@ -463,7 +463,7 @@
             <param name="from"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsAssignableFrom(System.Type,System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsAssignableFrom(System.Type,System.Type)">
             <summary>
             Is assignable from...
             </summary>
@@ -472,28 +472,28 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNumeric(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsNumeric(System.Type)">
             <summary>
             判断指定类型是否为数值类型
             </summary>
             <param name="type">要检查的类型</param>
             <returns>是否是数值类型</returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNumeric(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsNumeric(System.Reflection.TypeInfo)">
             <summary>
             判断指定类型是否为数值类型
             </summary>
             <param name="typeInfo">要检查的类型</param>
             <returns>是否是数值类型</returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNullableType(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsNullableType(System.Type)">
             <summary>
             指示类型是否为可空类型
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsDefined``1(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsDefined``1(System.Type)">
             <summary>
             Is defined special attribute
             </summary>
@@ -501,20 +501,56 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.IsNotDefined``1(System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.IsDefined(System.Type,System.Type)">
             <summary>
-            Is not defined special attribute
+            Is defined special attribute
             </summary>
-            <typeparam name="TAttribute"></typeparam>
             <param name="type"></param>
+            <param name="attributeType"></param>
             <returns></returns>
         </member>
-        <member name="F:Cosmos.ReflectionExtensions.PROPERTY_GET_SET_METHOD_ATTRIBUTES">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.HasAttribute``1(System.Type)">
+            <summary>
+            Has attribute
+            </summary>
+            <param name="type"></param>
+            <typeparam name="TAttribute"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.HasAttribute(System.Type,System.Type)">
+            <summary>
+            Has attribute
+            </summary>
+            <param name="type"></param>
+            <param name="attributeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.HasInterface``1(System.Type)">
+            <summary>
+            Has interface
+            </summary>
+            <param name="type"></param>
+            <typeparam name="TInterface"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.HasInterface(System.Type,System.Type)">
+            <summary>
+            Has interface
+            </summary>
+            <param name="type"></param>
+            <param name="interfaceType"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="F:Cosmos.Reflection.ReflectionExtensions.PROPERTY_GET_SET_METHOD_ATTRIBUTES">
             <summary>
             Property set and property get methods require a special set of attributes.
             </summary>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.DefineAutoImplementedProperty(System.Reflection.Emit.TypeBuilder,System.String,System.Type)">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.DefineAutoImplementedProperty(System.Reflection.Emit.TypeBuilder,System.String,System.Type)">
             <summary>
             Define auto implemented property
             </summary>
@@ -524,7 +560,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.ReflectionExtensions.CreateInstance``1(System.Type,System.Object[])">
+        <member name="M:Cosmos.Reflection.ReflectionExtensions.CreateInstance``1(System.Type,System.Object[])">
             <summary>
             Create instance
             </summary>
@@ -533,48 +569,76 @@
             <param name="args"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.InstanceScanner`1">
+        <member name="T:Cosmos.Reflection.ObjectExtensions">
+            <summary>
+            Object extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectExtensions.DeepCopy``1(``0)">
+            <summary>
+            Deep copy
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectExtensions.ExpressionCopy``1(``0)">
+            <summary>
+            Expression copy
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectExtensions.Copier`1.Copy(`0)">
+            <summary>
+            Deep copy by expression
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Reflection.InstanceScanner`1">
             <summary>
             Instance Scanner
             </summary>
             <typeparam name="TClass"></typeparam>
         </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor">
+        <member name="M:Cosmos.Reflection.InstanceScanner`1.#ctor">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
+            Create a new <see cref="T:Cosmos.Reflection.InstanceScanner`1"/> instance.
             </summary>
         </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor(System.String)">
+        <member name="M:Cosmos.Reflection.InstanceScanner`1.#ctor(System.String)">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
+            Create a new <see cref="T:Cosmos.Reflection.InstanceScanner`1"/> instance.
             </summary>
             <param name="scannerName"></param>
         </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor(System.Type)">
+        <member name="M:Cosmos.Reflection.InstanceScanner`1.#ctor(System.Type)">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
+            Create a new <see cref="T:Cosmos.Reflection.InstanceScanner`1"/> instance.
             </summary>
             <param name="baseType"></param>
         </member>
-        <member name="M:Cosmos.InstanceScanner`1.#ctor(System.String,System.Type)">
+        <member name="M:Cosmos.Reflection.InstanceScanner`1.#ctor(System.String,System.Type)">
             <summary>
-            Create a new <see cref="T:Cosmos.InstanceScanner`1"/> instance.
+            Create a new <see cref="T:Cosmos.Reflection.InstanceScanner`1"/> instance.
             </summary>
             <param name="scannerName"></param>
             <param name="baseType"></param>
         </member>
-        <member name="M:Cosmos.InstanceScanner`1.ScanAndReturnInstances">
+        <member name="M:Cosmos.Reflection.InstanceScanner`1.ScanAndReturnInstances">
             <summary>
             Scan, and return instances.
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.NTypes">
+        <member name="T:Cosmos.Reflection.NTypes">
             <summary>
             Advanced Types utilities
             </summary>
         </member>
-        <member name="M:Cosmos.NTypes.CreateInstance``1(System.Collections.Generic.IEnumerable{Cosmos.CtorArgDescriptor})">
+        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
             <summary>
             Create instance
             </summary>
@@ -582,7 +646,7 @@
             <typeparam name="TInstance"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.NTypes.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{Cosmos.CtorArgDescriptor})">
+        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
             <summary>
             Create instance
             </summary>
@@ -591,7 +655,7 @@
             <typeparam name="TInstance"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.NTypes.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{Cosmos.CtorArgDescriptor})">
+        <member name="M:Cosmos.Reflection.NTypes.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
             <summary>
             Create instance
             </summary>
@@ -599,107 +663,107 @@
             <param name="ctorArgDescriptors"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.CtorArgDescriptor">
+        <member name="T:Cosmos.Reflection.CtorArgDescriptor">
             <summary>
             Descriptor of argument
             </summary>
         </member>
-        <member name="M:Cosmos.CtorArgDescriptor.#ctor(System.String,System.Object,System.Type)">
+        <member name="M:Cosmos.Reflection.CtorArgDescriptor.#ctor(System.String,System.Object,System.Type)">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.CtorArgDescriptor"/>.
+            Create a new instance of <see cref="T:Cosmos.Reflection.CtorArgDescriptor"/>.
             </summary>
             <param name="name"></param>
             <param name="value"></param>
             <param name="type"></param>
         </member>
-        <member name="P:Cosmos.CtorArgDescriptor.Name">
+        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Name">
             <summary>
             Argument name
             </summary>
         </member>
-        <member name="P:Cosmos.CtorArgDescriptor.Value">
+        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Value">
             <summary>
             Argument value
             </summary>
         </member>
-        <member name="P:Cosmos.CtorArgDescriptor.Type">
+        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Type">
             <summary>
             Argument type
             </summary>
         </member>
-        <member name="T:Cosmos.CtorMatchedResult">
+        <member name="T:Cosmos.Reflection.CtorMatchedResult">
             <summary>
             Ctor matched result
             </summary>
         </member>
-        <member name="M:Cosmos.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
+        <member name="M:Cosmos.Reflection.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
             <summary>
             Ctor matched result
             </summary>
             <param name="values"></param>
             <param name="index"></param>
         </member>
-        <member name="F:Cosmos.CtorMatchedResult.Values">
+        <member name="F:Cosmos.Reflection.CtorMatchedResult.Values">
             <summary>
             Values
             </summary>
         </member>
-        <member name="F:Cosmos.CtorMatchedResult.Index">
+        <member name="F:Cosmos.Reflection.CtorMatchedResult.Index">
             <summary>
             Index
             </summary>
         </member>
-        <member name="T:System.Reflection.PropertyAccessType">
+        <member name="T:Cosmos.Reflection.PropertyAccessType">
             <summary>
             Property access type
             </summary>
         </member>
-        <member name="F:System.Reflection.PropertyAccessType.Getters">
+        <member name="F:Cosmos.Reflection.PropertyAccessType.Getters">
             <summary>
             Getters
             </summary>
         </member>
-        <member name="F:System.Reflection.PropertyAccessType.Setters">
+        <member name="F:Cosmos.Reflection.PropertyAccessType.Setters">
             <summary>
             Setters
             </summary>
         </member>
-        <member name="T:System.Reflection.PropertyPath">
+        <member name="T:Cosmos.Reflection.PropertyPath">
             <summary>
             Property path
             </summary>
         </member>
-        <member name="P:System.Reflection.PropertyPath.Root">
+        <member name="P:Cosmos.Reflection.PropertyPath.Root">
             <summary>
             Root
             </summary>
         </member>
-        <member name="P:System.Reflection.PropertyPath.Path">
+        <member name="P:Cosmos.Reflection.PropertyPath.Path">
             <summary>
             Path
             </summary>
         </member>
-        <member name="M:System.Reflection.PropertyPath.Append(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Reflection.PropertyPath.Append(System.Reflection.PropertyInfo)">
             <summary>
             Append
             </summary>
             <param name="property"></param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:System.Reflection.PropertyPath.Of``1">
+        <member name="M:Cosmos.Reflection.PropertyPath.Of``1">
             <summary>
             Of
             </summary>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:System.Reflection.PropertyPath`1">
+        <member name="T:Cosmos.Reflection.PropertyPath`1">
             <summary>
             Property path
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:System.Reflection.PropertyPath`1.ThenEnumerable``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IEnumerable{``0}}})">
+        <member name="M:Cosmos.Reflection.PropertyPath`1.ThenEnumerable``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IEnumerable{``0}}})">
             <summary>
             Then enumerable
             </summary>
@@ -709,7 +773,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="M:System.Reflection.PropertyPath`1.Then``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+        <member name="M:Cosmos.Reflection.PropertyPath`1.Then``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
             <summary>
             Then
             </summary>
@@ -718,6 +782,271 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:Cosmos.Reflection.TypeScanner">
+            <summary>
+            Type Scanner <br />
+            类型扫描
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.TypeScanner.ScannedResultCache">
+            <summary>
+            Scanned result cache
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.TypeScanner.ScannedResultCached">
+            <summary>
+            Scanned result cached
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Reflection.TypeScanner"/>
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Reflection.TypeScanner"/>
+            </summary>
+            <param name="scannerName"></param>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.#ctor(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Reflection.TypeScanner"/>
+            </summary>
+            <param name="baseType"></param>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.#ctor(System.String,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Reflection.TypeScanner"/>
+            </summary>
+            <param name="scannerName"></param>
+            <param name="baseType"></param>
+        </member>
+        <member name="P:Cosmos.Reflection.TypeScanner.BaseType">
+            <summary>
+            Base type 
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.Scan">
+            <summary>
+            Scan <br />
+            ɨ��
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.GetAssemblies">
+            <summary>
+            Get assemblies
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.GetSkipAssembliesNamespaces">
+            <summary>
+            Get skip assemblies' namespaces
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.GetLimitedAssembliesNamespaces">
+            <summary>
+            Get limited assemblies' namespaces 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.TypeFilter">
+            <summary>
+            Type filter 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeScanner.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:DeepCopy.CopierGenerator`1">
+            <summary>
+            Generates copy delegates.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopierGenerator`1.CreateCopier(System.Type)">
+            <summary>
+            Gets a copier for the provided type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>A copier for the provided type.</returns>
+        </member>
+        <member name="T:DeepCopy.CopyContext">
+            <summary>
+            Records details about copied objects.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopyContext.RecordCopy(System.Object,System.Object)">
+            <summary>
+            Records <paramref name="copy"/> as a copy of <paramref name="original"/>.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="copy">The copy of <paramref name="original"/>.</param>
+        </member>
+        <member name="M:DeepCopy.CopyContext.TryGetCopy(System.Object,System.Object@)">
+            <summary>
+            Returns the copy of <paramref name="original"/> if it has been copied or <see langword="null"/> if it has not yet been copied.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="result">The copied object.</param>
+            <returns>The copy of <paramref name="original"/> or <see langword="null"/> if no copy has been made.</returns>
+        </member>
+        <member name="M:DeepCopy.CopyContext.Reset">
+            <summary>
+            Resets this instance so that it can be reused.
+            </summary>
+        </member>
+        <member name="T:DeepCopy.CopyPolicy">
+            <summary>
+            Methods for determining the copyability of types and fields.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopyPolicy.GetCopyableFields(System.Type)">
+            <summary>
+            Returns a sorted list of the copyable fields of the provided type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>A sorted list of the fields of the provided type.</returns>
+        </member>
+        <member name="M:DeepCopy.CopyPolicy.IsImmutable(System.Type)">
+            <summary>
+            Returns true if the provided type is immutable, otherwise false.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>true if the provided type is immutable, otherwise false.</returns>
+        </member>
+        <member name="T:DeepCopy.CopyPolicy.FieldInfoComparer">
+            <summary>
+            A comparer for <see cref="T:System.Reflection.FieldInfo"/> which compares by name.
+            </summary>
+        </member>
+        <member name="P:DeepCopy.CopyPolicy.FieldInfoComparer.Instance">
+            <summary>
+            Gets the singleton instance of this class.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.CopyPolicy.FieldInfoComparer.Compare(System.Reflection.FieldInfo,System.Reflection.FieldInfo)">
+            <inheritdoc />
+        </member>
+        <member name="T:DeepCopy.DeepCopier">
+            <summary>
+            Methods for creating deep copies of objects.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.DeepCopier.Copy``1(``0)">
+            <summary>
+            Creates and returns a deep copy of the provided object.
+            </summary>
+            <typeparam name="T">The object type.</typeparam>
+            <param name="original">The object to copy.</param>
+            <returns>A deep copy of the provided object.</returns>
+        </member>
+        <member name="M:DeepCopy.DeepCopier.Copy``1(``0,DeepCopy.CopyContext)">
+            <summary>
+            Creates and returns a deep copy of the provided object.
+            </summary>
+            <typeparam name="T">The object type.</typeparam>
+            <param name="original">The object to copy.</param>
+            <param name="context">
+            The copy context, providing referential integrity between multiple calls to this method.
+            </param>
+            <returns>A deep copy of the provided object.</returns>
+        </member>
+        <member name="T:DeepCopy.DeepCopyDelegate`1">
+            <summary>
+            Deep copier delegate.
+            </summary>
+            <param name="original">Original object to be deep copied.</param>
+            <param name="context">The context.</param>
+            <returns>Deep copy of the original object.</returns>
+        </member>
+        <member name="T:DeepCopy.Immutable">
+            <summary>
+            Helper class for creating immutable values.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.Immutable.Create``1(``0)">
+            <summary>
+            Returns an immutable wrapper over the provided value.
+            </summary>
+            <typeparam name="T">The value type.</typeparam>
+            <param name="value">The value.</param>
+            <returns>An immutable wrapper over the provided value.</returns>
+        </member>
+        <member name="T:DeepCopy.Immutable`1">
+            <summary>
+            Wrapper class for creating immutable values.
+            </summary>
+            <typeparam name="T">The wrapped type.</typeparam>
+        </member>
+        <member name="M:DeepCopy.Immutable`1.#ctor(`0)">
+            <summary>
+            Initializes a new <see cref="T:DeepCopy.Immutable`1"/> instance.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:DeepCopy.Immutable`1.Value">
+            <summary>
+            Gets the value held by this instance.
+            </summary>
+        </member>
+        <member name="T:DeepCopy.ImmutableAttribute">
+            <summary>
+            The Immutable attribute indicates that instances of the marked class or struct are never modified
+            after they are created.
+            </summary>
+            <remarks>
+            Note that this implies that sub-objects are also not modified after the instance is created.
+            </remarks>
+        </member>
+        <member name="T:DeepCopy.MethodInfos">
+            <summary>
+            Holds references to methods which are used during copying.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.TryGetCopy">
+            <summary>
+            A reference to the <see cref="M:DeepCopy.CopyContext.TryGetCopy(System.Object,System.Object@)"/> method.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.RecordObject">
+            <summary>
+            A reference to the <see cref="M:DeepCopy.CopyContext.RecordCopy(System.Object,System.Object)"/> method.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.CopyInner">
+            <summary>
+            A reference to <see cref="M:DeepCopy.DeepCopier.Copy``1(``0,DeepCopy.CopyContext)"/>
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.GetUninitializedObject">
+            <summary>
+            A reference to a method which returns an uninitialized object of the provided type.
+            </summary>
+        </member>
+        <member name="F:DeepCopy.MethodInfos.GetTypeFromHandle">
+            <summary>
+            A reference to <see cref="M:System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)"/>.
+            </summary>
+        </member>
+        <member name="T:DeepCopy.ReferenceEqualsComparer">
+            <inheritdoc />
+        </member>
+        <member name="P:DeepCopy.ReferenceEqualsComparer.Instance">
+            <summary>
+            Gets an instance of this class.
+            </summary>
+        </member>
+        <member name="M:DeepCopy.ReferenceEqualsComparer.System#Collections#Generic#IEqualityComparer{System#Object}#Equals(System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeepCopy.ReferenceEqualsComparer.System#Collections#Generic#IEqualityComparer{System#Object}#GetHashCode(System.Object)">
+            <inheritdoc />
         </member>
     </members>
 </doc>

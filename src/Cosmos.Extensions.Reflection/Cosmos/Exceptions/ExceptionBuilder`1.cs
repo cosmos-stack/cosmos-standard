@@ -2,25 +2,30 @@
 
 using System;
 using Cosmos.Exceptions.BuildingDescriptors;
+using Cosmos.Reflection;
 using Cosmos.Validations;
 
-namespace Cosmos.Exceptions {
+namespace Cosmos.Exceptions
+{
     /// <summary>
     /// Exception builder
     /// </summary>
     /// <typeparam name="TException"></typeparam>
-    internal class ExceptionBuilder<TException> : IFluentExceptionBuilder<TException> where TException : Exception {
+    internal class ExceptionBuilder<TException> : IFluentExceptionBuilder<TException> where TException : Exception
+    {
         private readonly Type _typeOfException;
 
-        public ExceptionBuilder() {
-            _typeOfException = Types.Of<TException>();
+        public ExceptionBuilder()
+        {
+            _typeOfException = Reflection.Types.Of<TException>();
         }
 
         public Type TargetType => _typeOfException;
 
         private Exception _innerException;
 
-        public IFluentExceptionBuilder<TException> InnerException(Exception innerException) {
+        public IFluentExceptionBuilder<TException> InnerException(Exception innerException)
+        {
             if (innerException is null)
                 return this;
 
@@ -30,7 +35,8 @@ namespace Cosmos.Exceptions {
 
         private string _paramName;
 
-        public IFluentExceptionBuilder<TException> ParamName(string paramName) {
+        public IFluentExceptionBuilder<TException> ParamName(string paramName)
+        {
             if (string.IsNullOrWhiteSpace(paramName))
                 return this;
 
@@ -40,7 +46,8 @@ namespace Cosmos.Exceptions {
 
         private string _message;
 
-        public IFluentExceptionBuilder<TException> Message(string message) {
+        public IFluentExceptionBuilder<TException> Message(string message)
+        {
             if (string.IsNullOrWhiteSpace(message))
                 return this;
 
@@ -50,46 +57,54 @@ namespace Cosmos.Exceptions {
 
         private object _actualValue;
 
-        public IFluentExceptionBuilder<TException> ActualValue(object actualValue) {
+        public IFluentExceptionBuilder<TException> ActualValue(object actualValue)
+        {
             _actualValue = actualValue;
             return this;
         }
 
         private int _errorCode;
 
-        public IFluentExceptionBuilder<TException> ErrorCode(int errorCode) {
+        public IFluentExceptionBuilder<TException> ErrorCode(int errorCode)
+        {
             _errorCode = errorCode;
             return this;
         }
 
         private TException CachedException { get; set; }
 
-        private void CreateAndCacheExceptionInstance() {
-            if (CachedException is null) {
+        private void CreateAndCacheExceptionInstance()
+        {
+            if (CachedException is null)
+            {
                 var options = new ExceptionBuildingOptions(TargetType)
-                             .AddArg(ExceptionArgConstants.INNER, _innerException, x => x != null)
-                             .AddArg(ExceptionArgConstants.INNER_EXCEPTION, _innerException, x => x != null)
-                             .AddArg(ExceptionArgConstants.MESSAGE, _message)
-                             .AddArg(ExceptionArgConstants.PARAM_NAME, _paramName, x => !string.IsNullOrWhiteSpace(x))
-                             .AddArg(ExceptionArgConstants.ACTUAL_VALUE, _actualValue)
-                             .AddArg(ExceptionArgConstants.ERROR_CODE, _errorCode);
+                   .AddArg(ExceptionArgConstants.INNER, _innerException, x => x != null)
+                   .AddArg(ExceptionArgConstants.INNER_EXCEPTION, _innerException, x => x != null)
+                   .AddArg(ExceptionArgConstants.MESSAGE, _message)
+                   .AddArg(ExceptionArgConstants.PARAM_NAME, _paramName, x => !string.IsNullOrWhiteSpace(x))
+                   .AddArg(ExceptionArgConstants.ACTUAL_VALUE, _actualValue)
+                   .AddArg(ExceptionArgConstants.ERROR_CODE, _errorCode);
                 CachedException = NTypes.CreateInstance<TException>(options.ExceptionType, options.ArgumentDescriptors);
             }
         }
 
-        public TException Build() {
+        public TException Build()
+        {
             CreateAndCacheExceptionInstance();
             return CachedException;
         }
 
-        public void BuildAndThrow() {
+        public void BuildAndThrow()
+        {
             CreateAndCacheExceptionInstance();
             ExceptionHelper.PrepareForRethrow(CachedException);
         }
 
-        public void BuildAndThrowAsValidationError() {
+        public void BuildAndThrowAsValidationError()
+        {
             CreateAndCacheExceptionInstance();
-            switch (CachedException) {
+            switch (CachedException)
+            {
                 case ArgumentNullException exception01:
                     exception01.ThrowAsValidationError();
                     break;
