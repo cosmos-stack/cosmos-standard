@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions.Disposables</name>
+    </assembly>
+    <members>
+        <member name="T:Cosmos.Disposables.DisposableAction">
+            <summary>
+            Disable Action. <br />
+            When the derived class of this class is disposed, the specified <see cref="T:System.Action"/> will be executed.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction.#ctor(System.Action)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableAction"/> instance.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction.Invoke">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableAction.Noop">
+            <summary>
+            Get a cached instance of <see cref="T:Cosmos.Disposables.NoopDisposableAction"/>.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.NoopDisposableAction">
+            <summary>
+            A disposable action implement which does nothing when disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.NoopDisposableAction.Instance">
+            <summary>
+            Gets a <see cref="T:Cosmos.Disposables.NoopDisposableAction"/> cache.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableAction.Invoke">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableAction.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableActionField`1">
+            <summary>
+            Disposable Action Field
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableActionField`1.#ctor(System.Action{`0},`0)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableActionField`1"/> instance.
+            </summary>
+            <param name="action"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableActionField`1.IsEmpty">
+            <summary>
+            To flag this field is empty or not.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableActionField`1.TryGetAndUnset">
+            <summary>
+            Atomically retrieves this disposable action from the field, and sets such field to <c>null</c>. May return <c>null</c>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableActionField`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update context of disposable action stored in this field, Return <c>false</c> if the field is <c>null</c>. 
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableAction`1">
+            <summary>
+            Generic Disable Action. <br />
+            When the derived class of this class is disposed, the specified <see cref="T:System.Action`1"/> will be executed.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.#ctor(System.Action{`0},`0)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableAction`1"/> instance.
+            </summary>
+            <param name="action"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.#ctor(Cosmos.Disposables.DisposableAction{`0},System.Func{`0,`0})">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.DisposableAction`1"/> instance.
+            </summary>
+            <param name="originalDisposableAction"></param>
+            <param name="contextUpdater"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.Invoke">
+            <summary>
+            Invoke the disposable action with context
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableAction`1.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableAction`1.Noop">
+            <summary>
+            Get a cached instance of <see cref="T:Cosmos.Disposables.NoopDisposableAction"/>.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.AnonymousDisposableObject">
+            <summary>
+            Anonymous Disposable Object
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.#ctor">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AnonymousDisposableObject"/> instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.#ctor(System.Action)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AnonymousDisposableObject"/> instance.
+            </summary>
+            <param name="dispose"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.#ctor(Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Create a new <see cref="T:Cosmos.Disposables.AnonymousDisposableObject"/> instance.
+            </summary>
+            <param name="disposableAction"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Dispose(System.Action)">
+            <summary>
+            Dispose.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Add(System.Action)">
+            <summary>
+            Add dispose <see cref="T:System.Action"/>.
+            </summary>
+            <param name="dispose"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Add(Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Add dispose <see cref="T:System.Action"/>.
+            </summary>
+            <param name="disposableAction"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Create(System.Action)">
+            <summary>
+            Create a new disposable that executes dispose when disposed.
+            </summary>
+            <param name="dispose"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.AnonymousDisposableObject.Create(Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Create a new disposable that executes dispose when disposed.
+            </summary>
+            <param name="disposableAction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.NoopDisposableObject">
+            <summary>
+            A disposable implement which does nothing when disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.NoopDisposableObject.Instance">
+            <summary>
+            Gets a <see cref="T:Cosmos.Disposables.NoopDisposableObject"/> cache.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.NoopDisposableObject.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.SingleDisposableObject`1">
+            <summary>
+            Single Disposable Object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.#ctor(`0)">
+            <summary>
+            Create a single disposable object for such context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleDisposableObject`1.IsDisposeStarted">
+            <summary>
+            To flag this instance is currently disposing or has been disposed.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleDisposableObject`1.IsDisposed">
+            <summary>
+            To flag this instance is disposed, which means finished disposing.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleDisposableObject`1.IsDisposing">
+            <summary>
+            To flag this instance is currently disposing, but not finished yet.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.Dispose(`0)">
+            <summary>
+            The actual disposal method, call only once from Dispose.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.SingleNonblockingDisposableObject`1">
+            <summary>
+            Single Nonblocking Disposable Object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.#ctor(`0)">
+            <summary>
+            Create a single nonblocking disposable object for such context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.SingleNonblockingDisposableObject`1.IsDisposeStarted">
+            <summary>
+            To flag this instance is currently disposing or has been disposed.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose(`0)">
+            <summary>
+            The actual disposal method, call only once from <see cref="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose"/>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.SingleNonblockingDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
+            <summary>
+            Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.
+            </summary>
+            <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.CollectionDisposableObjects">
+            <summary>
+            Collection disposable objects
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.CollectionDisposableObjects._count">
+            <summary>
+            Count
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.CollectionDisposableObjects.#ctor(System.IDisposable[])">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Disposables.CollectionDisposableObjects"/>.
+            </summary>
+            <param name="disposables"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.CollectionDisposableObjects.#ctor(System.Collections.Generic.IEnumerable{System.IDisposable})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Disposables.CollectionDisposableObjects"/>.
+            </summary>
+            <param name="disposables"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.CollectionDisposableObjects.Count">
+            <summary>
+            Count
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.CollectionDisposableObjects.Dispose(System.Collections.Immutable.ImmutableQueue{System.IDisposable})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.CollectionDisposableObjects.Add(System.IDisposable)">
+            <summary>
+            Add
+            </summary>
+            <param name="disposable"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.CollectionDisposableObjects.Create(System.IDisposable[])">
+            <summary>
+            Create a disposable that disposes a collection of disposables.
+            </summary>
+            <param name="disposables">The disposables to dispose</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.CollectionDisposableObjects.Create(System.Collections.Generic.IEnumerable{System.IDisposable})">
+            <summary>
+            Create a disposable that disposes a collection of disposables.
+            </summary>
+            <param name="disposables">The disposables to dispose</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableObjects">
+            <summary>
+            Disposable objects
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableObjects.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Disposables.DisposableObjects"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableObjects.AddDisposableObject``1(``0)">
+            <summary>
+            Add disposable object
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="TDisposableObj"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableObjects.AddDisposableObjects(System.Object[])">
+            <summary>
+            Add a set of disposable objects
+            </summary>
+            <param name="objs"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableObjects.AddDisposableAction(System.String,System.Action)">
+            <summary>
+            Add disposable action
+            </summary>
+            <param name="name"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableObjects.AddDisposableAction(System.String,Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Add disposable action
+            </summary>
+            <param name="name"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableObjects.AddDisposableAction(System.String,Cosmos.Disposables.AnonymousDisposableObject)">
+            <summary>
+            Add disposable action
+            </summary>
+            <param name="name"></param>
+            <param name="anonymous"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableObjects.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.FacileDisposableObjects">
+            <summary>
+            Facile Disposable Objects
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Disposables.FacileDisposableObjects"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.AddDisposableObject``1(``0)">
+            <summary>
+            Add disposable object
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="TDisposableObj"></typeparam>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.AddDisposableObjects(System.Object[])">
+            <summary>
+            Add a set of disposable objects
+            </summary>
+            <param name="objs"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.AddDisposableAction(System.String,System.Action)">
+            <summary>
+            Add disposable action
+            </summary>
+            <param name="name"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.AddDisposableAction(System.String,Cosmos.Disposables.DisposableAction)">
+            <summary>
+            Add disposable action
+            </summary>
+            <param name="name"></param>
+            <param name="disposableAction"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.AddDisposableAction(System.String,Cosmos.Disposables.AnonymousDisposableObject)">
+            <summary>
+            Add disposable action
+            </summary>
+            <param name="name"></param>
+            <param name="anonymous"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.ContainDisposableAction(System.String)">
+            <summary>
+            Contains disposable action
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.RemoveDisposableAction(System.String)">
+            <summary>
+            Remove disposable action
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.ClearDisposableActions">
+            <summary>
+            Clear all disposable actions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.Dispose(System.Boolean)">
+            <summary>
+            Dispose
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.FacileDisposableObjects.Finalize">
+            <summary>
+            Facile Disposable Objects
+            </summary>
+        </member>
+    </members>
+</doc>

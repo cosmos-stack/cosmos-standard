@@ -17,15 +17,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0' OR '$(TargetFramework)'=='net461'">
-        <PackageReference Include="DotNetCore.Natasha.DynamicCache" Version="1.2.1.18" />
+    <ItemGroup Condition="'$(TargetFramework)'!='net451'">
+        <PackageReference Include="NMS.DynamicCache" Version="1.1.0" />
     </ItemGroup>
 
 </Project>

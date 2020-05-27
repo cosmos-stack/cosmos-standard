@@ -1,5 +1,6 @@
 using Shouldly;
 using Xunit;
+using Cosmos.Conversions;
 
 namespace Cosmos.Test.ConversionByCast {
     public class NumericCastTests {

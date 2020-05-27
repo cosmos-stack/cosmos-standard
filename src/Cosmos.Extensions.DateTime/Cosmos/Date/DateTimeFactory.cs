@@ -1,11 +1,13 @@
 ﻿using System;
 
-namespace Cosmos.Date {
+namespace Cosmos.Date
+{
     /// <summary>
     /// DateTime Factory<br />
     /// 时间工厂
     /// </summary>
-    public static class DateTimeFactory {
+    public static class DateTimeFactory
+    {
         /// <summary>
         /// Now<br />
         /// 此刻
@@ -28,14 +30,18 @@ namespace Cosmos.Date {
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static DateTime Create(int year, int month, int day) {
-            try {
+        public static DateTime Create(int year, int month, int day)
+        {
+            try
+            {
                 return new DateTime(year, month, day);
             }
-            catch (ArgumentOutOfRangeException exception) {
+            catch (ArgumentOutOfRangeException exception)
+            {
                 throw new DateTimeOutOfRangeException($"Date '{year}-{month}-{day}' out of range.", exception);
             }
-            catch (Exception exception) {
+            catch (Exception exception)
+            {
                 throw new InvalidDateTimeException($"Date '{year}-{month}-{day}' is invalid.", exception);
             }
         }
@@ -51,14 +57,18 @@ namespace Cosmos.Date {
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static DateTime Create(int year, int month, int day, int hour, int minute, int second) {
-            try {
+        public static DateTime Create(int year, int month, int day, int hour, int minute, int second)
+        {
+            try
+            {
                 return new DateTime(year, month, day, hour, minute, second);
             }
-            catch (ArgumentOutOfRangeException exception) {
+            catch (ArgumentOutOfRangeException exception)
+            {
                 throw new DateTimeOutOfRangeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}' out of range.", exception);
             }
-            catch (Exception exception) {
+            catch (Exception exception)
+            {
                 throw new InvalidDateTimeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}' is invalid.", exception);
             }
         }
@@ -75,14 +85,18 @@ namespace Cosmos.Date {
         /// <param name="second"></param>
         /// <param name="millisecond"></param>
         /// <returns></returns>
-        public static DateTime Create(int year, int month, int day, int hour, int minute, int second, int millisecond) {
-            try {
+        public static DateTime Create(int year, int month, int day, int hour, int minute, int second, int millisecond)
+        {
+            try
+            {
                 return new DateTime(year, month, day, hour, minute, second, millisecond);
             }
-            catch (ArgumentOutOfRangeException exception) {
+            catch (ArgumentOutOfRangeException exception)
+            {
                 throw new DateTimeOutOfRangeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}.{millisecond}' out of range.", exception);
             }
-            catch (Exception exception) {
+            catch (Exception exception)
+            {
                 throw new InvalidDateTimeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}.{millisecond}' is invalid.", exception);
             }
         }
@@ -102,14 +116,18 @@ namespace Cosmos.Date {
         /// <returns></returns>
         /// <exception cref="DateTimeOutOfRangeException"></exception>
         /// <exception cref="InvalidDateTimeException"></exception>
-        public static DateTime Create(int year, int month, int day, int hour, int minute, int second, int millisecond, DateTimeKind kind) {
-            try {
+        public static DateTime Create(int year, int month, int day, int hour, int minute, int second, int millisecond, DateTimeKind kind)
+        {
+            try
+            {
                 return new DateTime(year, month, day, hour, minute, second, millisecond, kind);
             }
-            catch (ArgumentOutOfRangeException exception) {
+            catch (ArgumentOutOfRangeException exception)
+            {
                 throw new DateTimeOutOfRangeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}.{millisecond}' out of range.", exception);
             }
-            catch (Exception exception) {
+            catch (Exception exception)
+            {
                 throw new InvalidDateTimeException($"Date '{year}-{month}-{day} {hour}:{minute}:{second}.{millisecond}' is invalid.", exception);
             }
         }
@@ -123,7 +141,8 @@ namespace Cosmos.Date {
         /// <param name="weekAtMonth"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime OffsetByWeek(int year, int month, int weekAtMonth, int dayOfWeek) {
+        public static DateTime OffsetByWeek(int year, int month, int weekAtMonth, int dayOfWeek)
+        {
             var fd = Create(year, month, 1);
             var fDayOfWeek = fd.DayOfWeek.ToInt();
             var restDayOfFdInWeek = 7 - fDayOfWeek + 1; //计算第一周剩余天数
@@ -153,7 +172,8 @@ namespace Cosmos.Date {
         /// <param name="month"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime FindLastDay(int year, int month, DayOfWeek dayOfWeek) {
+        public static DateTime FindLastDay(int year, int month, DayOfWeek dayOfWeek)
+        {
             var resultedDay = FindDay(year, month, dayOfWeek, 5);
             if (resultedDay == DateTime.MinValue)
                 resultedDay = FindDay(year, month, dayOfWeek, 4);
@@ -169,7 +189,8 @@ namespace Cosmos.Date {
         /// <param name="day"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime FindNextDay(int year, int month, int day, DayOfWeek dayOfWeek) {
+        public static DateTime FindNextDay(int year, int month, int day, DayOfWeek dayOfWeek)
+        {
             var calculationDay = Create(year, month, day);
             return FindNextDay(calculationDay, dayOfWeek);
         }
@@ -181,7 +202,8 @@ namespace Cosmos.Date {
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime FindNextDay(DateTime dt, DayOfWeek dayOfWeek) {
+        public static DateTime FindNextDay(DateTime dt, DayOfWeek dayOfWeek)
+        {
             var daysNeeded = (int) dayOfWeek - (int) dt.DayOfWeek;
             return (int) dayOfWeek >= (int) dt.DayOfWeek
                 ? dt.AddDays(daysNeeded)
@@ -197,7 +219,8 @@ namespace Cosmos.Date {
         /// <param name="day"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime FindDayBefore(int year, int month, int day, DayOfWeek dayOfWeek) {
+        public static DateTime FindDayBefore(int year, int month, int day, DayOfWeek dayOfWeek)
+        {
             var calculationDay = Create(year, month, day);
             return FindDayBefore(calculationDay, dayOfWeek);
         }
@@ -209,7 +232,8 @@ namespace Cosmos.Date {
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime FindDayBefore(DateTime dt, DayOfWeek dayOfWeek) {
+        public static DateTime FindDayBefore(DateTime dt, DayOfWeek dayOfWeek)
+        {
             var daysSubtract = (int) dayOfWeek - (int) dt.DayOfWeek;
 
             return (int) dayOfWeek < (int) dt.DayOfWeek
@@ -226,7 +250,8 @@ namespace Cosmos.Date {
         /// <param name="dayOfWeek"></param>
         /// <param name="occurrence"></param>
         /// <returns></returns>
-        public static DateTime FindDay(int year, int month, DayOfWeek dayOfWeek, int occurrence) {
+        public static DateTime FindDay(int year, int month, DayOfWeek dayOfWeek, int occurrence)
+        {
             //todo：判断与 OffsetByWeek 的异同
 
             if (occurrence == 0 || occurrence > 5)
@@ -236,7 +261,8 @@ namespace Cosmos.Date {
 
             var daysNeeded = (int) dayOfWeek - (int) firstDayOfMonth.DayOfWeek;
 
-            if (daysNeeded < 0) {
+            if (daysNeeded < 0)
+            {
                 daysNeeded += 7;
             }
 

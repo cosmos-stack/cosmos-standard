@@ -4,14 +4,16 @@ using Cosmos.Domain.EntityDescriptors;
 using Cosmos.Validations;
 using Cosmos.Validations.Abstractions;
 
-namespace Cosmos.Domain {
+namespace Cosmos.Domain
+{
     /// <summary>
     /// Expirable entity base
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TKey"></typeparam>
     public abstract class ExpirableEntityBase<TEntity, TKey> : EntityBase<TEntity, TKey>, IExpireable
-        where TEntity : class, IEntity, IValidatable<TEntity> {
+    where TEntity : class, IEntity, IValidatable<TEntity>
+    {
         /// <summary>
         /// Create a new instance of <see cref="ExpirableEntityBase{TEntity, TKey}"/>.
         /// </summary>
@@ -33,7 +35,8 @@ namespace Cosmos.Domain {
         /// Raise exception if time is invalid
         /// </summary>
         /// <exception cref="IndexOutOfRangeException"></exception>
-        public void RaiseExceptionIfTimeInvalid() {
+        public void RaiseExceptionIfTimeInvalid()
+        {
             if (!ExpireLimitedFromTime.HasValue) return;
             if (!ExpireLimitedToTime.HasValue) return;
             if (ExpireLimitedFromTime.Value < ExpireLimitedToTime.Value) return;
@@ -50,21 +53,24 @@ namespace Cosmos.Domain {
         public bool IsActive() => IsActive(DateTime.Now);
 
         /// <inheritdoc />
-        public virtual bool IsStart(DateTime targetTime) {
+        public virtual bool IsStart(DateTime targetTime)
+        {
             if (ExpireLimitedFromTime.HasValue)
                 return targetTime >= ExpireLimitedFromTime.Value;
             return false;
         }
 
         /// <inheritdoc />
-        public virtual bool IsExpired(DateTime targetTime) {
+        public virtual bool IsExpired(DateTime targetTime)
+        {
             if (ExpireLimitedToTime.HasValue)
                 return targetTime > ExpireLimitedToTime.Value;
             return false;
         }
 
         /// <inheritdoc />
-        public virtual bool IsActive(DateTime targetTime) {
+        public virtual bool IsActive(DateTime targetTime)
+        {
             if (ExpireLimitedFromTime.HasValue && ExpireLimitedToTime.HasValue)
                 return targetTime >= ExpireLimitedFromTime.Value && targetTime < ExpireLimitedToTime.Value;
             if (ExpireLimitedFromTime.HasValue)

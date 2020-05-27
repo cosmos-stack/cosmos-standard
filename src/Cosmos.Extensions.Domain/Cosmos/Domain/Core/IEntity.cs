@@ -1,11 +1,13 @@
 ﻿using Cosmos.Domain.ChangeTracking;
 using Cosmos.Domain.EntityDescriptors;
 
-namespace Cosmos.Domain.Core {
+namespace Cosmos.Domain.Core
+{
     /// <summary>
     /// Interface for entity
     /// </summary>
-    public interface IEntity : IDomainObject {
+    public interface IEntity : IDomainObject
+    {
         /// <summary>
         /// Init
         /// </summary>
@@ -24,5 +26,5 @@ namespace Cosmos.Domain.Core {
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TKey"></typeparam>
     public interface IEntity<in TEntity, out TKey> : IChangeTrackable<TEntity>, IEntity<TKey>
-        where TEntity : IEntity { }
+    where TEntity : IEntity { }
 }

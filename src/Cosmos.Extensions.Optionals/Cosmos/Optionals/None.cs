@@ -1,17 +1,20 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// None
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class None<T> : Optional<T, None<T>>, IEquatable<None<T>>, IComparable<None<T>> {
+    public sealed class None<T> : Optional<T, None<T>>, IEquatable<None<T>>, IComparable<None<T>>
+    {
         internal None() : base(default, false) { }
 
         #region Equals
 
         /// <inheritdoc />
-        public override bool Equals(T other) {
+        public override bool Equals(T other)
+        {
             if (other is null)
                 return true;
             return Internal.Equals(other);
@@ -22,7 +25,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public override bool Equals(None<T> other) {
+        public override bool Equals(None<T> other)
+        {
             if (other is null)
                 return false;
             return Internal.Equals(other.Internal);
@@ -33,7 +37,8 @@ namespace Cosmos.Optionals {
         #region CompareTo
 
         /// <inheritdoc />
-        public override int CompareTo(T other) {
+        public override int CompareTo(T other)
+        {
             if (other is null)
                 return 0;
             return Internal.CompareTo(other);
@@ -44,7 +49,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public override int CompareTo(None<T> other) {
+        public override int CompareTo(None<T> other)
+        {
             if (other is null)
                 return 1;
             return Internal.CompareTo(other.Internal);
@@ -59,7 +65,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="some"></param>
         /// <returns></returns>
-        public static explicit operator None<T>(Some<T> some) {
+        public static explicit operator None<T>(Some<T> some)
+        {
             return Optional.Wrapped.None<T>();
         }
 
@@ -68,7 +75,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="maybe"></param>
         /// <returns></returns>
-        public static explicit operator None<T>(Maybe<T> maybe) {
+        public static explicit operator None<T>(Maybe<T> maybe)
+        {
             return maybe.ToWrappedNone();
         }
 
@@ -91,7 +99,7 @@ namespace Cosmos.Optionals {
         #endregion
 
         #region Filter
-        
+
         /// <inheritdoc />
         public override None<T> Filter(bool condition) => this;
 
@@ -101,10 +109,10 @@ namespace Cosmos.Optionals {
         #endregion
 
         #region Not null
-        
+
         /// <inheritdoc />
         public override None<T> NotNull() => default;
-        
+
         #endregion
     }
 }

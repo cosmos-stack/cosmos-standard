@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Cosmos.Judgments;
+using Cosmos.Text;
 using Xunit;
 
 namespace Cosmos.Test.Judgements

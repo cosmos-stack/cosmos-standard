@@ -6,14 +6,16 @@ Cosmos.Standard is the core repository of [Cosmosloops Labs.](https://github.com
 
 - Cosmos.Core
 - Cosmos.Abstractions
-- Cosmos.Extensions
 - Cosmos.Extensions.Asyncs
+- Cosmos.Extensions.Conversions
 - Cosmos.Extensions.Collections
 - Cosmos.Extensions.DateTime
+- Cosmos.Extensions.Disposables
 - Cosmos.Extensions.Domain
 - Cosmos.Extensions.Optionals
 - Cosmos.Extensions.Preconditions
 - Cosmos.Extensions.Reflection
+- Cosmos.Extensions.PowerCucumber
 
 This repository also include these inline common projects:
 

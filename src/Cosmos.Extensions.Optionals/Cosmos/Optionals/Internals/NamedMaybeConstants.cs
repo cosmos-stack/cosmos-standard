@@ -1,7 +1,9 @@
 // ReSharper disable InconsistentNaming
 
-namespace Cosmos.Optionals.Internals {
-    internal static class NamedMaybeConstants {
+namespace Cosmos.Optionals.Internals
+{
+    internal static class NamedMaybeConstants
+    {
         public const string KEY = "_default_key";
         public const string KEY2 = "_default_key_2";
         public const string KEY3 = "_default_key_3";

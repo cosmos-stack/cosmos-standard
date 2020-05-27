@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace Cosmos.Workflow {
+namespace Cosmos.Workflow
+{
     /// <summary>
     /// Dynamic Forms Design Interface<br />
     /// 动态表单设计稿接口<br />
     /// 本接口用于 Cosmos.Walker 和 Cosmos.Flower
     /// </summary>
-    public interface IDynamicFormsDesign {
+    public interface IDynamicFormsDesign
+    {
         /// <summary>
         /// Id<br />
         /// 编号

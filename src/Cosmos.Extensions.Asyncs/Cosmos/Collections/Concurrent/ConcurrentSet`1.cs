@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace Cosmos.Collections.Concurrent {
+namespace Cosmos.Collections.Concurrent
+{
     /// <summary>
     /// Concurrent Set
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T> {
+    public class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T>
+    {
         private readonly ConcurrentDictionary<T, bool> _dictionary = new ConcurrentDictionary<T, bool>();
 
         /// <summary>
@@ -48,26 +50,31 @@ namespace Cosmos.Collections.Concurrent {
         public void Clear() => _dictionary.Clear();
 
         /// <inheritdoc />
-        public IEnumerator<T> GetEnumerator() {
+        public IEnumerator<T> GetEnumerator()
+        {
             return _dictionary.Keys.GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator() {
+        IEnumerator IEnumerable.GetEnumerator()
+        {
             return GetEnumerator();
         }
 
         /// <inheritdoc />
-        public void Add(T item) {
+        public void Add(T item)
+        {
             TryAdd(item);
         }
 
         /// <inheritdoc />
-        public void CopyTo(T[] array, int arrayIndex) {
+        public void CopyTo(T[] array, int arrayIndex)
+        {
             _dictionary.Keys.CopyTo(array, arrayIndex);
         }
 
         /// <inheritdoc />
-        public bool Remove(T item) {
+        public bool Remove(T item)
+        {
             return TryRemove(item);
         }
     }

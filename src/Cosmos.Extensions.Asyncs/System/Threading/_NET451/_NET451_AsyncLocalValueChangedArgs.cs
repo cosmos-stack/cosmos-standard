@@ -1,14 +1,15 @@
 #if NET451
 
 // ReSharper disable once CheckNamespace
-namespace System.Threading {
+namespace System.Threading
+{
     /// <summary>
     /// Async local value changed args for .NET Framework 4.5.1
     /// </summary>
     /// <typeparam name="T"></typeparam>
     // ReSharper disable once InconsistentNaming
-    public readonly struct AsyncLocalValueChangedArgs<T> {
-
+    public readonly struct AsyncLocalValueChangedArgs<T>
+    {
         /// <summary>
         /// Previous value
         /// </summary>
@@ -24,7 +25,8 @@ namespace System.Threading {
         /// </summary>
         public bool ThreadContextChanged { get; }
 
-        internal AsyncLocalValueChangedArgs(T previousValue, T currentValue, bool contextChanged) {
+        internal AsyncLocalValueChangedArgs(T previousValue, T currentValue, bool contextChanged)
+        {
             PreviousValue = previousValue;
             CurrentValue = currentValue;
             ThreadContextChanged = contextChanged;

@@ -1,8 +1,10 @@
-﻿namespace Cosmos.Domain.ChangeTracking {
+﻿namespace Cosmos.Domain.ChangeTracking
+{
     /// <summary>
     /// To describe what value has been changed
     /// </summary>
-    public class ChangedValueDescriptor {
+    public class ChangedValueDescriptor
+    {
         /// <summary>
         /// Create a new instance of <see cref="ChangedValueDescriptor"/>.
         /// </summary>
@@ -10,7 +12,8 @@
         /// <param name="description"></param>
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
-        public ChangedValueDescriptor(string propertyName, string description, string oldValue, string newValue) {
+        public ChangedValueDescriptor(string propertyName, string description, string oldValue, string newValue)
+        {
             PropertyName = propertyName;
             Description = description;
             ValueBeforeChange = oldValue;

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Cosmos.Optionals.Internals;
+using Cosmos.Reflection;
 
 // ReSharper disable InconsistentNaming
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Maybe
     /// </summary>
@@ -12,21 +14,27 @@ namespace Cosmos.Optionals {
     [Serializable]
     public readonly struct Maybe<T> : IOptionalImpl<T, Maybe<T>>,
                                       IEquatable<Maybe<T>>,
-                                      IComparable<Maybe<T>> {
+                                      IComparable<Maybe<T>>
+    {
         private readonly string _key;
         private readonly bool _hasValue;
         private readonly T _value;
+        private readonly Type _underlyingType;
 
-        internal Maybe(T value, bool hasValue) {
+        internal Maybe(T value, bool hasValue)
+        {
             _hasValue = hasValue;
             _value = value;
             _key = NamedMaybeConstants.KEY;
+            _underlyingType = Types.Of<T>();
         }
 
-        internal Maybe(T value, string key, bool hasValue) {
+        internal Maybe(T value, string key, bool hasValue)
+        {
             _hasValue = hasValue;
             _value = value;
             _key = string.IsNullOrWhiteSpace(key) ? NamedMaybeConstants.KEY : key;
+            _underlyingType = Types.Of<T>();
         }
 
         /// <inheritdoc />
@@ -38,15 +46,21 @@ namespace Cosmos.Optionals {
         /// <inheritdoc />
         public string Key => _key;
 
+        /// <inheritdoc />
+        public Type UnderlyingType => _underlyingType;
+
         #region Equals
 
         /// <inheritdoc />
-        public bool Equals(Maybe<T> other) {
-            if (!_hasValue && !other._hasValue) {
+        public bool Equals(Maybe<T> other)
+        {
+            if (!_hasValue && !other._hasValue)
+            {
                 return true;
             }
 
-            if (_hasValue && other._hasValue) {
+            if (_hasValue && other._hasValue)
+            {
                 return EqualityComparer<T>.Default.Equals(_value, other._value);
             }
 
@@ -54,7 +68,8 @@ namespace Cosmos.Optionals {
         }
 
         /// <inheritdoc />
-        public bool Equals(T other) {
+        public bool Equals(T other)
+        {
             if (other is null)
                 return false;
             return _hasValue && EqualityComparer<T>.Default.Equals(_value, other);
@@ -68,12 +83,14 @@ namespace Cosmos.Optionals {
         #region CompareTo
 
         /// <inheritdoc />
-        public int CompareTo(T other) {
+        public int CompareTo(T other)
+        {
             return !_hasValue ? -1 : Comparer<T>.Default.Compare(_value, other);
         }
 
         /// <inheritdoc />
-        public int CompareTo(Maybe<T> other) {
+        public int CompareTo(Maybe<T> other)
+        {
             if (_hasValue && !other._hasValue) return 1;
             if (!_hasValue && other._hasValue) return -1;
             return Comparer<T>.Default.Compare(_value, other._value);
@@ -140,7 +157,8 @@ namespace Cosmos.Optionals {
         #region ToString
 
         /// <inheritdoc />
-        public override string ToString() {
+        public override string ToString()
+        {
             return _hasValue
                 ? _value == null
                     ? "Some(null)"
@@ -153,7 +171,8 @@ namespace Cosmos.Optionals {
         #region GetHashCode
 
         /// <inheritdoc />
-        public override int GetHashCode() {
+        public override int GetHashCode()
+        {
             return _hasValue
                 ? _value == null
                     ? 1
@@ -169,7 +188,8 @@ namespace Cosmos.Optionals {
         /// To enumerable
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<T> ToEnumerable() {
+        public IEnumerable<T> ToEnumerable()
+        {
             if (_hasValue)
                 yield return _value;
         }
@@ -178,7 +198,8 @@ namespace Cosmos.Optionals {
         /// Get enumrtator
         /// </summary>
         /// <returns></returns>
-        public IEnumerator<T> GetEnumerator() {
+        public IEnumerator<T> GetEnumerator()
+        {
             if (_hasValue)
                 yield return _value;
         }
@@ -192,7 +213,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool Contains(T value) {
+        public bool Contains(T value)
+        {
             if (_hasValue)
                 if (_value == null)
                     return value == null;
@@ -207,7 +229,8 @@ namespace Cosmos.Optionals {
         /// <param name="predicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public bool Exists(Func<T, bool> predicate) {
+        public bool Exists(Func<T, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return _hasValue && predicate(_value);
@@ -222,7 +245,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="alternative"></param>
         /// <returns></returns>
-        public T ValueOr(T alternative) {
+        public T ValueOr(T alternative)
+        {
             return _hasValue ? _value : alternative;
         }
 
@@ -232,7 +256,8 @@ namespace Cosmos.Optionals {
         /// <param name="alternativeFactory"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public T ValueOr(Func<T> alternativeFactory) {
+        public T ValueOr(Func<T> alternativeFactory)
+        {
             if (alternativeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeFactory));
             return _hasValue ? _value : alternativeFactory();
@@ -247,7 +272,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="alternative"></param>
         /// <returns></returns>
-        public Maybe<T> Or(T alternative) {
+        public Maybe<T> Or(T alternative)
+        {
             return _hasValue ? this : Optional.Some(alternative);
         }
 
@@ -257,7 +283,8 @@ namespace Cosmos.Optionals {
         /// <param name="alternativeFactory"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Maybe<T> Or(Func<T> alternativeFactory) {
+        public Maybe<T> Or(Func<T> alternativeFactory)
+        {
             if (alternativeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeFactory));
             return _hasValue ? this : Optional.Some(alternativeFactory());
@@ -268,7 +295,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="alternativeMaybe"></param>
         /// <returns></returns>
-        public Maybe<T> Else(Maybe<T> alternativeMaybe) {
+        public Maybe<T> Else(Maybe<T> alternativeMaybe)
+        {
             return _hasValue ? this : alternativeMaybe;
         }
 
@@ -278,7 +306,8 @@ namespace Cosmos.Optionals {
         /// <param name="alternativeMaybeFactory"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Maybe<T> Else(Func<Maybe<T>> alternativeMaybeFactory) {
+        public Maybe<T> Else(Func<Maybe<T>> alternativeMaybeFactory)
+        {
             if (alternativeMaybeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeMaybeFactory));
             return _hasValue ? this : alternativeMaybeFactory();
@@ -294,7 +323,8 @@ namespace Cosmos.Optionals {
         /// <param name="exception"></param>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
-        public Either<T, TException> WithException<TException>(TException exception) {
+        public Either<T, TException> WithException<TException>(TException exception)
+        {
             return Match(
                 someFactory: Optional.Some<T, TException>,
                 noneFactory: () => Optional.None<T, TException>(exception));
@@ -307,7 +337,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Either<T, TException> WithException<TException>(Func<TException> exceptionFactory) {
+        public Either<T, TException> WithException<TException>(Func<TException> exceptionFactory)
+        {
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
             return Match(
@@ -327,7 +358,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public TResult Match<TResult>(Func<T, TResult> someFactory, Func<TResult> noneFactory) {
+        public TResult Match<TResult>(Func<T, TResult> someFactory, Func<TResult> noneFactory)
+        {
             if (someFactory is null)
                 throw new ArgumentNullException(nameof(someFactory));
             if (noneFactory is null)
@@ -341,7 +373,8 @@ namespace Cosmos.Optionals {
         /// <param name="someAct"></param>
         /// <param name="noneAct"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public void Match(Action<T> someAct, Action noneAct) {
+        public void Match(Action<T> someAct, Action noneAct)
+        {
             if (someAct is null)
                 throw new ArgumentNullException(nameof(someAct));
             if (noneAct is null)
@@ -357,7 +390,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="maybeAct"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public void MatchMaybe(Action<T> maybeAct) {
+        public void MatchMaybe(Action<T> maybeAct)
+        {
             if (maybeAct is null)
                 throw new ArgumentNullException(nameof(maybeAct));
             if (_hasValue)
@@ -369,7 +403,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="noneAct"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public void MatchNone(Action noneAct) {
+        public void MatchNone(Action noneAct)
+        {
             if (noneAct is null)
                 throw new ArgumentNullException(nameof(noneAct));
             if (!_hasValue)
@@ -387,7 +422,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Maybe<TResult> Map<TResult>(Func<T, TResult> mapping) {
+        public Maybe<TResult> Map<TResult>(Func<T, TResult> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
             return Match(
@@ -402,7 +438,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Maybe<TResult> FlatMap<TResult>(Func<T, Maybe<TResult>> mapping) {
+        public Maybe<TResult> FlatMap<TResult>(Func<T, Maybe<TResult>> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
             return Match(
@@ -418,7 +455,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Maybe<TResult> FlatMap<TResult, TException>(Func<T, Either<TResult, TException>> mapping) {
+        public Maybe<TResult> FlatMap<TResult, TException>(Func<T, Either<TResult, TException>> mapping)
+        {
             if (mapping is null)
                 throw new ArgumentNullException(nameof(mapping));
             return FlatMap(val => mapping(val).WithoutException());
@@ -433,7 +471,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
-        public Maybe<T> Filter(bool condition) {
+        public Maybe<T> Filter(bool condition)
+        {
             return _hasValue && !condition ? Nothing : this;
         }
 
@@ -443,7 +482,8 @@ namespace Cosmos.Optionals {
         /// <param name="predicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Maybe<T> Filter(Func<T, bool> predicate) {
+        public Maybe<T> Filter(Func<T, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return _hasValue && !predicate(_value) ? Nothing : this;
@@ -457,7 +497,8 @@ namespace Cosmos.Optionals {
         /// Not null
         /// </summary>
         /// <returns></returns>
-        public Maybe<T> NotNull() {
+        public Maybe<T> NotNull()
+        {
             return _hasValue && _value == null ? Nothing : this;
         }
 
@@ -518,7 +559,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static implicit operator Maybe<T>(T value) {
+        public static implicit operator Maybe<T>(T value)
+        {
             return Optional.From(value);
         }
 
@@ -527,7 +569,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="maybe"></param>
         /// <returns></returns>
-        public static implicit operator T(Maybe<T> maybe) {
+        public static implicit operator T(Maybe<T> maybe)
+        {
             return maybe.ValueOrDefault();
         }
 
@@ -541,6 +584,5 @@ namespace Cosmos.Optionals {
         public static Maybe<T> Nothing => Optional.None<T>();
 
         #endregion
-
     }
 }

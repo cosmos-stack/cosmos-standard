@@ -1,12 +1,14 @@
 ﻿using System.ComponentModel;
 
-namespace Cosmos.Date.Chinese {
+namespace Cosmos.Date.Chinese
+{
     /// <summary>
     /// Chinese Solar Terms<br />
     /// 农历二十四节气 <br />
     /// Reference to: http://www.hjenglish.com/fanyi/p945691/
     /// </summary>
-    public enum ChineseSolarTerms {
+    public enum ChineseSolarTerms
+    {
         /// <summary>
         /// 立春
         /// </summary>

@@ -2,19 +2,21 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Judgments {
+namespace Cosmos.Judgments
+{
     /// <summary>
     /// String Judgment Utilities
     /// </summary>
-    public static class StringJudgment {
-
+    public static class StringJudgment
+    {
         /// <summary>
         /// To judge whether the string starts with the specified strings.
         /// </summary>
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool StartWithThese(string str, params string[] values) {
+        public static bool StartWithThese(string str, params string[] values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
@@ -27,7 +29,8 @@ namespace Cosmos.Judgments {
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool StartWithThese(string str, ICollection<string> values) {
+        public static bool StartWithThese(string str, ICollection<string> values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || !values.Any())
                 return false;
 
@@ -40,7 +43,8 @@ namespace Cosmos.Judgments {
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool EndWithThese(string str, params string[] values) {
+        public static bool EndWithThese(string str, params string[] values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || values.Any(string.IsNullOrWhiteSpace))
                 return false;
 
@@ -53,7 +57,8 @@ namespace Cosmos.Judgments {
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool EndWithThese(string str, ICollection<string> values) {
+        public static bool EndWithThese(string str, ICollection<string> values)
+        {
             if (string.IsNullOrWhiteSpace(str) || values is null || !values.Any())
                 return false;
 
@@ -69,9 +74,8 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsWebUrl(string str) {
-            return !string.IsNullOrWhiteSpace(str) && WebUrlExpressionSchema.IsMatch(str);
-        }
+        public static bool IsWebUrl(string str) =>
+            !string.IsNullOrWhiteSpace(str) && WebUrlExpressionSchema.IsMatch(str);
 
         private static readonly Regex EemailExpressionSchema
             = new Regex(@"^([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}$",
@@ -82,26 +86,23 @@ namespace Cosmos.Judgments {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool IsEmail(string str) {
-            return !string.IsNullOrWhiteSpace(str) && EemailExpressionSchema.IsMatch(str);
-        }
+        public static bool IsEmail(string str) =>
+            !string.IsNullOrWhiteSpace(str) && EemailExpressionSchema.IsMatch(str);
 
         /// <summary>
         /// To judge whether the string contains chinese characters or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool ContainsChineseCharacters(string str) {
-            return !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[\u4e00-\u9fa5]+");
-        }
+        public static bool ContainsChineseCharacters(string str) =>
+            !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[\u4e00-\u9fa5]+");
 
         /// <summary>
         /// To judge whether the string contains number or not.
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static bool ContainsNumber(string str) {
-            return !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[0-9]+");
-        }
+        public static bool ContainsNumber(string str) =>
+            !string.IsNullOrWhiteSpace(str) && RegexJudgment.IsMatch(str, "[0-9]+");
     }
 }

@@ -1,7 +1,7 @@
 <Project>
 	<PropertyGroup Label="Package">
 		<Product>Cosmos.Standard</Product>
-		<Authors>AlexLEWIS;dotnetcore;StarrySky;Cosmos</Authors>
+		<Authors>AlexLEWIS;StarrySky;Cosmos</Authors>
 		<RepositoryUrl>https://github.com/cosmos-loops/Standard</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageProjectUrl>https://github.com/cosmos-loops/Standard</PackageProjectUrl>

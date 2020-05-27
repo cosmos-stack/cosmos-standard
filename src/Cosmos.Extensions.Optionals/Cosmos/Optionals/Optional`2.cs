@@ -1,14 +1,15 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Base optional for Some and None.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TException"></typeparam>
     /// <typeparam name="TImpl"></typeparam>
-    public abstract class Optional<T, TException, TImpl> : IOptionalImpl<T, TException, TImpl> {
-
+    public abstract class Optional<T, TException, TImpl> : IOptionalImpl<T, TException, TImpl>
+    {
         /// <summary>
         /// Internal Either instance
         /// </summary>
@@ -22,7 +23,8 @@ namespace Cosmos.Optionals {
         /// <param name="value"></param>
         /// <param name="exception"></param>
         /// <param name="hasValue"></param>
-        protected Optional(T value, TException exception, bool hasValue) {
+        protected Optional(T value, TException exception, bool hasValue)
+        {
             Either = new Either<T, TException>(value, exception, hasValue);
         }
 
@@ -30,7 +32,8 @@ namespace Cosmos.Optionals {
         /// Create a new instance of <see cref="Optional{T, TImpl}"/>.
         /// </summary>
         /// <param name="either"></param>
-        protected Optional(Either<T, TException> either) {
+        protected Optional(Either<T, TException> either)
+        {
             Either = either;
         }
 
@@ -44,7 +47,13 @@ namespace Cosmos.Optionals {
         public string Key => Either.Key;
 
         /// <inheritdoc />
+        public virtual Type UnderlyingType => Either.UnderlyingType;
+
+        /// <inheritdoc />
         public TException Exception => Either.Exception;
+
+        /// <inheritdoc />
+        public virtual Type UnderlyingExceptionType => Either.UnderlyingExceptionType;
 
         /// <inheritdoc />
         public bool Contains(T value) => Either.Contains(value);

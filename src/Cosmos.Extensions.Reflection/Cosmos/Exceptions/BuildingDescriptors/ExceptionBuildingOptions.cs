@@ -2,19 +2,23 @@
 
 using System;
 using System.Collections.Generic;
+using Cosmos.Reflection;
 
-namespace Cosmos.Exceptions.BuildingDescriptors {
+namespace Cosmos.Exceptions.BuildingDescriptors
+{
     /// <summary>
     /// Exception building options
     /// </summary>
-    public class ExceptionBuildingOptions {
+    public class ExceptionBuildingOptions
+    {
         private Dictionary<string, CtorArgDescriptor> _items = new Dictionary<string, CtorArgDescriptor>();
 
         /// <summary>
         /// Create a new instance of <see cref="ExceptionBuildingOptions"/>.
         /// </summary>
         /// <param name="type"></param>
-        public ExceptionBuildingOptions(Type type) {
+        public ExceptionBuildingOptions(Type type)
+        {
             ExceptionType = type;
         }
 
@@ -32,7 +36,8 @@ namespace Cosmos.Exceptions.BuildingDescriptors {
         /// <param name="argumentValue"></param>
         /// <typeparam name="TArgVal"></typeparam>
         /// <returns></returns>
-        public ExceptionBuildingOptions AddArg<TArgVal>(string argumentName, TArgVal argumentValue) {
+        public ExceptionBuildingOptions AddArg<TArgVal>(string argumentName, TArgVal argumentValue)
+        {
             if (_items.ContainsKey(argumentName))
                 return this;
 
@@ -48,8 +53,10 @@ namespace Cosmos.Exceptions.BuildingDescriptors {
         /// <param name="predicate"></param>
         /// <typeparam name="TArgVal"></typeparam>
         /// <returns></returns>
-        public ExceptionBuildingOptions AddArg<TArgVal>(string argumentName, TArgVal argumentValue, Func<TArgVal, bool> predicate) {
-            if (predicate(argumentValue)) {
+        public ExceptionBuildingOptions AddArg<TArgVal>(string argumentName, TArgVal argumentValue, Func<TArgVal, bool> predicate)
+        {
+            if (predicate(argumentValue))
+            {
                 AddArg(argumentName, argumentValue);
             }
 

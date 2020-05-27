@@ -1,10 +1,12 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optional utilities
     /// </summary>
-    public static partial class Optional {
+    public static partial class Optional
+    {
         /// <summary>
         /// Some
         /// </summary>
@@ -68,7 +70,8 @@ namespace Cosmos.Optionals {
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Maybe<T> From<T>(T value) {
+        public static Maybe<T> From<T>(T value)
+        {
             return value is null
                 ? None<T>()
                 : Some(value);
@@ -82,7 +85,8 @@ namespace Cosmos.Optionals {
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Maybe<T> From<T>(T value, Func<T, bool> condition) {
+        public static Maybe<T> From<T>(T value, Func<T, bool> condition)
+        {
             if (condition is null)
                 throw new ArgumentNullException(nameof(condition));
             if (value is null)

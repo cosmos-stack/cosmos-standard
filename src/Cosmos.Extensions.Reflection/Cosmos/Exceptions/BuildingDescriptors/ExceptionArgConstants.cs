@@ -1,10 +1,12 @@
 #if !NET451
 
-namespace Cosmos.Exceptions.BuildingDescriptors {
+namespace Cosmos.Exceptions.BuildingDescriptors
+{
     /// <summary>
     /// Exception arg constants
     /// </summary>
-    public class ExceptionArgConstants {
+    public class ExceptionArgConstants
+    {
         /// <summary>
         /// Message
         /// </summary>

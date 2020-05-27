@@ -17,8 +17,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// As enumerable
         /// </summary>
@@ -28,7 +30,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TSource>> AsEnumerable<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.AsEnumerable, cancellationToken);
         }
 
@@ -42,7 +45,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TResult>> Cast<T, TResult>(
             this Task<IOrderedEnumerable<T>> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.Cast<TResult>, cancellationToken);
         }
 
@@ -57,7 +61,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> Concat<TSource>(
             this Task<IOrderedEnumerable<TSource>> first,
             IEnumerable<TSource> second,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, Enumerable.Concat, cancellationToken);
         }
 
@@ -70,7 +75,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TSource>> DefaultIfEmpty<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.DefaultIfEmpty, cancellationToken);
         }
 
@@ -85,7 +91,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> DefaultIfEmpty<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
             TSource defaultValue,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, defaultValue, Enumerable.DefaultIfEmpty, cancellationToken);
         }
 
@@ -98,7 +105,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TSource>> Distinct<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.Distinct, cancellationToken);
         }
 
@@ -113,7 +121,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> Distinct<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
             IEqualityComparer<TSource> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, comparer, Enumerable.Distinct, cancellationToken);
         }
 
@@ -128,7 +137,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> Except<TSource>(
             this Task<IOrderedEnumerable<TSource>> first,
             IEnumerable<TSource> second,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, Enumerable.Except, cancellationToken);
         }
 
@@ -145,7 +155,8 @@ namespace System.Linq {
             this Task<IOrderedEnumerable<TSource>> first,
             IEnumerable<TSource> second,
             IEqualityComparer<TSource> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, comparer, Enumerable.Except, cancellationToken);
         }
 
@@ -160,7 +171,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> Intersect<TSource>(
             this Task<IOrderedEnumerable<TSource>> first,
             IEnumerable<TSource> second,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, Enumerable.Intersect, cancellationToken);
         }
 
@@ -177,7 +189,8 @@ namespace System.Linq {
             this Task<IOrderedEnumerable<TSource>> first,
             IEnumerable<TSource> second,
             IEqualityComparer<TSource> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, comparer, Enumerable.Intersect, cancellationToken);
         }
 
@@ -201,7 +214,8 @@ namespace System.Linq {
             Func<TOuter, TKey> outerKeySelector,
             Func<TInner, TKey> innerKeySelector,
             Func<TOuter, TInner, TResult> resultSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(outer, inner, outerKeySelector, innerKeySelector, resultSelector, Enumerable.Join, cancellationToken);
         }
 
@@ -227,7 +241,8 @@ namespace System.Linq {
             Func<TInner, TKey> innerKeySelector,
             Func<TOuter, TInner, TResult> resultSelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(outer, inner, outerKeySelector, innerKeySelector, resultSelector, comparer, Enumerable.Join, cancellationToken);
         }
 
@@ -241,7 +256,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TResult>> OfType<T, TResult>(
             this Task<IOrderedEnumerable<T>> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.OfType<TResult>, cancellationToken);
         }
 
@@ -254,7 +270,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<IEnumerable<TSource>> Reverse<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, Enumerable.Reverse, cancellationToken);
         }
 
@@ -269,7 +286,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> Union<TSource>(
             this Task<IOrderedEnumerable<TSource>> first,
             IEnumerable<TSource> second,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, Enumerable.Union, cancellationToken);
         }
 
@@ -286,7 +304,8 @@ namespace System.Linq {
             this Task<IOrderedEnumerable<TSource>> first,
             IEnumerable<TSource> second,
             IEqualityComparer<TSource> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, comparer, Enumerable.Union, cancellationToken);
         }
 
@@ -301,7 +320,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> Where<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.Where, cancellationToken);
         }
 
@@ -316,7 +336,8 @@ namespace System.Linq {
         public static Task<IEnumerable<TSource>> Where<TSource>(
             this Task<IOrderedEnumerable<TSource>> source,
             Func<TSource, int, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(source, predicate, Enumerable.Where, cancellationToken);
         }
 
@@ -335,7 +356,8 @@ namespace System.Linq {
             this Task<IOrderedEnumerable<TFirst>> first,
             IEnumerable<TSecond> second,
             Func<TFirst, TSecond, TResult> resultSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromTaskEnumerable(first, second, resultSelector, Enumerable.Zip, cancellationToken);
         }
     }

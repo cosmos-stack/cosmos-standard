@@ -1,9 +1,11 @@
-﻿namespace Cosmos.Date {
+﻿namespace Cosmos.Date
+{
     /// <summary>
     /// Period DateInfo<br />
     /// 时间段日期信息
     /// </summary>
-    public class PeriodDateInfo : PeriodDateInfo<DateInfo> {
+    public class PeriodDateInfo : PeriodDateInfo<DateInfo>
+    {
         /// <summary>
         /// Create a new <see cref="PeriodDateInfo"/> instance.<br />
         /// 创建一个新的 <see cref="PeriodDateInfo"/> 实例。
@@ -30,12 +32,15 @@
         /// Initialize<br />
         /// 初始化
         /// </summary>
-        protected override void Initialize() {
-            if (!_cache.IsInitialized) {
+        protected override void Initialize()
+        {
+            if (!_cache.IsInitialized)
+            {
                 var limited = Length;
                 var current = _from;
                 if (_isInfiniteFuture) limited = 31;
-                for (var i = 0; i < limited; i++) {
+                for (var i = 0; i < limited; i++)
+                {
                     _cache.Add(current);
                     if (i < limited - 1)
                         current = Next(current);

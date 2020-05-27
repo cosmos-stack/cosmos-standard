@@ -1,16 +1,24 @@
 using System;
 
-namespace Cosmos {
+namespace Cosmos
+{
     /// <summary>
     /// Default value for type
     /// </summary>
-    public static class TypeDefault {
+    public static class TypeDefault
+    {
         /// <summary>
         /// Gets default value for type TValue.
         /// </summary>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         public static TValue Of<TValue>() => default;
+
+        /// <summary>
+        /// Gets default value for type TValue.
+        /// </summary>
+        /// <returns></returns>
+        public static object Of(Type type) => default;
 
         /// <summary>
         /// Gets default value for int;

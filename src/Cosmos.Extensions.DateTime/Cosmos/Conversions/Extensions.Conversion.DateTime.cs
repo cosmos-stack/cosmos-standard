@@ -2,11 +2,13 @@ using Cosmos.Conversions.StringDeterminers;
 using Cosmos.Date;
 
 // ReSharper disable once CheckNamespace
-namespace Cosmos {
+namespace Cosmos
+{
     /// <summary>
     /// Conversion extensions
     /// </summary>
-    public static class ConversionExtensions {
+    public static class ConversionExtensions
+    {
         /// <summary>
         /// To DateInfo
         /// </summary>
@@ -30,7 +32,8 @@ namespace Cosmos {
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static DateTimeSpan? CastToNullableDateTimeSpan(this string str) {
+        public static DateTimeSpan? CastToNullableDateTimeSpan(this string str)
+        {
             if (StringDateTimeSpanDeterminer.Is(str))
                 return CastToDateTimeSpan(str);
             return null;

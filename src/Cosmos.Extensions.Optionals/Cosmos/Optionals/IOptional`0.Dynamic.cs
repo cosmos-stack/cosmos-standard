@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Interface for Dynamic optional
     /// </summary>
-    public interface IDynamicOptional {
+    public interface IDynamicOptional
+    {
         /// <summary>
         /// Key
         /// </summary>

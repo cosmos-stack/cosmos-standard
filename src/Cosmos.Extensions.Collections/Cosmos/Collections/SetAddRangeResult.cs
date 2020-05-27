@@ -1,26 +1,22 @@
-namespace Cosmos.Collections {
+namespace Cosmos.Collections
+{
     /// <summary>
     /// Set and range result
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class SetAddRangeResult<T> {
-
-        #region Constructor.
-
+    public class SetAddRangeResult<T>
+    {
         /// <summary>
         /// Create a new instance of <see cref="SetAddRangeResult{T}"/>
         /// </summary>
         /// <param name="item"></param>
         /// <param name="added"></param>
-        public SetAddRangeResult(T item, bool added) {
+        public SetAddRangeResult(T item, bool added)
+        {
             // Set values.
             Item = item;
             Added = added;
         }
-
-        #endregion
-
-        #region Instance, read-only state.
 
         /// <summary>
         /// Gets item
@@ -31,8 +27,5 @@ namespace Cosmos.Collections {
         /// Addod or not...
         /// </summary>
         public bool Added { get; }
-
-        #endregion
-
     }
 }

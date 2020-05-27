@@ -17,8 +17,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Aggregate async
         /// </summary>
@@ -30,7 +32,8 @@ namespace System.Linq {
         public static Task<TSource> AggregateAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, TSource, TSource> func,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, func, Enumerable.Aggregate, cancellationToken);
         }
 
@@ -48,7 +51,8 @@ namespace System.Linq {
             this IEnumerable<TSource> source,
             TAccumulate seed,
             Func<TAccumulate, TSource, TAccumulate> func,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, seed, func, Enumerable.Aggregate, cancellationToken);
         }
 
@@ -69,7 +73,8 @@ namespace System.Linq {
             TAccumulate seed,
             Func<TAccumulate, TSource, TAccumulate> func,
             Func<TAccumulate, TResult> resultSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, seed, func, resultSelector, Enumerable.Aggregate,
                 cancellationToken);
         }
@@ -85,7 +90,8 @@ namespace System.Linq {
         public static Task<bool> AllAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.All, cancellationToken);
         }
 
@@ -98,7 +104,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<bool> AnyAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Any, cancellationToken);
         }
 
@@ -113,7 +120,8 @@ namespace System.Linq {
         public static Task<bool> AnyAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.Any, cancellationToken);
         }
 
@@ -125,7 +133,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double> AverageAsync(
             this IEnumerable<int> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -137,7 +146,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double?> AverageAsync(
             this IEnumerable<int?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -149,7 +159,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double> AverageAsync(
             this IEnumerable<long> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -161,7 +172,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double?> AverageAsync(
             this IEnumerable<long?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -173,7 +185,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float> AverageAsync(
             this IEnumerable<float> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -185,7 +198,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float?> AverageAsync(
             this IEnumerable<float?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -197,7 +211,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double> AverageAsync(
             this IEnumerable<double> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -209,7 +224,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double?> AverageAsync(
             this IEnumerable<double?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -221,7 +237,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal> AverageAsync(
             this IEnumerable<decimal> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -233,7 +250,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal?> AverageAsync(
             this IEnumerable<decimal?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Average, cancellationToken);
         }
 
@@ -248,7 +266,8 @@ namespace System.Linq {
         public static Task<double> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -263,7 +282,8 @@ namespace System.Linq {
         public static Task<double?> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -278,7 +298,8 @@ namespace System.Linq {
         public static Task<double> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -293,7 +314,8 @@ namespace System.Linq {
         public static Task<double?> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -308,7 +330,8 @@ namespace System.Linq {
         public static Task<float> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, float> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -323,7 +346,8 @@ namespace System.Linq {
         public static Task<float?> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, float?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -338,7 +362,8 @@ namespace System.Linq {
         public static Task<double> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, double> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -352,7 +377,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double?> AverageAsync<TSource>(this IEnumerable<TSource> source,
             Func<TSource, double?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -367,7 +393,8 @@ namespace System.Linq {
         public static Task<decimal> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -382,7 +409,8 @@ namespace System.Linq {
         public static Task<decimal?> AverageAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Average, cancellationToken);
         }
 
@@ -397,7 +425,8 @@ namespace System.Linq {
         public static Task<bool> ContainsAsync<TSource>(
             this IEnumerable<TSource> source,
             TSource value,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, value, Enumerable.Contains, cancellationToken);
         }
 
@@ -414,7 +443,8 @@ namespace System.Linq {
             this IEnumerable<TSource> source,
             TSource value,
             IEqualityComparer<TSource> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, value, comparer, Enumerable.Contains, cancellationToken);
         }
 
@@ -427,7 +457,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int> CountAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Count, cancellationToken);
         }
 
@@ -442,7 +473,8 @@ namespace System.Linq {
         public static Task<int> CountAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.Count, cancellationToken);
         }
 
@@ -457,7 +489,8 @@ namespace System.Linq {
         public static Task<TSource> ElementAtAsync<TSource>(
             this IEnumerable<TSource> source,
             int index,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, index, Enumerable.ElementAt, cancellationToken);
         }
 
@@ -472,7 +505,8 @@ namespace System.Linq {
         public static Task<TSource> ElementAtOrDefaultAsync<TSource>(
             this IEnumerable<TSource> source,
             int index,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, index, Enumerable.ElementAtOrDefault, cancellationToken);
         }
 
@@ -485,7 +519,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> FirstAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.First, cancellationToken);
         }
 
@@ -500,7 +535,8 @@ namespace System.Linq {
         public static Task<TSource> FirstAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.First, cancellationToken);
         }
 
@@ -513,7 +549,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> FirstOrDefaultAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.FirstOrDefault, cancellationToken);
         }
 
@@ -528,7 +565,8 @@ namespace System.Linq {
         public static Task<TSource> FirstOrDefaultAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.FirstOrDefault, cancellationToken);
         }
 
@@ -541,7 +579,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> LastAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Last, cancellationToken);
         }
 
@@ -556,7 +595,8 @@ namespace System.Linq {
         public static Task<TSource> LastAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.Last, cancellationToken);
         }
 
@@ -569,7 +609,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> LastOrDefaultAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.LastOrDefault, cancellationToken);
         }
 
@@ -584,7 +625,8 @@ namespace System.Linq {
         public static Task<TSource> LastOrDefaultAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.LastOrDefault, cancellationToken);
         }
 
@@ -597,7 +639,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<long> LongCountAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.LongCount, cancellationToken);
         }
 
@@ -612,7 +655,8 @@ namespace System.Linq {
         public static Task<long> LongCountAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.LongCount, cancellationToken);
         }
 
@@ -624,7 +668,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int> MaxAsync(
             this IEnumerable<int> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -636,7 +681,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int?> MaxAsync(
             this IEnumerable<int?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -648,7 +694,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<long> MaxAsync(
             this IEnumerable<long> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -660,7 +707,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<long?> MaxAsync(
             this IEnumerable<long?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -672,7 +720,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double> MaxAsync(
             this IEnumerable<double> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -684,7 +733,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double?> MaxAsync(
             this IEnumerable<double?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -696,7 +746,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float> MaxAsync(
             this IEnumerable<float> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -708,7 +759,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float?> MaxAsync(
             this IEnumerable<float?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -720,7 +772,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal> MaxAsync(
             this IEnumerable<decimal> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -732,7 +785,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal?> MaxAsync(
             this IEnumerable<decimal?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -745,7 +799,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Max, cancellationToken);
         }
 
@@ -759,7 +814,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int> MaxAsync<TSource>(
             this IEnumerable<TSource> source, Func<TSource, int> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -774,7 +830,8 @@ namespace System.Linq {
         public static Task<int?> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -789,7 +846,8 @@ namespace System.Linq {
         public static Task<long> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -804,7 +862,8 @@ namespace System.Linq {
         public static Task<long?> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -819,7 +878,8 @@ namespace System.Linq {
         public static Task<float> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, float> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -833,7 +893,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float?> MaxAsync<TSource>(
             this IEnumerable<TSource> source, Func<TSource, float?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -847,7 +908,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double> MaxAsync<TSource>(
             this IEnumerable<TSource> source, Func<TSource, double> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -862,7 +924,8 @@ namespace System.Linq {
         public static Task<double?> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, double?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -877,7 +940,8 @@ namespace System.Linq {
         public static Task<decimal> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -892,7 +956,8 @@ namespace System.Linq {
         public static Task<decimal?> MaxAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -908,7 +973,8 @@ namespace System.Linq {
         public static Task<TResult> MaxAsync<TSource, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, TResult> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Max, cancellationToken);
         }
 
@@ -920,7 +986,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int> MinAsync(
             this IEnumerable<int> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -932,7 +999,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int?> MinAsync(
             this IEnumerable<int?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -944,7 +1012,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<long> MinAsync(
             this IEnumerable<long> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -956,7 +1025,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<long?> MinAsync(
             this IEnumerable<long?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -968,7 +1038,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float> MinAsync(
             this IEnumerable<float> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -980,7 +1051,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float?> MinAsync(
             this IEnumerable<float?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -992,7 +1064,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double> MinAsync(
             this IEnumerable<double> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -1004,7 +1077,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double?> MinAsync(
             this IEnumerable<double?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -1016,7 +1090,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal> MinAsync(
             this IEnumerable<decimal> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -1028,7 +1103,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal?> MinAsync(
             this IEnumerable<decimal?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -1041,7 +1117,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> MinAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Min, cancellationToken);
         }
 
@@ -1056,7 +1133,8 @@ namespace System.Linq {
         public static Task<int> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1071,7 +1149,8 @@ namespace System.Linq {
         public static Task<int?> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1086,7 +1165,8 @@ namespace System.Linq {
         public static Task<long> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1101,7 +1181,8 @@ namespace System.Linq {
         public static Task<long?> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1116,7 +1197,8 @@ namespace System.Linq {
         public static Task<float> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, float> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1131,7 +1213,8 @@ namespace System.Linq {
         public static Task<float?> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, float?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1146,7 +1229,8 @@ namespace System.Linq {
         public static Task<double> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, double> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1161,7 +1245,8 @@ namespace System.Linq {
         public static Task<double?> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, double?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1176,7 +1261,8 @@ namespace System.Linq {
         public static Task<decimal> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1191,7 +1277,8 @@ namespace System.Linq {
         public static Task<decimal?> MinAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1207,7 +1294,8 @@ namespace System.Linq {
         public static Task<TResult> MinAsync<TSource, TResult>(
             this IEnumerable<TSource> source,
             Func<TSource, TResult> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Min, cancellationToken);
         }
 
@@ -1222,7 +1310,8 @@ namespace System.Linq {
         public static Task<bool> SequenceEqualAsync<TSource>(
             this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(first, second, Enumerable.SequenceEqual, cancellationToken);
         }
 
@@ -1239,7 +1328,8 @@ namespace System.Linq {
             this IEnumerable<TSource> first,
             IEnumerable<TSource> second,
             IEqualityComparer<TSource> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(first, second, comparer, Enumerable.SequenceEqual, cancellationToken);
         }
 
@@ -1252,7 +1342,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> SingleAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Single, cancellationToken);
         }
 
@@ -1267,7 +1358,8 @@ namespace System.Linq {
         public static Task<TSource> SingleAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.Single, cancellationToken);
         }
 
@@ -1280,7 +1372,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource> SingleOrDefaultAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.SingleOrDefault, cancellationToken);
         }
 
@@ -1295,7 +1388,8 @@ namespace System.Linq {
         public static Task<TSource> SingleOrDefaultAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, predicate, Enumerable.SingleOrDefault, cancellationToken);
         }
 
@@ -1307,7 +1401,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int> SumAsync(
             this IEnumerable<int> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1319,7 +1414,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<int?> SumAsync(
             this IEnumerable<int?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1331,7 +1427,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<long> SumAsync(
             this IEnumerable<long> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1343,7 +1440,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<long?> SumAsync(
             this IEnumerable<long?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1355,7 +1453,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float> SumAsync(
             this IEnumerable<float> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1367,7 +1466,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<float?> SumAsync(
             this IEnumerable<float?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1379,7 +1479,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double> SumAsync(
             this IEnumerable<double> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1391,7 +1492,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<double?> SumAsync(
             this IEnumerable<double?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1403,7 +1505,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal> SumAsync(
             this IEnumerable<decimal> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1415,7 +1518,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<decimal?> SumAsync(
             this IEnumerable<decimal?> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.Sum, cancellationToken);
         }
 
@@ -1430,7 +1534,8 @@ namespace System.Linq {
         public static Task<int> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1445,7 +1550,8 @@ namespace System.Linq {
         public static Task<int?> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, int?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1460,7 +1566,8 @@ namespace System.Linq {
         public static Task<long> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1475,7 +1582,8 @@ namespace System.Linq {
         public static Task<long?> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, long?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1490,7 +1598,8 @@ namespace System.Linq {
         public static Task<float> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, float> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1505,7 +1614,8 @@ namespace System.Linq {
         public static Task<float?> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, float?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1520,7 +1630,8 @@ namespace System.Linq {
         public static Task<double> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, double> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1535,7 +1646,8 @@ namespace System.Linq {
         public static Task<double?> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, double?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1550,7 +1662,8 @@ namespace System.Linq {
         public static Task<decimal> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1565,7 +1678,8 @@ namespace System.Linq {
         public static Task<decimal?> SumAsync<TSource>(
             this IEnumerable<TSource> source,
             Func<TSource, decimal?> selector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }
 
@@ -1578,7 +1692,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<TSource[]> ToArrayAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.ToArray, cancellationToken);
         }
 
@@ -1594,7 +1709,8 @@ namespace System.Linq {
         public static Task<Dictionary<TKey, TSource>> ToDictionaryAsync<TSource, TKey>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, Enumerable.ToDictionary, cancellationToken);
         }
 
@@ -1612,7 +1728,8 @@ namespace System.Linq {
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, comparer, Enumerable.ToDictionary,
                 cancellationToken);
         }
@@ -1632,7 +1749,8 @@ namespace System.Linq {
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
             Func<TSource, TElement> elementSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, elementSelector, Enumerable.ToDictionary,
                 cancellationToken);
         }
@@ -1654,7 +1772,8 @@ namespace System.Linq {
             Func<TSource, TKey> keySelector,
             Func<TSource, TElement> elementSelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, elementSelector, comparer, Enumerable.ToDictionary,
                 cancellationToken);
         }
@@ -1668,7 +1787,8 @@ namespace System.Linq {
         /// <returns></returns>
         public static Task<List<TSource>> ToListAsync<TSource>(
             this IEnumerable<TSource> source,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, Enumerable.ToList, cancellationToken);
         }
 
@@ -1684,7 +1804,8 @@ namespace System.Linq {
         public static Task<ILookup<TKey, TSource>> ToLookupAsync<TSource, TKey>(
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, Enumerable.ToLookup, cancellationToken);
         }
 
@@ -1702,7 +1823,8 @@ namespace System.Linq {
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, comparer, Enumerable.ToLookup, cancellationToken);
         }
 
@@ -1721,7 +1843,8 @@ namespace System.Linq {
             this IEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
             Func<TSource, TElement> elementSelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, elementSelector, Enumerable.ToLookup, cancellationToken);
         }
 
@@ -1742,7 +1865,8 @@ namespace System.Linq {
             Func<TSource, TKey> keySelector,
             Func<TSource, TElement> elementSelector,
             IEqualityComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, elementSelector, comparer, Enumerable.ToLookup, cancellationToken);
         }
     }

@@ -1,6 +1,7 @@
 using System.ComponentModel;
 
-namespace Cosmos.Date.Islamic {
+namespace Cosmos.Date.Islamic
+{
     /// <summary>
     /// Islamic / Hijri Months
     /// </summary>
@@ -8,7 +9,8 @@ namespace Cosmos.Date.Islamic {
     /// Reference to:
     ///     https://en.wikipedia.org/wiki/Islamic_calendar
     /// </remarks>
-    public enum IslamicMonths {
+    public enum IslamicMonths
+    {
         /// <summary>
         /// Muharram/Mohram
         /// </summary>

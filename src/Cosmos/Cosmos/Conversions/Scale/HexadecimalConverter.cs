@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Cosmos.Conversions.Scale {
+namespace Cosmos.Conversions.Scale
+{
     /// <summary>
     /// Hexadecimal Conversion Utilities
     /// </summary>
-    public static class HexadecimalConverter {
+    public static class HexadecimalConverter
+    {
         /// <summary>
         /// Convert from hexadecimal to decimalism.
         /// </summary>
@@ -31,7 +33,8 @@ namespace Cosmos.Conversions.Scale {
         /// <example>in: 2E3D; out: result[0] is 46, result[1] is 61</example>
         /// <param name="hex"></param>
         /// <returns></returns>
-        public static byte[] ToBytes(string hex) {
+        public static byte[] ToBytes(string hex)
+        {
             var mc = Regex.Matches(hex, @"(?i)[\da-f]{2}");
             return (from Match m in mc select Convert.ToByte(m.Value, 16)).ToArray();
         }
@@ -42,20 +45,24 @@ namespace Cosmos.Conversions.Scale {
         /// <param name="hex"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static string ToString(string hex, Encoding encoding = null) {
+        public static string ToString(string hex, Encoding encoding = null)
+        {
             hex = hex.Replace(" ", "");
-            if (string.IsNullOrWhiteSpace(hex)) {
+            if (string.IsNullOrWhiteSpace(hex))
+            {
                 return "";
             }
 
             var bytes = new byte[hex.Length / 2];
-            for (var i = 0; i < hex.Length; i += 2) {
-                if (!byte.TryParse(hex.Substring(i, 2), NumberStyles.HexNumber, null, out bytes[i / 2])) {
+            for (var i = 0; i < hex.Length; i += 2)
+            {
+                if (!byte.TryParse(hex.Substring(i, 2), NumberStyles.HexNumber, null, out bytes[i / 2]))
+                {
                     bytes[i / 2] = 0;
                 }
             }
 
-            return encoding.Fixed().GetString(bytes);
+            return encoding.SafeValue().GetString(bytes);
         }
 
         /// <summary>
@@ -66,6 +73,8 @@ namespace Cosmos.Conversions.Scale {
         /// <param name="encoding"></param>
         /// <returns></returns>
         public static string FromString(string str, Encoding encoding = null)
-            => BitConverter.ToString(encoding.Fixed().GetBytes(str)).Replace("-", " ");
+            => BitConverter.ToString(encoding.SafeValue().GetBytes(str)).Replace("-", " ");
+
+        private static Encoding SafeValue(this Encoding encoding) => encoding ?? Encoding.UTF8;
     }
 }

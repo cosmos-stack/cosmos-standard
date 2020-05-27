@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Cosmos.Judgments;
+using Cosmos.Reflection;
 using Xunit;
 
 namespace Cosmos.Test.Judgements

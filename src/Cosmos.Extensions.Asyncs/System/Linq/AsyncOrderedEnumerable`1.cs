@@ -17,18 +17,21 @@ using System.Threading;
  *  MIT
  */
 
-namespace System.Linq {
+namespace System.Linq
+{
     /// <summary>
     /// Async ordered enumerable
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsyncOrderedEnumerable<T> : IOrderedEnumerable<T> {
+    public class AsyncOrderedEnumerable<T> : IOrderedEnumerable<T>
+    {
         /// <summary>
         /// Create a new instance of <see cref="AsyncOrderedEnumerable{T}"/>.
         /// </summary>
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
-        public AsyncOrderedEnumerable(IOrderedEnumerable<T> source, CancellationToken cancellationToken) {
+        public AsyncOrderedEnumerable(IOrderedEnumerable<T> source, CancellationToken cancellationToken)
+        {
             CancellationToken = cancellationToken;
             Source = source;
         }
@@ -44,16 +47,19 @@ namespace System.Linq {
         public IOrderedEnumerable<T> Source { get; set; }
 
         /// <inheritdoc />
-        public IEnumerator<T> GetEnumerator() {
+        public IEnumerator<T> GetEnumerator()
+        {
             return new AsyncEnumerator<T>(Source.GetEnumerator(), CancellationToken);
         }
 
-        IEnumerator IEnumerable.GetEnumerator() {
+        IEnumerator IEnumerable.GetEnumerator()
+        {
             return new AsyncEnumerator<T>(Source.GetEnumerator(), CancellationToken);
         }
 
         /// <inheritdoc />
-        public IOrderedEnumerable<T> CreateOrderedEnumerable<TKey>(Func<T, TKey> keySelector, IComparer<TKey> comparer, bool descending) {
+        public IOrderedEnumerable<T> CreateOrderedEnumerable<TKey>(Func<T, TKey> keySelector, IComparer<TKey> comparer, bool descending)
+        {
             return Source.CreateOrderedEnumerable(keySelector, comparer, descending);
         }
 
@@ -63,7 +69,8 @@ namespace System.Linq {
         /// <param name="source"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public static AsyncOrderedEnumerable<T> CreateFrom(IOrderedEnumerable<T> source, CancellationToken cancellationToken) {
+        public static AsyncOrderedEnumerable<T> CreateFrom(IOrderedEnumerable<T> source, CancellationToken cancellationToken)
+        {
             return new AsyncOrderedEnumerable<T>(source, cancellationToken);
         }
     }

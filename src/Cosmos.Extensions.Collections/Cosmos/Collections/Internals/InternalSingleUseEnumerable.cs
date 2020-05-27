@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Cosmos.Collections.Internals {
-    internal class InternalSingleUseEnumerable<T> : IEnumerable<T> {
-        public InternalSingleUseEnumerable(IEnumerator<T> enumerator) {
+namespace Cosmos.Collections.Internals
+{
+    internal class InternalSingleUseEnumerable<T> : IEnumerable<T>
+    {
+        public InternalSingleUseEnumerable(IEnumerator<T> enumerator)
+        {
             // Validate parameters.
             _enumerator = enumerator ?? throw new ArgumentNullException(nameof(enumerator));
         }
@@ -13,9 +16,11 @@ namespace Cosmos.Collections.Internals {
 
         private IEnumerator<T> _enumerator;
 
-        public IEnumerator<T> GetEnumerator() {
+        public IEnumerator<T> GetEnumerator()
+        {
             // Lock on the enumerator lock.
-            lock (_enumeratorLock) {
+            lock (_enumeratorLock)
+            {
                 // If the enumerator is null, throw.
                 if (_enumerator == null)
                     throw new InvalidOperationException($"{nameof(GetEnumerator)} may only be called once on this instance of {nameof(InternalSingleUseEnumerable<T>)}.");

@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
-        <PackageReference Include="NodaTime" Version="3.0.0-beta01" />
+        <PackageReference Include="NodaTime" Version="3.0.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='net461' OR '$(TargetFramework)'=='net451'">
@@ -21,6 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
     </ItemGroup>
 </Project>

@@ -1,8 +1,10 @@
-﻿namespace Cosmos.Domain.EntityDescriptors {
+﻿namespace Cosmos.Domain.EntityDescriptors
+{
     /// <summary>
     /// Interface for versionable
     /// </summary>
-    public interface IVersionable {
+    public interface IVersionable
+    {
         /// <summary>
         /// Version
         /// </summary>

@@ -1,4 +1,5 @@
-namespace Cosmos.Serialization {
+namespace Cosmos.Serialization
+{
     /// <summary>
     /// Interface of MessagePack serializer<br />
     /// MessagePack 序列化器接口

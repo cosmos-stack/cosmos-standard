@@ -1,10 +1,12 @@
-﻿namespace Cosmos.Workflow {
+﻿namespace Cosmos.Workflow
+{
     /// <summary>
     /// Dynamic Forms Interface<br />
     /// 动态表单接口<br />
     /// 本接口用于 Cosmos.Walker 与 Cosmos.Flower
     /// </summary>
-    public interface IDynamicForms {
+    public interface IDynamicForms
+    {
         /// <summary>
         /// Dynamic Forms Design<br />
         /// 动态表单设计稿

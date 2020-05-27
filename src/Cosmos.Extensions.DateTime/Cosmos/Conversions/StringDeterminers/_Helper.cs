@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Cosmos.Conversions.StringDeterminers {
+namespace Cosmos.Conversions.StringDeterminers
+{
     /// <summary>
     /// Helper
     /// </summary>
     // ReSharper disable once InconsistentNaming
-    internal static class _Helper {
+    internal static class _Helper
+    {
         /// <summary>
         /// Is xxx
         /// </summary>
@@ -24,7 +26,8 @@ namespace Cosmos.Conversions.StringDeterminers {
             Func<TFrom, bool> fromTry,
             Func<TFrom, Action<TTo>, bool> firstTry,
             IEnumerable<IConversionTry<TFrom, TTo>> tries,
-            Action<TTo> act = null) {
+            Action<TTo> act = null)
+        {
             if (fromTry(from))
                 return false;
 
@@ -34,8 +37,10 @@ namespace Cosmos.Conversions.StringDeterminers {
             if (tries is null)
                 return false;
 
-            foreach (var @try in tries) {
-                if (@try.Is(from, out var to)) {
+            foreach (var @try in tries)
+            {
+                if (@try.Is(from, out var to))
+                {
                     act?.Invoke(to);
                     return true;
                 }
@@ -57,19 +62,22 @@ namespace Cosmos.Conversions.StringDeterminers {
         public static TTo ToXXX<TFrom, TTo>(
             TFrom @from,
             Func<TFrom, Action<TTo>, bool> firstImpl,
-            IEnumerable<IConversionImpl<TFrom, TTo>> impls) {
-
+            IEnumerable<IConversionImpl<TFrom, TTo>> impls)
+        {
             TTo result = default;
 
-            if (firstImpl(from, to => result = to)) {
+            if (firstImpl(from, to => result = to))
+            {
                 return result;
             }
 
-            if (impls is null) {
+            if (impls is null)
+            {
                 return result;
             }
 
-            foreach (var impl in impls) {
+            foreach (var impl in impls)
+            {
                 if (impl.TryTo(from, out result))
                     return result;
             }

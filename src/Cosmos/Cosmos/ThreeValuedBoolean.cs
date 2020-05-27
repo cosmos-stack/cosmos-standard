@@ -1,8 +1,10 @@
-namespace Cosmos {
+namespace Cosmos
+{
     /// <summary>
     /// Three value boolean
     /// </summary>
-    public static class ThreeValuedBoolean {
+    public static class ThreeValuedBoolean
+    {
         /// <summary>
         /// True
         /// </summary>
@@ -24,7 +26,8 @@ namespace Cosmos {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool And(bool? left, bool? right) {
+        public static bool And(bool? left, bool? right)
+        {
             if (left.HasValue && right.HasValue)
                 return left.Value && right.Value;
             return false;
@@ -36,12 +39,14 @@ namespace Cosmos {
         /// <param name="left"></param>
         /// <param name="rights"></param>
         /// <returns></returns>
-        public static bool And(bool? left, params bool?[] rights) {
+        public static bool And(bool? left, params bool?[] rights)
+        {
             if (!left.HasValue) return false;
             if (rights == null) return left.Value;
 
             var result = left.Value;
-            for (var i = 0; i < rights.Length; i++) {
+            for (var i = 0; i < rights.Length; i++)
+            {
                 result = And(result, rights[i]);
                 if (!result) break;
             }
@@ -55,7 +60,8 @@ namespace Cosmos {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool Or(bool? left, bool? right) {
+        public static bool Or(bool? left, bool? right)
+        {
             if (left.HasValue && right.HasValue)
                 return left.Value || right.Value;
             if (left.HasValue)
@@ -71,11 +77,13 @@ namespace Cosmos {
         /// <param name="left"></param>
         /// <param name="rights"></param>
         /// <returns></returns>
-        public static bool Or(bool? left, params bool?[] rights) {
+        public static bool Or(bool? left, params bool?[] rights)
+        {
             var result = left.HasValue ? left.Value : false;
             if (rights == null) return result;
 
-            for (var i = 0; i < rights.Length; i++) {
+            for (var i = 0; i < rights.Length; i++)
+            {
                 result = Or(result, rights[i]);
             }
 
@@ -88,7 +96,8 @@ namespace Cosmos {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool Same(bool? left, bool? right) {
+        public static bool Same(bool? left, bool? right)
+        {
             if (left.HasValue && right.HasValue)
                 return left.Value && right.Value;
             if (!left.HasValue && !right.HasValue)

@@ -13,12 +13,15 @@
  *  MIT
  */
 
-namespace System.Linq.Async {
+namespace System.Linq.Async
+{
     /// <summary>
     /// Linq Async Manager
     /// </summary>
-    public static class LinqAsyncManager {
-        static LinqAsyncManager() {
+    public static class LinqAsyncManager
+    {
+        static LinqAsyncManager()
+        {
             DefaultValue.OrderByPredicateCompletion = false;
             DefaultValue.StartPredicateConcurrently = false;
         }
@@ -26,7 +29,8 @@ namespace System.Linq.Async {
         /// <summary>
         /// Default value
         /// </summary>
-        public static class DefaultValue {
+        public static class DefaultValue
+        {
             /// <summary>
             /// Order By Predicate Completion
             /// </summary>

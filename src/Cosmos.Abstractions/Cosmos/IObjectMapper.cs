@@ -1,28 +1,32 @@
-﻿namespace Cosmos {
+using System;
+
+namespace Cosmos
+{
     /// <summary>
     /// Object Mapper Meta Interface<br />
     /// 对象映射元接口
     /// </summary>
-    public interface IObjectMapper {
+    public interface IObjectMapper : IGenericObjectMapper
+    {
         /// <summary>
         /// Map to<br />
         /// 映射至……
         /// </summary>
-        /// <typeparam name="TFrom">从何种类型开始映射</typeparam>
-        /// <typeparam name="TTo">映射至何种类型</typeparam>
-        /// <param name="fromObject">被映射的对象</param>
+        /// <param name="sourceType"></param>
+        /// <param name="targetType"></param>
+        /// <param name="source"></param>
         /// <returns>映射结果</returns>
-        TTo MapTo<TFrom, TTo>(TFrom fromObject);
+        object MapTo(Type sourceType, Type targetType, object source);
 
         /// <summary>
         /// Map to<br />
         /// 映射至……
         /// </summary>
-        /// <typeparam name="TFrom">从何种类型开始映射</typeparam>
-        /// <typeparam name="TTo">映射至何种类型</typeparam>
-        /// <param name="fromObject">被映射的对象</param>
-        /// <param name="toInstance">映射至的对象</param>
-        /// <returns>映射结果，将返回 <paramref name="toInstance"/> 实例</returns>
-        TTo MapTo<TFrom, TTo>(TFrom fromObject, TTo toInstance);
+        /// <param name="sourceType"></param>
+        /// <param name="targetType"></param>
+        /// <param name="source"></param>
+        /// <param name="target"></param>
+        /// <returns>映射结果</returns>
+        object MapTo(Type sourceType, Type targetType, object source, object target);
     }
 }

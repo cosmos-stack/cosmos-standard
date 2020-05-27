@@ -17,8 +17,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Then by async
         /// </summary>
@@ -31,7 +33,8 @@ namespace System.Linq {
         public static Task<IOrderedEnumerable<TSource>> ThenByAsync<TSource, TKey>(
             this IOrderedEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, Enumerable.ThenBy, cancellationToken);
         }
 
@@ -49,7 +52,8 @@ namespace System.Linq {
             this IOrderedEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
             IComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, comparer, Enumerable.ThenBy, cancellationToken);
         }
 
@@ -65,7 +69,8 @@ namespace System.Linq {
         public static Task<IOrderedEnumerable<TSource>> ThenByDescendingAsync<TSource, TKey>(
             this IOrderedEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, Enumerable.ThenByDescending, cancellationToken);
         }
 
@@ -83,7 +88,8 @@ namespace System.Linq {
             this IOrderedEnumerable<TSource> source,
             Func<TSource, TKey> keySelector,
             IComparer<TKey> comparer,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             return Task.Factory.FromEnumerable(source, keySelector, comparer, Enumerable.ThenByDescending, cancellationToken);
         }
     }

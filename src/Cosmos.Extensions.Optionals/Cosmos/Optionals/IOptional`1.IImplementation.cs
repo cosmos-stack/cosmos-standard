@@ -1,12 +1,14 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Interface for optional
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TImpl"></typeparam>
-    public interface IOptionalImpl<T, TImpl> : IOptional<T>, IEquatable<T>, IComparable<T> {
+    public interface IOptionalImpl<T, TImpl> : IOptional<T>, IEquatable<T>, IComparable<T>
+    {
         /// <summary>
         /// Or
         /// </summary>

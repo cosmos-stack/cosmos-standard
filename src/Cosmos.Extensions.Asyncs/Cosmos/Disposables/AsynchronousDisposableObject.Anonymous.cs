@@ -1,10 +1,12 @@
 using System;
 
-namespace Cosmos.Disposables {
+namespace Cosmos.Disposables
+{
     /// <summary>
     /// AsAnonymous Disposable Object
     /// </summary>
-    public sealed class AsynchronousAnonymousDisposableObject : AsynchronousSingleDisposableObject<Action> {
+    public sealed class AsynchronousAnonymousDisposableObject : AsynchronousSingleDisposableObject<Action>
+    {
         /// <summary>
         /// Create a new <see cref="AsynchronousAnonymousDisposableObject"/> instance.
         /// </summary>
@@ -32,7 +34,8 @@ namespace Cosmos.Disposables {
         /// Add dispose <see cref="Action"/>.
         /// </summary>
         /// <param name="dispose"></param>
-        public void Add(Action dispose) {
+        public void Add(Action dispose)
+        {
             if (dispose == null)
                 return;
             if (!TryUpdateContext(x => x + dispose))
@@ -43,7 +46,8 @@ namespace Cosmos.Disposables {
         /// Add dispose <see cref="Action"/>.
         /// </summary>
         /// <param name="disposableAction"></param>
-        public void Add(AsynchronousDisposableAction disposableAction) {
+        public void Add(AsynchronousDisposableAction disposableAction)
+        {
             Add(disposableAction?.InternalAction);
         }
 
@@ -60,6 +64,5 @@ namespace Cosmos.Disposables {
         /// <param name="disposableAction"></param>
         /// <returns></returns>
         public static AsynchronousAnonymousDisposableObject Create(AsynchronousDisposableAction disposableAction) => new AsynchronousAnonymousDisposableObject(disposableAction);
-
     }
 }

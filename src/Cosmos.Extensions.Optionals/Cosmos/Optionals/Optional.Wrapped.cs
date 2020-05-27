@@ -1,15 +1,17 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Optional utilities
     /// </summary>
-    public static partial class Optional {
-
+    public static partial class Optional
+    {
         /// <summary>
         /// Wrapped optional
         /// </summary>
-        public static class Wrapped {
+        public static class Wrapped
+        {
             /// <summary>
             /// For some value
             /// </summary>
@@ -69,7 +71,8 @@ namespace Cosmos.Optionals {
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public static IOptional<T> From<T>(T value) {
+            public static IOptional<T> From<T>(T value)
+            {
                 return value is null
                     ? None<T>()
                     : Some(value) as IOptional<T>;
@@ -84,7 +87,8 @@ namespace Cosmos.Optionals {
             /// <returns></returns>
             /// <exception cref="ArgumentNullException"></exception>
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public static IOptional<T> From<T>(T value, Func<T, bool> condition) {
+            public static IOptional<T> From<T>(T value, Func<T, bool> condition)
+            {
                 if (condition is null)
                     throw new ArgumentNullException(nameof(condition));
                 if (value is null)
@@ -99,12 +103,12 @@ namespace Cosmos.Optionals {
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public static IOptional<T> From<T>(T? nullable) where T : struct {
+            public static IOptional<T> From<T>(T? nullable) where T : struct
+            {
                 return nullable.HasValue
                     ? Some(nullable.Value)
                     : None<T>() as IOptional<T>;
             }
         }
-
     }
 }

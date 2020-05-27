@@ -2,12 +2,13 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cosmos.Asynchronous {
+namespace Cosmos.Asynchronous
+{
     /// <summary>
     /// Task utilities
     /// </summary>
-    public static class Tasks {
-
+    public static class Tasks
+    {
         #region CompletedTask
 
 #if NET451
@@ -18,7 +19,8 @@ namespace Cosmos.Asynchronous {
         /// Gets a task that has been completed successfully.
         /// </summary>
         /// <returns></returns>
-        public static Task CompletedTask() {
+        public static Task CompletedTask()
+        {
 #if NET451
             return _completedTask;
 #else
@@ -36,7 +38,8 @@ namespace Cosmos.Asynchronous {
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static Task<TResult> FromCanceled<TResult>(CancellationToken cancellationToken) {
+        public static Task<TResult> FromCanceled<TResult>(CancellationToken cancellationToken)
+        {
 #if NET451
             var tcs = new TaskCompletionSource<TResult>();
             tcs.SetCanceled();
@@ -52,7 +55,8 @@ namespace Cosmos.Asynchronous {
         /// <param name="exception"></param>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static Task<TResult> FromCanceled<TResult>(OperationCanceledException exception) {
+        public static Task<TResult> FromCanceled<TResult>(OperationCanceledException exception)
+        {
 #if NET451
             var tcs = new TaskCompletionSource<TResult>();
             tcs.SetException(exception);
@@ -73,7 +77,8 @@ namespace Cosmos.Asynchronous {
         /// <param name="exception"></param>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static Task<TResult> FromException<TResult>(Exception exception) {
+        public static Task<TResult> FromException<TResult>(Exception exception)
+        {
 #if NET451
             var tcs = new TaskCompletionSource<TResult>();
             tcs.TrySetException(exception);
@@ -84,6 +89,5 @@ namespace Cosmos.Asynchronous {
         }
 
         #endregion
-
     }
 }

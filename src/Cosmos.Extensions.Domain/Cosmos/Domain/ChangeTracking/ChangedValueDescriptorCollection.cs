@@ -4,18 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cosmos.Domain.ChangeTracking {
+namespace Cosmos.Domain.ChangeTracking
+{
     /// <summary>
     /// Changed value descriptor collection
     /// </summary>
-    public class ChangedValueDescriptorCollection : IEnumerable<ChangedValueDescriptor> {
+    public class ChangedValueDescriptorCollection : IEnumerable<ChangedValueDescriptor>
+    {
         private readonly IList<ChangedValueDescriptor> _list;
         private readonly IList<string> _changedNameList;
 
         /// <summary>
         /// Create a new instance of <see cref="ChangedValueDescriptorCollection"/>.
         /// </summary>
-        public ChangedValueDescriptorCollection() {
+        public ChangedValueDescriptorCollection()
+        {
             _list = new List<ChangedValueDescriptor>();
             _changedNameList = new List<string>();
         }
@@ -25,8 +28,9 @@ namespace Cosmos.Domain.ChangeTracking {
         /// </summary>
         /// <param name="descriptors"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public ChangedValueDescriptorCollection(ChangedValueDescriptorCollection descriptors) : this() {
-            if (descriptors == null) throw new ArgumentNullException(nameof(descriptors));
+        public ChangedValueDescriptorCollection(ChangedValueDescriptorCollection descriptors) : this()
+        {
+            if (descriptors is null) throw new ArgumentNullException(nameof(descriptors));
             Populate((IEnumerable<ChangedValueDescriptor>) descriptors);
         }
 
@@ -35,26 +39,24 @@ namespace Cosmos.Domain.ChangeTracking {
         /// </summary>
         /// <param name="descriptors"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public ChangedValueDescriptorCollection(IEnumerable<ChangedValueDescriptor> descriptors) : this() {
-            if (descriptors == null) throw new ArgumentNullException(nameof(descriptors));
+        public ChangedValueDescriptorCollection(IEnumerable<ChangedValueDescriptor> descriptors) : this()
+        {
+            if (descriptors is null) throw new ArgumentNullException(nameof(descriptors));
             Populate(descriptors);
         }
 
         /// <inheritdoc />
-        public IEnumerator<ChangedValueDescriptor> GetEnumerator() {
-            return _list.GetEnumerator();
-        }
+        public IEnumerator<ChangedValueDescriptor> GetEnumerator() => _list.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator() {
-            return GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         /// <summary>
         /// Add descriptor
         /// </summary>
         /// <param name="descriptor"></param>
-        public void Add(ChangedValueDescriptor descriptor) {
-            if (descriptor == null || string.IsNullOrWhiteSpace(descriptor.Description)) return;
+        public void Add(ChangedValueDescriptor descriptor)
+        {
+            if (descriptor is null || string.IsNullOrWhiteSpace(descriptor.Description)) return;
             if (_changedNameList.Contains(descriptor.PropertyName)) return;
             _list.Add(descriptor);
             _changedNameList.Add(descriptor.PropertyName);
@@ -67,7 +69,8 @@ namespace Cosmos.Domain.ChangeTracking {
         /// <param name="description"></param>
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
-        public void Add(string propertyName, string description, string oldValue, string newValue) {
+        public void Add(string propertyName, string description, string oldValue, string newValue)
+        {
             if (string.IsNullOrWhiteSpace(propertyName)) return;
             if (_changedNameList.Contains(propertyName)) return;
             _list.Add(new ChangedValueDescriptor(propertyName, description, oldValue, newValue));
@@ -78,8 +81,9 @@ namespace Cosmos.Domain.ChangeTracking {
         /// Add a set of descriptors
         /// </summary>
         /// <param name="descriptors"></param>
-        public void AddRange(IEnumerable<ChangedValueDescriptor> descriptors) {
-            if (descriptors == null) return;
+        public void AddRange(IEnumerable<ChangedValueDescriptor> descriptors)
+        {
+            if (descriptors is null) return;
 
             foreach (var descriptor in descriptors)
                 Add(descriptor);
@@ -89,10 +93,15 @@ namespace Cosmos.Domain.ChangeTracking {
         /// Populate descriptors
         /// </summary>
         /// <param name="descriptors"></param>
-        public void Populate(IEnumerable<ChangedValueDescriptor> descriptors) {
-            if (descriptors == null || !descriptors.Any()) return;
+        public void Populate(IEnumerable<ChangedValueDescriptor> descriptors)
+        {
+            if (descriptors is null) return;
 
-            var filtedDiscriptors = descriptors.Where(x => !_changedNameList.Contains(x.PropertyName)).ToList();
+            var changedValueDescriptors = descriptors as ChangedValueDescriptor[] ?? descriptors.ToArray();
+
+            if (!changedValueDescriptors.Any()) return;
+
+            var filtedDiscriptors = changedValueDescriptors.Where(x => !_changedNameList.Contains(x.PropertyName)).ToList();
 
             if (!filtedDiscriptors.Any())
                 return;
@@ -104,13 +113,15 @@ namespace Cosmos.Domain.ChangeTracking {
         /// <summary>
         /// Flush cache
         /// </summary>
-        public void FlushCache() {
+        public void FlushCache()
+        {
             _list.Clear();
             _changedNameList.Clear();
         }
 
         /// <inheritdoc />
-        public override string ToString() {
+        public override string ToString()
+        {
             if (!_list.Any()) return string.Empty;
             var sb = new StringBuilder();
             foreach (var item in _list)

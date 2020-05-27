@@ -17,8 +17,10 @@ using System.Threading.Tasks;
  *  MIT
  */
 
-namespace System.Linq {
-    public static partial class Extensions {
+namespace System.Linq
+{
+    public static partial class Extensions
+    {
         /// <summary>
         /// Order By Predicate Completion
         /// </summary>
@@ -30,7 +32,8 @@ namespace System.Linq {
         public static Task<AsyncWhereEnumerable<TSource>> OrderByPredicateCompletion<TSource>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             bool value = true,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             var sourceState = (AsyncWhereEnumerable<TSource>) source.AsyncState;
             sourceState.OrderByPredicateCompletion = value;
             return source;
@@ -47,7 +50,8 @@ namespace System.Linq {
         public static Task<AsyncWhereEnumerable<TSource>> StartPredicateConcurrently<TSource>(
             this Task<AsyncWhereEnumerable<TSource>> source,
             bool value = true,
-            CancellationToken cancellationToken = default) {
+            CancellationToken cancellationToken = default)
+        {
             var sourceState = (AsyncWhereEnumerable<TSource>) source.AsyncState;
             sourceState.StartPredicateConcurrently = value;
             return source;

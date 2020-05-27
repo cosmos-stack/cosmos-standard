@@ -1,11 +1,13 @@
 using System;
 
-namespace Cosmos.Optionals {
+namespace Cosmos.Optionals
+{
     /// <summary>
     /// Some
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class Some<T> : Optional<T, Some<T>>, IEquatable<Some<T>>, IComparable<Some<T>> {
+    public sealed class Some<T> : Optional<T, Some<T>>, IEquatable<Some<T>>, IComparable<Some<T>>
+    {
         internal Some(T value) : base(value, true) { }
 
         internal Some(Maybe<T> @internal) : base(@internal) { }
@@ -13,7 +15,8 @@ namespace Cosmos.Optionals {
         #region Equals
 
         /// <inheritdoc />
-        public override bool Equals(T other) {
+        public override bool Equals(T other)
+        {
             if (other is null)
                 return false;
             return Internal.Equals(other);
@@ -24,7 +27,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public override bool Equals(Some<T> other) {
+        public override bool Equals(Some<T> other)
+        {
             if (other is null)
                 return false;
             return Internal.Equals(other.Internal);
@@ -35,14 +39,16 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public bool Equals(None<T> other) {
+        public bool Equals(None<T> other)
+        {
             if (other is null)
                 return false;
             return Internal.Equals(other.InternalPointer);
         }
 
         /// <inheritdoc />
-        public override bool Equals(object other) {
+        public override bool Equals(object other)
+        {
             if (other is null)
                 return false;
             if (other is Some<T> some)
@@ -57,7 +63,8 @@ namespace Cosmos.Optionals {
         #region CompareTo
 
         /// <inheritdoc />
-        public override int CompareTo(T other) {
+        public override int CompareTo(T other)
+        {
             if (other is null)
                 return 1;
             return Internal.CompareTo(other);
@@ -68,7 +75,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public override int CompareTo(Some<T> other) {
+        public override int CompareTo(Some<T> other)
+        {
             if (other is null)
                 return 1;
             return Internal.CompareTo(other.Internal);
@@ -79,7 +87,8 @@ namespace Cosmos.Optionals {
         #region GetHashCode
 
         /// <inheritdoc />
-        public override int GetHashCode() {
+        public override int GetHashCode()
+        {
             return Internal.GetHashCode();
         }
 
@@ -93,7 +102,8 @@ namespace Cosmos.Optionals {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(Some<T> left, Some<T> right) {
+        public static bool operator ==(Some<T> left, Some<T> right)
+        {
             if (left is null && right is null)
                 return true;
             if (left is null || right is null)
@@ -107,7 +117,8 @@ namespace Cosmos.Optionals {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(Some<T> left, None<T> right) {
+        public static bool operator ==(Some<T> left, None<T> right)
+        {
             if (left is null && right is null)
                 return true;
             if (left is null || right is null)
@@ -121,7 +132,8 @@ namespace Cosmos.Optionals {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator ==(None<T> left, Some<T> right) {
+        public static bool operator ==(None<T> left, Some<T> right)
+        {
             if (left is null && right is null)
                 return true;
             if (left is null || right is null)
@@ -135,7 +147,8 @@ namespace Cosmos.Optionals {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(Some<T> left, Some<T> right) {
+        public static bool operator !=(Some<T> left, Some<T> right)
+        {
             return !(left == right);
         }
 
@@ -145,7 +158,8 @@ namespace Cosmos.Optionals {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(Some<T> left, None<T> right) {
+        public static bool operator !=(Some<T> left, None<T> right)
+        {
             return !(left == right);
         }
 
@@ -155,7 +169,8 @@ namespace Cosmos.Optionals {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator !=(None<T> left, Some<T> right) {
+        public static bool operator !=(None<T> left, Some<T> right)
+        {
             return !(left == right);
         }
 
@@ -168,7 +183,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="none"></param>
         /// <returns></returns>
-        public static explicit operator Some<T>(None<T> none) {
+        public static explicit operator Some<T>(None<T> none)
+        {
             return Optional.Wrapped.NoneSlim<T>();
         }
 
@@ -177,7 +193,8 @@ namespace Cosmos.Optionals {
         /// </summary>
         /// <param name="maybe"></param>
         /// <returns></returns>
-        public static explicit operator Some<T>(Maybe<T> maybe) {
+        public static explicit operator Some<T>(Maybe<T> maybe)
+        {
             return maybe.ToWrappedSome();
         }
 
@@ -186,26 +203,30 @@ namespace Cosmos.Optionals {
         #region Or / Else
 
         /// <inheritdoc />
-        public override Some<T> Or(T alternative) {
+        public override Some<T> Or(T alternative)
+        {
             return Internal.Or(alternative).ToWrappedSome();
         }
 
         /// <inheritdoc />
-        public override Some<T> Or(Func<T> alternativeFactory) {
+        public override Some<T> Or(Func<T> alternativeFactory)
+        {
             if (alternativeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeFactory));
             return Internal.Or(alternativeFactory).ToWrappedSome();
         }
 
         /// <inheritdoc />
-        public override Some<T> Else(Some<T> alternativeMaybe) {
+        public override Some<T> Else(Some<T> alternativeMaybe)
+        {
             if (alternativeMaybe is null)
                 throw new ArgumentNullException(nameof(alternativeMaybe));
             return HasValue ? this : alternativeMaybe;
         }
 
         /// <inheritdoc />
-        public override Some<T> Else(Func<Some<T>> alternativeMaybeFactory) {
+        public override Some<T> Else(Func<Some<T>> alternativeMaybeFactory)
+        {
             if (alternativeMaybeFactory is null)
                 throw new ArgumentNullException(nameof(alternativeMaybeFactory));
             return HasValue ? this : alternativeMaybeFactory();
@@ -216,12 +237,14 @@ namespace Cosmos.Optionals {
         #region Filter
 
         /// <inheritdoc />
-        public override Some<T> Filter(bool condition) {
+        public override Some<T> Filter(bool condition)
+        {
             return HasValue && !condition ? Optional.Wrapped.NoneSlim<T>() : this;
         }
 
         /// <inheritdoc />
-        public override Some<T> Filter(Func<T, bool> predicate) {
+        public override Some<T> Filter(Func<T, bool> predicate)
+        {
             if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
             return HasValue && !predicate(Value) ? Optional.Wrapped.NoneSlim<T>() : this;
@@ -232,11 +255,11 @@ namespace Cosmos.Optionals {
         #region Not null
 
         /// <inheritdoc />
-        public override Some<T> NotNull() {
+        public override Some<T> NotNull()
+        {
             return HasValue && Value == null ? Optional.Wrapped.NoneSlim<T>() : this;
         }
 
         #endregion
-
     }
 }

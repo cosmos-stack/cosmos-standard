@@ -1,8 +1,10 @@
-namespace Cosmos.Optionals.NamedOptionals {
+namespace Cosmos.Optionals.NamedOptionals
+{
     /// <summary>
     /// Interface for named optional builder
     /// </summary>
-    public interface INamedOptionalBuilder<T> {
+    public interface INamedOptionalBuilder<T>
+    {
         /// <summary>
         /// May
         /// </summary>
@@ -10,7 +12,7 @@ namespace Cosmos.Optionals.NamedOptionals {
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
         INamedOptionalBuilder<T, T2> May<T2>(T2 value);
-        
+
         /// <summary>
         /// May
         /// </summary>

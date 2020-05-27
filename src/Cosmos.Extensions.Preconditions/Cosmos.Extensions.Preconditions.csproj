@@ -12,13 +12,17 @@
         <Description>Cosmos preconditions extension library</Description>
     </PropertyGroup>
 
-    <ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)'!='net451'">
+        <PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+        <PackageReference Include="FluentValidation" Version="9.0.0-preview5" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'=='net451'">
         <PackageReference Include="AspectCore.Abstractions" Version="2.0.0" />
-        <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.0.0" />
         <PackageReference Include="FluentValidation" Version="8.6.2" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions\Cosmos.Extensions.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
     </ItemGroup>
 </Project>

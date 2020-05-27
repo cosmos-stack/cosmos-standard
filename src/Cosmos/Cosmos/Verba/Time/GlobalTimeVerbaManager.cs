@@ -3,12 +3,14 @@ using System.Collections.Concurrent;
 
 // ReSharper disable InconsistentNaming
 
-namespace Cosmos.Verba.Time {
+namespace Cosmos.Verba.Time
+{
     /// <summary>
     /// Global time verba manager
     /// </summary>
     [Obsolete("将会被 Cosmos.I18N 取代")]
-    public static class GlobalTimeVerbaManager {
+    public static class GlobalTimeVerbaManager
+    {
         private static readonly ConcurrentDictionary<string, ITimeVerba> m_timeVerbaDict;
         private static readonly ConcurrentDictionary<string, string> m_languageKeyMapDict;
         private static string m_defaultLanguageKey;
@@ -18,7 +20,8 @@ namespace Cosmos.Verba.Time {
 
         private static readonly ConcurrentDictionary<string, ITimeVerba> m_languageKeyVerbaCache;
 
-        static GlobalTimeVerbaManager() {
+        static GlobalTimeVerbaManager()
+        {
             m_timeVerbaDict = new ConcurrentDictionary<string, ITimeVerba>();
             m_languageKeyMapDict = new ConcurrentDictionary<string, string>();
 
@@ -38,15 +41,21 @@ namespace Cosmos.Verba.Time {
         /// Add time verba into <see cref="GlobalTimeVerbaManager"/>
         /// </summary>
         /// <param name="verba"></param>
-        public static void AddTimeVerba(ITimeVerba verba) {
-            if (verba == null) {
+        public static void AddTimeVerba(ITimeVerba verba)
+        {
+            if (verba == null)
+            {
                 throw new ArgumentNullException(nameof(verba));
             }
 
-            if (!m_timeVerbaDict.ContainsKey(verba.VerbaName)) {
-                lock (m_lockObject) {
-                    if (!m_timeVerbaDict.ContainsKey(verba.VerbaName) && m_timeVerbaDict.TryAdd(verba.VerbaName, verba)) {
-                        foreach (var key in verba.LanguageKeys) {
+            if (!m_timeVerbaDict.ContainsKey(verba.VerbaName))
+            {
+                lock (m_lockObject)
+                {
+                    if (!m_timeVerbaDict.ContainsKey(verba.VerbaName) && m_timeVerbaDict.TryAdd(verba.VerbaName, verba))
+                    {
+                        foreach (var key in verba.LanguageKeys)
+                        {
                             m_languageKeyMapDict.TryAdd(key, verba.VerbaName);
                         }
 
@@ -59,15 +68,20 @@ namespace Cosmos.Verba.Time {
         /// <summary>
         /// Gets or sets default language key.
         /// </summary>
-        public static string DefaultLanguageKey {
+        public static string DefaultLanguageKey
+        {
             get => m_defaultLanguageKey;
-            set {
-                if (string.IsNullOrWhiteSpace(value)) {
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
                     return;
                 }
 
-                lock (m_languageKeyCacheLockObject) {
-                    if (!m_languageKeyMapDict.ContainsKey(value)) {
+                lock (m_languageKeyCacheLockObject)
+                {
+                    if (!m_languageKeyMapDict.ContainsKey(value))
+                    {
                         return;
                     }
 
@@ -81,11 +95,14 @@ namespace Cosmos.Verba.Time {
         /// </summary>
         public static string CurrentLanguageKey => DefaultLanguageKey;
 
-        private static void RefreshLanguageKeyVerbaCache() {
-            lock (m_languageKeyCacheLockObject) {
+        private static void RefreshLanguageKeyVerbaCache()
+        {
+            lock (m_languageKeyCacheLockObject)
+            {
                 var keys = m_languageKeyMapDict.Keys;
                 m_languageKeyVerbaCache.Clear();
-                foreach (var key in keys) {
+                foreach (var key in keys)
+                {
                     m_languageKeyVerbaCache[key] = m_timeVerbaDict[key];
                 }
             }
@@ -95,7 +112,8 @@ namespace Cosmos.Verba.Time {
         /// Get <see cref="ITimeVerba"/> from manager
         /// </summary>
         /// <returns></returns>
-        public static ITimeVerba GetVerba() {
+        public static ITimeVerba GetVerba()
+        {
             return GetVerba(DefaultLanguageKey);
         }
 
@@ -104,12 +122,15 @@ namespace Cosmos.Verba.Time {
         /// </summary>
         /// <param name="languageKey"></param>
         /// <returns></returns>
-        public static ITimeVerba GetVerba(string languageKey) {
-            if (string.IsNullOrWhiteSpace(languageKey)) {
+        public static ITimeVerba GetVerba(string languageKey)
+        {
+            if (string.IsNullOrWhiteSpace(languageKey))
+            {
                 return null;
             }
 
-            if (!m_languageKeyVerbaCache.ContainsKey(languageKey)) {
+            if (!m_languageKeyVerbaCache.ContainsKey(languageKey))
+            {
                 return null;
             }
 
@@ -121,7 +142,8 @@ namespace Cosmos.Verba.Time {
         /// </summary>
         /// <param name="verbaFunc"></param>
         /// <returns></returns>
-        public static string FromVerba(Func<ITimeVerba, string> verbaFunc) {
+        public static string FromVerba(Func<ITimeVerba, string> verbaFunc)
+        {
             return FromVerba(DefaultLanguageKey, verbaFunc);
         }
 
@@ -131,22 +153,25 @@ namespace Cosmos.Verba.Time {
         /// <param name="languageKey"></param>
         /// <param name="verbaFunc"></param>
         /// <returns></returns>
-        public static string FromVerba(string languageKey, Func<ITimeVerba, string> verbaFunc) {
-            if (string.IsNullOrWhiteSpace(languageKey)) {
+        public static string FromVerba(string languageKey, Func<ITimeVerba, string> verbaFunc)
+        {
+            if (string.IsNullOrWhiteSpace(languageKey))
+            {
                 return string.Empty;
             }
 
-            if (verbaFunc == null) {
+            if (verbaFunc == null)
+            {
                 return string.Empty;
             }
 
-            if (!m_languageKeyVerbaCache.ContainsKey(languageKey)) {
+            if (!m_languageKeyVerbaCache.ContainsKey(languageKey))
+            {
                 return string.Empty;
             }
 
             return verbaFunc(m_languageKeyVerbaCache[languageKey]);
         }
-
 
         /// <summary>
         /// Now <br />

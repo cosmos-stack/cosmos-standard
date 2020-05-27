@@ -4,6 +4,205 @@
         <name>Cosmos.Extensions.Asyncs</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Asynchronous.AsyncReturns">
+            <summary>
+            Async returns
+            </summary>
+            <summary>
+            Async returns
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Canceled``1(System.Threading.CancellationToken)">
+            <summary>
+            Returns canceled
+            </summary>
+            <param name="cancellationToken"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Canceled``1(System.OperationCanceledException)">
+            <summary>
+            Returns canceled
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.CompletedTask">
+            <summary>
+            Returns Completed Task
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Delegate(System.Action)">
+            <summary>
+            Returns Delegate
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Delegate``1(System.Func{``0})">
+            <summary>
+            Returns Delegate
+            </summary>
+            <param name="func"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Delegate``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Returns Delegate
+            </summary>
+            <param name="taskFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Exception``1(System.Exception)">
+            <summary>
+            Returns exception
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Exception``1(System.Func{System.Exception})">
+            <summary>
+            Returns exception
+            </summary>
+            <param name="exceptionFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Default``1">
+            <summary>
+            Returns default
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Value``1(``0)">
+            <summary>
+            Returns value
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.Value``1(System.Func{``0})">
+            <summary>
+            Returns value
+            </summary>
+            <param name="valueFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(``0,``0)">
+            <summary>
+            Return value or
+            </summary>
+            <param name="value"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(``0,System.Func{``0})">
+            <summary>
+            Return value or
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(System.Func{``0},``0)">
+            <summary>
+            Return value or
+            </summary>
+            <param name="valueFunc"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOr``1(System.Func{``0},System.Func{``0})">
+            <summary>
+            Return value or
+            </summary>
+            <param name="valueFunc"></param>
+            <param name="defaultValFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrDefault``1(``0)">
+            <summary>
+            Return value or default
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrDefault``1(System.Func{``0})">
+            <summary>
+            Return value or default
+            </summary>
+            <param name="valueFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrException``1(``0,System.Exception)">
+            <summary>
+            Value or default
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrException``1(``0,System.Func{System.Exception})">
+            <summary>
+            Value or default
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ValueOrException``1(System.Func{``0},System.Func{System.Exception})">
+            <summary>
+            Value or default
+            </summary>
+            <param name="valueFunc"></param>
+            <param name="exceptionFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Asynchronous.AsyncReturns.ForValueTask">
+            <summary>
+            Returns for value task
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ForValueTask.Exception``1(System.Exception)">
+            <summary>
+            Returns exception
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ForValueTask.Default``1">
+            <summary>
+            Returns default
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.AsyncReturns.ForValueTask.Value``1(``0)">
+            <summary>
+            Returns value task
+            </summary>
+            <param name="result"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.Promise.Promises">
             <summary>
             Promises Utilities
@@ -52,12 +251,40 @@
             <param name="task"></param>
             <param name="cancellationToken"></param>
         </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCalling(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            For asynchronous calling
+            </summary>
+            <param name="taskFunc"></param>
+            <param name="cancellationToken"></param>
+        </member>
         <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafety(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
             <summary>
             For asynchronous calling safety
             </summary>
             <param name="task"></param>
             <param name="cancellationToken"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafety(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            For asynchronous calling safety
+            </summary>
+            <param name="taskFunc"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafetyAndForget(System.Threading.Tasks.Task,System.Action{System.Exception})">
+            <summary>
+            For asynchronous calling safety and forget
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafetyAndForget(System.Func{System.Threading.Tasks.Task},System.Action{System.Exception})">
+            <summary>
+            For asynchronous calling safety and forget
+            </summary>
+            <param name="taskFunc"></param>
+            <param name="exceptionAction"></param>
         </member>
         <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCalling``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
             <summary>
@@ -68,12 +295,32 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCalling``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling
+            </summary>
+            <param name="taskFunc"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
         <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
             <summary>
             From asynchronous calling safety
             </summary>
             <typeparam name="TResult"></typeparam>
             <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="taskFunc"></param>
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
@@ -84,6 +331,36 @@
             <typeparam name="TResult"></typeparam>
             <param name="task"></param>
             <param name="defaultValue"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Func{System.Threading.Tasks.Task{``0}},``0,System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="taskFunc"></param>
+            <param name="defaultValue"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Threading.Tasks.Task{``0},System.Func{``0},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="task"></param>
+            <param name="defaultValueFunc"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCallingSafety``1(System.Func{System.Threading.Tasks.Task{``0}},System.Func{``0},System.Threading.CancellationToken)">
+            <summary>
+            From asynchronous calling safety
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="taskFunc"></param>
+            <param name="defaultValueFunc"></param>
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
@@ -135,6 +412,14 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Asynchronous.ValueTaskFactory.FromException``1(System.Exception)">
+            <summary>
+            From exception
+            </summary>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.ValueTasks">
             <summary>
             ValueTask utilities
@@ -151,6 +436,21 @@
         <member name="T:Cosmos.Asynchronous.TaskExtensions">
             <summary>
             Task extensions
+            </summary>
+            <summary>
+            Extensions for task
+            </summary>
+            <summary>
+            TaskCompletionSource extensions
+            </summary>
+            <summary>
+            TextReader Extensions
+            </summary>
+            <summary>
+            ValueTask extensions
+            </summary>
+            <summary>
+            Extensions for task
             </summary>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext(System.Threading.Tasks.Task)">
@@ -169,12 +469,44 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="T:Cosmos.Asynchronous.TaskCompletionSourceExtensions">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.Task,System.Action{System.Exception},System.Boolean)">
             <summary>
-            TaskCompletionSource extensions
+            Safety execute the Task without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget``1(System.Threading.Tasks.Task,System.Action{``0},System.Boolean)">
+            <summary>
+            Safety execute the Task without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.Initialize(System.Boolean)">
+            <summary>
+            Initialize SafeFireAndForget
+            </summary>
+            <param name="shouldAlwaysRethrowException"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.RemoveDefaultExceptionHandling">
+            <summary>
+            Remove the default action for SafeFireAndForget
             </summary>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SetDefaultExceptionHanding(System.Action{System.Exception})">
+            <summary>
+            Set the default action for SafeFireAndForget to handle every exception
+            </summary>
+            <param name="exceptionAction"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
             <summary>
             Try CompleteFromCompletedTask
             </summary>
@@ -183,7 +515,7 @@
             <param name="completedTask"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -191,7 +523,7 @@
             <param name="continuationAction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task,System.Object},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task,System.Object},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -200,7 +532,7 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -209,7 +541,7 @@
             <param name="continuationFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,System.Object,``0},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,System.Object,``0},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -219,7 +551,7 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -228,7 +560,7 @@
             <param name="continuationAction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0},System.Object},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0},System.Object},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -238,7 +570,7 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},``1})">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},``1})">
             <summary>
             Continue With Synchronously
             </summary>
@@ -248,7 +580,7 @@
             <param name="continuationFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},System.Object,``1},System.Object)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ContinueWithSynchronously``2(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task{``0},System.Object,``1},System.Object)">
             <summary>
             Continue With Synchronously
             </summary>
@@ -259,19 +591,14 @@
             <param name="state"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Asynchronous.TaskCompletionSourceExtensions.ToCancellationTokenSource(System.Threading.Tasks.Task)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.ToCancellationTokenSource(System.Threading.Tasks.Task)">
             <summary>
             To CancellationTokenSource
             </summary>
             <param name="task"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Asynchronous.TextReaderExtensions">
-            <summary>
-            TextReader Extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TextReaderExtensions.GetEnumerable(System.IO.TextReader)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.GetEnumerable(System.IO.TextReader)">
             <summary>
             Get enumerable
             </summary>
@@ -279,18 +606,32 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="T:Cosmos.Asynchronous.ValueTaskExtensions">
-            <summary>
-            ValueTask extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.ValueTaskExtensions.RunInContext``1(System.Threading.Tasks.ValueTask{``0}@)">
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext``1(System.Threading.Tasks.ValueTask{``0}@)">
             <summary>
             Run in AsyncContext
             </summary>
             <param name="task"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.ValueTask,System.Action{System.Exception},System.Boolean)">
+            <summary>
+            Safety execute the ValueTask without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget``1(System.Threading.Tasks.ValueTask,System.Action{``0},System.Boolean)">
+            <summary>
+            Safety execute the ValueTask without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+            <typeparam name="TException"></typeparam>
         </member>
         <member name="T:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1">
             <summary>

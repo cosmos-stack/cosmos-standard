@@ -1,9 +1,13 @@
 using System;
 
-namespace NodaTime.Helpers {
-    internal static class DayOfWeekHelper {
-        public static IsoDayOfWeek ToNodaTimeWeek(DayOfWeek week) {
-            switch (week) {
+namespace NodaTime.Helpers
+{
+    internal static class DayOfWeekHelper
+    {
+        public static IsoDayOfWeek ToNodaTimeWeek(DayOfWeek week)
+        {
+            switch (week)
+            {
                 case DayOfWeek.Sunday: return IsoDayOfWeek.Sunday;
                 case DayOfWeek.Monday: return IsoDayOfWeek.Monday;
                 case DayOfWeek.Tuesday: return IsoDayOfWeek.Tuesday;
@@ -15,8 +19,10 @@ namespace NodaTime.Helpers {
             }
         }
 
-        public static DayOfWeek ToSystemWeek(IsoDayOfWeek week) {
-            switch (week) {
+        public static DayOfWeek ToSystemWeek(IsoDayOfWeek week)
+        {
+            switch (week)
+            {
                 case IsoDayOfWeek.Sunday: return DayOfWeek.Sunday;
                 case IsoDayOfWeek.Monday: return DayOfWeek.Monday;
                 case IsoDayOfWeek.Tuesday: return DayOfWeek.Saturday;

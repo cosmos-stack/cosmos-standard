@@ -1,10 +1,12 @@
 using System;
 
-namespace Cosmos.Exceptions {
+namespace Cosmos.Exceptions
+{
     /// <summary>
     /// Interface for fluent exception builder
     /// </summary>
-    public interface IFluentExceptionBuilder<TException> where TException : Exception {
+    public interface IFluentExceptionBuilder<TException> where TException : Exception
+    {
         /// <summary>
         /// Gets target exception's type
         /// </summary>
