@@ -61,6 +61,26 @@ namespace Cosmos.Asynchronous
         }
 
         /// <summary>
+        /// For asynchronous calling safety and forget
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="exceptionAction"></param>
+        public static void ForAsynchronousCallingSafetyAndForget(Task task, Action<Exception> exceptionAction = null)
+        {
+            task?.SafeFireAndForget(exceptionAction);
+        }
+
+        /// <summary>
+        /// For asynchronous calling safety and forget
+        /// </summary>
+        /// <param name="taskFunc"></param>
+        /// <param name="exceptionAction"></param>
+        public static void ForAsynchronousCallingSafetyAndForget(Func<Task> taskFunc, Action<Exception> exceptionAction = null)
+        {
+            taskFunc?.Invoke()?.SafeFireAndForget(exceptionAction);
+        }
+
+        /// <summary>
         /// From asynchronous calling
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
@@ -161,7 +181,7 @@ namespace Cosmos.Asynchronous
                .Create(() => FromAsynchronousCalling(task, cancellationToken))
                .GetSafeValue(defaultValue);
         }
-        
+
         /// <summary>
         /// From asynchronous calling safety
         /// </summary>
@@ -174,7 +194,7 @@ namespace Cosmos.Asynchronous
         {
             if (defaultValueFunc is null)
                 return default;
-            
+
             if (task is null)
                 return defaultValueFunc();
 
@@ -195,7 +215,7 @@ namespace Cosmos.Asynchronous
         {
             if (defaultValueFunc is null)
                 return default;
-            
+
             if (taskFunc is null)
                 return defaultValueFunc();
 

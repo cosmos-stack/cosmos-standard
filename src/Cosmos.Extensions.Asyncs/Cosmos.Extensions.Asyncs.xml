@@ -272,6 +272,20 @@
             <param name="taskFunc"></param>
             <param name="cancellationToken"></param>
         </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafetyAndForget(System.Threading.Tasks.Task,System.Action{System.Exception})">
+            <summary>
+            For asynchronous calling safety and forget
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.SyncRunner.ForAsynchronousCallingSafetyAndForget(System.Func{System.Threading.Tasks.Task},System.Action{System.Exception})">
+            <summary>
+            For asynchronous calling safety and forget
+            </summary>
+            <param name="taskFunc"></param>
+            <param name="exceptionAction"></param>
+        </member>
         <member name="M:Cosmos.Asynchronous.SyncRunner.FromAsynchronousCalling``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
             <summary>
             From asynchronous calling
@@ -424,6 +438,9 @@
             Task extensions
             </summary>
             <summary>
+            Extensions for task
+            </summary>
+            <summary>
             TaskCompletionSource extensions
             </summary>
             <summary>
@@ -431,6 +448,9 @@
             </summary>
             <summary>
             ValueTask extensions
+            </summary>
+            <summary>
+            Extensions for task
             </summary>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext(System.Threading.Tasks.Task)">
@@ -447,6 +467,43 @@
             <param name="task"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.Task,System.Action{System.Exception},System.Boolean)">
+            <summary>
+            Safety execute the Task without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget``1(System.Threading.Tasks.Task,System.Action{``0},System.Boolean)">
+            <summary>
+            Safety execute the Task without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.Initialize(System.Boolean)">
+            <summary>
+            Initialize SafeFireAndForget
+            </summary>
+            <param name="shouldAlwaysRethrowException"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.RemoveDefaultExceptionHandling">
+            <summary>
+            Remove the default action for SafeFireAndForget
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SetDefaultExceptionHanding(System.Action{System.Exception})">
+            <summary>
+            Set the default action for SafeFireAndForget to handle every exception
+            </summary>
+            <param name="exceptionAction"></param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
@@ -556,6 +613,25 @@
             <param name="task"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.ValueTask,System.Action{System.Exception},System.Boolean)">
+            <summary>
+            Safety execute the ValueTask without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget``1(System.Threading.Tasks.ValueTask,System.Action{``0},System.Boolean)">
+            <summary>
+            Safety execute the ValueTask without waiting for it to complete before moving to the next line of code; commonly known as "Fire and Forget".<br />
+            Inspired by John Thiriet's blog post, "Removing Async Void": https://jhonthiriet.com/removing-async-void/.
+            </summary>
+            <param name="task"></param>
+            <param name="exceptionAction"></param>
+            <param name="continueOnCapturedContext"></param>
+            <typeparam name="TException"></typeparam>
         </member>
         <member name="T:Cosmos.Collections.Concurrent.BoundedConcurrentQueue`1">
             <summary>
