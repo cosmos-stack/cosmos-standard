@@ -6,29 +6,16 @@ namespace Cosmos.Disposables
     /// Disable Action. <br />
     /// When the derived class of this class is disposed, the specified <see cref="Action"/> will be executed.
     /// </summary>
-    public sealed class DisposableAction : IDisposableAction, IDisposable
+    public sealed class DisposableAction : DisposeHandler, IDisposableAction
     {
-        private readonly Action _action;
-
         /// <summary>
         /// Create a new <see cref="DisposableAction"/> instance.
         /// </summary>
         /// <param name="action"></param>
-        public DisposableAction(Action action)
-        {
-            _action = action;
-        }
+        public DisposableAction(Action action) : base(action) { }
 
         /// <inheritdoc />
-        public void Invoke() => _action?.Invoke();
-
-        /// <inheritdoc />
-        public void Dispose()
-        {
-            Invoke();
-        }
-
-        internal Action InternalAction => _action;
+        public void Invoke() => OnDispose();
 
         /// <summary>
         /// Get a cached instance of <see cref="NoopDisposableAction"/>.

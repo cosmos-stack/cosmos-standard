@@ -7,7 +7,7 @@ namespace Cosmos.Disposables
     /// <summary>
     /// Disposable objects
     /// </summary>
-    public abstract class DisposableObjects : IDisposable
+    public abstract class DisposableObjects : DisposableBase
     {
         private readonly CollectionDisposableObjects _collectionDisposableObjects;
         private readonly List<string> _disposableActionRegister;
@@ -100,11 +100,8 @@ namespace Cosmos.Disposables
         }
 
         /// <summary>
-        /// Dispose
+        /// On Dispose
         /// </summary>
-        public void Dispose()
-        {
-            _collectionDisposableObjects.Dispose();
-        }
+        protected override void OnDispose() => _collectionDisposableObjects.Dispose();
     }
 }

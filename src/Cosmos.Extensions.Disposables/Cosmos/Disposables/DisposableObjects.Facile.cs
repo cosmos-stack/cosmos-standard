@@ -7,9 +7,8 @@ namespace Cosmos.Disposables
     /// <summary>
     /// Facile Disposable Objects
     /// </summary>
-    public abstract class FacileDisposableObjects : IDisposable
+    public abstract class FacileDisposableObjects : DisposableBase
     {
-        private bool _disposed;
         private readonly CollectionDisposableObjects _collectionDisposableObjects;
         private readonly Dictionary<string, AnonymousDisposableObject> _anonymousDisposableObjects;
 
@@ -129,43 +128,23 @@ namespace Cosmos.Disposables
         private void InternalClearDisposableActions() => _anonymousDisposableObjects.Clear();
 
         /// <summary>
-        /// Dispose
+        /// On Dispose
         /// </summary>
-        public void Dispose()
+        protected override void OnDispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+            _collectionDisposableObjects.Dispose();
 
-        /// <summary>
-        /// Dispose
-        /// </summary>
-        /// <param name="disposing"></param>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (_disposed)
+            foreach (var anonymous in _anonymousDisposableObjects.Values)
             {
-                return;
+                anonymous?.Dispose();
             }
 
-            if (disposing)
-            {
-                _collectionDisposableObjects.Dispose();
-
-                foreach (var anonymous in _anonymousDisposableObjects.Values)
-                {
-                    anonymous?.Dispose();
-                }
-
-                InternalClearDisposableActions();
-            }
-
-            _disposed = true;
+            InternalClearDisposableActions();
         }
 
         private void CheckDisposed()
         {
-            if (_disposed)
+            if (WasDisposed)
             {
                 throw new InvalidOperationException("FacileDisposableObjects instance has been disposed.");
             }
@@ -176,7 +155,7 @@ namespace Cosmos.Disposables
         /// </summary>
         ~FacileDisposableObjects()
         {
-            Dispose(false);
+            Dispose();
         }
     }
 }

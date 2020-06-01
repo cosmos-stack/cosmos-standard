@@ -14,7 +14,7 @@ namespace Cosmos.Disposables
     /// Single Nonblocking Disposable Object
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class SingleNonblockingDisposableObject<T> : IDisposable
+    public abstract class SingleNonblockingDisposableObject<T> : DisposableBase
     {
         private readonly DisposableActionField<T> _context;
 
@@ -33,15 +33,15 @@ namespace Cosmos.Disposables
         public bool IsDisposeStarted => _context.IsEmpty;
 
         /// <summary>
-        /// The actual disposal method, call only once from <see cref="Dispose()"/>
+        /// The actual disposal method, call only once from <see cref="Dispose"/>
         /// </summary>
         /// <param name="context"></param>
         protected abstract void Dispose(T context);
 
         /// <summary>
-        /// Disposes this instance.
+        /// On Dispose
         /// </summary>
-        public void Dispose() => _context.TryGetAndUnset()?.Invoke();
+        protected override void OnDispose() => _context.TryGetAndUnset()?.Invoke();
 
         /// <summary>
         /// Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.

@@ -435,7 +435,7 @@
         </member>
         <member name="T:Cosmos.Asynchronous.TaskExtensions">
             <summary>
-            Task extensions
+            Extensions for task
             </summary>
             <summary>
             Extensions for task
@@ -447,27 +447,8 @@
             TextReader Extensions
             </summary>
             <summary>
-            ValueTask extensions
-            </summary>
-            <summary>
             Extensions for task
             </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext(System.Threading.Tasks.Task)">
-            <summary>
-            Run in AsyncContext
-            </summary>
-            <param name="task"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext``1(System.Threading.Tasks.Task{``0})">
-            <summary>
-            Run in AsyncContext
-            </summary>
-            <param name="task"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.Task,System.Action{System.Exception},System.Boolean)">
             <summary>
@@ -504,6 +485,56 @@
             Set the default action for SafeFireAndForget to handle every exception
             </summary>
             <param name="exceptionAction"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException(System.Threading.Tasks.Task)">
+            <summary>
+            Wait and unwrap exception
+            </summary>
+            <param name="task"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
+            <summary>
+            Wait and unwrap exception
+            </summary>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Wait and unwrap exception
+            </summary>
+            <param name="task"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
+            <summary>
+            Wait and unwrap exception
+            </summary>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitWithoutException(System.Threading.Tasks.Task)">
+            <summary>
+            Wait without exception
+            </summary>
+            <param name="task"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitWithoutException(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
+            <summary>
+            Wait without exception
+            </summary>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
@@ -605,14 +636,6 @@
             <param name="textReader"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext``1(System.Threading.Tasks.ValueTask{``0}@)">
-            <summary>
-            Run in AsyncContext
-            </summary>
-            <param name="task"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.ValueTask,System.Action{System.Exception},System.Boolean)">
             <summary>
@@ -731,7 +754,7 @@
             When the derived class of this class is disposed, the specified <see cref="T:System.Action"/> will be executed async.
             </summary>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction.#ctor(System.Action)">
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction.#ctor(System.Func{System.Threading.Tasks.ValueTask})">
             <summary>
             Create a new <see cref="T:Cosmos.Disposables.AsynchronousDisposableAction"/> instance.
             </summary>
@@ -740,16 +763,13 @@
         <member name="M:Cosmos.Disposables.AsynchronousDisposableAction.InvokeAsync">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction.Dispose">
-            <inheritdoc />
-        </member>
         <member name="T:Cosmos.Disposables.AsynchronousDisposableActionField`1">
             <summary>
             Asynchronous Disposable Action Field
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousDisposableActionField`1.#ctor(System.Action{`0},`0)">
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableActionField`1.#ctor(System.Func{`0,System.Threading.Tasks.ValueTask},`0)">
             <summary>
             Create a new <see cref="T:Cosmos.Disposables.AsynchronousDisposableActionField`1"/> instance.
             </summary>
@@ -781,7 +801,7 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction`1.#ctor(System.Action{`0},`0)">
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction`1.#ctor(System.Func{`0,System.Threading.Tasks.ValueTask},`0)">
             <summary>
             Create a new <see cref="T:Cosmos.Disposables.AsynchronousDisposableAction`1"/> instance.
             </summary>
@@ -802,7 +822,19 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousDisposableAction`1.Dispose">
+        <member name="T:Cosmos.Disposables.AsynchronousDisposableBase">
+            <summary>
+            A base class for properly implementing IAsyncDisposable but also allowing for synchronous use of IDispose.
+            Only implementing OnDisposeAsync is enough to properly handle disposal.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableBase.OnDisposeAsync">
+            <summary>
+            Without overriding OnDispose, OnDisposeAsync will be called no matter what depending on how the object is disposed.<br />
+            If asynchronous istrue, was called by .DisposeAsync(), otherwise.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposableBase.DisposeAsync">
             <inheritdoc />
         </member>
         <member name="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject">
@@ -815,7 +847,7 @@
             Create a new <see cref="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject"/> instance.
             </summary>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.#ctor(System.Action)">
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.#ctor(System.Func{System.Threading.Tasks.ValueTask})">
             <summary>
             Create a new <see cref="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject"/> instance.
             </summary>
@@ -827,13 +859,13 @@
             </summary>
             <param name="disposableAction"></param>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Dispose(System.Action)">
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.DisposeAsync(System.Func{System.Threading.Tasks.ValueTask})">
             <summary>
             Dispose.
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Add(System.Action)">
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Add(System.Func{System.Threading.Tasks.ValueTask})">
             <summary>
             Add dispose <see cref="T:System.Action"/>.
             </summary>
@@ -845,7 +877,7 @@
             </summary>
             <param name="disposableAction"></param>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Create(System.Action)">
+        <member name="M:Cosmos.Disposables.AsynchronousAnonymousDisposableObject.Create(System.Func{System.Threading.Tasks.ValueTask})">
             <summary>
             Create a new disposable that executes dispose when disposed.
             </summary>
@@ -870,9 +902,10 @@
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousNoopDisposableObject.Dispose">
-            <summary>
-            Dispose.
-            </summary>
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousNoopDisposableObject.DisposeAsync">
+            <inheritdoc />
         </member>
         <member name="T:Cosmos.Disposables.AsynchronousSingleDisposableObject`1">
             <summary>
@@ -901,15 +934,15 @@
             To flag this instance is currently disposing, but not finished yet.
             </summary>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose(`0)">
+        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.DisposeAsync(`0)">
             <summary>
             The actual disposal method, call only once from Dispose.
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.Dispose">
+        <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.OnDisposeAsync">
             <summary>
-            Disposes this instance.
+            On Dispose async
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
@@ -936,7 +969,7 @@
             To flag this instance is currently disposing or has been disposed.
             </summary>
         </member>
-        <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.Dispose(`0)">
+        <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.DisposeAsync(`0)">
             <summary>
             The actual disposal method, call only once from Dispose
             </summary>
@@ -947,11 +980,84 @@
             Disposes this instance.
             </summary>
         </member>
+        <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.DisposeAsync">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
             <summary>
             Attempts to update the stored context. This method returns false if this instance has already been disposed or is being disposed.
             </summary>
             <param name="contextUpdater"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousDisposeHandler">
+            <summary>
+            Asynchronous dispose handler
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposeHandler.#ctor">
+            <summary>
+            Internal protected dispose handler
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposeHandler.#ctor(System.Func{System.Threading.Tasks.ValueTask})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Disposables.AsynchronousDisposeHandler"/>.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposeHandler.ActionUpdate(System.Func{System.Threading.Tasks.ValueTask})">
+            <summary>
+            Internal protected dispose action update
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousDisposeHandler.InternalAction">
+            <summary>
+            Internal protected action
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposeHandler.OnDisposeAsync">
+            <summary>
+            On dispose async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Disposables.AsynchronousDisposeHandler`1">
+            <summary>
+            Asynchronous dispose handler
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposeHandler`1.#ctor(System.Func{`0,System.Threading.Tasks.ValueTask},`0)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Disposables.AsynchronousDisposeHandler`1"/>
+            </summary>
+            <param name="context"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposeHandler`1.#ctor(System.Func{`0,System.Threading.Tasks.ValueTask},`0,System.Func{`0,`0})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Disposables.AsynchronousDisposeHandler`1"/>
+            </summary>
+            <param name="action"></param>
+            <param name="originalContext"></param>
+            <param name="contextUpdater"></param>
+        </member>
+        <member name="P:Cosmos.Disposables.AsynchronousDisposeHandler`1.Context">
+            <summary>
+            Gets context
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.AsynchronousDisposeHandler`1.Action">
+            <summary>
+            Action
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.AsynchronousDisposeHandler`1.OnDisposeAsync">
+            <summary>
+            On dispose async
+            </summary>
             <returns></returns>
         </member>
         <member name="T:System.IO.StreamWithState`1">
@@ -12909,6 +13015,49 @@
             </summary>
             <param name="name"></param>
             <returns></returns>
+        </member>
+        <member name="T:System.Threading.AsyncLocal`1">
+            <summary>
+            Async local for .NET Framework 4.5.1
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:System.Threading.AsyncLocal`1.#ctor">
+            <summary>
+            Create a new instance for AsyncLocal for .NET Framework 4.5.1
+            </summary>
+        </member>
+        <member name="M:System.Threading.AsyncLocal`1.#ctor(System.Action{System.Threading.AsyncLocalValueChangedArgs{`0}})">
+            <summary>
+            Create a new instance for AsyncLocal for .NET Framework 4.5.1
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="P:System.Threading.AsyncLocal`1.Value">
+            <summary>
+            Gets or sets value
+            </summary>
+        </member>
+        <member name="T:System.Threading.AsyncLocalValueChangedArgs`1">
+            <summary>
+            Async local value changed args for .NET Framework 4.5.1
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.PreviousValue">
+            <summary>
+            Previous value
+            </summary>
+        </member>
+        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.CurrentValue">
+            <summary>
+            Current value
+            </summary>
+        </member>
+        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.ThreadContextChanged">
+            <summary>
+            Thread context changed
+            </summary>
         </member>
     </members>
 </doc>

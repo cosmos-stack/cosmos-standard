@@ -7,21 +7,17 @@ namespace Cosmos.Disposables
     /// When the derived class of this class is disposed, the specified <see cref="Action{T}"/> will be executed.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class DisposableAction<T> : IDisposableAction, IDisposable
+    public sealed class DisposableAction<T> : DisposeHandler<T>, IDisposableAction
     {
-        private readonly Action<T> _action;
-        private readonly T _context;
+        // private readonly Action<T> _action;
+        // private readonly T _context;
 
         /// <summary>
         /// Create a new <see cref="DisposableAction{T}"/> instance.
         /// </summary>
         /// <param name="action"></param>
         /// <param name="context"></param>
-        public DisposableAction(Action<T> action, T context)
-        {
-            _action = action;
-            _context = context;
-        }
+        public DisposableAction(Action<T> action, T context) : base(action, context) { }
 
         /// <summary>
         /// Create a new <see cref="DisposableAction{T}"/> instance.
@@ -29,23 +25,12 @@ namespace Cosmos.Disposables
         /// <param name="originalDisposableAction"></param>
         /// <param name="contextUpdater"></param>
         public DisposableAction(DisposableAction<T> originalDisposableAction, Func<T, T> contextUpdater)
-        {
-            _action = originalDisposableAction._action;
-            _context = contextUpdater(originalDisposableAction._context);
-        }
+            : base(originalDisposableAction.Action, originalDisposableAction.Context, contextUpdater) { }
 
         /// <summary>
         /// Invoke the disposable action with context
         /// </summary>
-        public void Invoke() => _action?.Invoke(_context);
-
-        /// <summary>
-        /// Dispose
-        /// </summary>
-        public void Dispose()
-        {
-            Invoke();
-        }
+        public void Invoke() => OnDispose();
 
         /// <summary>
         /// Get a cached instance of <see cref="NoopDisposableAction"/>.
