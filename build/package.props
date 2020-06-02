@@ -2,9 +2,9 @@
 	<PropertyGroup Label="Package">
 		<Product>Cosmos.Standard</Product>
 		<Authors>AlexLEWIS;StarrySky;Cosmos</Authors>
-		<RepositoryUrl>https://github.com/cosmos-loops/Standard</RepositoryUrl>
+		<RepositoryUrl>https://github.com/cosmos-loops/cosmos-standard</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageProjectUrl>https://github.com/cosmos-loops/Standard</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/cosmos-loops/cosmos-standard</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageTags>StarrySky;Cosmos;Standard;Framework</PackageTags>
