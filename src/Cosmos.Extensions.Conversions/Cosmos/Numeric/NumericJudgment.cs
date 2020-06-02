@@ -109,5 +109,19 @@ namespace Cosmos.Numeric
         /// <param name="right"></param>
         /// <returns></returns>
         public static bool IsBetween(decimal value, decimal left, decimal right) => value >= left && value <= right;
+
+        /// <summary>
+        /// Is NaN
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsNaN(double value) => value.IsNaN();
+
+        /// <summary>
+        /// Is NaN
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsNaN(float value) => value.IsNaN();
     }
 }

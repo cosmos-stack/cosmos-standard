@@ -80,5 +80,23 @@
         }
 
         #endregion
+
+        #region IsNaN
+
+        /// <summary>
+        /// Is NaN
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsNaN(double value) => value.IsNaN();
+
+        /// <summary>
+        /// Is NaN
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsNaN(float value) => value.IsNaN();
+
+        #endregion
     }
 }
