@@ -141,7 +141,7 @@ namespace Cosmos.Reflection
             if (!interfaceType.IsInterface)
                 throw new ArgumentException($"Type '{interfaceType.FullName}' is not an interface type.");
 
-            return type.TypeInfo().ImplementedInterfaces.Any(x => x == interfaceType);
+            return type.GetInterfaces().Any(x => x == interfaceType);
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace Cosmos.Reflection
             if (!interfaceType.IsInterface)
                 throw new ArgumentException($"Type '{interfaceType.FullName}' is not an interface type.");
 
-            return type.TypeInfo().ImplementedInterfaces.Any(x => x == interfaceType);
+            return type.GetInterfaces().Any(x => x == interfaceType);
         }
 
         /// <summary>
