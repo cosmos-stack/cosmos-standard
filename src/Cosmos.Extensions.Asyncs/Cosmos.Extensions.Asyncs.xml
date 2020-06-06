@@ -4,6 +4,115 @@
         <name>Cosmos.Extensions.Asyncs</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Asynchronous.ActionRunner">
+            <summary>
+            Action runner
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.#ctor(System.Action,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Asynchronous.ActionRunner"/>
+            </summary>
+            <param name="action"></param>
+            <param name="scheduler"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Create(System.Action,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Create
+            </summary>
+            <param name="action"></param>
+            <param name="scheduler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Create``1(System.Func{``0},System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Create
+            </summary>
+            <param name="action"></param>
+            <param name="scheduler"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="F:Cosmos.Asynchronous.ActionRunner._scheduler">
+            <summary>
+            Task scheduler
+            </summary>
+        </member>
+        <member name="F:Cosmos.Asynchronous.ActionRunner._count">
+            <summary>
+            Count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Asynchronous.ActionRunner.Count">
+            <summary>
+            Gets counrt
+            </summary>
+        </member>
+        <member name="P:Cosmos.Asynchronous.ActionRunner.LastStart">
+            <summary>
+            The time last start
+            </summary>
+        </member>
+        <member name="P:Cosmos.Asynchronous.ActionRunner.HasBeenRun">
+            <summary>
+            Has been run
+            </summary>
+        </member>
+        <member name="P:Cosmos.Asynchronous.ActionRunner.LastComplete">
+            <summary>
+            The time last complete
+            </summary>
+        </member>
+        <member name="P:Cosmos.Asynchronous.ActionRunner.HasCompleted">
+            <summary>
+            Has completed
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Cancel(System.Boolean)">
+            <summary>
+            Cancel
+            </summary>
+            <param name="onlyIfNotRunning"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Cancel">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Asynchronous.ActionRunner.IsScheduled">
+            <summary>
+            Is scheduled
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.RunSynchronously">
+            <summary>
+            Indiscriminately invokes the action.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Run">
+            <summary>
+            Run
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Defer(System.TimeSpan,System.Boolean)">
+            <summary>
+            Defer
+            </summary>
+            <param name="delay"></param>
+            <param name="clearSchedule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ActionRunner.Defer(System.Int32,System.Boolean)">
+            <summary>
+            Defer
+            </summary>
+            <param name="millisecondsDelay"></param>
+            <param name="clearSchedule"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.AsyncReturns">
             <summary>
             Async returns
@@ -203,6 +312,102 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Asynchronous.CancellableTask">
+            <summary>
+            Cancelable Task
+            </summary>
+        </member>
+        <member name="F:Cosmos.Asynchronous.CancellableTask.TokenSource">
+            <summary>
+            Token source
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Cancel(System.Boolean)">
+            <summary>
+            Cancel
+            </summary>
+            <param name="onlyIfNotRunning"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Cancel">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Blank">
+            <summary>
+            Blank
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Action,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Init(System.Action)">
+            <summary>
+            Only allow for static initialization because this owns the TokenSource.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Start(System.TimeSpan,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start
+            </summary>
+            <param name="delay"></param>
+            <param name="scheduler"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Start(System.Int32,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start
+            </summary>
+            <param name="millisecondsDelay"></param>
+            <param name="scheduler"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.TimeSpan,System.Action,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start new
+            </summary>
+            <param name="delay"></param>
+            <param name="action"></param>
+            <param name="scheduler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Int32,System.Action)">
+            <summary>
+            Start new
+            </summary>
+            <param name="millisecondsDelay"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Action,System.Nullable{System.TimeSpan},System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start new
+            </summary>
+            <param name="action"></param>
+            <param name="delay"></param>
+            <param name="scheduler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Action{System.Threading.CancellationToken},System.Nullable{System.TimeSpan},System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start new
+            </summary>
+            <param name="action"></param>
+            <param name="delay"></param>
+            <param name="scheduler"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Asynchronous.Promise.Promises">
             <summary>
             Promises Utilities
@@ -399,6 +604,105 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Asynchronous.TasksExtensions">
+            <summary>
+            Extensions of tasks
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.IsActive(System.Threading.Tasks.Task)">
+            <summary>
+            Returns true if the target Task has not yet run, is waiting, or is running, else returns false.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.EnsureStarted(System.Threading.Tasks.Task,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Checks the status of the task and attempts to start it if waiting to start (TaskStatus.Created).
+            </summary>
+            <param name="target">The task to ensure start.</param>
+            <param name="scheduler">Optional scheduler to use.</param>
+            <returns>True if start attempt was successful.</returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.OnFullfilled``1(``0,System.Action)">
+            <summary>
+            Utility method that can be chained with other methods for reacting to Task results.  Only invokes the action if completed and not cancelled.
+            </summary>
+            <typeparam name="TTask">The return type is the same as the target.</typeparam>
+            <param name="target">The task.</param>
+            <param name="action">The action to perform if fullfulled.</param>
+            <returns>The target object.  Allows for method chaining.</returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.OnFullfilled``1(System.Threading.Tasks.Task{``0},System.Action{``0})">
+            <summary>
+            Utility method that can be chained with other methods for reacting to Task results.  Only invokes the action if completed and not cancelled.
+            </summary>
+            <typeparam name="T">The return type is the same as the target.</typeparam>
+            <param name="target">The task.</param>
+            <param name="action">The action to perform if fullfulled.</param>
+            <returns>The target object.  Allows for method chaining.</returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.OnFullfilled``2(``0,System.Func{``1})">
+            <summary>
+            Utility method that can be chained with other methods for reacting to Task results.  Only invokes the action if completed and not cancelled.
+            </summary>
+            <typeparam name="TTask">The task type.</typeparam>
+            <typeparam name="T">The return type of the task.</typeparam>
+            <param name="target">The task.</param>
+            <param name="action">The action to perform if fullfulled.</param>
+            <returns>The target object.  Allows for method chaining.</returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.OnFaulted``1(``0,System.Action{System.Exception})">
+            <summary>
+            Utility method that can be chained with other methods for reacting to Task results. Only invokes the action if faulted.
+            </summary>
+            <typeparam name="TTask">The return type is the same as the target.</typeparam>
+            <param name="target">The task.</param>
+            <param name="action">The action to perform if faulted.</param>
+            <returns>The target object.  Allows for method chaining.</returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.OnCancelled``1(``0,System.Action)">
+            <summary>
+            Utility method that can be chained with other methods for reacting to Task results.  Only invokes the action if cancelled.
+            </summary>
+            <typeparam name="TTask">The return type is the same as the target.</typeparam>
+            <param name="target">The task.</param>
+            <param name="action">The action to perform if cancelled.</param>
+            <returns>The target object.  Allows for method chaining.</returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TasksExtensions.OnCancelled``2(``0,System.Func{``1})">
+            <summary>
+            Utility method that can be chained with other methods for reacting to Task results.  Only invokes the action if cancelled.
+            </summary>
+            <typeparam name="TTask">The task type.</typeparam>
+            <typeparam name="T">The return type of the task.</typeparam>
+            <param name="target">The task.</param>
+            <param name="action">The action to perform if cancelled.</param>
+            <returns>The target object.  Allows for method chaining.</returns>
+        </member>
+        <member name="T:Cosmos.Asynchronous.TimeoutHandler">
+            <summary>
+            Timeout handler
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TimeoutHandler.New(System.Int32,System.Action{System.Int32})">
+            <summary>
+            New
+            </summary>
+            <param name="delay"></param>
+            <param name="onComplete"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TimeoutHandler.New(System.Int32,System.IDisposable@,System.Action{System.Int32})">
+            <summary>
+            New
+            </summary>
+            <param name="delay"></param>
+            <param name="timeout"></param>
+            <param name="onComplete"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TimeoutHandler.Dispose">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Asynchronous.ValueTaskFactory">
             <summary>
             ValueTask factory
@@ -435,7 +739,7 @@
         </member>
         <member name="T:Cosmos.Asynchronous.TaskExtensions">
             <summary>
-            Extensions for task
+            Task extensions
             </summary>
             <summary>
             Extensions for task
@@ -447,8 +751,27 @@
             TextReader Extensions
             </summary>
             <summary>
+            ValueTask extensions
+            </summary>
+            <summary>
             Extensions for task
             </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext(System.Threading.Tasks.Task)">
+            <summary>
+            Run in AsyncContext
+            </summary>
+            <param name="task"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Run in AsyncContext
+            </summary>
+            <param name="task"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.Task,System.Action{System.Exception},System.Boolean)">
             <summary>
@@ -485,56 +808,6 @@
             Set the default action for SafeFireAndForget to handle every exception
             </summary>
             <param name="exceptionAction"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException(System.Threading.Tasks.Task)">
-            <summary>
-            Wait and unwrap exception
-            </summary>
-            <param name="task"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
-            <summary>
-            Wait and unwrap exception
-            </summary>
-            <param name="task"></param>
-            <param name="cancellationToken"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException``1(System.Threading.Tasks.Task{``0})">
-            <summary>
-            Wait and unwrap exception
-            </summary>
-            <param name="task"></param>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitAndUnwrapException``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
-            <summary>
-            Wait and unwrap exception
-            </summary>
-            <param name="task"></param>
-            <param name="cancellationToken"></param>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.Exception"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitWithoutException(System.Threading.Tasks.Task)">
-            <summary>
-            Wait without exception
-            </summary>
-            <param name="task"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Asynchronous.TaskExtensions.WaitWithoutException(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
-            <summary>
-            Wait without exception
-            </summary>
-            <param name="task"></param>
-            <param name="cancellationToken"></param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.TryCompleteFromCompletedTask``1(System.Threading.Tasks.TaskCompletionSource{``0},System.Threading.Tasks.Task{``0})">
@@ -636,6 +909,14 @@
             <param name="textReader"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Asynchronous.TaskExtensions.RunInContext``1(System.Threading.Tasks.ValueTask{``0}@)">
+            <summary>
+            Run in AsyncContext
+            </summary>
+            <param name="task"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Asynchronous.TaskExtensions.SafeFireAndForget(System.Threading.Tasks.ValueTask,System.Action{System.Exception},System.Boolean)">
             <summary>
@@ -1059,6 +1340,70 @@
             On dispose async
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Threading.SemaphoreSlimExtensions">
+            <summary>
+            Extensions for SemaphoreSlim
+            </summary>
+        </member>
+        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute(System.Threading.Semaphore,System.Action)">
+            <summary>
+            Executes an action within the context of a a Semaphore.
+            </summary>
+            <param name="target">The semaphore instance</param>
+            <param name="closure">The action to execute.</param>
+        </member>
+        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute(System.Threading.SemaphoreSlim,System.Action)">
+            <summary>
+            Executes an action within the context of a a SemaphoreSlim.
+            </summary>
+            <param name="target">The semaphore instance</param>
+            <param name="closure">The action to execute.</param>
+        </member>
+        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute``1(System.Threading.Semaphore,System.Func{``0})">
+            <summary>
+            Executes a function within the context of a a Semaphore.
+            </summary>
+            <typeparam name="T">Type of the result.</typeparam>
+            <param name="target">The semaphore instance</param>
+            <param name="closure">The function to execute.</param>
+            <returns>The value of the function.</returns>
+        </member>
+        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute``1(System.Threading.SemaphoreSlim,System.Func{``0})">
+            <summary>
+            Executes a function within the context of a a SemaphoreSlim.
+            </summary>
+            <typeparam name="T">Type of the result.</typeparam>
+            <param name="target">The semaphore instance</param>
+            <param name="closure">The function to execute.</param>
+            <returns>The value of the function.</returns>
+        </member>
+        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.ExecuteAsync``1(System.Threading.SemaphoreSlim,System.Func{``0})">
+            <summary>
+            Executes a task within the context of a a SemaphoreSlim.
+            </summary>
+            <typeparam name="T">Type of the result.</typeparam>
+            <param name="target">The semaphore instance</param>
+            <param name="closure">The function to execute as a task.</param>
+            <returns>A task containing the result.</returns>
+        </member>
+        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.TaskExecuteAsync``1(System.Threading.SemaphoreSlim,System.Threading.Tasks.Task{``0})">
+            <summary>
+            Executes a task within the context of a a SemaphoreSlim.
+            </summary>
+            <typeparam name="T">Type of the result.</typeparam>
+            <param name="target">The semaphore instance</param>
+            <param name="task">The task being waited on.</param>
+            <returns>The task provided.</returns>
+        </member>
+        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.ExecuteAsync``1(System.Threading.SemaphoreSlim,System.Threading.Tasks.ValueTask{``0})">
+            <summary>
+            Executes a task within the context of a a SemaphoreSlim.
+            </summary>
+            <typeparam name="T">Type of the result.</typeparam>
+            <param name="target">The semaphore instance</param>
+            <param name="task">The task being waited on.</param>
+            <returns>The task provided.</returns>
         </member>
         <member name="T:System.IO.StreamWithState`1">
             <summary>
@@ -13015,49 +13360,6 @@
             </summary>
             <param name="name"></param>
             <returns></returns>
-        </member>
-        <member name="T:System.Threading.AsyncLocal`1">
-            <summary>
-            Async local for .NET Framework 4.5.1
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:System.Threading.AsyncLocal`1.#ctor">
-            <summary>
-            Create a new instance for AsyncLocal for .NET Framework 4.5.1
-            </summary>
-        </member>
-        <member name="M:System.Threading.AsyncLocal`1.#ctor(System.Action{System.Threading.AsyncLocalValueChangedArgs{`0}})">
-            <summary>
-            Create a new instance for AsyncLocal for .NET Framework 4.5.1
-            </summary>
-            <param name="handler"></param>
-        </member>
-        <member name="P:System.Threading.AsyncLocal`1.Value">
-            <summary>
-            Gets or sets value
-            </summary>
-        </member>
-        <member name="T:System.Threading.AsyncLocalValueChangedArgs`1">
-            <summary>
-            Async local value changed args for .NET Framework 4.5.1
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.PreviousValue">
-            <summary>
-            Previous value
-            </summary>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.CurrentValue">
-            <summary>
-            Current value
-            </summary>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.ThreadContextChanged">
-            <summary>
-            Thread context changed
-            </summary>
         </member>
     </members>
 </doc>

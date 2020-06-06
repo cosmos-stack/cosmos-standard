@@ -6867,6 +6867,14 @@
             <param name="ts"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Date.TimeSpanExtensions.ToDateTime(System.TimeSpan)">
+            <summary>
+            To datetime
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
         <member name="T:Cosmos.Date.InfiniteFutureInfo">
             <summary>
             Infinite Future Info<br />

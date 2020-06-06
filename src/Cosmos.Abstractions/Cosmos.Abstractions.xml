@@ -4,6 +4,18 @@
         <name>Cosmos.Abstractions</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Asynchronous.ICancellable">
+            <summary>
+            Interface for cancellable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ICancellable.Cancel">
+            <summary>
+            Returns true if cancelled.
+            Returns false if already run or already cancelled or unable to cancel.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Conversions.IConversionImpl`2">
             <summary>
             Interface for conversion impl

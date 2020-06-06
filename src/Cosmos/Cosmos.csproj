@@ -18,6 +18,9 @@
 
     <ItemGroup>
         <PackageReference Include="Enums.NET" Version="3.0.3" />
+        <PackageReference Include="Humanizer.Core" Version="2.8.26" />
+        <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.8.26" />
+        <PackageReference Include="Humanizer.Core.zh-Hant" Version="2.8.26" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
         <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
         <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
@@ -26,18 +29,12 @@
 
     <ItemGroup Condition="'$(TargetFramework)'!='net451'">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
-        <PackageReference Include="Humanizer.Core" Version="2.8.11" />
-        <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.8.11" />
-        <PackageReference Include="Humanizer.Core.zh-Hant" Version="2.8.11" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)'=='net451'">
         <PackageReference Include="System.Memory" Version="4.5.4" />
         <PackageReference Include="System.ValueTuple" Version="4.5.0" />
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.0.0" />
-        <PackageReference Include="Humanizer.Core" Version="2.2.0" />
-        <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.2.0" />
-        <PackageReference Include="Humanizer.Core.zh-Hant" Version="2.2.0" />
     </ItemGroup>
 
     <ItemGroup>
