@@ -42,13 +42,13 @@
             <param name="to"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Data.Context.IDbContext">
+        <member name="T:Cosmos.Data.Common.IDbContext">
             <summary>
             DbContext Meta Interface<br />
             DnContext 元接口
             </summary>
         </member>
-        <member name="T:Cosmos.Data.Context.IDbSet`1">
+        <member name="T:Cosmos.Data.Common.IDbSet`1">
             <summary>
             DbSet Meta Interface<br />
             DbSet 元接口
