@@ -1,4 +1,4 @@
-﻿namespace Cosmos.Data.Context
+﻿namespace Cosmos.Data.Common
 {
     /// <summary>
     /// DbContext Meta Interface<br />

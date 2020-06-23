@@ -50,7 +50,7 @@ namespace Cosmos.Disposables
             while (true)
             {
                 var origin = Interlocked.CompareExchange(ref _field, _field, _field);
-                if (origin == null) return false;
+                if (origin is null) return false;
                 var updatedContext = new DisposableAction<T>(origin, contextUpdater);
                 var ret = Interlocked.CompareExchange(ref _field, updatedContext, origin);
                 if (ReferenceEquals(origin, ret)) return true;

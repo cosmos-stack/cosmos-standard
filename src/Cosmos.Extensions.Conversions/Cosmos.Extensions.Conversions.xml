@@ -3435,6 +3435,20 @@
             <param name="right"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Numeric.NumericJudgment.IsNaN(System.Double)">
+            <summary>
+            Is NaN
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudgment.IsNaN(System.Single)">
+            <summary>
+            Is NaN
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Text.StringDeterminerExtensions">
             <summary>
             String determiner extensions

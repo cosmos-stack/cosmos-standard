@@ -15,7 +15,7 @@ namespace Cosmos.Disposables
     /// Single Disposable Object
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class SingleDisposableObject<T> : IDisposable
+    public abstract class SingleDisposableObject<T> : DisposableBase
     {
         private readonly DisposableActionField<T> _context;
 
@@ -52,9 +52,9 @@ namespace Cosmos.Disposables
         protected abstract void Dispose(T context);
 
         /// <summary>
-        /// Disposes this instance.
+        /// On Dispose
         /// </summary>
-        public void Dispose()
+        protected override void OnDispose()
         {
             var context = _context.TryGetAndUnset();
             if (context == null)

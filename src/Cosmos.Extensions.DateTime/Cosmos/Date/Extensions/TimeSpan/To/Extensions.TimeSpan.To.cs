@@ -40,5 +40,20 @@ namespace Cosmos.Date
 
             return $"{ts.Milliseconds} milliseconds";
         }
+
+        /// <summary>
+        /// To datetime
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static DateTime ToDateTime(this TimeSpan time)
+        {
+            var ticks = time.Ticks;
+            if (ticks < 0 || ticks > 3155378975999999999)
+                throw new ArgumentOutOfRangeException(nameof(time));
+
+            return new DateTime(ticks);
+        }
     }
 }

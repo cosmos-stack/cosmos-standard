@@ -7,31 +7,15 @@ namespace Cosmos.Disposables
     /// Asynchronous Disable Action. <br />
     /// When the derived class of this class is disposed, the specified <see cref="Action"/> will be executed async.
     /// </summary>
-    public sealed class AsynchronousDisposableAction : IAsynchronousDisposableAction, IDisposable
+    public sealed class AsynchronousDisposableAction : AsynchronousDisposeHandler, IAsynchronousDisposableAction
     {
-        private readonly Action _action;
-
         /// <summary>
         /// Create a new <see cref="AsynchronousDisposableAction"/> instance.
         /// </summary>
         /// <param name="action"></param>
-        public AsynchronousDisposableAction(Action action)
-        {
-            _action = action;
-        }
+        public AsynchronousDisposableAction(Func<ValueTask> action) : base(action) { }
 
         /// <inheritdoc />
-        public Task InvokeAsync()
-        {
-            return Task.Run(() => _action?.Invoke());
-        }
-
-        /// <inheritdoc />
-        public void Dispose()
-        {
-            Task.Run(async () => await InvokeAsync());
-        }
-
-        internal Action InternalAction => _action;
+        public ValueTask InvokeAsync() => OnDisposeAsync();
     }
 }

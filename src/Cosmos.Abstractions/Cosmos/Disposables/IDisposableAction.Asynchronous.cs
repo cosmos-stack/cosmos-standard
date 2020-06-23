@@ -12,6 +12,6 @@ namespace Cosmos.Disposables
         /// Invoke the disposable action async<br />
         /// 执行异步释放工作
         /// </summary>
-        Task InvokeAsync();
+        ValueTask InvokeAsync();
     }
 }

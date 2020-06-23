@@ -4,6 +4,18 @@
         <name>Cosmos.Abstractions</name>
     </assembly>
     <members>
+        <member name="T:Cosmos.Asynchronous.ICancellable">
+            <summary>
+            Interface for cancellable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.ICancellable.Cancel">
+            <summary>
+            Returns true if cancelled.
+            Returns false if already run or already cancelled or unable to cancel.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Conversions.IConversionImpl`2">
             <summary>
             Interface for conversion impl
@@ -30,18 +42,110 @@
             <param name="to"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Data.Context.IDbContext">
+        <member name="T:Cosmos.Data.Common.IDbContext">
             <summary>
             DbContext Meta Interface<br />
             DnContext 元接口
             </summary>
         </member>
-        <member name="T:Cosmos.Data.Context.IDbSet`1">
+        <member name="T:Cosmos.Data.Common.IDbSet`1">
             <summary>
             DbSet Meta Interface<br />
             DbSet 元接口
             </summary>
             <typeparam name="TEntity">指定的实体类型</typeparam>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableBase">
+            <summary>
+            A base class for properly implementing the synchronous dispose pattern.
+            Implement OnDispose to handle disposal.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableBase.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableBase.OnDispose">
+            <summary>
+            When implemented will be called (only once) when being disposed.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableStateBase">
+            <summary>
+            Disposable state base
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableStateBase.DisposalState">
+            <summary>
+            Disposal state
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableStateBase.WasDisposed">
+            <summary>
+            Was disposed
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableStateBase.AssertIsAlive(System.Boolean)">
+            <summary>
+            Will throw if the object is disposed or has started disposal.
+            </summary>
+            <param name="strict">When true, will also throw if between alive and disposing states.</param>
+            <returns>True if still alive.</returns>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableStateBase.OnBeforeDispose">
+            <summary>
+            On before dispose
+            </summary>
+        </member>
+        <member name="E:Cosmos.Disposables.DisposableStateBase.BeforeDispose">
+            <summary>
+            BeforeDispose will be triggered once right before disposal commences.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableStateBase.StartDispose">
+            <summary>
+            Start dispose
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableStateBase.Disposed">
+            <summary>
+            Disposed
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableStateBase.Nullify``1(``0@)">
+            <summary>
+            Nullify
+            </summary>
+            <param name="x"></param>
+            <typeparam name="TNullable"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableStateBase.DisposeOf``1(``0@)">
+            <summary>
+            Dispose of
+            </summary>
+            <param name="x"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Cosmos.Disposables.DisposableStateBase.ALIVE">
+            <summary>
+            Disposal State: Currently living and available.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.DisposableStateBase.DISPOSE_CALLED">
+            <summary>
+            Disposal State: Special case where still accessible, but on it's way to being disposed.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.DisposableStateBase.DISPOSING">
+            <summary>
+            Is currently in the process of being disposed.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.DisposableStateBase.DISPOSED">
+            <summary>
+            Has completed disposal.
+            </summary>
         </member>
         <member name="T:Cosmos.Disposables.IAsynchronousDisposableAction">
             <summary>
@@ -65,6 +169,16 @@
             <summary>
             Invoke the disposable action<br />
             执行同步释放工作
+            </summary>
+        </member>
+        <member name="T:Cosmos.Disposables.IDisposalState">
+            <summary>
+            Interface for disposal state
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.IDisposalState.WasDisposed">
+            <summary>
+            Was disposed
             </summary>
         </member>
         <member name="T:Cosmos.IObjectMapper">

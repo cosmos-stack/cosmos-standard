@@ -1,22 +1,24 @@
 using System;
+using System.Threading.Tasks;
+using Cosmos.Asynchronous;
 
 namespace Cosmos.Disposables
 {
     /// <summary>
     /// AsAnonymous Disposable Object
     /// </summary>
-    public sealed class AsynchronousAnonymousDisposableObject : AsynchronousSingleDisposableObject<Action>
+    public sealed class AsynchronousAnonymousDisposableObject : AsynchronousSingleDisposableObject<Func<ValueTask>>
     {
         /// <summary>
         /// Create a new <see cref="AsynchronousAnonymousDisposableObject"/> instance.
         /// </summary>
-        public AsynchronousAnonymousDisposableObject() : this(() => { }) { }
+        public AsynchronousAnonymousDisposableObject() : this(() => new ValueTask(Tasks.CompletedTask())) { }
 
         /// <summary>
         /// Create a new <see cref="AsynchronousAnonymousDisposableObject"/> instance.
         /// </summary>
         /// <param name="dispose"></param>
-        public AsynchronousAnonymousDisposableObject(Action dispose) : base(dispose) { }
+        public AsynchronousAnonymousDisposableObject(Func<ValueTask> dispose) : base(dispose) { }
 
         /// <summary>
         /// Create a new <see cref="AsynchronousAnonymousDisposableObject"/> instance.
@@ -28,15 +30,15 @@ namespace Cosmos.Disposables
         /// Dispose.
         /// </summary>
         /// <param name="context"></param>
-        protected override void Dispose(Action context) => context?.Invoke();
+        protected override ValueTask DisposeAsync(Func<ValueTask> context) => context.Invoke();
 
         /// <summary>
         /// Add dispose <see cref="Action"/>.
         /// </summary>
         /// <param name="dispose"></param>
-        public void Add(Action dispose)
+        public void Add(Func<ValueTask> dispose)
         {
-            if (dispose == null)
+            if (dispose is null)
                 return;
             if (!TryUpdateContext(x => x + dispose))
                 dispose();
@@ -56,7 +58,7 @@ namespace Cosmos.Disposables
         /// </summary>
         /// <param name="dispose"></param>
         /// <returns></returns>
-        public static AsynchronousAnonymousDisposableObject Create(Action dispose) => new AsynchronousAnonymousDisposableObject(dispose);
+        public static AsynchronousAnonymousDisposableObject Create(Func<ValueTask> dispose) => new AsynchronousAnonymousDisposableObject(dispose);
 
         /// <summary>
         /// Create a new disposable that executes dispose when disposed.

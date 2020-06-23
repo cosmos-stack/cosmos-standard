@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Cosmos.Asynchronous;
 
 namespace Cosmos.Disposables
 {
@@ -8,6 +9,9 @@ namespace Cosmos.Disposables
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class AsynchronousSingleNonblockingDisposableObject<T> : IDisposable
+#if NETSTANDARD2_1
+                                                                           , System.IAsyncDisposable
+#endif
     {
         private readonly AsynchronousDisposableActionField<T> _context;
 
@@ -17,7 +21,7 @@ namespace Cosmos.Disposables
         /// <param name="context"></param>
         protected AsynchronousSingleNonblockingDisposableObject(T context)
         {
-            _context = new AsynchronousDisposableActionField<T>(Dispose, context);
+            _context = new AsynchronousDisposableActionField<T>(DisposeAsync, context);
         }
 
         /// <summary>
@@ -29,7 +33,7 @@ namespace Cosmos.Disposables
         /// The actual disposal method, call only once from Dispose
         /// </summary>
         /// <param name="context"></param>
-        protected abstract void Dispose(T context);
+        protected abstract ValueTask DisposeAsync(T context);
 
         /// <summary>
         /// Disposes this instance.
@@ -42,6 +46,19 @@ namespace Cosmos.Disposables
             {
                 Task.Run(async () => await action.InvokeAsync());
             }
+        }
+
+        /// <inheritdoc />
+        public ValueTask DisposeAsync()
+        {
+            var action = _context.TryGetAndUnset();
+
+            if (action != null)
+            {
+                return action.InvokeAsync();
+            }
+
+            return new ValueTask(Tasks.CompletedTask());
         }
 
         /// <summary>

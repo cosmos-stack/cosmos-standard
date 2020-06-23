@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Cosmos.Disposables
 {
@@ -16,7 +17,7 @@ namespace Cosmos.Disposables
         /// </summary>
         /// <param name="action"></param>
         /// <param name="context"></param>
-        public AsynchronousDisposableActionField(Action<T> action, T context)
+        public AsynchronousDisposableActionField(Func<T, ValueTask> action, T context)
         {
             _field = new AsynchronousDisposableAction<T>(action, context);
         }

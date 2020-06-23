@@ -9,6 +9,11 @@ namespace Cosmos.Text
     public static class Strings
     {
         /// <summary>
+        /// New line
+        /// </summary>
+        public const string NEWLINE = "\r\n";
+
+        /// <summary>
         /// Convert null to empty.<br />
         /// 将 null 转换为 Empty
         /// </summary>

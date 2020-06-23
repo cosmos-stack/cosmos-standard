@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Text;
 using AspectCore.Extensions.Reflection;
 using Cosmos.Optionals;
-using Cosmos.Reflection;
 
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Reflection
@@ -65,6 +64,121 @@ namespace Cosmos.Reflection
             => @object.TypeInfo().GetProperty(propertyName).GetReflector().GetValue(@object);
 
         /// <summary>
+        /// Gets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <returns></returns>
+        public static object GetPropertyValue(this object @object, string propertyName, BindingFlags bindingAttr)
+            => @object.TypeInfo().GetProperty(propertyName, bindingAttr).GetReflector().GetValue(@object);
+
+        /// <summary>
+        /// Gets property value
+        /// </summary>
+        /// <param name="object">Any <see cref="object"/></param>
+        /// <param name="propertyName">Property name in this object</param>
+        /// <returns>Value of the specific property in this object</returns>
+        public static T GetPropertyValue<T>(this object @object, string propertyName)
+            => @object.TypeInfo().GetProperty(propertyName).GetReflector().GetValue(@object).As<T>();
+
+        /// <summary>
+        /// Gets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <returns></returns>
+        public static T GetPropertyValue<T>(this object @object, string propertyName, BindingFlags bindingAttr)
+            => @object.TypeInfo().GetProperty(propertyName, bindingAttr).GetReflector().GetValue(@object).As<T>();
+
+        /// <summary>
+        /// Gets property value
+        /// </summary>
+        /// <param name="object">Any <see cref="object"/></param>
+        /// <param name="propertyName">Property name in this object</param>
+        /// <param name="value"></param>
+        /// <returns>Value of the specific property in this object</returns>
+        public static bool TryGetPropertyValue(this object @object, string propertyName, out object value)
+        {
+            try
+            {
+                value = @object.GetPropertyValue(propertyName);
+                return true;
+            }
+            catch
+            {
+                value = null;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool TryGetPropertyValue(this object @object, string propertyName, BindingFlags bindingAttr, out object value)
+        {
+            try
+            {
+                value = @object.GetPropertyValue(propertyName, bindingAttr);
+                return true;
+            }
+            catch
+            {
+                value = null;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets property value
+        /// </summary>
+        /// <param name="object">Any <see cref="object"/></param>
+        /// <param name="propertyName">Property name in this object</param>
+        /// <param name="value"></param>
+        /// <returns>Value of the specific property in this object</returns>
+        public static bool TryGetPropertyValue<T>(this object @object, string propertyName, out T value)
+        {
+            try
+            {
+                value = @object.GetPropertyValue<T>(propertyName);
+                return true;
+            }
+            catch
+            {
+                value = default;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool TryGetPropertyValue<T>(this object @object, string propertyName, BindingFlags bindingAttr, out T value)
+        {
+            try
+            {
+                value = @object.GetPropertyValue<T>(propertyName, bindingAttr);
+                return true;
+            }
+            catch
+            {
+                value = default;
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Sets property value
         /// </summary>
         /// <param name="object"></param>
@@ -72,6 +186,113 @@ namespace Cosmos.Reflection
         /// <param name="value"></param>
         public static void SetPropertyValue(this object @object, string propertyName, object value)
             => @object.TypeInfo().GetProperty(propertyName).GetReflector().SetValue(@object, value);
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <param name="value"></param>
+        public static void SetPropertyValue(this object @object, string propertyName, BindingFlags bindingAttr, object value)
+            => @object.TypeInfo().GetProperty(propertyName, bindingAttr).GetReflector().SetValue(@object, value);
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
+        public static void SetPropertyValue<T>(this object @object, string propertyName, T value)
+            => @object.TypeInfo().GetProperty(propertyName).GetReflector().SetValue(@object, value);
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <param name="value"></param>
+        public static void SetPropertyValue<T>(this object @object, string propertyName, BindingFlags bindingAttr, T value)
+            => @object.TypeInfo().GetProperty(propertyName, bindingAttr).GetReflector().SetValue(@object, value);
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
+        public static bool TrySetPropertyValue(this object @object, string propertyName, object value)
+        {
+            try
+            {
+                @object.SetPropertyValue(propertyName, value);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <param name="value"></param>
+        public static bool TrySetPropertyValue(this object @object, string propertyName, BindingFlags bindingAttr, object value)
+        {
+            try
+            {
+                @object.SetPropertyValue(propertyName, bindingAttr, value);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
+        public static bool TrySetPropertyValue<T>(this object @object, string propertyName, T value)
+        {
+            try
+            {
+                @object.SetPropertyValue(propertyName, value);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Sets property value
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="bindingAttr"></param>
+        /// <param name="value"></param>
+        public static bool TrySetPropertyValue<T>(this object @object, string propertyName, BindingFlags bindingAttr, T value)
+        {
+            try
+            {
+                @object.SetPropertyValue(propertyName, bindingAttr, value);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         #endregion
 

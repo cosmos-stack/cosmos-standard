@@ -8,7 +8,7 @@ namespace Cosmos.Disposables
     /// Asynchronous Single Disposable Object
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class AsynchronousSingleDisposableObject<T> : IDisposable
+    public abstract class AsynchronousSingleDisposableObject<T> : AsynchronousDisposableBase
     {
         private readonly AsynchronousDisposableActionField<T> _context;
 
@@ -20,7 +20,7 @@ namespace Cosmos.Disposables
         /// <param name="context"></param>
         protected AsynchronousSingleDisposableObject(T context)
         {
-            _context = new AsynchronousDisposableActionField<T>(Dispose, context);
+            _context = new AsynchronousDisposableActionField<T>(DisposeAsync, context);
         }
 
         /// <summary>
@@ -42,12 +42,12 @@ namespace Cosmos.Disposables
         /// The actual disposal method, call only once from Dispose.
         /// </summary>
         /// <param name="context"></param>
-        protected abstract void Dispose(T context);
+        protected abstract ValueTask DisposeAsync(T context);
 
         /// <summary>
-        /// Disposes this instance.
+        /// On Dispose async
         /// </summary>
-        public void Dispose()
+        protected override async ValueTask OnDisposeAsync()
         {
             var context = _context.TryGetAndUnset();
             if (context == null)
@@ -58,7 +58,7 @@ namespace Cosmos.Disposables
 
             try
             {
-                Task.Run(async () => await context.InvokeAsync());
+                await context.InvokeAsync();
             }
             finally
             {

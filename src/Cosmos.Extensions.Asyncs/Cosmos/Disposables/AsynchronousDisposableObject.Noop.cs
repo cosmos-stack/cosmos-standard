@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using Cosmos.Asynchronous;
 
 namespace Cosmos.Disposables
 {
@@ -6,6 +8,9 @@ namespace Cosmos.Disposables
     /// An asynchronous disposable implement which does nothing when disposed.
     /// </summary>
     public class AsynchronousNoopDisposableObject : IDisposable
+#if NETSTANDARD2_1
+                                                  , System.IAsyncDisposable
+#endif
     {
         /// <summary>
         /// Gets a <see cref="AsynchronousNoopDisposableObject"/> cache.
@@ -14,9 +19,10 @@ namespace Cosmos.Disposables
 
         private AsynchronousNoopDisposableObject() { }
 
-        /// <summary>
-        /// Dispose.
-        /// </summary>
+        /// <inheritdoc />
         public void Dispose() { }
+
+        /// <inheritdoc />
+        public ValueTask DisposeAsync() => new ValueTask(Tasks.CompletedTask());
     }
 }

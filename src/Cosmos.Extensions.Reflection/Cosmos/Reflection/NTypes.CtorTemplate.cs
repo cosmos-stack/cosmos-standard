@@ -119,7 +119,7 @@ namespace Cosmos.Reflection
                 return new CtorMatchedResult(values[maxIndex],maxIndex);
 ");
             GetIndex = NDelegate
-               .RandomDomain(c => c.SyntaxOptions(s => s.ErrorBehavior = ExceptionBehavior.Throw))
+               .RandomDomain(c => c.SyntaxErrorBehavior = ExceptionBehavior.Throw)
                .UnsafeFunc<IEnumerable<CtorArgDescriptor>, CtorMatchedResult>(script.ToString());
         }
 
