@@ -7,9 +7,8 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <AssemblyName>Cosmos.Extensions.PowerCucumber</AssemblyName>
-        <PackageId>Cosmos.Extensions.PowerCucumber</PackageId>
-        <Description>Cosmos PowerCucumber extension for Cosmos loops</Description>
+        <PackageId>Cosmos.Extensions.Prowess</PackageId>
+        <Description>Cosmos Prowess extension for Cosmos loops</Description>
     </PropertyGroup>
 
     <ItemGroup>

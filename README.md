@@ -11,17 +11,17 @@ Cosmos.Standard is the core repository of [Cosmosloops Labs.](https://github.com
 - Cosmos.Extensions.Collections
 - Cosmos.Extensions.DateTime
 - Cosmos.Extensions.Disposables
-- Cosmos.Extensions.Domain
 - Cosmos.Extensions.Optionals
 - Cosmos.Extensions.Preconditions
 - Cosmos.Extensions.Reflection
-- Cosmos.Extensions.PowerCucumber
+- Cosmos.Extensions.Prowess
 
 This repository also include these inline common projects:
 
-- [Cosmos.Http](https://github.com/cosmos-loops/Http) - Http extensions for cosmos-standard
-- [Cosmos.Dependency](https://github.com/cosmos-loops/Dependency) - Dependency extensions for cosmos-standard
-- [Cosmos.Serialization](https://github.com/cosmos-loops/Serialization) - Serialization extensions for cosmos-standard
+- [Cosmos.Designs](https://github.com/cosmos-loops/cosmos-designs) - Design packages for cosmos-standard
+- [Cosmos.Dependency](https://github.com/cosmos-loops/cosmos-dependency) - Dependency extensions for cosmos-standard
+- [Cosmos.Http](https://github.com/cosmos-loops/cosmos-http) - Http extensions for cosmos-standard
+- [Cosmos.Serialization](https://github.com/cosmos-loops/cosmos-serialization) - Serialization extensions for cosmos-standard
 
 ---
 

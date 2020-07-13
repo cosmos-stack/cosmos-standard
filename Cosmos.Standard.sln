@@ -37,8 +37,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Standard", "src\Cosm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Abstractions", "src\Cosmos.Abstractions\Cosmos.Abstractions.csproj", "{890A95AB-C6F1-465D-AC11-5B9EEE712318}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Domain", "src\Cosmos.Extensions.Domain\Cosmos.Extensions.Domain.csproj", "{A74DA34D-0340-434D-9FF0-190F7E61BA99}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Extensions.Collections", "src\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj", "{928B0BA7-EE48-4E0E-87D4-E2607ACA223A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Test.ScannerTest1", "test\Cosmos.Test.ScannerTest1\Cosmos.Test.ScannerTest1.csproj", "{1667499C-E0B6-4E96-BF55-26F2C456E2FD}"
@@ -59,7 +57,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.ReflectionTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Disposables", "src\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj", "{3443E66F-7222-415A-81A0-75F85DA2B79E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.PowerCucumber", "src\Cosmos.Extensions.PowerCucumber\Cosmos.Extensions.PowerCucumber.csproj", "{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Prowess", "src\Cosmos.Extensions.Prowess\Cosmos.Extensions.Prowess.csproj", "{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Conversions", "src\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj", "{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}"
 EndProject
@@ -99,10 +97,6 @@ Global
 		{890A95AB-C6F1-465D-AC11-5B9EEE712318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{890A95AB-C6F1-465D-AC11-5B9EEE712318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{890A95AB-C6F1-465D-AC11-5B9EEE712318}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A74DA34D-0340-434D-9FF0-190F7E61BA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A74DA34D-0340-434D-9FF0-190F7E61BA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A74DA34D-0340-434D-9FF0-190F7E61BA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A74DA34D-0340-434D-9FF0-190F7E61BA99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{928B0BA7-EE48-4E0E-87D4-E2607ACA223A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{928B0BA7-EE48-4E0E-87D4-E2607ACA223A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{928B0BA7-EE48-4E0E-87D4-E2607ACA223A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -173,7 +167,6 @@ Global
 		{8AFB7A68-BF2A-499A-93D8-653A3C94C49C} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{CB6A93EA-344E-4D4E-B268-4F0181BAC009} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{3443E66F-7222-415A-81A0-75F85DA2B79E} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
-		{A74DA34D-0340-434D-9FF0-190F7E61BA99} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{85C2BF3F-F1A4-44DA-90E5-2B8328C8DB8F} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
