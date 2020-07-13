@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cosmos.Reflection;
 using Cosmos.Test.ScannerTest0;
 using Cosmos.Test.ScannerTestEntry.Extensions;
 using Xunit;
