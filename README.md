@@ -1,4 +1,4 @@
-# COSMOSLOOPS/Cosmos.Standard
+# COSMOSLOOPS/Standard
 
 Cosmos.Standard is the core repository of [Cosmosloops Labs.](https://github.com/cosmos-loops). This repository provides a lot of utilities, helpers and extensions to make developers more efficient in their work. Whether it's developing .NET Framework Applications or .NET Core Applications, Cosmos.Standard or each member project in it will give you a silky feel. I believe in the near future, this project (Cosmosloops Labs.) will become more exciting.
 
@@ -14,13 +14,13 @@ Cosmos.Standard is the core repository of [Cosmosloops Labs.](https://github.com
 - Cosmos.Extensions.Optionals
 - Cosmos.Extensions.Preconditions
 - Cosmos.Extensions.Reflection
-- Cosmos.Extensions.Prowess
 
 This repository also include these inline common projects:
 
 - [Cosmos.Designs](https://github.com/cosmos-loops/cosmos-designs) - Design packages for cosmos-standard
 - [Cosmos.Dependency](https://github.com/cosmos-loops/cosmos-dependency) - Dependency extensions for cosmos-standard
 - [Cosmos.Http](https://github.com/cosmos-loops/cosmos-http) - Http extensions for cosmos-standard
+- [Cosmos.Prowess](htts://github.com/cosmos-loops/cosmos-prowess) - A powerful extensions for cosmos-standard
 - [Cosmos.Serialization](https://github.com/cosmos-loops/cosmos-serialization) - Serialization extensions for cosmos-standard
 
 ---
