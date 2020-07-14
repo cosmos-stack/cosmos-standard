@@ -1,5 +1,3 @@
-#if !NET451
-
 namespace Cosmos.Exceptions.BuildingDescriptors
 {
     /// <summary>
@@ -38,5 +36,3 @@ namespace Cosmos.Exceptions.BuildingDescriptors
         public const string ERROR_CODE = "errorCode";
     }
 }
-
-#endif

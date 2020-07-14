@@ -26,7 +26,7 @@ namespace Cosmos.Collections
             foreach (var item in list)
             {
                 var actual = order(item);
-                if (valueFirst == null || actual.CompareTo(valueFirst) < 0)
+                if (valueFirst is null || actual.CompareTo(valueFirst) < 0)
                 {
                     valueFirst = actual;
                     first = item;
@@ -52,7 +52,7 @@ namespace Cosmos.Collections
             foreach (var item in list)
             {
                 var actual = order(item);
-                if (valueLast == null || actual.CompareTo(valueLast) >= 0)
+                if (valueLast is null || actual.CompareTo(valueLast) >= 0)
                 {
                     valueLast = actual;
                     last = item;

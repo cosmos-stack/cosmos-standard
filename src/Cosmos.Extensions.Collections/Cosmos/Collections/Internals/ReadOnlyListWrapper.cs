@@ -17,7 +17,7 @@ namespace Cosmos.Collections.Internals
 
         private object ThrowNotSupportedException([CallerMemberName] string member = "")
         {
-            if (member == null)
+            if (member is null)
                 throw new ArgumentNullException(nameof(member));
             throw new NotSupportedException($"{GetType().FullName} does not support the {member} member.");
         }

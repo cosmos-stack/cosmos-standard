@@ -1,5 +1,3 @@
-#if !NET451
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,5 +75,3 @@ namespace Cosmos.Reflection
         }
     }
 }
-
-#endif

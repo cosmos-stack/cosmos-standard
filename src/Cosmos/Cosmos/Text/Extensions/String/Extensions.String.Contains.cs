@@ -33,7 +33,8 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="character"></param>
         /// <returns></returns>
-        public static bool Contains(this string text, char character) => text.Any(c => c == character);
+        public static bool Contains(this string text, char character) => 
+            text.Any(c => c == character);
 
         /// <summary>
         /// Contains

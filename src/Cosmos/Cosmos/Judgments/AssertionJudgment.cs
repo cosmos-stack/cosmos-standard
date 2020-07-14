@@ -32,7 +32,7 @@ namespace Cosmos.Judgments
                 exception = Reflection.Types.CreateInstance<TException>(message);
             }
 
-            Exceptions.ExceptionHelper.PrepareForRethrow(exception);
+            ExceptionHelper.PrepareForRethrow(exception);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Cosmos.Judgments
 
             var exception = Reflection.Types.CreateInstance<TException>(exceptionParams);
 
-            Exceptions.ExceptionHelper.PrepareForRethrow(exception);
+            ExceptionHelper.PrepareForRethrow(exception);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Cosmos.Judgments
                 _                                          => exception
             };
 
-            Exceptions.ExceptionHelper.PrepareForRethrow(wrappedException);
+            ExceptionHelper.PrepareForRethrow(wrappedException);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Cosmos.Judgments
                 exception = Reflection.Types.CreateInstance<TException>(options);
             }
 
-            Exceptions.ExceptionHelper.PrepareForRethrow(exception);
+            ExceptionHelper.PrepareForRethrow(exception);
         }
     }
 }

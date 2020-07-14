@@ -1,5 +1,3 @@
-#if !NET451
-
 /*
  * Author: LanX
  * 2020.01.03
@@ -34,5 +32,3 @@ namespace Cosmos.Reflection
         public readonly int Index;
     }
 }
-
-#endif

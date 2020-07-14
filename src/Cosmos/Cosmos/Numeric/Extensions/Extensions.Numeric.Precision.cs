@@ -112,9 +112,9 @@ namespace Cosmos.Numeric
         /// </summary>
         public static bool IsNearEqual(this IComparable a, IComparable b, IComparable tolerance)
         {
-            if (a == null)
+            if (a is null)
                 throw new NullReferenceException();
-            if (b == null)
+            if (b is null)
                 throw new ArgumentNullException(nameof(b));
             Contract.EndContractBlock();
 

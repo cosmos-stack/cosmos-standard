@@ -20,11 +20,11 @@ namespace Cosmos.Collections
         /// <returns></returns>
         public static string ToString<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, string linker, string separator)
         {
-            if (dictionary == null) return string.Empty;
+            if (dictionary is null) return string.Empty;
             var sb = new StringBuilder();
-            foreach (var item in dictionary)
+            foreach (var (key, value) in dictionary)
             {
-                sb.Append($"{item.Key}{linker}{item.Value}{separator}");
+                sb.Append($"{key}{linker}{value}{separator}");
             }
 
             return sb.ToString();

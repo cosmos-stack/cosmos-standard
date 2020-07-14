@@ -1,5 +1,3 @@
-#if !NET451
-
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -134,5 +132,3 @@ namespace Cosmos.Reflection
         public static CtorTemplate Create(Type type) => new CtorTemplate(type);
     }
 }
-
-#endif

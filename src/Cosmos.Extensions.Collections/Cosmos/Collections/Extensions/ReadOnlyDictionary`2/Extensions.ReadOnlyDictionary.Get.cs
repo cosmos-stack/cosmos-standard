@@ -60,7 +60,7 @@ namespace Cosmos.Collections
         {
             if (dictionaries is null)
                 throw new ArgumentNullException(nameof(dictionaries));
-            return dictionaries.TryGetValueCascading(key, out TValue value) ? value : defaultValue;
+            return dictionaries.TryGetValueCascading(key, out var value) ? value : defaultValue;
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Cosmos.Collections
         {
             if (dictionary is null)
                 throw new ArgumentNullException(nameof(dictionary));
-            return dictionary.TryGetValue(key, out TValue value) ? value : (TValue?) null;
+            return dictionary.TryGetValue(key, out var value) ? value : (TValue?) null;
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         public static TValue? TryGetValueCascading<TKey, TValue>(this IEnumerable<IReadOnlyDictionary<TKey, TValue>> dictionaries, TKey key) where TValue : struct
-            => dictionaries.TryGetValueCascading(key, out TValue value) ? value : (TValue?) null;
+            => dictionaries.TryGetValueCascading(key, out var value) ? value : (TValue?) null;
 
         /// <summary>
         /// Try get value cascading

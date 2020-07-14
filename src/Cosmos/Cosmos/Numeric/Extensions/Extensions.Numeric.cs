@@ -84,7 +84,6 @@ namespace Cosmos.Numeric
         {
             if (precision < 0 || precision > 15)
                 throw new ArgumentOutOfRangeException(nameof(precision), precision, "Must be between 0 and 15.");
-
             Contract.EndContractBlock();
 
             return value?.ToDouble(precision) ?? double.NaN;

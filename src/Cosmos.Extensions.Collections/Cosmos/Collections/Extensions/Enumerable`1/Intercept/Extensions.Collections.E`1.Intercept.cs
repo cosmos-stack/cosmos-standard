@@ -20,9 +20,9 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<T> Intercept<T>(this IEnumerable<T> source, Action<T> action)
         {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (action == null)
+            if (action is null)
                 throw new ArgumentNullException(nameof(action));
 
             return source.Select(t =>

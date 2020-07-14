@@ -28,7 +28,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static HashSet<T> ToHashSet<T>(this IEnumerable<T> src, IEqualityComparer<T> comparer)
-        where T : IComparable<T>
+            where T : IComparable<T>
         {
             if (src is null)
                 throw new ArgumentNullException(nameof(src));
@@ -57,10 +57,11 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TKey"></typeparam>
         /// <returns></returns>
-        public static HashSet<TKey> ToHashSet<T, TKey>(this IEnumerable<T> src, Func<T, TKey> keyFunc) where TKey : IComparable<TKey>
+        public static HashSet<TKey> ToHashSet<T, TKey>(this IEnumerable<T> src, Func<T, TKey> keyFunc)
+            where TKey : IComparable<TKey>
         {
             if (keyFunc is null) throw new ArgumentNullException(nameof(keyFunc));
-            return src.Select(i => keyFunc(i)).ToHashSet(EqualityComparer<TKey>.Default);
+            return src.Select(keyFunc).ToHashSet(EqualityComparer<TKey>.Default);
         }
 
         /// <summary>
@@ -69,6 +70,7 @@ namespace Cosmos.Collections
         /// <param name="src"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static HashSet<T> ToHashSetIgnoringDuplicates<T>(this IEnumerable<T> src) where T : IComparable<T> => src.ToHashSet(true);
+        public static HashSet<T> ToHashSetIgnoringDuplicates<T>(this IEnumerable<T> src) where T : IComparable<T> =>
+            src.ToHashSet(true);
     }
 }

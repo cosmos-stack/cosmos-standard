@@ -2491,14 +2491,6 @@
             <param name="lowSurrogate"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.CharExtensions.ConvertFromUft32(System.Char,System.Char)">
-            <summary>
-            Convert from utf32
-            </summary>
-            <param name="highSurrogate"></param>
-            <param name="lowSurrogate"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.CharExtensions.GetUnicodeCategory(System.Char)">
             <summary>
             Get unicode category

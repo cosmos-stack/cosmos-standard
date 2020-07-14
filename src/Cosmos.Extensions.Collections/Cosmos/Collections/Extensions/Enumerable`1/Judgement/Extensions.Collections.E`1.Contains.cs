@@ -15,6 +15,7 @@ namespace Cosmos.Collections
         /// <param name="condition"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool Contains<T>(this IEnumerable<T> me, Predicate<T> condition) => me.Any(val => condition(val));
+        public static bool Contains<T>(this IEnumerable<T> me, Predicate<T> condition) => 
+            me.Any(val => condition(val));
     }
 }

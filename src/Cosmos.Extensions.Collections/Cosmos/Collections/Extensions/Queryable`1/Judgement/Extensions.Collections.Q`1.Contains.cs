@@ -23,7 +23,7 @@ namespace Cosmos.Collections
         /// <param name="this"></param>
         /// <param name="that"></param>
         /// <returns></returns>
-        public static bool ContainsEqualCount<T>(this IQueryable<T> @this, IQueryable<T> @that)
-            => QueryableJudgment.ContainsEqualCount(@this, @that);
+        public static bool ContainsEqualCount<T>(this IQueryable<T> @this, IQueryable<T> that)
+            => QueryableJudgment.ContainsEqualCount(@this, that);
     }
 }

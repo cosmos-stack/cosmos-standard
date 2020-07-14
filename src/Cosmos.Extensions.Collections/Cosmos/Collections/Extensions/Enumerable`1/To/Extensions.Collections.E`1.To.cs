@@ -31,6 +31,7 @@ namespace Cosmos.Collections
         /// <param name="src"></param>
         /// <typeparam name="TElement"></typeparam>
         /// <returns></returns>
-        public static TElement[] ToSafeArray<TElement>(this IEnumerable<TElement> src) => src as TElement[] ?? src.ToArray();
+        public static TElement[] ToSafeArray<TElement>(this IEnumerable<TElement> src) =>
+            src as TElement[] ?? src.ToArray();
     }
 }

@@ -16,7 +16,8 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string OnlyDigits(this string text) => text.OnlyDigits(null);
+        public static string OnlyDigits(this string text) => 
+            text.OnlyDigits(null);
 
         /// <summary>
         /// Only Digits
@@ -51,28 +52,32 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool ContainsOnlyDigits(this string text) => text.All(char.IsDigit);
+        public static bool ContainsOnlyDigits(this string text) =>
+            text.All(char.IsDigit);
 
         /// <summary>
         /// Not Contains Digits
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool NotContainsDigits(this string text) => text.All(car => !char.IsDigit(car));
+        public static bool NotContainsDigits(this string text) =>
+            text.All(car => !char.IsDigit(car));
 
         /// <summary>
         /// Contains digit
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool ContainsDigit(this string text) => text.Any(char.IsDigit);
+        public static bool ContainsDigit(this string text) => 
+            text.Any(char.IsDigit);
 
         /// <summary>
         /// Include digits
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool IncludeDigits(this string text) => text.IncludeDigits(0);
+        public static bool IncludeDigits(this string text) =>
+            text.IncludeDigits(0);
 
         /// <summary>
         /// Include digits

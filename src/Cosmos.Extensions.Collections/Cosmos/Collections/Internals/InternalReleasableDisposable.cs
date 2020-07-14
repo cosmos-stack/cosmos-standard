@@ -16,7 +16,9 @@ namespace Cosmos.Collections.Internals
 
         public void Dispose()
         {
-            using (Disposable) { }
+            using (Disposable)
+            {
+            }
         }
     }
 }

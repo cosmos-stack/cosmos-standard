@@ -1,16 +1,18 @@
-#if !NETFRAMEWORK
 using System.Collections.Concurrent;
 using System.Threading;
 
-namespace System.Runtime.Remoting.Messaging {
+namespace System.Runtime.Remoting.Messaging
+{
     /// <summary>
     /// CallContext for .NET Standard and .NET Core
     /// for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
     /// </summary>
-    public static class CallContext {
+    public static class CallContext
+    {
         private static readonly ConcurrentDictionary<string, AsyncLocal<object>> State;
 
-        static CallContext() {
+        static CallContext()
+        {
             State = new ConcurrentDictionary<string, AsyncLocal<object>>();
         }
 
@@ -31,5 +33,3 @@ namespace System.Runtime.Remoting.Messaging {
             State.TryGetValue(name, out var data) ? data.Value : null;
     }
 }
-
-#endif

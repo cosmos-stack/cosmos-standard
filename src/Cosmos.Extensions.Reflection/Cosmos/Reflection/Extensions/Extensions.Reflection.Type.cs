@@ -497,7 +497,7 @@ namespace Cosmos.Reflection
                     }
                 }
 
-                typeinfo = typeinfo.BaseType.GetTypeInfo();
+                typeinfo = typeinfo.BaseType!.GetTypeInfo();
             }
 
             return null;

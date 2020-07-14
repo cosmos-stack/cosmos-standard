@@ -18,23 +18,21 @@ namespace Cosmos.Collections
         public static IEnumerable<T> NullIfEmpty<T>(this IEnumerable<T> source)
         {
             // Get the enumerator in a releasable disposable.
-            using (var disposable = new InternalReleasableDisposable<IEnumerator<T>>(source.GetEnumerator()))
-            {
-                // Get the enumerator.
-                IEnumerator<T> enumerator = disposable.Disposable;
+            using var disposable = new InternalReleasableDisposable<IEnumerator<T>>(source.GetEnumerator());
+            // Get the enumerator.
+            var enumerator = disposable.Disposable;
 
-                // Move to the next item.  If there are no elements, then return null.
-                if (!enumerator.MoveNext()) return null;
+            // Move to the next item.  If there are no elements, then return null.
+            if (!enumerator.MoveNext()) return null;
 
-                // Release the disposable.
-                disposable.Release();
+            // Release the disposable.
+            disposable.Release();
 
-                // Create an enumerator that skips the first move next.
-                var wrapper = new InternalNullIfEmptySkipFirstMoveNextEnumeratorWrapper<T>(enumerator);
+            // Create an enumerator that skips the first move next.
+            var wrapper = new InternalNullIfEmptySkipFirstMoveNextEnumeratorWrapper<T>(enumerator);
 
-                // Wrap in a single use enumerator, return that.
-                return new InternalSingleUseEnumerable<T>(wrapper);
-            }
+            // Wrap in a single use enumerator, return that.
+            return new InternalSingleUseEnumerable<T>(wrapper);
         }
     }
 }

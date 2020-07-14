@@ -11,14 +11,16 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool IsUpper(this string text) => text.All(ch => char.IsLetter(ch) && !char.IsLower(ch));
+        public static bool IsUpper(this string text) => 
+            text.All(ch => char.IsLetter(ch) && !char.IsLower(ch));
 
         /// <summary>
         /// Is lower
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool IsLower(this string text) => text.All(ch => !char.IsLetter(ch) || !char.IsUpper(ch));
+        public static bool IsLower(this string text) =>
+            text.All(ch => !char.IsLetter(ch) || !char.IsUpper(ch));
 
         /// <summary>
         /// To capital case
@@ -49,7 +51,8 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        static bool AllCapitals(string input) => input.ToCharArray().All(char.IsUpper);
+        static bool AllCapitals(string input) =>
+            input.ToCharArray().All(char.IsUpper);
 
         /// <summary>
         /// To camel case
@@ -60,7 +63,6 @@ namespace Cosmos.Text
         {
             if (original.Length <= 1)
                 return original.ToLower();
-
             return char.ToLower(original[0]) + original.Substring(1);
         }
     }

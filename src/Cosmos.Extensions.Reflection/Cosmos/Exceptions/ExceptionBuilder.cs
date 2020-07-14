@@ -1,5 +1,3 @@
-#if !NET451
-
 using System;
 
 namespace Cosmos.Exceptions
@@ -23,5 +21,3 @@ namespace Cosmos.Exceptions
         }
     }
 }
-
-#endif

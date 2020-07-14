@@ -32,11 +32,11 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<T> Harvest<T>(this IEnumerable<T> source, Func<T, bool> predicate, ICollection<T> harvester)
         {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
-            if (harvester == null)
+            if (harvester is null)
                 throw new ArgumentNullException(nameof(harvester));
-            if (predicate == null)
+            if (predicate is null)
                 predicate = t => true;
 
             foreach (var item in source)

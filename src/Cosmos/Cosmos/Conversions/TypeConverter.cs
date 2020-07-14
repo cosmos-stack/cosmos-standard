@@ -24,7 +24,7 @@ namespace Cosmos.Conversions
         /// <param name="typeInfo"></param>
         /// <returns></returns>
         public static TypeInfo ToNonNullableTypeInfo(TypeInfo typeInfo) =>
-            Nullable.GetUnderlyingType(typeInfo.AsType()).GetTypeInfo();
+            Nullable.GetUnderlyingType(typeInfo.AsType())!.GetTypeInfo();
 
         /// <summary>
         /// Convert nullable type to underlying type safety.

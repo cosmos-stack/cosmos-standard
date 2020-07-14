@@ -139,9 +139,9 @@ namespace Cosmos.Collections
         {
             var res = new List<Tuple<TKey, TValue>>();
 
-            foreach (var val in me)
+            foreach (var (key, value) in me)
             {
-                res.Add(Tuple.Create(val.Key, val.Value));
+                res.Add(Tuple.Create(key, value));
             }
 
             return res;

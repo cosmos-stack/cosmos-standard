@@ -1,5 +1,3 @@
-#if !NET451
-
 using System;
 
 /*
@@ -48,5 +46,3 @@ namespace Cosmos.Reflection
         public Type Type { get; set; }
     }
 }
-
-#endif

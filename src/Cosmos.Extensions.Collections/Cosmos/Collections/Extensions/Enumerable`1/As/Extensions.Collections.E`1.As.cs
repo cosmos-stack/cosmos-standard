@@ -31,7 +31,7 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentNullException"></exception>
         public static EnumerableProxy<T> AsEnumerableProxy<T>(this IEnumerable<T> enumerable)
         {
-            if (enumerable == null)
+            if (enumerable is null)
                 throw new ArgumentNullException(nameof(enumerable));
             return new EnumerableProxy<T>(enumerable);
         }
@@ -45,7 +45,7 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<T?> AsNullables<T>(this IEnumerable<T> source) where T : struct
         {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
             return source.Cast<T?>();
         }

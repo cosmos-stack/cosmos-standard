@@ -22,7 +22,7 @@ namespace Cosmos.Collections.Internals
             lock (_enumeratorLock)
             {
                 // If the enumerator is null, throw.
-                if (_enumerator == null)
+                if (_enumerator is null)
                     throw new InvalidOperationException($"{nameof(GetEnumerator)} may only be called once on this instance of {nameof(InternalSingleUseEnumerable<T>)}.");
 
                 // Copy the enumerator.

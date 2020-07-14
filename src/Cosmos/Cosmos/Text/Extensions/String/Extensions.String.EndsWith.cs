@@ -38,7 +38,9 @@ namespace Cosmos.Text
         {
             if (toCheck.IsNullOrEmpty())
                 return true;
-            return text.IsNullOrEmpty() ? toCheck.IsNullOrEmpty() : text.EndsWith(toCheck, StringComparison.OrdinalIgnoreCase);
+            return text.IsNullOrEmpty() 
+                ? toCheck.IsNullOrEmpty() 
+                : text.EndsWith(toCheck, StringComparison.OrdinalIgnoreCase);
         }
 
         /// <summary>

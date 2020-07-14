@@ -295,16 +295,7 @@ namespace Cosmos
         /// <returns></returns>
         public static int ConvertToUtf32(this char highSurrogate, char lowSurrogate) =>
             char.ConvertToUtf32(highSurrogate, lowSurrogate);
-
-        /// <summary>
-        /// Convert from utf32
-        /// </summary>
-        /// <param name="highSurrogate"></param>
-        /// <param name="lowSurrogate"></param>
-        /// <returns></returns>
-        public static int ConvertFromUft32(this char highSurrogate, char lowSurrogate) =>
-            char.ConvertToUtf32(highSurrogate, lowSurrogate);
-
+        
         #endregion
 
         #region UnicodeCategory

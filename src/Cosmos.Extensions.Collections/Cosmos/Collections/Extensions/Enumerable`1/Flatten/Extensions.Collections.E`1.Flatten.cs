@@ -26,7 +26,7 @@ namespace Cosmos.Collections
                 {
                     var current = stack.Pop();
 
-                    if (current == null)
+                    if (current is null)
                         continue;
                     yield return current;
 

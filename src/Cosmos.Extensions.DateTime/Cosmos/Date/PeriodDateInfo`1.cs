@@ -72,8 +72,8 @@ namespace Cosmos.Date
         {
             public static void CheckFromAndTo(TDateInfo from, TDateInfo to)
             {
-                if (from == null) throw new ArgumentNullException(nameof(from));
-                if (to == null) throw new ArgumentNullException(nameof(to));
+                if (from is null) throw new ArgumentNullException(nameof(from));
+                if (to is null) throw new ArgumentNullException(nameof(to));
                 if (from.DateTimeRef > to.DateTimeRef)
                     throw new ArgumentException("FromDateInfo cannot be greater than ToDateInfo.");
             }

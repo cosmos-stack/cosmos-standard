@@ -12,7 +12,10 @@ namespace Cosmos.Collections
     {
         private readonly IEnumerable<T> _enumerable;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Enumerable proxy
+        /// </summary>
+        /// <param name="enumerable"></param>
         public EnumerableProxy(IEnumerable<T> enumerable)
         {
             // Validate parameters.

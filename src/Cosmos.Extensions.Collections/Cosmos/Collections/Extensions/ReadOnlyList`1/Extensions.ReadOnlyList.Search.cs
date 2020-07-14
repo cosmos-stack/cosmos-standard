@@ -121,7 +121,7 @@ namespace Cosmos.Collections
             if (index < 0)
                 throw new ArgumentOutOfRangeException(nameof(index), index, $"The {nameof(index)} parameter must be a non-negative value.");
             if (length < 0)
-                throw new ArgumentOutOfRangeException(nameof(length), length, $"The {nameof(length)} parmeter must be a non-negative value.");
+                throw new ArgumentOutOfRangeException(nameof(length), length, $"The {nameof(length)} parameter must be a non-negative value.");
             if (index + length > list.Count)
                 throw new InvalidOperationException(
                     $"The value of {nameof(index)} plus {nameof(length)} must be less than or equal to the value of the number of items in the {nameof(list)}.");

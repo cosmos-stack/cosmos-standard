@@ -59,7 +59,10 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Cosmos.Collections.EnumerableProxy`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
-            <inheritdoc />
+            <summary>
+            Enumerable proxy
+            </summary>
+            <param name="enumerable"></param>
         </member>
         <member name="M:Cosmos.Collections.EnumerableProxy`1.GetEnumerator">
             <inheritdoc />

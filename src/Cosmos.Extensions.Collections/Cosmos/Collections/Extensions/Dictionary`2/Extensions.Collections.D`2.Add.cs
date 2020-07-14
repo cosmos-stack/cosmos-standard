@@ -17,9 +17,9 @@ namespace Cosmos.Collections
         /// <typeparam name="TVal"></typeparam>
         public static void AddDictionary<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other)
         {
-            foreach (var src in other)
+            foreach (var (key, value) in other)
             {
-                me.Add(src.Key, src.Value);
+                me.Add(key, value);
             }
         }
     }
