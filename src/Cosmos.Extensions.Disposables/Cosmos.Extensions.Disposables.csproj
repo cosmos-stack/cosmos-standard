@@ -3,10 +3,6 @@
     <Import Project="..\..\build\common.props" />
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <AssemblyName>Cosmos.Extensions.Disposables</AssemblyName>
         <PackageId>Cosmos.Extensions.Disposables</PackageId>
         <Description>Cosmos Disposables extension library</Description>

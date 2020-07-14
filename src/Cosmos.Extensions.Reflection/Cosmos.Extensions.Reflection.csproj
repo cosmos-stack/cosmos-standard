@@ -3,10 +3,6 @@
     <Import Project="..\..\build\common.props" />
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <AssemblyName>Cosmos.Extensions.Reflection</AssemblyName>
         <PackageId>Cosmos.Extensions.Reflection</PackageId>
         <Description>Cosmos reflection extension library</Description>
@@ -17,13 +13,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="NMS.DynamicCache" Version="1.1.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)'!='net451'">
-        <PackageReference Include="NMS.DynamicCache" Version="1.1.0.1" />
     </ItemGroup>
 
 </Project>

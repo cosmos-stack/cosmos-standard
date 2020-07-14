@@ -1,12 +1,4 @@
-<Project>
-	<PropertyGroup>
-		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-		<LangVersion>8.0</LangVersion>
-		<RootNamespace />		
-	</PropertyGroup>
-	
+<Project>	
 	<ItemGroup>
 		<None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
 		<None Include="..\..\asset\images\icon.png" Pack="true" PackagePath=""/>

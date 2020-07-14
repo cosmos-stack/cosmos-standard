@@ -3,10 +3,6 @@
     <Import Project="..\..\build\common.props" />
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;netstandard2.0;net461;net451</TargetFrameworks>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <AssemblyName>Cosmos</AssemblyName>
         <PackageId>Cosmos.Core</PackageId>
         <Description>Cosmos base library</Description>
@@ -17,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
         <PackageReference Include="Enums.NET" Version="3.0.3" />
         <PackageReference Include="Humanizer.Core" Version="2.8.26" />
         <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.8.26" />
@@ -25,20 +22,6 @@
         <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
         <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
         <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)'!='net451'">
-        <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)'=='net451'">
-        <PackageReference Include="System.Memory" Version="4.5.4" />
-        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-        <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Cosmos\Text\Extensions" />
     </ItemGroup>
 
 </Project>
