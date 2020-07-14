@@ -5,25 +5,24 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF634BA0-51EE-4B4A-AB50-5DA72FCD3B6B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{CF634BA0-51EE-4B4A-AB50-5DA72FCD3B6B}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
 		NuGet.config = NuGet.config
-		Publish.bat = Publish.bat
-		README.md = README.md
-		PublishToMyGet.bat = PublishToMyGet.bat
-		PublishToAlexinea.bat = PublishToAlexinea.bat
+		common.props = common.props
+		.gitignore = .gitignore
+		common.tests.props = common.tests.props
+		logo.png = logo.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{83D0F22B-1ED1-4B88-A18F-DF8CC6385E1F}"
-	ProjectSection(SolutionItems) = preProject
-		build\common.props = build\common.props
-		build\version.props = build\version.props
-		build\misc.props = build\misc.props
-		build\package.props = build\package.props
-	EndProjectSection
+ProjectSection(SolutionItems) = preProject
+	build\Publish.bat = build\Publish.bat
+	build\PublishToAlexinea.bat = build\PublishToAlexinea.bat
+	build\PublishToMyGet.bat = build\PublishToMyGet.bat
+EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos", "src\Cosmos\Cosmos.csproj", "{8FE469B4-1086-4708-8CF4-5CCF6645EB20}"
 EndProject
@@ -57,8 +56,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Test.ReflectionTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Disposables", "src\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj", "{3443E66F-7222-415A-81A0-75F85DA2B79E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Prowess", "src\Cosmos.Extensions.Prowess\Cosmos.Extensions.Prowess.csproj", "{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Conversions", "src\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj", "{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abstractions", "abstractions", "{9F0A0003-3464-4DA2-B2DF-28CBD5DD7D6A}"
@@ -66,6 +63,26 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{9039BEC8-72D5-46BD-B33B-712FE08F9FF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extensions", "extensions", "{EDED875E-58F5-4762-96D3-2E0F490BF83F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6C8247FF-D723-438C-9EEC-43696F2C4347}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "asset", "asset", "{67C74D26-D686-4583-82AF-831904182C45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{D35A0889-D466-42AB-AC27-82AE878A35B0}"
+ProjectSection(SolutionItems) = preProject
+	asset\images\icon.back.png = asset\images\icon.back.png
+	asset\images\icon.png = asset\images\icon.png
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{6B171B73-1DAA-4B4A-8CD2-B1307180B6C8}"
+ProjectSection(SolutionItems) = preProject
+	asset\props\misc.props = asset\props\misc.props
+	asset\props\package.props = asset\props\package.props
+	asset\props\version.props = asset\props\version.props
+EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,10 +154,6 @@ Global
 		{3443E66F-7222-415A-81A0-75F85DA2B79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3443E66F-7222-415A-81A0-75F85DA2B79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3443E66F-7222-415A-81A0-75F85DA2B79E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -150,7 +163,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{83D0F22B-1ED1-4B88-A18F-DF8CC6385E1F} = {CF634BA0-51EE-4B4A-AB50-5DA72FCD3B6B}
 		{FEFFEF83-5011-490B-8E0D-9FBE516FCE7D} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 		{1667499C-E0B6-4E96-BF55-26F2C456E2FD} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 		{6B1BFE6F-D75F-4959-9B51-D0E17019912E} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
@@ -168,10 +180,11 @@ Global
 		{CB6A93EA-344E-4D4E-B268-4F0181BAC009} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{3443E66F-7222-415A-81A0-75F85DA2B79E} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{43F1A15E-04EA-405F-8115-B3DD3DDD6B3B} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
-		{C3ACBB1C-06B5-4C9A-9FFA-F9430956D351} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{85C2BF3F-F1A4-44DA-90E5-2B8328C8DB8F} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{5542C90C-367D-4327-BB7A-A01ACA2A2949} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{0A2CA6C4-A168-460F-BD36-E2BAD2BCE353} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
+		{D35A0889-D466-42AB-AC27-82AE878A35B0} = {67C74D26-D686-4583-82AF-831904182C45}
+		{6B171B73-1DAA-4B4A-8CD2-B1307180B6C8} = {67C74D26-D686-4583-82AF-831904182C45}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D68A6AF5-79FE-4679-AD20-67D6CFCF75B4}

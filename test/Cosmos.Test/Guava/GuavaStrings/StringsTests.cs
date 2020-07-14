@@ -49,7 +49,7 @@ namespace Cosmos.Test.Guava.GuavaStrings {
         [InlineData("", "aac", "")]
         [InlineData("aabc", "bbc", "bc")]
         [InlineData("aaac", "aad", "")]
-        public void CommonSuffexTest(string left, string right, string expected) {
+        public void CommonSuffixTest(string left, string right, string expected) {
             var actual = Strings.CommonSuffix(left, right);
             actual.ShouldBe(expected);
         }
