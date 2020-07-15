@@ -20,7 +20,7 @@ This repository also include these inline common projects:
 - [Cosmos.Designs](https://github.com/cosmos-loops/cosmos-designs) - Design packages for cosmos-standard
 - [Cosmos.Dependency](https://github.com/cosmos-loops/cosmos-dependency) - Dependency extensions for cosmos-standard
 - [Cosmos.Http](https://github.com/cosmos-loops/cosmos-http) - Http extensions for cosmos-standard
-- [Cosmos.Prowess](htts://github.com/cosmos-loops/cosmos-prowess) - A powerful extensions for cosmos-standard
+- [Cosmos.Prowess](https://github.com/cosmos-loops/cosmos-prowess) - A powerful extensions for cosmos-standard
 - [Cosmos.Serialization](https://github.com/cosmos-loops/cosmos-serialization) - Serialization extensions for cosmos-standard
 
 ---
