@@ -1,12 +1,12 @@
 <Project>
 	<PropertyGroup Label="Package">
 		<Product>Cosmos.Standard</Product>
-		<Authors>AlexLEWIS;StarrySky;Cosmos</Authors>
+		<Authors>AlexLEWIS;Cosmos</Authors>
 		<RepositoryUrl>https://github.com/cosmos-loops/cosmos-standard</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageProjectUrl>https://github.com/cosmos-loops/cosmos-standard</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageTags>StarrySky;Cosmos;Standard;Framework</PackageTags>
+		<PackageTags>Cosmos;Cosmosloops;Standard;Framework</PackageTags>
 	</PropertyGroup>
 </Project>
