@@ -10,8 +10,8 @@ if not exist nuget_packages (
 )
 
 ::clear nuget_packages
-for /R "nuget_packages" %%s in (*symbols.nupkg) do (
-    del %%s
+for /R "nuget_packages" %%s in (*) do (
+    del "%%s"
 )
 echo Cleaned up all nuget packages.
 echo.
@@ -38,6 +38,10 @@ dotnet pack src/Cosmos.Extensions.Reflection -c Release -o nuget_packages
 ::cosmos-standard
 dotnet pack src/Cosmos.Standard -c Release -o nuget_packages
 
+for /R "nuget_packages" %%s in (*symbols.nupkg) do (
+    del "%%s"
+)
+
 echo.
 echo.
 
@@ -46,7 +50,7 @@ set source=https://api.nuget.org/v3/index.json
 
 ::push nuget packages to server
 for /R "nuget_packages" %%s in (*.nupkg) do ( 	
-    dotnet nuget push "%%s" -k %key% -s %source%
+    dotnet nuget push "%%s" -k %key% -s %source% --skip-duplicate
 	echo.
 )
 
