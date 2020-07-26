@@ -1,10 +1,19 @@
-using System;
+﻿using System;
 
-namespace NodaTime.Helpers
+namespace NodaTime
 {
-    internal static class DayOfWeekHelper
+    /// <summary>
+    /// Cosmos <see cref="IsoDayOfWeek"/> extensions.
+    /// </summary>
+    public static class CosmosIsoDayOfWeekExtensions
     {
-        public static IsoDayOfWeek ToNodaTimeWeek(DayOfWeek week)
+        /// <summary>
+        /// Convert <see cref="DayOfWeek"/> to <see cref="IsoDayOfWeek"/>.<br />
+        /// 将 <see cref="DayOfWeek"/> 转换为 <see cref="IsoDayOfWeek"/>。
+        /// </summary>
+        /// <param name="week"></param>
+        /// <returns></returns>
+        public static IsoDayOfWeek AsIsoDayOfWeek(this DayOfWeek week)
         {
             switch (week)
             {
@@ -19,7 +28,13 @@ namespace NodaTime.Helpers
             }
         }
 
-        public static DayOfWeek ToSystemWeek(IsoDayOfWeek week)
+        /// <summary>
+        /// Convert <see cref="IsoDayOfWeek"/> to <see cref="DayOfWeek"/>.<br />
+        /// 将 <see cref="IsoDayOfWeek"/> 转换为 <see cref="DayOfWeek"/>。
+        /// </summary>
+        /// <param name="week"></param>
+        /// <returns></returns>
+        public static DayOfWeek AsDayOfWeek(this IsoDayOfWeek week)
         {
             switch (week)
             {

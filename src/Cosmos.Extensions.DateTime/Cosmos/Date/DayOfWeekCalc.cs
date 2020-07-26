@@ -1,6 +1,5 @@
 using System;
 using NodaTime;
-using NodaTime.Helpers;
 
 namespace Cosmos.Date
 {
@@ -35,7 +34,7 @@ namespace Cosmos.Date
         {
             if (left == IsoDayOfWeek.None || right == IsoDayOfWeek.None)
                 return 0;
-            return DaysBetween(DayOfWeekHelper.ToSystemWeek(left), DayOfWeekHelper.ToSystemWeek(right));
+            return DaysBetween(left.AsDayOfWeek(), right.AsDayOfWeek());
         }
 
         /// <summary>
@@ -63,7 +62,7 @@ namespace Cosmos.Date
             days = 0;
             if (left == IsoDayOfWeek.None || right == IsoDayOfWeek.None)
                 return false;
-            return TryDaysBetween(DayOfWeekHelper.ToSystemWeek(left), DayOfWeekHelper.ToSystemWeek(right), out days);
+            return TryDaysBetween(left.AsDayOfWeek(), right.AsDayOfWeek(), out days);
         }
     }
 }
