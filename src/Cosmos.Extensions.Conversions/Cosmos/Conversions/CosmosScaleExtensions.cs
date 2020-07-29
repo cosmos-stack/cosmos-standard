@@ -1,16 +1,13 @@
-using System;
-using System.Text;
-using Cosmos.Conversions.Core;
+﻿using System.Text;
 using Cosmos.Conversions.Determiners;
 using Cosmos.Conversions.Scale;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Conversions
 {
     /// <summary>
-    /// Extensions for CastTo opts
+    /// Cosmos scale extensions
     /// </summary>
-    public static partial class CastToExtensions
+    public static class CosmosScaleExtensions
     {
         /// <summary>
         /// To ASCII
@@ -35,14 +32,16 @@ namespace Cosmos.Conversions
         public static string CastToBinary(this int @decimal) => DecimalismConverter.ToBinary(@decimal);
 
         /// <summary>
-        /// To binary
+        /// Convert the hexadecimal value to binary. <br />
+        /// 将十六进制值转换为二进制。
         /// </summary>
         /// <param name="hex"></param>
         /// <returns></returns>
         public static string CastToBinary(this string hex) => HexadecimalConverter.ToBinary(hex);
 
         /// <summary>
-        /// To decimalism
+        /// Convert the Byte value of the upper address and status address to decimal values. <br />
+        /// 将高位地址和地位地址的 Byte 值转换为十进制值。
         /// </summary>
         /// <param name="highAddrByte"></param>
         /// <param name="lowAddrByte"></param>
@@ -50,7 +49,8 @@ namespace Cosmos.Conversions
         public static int CastToDecimalism(this byte highAddrByte, byte lowAddrByte) => ByteConverter.ToDecimalism(highAddrByte, lowAddrByte);
 
         /// <summary>
-        /// To decimalism
+        /// Convert the Byte value of the upper address and status address to decimal values. <br />
+        /// 将高位地址和地位地址的 Byte 值转换为十进制值。
         /// </summary>
         /// <param name="highAddrByte"></param>
         /// <param name="lowAddrByte"></param>
@@ -59,7 +59,8 @@ namespace Cosmos.Conversions
         public static int CastToDecimalism(this byte highAddrByte, byte lowAddrByte, bool isRadix) => ByteConverter.ToDecimalism(highAddrByte, lowAddrByte, isRadix);
 
         /// <summary>
-        /// To decimalism
+        /// Convert the value of the given base to decimal. <br />
+        /// 将给定进制的值转换为十进制。
         /// </summary>
         /// <param name="scaleStr"></param>
         /// <param name="fromStyle"></param>
@@ -68,9 +69,9 @@ namespace Cosmos.Conversions
         {
             return fromStyle switch
             {
-                ScaleStyles.Binary      => BinaryConverter.ToDecimalism(scaleStr),
+                ScaleStyles.Binary => BinaryConverter.ToDecimalism(scaleStr),
                 ScaleStyles.Hexadecimal => HexadecimalConverter.ToDecimalism(scaleStr),
-                _                       => StringIntDeterminer.To(scaleStr)
+                _ => StringIntDeterminer.To(scaleStr)
             };
         }
 
@@ -124,7 +125,7 @@ namespace Cosmos.Conversions
             {
                 ScaleStyles.Binary => BinaryConverter.ToHexadecimal(scaleStr),
                 ScaleStyles.String => HexadecimalConverter.FromString(scaleStr, encoding),
-                _                  => scaleStr
+                _ => scaleStr
             };
         }
     }

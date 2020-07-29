@@ -56,7 +56,7 @@ namespace Cosmos.Conversions
         {
             if (obj is string str && StringBooleanDeterminer.Is(str))
                 return StringBooleanDeterminer.To(str);
-            return GlobalBooleanVerbaManager.Determining(obj.ToString().Trim().ToLower());
+            return GlobalBooleanVerbaManager.Determining(obj.ToString()?.Trim().ToLower());
         }
     }
 }

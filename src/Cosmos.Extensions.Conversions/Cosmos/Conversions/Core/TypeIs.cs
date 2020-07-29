@@ -9,16 +9,19 @@ namespace Cosmos.Conversions.Core
     {
         #region Constants
 
+        // ReSharper disable once InconsistentNaming
         private const NumberStyles INT_NUMBER_STYLE = NumberStyles.Integer;
 
+        // ReSharper disable once InconsistentNaming
         private const NumberStyles DEM_NUMBER_STYLE = NumberStyles.Number;
 
+        // ReSharper disable once InconsistentNaming
         private const NumberStyles FLT_NUMBER_STYLE = NumberStyles.AllowLeadingWhite
-                                                    | NumberStyles.AllowTrailingWhite
-                                                    | NumberStyles.AllowLeadingSign
-                                                    | NumberStyles.AllowDecimalPoint
-                                                    | NumberStyles.AllowThousands
-                                                    | NumberStyles.AllowExponent;
+                                                      | NumberStyles.AllowTrailingWhite
+                                                      | NumberStyles.AllowLeadingSign
+                                                      | NumberStyles.AllowDecimalPoint
+                                                      | NumberStyles.AllowThousands
+                                                      | NumberStyles.AllowExponent;
 
         #endregion
 

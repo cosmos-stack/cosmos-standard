@@ -18,8 +18,8 @@ namespace Cosmos.Conversions.Core
             result = context.DateTimeFormatStyles switch
             {
                 DateTimeFormatStyles.Normal    => dateTime.ToString(format, context.FormatProvider),
-                DateTimeFormatStyles.Date      => DateTimeExtensions.ToDateString(dateTime),
-                DateTimeFormatStyles.Time      => DateTimeExtensions.ToTimeString(dateTime),
+                DateTimeFormatStyles.Date      => dateTime.ToDateString(),
+                DateTimeFormatStyles.Time      => dateTime.ToTimeString(),
                 DateTimeFormatStyles.DateTime  => dateTime.ToDateTimeString(),
                 DateTimeFormatStyles.LongDate  => dateTime.ToLongDateString(),
                 DateTimeFormatStyles.LongTime  => dateTime.ToLongTimeString(),
@@ -42,8 +42,8 @@ namespace Cosmos.Conversions.Core
             result = context.DateTimeFormatStyles switch
             {
                 DateTimeFormatStyles.Normal    => dateTime.ToString(format, context.FormatProvider),
-                DateTimeFormatStyles.Date      => DateTimeExtensions.ToDateString(dateTime),
-                DateTimeFormatStyles.Time      => DateTimeExtensions.ToTimeString(dateTime),
+                DateTimeFormatStyles.Date      => dateTime.ToDateString(),
+                DateTimeFormatStyles.Time      => dateTime.ToTimeString(),
                 DateTimeFormatStyles.DateTime  => dateTime.ToDateTimeString(),
                 DateTimeFormatStyles.LongDate  => dateTime.ToLongDateString(),
                 DateTimeFormatStyles.LongTime  => dateTime.ToLongTimeString(),

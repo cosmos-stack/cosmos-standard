@@ -1,16 +1,16 @@
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Conversions
 {
     /// <summary>
-    /// Extensions for CastTo opts
+    /// Cosmos <see cref="Stream"/> extensions.
     /// </summary>
-    public static partial class CastToExtensions
+    public static class CosmosStreamExtensions
     {
         /// <summary>
-        /// Convert <see cref="Stream"/> to <see cref="byte"/> array。
+        /// Convert <see cref="Stream"/> to <see cref="byte"/> array. <br />
+        /// 将 <see cref="Stream"/> 转换为 <see cref="byte"/> 数组。
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
@@ -30,7 +30,8 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// Convert <see cref="Stream"/> to <see cref="byte"/> array async.
+        /// Convert <see cref="Stream"/> to <see cref="byte"/> array async. <br />
+        /// 将 <see cref="Stream"/> 异步地转换为 <see cref="byte"/> 数组。
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
