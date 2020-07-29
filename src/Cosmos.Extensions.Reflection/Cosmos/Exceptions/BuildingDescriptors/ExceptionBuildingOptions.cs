@@ -5,14 +5,16 @@ using Cosmos.Reflection;
 namespace Cosmos.Exceptions.BuildingDescriptors
 {
     /// <summary>
-    /// Exception building options
+    /// Exception building options.<br />
+    /// 异常构建器选项。
     /// </summary>
     public class ExceptionBuildingOptions
     {
-        private Dictionary<string, CtorArgDescriptor> _items = new Dictionary<string, CtorArgDescriptor>();
+        private readonly Dictionary<string, CtorArgDescriptor> _items = new Dictionary<string, CtorArgDescriptor>();
 
         /// <summary>
-        /// Create a new instance of <see cref="ExceptionBuildingOptions"/>.
+        /// Create a new instance of <see cref="ExceptionBuildingOptions"/>.<br />
+        /// 构建一个新的 <see cref="ExceptionBuildingOptions"/> 实例。
         /// </summary>
         /// <param name="type"></param>
         public ExceptionBuildingOptions(Type type)
@@ -21,14 +23,16 @@ namespace Cosmos.Exceptions.BuildingDescriptors
         }
 
         /// <summary>
-        /// Gets exception type
+        /// Gets exception type.<br />
+        /// 获取异常类型。
         /// </summary>
         public Type ExceptionType { get; }
 
         internal IEnumerable<CtorArgDescriptor> ArgumentDescriptors => _items.Values;
 
         /// <summary>
-        /// Add args
+        /// Add args.<br />
+        /// 添加参数。
         /// </summary>
         /// <param name="argumentName"></param>
         /// <param name="argumentValue"></param>
@@ -44,7 +48,8 @@ namespace Cosmos.Exceptions.BuildingDescriptors
         }
 
         /// <summary>
-        /// Add args
+        /// Add args.<br />
+        /// 添加参数。
         /// </summary>
         /// <param name="argumentName"></param>
         /// <param name="argumentValue"></param>

@@ -1,51 +1,52 @@
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
+using Cosmos.Reflection;
 
-// ReSharper disable once CheckNamespace
-namespace Cosmos.Reflection
+// ReSharper disable CommentTypo
+// ReSharper disable IdentifierTypo
+// ReSharper disable InconsistentNaming
+
+namespace System.Reflection.Emit
 {
-    public static partial class ReflectionExtensions
+    /// <summary>
+    /// Cosmos <see cref="ModuleBuilder"/> extensions.
+    /// </summary>
+    public static class CosmosModuleBuilderExtensions
     {
         /// <summary>
-        /// Define poco
+        /// Define POCO
         /// </summary>
-        /// <param name="moduleBuilder"></param>
+        /// <param name="builder"></param>
         /// <param name="name"></param>
         /// <param name="properties"></param>
         /// <returns></returns>
-        public static TypeBuilder DefinePoco(this ModuleBuilder moduleBuilder, string name,
-            params KeyValuePair<string, Type>[] properties) => moduleBuilder.DefinePoco(name, properties.AsEnumerable());
+        public static TypeBuilder DefinePOCO(this ModuleBuilder builder, string name,
+            params KeyValuePair<string, Type>[] properties) => builder.DefinePOCO(name, properties.AsEnumerable());
 
         /// <summary>
-        /// Define poco
+        /// Define POCO
         /// </summary>
-        /// <param name="moduleBuilder"></param>
+        /// <param name="builder"></param>
         /// <param name="name"></param>
         /// <param name="properties"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static TypeBuilder DefinePoco(this ModuleBuilder moduleBuilder, string name, IEnumerable<KeyValuePair<string, Type>> properties)
+        public static TypeBuilder DefinePOCO(this ModuleBuilder builder, string name, IEnumerable<KeyValuePair<string, Type>> properties)
         {
-            if (moduleBuilder is null)
-                throw new ArgumentNullException(nameof(moduleBuilder));
+            if (builder is null)
+                throw new ArgumentNullException(nameof(builder));
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException(nameof(name));
             if (properties is null)
                 throw new ArgumentNullException(nameof(properties));
 
-            var typeBuilder = moduleBuilder.DefineType(name, TypeAttributes.Public);
+            var typeBuilder = builder.DefineType(name, TypeAttributes.Public);
 
             ISet<string> propertyNames = new HashSet<string>(StringComparer.Ordinal);
 
-            foreach (var pair in properties)
+            foreach (var (propertyName, type) in properties)
             {
-                var propertyName = pair.Key;
-                var type = pair.Value;
-
                 if (propertyNames.Contains(propertyName))
                     throw new InvalidOperationException($"Encountered a duplicate property name of \"{propertyName}\"");
 

@@ -1,17 +1,21 @@
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 using Cosmos.Expressions;
 
-// ReSharper disable once CheckNamespace
-namespace Cosmos.Reflection
+namespace System.Reflection
 {
-    public static partial class ReflectionExtensions
+    /// <summary>
+    /// Cosmos <see cref="PropertyInfo"/> extensions.
+    /// </summary>
+    public static class CosmosPropertyInfoExtensions
     {
+        #region Exclude
+
         /// <summary>
-        /// Exclude
+        /// Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+        /// and return the remaining PropertyInfo.<br />
+        /// 从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
         /// </summary>
         /// <param name="properties"></param>
         /// <param name="shape"></param>
@@ -19,10 +23,12 @@ namespace Cosmos.Reflection
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static IEnumerable<PropertyInfo> Exclude<T>(this IEnumerable<PropertyInfo> properties, T shape, params Expression<Func<T, object>>[] expressions)
-            => properties.Exclude(shape, (IEnumerable<Expression<Func<T, object>>>) expressions);
+            => properties.Exclude(shape, (IEnumerable<Expression<Func<T, object>>>)expressions);
 
         /// <summary>
-        /// Exclude
+        /// Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+        /// and return the remaining PropertyInfo.<br />
+        /// 从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
         /// </summary>
         /// <param name="properties"></param>
         /// <param name="shape"></param>
@@ -33,17 +39,21 @@ namespace Cosmos.Reflection
             => properties.Exclude(expressions);
 
         /// <summary>
-        /// Exclude
+        /// Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+        /// and return the remaining PropertyInfo.<br />
+        /// 从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
         /// </summary>
         /// <param name="properties"></param>
         /// <param name="expressions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static IEnumerable<PropertyInfo> Exclude<T>(this IEnumerable<PropertyInfo> properties, params Expression<Func<T, object>>[] expressions)
-            => properties.Exclude((IEnumerable<Expression<Func<T, object>>>) expressions);
+            => properties.Exclude((IEnumerable<Expression<Func<T, object>>>)expressions);
 
         /// <summary>
-        /// Exclude
+        /// Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+        /// and return the remaining PropertyInfo.<br />
+        /// 从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
         /// </summary>
         /// <param name="properties"></param>
         /// <param name="expressions"></param>
@@ -61,5 +71,7 @@ namespace Cosmos.Reflection
 
             return properties.Where(p => !excluded.Contains(p));
         }
+
+        #endregion
     }
 }

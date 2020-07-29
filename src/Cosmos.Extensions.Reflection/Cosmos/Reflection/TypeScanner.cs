@@ -9,7 +9,7 @@ namespace Cosmos.Reflection
 {
     /// <summary>
     /// Type Scanner <br />
-    /// 类型扫描
+    /// 类型扫描器
     /// </summary>
     public abstract class TypeScanner : IDisposable
     {
@@ -20,22 +20,26 @@ namespace Cosmos.Reflection
         private readonly AnonymousDisposableObject _anonymousDisposableObject;
 
         /// <summary>
-        /// Scanned result cache
+        /// Scanned result cache<br />
+        /// 扫描结果缓存
         /// </summary>
         protected List<Type> ScannedResultCache { get; private set; } = new List<Type>();
 
         /// <summary>
-        /// Scanned result cached
+        /// Scanned result cached<br />
+        /// 标记是否已缓存扫描结果
         /// </summary>
         protected bool ScannedResultCached { get; private set; }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/>
+        /// Create a new instance of <see cref="TypeScanner"/>.<br />
+        /// 创建一个新的 <see cref="TypeScanner"/> 实例。
         /// </summary>
         protected TypeScanner() : this(string.Empty) { }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/>
+        /// Create a new instance of <see cref="TypeScanner"/>.<br />
+        /// 创建一个新的 <see cref="TypeScanner"/> 实例。
         /// </summary>
         /// <param name="scannerName"></param>
         protected TypeScanner(string scannerName)
@@ -49,13 +53,15 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/>
+        /// Create a new instance of <see cref="TypeScanner"/>.<br />
+        /// 创建一个新的 <see cref="TypeScanner"/> 实例。
         /// </summary>
         /// <param name="baseType"></param>
         protected TypeScanner(Type baseType) : this(string.Empty, baseType) { }
 
         /// <summary>
-        /// Create a new instance of <see cref="TypeScanner"/>
+        /// Create a new instance of <see cref="TypeScanner"/>.<br />
+        /// 创建一个新的 <see cref="TypeScanner"/> 实例。
         /// </summary>
         /// <param name="scannerName"></param>
         /// <param name="baseType"></param>
@@ -65,13 +71,14 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Base type 
+        /// Base type <br />
+        /// 被扫描的基础类型
         /// </summary>
         protected Type BaseType { get; }
 
         /// <summary>
-        /// Scan <br />
-        /// ɨ��
+        /// Scan.<br />
+        /// 执行扫描。
         /// </summary>
         /// <returns></returns>
         public virtual IEnumerable<Type> Scan()
@@ -105,29 +112,39 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get assemblies
+        /// Get assemblies.<br />
+        /// 获取程序集。
         /// </summary>
         /// <returns></returns>
         protected virtual Assembly[] GetAssemblies() => AppDomain.CurrentDomain.GetAssemblies();
 
         /// <summary>
-        /// Get skip assemblies' namespaces
+        /// Get skip assemblies' namespaces.<br />
+        /// 获取需跳过的命名空间清单，清单所列的命名空间内的类型将不会被合并入结果（并缓存）。
         /// </summary>
         /// <returns></returns>
         protected virtual string GetSkipAssembliesNamespaces() => DEFAULT_SKIP_ASSEMBLIES;
 
         /// <summary>
-        /// Get limited assemblies' namespaces 
+        /// Get limited assemblies' namespaces.<br />
+        /// 获取指定命名空间下的类型，未被指定的命名空间内的类型将不会被合并入结果（并缓存）。
         /// </summary>
         /// <returns></returns>
         protected virtual string GetLimitedAssembliesNamespaces() => string.Empty;
 
         /// <summary>
-        /// Type filter 
+        /// Type filter.<br />
+        /// 类型过滤器 
         /// </summary>
         /// <returns></returns>
         protected abstract Func<Type, bool> TypeFilter();
 
+        /// <summary>
+        /// 根据 <see cref="GetSkipAssembliesNamespaces"/> 和 <see cref="GetLimitedAssembliesNamespaces"/> 判别扫描所得的程序集是否符合用户期待。
+        /// 如何用户期待的程序集，其类型将进一步交由 <see cref="TypeFilter"/> 进行过滤。
+        /// </summary>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
         private bool NeedToIgnore(Assembly assembly)
         {
             var skipAssemblies = GetSkipAssembliesNamespaces();
@@ -141,7 +158,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Dispose
+        /// Dispose<br />
+        /// 释放。
         /// </summary>
         public void Dispose()
         {

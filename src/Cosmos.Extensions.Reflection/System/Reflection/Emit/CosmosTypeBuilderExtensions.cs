@@ -1,11 +1,9 @@
-using System;
-using System.Reflection;
-using System.Reflection.Emit;
-
-// ReSharper disable once CheckNamespace
-namespace Cosmos.Reflection
+﻿namespace System.Reflection.Emit
 {
-    public static partial class ReflectionExtensions
+    /// <summary>
+    /// Cosmos <see cref="TypeBuilder"/> extensions.
+    /// </summary>
+    public static class CosmosTypeBuilderExtensions
     {
         /// <summary>
         /// Property set and property get methods require a special set of attributes.
@@ -86,7 +84,7 @@ namespace Cosmos.Reflection
             if (fieldBuilder is null)
                 throw new ArgumentNullException(nameof(fieldBuilder));
 
-            var methodBuilder = typeBuilder.DefineMethod($"set_{name}", PROPERTY_GET_SET_METHOD_ATTRIBUTES, null, new Type[] {propertyType});
+            var methodBuilder = typeBuilder.DefineMethod($"set_{name}", PROPERTY_GET_SET_METHOD_ATTRIBUTES, null, new[] { propertyType });
             var il = methodBuilder.GetILGenerator();
 
             // Emit the IL for setting a field.
@@ -102,5 +100,6 @@ namespace Cosmos.Reflection
             // Return the method builder.
             return methodBuilder;
         }
+
     }
 }

@@ -1,14 +1,16 @@
 ﻿using System.Linq;
-using System.Reflection;
 using System.Text;
 
-// ReSharper disable once CheckNamespace
-namespace Cosmos.Reflection
+namespace System.Reflection
 {
-    public static partial class ReflectionExtensions
+    /// <summary>
+    /// Cosmos <see cref="MethodInfo"/> extensions.
+    /// </summary>
+    public static class CosmosMethodInfoExtensions
     {
         /// <summary>
-        /// Get full name of method including type name and method name
+        /// Get full name of method including type name and method name.<br />
+        /// 获取方法的全名，包括类型名和方法名
         /// </summary>
         /// <param name="method"></param>
         /// <returns></returns>
@@ -24,14 +26,15 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// To compute signature
+        /// Get unique fully qualified name for <see cref="MethodInfo"/>.<br />
+        /// 获取给定 <see cref="MethodInfo"/> 的完全限定名。
         /// </summary>
         /// <param name="method"></param>
         /// <returns></returns>
-        public static string ToComputeSignature(this MethodInfo method)
+        public static string GetFullyQualifiedName(this MethodInfo method)
         {
             var sb = new StringBuilder();
-            sb.Append(method.ReturnType.ToComputeSignature());
+            sb.Append(method.ReturnType.GetFullyQualifiedName());
             sb.Append(" ");
             sb.Append(method.Name);
             if (method.IsGenericMethod)
@@ -40,7 +43,7 @@ namespace Cosmos.Reflection
                 var genericTypes = method.GetGenericArguments().ToTypeInfo().ToList();
                 for (var i = 0; i < genericTypes.Count; i++)
                 {
-                    sb.Append(genericTypes[i].ToComputeSignature());
+                    sb.Append(genericTypes[i].GetFullyQualifiedName());
                     if (i != genericTypes.Count - 1)
                         sb.Append(", ");
                 }
@@ -52,7 +55,7 @@ namespace Cosmos.Reflection
             var parameters = method.GetParameters();
             for (var i = 0; i < parameters.Length; i++)
             {
-                sb.Append(parameters[i].ParameterType.ToComputeSignature());
+                sb.Append(parameters[i].ParameterType.GetFullyQualifiedName());
                 if (i != parameters.Length - 1)
                     sb.Append(", ");
             }

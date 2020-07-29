@@ -1,12 +1,15 @@
-using System;
+﻿using System;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Reflection
 {
-    public static partial class ReflectionExtensions
+    /// <summary>
+    /// Cosmos type instance extensions
+    /// </summary>
+    public static class CosmosTypeInstanceExtensions
     {
         /// <summary>
-        /// Create instance
+        /// Create an instance of the specified type.<br />
+        /// 创建指定类型的实例。
         /// </summary>
         /// <typeparam name="TTypeInstance"></typeparam>
         /// <param name="type"></param>

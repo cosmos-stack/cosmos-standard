@@ -1,3 +1,4 @@
+// ReSharper disable InconsistentNaming
 namespace Cosmos.Exceptions.BuildingDescriptors
 {
     /// <summary>
