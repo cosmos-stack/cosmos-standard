@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{CF634BA0-51EE-4B4A-AB50-5DA72FCD3B6B}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
-		NuGet.config = NuGet.config
 		common.props = common.props
 		.gitignore = .gitignore
 		common.tests.props = common.tests.props
@@ -19,9 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0F01E2EF-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{83D0F22B-1ED1-4B88-A18F-DF8CC6385E1F}"
 ProjectSection(SolutionItems) = preProject
-	build\Publish.bat = build\Publish.bat
-	build\PublishToAlexinea.bat = build\PublishToAlexinea.bat
-	build\PublishToMyGet.bat = build\PublishToMyGet.bat
+	build\PublishBetaVersion_Script.bat = build\PublishBetaVersion_Script.bat
+	build\PublishNightlyVersion_Script.bat = build\PublishNightlyVersion_Script.bat
+	build\PublishReleaseVersion_Script.bat = build\PublishReleaseVersion_Script.bat
 EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos", "src\Cosmos\Cosmos.csproj", "{8FE469B4-1086-4708-8CF4-5CCF6645EB20}"
@@ -81,7 +80,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{6B171B73
 ProjectSection(SolutionItems) = preProject
 	asset\props\misc.props = asset\props\misc.props
 	asset\props\package.props = asset\props\package.props
-	asset\props\version.props = asset\props\version.props
 EndProjectSection
 EndProject
 Global

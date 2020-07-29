@@ -1,16 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="Cosmos.Extensions.DateTime._shared.props" />
+
     <Import Project="..\..\common.props" />
-
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Extensions.DateTime</AssemblyName>
-        <PackageId>Cosmos.Extensions.DateTime</PackageId>
-        <Description>Cosmos Date/Time extension library</Description>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="NodaTime" Version="3.0.0" />
-    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />

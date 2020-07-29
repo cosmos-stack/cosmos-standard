@@ -4,12 +4,12 @@
         <name>Cosmos</name>
     </assembly>
     <members>
-        <member name="T:Cosmos.Collections.ArrayExtensions">
+        <member name="T:Cosmos.Collections.CosmosArrayExtensions">
             <summary>
-            Array extensions
+            Cosmos <see cref="T:System.Array"/> extensions
             </summary>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Clear(System.Array,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Clear(System.Array,System.Int32,System.Int32)">
             <summary>
             Clear
             </summary>
@@ -17,13 +17,13 @@
             <param name="index"></param>
             <param name="length"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.ClearAll(System.Array)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.ClearAll(System.Array)">
             <summary>
             Clear all
             </summary>
             <param name="array"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.FindAll``1(``0[],System.Predicate{``0})">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.FindAll``1(``0[],System.Predicate{``0})">
             <summary>
             Find all
             </summary>
@@ -32,7 +32,7 @@
             <param name="condition"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.IndexOf(System.Array,System.Object)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.IndexOf(System.Array,System.Object)">
             <summary>
             Index of
             </summary>
@@ -40,7 +40,7 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.IndexOf(System.Array,System.Object,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.IndexOf(System.Array,System.Object,System.Int32)">
             <summary>
             Index of
             </summary>
@@ -49,7 +49,7 @@
             <param name="startIndex"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.IndexOf(System.Array,System.Object,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.IndexOf(System.Array,System.Object,System.Int32,System.Int32)">
             <summary>
             Index of
             </summary>
@@ -59,7 +59,7 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.LastIndexOf(System.Array,System.Object)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.LastIndexOf(System.Array,System.Object)">
             <summary>
             Last index of
             </summary>
@@ -67,7 +67,7 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.LastIndexOf(System.Array,System.Object,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.LastIndexOf(System.Array,System.Object,System.Int32)">
             <summary>
             Last index of
             </summary>
@@ -76,7 +76,7 @@
             <param name="startIndex"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.LastIndexOf(System.Array,System.Object,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.LastIndexOf(System.Array,System.Object,System.Int32,System.Int32)">
             <summary>
             Last index of
             </summary>
@@ -86,7 +86,7 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.WithinIndex(System.Array,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.WithinIndex(System.Array,System.Int32)">
             <summary>
             Within index
             </summary>
@@ -94,7 +94,7 @@
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.WithinIndex(System.Array,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.WithinIndex(System.Array,System.Int32,System.Int32)">
             <summary>
             Within index
             </summary>
@@ -103,7 +103,7 @@
             <param name="dimension"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Copy(System.Array,System.Array,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Copy(System.Array,System.Array,System.Int32)">
             <summary>
             Copy
             </summary>
@@ -111,25 +111,7 @@
             <param name="destinationArray"></param>
             <param name="length"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Copy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
-            <summary>
-            Copy
-            </summary>
-            <param name="sourceArray"></param>
-            <param name="sourceIndex"></param>
-            <param name="destinationArray"></param>
-            <param name="destinationIndex"></param>
-            <param name="length"></param>
-        </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Copy(System.Array,System.Array,System.Int64)">
-            <summary>
-            Copy
-            </summary>
-            <param name="sourceArray"></param>
-            <param name="destinationArray"></param>
-            <param name="length"></param>
-        </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Copy(System.Array,System.Int64,System.Array,System.Int64,System.Int64)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Copy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
             <summary>
             Copy
             </summary>
@@ -139,7 +121,25 @@
             <param name="destinationIndex"></param>
             <param name="length"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.ConstrainedCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Copy(System.Array,System.Array,System.Int64)">
+            <summary>
+            Copy
+            </summary>
+            <param name="sourceArray"></param>
+            <param name="destinationArray"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Copy(System.Array,System.Int64,System.Array,System.Int64,System.Int64)">
+            <summary>
+            Copy
+            </summary>
+            <param name="sourceArray"></param>
+            <param name="sourceIndex"></param>
+            <param name="destinationArray"></param>
+            <param name="destinationIndex"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.ConstrainedCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
             <summary>
             Contained copy
             </summary>
@@ -149,7 +149,7 @@
             <param name="destinationIndex"></param>
             <param name="length"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.BlockCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.BlockCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)">
             <summary>
             Block copy
             </summary>
@@ -159,14 +159,14 @@
             <param name="dstOffset"></param>
             <param name="count"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.ByteLength(System.Array)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.ByteLength(System.Array)">
             <summary>
             Gets length of byte.
             </summary>
             <param name="array"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.GetByte(System.Array,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.GetByte(System.Array,System.Int32)">
             <summary>
             Gets byte
             </summary>
@@ -174,7 +174,7 @@
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.SetByte(System.Array,System.Int32,System.Byte)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.SetByte(System.Array,System.Int32,System.Byte)">
             <summary>
             Sets byte
             </summary>
@@ -182,20 +182,20 @@
             <param name="index"></param>
             <param name="value"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array)">
             <summary>
             Sort
             </summary>
             <param name="array"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array,System.Array)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array,System.Array)">
             <summary>
             Sort
             </summary>
             <param name="array"></param>
             <param name="items"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array,System.Int32,System.Int32)">
             <summary>
             Sort
             </summary>
@@ -203,7 +203,7 @@
             <param name="index"></param>
             <param name="length"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array,System.Array,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array,System.Array,System.Int32,System.Int32)">
             <summary>
             Sort
             </summary>
@@ -212,14 +212,14 @@
             <param name="index"></param>
             <param name="length"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array,System.Collections.IComparer)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array,System.Collections.IComparer)">
             <summary>
             Sort
             </summary>
             <param name="array"></param>
             <param name="comparer"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array,System.Array,System.Collections.IComparer)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array,System.Array,System.Collections.IComparer)">
             <summary>
             Sort
             </summary>
@@ -227,7 +227,7 @@
             <param name="items"></param>
             <param name="comparer"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array,System.Int32,System.Int32,System.Collections.IComparer)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array,System.Int32,System.Int32,System.Collections.IComparer)">
             <summary>
             Sort
             </summary>
@@ -236,7 +236,7 @@
             <param name="length"></param>
             <param name="comparer"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Sort(System.Array,System.Array,System.Int32,System.Int32,System.Collections.IComparer)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Sort(System.Array,System.Array,System.Int32,System.Int32,System.Collections.IComparer)">
             <summary>
             Sort
             </summary>
@@ -246,13 +246,13 @@
             <param name="length"></param>
             <param name="comparer"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Reverse(System.Array)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Reverse(System.Array)">
             <summary>
             Reverse
             </summary>
             <param name="array"></param>
         </member>
-        <member name="M:Cosmos.Collections.ArrayExtensions.Reverse(System.Array,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Collections.CosmosArrayExtensions.Reverse(System.Array,System.Int32,System.Int32)">
             <summary>
             Reverse
             </summary>
@@ -658,141 +658,56 @@
             Throw me.
             </summary>
         </member>
-        <member name="T:Cosmos.Date.DateTimeExtensions">
-            <summary>
-            DateTime Extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToDateTimeString(System.DateTime,System.Boolean)">
-            <summary>
-            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
-            </summary>
-            <param name="dateTime">日期</param>
-            <param name="isRemoveSecond">是否移除秒</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToDateTimeString(System.Nullable{System.DateTime},System.Boolean)">
-            <summary>
-            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
-            </summary>
-            <param name="dateTime">日期</param>
-            <param name="isRemoveSecond">是否移除秒</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToDateString(System.DateTime)">
-            <summary>
-            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
-            </summary>
-            <param name="dateTime">日期</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToDateString(System.Nullable{System.DateTime})">
-            <summary>
-            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
-            </summary>
-            <param name="dateTime">日期</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToTimeString(System.DateTime)">
-            <summary>
-            获取格式化字符串，不带年月日，格式："HH:mm:ss"
-            </summary>
-            <param name="dateTime">日期</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToTimeString(System.Nullable{System.DateTime})">
-            <summary>
-            获取格式化字符串，不带年月日，格式："HH:mm:ss"
-            </summary>
-            <param name="dateTime">日期</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToMillisecondString(System.DateTime)">
-            <summary>
-            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
-            </summary>
-            <param name="dateTime">日期</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToMillisecondString(System.Nullable{System.DateTime})">
-            <summary>
-            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
-            </summary>
-            <param name="dateTime">日期</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToDateTimeOffset(System.DateTime)">
-            <summary>
-            将时间转换为时间点
-            </summary>
-            <param name="localDateTime"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
-            <summary>
-            将时间转换为时间点
-            </summary>
-            <param name="localDateTime"></param>
-            <param name="localTimeZone"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToLocalDateTime(System.DateTimeOffset)">
-            <summary>
-            将时间点转换为时间
-            </summary>
-            <param name="dateTimeUtc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
-            <summary>
-            将时间点转换为时间
-            </summary>
-            <param name="dateTimeUtc"></param>
-            <param name="localTimeZone"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Date.TimeStamp">
+        <member name="T:Cosmos.Date.CosmosTimeStamp">
             <summary>
             Timestamp
             </summary>
         </member>
-        <member name="F:Cosmos.Date.TimeStamp.m_timestamp">
+        <member name="F:Cosmos.Date.CosmosTimeStamp.m_timestamp">
             <summary>
             Timestamp
             </summary>
         </member>
-        <member name="F:Cosmos.Date.TimeStamp.m_datetime">
+        <member name="F:Cosmos.Date.CosmosTimeStamp.m_datetime">
             <summary>
             Datetime
             </summary>
         </member>
-        <member name="M:Cosmos.Date.TimeStamp.#ctor">
+        <member name="M:Cosmos.Date.CosmosTimeStamp.#ctor">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.Date.TimeStamp"/>
+            Create a new instance of <see cref="T:Cosmos.Date.CosmosTimeStamp"/>
             </summary>
         </member>
-        <member name="M:Cosmos.Date.TimeStamp.#ctor(System.Int64)">
+        <member name="M:Cosmos.Date.CosmosTimeStamp.#ctor(System.Int64)">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.Date.TimeStamp"/>
+            Create a new instance of <see cref="T:Cosmos.Date.CosmosTimeStamp"/>
             </summary>
             <param name="timestamp"></param>
         </member>
-        <member name="M:Cosmos.Date.TimeStamp.#ctor(System.DateTime)">
+        <member name="M:Cosmos.Date.CosmosTimeStamp.#ctor(System.DateTime)">
             <summary>
-            Create a new instance of <see cref="T:Cosmos.Date.TimeStamp"/>
+            Create a new instance of <see cref="T:Cosmos.Date.CosmosTimeStamp"/>
             </summary>
             <param name="dt"></param>
         </member>
-        <member name="M:Cosmos.Date.TimeStamp.ToDateTime">
+        <member name="M:Cosmos.Date.CosmosTimeStamp.ToDateTime">
             <summary>
             Get the corresponding time based on the timestamp.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.TimeStamp.ToTimestamp">
+        <member name="M:Cosmos.Date.CosmosTimeStamp.ToTimestamp">
             <summary>
             Get timestamp
             </summary>
             <returns></returns>
         </member>
-        <member name="F:Cosmos.Date.TimeStamp.NowTimeStamp">
+        <member name="F:Cosmos.Date.CosmosTimeStamp.NowTimeStamp">
             <summary>
             Gets a Func for now
             </summary>
         </member>
-        <member name="F:Cosmos.Date.TimeStamp.UtcNowTimeStamp">
+        <member name="F:Cosmos.Date.CosmosTimeStamp.UtcNowTimeStamp">
             <summary>
             Gets a Func for utc_now
             </summary>
@@ -914,6 +829,54 @@
             <param name="comparer"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Exceptions.CosmosExceptionExtensions">
+            <summary>
+            Cosmos <see cref="T:System.Exception"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.CosmosExceptionExtensions.Unwrap(System.Exception)">
+            <summary>
+            Unwrap<br />
+            解包
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.CosmosExceptionExtensions.Unwrap(System.Exception,System.Type,System.Boolean)">
+            <summary>
+            Unwrap<br />
+            解包
+            </summary>
+            <param name="ex"></param>
+            <param name="untilType"></param>
+            <param name="mayDerivedClass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.CosmosExceptionExtensions.Unwrap``1(System.Exception)">
+            <summary>
+            Unwrap<br />
+            解包
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.CosmosExceptionExtensions.ToUnwrappedString(System.Exception)">
+            <summary>
+            Unwrap and gets message<br />
+            解包并返回消息
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.CosmosExceptionExtensions.ToFullUnwrappedString(System.Exception)">
+            <summary>
+            Unwrap and gets full message<br />
+            解包，尝试返回完整信息
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Exceptions.CosmosExceptionOptions">
             <summary>
             Options for cosmos exception
@@ -959,73 +922,12 @@
             Gets or sets extra errors
             </summary>
         </member>
-        <member name="T:Cosmos.Exceptions.ExceptionHelper">
+        <member name="T:Cosmos.Exceptions.CosmosTryExtensions">
             <summary>
-            Exception helper
+            Cosmos Try extensions.
             </summary>
         </member>
-        <member name="M:Cosmos.Exceptions.ExceptionHelper.PrepareForRethrow(System.Exception)">
-            <summary>
-            Prepare for rethrow
-            </summary>
-            <param name="exception"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Exceptions.ExceptionExtensions">
-            <summary>
-            Exception extensions<br />
-            异常扩展
-            </summary>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionExtensions.Unwrap(System.Exception)">
-            <summary>
-            Unwrap<br />
-            解包
-            </summary>
-            <param name="ex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionExtensions.Unwrap(System.Exception,System.Type,System.Boolean)">
-            <summary>
-            Unwrap<br />
-            解包
-            </summary>
-            <param name="ex"></param>
-            <param name="untilType"></param>
-            <param name="mayDerivedClass"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionExtensions.Unwrap``1(System.Exception)">
-            <summary>
-            Unwrap<br />
-            解包
-            </summary>
-            <typeparam name="TException"></typeparam>
-            <param name="ex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionExtensions.ToUnwrappedString(System.Exception)">
-            <summary>
-            Unwrap and gets message<br />
-            解包并返回消息
-            </summary>
-            <param name="ex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionExtensions.ToFullUnwrappedString(System.Exception)">
-            <summary>
-            Unwrap and gets full message<br />
-            解包，尝试返回完整信息
-            </summary>
-            <param name="ex"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Exceptions.TryExtensions">
-            <summary>
-            Extensions for Try
-            </summary>
-        </member>
-        <member name="M:Cosmos.Exceptions.TryExtensions.Select``2(Cosmos.Exceptions.Try{``0},System.Func{``0,``1})">
+        <member name="M:Cosmos.Exceptions.CosmosTryExtensions.Select``2(Cosmos.Exceptions.Try{``0},System.Func{``0,``1})">
             <summary>
             Select
             </summary>
@@ -1035,7 +937,7 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryExtensions.SelectMany``2(Cosmos.Exceptions.Try{``0},System.Func{``0,Cosmos.Exceptions.Try{``1}})">
+        <member name="M:Cosmos.Exceptions.CosmosTryExtensions.SelectMany``2(Cosmos.Exceptions.Try{``0},System.Func{``0,Cosmos.Exceptions.Try{``1}})">
             <summary>
             Select many
             </summary>
@@ -1045,7 +947,7 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryExtensions.SelectMany``3(Cosmos.Exceptions.Try{``0},System.Func{``0,Cosmos.Exceptions.Try{``1}},System.Func{``0,``1,``2})">
+        <member name="M:Cosmos.Exceptions.CosmosTryExtensions.SelectMany``3(Cosmos.Exceptions.Try{``0},System.Func{``0,Cosmos.Exceptions.Try{``1}},System.Func{``0,``1,``2})">
             <summary>
             Select many
             </summary>
@@ -1057,13 +959,25 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryExtensions.Where``1(Cosmos.Exceptions.Try{``0},System.Func{``0,System.Boolean})">
+        <member name="M:Cosmos.Exceptions.CosmosTryExtensions.Where``1(Cosmos.Exceptions.Try{``0},System.Func{``0,System.Boolean})">
             <summary>
             Where
             </summary>
             <param name="source"></param>
             <param name="predicate"></param>
             <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Exceptions.ExceptionHelper">
+            <summary>
+            Exception helper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionHelper.PrepareForRethrow(System.Exception)">
+            <summary>
+            Prepare for rethrow
+            </summary>
+            <param name="exception"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Exceptions.Try">
@@ -1430,225 +1344,12 @@
         <member name="M:Cosmos.Exceptions.Success`1.Tap(System.Action{`0},System.Action{System.Exception})">
             <inheritdoc />
         </member>
-        <member name="T:Cosmos.Expressions.LambdaExtensions">
+        <member name="T:Cosmos.Expressions.CosmosExpressionExtensions">
             <summary>
-            Lambda extensions
+            public <see cref="T:System.Linq.Expressions.Expression"/> extensions.
             </summary>
         </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Property(System.Linq.Expressions.Expression,System.String)">
-            <summary>
-            创建属性表达式
-            </summary>
-            <param name="expression">表达式</param>
-            <param name="propertyName">属性名,支持多级属性名，与句点分隔，范例：Customer.Name</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Property(System.Linq.Expressions.Expression,System.Reflection.MemberInfo)">
-            <summary>
-            创建属性表达式
-            </summary>
-            <param name="expression">表达式</param>
-            <param name="member">属性</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.And(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            与操作表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
-            <summary>
-            与操作表达式
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Or(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            或操作表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
-            <summary>
-            或操作表达式
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Value``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
-            <summary>
-            获取lambda表达式的值
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Equal(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Equal(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            创建等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.NotEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建不等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.NotEqual(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            创建不等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Greater(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建大于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Greater(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            创建大于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.GreaterEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建大于等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.GreaterEqual(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            创建大于等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Less(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建小于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Less(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            创建小于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.LessEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
-            <summary>
-            创建小于等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="right">右操作数</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.LessEqual(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            创建小于等于运算表达式
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.StartsWith(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            头匹配
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.EndsWith(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            尾匹配
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Contains(System.Linq.Expressions.Expression,System.Object)">
-            <summary>
-            模糊匹配
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Operation(System.Linq.Expressions.Expression,Cosmos.Queries.Operator,System.Object)">
-            <summary>
-            操作
-            </summary>
-            <param name="left">左操作数</param>
-            <param name="operator">运算符</param>
-            <param name="value">值</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Linq.Expressions.Expression[])">
-            <summary>
-            创建调用方法表达式
-            </summary>
-            <param name="instance">调用的实例</param>
-            <param name="methodName">方法名</param>
-            <param name="values">参数值列表</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Object[])">
-            <summary>
-            创建调用方法表达式
-            </summary>
-            <param name="instance">调用的实例</param>
-            <param name="methodName">方法名</param>
-            <param name="values">参数值列表</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Type[],System.Object[])">
-            <summary>
-            创建调用方法表达式
-            </summary>
-            <param name="instance">调用的实例</param>
-            <param name="methodName">方法名</param>
-            <param name="paramTypes">参数类型列表</param>
-            <param name="values">参数值列表</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
-            <summary>
-            组合表达式
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="first">左操作数</param>
-            <param name="second">右操作数</param>
-            <param name="merge">合并操作</param>
-        </member>
-        <member name="M:Cosmos.Expressions.LambdaExtensions.ToLambda``1(System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression[])">
-            <summary>
-            创建Lambda表达式
-            </summary>
-            <typeparam name="TDelegate">委托类型</typeparam>
-            <param name="body">表达式</param>
-            <param name="parameters">参数列表</param>
-        </member>
-        <member name="T:Cosmos.Expressions.ExpressionExtensions">
-            <summary>
-            Expression extensions
-            </summary>
-            <summary>
-            Expression extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.GetPropertyInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Get PropertyInfo
             </summary>
@@ -1659,7 +1360,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.ArgumentException"></exception>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfo``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.GetPropertyInfo``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Get PropertyInfo
             </summary>
@@ -1669,7 +1370,7 @@
             <typeparam name="TProperty"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfos``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.GetPropertyInfos``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
             <summary>
             Get PropertyInfos
             </summary>
@@ -1678,7 +1379,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfos``1(``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.GetPropertyInfos``1(``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
             <summary>
             Get PropertyInfos
             </summary>
@@ -1688,7 +1389,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.GetPropertyInfos``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.GetPropertyInfos``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
             <summary>
             Get PropertyInfos
             </summary>
@@ -1696,14 +1397,14 @@
             <typeparam name="TSource"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo)">
             <summary>
             Create get property expression
             </summary>
             <param name="propertyInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
             <summary>
             Create get property expression
             </summary>
@@ -1713,7 +1414,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo)">
             <summary>
             Create get property lambda expression
             </summary>
@@ -1722,7 +1423,7 @@
             <typeparam name="TProperty"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
+        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
             <summary>
             Create get property lambda expression
             </summary>
@@ -1732,6 +1433,216 @@
             <typeparam name="TProperty"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Cosmos.Expressions.CosmosLambdaExtensions">
+            <summary>
+            Lambda extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Property(System.Linq.Expressions.Expression,System.String)">
+            <summary>
+            创建属性表达式
+            </summary>
+            <param name="expression">表达式</param>
+            <param name="propertyName">属性名,支持多级属性名，与句点分隔，范例：Customer.Name</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Property(System.Linq.Expressions.Expression,System.Reflection.MemberInfo)">
+            <summary>
+            创建属性表达式
+            </summary>
+            <param name="expression">表达式</param>
+            <param name="member">属性</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.And(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            与操作表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            与操作表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Or(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            或操作表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            或操作表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Value``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            获取lambda表达式的值
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Equal(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Equal(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.NotEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建不等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.NotEqual(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建不等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Greater(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建大于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Greater(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建大于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.GreaterEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建大于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.GreaterEqual(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建大于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Less(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建小于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Less(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建小于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.LessEqual(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <summary>
+            创建小于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="right">右操作数</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.LessEqual(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            创建小于等于运算表达式
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.StartsWith(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            头匹配
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.EndsWith(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            尾匹配
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Contains(System.Linq.Expressions.Expression,System.Object)">
+            <summary>
+            模糊匹配
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Operation(System.Linq.Expressions.Expression,Cosmos.Queries.Operator,System.Object)">
+            <summary>
+            操作
+            </summary>
+            <param name="left">左操作数</param>
+            <param name="operator">运算符</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Linq.Expressions.Expression[])">
+            <summary>
+            创建调用方法表达式
+            </summary>
+            <param name="instance">调用的实例</param>
+            <param name="methodName">方法名</param>
+            <param name="values">参数值列表</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Object[])">
+            <summary>
+            创建调用方法表达式
+            </summary>
+            <param name="instance">调用的实例</param>
+            <param name="methodName">方法名</param>
+            <param name="values">参数值列表</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Call(System.Linq.Expressions.Expression,System.String,System.Type[],System.Object[])">
+            <summary>
+            创建调用方法表达式
+            </summary>
+            <param name="instance">调用的实例</param>
+            <param name="methodName">方法名</param>
+            <param name="paramTypes">参数类型列表</param>
+            <param name="values">参数值列表</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            组合表达式
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="first">左操作数</param>
+            <param name="second">右操作数</param>
+            <param name="merge">合并操作</param>
+        </member>
+        <member name="M:Cosmos.Expressions.CosmosLambdaExtensions.ToLambda``1(System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression[])">
+            <summary>
+            创建Lambda表达式
+            </summary>
+            <typeparam name="TDelegate">委托类型</typeparam>
+            <param name="body">表达式</param>
+            <param name="parameters">参数列表</param>
         </member>
         <member name="T:Cosmos.Expressions.Lambdas">
             <summary>
@@ -2769,12 +2680,27 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.IO.StreamExtensions">
+        <member name="T:Cosmos.IO.Buffers.BinaryDigitReader">
             <summary>
-            Extensions for stream
+            Bit Reader
             </summary>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TrySeek(System.IO.Stream,System.Int64,System.IO.SeekOrigin)">
+        <member name="T:Cosmos.IO.Buffers.BinaryDigitSwapper">
+            <summary>
+            Bit Swapper
+            </summary>
+        </member>
+        <member name="T:Cosmos.IO.Buffers.BinaryDigitWriter">
+            <summary>
+            Bit Writer
+            </summary>
+        </member>
+        <member name="T:Cosmos.IO.CosmosStreamExtensions">
+            <summary>
+            Cosmos <see cref="T:System.IO.Stream"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySeek(System.IO.Stream,System.Int64,System.IO.SeekOrigin)">
             <summary>
             Try seek
             </summary>
@@ -2783,14 +2709,14 @@
             <param name="origin"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.ReadAllBytes(System.IO.Stream)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.ReadAllBytes(System.IO.Stream)">
             <summary>
             Read all bytes
             </summary>
             <param name="stream"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TryRead(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryRead(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
             <summary>
             Try read
             </summary>
@@ -2800,7 +2726,7 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TryReadAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryReadAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Try read async
             </summary>
@@ -2811,14 +2737,14 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TryReadByte(System.IO.Stream)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryReadByte(System.IO.Stream)">
             <summary>
             Try read byte
             </summary>
             <param name="stream"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TrySetReadTimeout(System.IO.Stream,System.Int32)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetReadTimeout(System.IO.Stream,System.Int32)">
             <summary>
             Try set read timeout
             </summary>
@@ -2826,7 +2752,7 @@
             <param name="milliseconds"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TrySetReadTimeout(System.IO.Stream,System.TimeSpan)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetReadTimeout(System.IO.Stream,System.TimeSpan)">
             <summary>
             Try set read timeout
             </summary>
@@ -2834,7 +2760,7 @@
             <param name="timeout"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TryWrite(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryWrite(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
             <summary>
             Try write
             </summary>
@@ -2844,7 +2770,7 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TryWriteAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryWriteAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Try write async
             </summary>
@@ -2855,7 +2781,7 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TryWriteByte(System.IO.Stream,System.Byte)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryWriteByte(System.IO.Stream,System.Byte)">
             <summary>
             Try write byte
             </summary>
@@ -2863,7 +2789,7 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.Int32)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.Int32)">
             <summary>
             Try set write timeout
             </summary>
@@ -2871,7 +2797,7 @@
             <param name="milliseconds"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.StreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.TimeSpan)">
+        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.TimeSpan)">
             <summary>
             Try set write timeout
             </summary>
@@ -3244,90 +3170,87 @@
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Numeric.NumericExtensions">
-            <summary>
-            Extensions for numeric
-            </summary>
+        <member name="T:Cosmos.Numeric.CosmosNumericExtensions">
             <summary>
             Extensions for numeric
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsNaN(System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsNaN(System.Double)">
             <summary>
             Is NaN
             </summary>
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsNaN(System.Single)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsNaN(System.Single)">
             <summary>
             Is NaN
             </summary>
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsDefault(System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsDefault(System.Double)">
             <summary>
             Is default
             </summary>
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.ToDecimal(System.Single)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.ToDecimal(System.Single)">
             <summary>
             Accurate way to convert float to decimal by converting to string first.  Avoids tolerance issues.<br />
             通过先转换为字符串将浮点数转换为小数的准确方法。 避免公差问题。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.ToDouble(System.Single,System.Int32)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.ToDouble(System.Single,System.Int32)">
             <summary>
             Accurate way to convert float to double by rounding finite values to a decimal point tolerance level.<br />
             通过将有限值四舍五入到小数点公差级别来将 float 转换为 double 的准确方法。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.ToDouble(System.Single)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.ToDouble(System.Single)">
             <summary>
             Accurate way to convert float to double by converting to string first.  Avoids tolerance issues.<br />
             通过首先转换为字符串将 float 转换为 double 的准确方法。 避免公差问题。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.ToDouble(System.Nullable{System.Single})">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.ToDouble(System.Nullable{System.Single})">
             <summary>
             Accurate way to convert possible float to double by converting to string first.  Avoids tolerance issues.<br />
             通过首先转换为字符串来将可能的 float 转换为 double 的准确方法。 避免公差问题。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.ToDouble(System.Nullable{System.Single},System.Int32)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.ToDouble(System.Nullable{System.Single},System.Int32)">
             <summary>
             Accurate way to convert a possible float to double by rounding finite values to a decimal point tolerance level.<br />
             通过将有限值四舍五入到小数点公差级别，将可能的浮点数转换为双精度值的准确方法。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.FixZero(System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.FixZero(System.Double)">
             <summary>
             Shortcut for returning true zero if a double tolerance floating point value is considered zero (within epsilon tolerance).<br />
             如果将双公差浮点值视为零（在ε公差内），则返回真零的快捷方式。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.DecimalPlaces(System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.DecimalPlaces(System.Double)">
             <summary>
             Returns the number of decimal places before last zero digit.<br />
             返回最后零位之前的小数位数。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.SumAccurate(System.Double,System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.SumAccurate(System.Double,System.Double)">
             <summary>
             Ensures addition tolerance by trimming off unexpected imprecision.<br />
             通过消除意外的不准确性来确保附加公差。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.ProductAccurate(System.Double,System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.ProductAccurate(System.Double,System.Double)">
             <summary>
             Ensures addition tolerance by trimming off unexpected imprecision.<br />
             通过消除意外的不准确性来确保附加公差。
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.SumUsingIntegers(System.Double,System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.SumUsingIntegers(System.Double,System.Double)">
             <summary>
             Ensures addition tolerance by using integer math.<br />
             通过使用整数数学来确保加法公差。
@@ -3336,62 +3259,62 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsZero(System.Single)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsZero(System.Single)">
             <summary>
             Shortcut for validating a if a floating point value is considered zero (within epsilon tolerance).
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsZero(System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsZero(System.Double)">
             <summary>
             Shortcut for validating a if a double tolerance floating point value is considered zero (within epsilon tolerance).
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsNearZero(System.Double,System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsNearZero(System.Double,System.Double)">
             <summary>
             Shortcut for validating a if a double tolerance floating point value is considered zero (within provided tolerance).
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsNearEqual(System.Single,System.Single,System.Single)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsNearEqual(System.Single,System.Single,System.Single)">
             <summary>
             Shortcut for validating a if a floating point value is close enough to another addValue using the given tolerance tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsNearEqual(System.Double,System.Double,System.Double)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsNearEqual(System.Double,System.Double,System.Double)">
             <summary>
             Shortcut for validating a if a double precision floating point value is close enough to another addValue using the given tolerance tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsNearEqual(System.Decimal,System.Decimal,System.Decimal)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsNearEqual(System.Decimal,System.Decimal,System.Decimal)">
             <summary>
             Shortcut for validating a if a decimal addValue is close enough to another addValue using the given tolerance tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsRelativeNearEqual(System.Double,System.Double,System.UInt32)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsRelativeNearEqual(System.Double,System.Double,System.UInt32)">
             <summary>
             Shortcut for validating a if a decimal addValue is close enough to another addValue using the given tolerance tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsPreciseEqual(System.Double,System.Double,System.Boolean)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsPreciseEqual(System.Double,System.Double,System.Boolean)">
             <summary>
             Validates if values are equal within epsilon tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsPreciseEqual(System.Single,System.Single,System.Boolean)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsPreciseEqual(System.Single,System.Single,System.Boolean)">
             <summary>
             Validates if values are equal within epsilon tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsPreciseEqual(System.Nullable{System.Double},System.Nullable{System.Double},System.Boolean)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsPreciseEqual(System.Nullable{System.Double},System.Nullable{System.Double},System.Boolean)">
             <summary>
             Validates if values are equal within epsilon tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsPreciseEqual(System.Nullable{System.Single},System.Nullable{System.Single},System.Boolean)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsPreciseEqual(System.Nullable{System.Single},System.Nullable{System.Single},System.Boolean)">
             <summary>
             Validates if values are equal within epsilon tolerance.
             </summary>
         </member>
-        <member name="M:Cosmos.Numeric.NumericExtensions.IsNearEqual(System.IComparable,System.IComparable,System.IComparable)">
+        <member name="M:Cosmos.Numeric.CosmosNumericExtensions.IsNearEqual(System.IComparable,System.IComparable,System.IComparable)">
             <summary>
             Shortcut for validating a if a potential floating pointvalue is close enough to another addValue using the given tolerance tolerance.
             </summary>
@@ -4157,12 +4080,12 @@
             Get a singleton of the specified type T
             </summary>
         </member>
-        <member name="T:Cosmos.Text.RegexExtensions">
+        <member name="T:Cosmos.Text.CosmosRegexExtensions">
             <summary>
-            Regex extensons
+            Cosmos <see cref="T:System.Text.RegularExpressions.Regex"/> extensions.
             </summary>
         </member>
-        <member name="M:Cosmos.Text.RegexExtensions.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
+        <member name="M:Cosmos.Text.CosmosRegexExtensions.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
             <summary>
             Get group value
             </summary>
@@ -4172,350 +4095,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="T:Cosmos.Text.StringBuilderExtensions">
-            <summary>
-            StringBuilder extensions
-            </summary>
-            <summary>
-            StringBuilder extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.AppendAll``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},System.String)">
-            <summary>
-            Shortcut for adding an array of values to a StringBuilder.
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.AppendAll``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},System.Char@)">
-            <summary>
-            Shortcut for adding an array of values to a StringBuilder.
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.AppendWithSeparator``1(System.Text.StringBuilder,System.String,``0[])">
-            <summary>
-            Appends values to StringBuilder prefixing the provided separator.
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.AppendWithSeparator``1(System.Text.StringBuilder,System.Char@,``0[])">
-            <summary>
-            Appends values to StringBuilder prefixing the provided separator.
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.AppendWithSeparator``1(System.Text.StringBuilder,System.Collections.Generic.IDictionary{System.String,``0},System.String,System.String,System.String)">
-            <summary>
-            Appends a key/value pair to StringBuilder using the provided separators.
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.Reverse(System.Text.StringBuilder)">
-            <summary>
-            Reverse
-            </summary>
-            <param name="builder"></param>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToReverseBuilder(System.Text.StringBuilder)">
-            <summary>
-            Reverse <see cref="T:System.Text.StringBuilder"/>
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToReverseString(System.Text.StringBuilder)">
-            <summary>
-            Reverse string
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToCharArray(System.Text.StringBuilder)">
-            <summary>
-            To char array
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToStringBuilder``1(System.ReadOnlySpan{``0}@)">
-            <summary>
-            To StringBuilder
-            </summary>
-            <param name="source"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToStringBuilder``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To StringBuilder
-            </summary>
-            <param name="source"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToStringBuilder``1(System.ReadOnlySpan{``0}@,System.String@)">
-            <summary>
-            To StringBuilder
-            </summary>
-            <param name="source"></param>
-            <param name="separator"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToStringBuilder``1(System.ReadOnlySpan{``0}@,System.Char@)">
-            <summary>
-            To StringBuilder
-            </summary>
-            <param name="source"></param>
-            <param name="separator"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToStringBuilder``1(System.Collections.Generic.IEnumerable{``0},System.String@)">
-            <summary>
-            To StringBuilder
-            </summary>
-            <param name="source"></param>
-            <param name="separator"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringBuilderExtensions.ToStringBuilder``1(System.Collections.Generic.IEnumerable{``0},System.Char@)">
-            <summary>
-            To StringBuilder
-            </summary>
-            <param name="source"></param>
-            <param name="separator"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Text.StringExtensions">
-            <summary>
-            String extensions
-            </summary>
-            <summary>
-            String extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToBytes(System.String,System.Text.Encoding)">
-            <summary>
-            Convert string to byte array
-            </summary>
-            <param name="value"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToUtf8Bytes(System.String)">
-            <summary>
-            Convert string to byte array by utf8
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToUtf7Bytes(System.String)">
-            <summary>
-            Convert string to byte array by utf7
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToUtf32Bytes(System.String)">
-            <summary>
-            Convert string to byte array by utf32
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToASCIIBytes(System.String)">
-            <summary>
-            Convert string to byte array by ASCII
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToBigEndianUnicodeBytes(System.String)">
-            <summary>
-            Convert string to byte array by BigEndian Unicode
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToDefaultBytes(System.String)">
-            <summary>
-            Convert string to byte array by default
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToUnicodeBytes(System.String)">
-            <summary>
-            Convert string to byte array by unicode
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.IsUpper(System.String)">
-            <summary>
-            Is upper
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.IsLower(System.String)">
-            <summary>
-            Is lower
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToCapitalCase(System.String)">
-            <summary>
-            To capital case
-            </summary>
-            <param name="original"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.AllCapitals(System.String)">
-            <summary>
-            To all capitals
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToCamelCase(System.String)">
-            <summary>
-            To camel case
-            </summary>
-            <param name="original"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.Contains(System.String,System.String,System.String[])">
-            <summary>
-            Contains
-            </summary>
-            <param name="text"></param>
-            <param name="value"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.Contains(System.String,System.Char)">
-            <summary>
-            Contains
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.Contains(System.String,System.Char,System.Char[])">
-            <summary>
-            Contains
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <param name="characters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.CountLines(System.String)">
-            <summary>
-            Count lines
-            </summary>
-            <param name="s"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.CountOccurrences(System.String,System.Char)">
-            <summary>
-            Count Occurrences
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.CountOccurrences(System.String,System.String)">
-            <summary>
-            Count Occurrences
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.IsNullOrEmpty(System.String)">
-            <summary>
-            检查字符串是 null 还是 System.String.Empty 字符串
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.IsNotNullNorEmpty(System.String)">
-            <summary>
-            检查字符串不是 null 或 System.String.Empty 字符串
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.IsNullOrWhiteSpace(System.String)">
-            <summary>
-            检查字符串是 null、空还是仅由空白字符组成
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.IsNotNullNorWhiteSpace(System.String)">
-            <summary>
-            检查字符串不是 null、空或由空白字符串组成
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.EnumerateLines(System.String)">
-            <summary>
-            Enumerate lines
-            </summary>
-            <param name="s"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ToValidIdentifier(System.String)">
-            <summary>
-            To valid identifier
-            </summary>
-            <param name="original"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.AvoidNull(System.String)">
-            <summary>
-            Avoid null
-            </summary>
-            <param name="original"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.Repeat(System.String,System.Int32)">
-            <summary>
-            Repeat
-            </summary>
-            <param name="text"></param>
-            <param name="times"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.ExtractAround(System.String,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Extract around
-            </summary>
-            <param name="text"></param>
-            <param name="index"></param>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.OnlyLettersNumbers(System.String)">
-            <summary>
-            Only letters numbers
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.FilterChars(System.String,System.Predicate{System.Char})">
-            <summary>
-            Filter chars
-            </summary>
-            <param name="text"></param>
-            <param name="onlyThese"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.SafeGroupValue(System.Text.RegularExpressions.Match,System.String)">
+        <member name="M:Cosmos.Text.CosmosRegexExtensions.SafeGroupValue(System.Text.RegularExpressions.Match,System.String)">
             <summary>
             To safe group value
             </summary>
@@ -4523,7 +4103,185 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.DiffCharsCount(System.String,System.String)">
+        <member name="T:Cosmos.Text.CosmosStringBuilderExtensions">
+            <summary>
+            Cosmos <see cref="T:System.Text.StringBuilder"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.AppendAll``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Shortcut for adding an array of values to a StringBuilder.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.AppendAll``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},System.Char@)">
+            <summary>
+            Shortcut for adding an array of values to a StringBuilder.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.AppendWithSeparator``1(System.Text.StringBuilder,System.String,``0[])">
+            <summary>
+            Appends values to StringBuilder prefixing the provided separator.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.AppendWithSeparator``1(System.Text.StringBuilder,System.Char@,``0[])">
+            <summary>
+            Appends values to StringBuilder prefixing the provided separator.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.AppendWithSeparator``1(System.Text.StringBuilder,System.Collections.Generic.IDictionary{System.String,``0},System.String,System.String,System.String)">
+            <summary>
+            Appends a key/value pair to StringBuilder using the provided separators.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.Reverse(System.Text.StringBuilder)">
+            <summary>
+            Reverse
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToReverseBuilder(System.Text.StringBuilder)">
+            <summary>
+            Reverse <see cref="T:System.Text.StringBuilder"/>
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToReverseString(System.Text.StringBuilder)">
+            <summary>
+            Reverse string
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToCharArray(System.Text.StringBuilder)">
+            <summary>
+            To char array
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToStringBuilder``1(System.ReadOnlySpan{``0}@)">
+            <summary>
+            To StringBuilder
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToStringBuilder``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To StringBuilder
+            </summary>
+            <param name="source"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToStringBuilder``1(System.ReadOnlySpan{``0}@,System.String@)">
+            <summary>
+            To StringBuilder
+            </summary>
+            <param name="source"></param>
+            <param name="separator"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToStringBuilder``1(System.ReadOnlySpan{``0}@,System.Char@)">
+            <summary>
+            To StringBuilder
+            </summary>
+            <param name="source"></param>
+            <param name="separator"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToStringBuilder``1(System.Collections.Generic.IEnumerable{``0},System.String@)">
+            <summary>
+            To StringBuilder
+            </summary>
+            <param name="source"></param>
+            <param name="separator"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringBuilderExtensions.ToStringBuilder``1(System.Collections.Generic.IEnumerable{``0},System.Char@)">
+            <summary>
+            To StringBuilder
+            </summary>
+            <param name="source"></param>
+            <param name="separator"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Text.CosmosStringExtensions">
+            <summary>
+            Cosmos <see cref="T:System.String"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.AvoidNull(System.String)">
+            <summary>
+            Avoid null
+            </summary>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to byte array
+            </summary>
+            <param name="value"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToUtf8Bytes(System.String)">
+            <summary>
+            Convert string to byte array by utf8
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToUtf7Bytes(System.String)">
+            <summary>
+            Convert string to byte array by utf7
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToUtf32Bytes(System.String)">
+            <summary>
+            Convert string to byte array by utf32
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToASCIIBytes(System.String)">
+            <summary>
+            Convert string to byte array by ASCII
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToBigEndianUnicodeBytes(System.String)">
+            <summary>
+            Convert string to byte array by BigEndian Unicode
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToDefaultBytes(System.String)">
+            <summary>
+            Convert string to byte array by default
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToUnicodeBytes(System.String)">
+            <summary>
+            Convert string to byte array by unicode
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.DiffCharsCount(System.String,System.String)">
             <summary>
             Diff chars' count
             </summary>
@@ -4531,7 +4289,7 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.DiffCharsCountIgnoreCase(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.DiffCharsCountIgnoreCase(System.String,System.String)">
             <summary>
             Diff chars' count ignore case
             </summary>
@@ -4539,7 +4297,7 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.DiffOnlyOneChar(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.DiffOnlyOneChar(System.String,System.String)">
             <summary>
             Diff only one char
             </summary>
@@ -4547,14 +4305,14 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.OnlyDigits(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.OnlyDigits(System.String)">
             <summary>
             Only Digits
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.OnlyDigits(System.String,System.Collections.Generic.IEnumerable{System.Char})">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.OnlyDigits(System.String,System.Collections.Generic.IEnumerable{System.Char})">
             <summary>
             Only Digits
             </summary>
@@ -4562,42 +4320,42 @@
             <param name="exceptions"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.TotalDigits(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.TotalDigits(System.String)">
             <summary>
             Total digits
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.ContainsOnlyDigits(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ContainsOnlyDigits(System.String)">
             <summary>
             Contains only digits
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.NotContainsDigits(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.NotContainsDigits(System.String)">
             <summary>
             Not Contains Digits
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.ContainsDigit(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ContainsDigit(System.String)">
             <summary>
             Contains digit
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.IncludeDigits(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IncludeDigits(System.String)">
             <summary>
             Include digits
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.IncludeDigits(System.String,System.Int32)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IncludeDigits(System.String,System.Int32)">
             <summary>
             Include digits
             </summary>
@@ -4605,49 +4363,7 @@
             <param name="minCount"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.EndsWith(System.String,System.String[])">
-            <summary>
-            确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="string"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.EndsWith(System.String,System.Collections.Generic.ICollection{System.String})">
-            <summary>
-            确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="string"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.EndsWithIgnoreCase(System.String,System.String)">
-            <summary>
-            Ends with ignore case
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.EndsWithAnyIgnoreCase(System.String,System.String[])">
-            <summary>
-            Ends with any ignore case
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.EndsWithAnyIgnoreCase(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Ends with any ignore case
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.EqualsIgnoreCase(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.EqualsIgnoreCase(System.String,System.String)">
             <summary>
             Equals ignore case
             </summary>
@@ -4655,7 +4371,7 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.EqualsToAnyIgnoreCase(System.String,System.String[])">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.EqualsToAnyIgnoreCase(System.String,System.String[])">
             <summary>
             Equals to any ignore case
             </summary>
@@ -4663,86 +4379,7 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringExtensions.FromBase64StringToBytes(System.String)">
-            <summary>
-            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.Byte"/> array.
-            </summary>
-            <param name="base64String"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.FromBase64String(System.String,System.Text.Encoding)">
-            <summary>
-            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="base64String"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.StartsWith(System.String,System.String[])">
-            <summary>
-            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="string"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.StartsWith(System.String,System.Collections.Generic.ICollection{System.String})">
-            <summary>
-            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="string"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.StartsWithIgnoreCase(System.String,System.String)">
-            <summary>
-            Starts with ignore case
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.StartsWithAnyIgnoreCase(System.String,System.String[])">
-            <summary>
-            Starts with any ignore case
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.StartsWithAnyIgnoreCase(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Starts with any ignore case
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringExtensions.Truncate(System.String,System.Int32)">
-            <summary>
-            Truncate
-            </summary>
-            <param name="original"></param>
-            <param name="maxLength"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Text.BaseTypeExtensions">
-            <summary>
-            String extensions
-            </summary>
-            <summary>
-            String extensions
-            </summary>
-            <summary>
-            String extensions
-            </summary>
-            <summary>
-            String extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.Fill(System.String,System.Object[])">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.Fill(System.String,System.Object[])">
             <summary>
             Fill
             </summary>
@@ -4750,7 +4387,30 @@
             <param name="values"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.IndexWholePhrase(System.String,System.String,System.Int32)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.FilterChars(System.String,System.Predicate{System.Char})">
+            <summary>
+            Filter chars
+            </summary>
+            <param name="text"></param>
+            <param name="onlyThese"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.FromBase64StringToBytes(System.String)">
+            <summary>
+            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.Byte"/> array.
+            </summary>
+            <param name="base64String"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.FromBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert from base64 <see cref="T:System.String"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="base64String"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IndexWholePhrase(System.String,System.String,System.Int32)">
             <summary>
             Index whole phrase
             </summary>
@@ -4759,7 +4419,7 @@
             <param name="startIndex"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.IndexOfIgnoreCase(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IndexOfIgnoreCase(System.String,System.String)">
             <summary>
             Index of ignore case
             </summary>
@@ -4767,7 +4427,7 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.LastIndexOfIgnoreCase(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.LastIndexOfIgnoreCase(System.String,System.String)">
             <summary>
             Last index of ignore case
             </summary>
@@ -4775,7 +4435,7 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.LastIndexOfIgnoreCase(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.LastIndexOfIgnoreCase(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Last index of ignore case
             </summary>
@@ -4785,7 +4445,7 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.IndexOfIgnoreCase(System.String,System.Int32,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IndexOfIgnoreCase(System.String,System.Int32,System.String)">
             <summary>
             Index of ignore case
             </summary>
@@ -4794,7 +4454,7 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.LastIndexOfAny(System.String,System.String[])">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.LastIndexOfAny(System.String,System.String[])">
             <summary>
             Last index of any
             </summary>
@@ -4802,51 +4462,35 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.Right(System.String,System.Int32)">
-            <summary>
-            Cut off from right to left.
-            </summary>
-            <param name="text"></param>
-            <param name="length"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.Left(System.String,System.Int32)">
-            <summary>
-            Cut off from left to right
-            </summary>
-            <param name="text"></param>
-            <param name="length"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.TotalLetters(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.TotalLetters(System.String)">
             <summary>
             Total letters
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.TotalLowerLetters(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.TotalLowerLetters(System.String)">
             <summary>
             Total lower letters
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.TotalUpperLetters(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.TotalUpperLetters(System.String)">
             <summary>
             Total upper letters
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.IncludeLetters(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IncludeLetters(System.String)">
             <summary>
             Include Letters
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.IncludeLetters(System.String,System.Int32)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IncludeLetters(System.String,System.Int32)">
             <summary>
             Include Letters
             </summary>
@@ -4854,7 +4498,21 @@
             <param name="minCount"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.Remove(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.OnlyLettersNumbers(System.String)">
+            <summary>
+            Only letters numbers
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.EnumerateLines(System.String)">
+            <summary>
+            Enumerate lines
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.Remove(System.String,System.String)">
             <summary>
             Remove
             </summary>
@@ -4862,7 +4520,7 @@
             <param name="removeText"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.RemoveFromIgnoreCase(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.RemoveFromIgnoreCase(System.String,System.String)">
             <summary>
             Remove from ignore case
             </summary>
@@ -4870,14 +4528,14 @@
             <param name="removeFromThis"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.RemoveDuplicateSpaces(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.RemoveDuplicateSpaces(System.String)">
             <summary>
             Remove duplicate space
             </summary>
             <param name="me"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.RemoveDuplicateChar(System.String,System.Char)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.RemoveDuplicateChar(System.String,System.Char)">
             <summary>
             Remove duplicate char
             </summary>
@@ -4885,7 +4543,7 @@
             <param name="charRemove"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.RemoveChars(System.String,System.Char[])">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.RemoveChars(System.String,System.Char[])">
             <summary>
             Remove chars
             </summary>
@@ -4893,21 +4551,21 @@
             <param name="toRemove"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.RemoveAccentsIgnoreCaseAndÑ(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.RemoveAccentsIgnoreCaseAndÑ(System.String)">
             <summary>
             Remove accents ignore case and N
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.RemoveAccentsIgnoreCase(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.RemoveAccentsIgnoreCase(System.String)">
             <summary>
             Remove accents ignore case
             </summary>
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceIgnoringCase(System.String,System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceIgnoringCase(System.String,System.String,System.String)">
             <summary>
             Replace ignore case
             </summary>
@@ -4916,7 +4574,7 @@
             <param name="newValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceOnlyWholePhrase(System.String,System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceOnlyWholePhrase(System.String,System.String,System.String)">
             <summary>
             Replace only whole phrase
             </summary>
@@ -4925,7 +4583,7 @@
             <param name="newValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceFirstOccurrence(System.String,System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceFirstOccurrence(System.String,System.String,System.String)">
             <summary>
             Replace first occurrence
             </summary>
@@ -4934,7 +4592,7 @@
             <param name="newValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceLastOccurrence(System.String,System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceLastOccurrence(System.String,System.String,System.String)">
             <summary>
             Replace last occurrence
             </summary>
@@ -4943,7 +4601,7 @@
             <param name="newValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceOnlyAtEndIgnoreCase(System.String,System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceOnlyAtEndIgnoreCase(System.String,System.String,System.String)">
             <summary>
             Replace only at end ignore case
             </summary>
@@ -4952,7 +4610,7 @@
             <param name="newValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.Replace(System.String,System.String,System.String,System.StringComparison)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.Replace(System.String,System.String,System.String,System.StringComparison)">
             <summary>
             Replace
             </summary>
@@ -4962,7 +4620,7 @@
             <param name="comparisionType"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceRecursive(System.String,System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceRecursive(System.String,System.String,System.String)">
             <summary>
             Replace recursive
             </summary>
@@ -4971,7 +4629,7 @@
             <param name="newValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceCharsWithSpace(System.String,System.Char[])">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceCharsWithSpace(System.String,System.Char[])">
             <summary>
             Replace chars with space
             </summary>
@@ -4979,7 +4637,7 @@
             <param name="toReplace"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.ReplaceNumbersWith(System.String,System.Char)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ReplaceNumbersWith(System.String,System.Char)">
             <summary>
             Replace numbers with...
             </summary>
@@ -4987,7 +4645,7 @@
             <param name="toReplace"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.EvaluateSimilarity(System.String,System.String,System.Double)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.EvaluateSimilarity(System.String,System.String,System.Double)">
             <summary>
             Evaluate Similarity
             </summary>
@@ -4996,7 +4654,7 @@
             <param name="similarityMinimal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.EvaluateSimilarity(System.String,System.String,System.Double,System.Int32)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.EvaluateSimilarity(System.String,System.String,System.Double,System.Int32)">
             <summary>
             Evaluate Similarity
             </summary>
@@ -5006,7 +4664,7 @@
             <param name="diffFound"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.EvaluateTypeSimilarity(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.EvaluateTypeSimilarity(System.String,System.String)">
             <summary>
             Evaluate Type Similarity
             </summary>
@@ -5014,84 +4672,20 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.Substring(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.ToValidIdentifier(System.String)">
             <summary>
-            SubString
+            To valid identifier
             </summary>
-            <param name="text"></param>
-            <param name="startText"></param>
+            <param name="original"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.SubstringFrom(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.Truncate(System.String,System.Int32)">
             <summary>
-            SubString from...
+            Truncate
             </summary>
-            <param name="me"></param>
-            <param name="from"></param>
+            <param name="original"></param>
+            <param name="maxLength"></param>
             <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.SubstringTo(System.String,System.String)">
-            <summary>
-            SubString to...
-            </summary>
-            <param name="me"></param>
-            <param name="from"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.TrimAll(System.Collections.Generic.IList{System.String})">
-            <summary>
-            Trim all
-            </summary>
-            <param name="texts"></param>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.TrimPhrase(System.String,System.String)">
-            <summary>
-            Trim phrase
-            </summary>
-            <param name="text"></param>
-            <param name="phrase"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.TrimPhraseStart(System.String,System.String)">
-            <summary>
-            Trim phrase start
-            </summary>
-            <param name="text"></param>
-            <param name="phrase"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.BaseTypeExtensions.TrimPhraseEnd(System.String,System.String)">
-            <summary>
-            Trim phrase end
-            </summary>
-            <param name="text"></param>
-            <param name="phrase"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Text.TypeSimilarity">
-            <summary>
-            Type Similarity
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.TypeSimilarity.Any">
-            <summary>
-            Any
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.TypeSimilarity.Same">
-            <summary>
-            Same
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.TypeSimilarity.MayorLong">
-            <summary>
-            Mayor long
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.TypeSimilarity.MinorLong">
-            <summary>
-            Minor long
-            </summary>
         </member>
         <member name="T:Cosmos.Text.Strings">
             <summary>
@@ -5173,6 +4767,31 @@
             <param name="width"></param>
             <param name="appendChar"></param>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Text.StringTypeSimilarity">
+            <summary>
+            Type Similarity
+            </summary>
+        </member>
+        <member name="F:Cosmos.Text.StringTypeSimilarity.Any">
+            <summary>
+            Any
+            </summary>
+        </member>
+        <member name="F:Cosmos.Text.StringTypeSimilarity.Same">
+            <summary>
+            Same
+            </summary>
+        </member>
+        <member name="F:Cosmos.Text.StringTypeSimilarity.MayorLong">
+            <summary>
+            Mayor long
+            </summary>
+        </member>
+        <member name="F:Cosmos.Text.StringTypeSimilarity.MinorLong">
+            <summary>
+            Minor long
+            </summary>
         </member>
         <member name="T:Cosmos.ThreeValuedBoolean">
             <summary>
@@ -5595,30 +5214,6 @@
             Gets default value for TimeSpan;
             </summary>
         </member>
-        <member name="T:Cosmos.Validations.ValidationExceptionExtensions">
-            <summary>
-            Validation exception extensions.
-            </summary>
-        </member>
-        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentNullException)">
-            <summary>
-            Throw as ValidationException.
-            </summary>
-            <param name="exception"></param>
-            <exception cref="T:Cosmos.Validations.ValidationException"></exception>
-        </member>
-        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentOutOfRangeException)">
-            <summary>
-            Throw as ValidationException.
-            </summary>
-            <param name="exception"></param>
-        </member>
-        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentInvalidException)">
-            <summary>
-            Throw as ValidationException.
-            </summary>
-            <param name="exception"></param>
-        </member>
         <member name="T:Cosmos.Validations.ValidationErrors">
             <summary>
             Validation Error Utilities
@@ -5996,6 +5591,30 @@
         </member>
         <member name="M:Cosmos.Validations.ValidationException.ToString">
             <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Validations.ValidationExceptionExtensions">
+            <summary>
+            Validation exception extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentNullException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+            <exception cref="T:Cosmos.Validations.ValidationException"></exception>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentOutOfRangeException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.Validations.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentInvalidException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
         </member>
         <member name="T:Cosmos.Verba.Boolean.DefaultBooleanVerba">
             <summary>
@@ -6778,6 +6397,440 @@
             <summary>Initializes an instance of the <see cref="T:System.ArgumentInvalidException"></see> class with a specified error message and the name of the parameter that causes this exception.</summary>
             <param name="paramName">The name of the parameter that caused the exception.</param>
             <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="T:System.CosmosDateTimeExtensions">
+            <summary>
+            Cosmos <see cref="T:System.DateTime"/> basic extensions.
+            </summary>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToDateTimeString(System.DateTime,System.Boolean)">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+            <param name="isRemoveSecond">是否移除秒</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToDateTimeString(System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+            <param name="isRemoveSecond">是否移除秒</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToDateString(System.DateTime)">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToDateString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToTimeString(System.DateTime)">
+            <summary>
+            获取格式化字符串，不带年月日，格式："HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，不带年月日，格式："HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToMillisecondString(System.DateTime)">
+            <summary>
+            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToMillisecondString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToDateTimeOffset(System.DateTime)">
+            <summary>
+            将时间转换为时间点
+            </summary>
+            <param name="localDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            将时间转换为时间点
+            </summary>
+            <param name="localDateTime"></param>
+            <param name="localTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToLocalDateTime(System.DateTimeOffset)">
+            <summary>
+            将时间点转换为时间
+            </summary>
+            <param name="dateTimeUtc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosDateTimeExtensions.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
+            <summary>
+            将时间点转换为时间
+            </summary>
+            <param name="dateTimeUtc"></param>
+            <param name="localTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.CosmosStringExtensions">
+            <summary>
+            Cosmos <see cref="T:System.String"/> extensions.
+            </summary>
+        </member>
+        <member name="M:System.CosmosStringExtensions.IsUpper(System.String)">
+            <summary>
+            Is upper
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.IsLower(System.String)">
+            <summary>
+            Is lower
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.ToCapitalCase(System.String)">
+            <summary>
+            To capital case
+            </summary>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.AllCapitals(System.String)">
+            <summary>
+            To all capitals
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.ToCamelCase(System.String)">
+            <summary>
+            To camel case
+            </summary>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.Contains(System.String,System.String,System.String[])">
+            <summary>
+            Contains
+            </summary>
+            <param name="text"></param>
+            <param name="value"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.Contains(System.String,System.Char)">
+            <summary>
+            Contains
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.Contains(System.String,System.Char,System.Char[])">
+            <summary>
+            Contains
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <param name="characters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.CountLines(System.String)">
+            <summary>
+            Count lines
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.CountOccurrences(System.String,System.Char)">
+            <summary>
+            Count Occurrences
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.CountOccurrences(System.String,System.String)">
+            <summary>
+            Count Occurrences
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.EndsWith(System.String,System.String[])">
+            <summary>
+            确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.EndsWith(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.EndsWithIgnoreCase(System.String,System.String)">
+            <summary>
+            Ends with ignore case
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.EndsWithAnyIgnoreCase(System.String,System.String[])">
+            <summary>
+            Ends with any ignore case
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.EndsWithAnyIgnoreCase(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Ends with any ignore case
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            检查字符串是 null 还是 System.String.Empty 字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.IsNotNullNorEmpty(System.String)">
+            <summary>
+            检查字符串不是 null 或 System.String.Empty 字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            检查字符串是 null、空还是仅由空白字符组成
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.IsNotNullNorWhiteSpace(System.String)">
+            <summary>
+            检查字符串不是 null、空或由空白字符串组成
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.Right(System.String,System.Int32)">
+            <summary>
+            Cut off from right to left.
+            </summary>
+            <param name="text"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.Left(System.String,System.Int32)">
+            <summary>
+            Cut off from left to right
+            </summary>
+            <param name="text"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.Repeat(System.String,System.Int32)">
+            <summary>
+            Repeat
+            </summary>
+            <param name="text"></param>
+            <param name="times"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.StartsWith(System.String,System.String[])">
+            <summary>
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.StartsWith(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="string"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.StartsWithIgnoreCase(System.String,System.String)">
+            <summary>
+            Starts with ignore case
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.StartsWithAnyIgnoreCase(System.String,System.String[])">
+            <summary>
+            Starts with any ignore case
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.StartsWithAnyIgnoreCase(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Starts with any ignore case
+            </summary>
+            <param name="text"></param>
+            <param name="toCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.ExtractAround(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Extract around
+            </summary>
+            <param name="text"></param>
+            <param name="index"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.Substring(System.String,System.String)">
+            <summary>
+            SubString
+            </summary>
+            <param name="text"></param>
+            <param name="startText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.SubstringFrom(System.String,System.String)">
+            <summary>
+            SubString from...
+            </summary>
+            <param name="me"></param>
+            <param name="from"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.SubstringTo(System.String,System.String)">
+            <summary>
+            SubString to...
+            </summary>
+            <param name="me"></param>
+            <param name="from"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.TrimAll(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Trim all
+            </summary>
+            <param name="texts"></param>
+        </member>
+        <member name="M:System.CosmosStringExtensions.TrimPhrase(System.String,System.String)">
+            <summary>
+            Trim phrase
+            </summary>
+            <param name="text"></param>
+            <param name="phrase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.TrimPhraseStart(System.String,System.String)">
+            <summary>
+            Trim phrase start
+            </summary>
+            <param name="text"></param>
+            <param name="phrase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CosmosStringExtensions.TrimPhraseEnd(System.String,System.String)">
+            <summary>
+            Trim phrase end
+            </summary>
+            <param name="text"></param>
+            <param name="phrase"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Runtime.IOSPlatformProvider">
+            <summary>
+            Interface of Operation System Platform information provider<br />
+            用于获取 <see cref="T:System.Runtime.InteropServices.OSPlatform"/> 信息的提供者程序接口
+            </summary>
+        </member>
+        <member name="M:System.Runtime.IOSPlatformProvider.GetCurrentOSPlatform">
+            <summary>
+            Get current operation system platform information<br />
+            获取当前操作系统平台信息（<see cref="T:System.Runtime.InteropServices.OSPlatform"/>）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:System.Runtime.OSPlatformHelper">
+            <summary>
+            Operation system platform helper<br />
+            操作系统平台信息帮助者程序
+            </summary>
+        </member>
+        <member name="M:System.Runtime.OSPlatformHelper.IsMacOS">
+            <summary>
+            Is current operation system Apple MacOS (OSX)<br />
+            当前操作系统是否是苹果 MacOS（OSX） 操作系统
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Runtime.OSPlatformHelper.IsOSX">
+            <summary>
+            Is current operation system Apple MacOS (OSX)<br />
+            当前操作系统是否是苹果 MacOS（OSX） 操作系统
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Runtime.OSPlatformHelper.IsWindows">
+            <summary>
+            Is current operation system Microsoft Windows<br />
+            当前操作系统是否为微软视窗（Windows）操作系统
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.Runtime.OSPlatformHelper.IsLinux">
+            <summary>
+            Is current operation system Linux system<br />
+            当前操作系统是否为 Linux 系统
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:System.Runtime.OSPlatformProvider">
+            <summary>
+            Operation System Platform information provider<br />
+            用于获取 <see cref="T:System.Runtime.InteropServices.OSPlatform"/> 信息的提供者程序
+            </summary>
+        </member>
+        <member name="M:System.Runtime.OSPlatformProvider.GetCurrentOSPlatform">
+            <summary>
+            Get current operation system platform information<br />
+            获取当前操作系统平台信息（<see cref="T:System.Runtime.InteropServices.OSPlatform"/>）
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

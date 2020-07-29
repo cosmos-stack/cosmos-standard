@@ -1,0 +1,12 @@
+﻿<Project>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Asyncs</AssemblyName>
+        <PackageId>Cosmos.Extensions.Asyncs</PackageId>
+        <Description>Cosmos synchronous and asynchronous extension library</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Nito.AsyncEx" Version="5.0.0" />
+        <PackageReference Include="RSG.Promise" Version="3.0.1" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+﻿<Project>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Collections</AssemblyName>
+        <PackageId>Cosmos.Extensions.Collections</PackageId>
+        <Description>Cosmos collections extension library</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.2.1" />
+    </ItemGroup>
+    
+</Project>

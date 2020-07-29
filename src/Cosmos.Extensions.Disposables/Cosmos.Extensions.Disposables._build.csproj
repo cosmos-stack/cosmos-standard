@@ -5,6 +5,6 @@
     <Import Project="..\..\common.props" />
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections._build.csproj" />
     </ItemGroup>
 </Project>

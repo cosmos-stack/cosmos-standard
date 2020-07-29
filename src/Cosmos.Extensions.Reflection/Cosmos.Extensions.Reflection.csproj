@@ -1,20 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="Cosmos.Extensions.Reflection._shared.props" />
+
     <Import Project="..\..\common.props" />
-
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Extensions.Reflection</AssemblyName>
-        <PackageId>Cosmos.Extensions.Reflection</PackageId>
-        <Description>Cosmos reflection extension library</Description>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="NMS.DynamicCache" Version="1.1.0.1" />
-    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />

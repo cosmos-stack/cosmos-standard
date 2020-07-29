@@ -1,0 +1,14 @@
+﻿<Project>
+
+ <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Preconditions</AssemblyName>
+        <PackageId>Cosmos.Extensions.Preconditions</PackageId>
+        <Description>Cosmos preconditions extension library</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+        <PackageReference Include="FluentValidation" Version="9.0.1" />
+    </ItemGroup>
+    
+</Project>

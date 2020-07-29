@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Abstractions</AssemblyName>
+        <PackageId>Cosmos.Abstractions</PackageId>
+        <Description>Cosmos abstractions library</Description>
+    </PropertyGroup>
+</Project>

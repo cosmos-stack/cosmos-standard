@@ -122,6 +122,1026 @@
             <typeparam name="X"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Conversions.CosmosCastingExtensions">
+            <summary>
+            Cosmos casting extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo(System.Object,System.Type)">
+            <summary>
+            Cast <see cref="T:System.Object"/> to given type.
+            </summary>
+            <param name="obj"></param>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo(System.Object,System.Type,System.Object)">
+            <summary>
+            Cast <see cref="T:System.Object"/> to given type.
+            </summary>
+            <param name="obj"></param>
+            <param name="targetType"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo(System.Object,System.Type,System.Type)">
+            <summary>
+            Cast <see cref="T:System.Object"/> to given type.
+            </summary>
+            <param name="obj"></param>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo(System.Object,System.Type,System.Type,System.Object)">
+            <summary>
+            Cast <see cref="T:System.Object"/> to given type.
+            </summary>
+            <param name="obj"></param>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo(System.Object,System.Type,EnumsNET.EnumValidation)">
+            <summary>
+            Cast <see cref="T:System.Object"/> to the given type of <see cref="T:System.Enum"/>.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="enumTye"></param>
+            <param name="validation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo(System.String,System.Type,System.Object)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="str"></param>
+            <param name="targetType"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo(System.String,System.Type,Cosmos.Conversions.CastingContext,System.Object)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="str"></param>
+            <param name="targetType"></param>
+            <param name="defaultVal"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastToNullable(System.String,System.Type,Cosmos.Conversions.CastingContext)">
+            <summary>
+            Cast to nullable
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastToNullable(System.String,System.Type,Cosmos.Conversions.IgnoreCase,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
+            <param name="ignoreCase"></param>
+            <param name="format"></param>
+            <param name="numberStyles"></param>
+            <param name="dateTimeStyles"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``1(System.Object)">
+            <summary>
+            Convert object to given type.
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``1(System.Object,``0)">
+            <summary>
+            Convert object to given type.
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``1(System.String,``0)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``1(System.String,Cosmos.Conversions.CastingContext,``0)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="str"></param>
+            <param name="context"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``1(System.String,Cosmos.Conversions.IgnoreCase,``0,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="str"></param>
+            <param name="ignoreCase"></param>
+            <param name="defaultVal"></param>
+            <param name="format"></param>
+            <param name="numberStyles"></param>
+            <param name="dateTimeStyles"></param>
+            <param name="formatProvider"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastToNullable``1(System.String,Cosmos.Conversions.CastingContext)">
+            <summary>
+            Cast to nullable
+            </summary>
+            <param name="str"></param>
+            <param name="context"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastToNullable``1(System.String,Cosmos.Conversions.IgnoreCase,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="str"></param>
+            <param name="ignoreCase"></param>
+            <param name="format"></param>
+            <param name="numberStyles"></param>
+            <param name="dateTimeStyles"></param>
+            <param name="formatProvider"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``2(``0,EnumsNET.EnumValidation)">
+            <summary>
+            Cast <see cref="T:System.Object"/> to the TEnum.
+            </summary>
+            <param name="fromObj"></param>
+            <param name="validation"></param>
+            <typeparam name="TObject"></typeparam>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``2(``0,``1)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="fromObj"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosCastingExtensions.CastTo``2(``0,Cosmos.Conversions.CastingContext,``1)">
+            <summary>
+            Cast to
+            </summary>
+            <param name="fromObj"></param>
+            <param name="context"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.CosmosScaleExtensions">
+            <summary>
+            Cosmos scale extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToASCII(System.Byte[])">
+            <summary>
+            To ASCII
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToBinary(System.Byte)">
+            <summary>
+            To binary
+            </summary>
+            <param name="byte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToBinary(System.Int32)">
+            <summary>
+            To binary
+            </summary>
+            <param name="decimal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToBinary(System.String)">
+            <summary>
+            Convert the hexadecimal value to binary. <br />
+            将十六进制值转换为二进制。
+            </summary>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToDecimalism(System.Byte,System.Byte)">
+            <summary>
+            Convert the Byte value of the upper address and status address to decimal values. <br />
+            将高位地址和地位地址的 Byte 值转换为十进制值。
+            </summary>
+            <param name="highAddrByte"></param>
+            <param name="lowAddrByte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToDecimalism(System.Byte,System.Byte,System.Boolean)">
+            <summary>
+            Convert the Byte value of the upper address and status address to decimal values. <br />
+            将高位地址和地位地址的 Byte 值转换为十进制值。
+            </summary>
+            <param name="highAddrByte"></param>
+            <param name="lowAddrByte"></param>
+            <param name="isRadix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToDecimalism(System.String,Cosmos.Conversions.ScaleStyles)">
+            <summary>
+            Convert the value of the given base to decimal. <br />
+            将给定进制的值转换为十进制。
+            </summary>
+            <param name="scaleStr"></param>
+            <param name="fromStyle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToHexadecimal(System.Byte)">
+            <summary>
+            To hexadecimal
+            </summary>
+            <param name="byte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToHexadecimal(System.Byte[])">
+            <summary>
+            To hexadecimal
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToHexadecimal(System.Byte,System.Byte)">
+            <summary>
+            To hexadecimal
+            </summary>
+            <param name="highAddrByte"></param>
+            <param name="lowAddrByte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToHexadecimal(System.Int32)">
+            <summary>
+            To hexadecimal
+            </summary>
+            <param name="decimal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToHexadecimal(System.Int32,System.Int32)">
+            <summary>
+            To hexadecimal
+            </summary>
+            <param name="decimal"></param>
+            <param name="formatLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosScaleExtensions.CastToHexadecimal(System.String,Cosmos.Conversions.ScaleStyles,System.Text.Encoding)">
+            <summary>
+            To hexadecimal
+            </summary>
+            <param name="scaleStr"></param>
+            <param name="fromStyle"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.CosmosStreamExtensions">
+            <summary>
+            Cosmos <see cref="T:System.IO.Stream"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStreamExtensions.CastToBytes(System.IO.Stream)">
+            <summary>
+            Convert <see cref="T:System.IO.Stream"/> to <see cref="T:System.Byte"/> array. <br />
+            将 <see cref="T:System.IO.Stream"/> 转换为 <see cref="T:System.Byte"/> 数组。
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStreamExtensions.CastToBytesAsync(System.IO.Stream)">
+            <summary>
+            Convert <see cref="T:System.IO.Stream"/> to <see cref="T:System.Byte"/> array async. <br />
+            将 <see cref="T:System.IO.Stream"/> 异步地转换为 <see cref="T:System.Byte"/> 数组。
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.CosmosStringCastingExtensions">
+            <summary>
+            Cosmos <see cref="T:System.String"/> casting extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Object)">
+            <summary>
+            Cast <see cref="T:System.Object"/> to <see cref="T:System.String"/>. <br />
+            将对象 <see cref="T:System.Object"/> 转换为字符串。
+            </summary>
+            <param name="that"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Int16,System.String)">
+            <summary>
+            Cast <see cref="T:System.Int16"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.Int16"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Int16},System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.Int16"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.Int16"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.UInt16,System.String)">
+            <summary>
+            Cast <see cref="T:System.UInt16"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.UInt16"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.UInt16},System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.UInt16"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.UInt16"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Int32,System.String)">
+            <summary>
+            Cast <see cref="T:System.Int32"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.Int32"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.Int32"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.Int32"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.UInt32,System.String)">
+            <summary>
+            Cast <see cref="T:System.UInt32"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.UInt32"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.UInt32},System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.UInt32"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.UInt32"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Int64,System.String)">
+            <summary>
+            Cast <see cref="T:System.Int64"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.Int64"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Int64},System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.Int64"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.Int64"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.UInt64,System.String)">
+            <summary>
+            Cast <see cref="T:System.UInt64"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.UInt64"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.UInt64},System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.UInt64"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.UInt64"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Single)">
+            <summary>
+            Cast <see cref="T:System.Single"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.Single"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Single,System.Int32)">
+            <summary>
+            Cast <see cref="T:System.Single"/> to <see cref="T:System.String"/> with specified precision. <br />
+            将指定精度的 <see cref="T:System.Single"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Single})">
+            <summary>
+            Cast nullable <see cref="T:System.Single"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.Single"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Single},System.Int32)">
+            <summary>
+            Cast nullable <see cref="T:System.Single"/> to <see cref="T:System.String"/> with specified precision. <br />
+            将指定精度的可空 <see cref="T:System.Single"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Double)">
+            <summary>
+            Cast <see cref="T:System.Double"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.Double"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Double,System.Int32)">
+            <summary>
+            Cast <see cref="T:System.Double"/> to <see cref="T:System.String"/> with specified precision. <br />
+            将指定精度的 <see cref="T:System.Double"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Double})">
+            <summary>
+            Cast nullable <see cref="T:System.Double"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.Double"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Double},System.Int32)">
+            <summary>
+            Cast nullable <see cref="T:System.Double"/> to <see cref="T:System.String"/> with specified precision. <br />
+            将指定精度的可空 <see cref="T:System.Double"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Decimal,System.String)">
+            <summary>
+            Cast <see cref="T:System.Decimal"/> to <see cref="T:System.String"/>. <br />
+            将 <see cref="T:System.Decimal"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Decimal,System.Int32,System.String)">
+            <summary>
+            Cast <see cref="T:System.Decimal"/> to <see cref="T:System.String"/> with specified precision. <br />
+            将指定精度的 <see cref="T:System.Decimal"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="digits"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Decimal},System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.Decimal"/> to <see cref="T:System.String"/>. <br />
+            将可空 <see cref="T:System.Decimal"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.Nullable{System.Decimal},System.Int32,System.String)">
+            <summary>
+            Cast nullable <see cref="T:System.Decimal"/> to <see cref="T:System.String"/> with specified precision. <br />
+            将指定精度的可空 <see cref="T:System.Decimal"/> 转换为字符串。
+            </summary>
+            <param name="number"></param>
+            <param name="digits"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToString(System.String,Cosmos.Conversions.ScaleStyles,System.Text.Encoding)">
+            <summary>
+            Convert the given hexadecimal value (string type) to a normal string.<br />
+            Currently only hexadecimal is supported.<br />
+            将给定进制值（字符串类型）转换为普通字符串。<br />
+            目前只支持十六进制。
+            </summary>
+            <param name="originalStr"></param>
+            <param name="fromStyle"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToEnum``1(System.String)">
+            <summary>
+            Convert the given string to an enumerated type. <br />
+            将给定的字符串转换为枚举类型。
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToEnum``1(System.String,System.Boolean)">
+            <summary>
+            Convert the given string to an enumerated type. <br />
+            将给定的字符串转换为枚举类型。
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="str">     </param>
+            <param name="ignoreCase"> 是否区分大小写 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToEnum``1(System.String,``0)">
+            <summary>
+            Convert the given string to an enumerated type. <br />
+            将给定的字符串转换为枚举类型。
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToEnum``1(System.String,System.Boolean,``0)">
+            <summary>
+            Convert the given string to an enumerated type. <br />
+            将给定的字符串转换为枚举类型。
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="str"></param>
+            <param name="ignoreCase">是否区分大小写</param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToGuid(System.String)">
+            <summary>
+            To GUID <br />
+            将字符串转换为 Guid。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToGuid(System.String,System.Guid)">
+            <summary>
+            To GUID <br />
+            将字符串转换为 Guid。
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToNullableGuid(System.String)">
+            <summary>
+            To nullable GUID. <br />
+            将字符串转换为可空 Guid。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToShort(System.String,System.Int16)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToShort(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int16}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToShort``1(``0,System.Int16)">
+            <summary>
+            Cast TEnum to <see cref="T:System.Int16"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt16(System.String,System.Int16)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt16(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int16}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt16``1(``0,System.Int16)">
+            <summary>
+            Cast TEnum to <see cref="T:System.Int16"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUShort(System.String,System.UInt16)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUShort(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt16}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUShort``1(``0,System.UInt16)">
+            <summary>
+            Cast TEnum to <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt16(System.String,System.UInt16)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt16(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt16}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt16``1(``0,System.UInt16)">
+            <summary>
+            Cast TEnum to <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt(System.String,System.Int32)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int32}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt``1(``0,System.Int32)">
+            <summary>
+            Cast TEnum to <see cref="T:System.Int32"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt32(System.String,System.Int32)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt32(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int32}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt32``1(``0,System.Int32)">
+            <summary>
+            Cast TEnum to <see cref="T:System.Int32"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt(System.String,System.UInt32)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt32}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt``1(``0,System.UInt32)">
+            <summary>
+            Cast TEnum to <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt32(System.String,System.UInt32)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt32(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt32}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt32``1(``0,System.UInt32)">
+            <summary>
+            Cast TEnum to <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToLong(System.String,System.Int64)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToLong(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int64}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToLong``1(``0,System.Int64)">
+            <summary>
+            Cast TEnum to <see cref="T:System.Int64"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt64(System.String,System.Int64)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt64(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int64}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToInt64``1(``0,System.Int64)">
+            <summary>
+            Cast TEnum to <see cref="T:System.Int64"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToULong(System.String,System.UInt64)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToULong(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt64}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToULong``1(``0,System.UInt64)">
+            <summary>
+            Cast TEnum to <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt64(System.String,System.UInt64)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt64(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt64}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToUInt64``1(``0,System.UInt64)">
+            <summary>
+            Cast TEnum to <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="enum"></param>
+            <param name="defaultVal"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToFloat(System.String,System.Single)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Single"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToFloat(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Single}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Single"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToDouble(System.String,System.Double)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Double"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToDouble(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Double}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Double"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToDecimal(System.String,System.Decimal)">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Decimal"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToDecimal(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Decimal}[])">
+            <summary>
+            Cast <see cref="T:System.String"/> to <see cref="T:System.Decimal"/>
+            </summary>
+            <param name="str"></param>
+            <param name="impls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToDateTime(System.String,System.DateTime)">
+            <summary>
+            Convert <see cref="T:System.String"/> to <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToNullableDateTime(System.String)">
+            <summary>
+            Convert <see cref="T:System.String"/> to nullable <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToDateTimeOffset(System.String,System.DateTimeOffset)">
+            <summary>
+            To DateTimeOffset
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToNullableDateTimeOffset(System.String)">
+            <summary>
+            To nullable DateTimeOffset
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToTimeSpan(System.String,System.TimeSpan)">
+            <summary>
+            To TimeSpan
+            </summary>
+            <param name="str"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.CosmosStringCastingExtensions.CastToNullableTimeSpan(System.String)">
+            <summary>
+            To nullable TimeSpan
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Conversions.DateTimeConverter">
             <summary>
             DateTime converter
@@ -1459,997 +2479,6 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.CastToExtensions">
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-            <summary>
-            Extensions for CastTo opts
-            </summary>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToBytes(System.IO.Stream)">
-            <summary>
-            Convert <see cref="T:System.IO.Stream"/> to <see cref="T:System.Byte"/> array。
-            </summary>
-            <param name="stream"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToBytesAsync(System.IO.Stream)">
-            <summary>
-            Convert <see cref="T:System.IO.Stream"/> to <see cref="T:System.Byte"/> array async.
-            </summary>
-            <param name="stream"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDateTime(System.String,System.DateTime)">
-            <summary>
-            Convert <see cref="T:System.String"/> to <see cref="T:System.DateTime"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullableDateTime(System.String)">
-            <summary>
-            Convert <see cref="T:System.String"/> to nullable <see cref="T:System.DateTime"/>
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDateTimeOffset(System.String,System.DateTimeOffset)">
-            <summary>
-            To DateTimeOffset
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullableDateTimeOffset(System.String)">
-            <summary>
-            To nullable DateTimeOffset
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToTimeSpan(System.String,System.TimeSpan)">
-            <summary>
-            To TimeSpan
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullableTimeSpan(System.String)">
-            <summary>
-            To nullable TimeSpan
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToEnum``1(System.String)">
-            <summary>
-            Convert <see cref="T:System.String"/> to TEnum.
-            </summary>
-            <typeparam name="TEnum">枚举类型</typeparam>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToEnum``1(System.String,System.Boolean)">
-            <summary>
-            Convert <see cref="T:System.String"/> to TEnum.
-            </summary>
-            <typeparam name="TEnum">枚举类型</typeparam>
-            <param name="str">     </param>
-            <param name="ignoreCase"> 是否区分大小写 </param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToEnum``1(System.String,``0)">
-            <summary>
-            Convert <see cref="T:System.String"/> to TEnum.
-            </summary>
-            <typeparam name="TEnum">枚举类型</typeparam>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToEnum``1(System.String,System.Boolean,``0)">
-            <summary>
-            Convert <see cref="T:System.String"/> to TEnum. 
-            </summary>
-            <typeparam name="TEnum">枚举类型</typeparam>
-            <param name="str"></param>
-            <param name="ignoreCase">是否区分大小写</param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToGuid(System.String)">
-            <summary>
-            To GUID
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToGuid(System.String,System.Guid)">
-            <summary>
-            To GUID
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullableGuid(System.String)">
-            <summary>
-            To nullable GUID
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToShort(System.String,System.Int16)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToShort(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int16}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToShort``1(``0,System.Int16)">
-            <summary>
-            Cast TEnum to <see cref="T:System.Int16"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt16(System.String,System.Int16)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt16(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int16}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt16``1(``0,System.Int16)">
-            <summary>
-            Cast TEnum to <see cref="T:System.Int16"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUShort(System.String,System.UInt16)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUShort(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt16}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUShort``1(``0,System.UInt16)">
-            <summary>
-            Cast TEnum to <see cref="T:System.UInt16"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt16(System.String,System.UInt16)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt16(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt16}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt16"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt16``1(``0,System.UInt16)">
-            <summary>
-            Cast TEnum to <see cref="T:System.UInt16"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt(System.String,System.Int32)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int32}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt``1(``0,System.Int32)">
-            <summary>
-            Cast TEnum to <see cref="T:System.Int32"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt32(System.String,System.Int32)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt32(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int32}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt32``1(``0,System.Int32)">
-            <summary>
-            Cast TEnum to <see cref="T:System.Int32"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt(System.String,System.UInt32)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt32}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt``1(``0,System.UInt32)">
-            <summary>
-            Cast TEnum to <see cref="T:System.UInt32"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt32(System.String,System.UInt32)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt32(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt32}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt32"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt32``1(``0,System.UInt32)">
-            <summary>
-            Cast TEnum to <see cref="T:System.UInt32"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToLong(System.String,System.Int64)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToLong(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int64}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToLong``1(``0,System.Int64)">
-            <summary>
-            Cast TEnum to <see cref="T:System.Int64"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt64(System.String,System.Int64)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt64(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Int64}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Int64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToInt64``1(``0,System.Int64)">
-            <summary>
-            Cast TEnum to <see cref="T:System.Int64"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToULong(System.String,System.UInt64)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToULong(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt64}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToULong``1(``0,System.UInt64)">
-            <summary>
-            Cast TEnum to <see cref="T:System.UInt64"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt64(System.String,System.UInt64)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt64(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.UInt64}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.UInt64"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToUInt64``1(``0,System.UInt64)">
-            <summary>
-            Cast TEnum to <see cref="T:System.UInt64"/>
-            </summary>
-            <param name="enum"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToFloat(System.String,System.Single)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Single"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToFloat(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Single}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Single"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDouble(System.String,System.Double)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Double"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDouble(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Double}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Double"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDecimal(System.String,System.Decimal)">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Decimal"/>
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDecimal(System.String,Cosmos.Conversions.IConversionImpl{System.String,System.Decimal}[])">
-            <summary>
-            Cast <see cref="T:System.String"/> to <see cref="T:System.Decimal"/>
-            </summary>
-            <param name="str"></param>
-            <param name="impls"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToASCII(System.Byte[])">
-            <summary>
-            To ASCII
-            </summary>
-            <param name="bytes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToBinary(System.Byte)">
-            <summary>
-            To binary
-            </summary>
-            <param name="byte"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToBinary(System.Int32)">
-            <summary>
-            To binary
-            </summary>
-            <param name="decimal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToBinary(System.String)">
-            <summary>
-            To binary
-            </summary>
-            <param name="hex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDecimalism(System.Byte,System.Byte)">
-            <summary>
-            To decimalism
-            </summary>
-            <param name="highAddrByte"></param>
-            <param name="lowAddrByte"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDecimalism(System.Byte,System.Byte,System.Boolean)">
-            <summary>
-            To decimalism
-            </summary>
-            <param name="highAddrByte"></param>
-            <param name="lowAddrByte"></param>
-            <param name="isRadix"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToDecimalism(System.String,Cosmos.Conversions.ScaleStyles)">
-            <summary>
-            To decimalism
-            </summary>
-            <param name="scaleStr"></param>
-            <param name="fromStyle"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToHexadecimal(System.Byte)">
-            <summary>
-            To hexadecimal
-            </summary>
-            <param name="byte"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToHexadecimal(System.Byte[])">
-            <summary>
-            To hexadecimal
-            </summary>
-            <param name="bytes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToHexadecimal(System.Byte,System.Byte)">
-            <summary>
-            To hexadecimal
-            </summary>
-            <param name="highAddrByte"></param>
-            <param name="lowAddrByte"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToHexadecimal(System.Int32)">
-            <summary>
-            To hexadecimal
-            </summary>
-            <param name="decimal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToHexadecimal(System.Int32,System.Int32)">
-            <summary>
-            To hexadecimal
-            </summary>
-            <param name="decimal"></param>
-            <param name="formatLength"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToHexadecimal(System.String,Cosmos.Conversions.ScaleStyles,System.Text.Encoding)">
-            <summary>
-            To hexadecimal
-            </summary>
-            <param name="scaleStr"></param>
-            <param name="fromStyle"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Object)">
-            <summary>
-            Cast <see cref="T:System.Object"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Int16,System.String)">
-            <summary>
-            Cast <see cref="T:System.Int16"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Int16},System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.Int16"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.UInt16,System.String)">
-            <summary>
-            Cast <see cref="T:System.Int16"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.UInt16},System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.Int16"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Int32,System.String)">
-            <summary>
-            Cast <see cref="T:System.Int32"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Int32},System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.Int32"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.UInt32,System.String)">
-            <summary>
-            Cast <see cref="T:System.UInt32"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.UInt32},System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.UInt32"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Int64,System.String)">
-            <summary>
-            Cast <see cref="T:System.Int64"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Int64},System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.Int64"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.UInt64,System.String)">
-            <summary>
-            Cast <see cref="T:System.UInt64"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.UInt64},System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.UInt64"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Single)">
-            <summary>
-            Cast <see cref="T:System.Single"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Single,System.Int32)">
-            <summary>
-            Cast <see cref="T:System.Single"/> to <see cref="T:System.String"/> with specified precision.
-            </summary>
-            <param name="number"></param>
-            <param name="digits"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Single})">
-            <summary>
-            Cast nullable <see cref="T:System.Single"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Single},System.Int32)">
-            <summary>
-            Cast nullable <see cref="T:System.Single"/> to <see cref="T:System.String"/> with specified precision.
-            </summary>
-            <param name="number"></param>
-            <param name="digits"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Double)">
-            <summary>
-            Cast <see cref="T:System.Double"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Double,System.Int32)">
-            <summary>
-            Cast <see cref="T:System.Double"/> to <see cref="T:System.String"/> with specified precision.
-            </summary>
-            <param name="number"></param>
-            <param name="digits"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Double})">
-            <summary>
-            Cast nullable <see cref="T:System.Double"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Double},System.Int32)">
-            <summary>
-            Cast nullable <see cref="T:System.Double"/> to <see cref="T:System.String"/> with specified precision.
-            </summary>
-            <param name="number"></param>
-            <param name="digits"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Decimal,System.String)">
-            <summary>
-            Cast <see cref="T:System.Decimal"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Decimal,System.Int32,System.String)">
-            <summary>
-            Cast <see cref="T:System.Decimal"/> to <see cref="T:System.String"/> with specified precision.
-            </summary>
-            <param name="number"></param>
-            <param name="digits"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Decimal},System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.Decimal"/> to <see cref="T:System.String"/>.
-            </summary>
-            <param name="number"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.Nullable{System.Decimal},System.Int32,System.String)">
-            <summary>
-            Cast nullable <see cref="T:System.Decimal"/> to <see cref="T:System.String"/> with specified precision.
-            </summary>
-            <param name="number"></param>
-            <param name="digits"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToString(System.String,Cosmos.Conversions.ScaleStyles,System.Text.Encoding)">
-            <summary>
-            To string
-            </summary>
-            <param name="originalStr"></param>
-            <param name="fromStyle"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo(System.Object,System.Type)">
-            <summary>
-            Cast <see cref="T:System.Object"/> to given type.
-            </summary>
-            <param name="obj"></param>
-            <param name="targetType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo(System.Object,System.Type,System.Object)">
-            <summary>
-            Cast <see cref="T:System.Object"/> to given type.
-            </summary>
-            <param name="obj"></param>
-            <param name="targetType"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo(System.Object,System.Type,System.Type)">
-            <summary>
-            Cast <see cref="T:System.Object"/> to given type.
-            </summary>
-            <param name="obj"></param>
-            <param name="sourceType"></param>
-            <param name="targetType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo(System.Object,System.Type,System.Type,System.Object)">
-            <summary>
-            Cast <see cref="T:System.Object"/> to given type.
-            </summary>
-            <param name="obj"></param>
-            <param name="sourceType"></param>
-            <param name="targetType"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo(System.Object,System.Type,EnumsNET.EnumValidation)">
-            <summary>
-            Cast <see cref="T:System.Object"/> to the given type of <see cref="T:System.Enum"/>.
-            </summary>
-            <param name="fromObj"></param>
-            <param name="enumTye"></param>
-            <param name="validation"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo(System.String,System.Type,System.Object)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="str"></param>
-            <param name="targetType"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo(System.String,System.Type,Cosmos.Conversions.CastingContext,System.Object)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="str"></param>
-            <param name="targetType"></param>
-            <param name="defaultVal"></param>
-            <param name="context"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullable(System.String,System.Type,Cosmos.Conversions.CastingContext)">
-            <summary>
-            Cast to nullable
-            </summary>
-            <param name="str"></param>
-            <param name="type"></param>
-            <param name="context"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullable(System.String,System.Type,Cosmos.Conversions.IgnoreCase,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="str"></param>
-            <param name="type"></param>
-            <param name="ignoreCase"></param>
-            <param name="format"></param>
-            <param name="numberStyles"></param>
-            <param name="dateTimeStyles"></param>
-            <param name="formatProvider"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``1(System.Object)">
-            <summary>
-            Convert object to given type.
-            </summary>
-            <param name="obj"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``1(System.Object,``0)">
-            <summary>
-            Convert object to given type.
-            </summary>
-            <param name="obj"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``1(System.String,``0)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="str"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``1(System.String,Cosmos.Conversions.CastingContext,``0)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="str"></param>
-            <param name="context"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``1(System.String,Cosmos.Conversions.IgnoreCase,``0,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="str"></param>
-            <param name="ignoreCase"></param>
-            <param name="defaultVal"></param>
-            <param name="format"></param>
-            <param name="numberStyles"></param>
-            <param name="dateTimeStyles"></param>
-            <param name="formatProvider"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullable``1(System.String,Cosmos.Conversions.CastingContext)">
-            <summary>
-            Cast to nullable
-            </summary>
-            <param name="str"></param>
-            <param name="context"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastToNullable``1(System.String,Cosmos.Conversions.IgnoreCase,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="str"></param>
-            <param name="ignoreCase"></param>
-            <param name="format"></param>
-            <param name="numberStyles"></param>
-            <param name="dateTimeStyles"></param>
-            <param name="formatProvider"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``2(``0,EnumsNET.EnumValidation)">
-            <summary>
-            Cast <see cref="T:System.Object"/> to the TEnum.
-            </summary>
-            <param name="fromObj"></param>
-            <param name="validation"></param>
-            <typeparam name="TObject"></typeparam>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``2(``0,``1)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="fromObj"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TFrom"></typeparam>
-            <typeparam name="TTo"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Conversions.CastToExtensions.CastTo``2(``0,Cosmos.Conversions.CastingContext,``1)">
-            <summary>
-            Cast to
-            </summary>
-            <param name="fromObj"></param>
-            <param name="context"></param>
-            <param name="defaultVal"></param>
-            <typeparam name="TFrom"></typeparam>
-            <typeparam name="TTo"></typeparam>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Conversions.GuidConverter">
             <summary>
             Guid converter
@@ -3449,75 +3478,71 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Text.StringDeterminerExtensions">
+        <member name="T:Cosmos.Text.CosmosStringExtensions">
             <summary>
-            String determiner extensions
-            </summary>
-            <summary>
-            String determiner extensions
-            </summary>
-            <summary>
-            String determiner extensions
-            </summary>
-            <summary>
-            String determiner extensions
-            </summary>
-            <summary>
-            String determiner extensions
+            Cosmos <see cref="T:System.String"/> extensions
             </summary>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsChar(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsChar(System.String)">
             <summary>
-            Is char
+            Determine whether the given string is char. <br />
+            判断给定的字符串是否是 char。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsBoolean(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsBoolean(System.String)">
             <summary>
-            Is boolean
+            Determine whether the given string is boolean. <br />
+            判断给定的字符串是否是 boolean。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsEncoding(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsEncoding(System.String)">
             <summary>
-            Is encoding
+            Determine whether the given string is <see cref="T:System.Text.Encoding"/>. <br />
+            判断给定的字符串是否是 <see cref="T:System.Text.Encoding"/>。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsWebUrl(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsWebUrl(System.String)">
             <summary>
-            判断是否为 Url 路径
+            Determine whether the given string is a URL path. <br />
+            判断给定的字符串是否是 Url 路径。
             </summary>
             <param name="target"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsEmail(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsEmail(System.String)">
             <summary>
-            判断是否为 Email 地址
+            Determine whether the given string is an email address. <br />
+            判断给定的字符串是否是电子邮件路径。
             </summary>
             <param name="target"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsVersion(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsVersion(System.String)">
             <summary>
-            Is version
+            Determine whether the given string is a version number. <br />
+            判断给定的字符串是否是版本号。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsIpAddress(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsIpAddress(System.String)">
             <summary>
-            Is IpAddress
+            Determine whether the given string is an IP address. <br />
+            判断给定的字符串是否是 IP 地址。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.Is(System.String,System.Type,Cosmos.Conversions.IgnoreCase,System.Action{System.Object},System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.Is(System.String,System.Type,Cosmos.Conversions.IgnoreCase,System.Action{System.Object},System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
             <summary>
-            Is
+            Determine whether the given string can be of the given type. <br />
+            判断给定的字符串是否能成为给定的类型。
             </summary>
             <param name="s"></param>
             <param name="type"></param>
@@ -3531,9 +3556,10 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.ArgumentException"></exception>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.Is``1(System.String,Cosmos.Conversions.IgnoreCase,System.Action{``0},System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.Is``1(System.String,Cosmos.Conversions.IgnoreCase,System.Action{``0},System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
             <summary>
-            Is
+            Determine whether the given string can be of the given type. <br />
+            判断给定的字符串是否能成为给定的类型。
             </summary>
             <param name="str"></param>
             <param name="action"></param>
@@ -3545,273 +3571,276 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.Is``1(System.String,System.Action{``0})">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.Is``1(System.String,System.Action{``0})">
             <summary>
-            Is
+            Determine whether the given string can be of the given type. <br />
+            判断给定的字符串是否能成为给定的类型。
             </summary>
             <param name="str"></param>
             <param name="action"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsNullable``1(System.String,System.Action{``0},System.Action,System.Boolean,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsDateTime(System.String)">
             <summary>
-            Is nullable
-            </summary>
-            <param name="s"></param>
-            <param name="action"></param>
-            <param name="isNullAction"></param>
-            <param name="ignoreCase"></param>
-            <param name="format"></param>
-            <param name="numberStyle"></param>
-            <param name="dateTimeStyle"></param>
-            <param name="provider"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsNullable(System.String,System.Type,System.Action{System.Object},System.Action,System.Boolean,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
-            <summary>
-            Is nullable
-            </summary>
-            <param name="s"></param>
-            <param name="type"></param>
-            <param name="action"></param>
-            <param name="isNullAction"></param>
-            <param name="ignoreCase"></param>
-            <param name="format"></param>
-            <param name="numberStyle"></param>
-            <param name="dateTimeStyle"></param>
-            <param name="provider"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.OneAbsentChar(System.String,System.String)">
-            <summary>
-            One Absent Char
-            </summary>
-            <param name="text"></param>
-            <param name="toCheck"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringDeterminerExtensions.IsTheLastOne(System.String,System.String)">
-            <summary>
-            To check if it is the last
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Text.StingJudgementExtensions">
-            <summary>
-            String extensions
-            </summary>
-            <summary>
-            String extensions
-            </summary>
-            <summary>
-            String extensions
-            </summary>
-            <summary>
-            String extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsDateTime(System.String)">
-            <summary>
-            Is DateTime
+            Determine whether the given string is DateTime. <br />
+            判断给定的字符串是否为 DateTime。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsDateTimeOffset(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsDateTimeOffset(System.String)">
             <summary>
-            Is DateTimeOffset
+            Determine whether the given string is DateTimeOffset. <br />
+            判断给定的字符串是否为 DateTimeOffset。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsTimeSpan(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsTimeSpan(System.String)">
             <summary>
-            Is TImeSpan
+            Determine whether the given string is TimeSpan. <br />
+            判断给定的字符串是否为 TimeSpan。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsDateTimeExact(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsDateTimeExact(System.String,System.String)">
             <summary>
-            Is DateTime
+            Determine whether the given string is DateTime. <br />
+            判断给定的字符串是否为 DateTime。
             </summary>
             <param name="str"></param>
             <param name="format"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsDateTimeOffsetExact(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsDateTimeOffsetExact(System.String,System.String)">
             <summary>
-            Is DateTimeOffset
+            Determine whether the given string is DateTimeOffset. <br />
+            判断给定的字符串是否为 DateTimeOffset。
             </summary>
             <param name="str"></param>
             <param name="format"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsTimeSpanExact(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsTimeSpanExact(System.String,System.String)">
             <summary>
-            Is TImeSpan
+            Determine whether the given string is TimeSpan. <br />
+            判断给定的字符串是否为 TimeSpan。
             </summary>
             <param name="str"></param>
             <param name="format"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsEnum(System.String,System.Type)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsEnum(System.String,System.Type)">
             <summary>
-            Is Enum
+            Determine whether the given string is an enumeration of the specified type.<br />
+            判断给定的字符串是否为指定类型的枚举。
             </summary>
             <param name="str"></param>
             <param name="enumType"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsEnum``1(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsEnum``1(System.String)">
             <summary>
-            Is Enum
+            Determine whether the given string is an enumeration of the specified type.<br />
+            判断给定的字符串是否为指定类型的枚举。
             </summary>
             <param name="str"></param>
             <typeparam name="TEnum"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsGuid(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsGuid(System.String)">
             <summary>
-            Is Guid
+            Determine whether the given string is Guid. <br />
+            判断给定的字符串是否为 Guid。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsGuidExact(System.String,System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsGuidExact(System.String,System.String)">
             <summary>
-            Is Guid
+            Determine whether the given string is Guid. <br />
+            判断给定的字符串是否为 Guid。
             </summary>
             <param name="str"></param>
             <param name="format"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsNumeric(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsNumeric(System.String)">
             <summary>
-            Is numeric
+            Determine whether the given string is a numeric value. <br />
+            判断给定的字符串是否是数值。
             </summary>
             <param name="string"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsByte(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsByte(System.String)">
             <summary>
-            Is byte
+            Determine whether the given string is byte. <br />
+            判断给定的字符串是否是 byte。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsSByte(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsSByte(System.String)">
             <summary>
-            Is SByte
+            Determine whether the given string is sbyte. <br />
+            判断给定的字符串是否是 sbyte。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsShort(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsShort(System.String)">
             <summary>
-            Is short
+            Determine whether the given string is short. <br />
+            判断给定的字符串是否是 short。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsInt(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsInt(System.String)">
             <summary>
-            Is int
+            Determine whether the given string is int. <br />
+            判断给定的字符串是否是 int。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsLong(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsLong(System.String)">
             <summary>
-            Is long
+            Determine whether the given string is long. <br />
+            判断给定的字符串是否是 long。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsUShort(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsUShort(System.String)">
             <summary>
-            Us ushort
+            Determine whether the given string is ushort. <br />
+            判断给定的字符串是否是 ushort。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsUInt(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsUInt(System.String)">
             <summary>
-            Is uint
+            Determine whether the given string is uint. <br />
+            判断给定的字符串是否是 uint。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsULong(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsULong(System.String)">
             <summary>
-            Is ulong
+            Determine whether the given string is ulong. <br />
+            判断给定的字符串是否是 ulong。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsInt16(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsInt16(System.String)">
             <summary>
-            Is int16
+            Determine whether the given string is int16(short). <br />
+            判断给定的字符串是否是 int16(short)。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsInt32(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsInt32(System.String)">
             <summary>
-            Is inrt32
+            Determine whether the given string is int32(int). <br />
+            判断给定的字符串是否是 int32(int)。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsInt64(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsInt64(System.String)">
             <summary>
-            Is int64
+            Determine whether the given string is int64(long). <br />
+            判断给定的字符串是否是 int64(long)。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsUInt16(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsUInt16(System.String)">
             <summary>
-            Is uint16
+            Determine whether the given string is uint16(ushort). <br />
+            判断给定的字符串是否是 uint16(ushort)。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsUInt32(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsUInt32(System.String)">
             <summary>
-            Is uint32
+            Determine whether the given string is uint32(uint). <br />
+            判断给定的字符串是否是 uint32(uint)。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.UsUInt64(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.UsUInt64(System.String)">
             <summary>
-            Is uint64
+            Determine whether the given string is uint64(ulong). <br />
+            判断给定的字符串是否是 uint64(ulong)。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsFloat(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsFloat(System.String)">
             <summary>
-            Is float
+            Determine whether the given string is float. <br />
+            判断给定的字符串是否是 float。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsDouble(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsDouble(System.String)">
             <summary>
-            Is double
+            Determine whether the given string is double. <br />
+            判断给定的字符串是否是 double。
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StingJudgementExtensions.IsDecimal(System.String)">
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsDecimal(System.String)">
             <summary>
-            Is decimal
+            Determine whether the given string is decimal. <br />
+            判断给定的字符串是否是 decimal。
             </summary>
             <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsNullable``1(System.String,System.Action{``0},System.Action,System.Boolean,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+            <summary>
+            Determine whether the given string is empty. If it is empty, perform the specified operation.<br />
+            判断给定的字符串是否为空。如果为空则执行指定的操作。
+            </summary>
+            <param name="s"></param>
+            <param name="action">If the string is guessed to be empty by the string specifier, perform this operation.</param>
+            <param name="isNullAction">If the string is empty, perform this operation.</param>
+            <param name="ignoreCase"></param>
+            <param name="format"></param>
+            <param name="numberStyle"></param>
+            <param name="dateTimeStyle"></param>
+            <param name="provider"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.CosmosStringExtensions.IsNullable(System.String,System.Type,System.Action{System.Object},System.Action,System.Boolean,System.String,System.Nullable{System.Globalization.NumberStyles},System.Nullable{System.Globalization.DateTimeStyles},System.IFormatProvider)">
+            <summary>
+            Determine whether the given string is empty. If it is empty, perform the specified operation.<br />
+            判断给定的字符串是否为空。如果为空则执行指定的操作。
+            </summary>
+            <param name="s"></param>
+            <param name="type"></param>
+            <param name="action">If the string is guessed to be empty by the string specifier, perform this operation.</param>
+            <param name="isNullAction">If the string is empty, perform this operation.</param>
+            <param name="ignoreCase"></param>
+            <param name="format"></param>
+            <param name="numberStyle"></param>
+            <param name="dateTimeStyle"></param>
+            <param name="provider"></param>
             <returns></returns>
         </member>
         <member name="M:TinyMapper.Core.Extensions.EnumerableExtensions.Iter``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
