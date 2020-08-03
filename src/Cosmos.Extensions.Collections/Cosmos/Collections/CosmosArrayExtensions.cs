@@ -4,8 +4,10 @@ using System.Collections;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Collections
 {
-    public static partial class CollectionExtensions
+    public static class CosmosArrayExtensions
     {
+        #region Search
+
         /// <summary>
         /// Binary Search
         /// </summary>
@@ -47,5 +49,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         public static int BinarySearch(this Array array, int index, int length, object value, IComparer comparer)
             => Array.BinarySearch(array, index, length, value, comparer);
+
+        #endregion
     }
 }
