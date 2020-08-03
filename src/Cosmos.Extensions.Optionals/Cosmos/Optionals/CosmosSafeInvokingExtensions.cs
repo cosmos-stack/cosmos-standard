@@ -1,12 +1,11 @@
 using System;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Optionals
 {
     /// <summary>
-    /// Optionals extensions
+    /// Cosmos safe invoking extensions
     /// </summary>
-    public static partial class OptionalsExtensions
+    public static class CosmosSafeInvokingExtensions
     {
         /// <summary>
         /// Invoke the given <see cref="EventHandler"/> in a safe way.<br />
