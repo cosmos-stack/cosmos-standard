@@ -145,7 +145,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static bool IsLeapYear(ChineseLunisolarCalendar calendar, DateTime dt)
         {
-            calendar = calendar ?? new ChineseLunisolarCalendar();
+            calendar ??= new ChineseLunisolarCalendar();
             return calendar.IsLeapYear(dt.Year);
         }
 
@@ -158,7 +158,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static bool IsLeapYear(ChineseLunisolarCalendar calendar, DateInfo dt)
         {
-            calendar = calendar ?? new ChineseLunisolarCalendar();
+            calendar ??= new ChineseLunisolarCalendar();
             return calendar.IsLeapYear(dt.Year);
         }
 
@@ -171,7 +171,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static bool IsLeapMonth(ChineseLunisolarCalendar calendar, DateTime dt)
         {
-            calendar = calendar ?? new ChineseLunisolarCalendar();
+            calendar ??= new ChineseLunisolarCalendar();
             return calendar.IsLeapMonth(dt.Year, dt.Month);
         }
 
@@ -184,7 +184,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static bool IsLeapMonth(ChineseLunisolarCalendar calendar, DateInfo dt)
         {
-            calendar = calendar ?? new ChineseLunisolarCalendar();
+            calendar ??= new ChineseLunisolarCalendar();
             return calendar.IsLeapMonth(dt.Year, dt.Month);
         }
 

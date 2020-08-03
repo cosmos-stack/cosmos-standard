@@ -55,7 +55,7 @@ namespace Cosmos.Conversions.StringDeterminers
             IFormatProvider formatProvider = null,
             Action<DateInfo> dtAct = null)
         {
-            return _Helper.IsXXX(str, string.IsNullOrWhiteSpace,
+            return CosmosStringDeterminingHelper.IsXXX(str, string.IsNullOrWhiteSpace,
                 (s, act) => Is(s, style, formatProvider, act), tries, dtAct);
         }
 
@@ -94,7 +94,7 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            return _Helper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
+            return CosmosStringDeterminingHelper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
         }
     }
 }
