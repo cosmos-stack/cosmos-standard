@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using Cosmos.Collections.Internals;
 using Cosmos.Judgments;
 
@@ -40,28 +39,89 @@ namespace Cosmos.Collections
 
         #endregion
 
-        #endregion
-
-        #region Dictionary`2
-
-        #region Add
+        #region AddIf
 
         /// <summary>
-        /// Add dictionary into another dictionary
+        /// 如果条件成立，添加项
         /// </summary>
-        /// <param name="me"></param>
-        /// <param name="other"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TVal"></typeparam>
-        public static void AddDictionary<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other)
+        public static void AddIf<T>(this ICollection<T> collection, T value, bool flag)
         {
-            foreach (var (key, value) in other)
+            if (collection is null)
+                throw new ArgumentNullException(nameof(collection));
+
+            if (flag)
             {
-                me.Add(key, value);
+                collection.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// 如果条件成立，添加项
+        /// </summary>
+        public static void AddIf<T>(this ICollection<T> collection, T value, Func<bool> func)
+        {
+            if (collection is null)
+                throw new ArgumentNullException(nameof(collection));
+            if (func())
+            {
+                collection.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// 如果不存在，添加项
+        /// </summary>
+        public static void AddIfNotExist<T>(this ICollection<T> collection, T value, Func<T, bool> existFunc = null)
+        {
+            if (collection is null)
+                throw new ArgumentNullException(nameof(collection));
+            bool exists = existFunc?.Invoke(value) ?? collection.Contains(value);
+            if (!exists)
+            {
+                collection.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// 如果不为空，添加项
+        /// </summary>
+        public static void AddIfNotNull<T>(this ICollection<T> collection, T value) where T : class
+        {
+            if (collection is null)
+                throw new ArgumentNullException(nameof(collection));
+            if (value != null)
+            {
+                collection.Add(value);
             }
         }
 
         #endregion
+
+        #region GetOrAdd
+
+        /// <summary>
+        /// 获取对象，不存在对使用委托添加对象
+        /// </summary>
+        public static T GetOrAdd<T>(this ICollection<T> collection, Func<T, bool> selector, Func<T> factory)
+        {
+            if (collection is null)
+                throw new ArgumentNullException(nameof(collection));
+
+            T item = collection.FirstOrDefault(selector);
+            if (item == null)
+            {
+                item = factory();
+                collection.Add(item);
+            }
+
+            return item;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Dictionary`2
 
         #region Get
 
@@ -485,172 +545,6 @@ namespace Cosmos.Collections
                 dictionary[key] = value;
             else
                 dictionary.Add(key, value);
-        }
-
-        #endregion
-
-        #region To
-
-        /// <summary>
-        /// To dictionary
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="keyFunc"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TItem"></typeparam>
-        /// <returns></returns>
-        public static Dictionary<TKey, TItem> ToDictionary<TKey, TItem>(this IList<TItem> list, Func<TItem, TKey> keyFunc)
-        {
-            return ToDictionary(list, keyFunc, x => x);
-        }
-
-        /// <summary>
-        /// To dictionary
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="keyFunc"></param>
-        /// <param name="valueFunc"></param>
-        /// <typeparam name="TItem"></typeparam>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static Dictionary<TKey, TValue> ToDictionary<TItem, TKey, TValue>(this IList<TItem> list, Func<TItem, TKey> keyFunc, Func<TItem, TValue> valueFunc)
-        {
-            var res = new Dictionary<TKey, TValue>(list.Count);
-            foreach (var item in list)
-            {
-                res.Add(keyFunc(item), valueFunc(item));
-            }
-
-            return res;
-        }
-
-        /// <summary>
-        /// To dictionary
-        /// </summary>
-        /// <param name="hash"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this Hashtable hash)
-        {
-            var res = new Dictionary<TKey, TValue>(hash.Count);
-            foreach (var item in hash.Keys)
-            {
-                res.Add((TKey) item, (TValue) hash[item]);
-            }
-
-            return res;
-        }
-
-        /// <summary>
-        /// To dictionary ignore duplicate keys
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="keyFunc"></param>
-        /// <param name="valueFunc"></param>
-        /// <typeparam name="TItem"></typeparam>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static Dictionary<TKey, TValue> ToDictionaryIgnoringDuplicateKeys<TItem, TKey, TValue>(this IList<TItem> list, Func<TItem, TKey> keyFunc,
-            Func<TItem, TValue> valueFunc)
-        {
-            var res = new Dictionary<TKey, TValue>(list.Count);
-
-            foreach (var item in list)
-            {
-                var key = keyFunc(item);
-                if (!res.ContainsKey(key))
-                    res.Add(key, valueFunc(item));
-            }
-
-            return res;
-        }
-
-        /// <summary>
-        /// To sorted array by value
-        /// </summary>
-        /// <param name="list"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <returns></returns>
-        public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(this Dictionary<TKey, int> list)
-        {
-            var res = new List<KeyValuePair<TKey, int>>();
-
-            foreach (var valor in list)
-            {
-                res.Add(valor);
-            }
-
-            res.Sort((x, y) => -x.Value.CompareTo(y.Value));
-
-            return res;
-        }
-
-        /// <summary>
-        /// To sorted array by key
-        /// </summary>
-        /// <param name="list"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static List<KeyValuePair<TKey, TValue>> ToSortedArrayByKey<TKey, TValue>(this Dictionary<TKey, TValue> list) where TKey : IComparable<TKey>
-        {
-            var res = new List<KeyValuePair<TKey, TValue>>();
-
-            foreach (var valor in list)
-            {
-                res.Add(valor);
-            }
-
-            res.Sort((x, y) => x.Key.CompareTo(y.Key));
-
-            return res;
-        }
-
-        /// <summary>
-        /// To tuple...
-        /// </summary>
-        /// <param name="me"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static List<Tuple<TKey, TValue>> ToTuple<TKey, TValue>(this Dictionary<TKey, TValue> me)
-        {
-            var res = new List<Tuple<TKey, TValue>>();
-
-            foreach (var (key, value) in me)
-            {
-                res.Add(Tuple.Create(key, value));
-            }
-
-            return res;
-        }
-
-        #endregion
-
-        #region ToString
-
-        /// <summary>
-        /// To string
-        /// </summary>
-        /// <param name="dictionary"></param>
-        /// <param name="linker"></param>
-        /// <param name="separator"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static string ToString<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, string linker, string separator)
-        {
-            if (dictionary is null) return string.Empty;
-            var sb = new StringBuilder();
-            foreach (var (key, value) in dictionary)
-            {
-                sb.Append($"{key}{linker}{value}{separator}");
-            }
-
-            return sb.ToString();
         }
 
         #endregion
@@ -1684,76 +1578,9 @@ namespace Cosmos.Collections
         }
 
         #endregion
-
-        #region To HashSet
-
-        /// <summary>
-        /// To hashset
-        /// </summary>
-        /// <param name="src"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> src) where T : IComparable<T> =>
-            src.ToHashSet(EqualityComparer<T>.Default);
-
-        /// <summary>
-        /// To hashset
-        /// </summary>
-        /// <param name="src"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> src, IEqualityComparer<T> comparer)
-            where T : IComparable<T>
-        {
-            if (src is null)
-                throw new ArgumentNullException(nameof(src));
-            if (comparer is null)
-                throw new ArgumentNullException(nameof(comparer));
-            return new HashSet<T>(src, comparer);
-        }
-
-        /// <summary>
-        /// To HashSet
-        /// </summary>
-        /// <param name="src"></param>
-        /// <param name="ignoreDup"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> src, bool ignoreDup) where T : IComparable<T> =>
-            ignoreDup
-                ? src.Distinct().ToHashSet(EqualityComparer<T>.Default)
-                : src.ToHashSet(EqualityComparer<T>.Default);
-
-        /// <summary>
-        /// To HashSet
-        /// </summary>
-        /// <param name="src"></param>
-        /// <param name="keyFunc"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <typeparam name="TKey"></typeparam>
-        /// <returns></returns>
-        public static HashSet<TKey> ToHashSet<T, TKey>(this IEnumerable<T> src, Func<T, TKey> keyFunc)
-            where TKey : IComparable<TKey>
-        {
-            if (keyFunc is null) throw new ArgumentNullException(nameof(keyFunc));
-            return src.Select(keyFunc).ToHashSet(EqualityComparer<TKey>.Default);
-        }
-
-        /// <summary>
-        /// To HashSet ignore duplicates
-        /// </summary>
-        /// <param name="src"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static HashSet<T> ToHashSetIgnoringDuplicates<T>(this IEnumerable<T> src) where T : IComparable<T> =>
-            src.ToHashSet(true);
-
-        #endregion
-
-        #region To List
         
+        #region To List
+
         /// <summary>
         /// To string list
         /// </summary>
@@ -1781,7 +1608,7 @@ namespace Cosmos.Collections
         #endregion
 
         #region To SortedArray
-        
+
         /// <summary>
         /// To sorted array
         /// </summary>
@@ -1889,447 +1716,6 @@ namespace Cosmos.Collections
             }
 
             return Implementation();
-        }
-
-        #endregion
-
-        #endregion
-
-        #region List`1
-
-        #region Add
-
-        /// <summary>
-        /// Add range
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="collection"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static IList<T> AddRange<T>(this IList<T> source, IList<T> collection)
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-            if (collection is null)
-                throw new ArgumentNullException(nameof(collection));
-            foreach (var item in collection)
-                source.Add(item);
-            return source;
-        }
-
-        /// <summary>
-        /// Add range
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="collection"></param>
-        /// <param name="limit"></param>
-        public static void AddRange<T>(this List<T> source, IEnumerable<T> collection, int limit)
-        {
-            if (limit <= 0)
-            {
-                source.AddRange(collection);
-                return;
-            }
-
-            var counter = 0;
-            source.AddRange(collection.TakeWhile(item => counter++ < limit));
-        }
-
-        /// <summary>
-        /// Add into
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="target"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static IList<T> AddRangeInto<T>(this IList<T> source, IList<T> target)
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-            if (target is null)
-                throw new ArgumentNullException(nameof(target));
-            target.AddRange(source);
-            return target;
-        }
-
-        #endregion
-
-        #region Find
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="value"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, T value) =>
-            list.BinarySearch(t => t, value);
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="map"></param>
-        /// <param name="value"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, Func<TSource, TValue> map, TValue value) =>
-            list.BinarySearch(map, value, Comparer<TValue>.Default);
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="index"></param>
-        /// <param name="length"></param>
-        /// <param name="value"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, int index, int length, T value) =>
-            list.BinarySearch(index, length, t => t, value);
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="index"></param>
-        /// <param name="length"></param>
-        /// <param name="map"></param>
-        /// <param name="value"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value) =>
-            list.BinarySearch(index, length, map, value, Comparer<TValue>.Default);
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="value"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, T value, IComparer<T> comparer) =>
-            list.BinarySearch(0, list.Count, t => t, value, comparer);
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="map"></param>
-        /// <param name="value"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer) =>
-            list.BinarySearch(0, list.Count, map, value, comparer);
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="index"></param>
-        /// <param name="length"></param>
-        /// <param name="value"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static int BinarySearch<T>(this IList<T> list, int index, int length, T value, IComparer<T> comparer) =>
-            list.BinarySearch(index, length, t => t, value, comparer);
-
-        /// <summary>
-        /// Binary search
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="index"></param>
-        /// <param name="length"></param>
-        /// <param name="map"></param>
-        /// <param name="value"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        public static int BinarySearch<TSource, TValue>(this IList<TSource> list, int index, int length, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer)
-        {
-            if (list is null)
-                throw new ArgumentNullException(nameof(list));
-            if (map is null)
-                throw new ArgumentNullException(nameof(map));
-            if (comparer is null)
-                throw new ArgumentNullException(nameof(comparer));
-            if (index < 0)
-                throw new ArgumentOutOfRangeException(nameof(index), index, $"The {nameof(index)} parameter must be a non-negative value.");
-            if (length < 0)
-                throw new ArgumentOutOfRangeException(nameof(length), length, $"The {nameof(length)} parmeter must be a non-negative value.");
-            if (index + length > list.Count)
-                throw new InvalidOperationException(
-                    $"The value of {nameof(index)} plus {nameof(length)} must be less than or equal to the value of the number of items in the {nameof(list)}.");
-
-            // Do work.
-            // Taken from https://github.com/dotnet/coreclr/blob/cdff8b0babe5d82737058ccdae8b14d8ae90160d/src/mscorlib/src/System/Collections/Generic/ArraySortHelper.cs#L156
-            // The lo and high bounds.
-            var low = index;
-            var high = index + length - 1;
-
-            // While low < high.
-            while (low <= high)
-            {
-                // The midpoint.
-                var midpoint = low + ((high - low) >> 1);
-
-                // Compare.
-                var order = comparer.Compare(map(list[midpoint]), value);
-
-                // If they are equal, return.
-                if (order == 0) return midpoint;
-
-                // If less than zero, reset low, otherwise, reset high.
-                if (order < 0)
-                    low = midpoint + 1;
-                else
-                    high = midpoint - 1;
-            }
-
-            // Nothing matched, return inverse of the low bound.
-            return ~low;
-        }
-
-        #endregion
-
-        #region Move
-
-        /// <summary>
-        /// Move to first
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="element"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <returns></returns>
-        public static List<TSource> MoveToFirst<TSource>(this List<TSource> source, TSource element)
-        {
-            if (!source.Contains(element))
-                return source;
-
-            source.Remove(element);
-            source.Insert(0, element);
-            return source;
-        }
-
-        #endregion
-
-        #region ReadOnly
-
-        /// <summary>
-        /// Wrap in readonly connection
-        /// </summary>
-        /// <param name="source"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static ReadOnlyCollection<T> WrapInReadOnlyCollection<T>(this IList<T> source)
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-            return new ReadOnlyCollection<T>(source);
-        }
-
-        #endregion
-
-        #region Remove
-
-        /// <summary>
-        /// Remove deplicates
-        /// </summary>
-        /// <param name="values"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <returns></returns>
-        public static IEnumerable<TSource> RemoveDuplicates<TSource>(this IList<TSource> values)
-        {
-            var duplicateCheck = new HashSet<TSource>();
-
-            return values.RemoveWhere(item =>
-            {
-                if (duplicateCheck.Contains(item))
-                    return true;
-
-                duplicateCheck.Add(item);
-                return false;
-            });
-        }
-
-        /// <summary>
-        /// Remove buplicates
-        /// </summary>
-        /// <param name="values"></param>
-        /// <param name="duplicatePredicate"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TCheck"></typeparam>
-        /// <returns></returns>
-        public static IEnumerable<TSource> RemoveDuplicates<TSource, TCheck>(this IList<TSource> values, Func<TSource, TCheck> duplicatePredicate)
-        {
-            if (duplicatePredicate is null)
-                throw new ArgumentNullException(nameof(duplicatePredicate));
-
-            var duplicateCheck = new HashSet<TCheck>();
-
-            return values.RemoveWhere(item =>
-            {
-                var val = duplicatePredicate(item);
-
-                if (duplicateCheck.Contains(val))
-                    return true;
-
-                duplicateCheck.Add(val);
-                return false;
-            });
-        }
-
-        /// <summary>
-        /// Remove duplicates ignore case
-        /// </summary>
-        /// <param name="values"></param>
-        /// <returns></returns>
-        public static IEnumerable<string> RemoveDuplicatesIgnoreCase(this IList<string> values)
-        {
-            var duplicateCheck = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
-            return values.RemoveWhere(item =>
-            {
-                if (duplicateCheck.Contains(item))
-                    return true;
-
-                duplicateCheck.Add(item);
-                return false;
-            });
-        }
-
-        #endregion
-
-        #region Remove Safty
-
-        /// <summary>
-        /// Safe remove range<br />
-        /// 安全地移除指定范围内的成员
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="index"></param>
-        /// <param name="count"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> SafeRemoveRange<T>(this List<T> source, int index, int count)
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-
-            if (index < 0 || count < 0)
-                return source;
-
-            if (index >= source.Count)
-                return source;
-
-            count = Math.Min(count, source.Count) - index;
-
-            source.RemoveRange(index, count);
-
-            return source;
-        }
-
-        #endregion
-
-        #region Remove Where
-
-        /// <summary>
-        /// Remove where...<br />
-        /// 移除满足条件的成员，并最终返回筛选后的结果
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="predicate"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> RemoveWhere<T>(this IList<T> source, Func<T, bool> predicate)
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-            if (predicate is null)
-                throw new ArgumentNullException(nameof(predicate));
-            for (var i = source.Count - 1; i >= 0; --i)
-            {
-                var item = source[i];
-
-                if (!predicate.Invoke(item))
-                    continue;
-
-                source.RemoveAt(i);
-
-                yield return item;
-            }
-        }
-
-        #endregion
-
-        #region Shuffle
-
-        /// <summary>
-        /// Shuffle in place
-        /// </summary>
-        /// <param name="items"></param>
-        /// <typeparam name="T"></typeparam>
-        public static void ShuffleInPlace<T>(this IList<T> items) => ShuffleInPlace(items, 4);
-
-        /// <summary>
-        /// Shuffle in place
-        /// </summary>
-        /// <param name="items"></param>
-        /// <param name="times"></param>
-        /// <typeparam name="T"></typeparam>
-        public static void ShuffleInPlace<T>(this IList<T> items, int times)
-        {
-            for (var j = 0; j < times; j++)
-            {
-                var rnd = new Random((int) (DateTime.Now.Ticks % int.MaxValue) - j);
-
-                for (var i = 0; i < items.Count; i++)
-                {
-                    var index = rnd.Next(items.Count - 1);
-                    var temp = items[index];
-                    items[index] = items[i];
-                    items[i] = temp;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Shuffle to new list
-        /// </summary>
-        /// <param name="items"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static List<T> ShuffleToNewList<T>(this IList<T> items) => ShuffleToNewList(items, 4);
-
-        /// <summary>
-        /// Shuffle to new list
-        /// </summary>
-        /// <param name="items"></param>
-        /// <param name="times"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static List<T> ShuffleToNewList<T>(this IList<T> items, int times)
-        {
-            var res = new List<T>(items);
-            res.ShuffleInPlace(times);
-            return res;
         }
 
         #endregion

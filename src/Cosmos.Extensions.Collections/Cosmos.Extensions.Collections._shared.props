@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.2.1" />
+        <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.3.0" />
     </ItemGroup>
     
 </Project>
