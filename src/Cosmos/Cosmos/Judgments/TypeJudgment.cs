@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Reflection;
 
@@ -98,7 +99,7 @@ namespace Cosmos.Judgments
         /// <returns></returns>
         public static bool IsNullableType(Type type) =>
             type != null
-         && type.GetTypeInfo().IsGenericType
+         && type.IsGenericType
          && type.GetGenericTypeDefinition() == typeof(Nullable<>);
 
         /// <summary>
@@ -129,6 +130,7 @@ namespace Cosmos.Judgments
             if (!genericType.IsGenericType)
                 return false;
 
+            // ReSharper disable once JoinDeclarationAndInitializer
             bool testFlag;
 
             //Testing interface
@@ -147,6 +149,7 @@ namespace Cosmos.Judgments
             return false;
 
             // To check such type equals to specific type of class or interface
+            // 检查给定的这个 test 类型是否等于指定类 Class 或接口 Interface 的类型 Type
             // ReSharper disable once InconsistentNaming
             bool _checkRawGenericType(Type test)
                 => genericType == (test.IsGenericType ? test.GetGenericTypeDefinition() : test);
@@ -159,6 +162,23 @@ namespace Cosmos.Judgments
         /// <typeparam name="TGeneric">The generic type TGeneric</typeparam>
         /// <returns></returns>
         public static bool IsGenericImplementation<TGot, TGeneric>() => IsGenericImplementation(typeof(TGot), typeof(TGeneric));
+
+        #endregion
+
+        #region IsEnumerable
+
+        /// <summary>
+        /// Determine whether the specified type is a collection type. <br />
+        /// 判断指定的类型是否为集合类型。
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsEnumerable(Type type)
+        {
+            if (type == TypeClass.StringClass)
+                return false;
+            return typeof(IEnumerable).IsAssignableFrom(type);
+        }
 
         #endregion
     }

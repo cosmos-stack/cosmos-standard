@@ -11,7 +11,7 @@ namespace Cosmos.Validations
     /// Validation exception
     /// </summary>
     [Serializable]
-    public class ValidationException : CosmosException
+    public class ValidationException : CosmosException, IHasValidationErrors
     {
         private const string ValidationFlag = "__VALID_FLG";
         private const string ValidationMessageInfoKey = "__VALIDATION_MESSAGES";
@@ -29,21 +29,27 @@ namespace Cosmos.Validations
         /// Create a new instance of <see cref="ValidationException"/>.
         /// </summary>
         /// <param name="message"></param>
-        public ValidationException(string message) : base(message, ValidationFlag) { }
+        public ValidationException(string message) : base(message, ValidationFlag)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
         /// </summary>
         /// <param name="message"></param>
         /// <param name="flag"></param>
-        public ValidationException(string message, string flag) : base(message, flag) { }
+        public ValidationException(string message, string flag) : base(message, flag)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
         /// </summary>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public ValidationException(string message, Exception innerException) : base(message, ValidationFlag, innerException) { }
+        public ValidationException(string message, Exception innerException) : base(message, ValidationFlag, innerException)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
@@ -51,7 +57,9 @@ namespace Cosmos.Validations
         /// <param name="message"></param>
         /// <param name="flag"></param>
         /// <param name="innerException"></param>
-        public ValidationException(string message, string flag, Exception innerException) : base(message, flag, innerException) { }
+        public ValidationException(string message, string flag, Exception innerException) : base(message, flag, innerException)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
@@ -98,7 +106,9 @@ namespace Cosmos.Validations
         /// </summary>
         /// <param name="errorCode"></param>
         /// <param name="message"></param>
-        public ValidationException(long errorCode, string message) : base(errorCode, message, ValidationFlag) { }
+        public ValidationException(long errorCode, string message) : base(errorCode, message, ValidationFlag)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
@@ -106,7 +116,9 @@ namespace Cosmos.Validations
         /// <param name="errorCode"></param>
         /// <param name="message"></param>
         /// <param name="flag"></param>
-        public ValidationException(long errorCode, string message, string flag) : base(errorCode, message, flag) { }
+        public ValidationException(long errorCode, string message, string flag) : base(errorCode, message, flag)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
@@ -114,7 +126,9 @@ namespace Cosmos.Validations
         /// <param name="errorCode"></param>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public ValidationException(long errorCode, string message, Exception innerException) : base(errorCode, message, ValidationFlag, innerException) { }
+        public ValidationException(long errorCode, string message, Exception innerException) : base(errorCode, message, ValidationFlag, innerException)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.
@@ -123,7 +137,9 @@ namespace Cosmos.Validations
         /// <param name="message"></param>
         /// <param name="flag"></param>
         /// <param name="innerException"></param>
-        public ValidationException(long errorCode, string message, string flag, Exception innerException) : base(errorCode, message, flag, innerException) { }
+        public ValidationException(long errorCode, string message, string flag, Exception innerException) : base(errorCode, message, flag, innerException)
+        {
+        }
 
         /// <summary>
         /// Create a new instance of <see cref="ValidationException"/>.

@@ -8,7 +8,7 @@ namespace Cosmos
     /// <summary>
     /// Numeric arguments checking
     /// </summary>
-    public static partial class Preconditions
+    public static partial class Checker
     {
         /// <summary>
         /// 检查整数是否为负
