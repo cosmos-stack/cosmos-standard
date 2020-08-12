@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="NMS.DynamicCache" Version="1.1.0.1" />
+        <PackageReference Include="Alexinea.FastMember" Version="1.5.0" />
     </ItemGroup>
     
 </Project>

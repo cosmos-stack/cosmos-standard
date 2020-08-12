@@ -55,6 +55,24 @@ namespace System.Reflection
 
         #endregion
 
+        #region Gets Attribute
+
+        /// <summary>
+        /// Get the Attribute of the specified type from the given Type. <br />
+        /// 从给定的 Type 中获取指定类型的 Attribute。
+        /// </summary>
+        /// <param name="fromType"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T GetAttribute<T>(Type fromType) where T : Attribute
+        {
+            var attributes = fromType.GetCustomAttributes(typeof(T), false);
+
+            return CosmosObjectExtensions.GetAttribute<T>(attributes);
+        }
+
+        #endregion
+
         #region Gets/Sets PropertyInfo
 
         /// <summary>
@@ -360,6 +378,56 @@ namespace System.Reflection
 
         #endregion
 
+        #region Gets/Sets PropertyValue quickly
+
+        /// <summary>
+        /// Get the value of the specified property name from the that.<br />
+        /// 从对象中获取指定属性名称的值。
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="that">Any <see cref="object"/></param>
+        /// <param name="propertyName">Property name in this that</param>
+        /// <param name="allowNonPublicAccessors"></param>
+        /// <returns>Value of the specific property in this that</returns>
+        public static object GetPropertyValueQuickly(this object that, Type type, string propertyName, bool allowNonPublicAccessors = false)
+            => type.CreateTypeAccessor(allowNonPublicAccessors)[that, propertyName];
+
+        /// <summary>
+        /// Get the value of the specified property name from the that.<br />
+        /// 从对象中获取指定属性名称的值。
+        /// </summary>
+        /// <param name="that">Any <see cref="object"/></param>
+        /// <param name="propertyName">Property name in this that</param>
+        /// <param name="allowNonPublicAccessors"></param>
+        /// <returns>Value of the specific property in this that</returns>
+        public static object GetPropertyValueQuickly<T>(this object that, string propertyName, bool allowNonPublicAccessors = false)
+            => typeof(T).CreateTypeAccessor(allowNonPublicAccessors)[that, propertyName];
+
+        /// <summary>
+        /// Set a value to the specified property name in the that.<br />
+        /// 向对象中的指定属性名称设置值。
+        /// </summary>
+        /// <param name="that"></param>
+        /// <param name="type"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
+        /// <param name="allowNonPublicAccessors"></param>
+        public static void SetPropertyValueQuickly(this object that, Type type, string propertyName, object value, bool allowNonPublicAccessors = false)
+            => type.CreateTypeAccessor(allowNonPublicAccessors)[that, propertyName] = value;
+
+        /// <summary>
+        /// Set a value to the specified property name in the that.<br />
+        /// 向对象中的指定属性名称设置值。
+        /// </summary>
+        /// <param name="that"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="value"></param>
+        /// <param name="allowNonPublicAccessors"></param>
+        public static void SetPropertyValueQuickly<T>(this object that, string propertyName, object value, bool allowNonPublicAccessors = false)
+            => typeof(T).CreateTypeAccessor(allowNonPublicAccessors)[that, propertyName] = value;
+
+        #endregion
+
         #region FindGenericType
 
         private static readonly TypeInfo ObjectTypeInfo = TypeClass.ObjectClass.GetTypeInfo();
@@ -452,6 +520,5 @@ namespace System.Reflection
         public static string GetFullyQualifiedName(this Type type) => GetFullyQualifiedName(type.TypeInfo());
 
         #endregion
-
     }
 }

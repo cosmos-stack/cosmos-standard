@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Cosmos;
+using Cosmos.Conversions;
 
 namespace System.Reflection
 {
@@ -153,5 +155,37 @@ namespace System.Reflection
 
         #endregion
 
+        #region GetMemberValue
+
+        /// <summary>
+        /// Get property value from the given instance.
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static object GetMemberValue(this MemberInfo member, object instance)
+        {
+            if (member is null)
+                throw new ArgumentNullException(nameof(member));
+            if (instance is null)
+                throw new ArgumentNullException(nameof(instance));
+            return instance.GetType().GetProperty(member.Name)?.GetValue(instance);
+        }
+
+        public static TMemberValue GetMemberValue<TMemberValue>(this MemberInfo member, object instance)
+        {
+            if (member is null)
+                throw new ArgumentNullException(nameof(member));
+            if (instance is null)
+                throw new ArgumentNullException(nameof(instance));
+            var value = instance.GetType().GetProperty(member.Name)?.GetValue(instance);
+
+            if (value is null)
+                return default;
+            return value.As<TMemberValue>();
+        }
+
+        #endregion
     }
 }

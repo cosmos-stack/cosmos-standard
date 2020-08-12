@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Cosmos;
 
 namespace System.Reflection
 {
@@ -62,6 +64,31 @@ namespace System.Reflection
 
             sb.Append(")");
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Determine whether the specified method is an asynchronous method.<br />
+        /// 判断指定的方法是否为异步方法。
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        public static bool IsAsyncMethod(this MethodInfo method)
+        {
+            return method.ReturnType == TypeClass.TaskClass
+                   || method.ReturnType == TypeClass.ValueTaskClass
+                   || method.ReturnType.IsGenericType && method.ReturnType.GetGenericTypeDefinition() == TypeClass.GenericTaskClass
+                   || method.ReturnType.IsGenericType && method.ReturnType.GetGenericTypeDefinition() == TypeClass.GenericValueTaskClass;
+        }
+        
+        /// <summary>
+        /// Determine whether the specified method is an overriding method.<br />
+        /// 判断指定方法是否是重写方法
+        /// </summary>
+        /// <param name="method">要判断的方法信息</param>
+        /// <returns>是否是重写方法</returns>
+        public static bool IsOverridden(this MethodInfo method)
+        {
+            return method.GetBaseDefinition().DeclaringType != method.DeclaringType;
         }
     }
 }

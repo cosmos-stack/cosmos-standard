@@ -288,6 +288,16 @@ namespace Cosmos
         public static Type GenericTaskClass { get; } = typeof(Task<>);
 
         /// <summary>
+        /// Gets clazz for ValueTask
+        /// </summary>
+        public static Type ValueTaskClass { get; } = typeof(ValueTask);
+
+        /// <summary>
+        /// Gets clazz for Generic ValueTask
+        /// </summary>
+        public static Type GenericValueTaskClass { get; } = typeof(ValueTask<>);
+
+        /// <summary>
         /// Gets clazz for List
         /// </summary>
         public static Type ListClass { get; } = typeof(List<>);

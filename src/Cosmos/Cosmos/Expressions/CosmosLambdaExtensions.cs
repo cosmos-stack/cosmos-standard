@@ -5,7 +5,6 @@ using System.Reflection;
 using Cosmos.Expressions;
 using Cosmos.Queries;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Expressions
 {
     //A copy of https://github.com/dotnetcore/Util/blob/HEAD/src/Util/Extensions.Lambda.cs
@@ -14,7 +13,7 @@ namespace Cosmos.Expressions
     /// <summary>
     /// Lambda extensions
     /// </summary>
-    public static class LambdaExtensions
+    public static class CosmosLambdaExtensions
     {
         #region Property(属性表达式)
 

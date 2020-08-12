@@ -165,6 +165,63 @@ namespace Cosmos.Reflection
 
         #endregion
 
+        #region Tuple Type
+
+        /// <summary>
+        /// Is tuple type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="checkBaseTypes"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsTupleType(Type type, bool checkBaseTypes = false)
+        {
+            if (type == null)
+                throw new ArgumentNullException(nameof(type));
+
+            if (type == typeof(Tuple))
+                return true;
+            if (type == typeof(ValueTuple))
+                return true;
+
+            while (type != null)
+            {
+                if (type.IsGenericType)
+                {
+                    var genType = type.GetGenericTypeDefinition();
+                    if (genType == typeof(Tuple<>)
+                        || genType == typeof(Tuple<,>)
+                        || genType == typeof(Tuple<,,>)
+                        || genType == typeof(Tuple<,,,>)
+                        || genType == typeof(Tuple<,,,,>)
+                        || genType == typeof(Tuple<,,,,,>)
+                        || genType == typeof(Tuple<,,,,,,>)
+                        || genType == typeof(Tuple<,,,,,,,>)
+                        || genType == typeof(Tuple<,,,,,,,>))
+                        return true;
+                    if (genType == typeof(ValueTuple<>)
+                        || genType == typeof(ValueTuple<,>)
+                        || genType == typeof(ValueTuple<,,>)
+                        || genType == typeof(ValueTuple<,,,>)
+                        || genType == typeof(ValueTuple<,,,,>)
+                        || genType == typeof(ValueTuple<,,,,,>)
+                        || genType == typeof(ValueTuple<,,,,,,>)
+                        || genType == typeof(ValueTuple<,,,,,,,>)
+                        || genType == typeof(ValueTuple<,,,,,,,>))
+                        return true;
+                }
+
+                if (!checkBaseTypes)
+                    break;
+
+                type = type.BaseType;
+            }
+
+            return false;
+        }
+
+        #endregion
+
         #region CreateInstance
 
         /// <summary>

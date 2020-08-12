@@ -12,13 +12,19 @@ namespace Cosmos
         /// </summary>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static TValue Of<TValue>() => default;
+        public static TValue Of<TValue>()
+        {
+            var type = typeof(TValue);
+            if (type.IsValueType)
+                return (TValue) Activator.CreateInstance(type);
+            return default;
+        }
 
         /// <summary>
         /// Gets default value for type TValue.
         /// </summary>
         /// <returns></returns>
-        public static object Of(Type type) => default;
+        public static object Of(Type type) => type.IsValueType ? Activator.CreateInstance(type) : default;
 
         /// <summary>
         /// Gets default value for int;

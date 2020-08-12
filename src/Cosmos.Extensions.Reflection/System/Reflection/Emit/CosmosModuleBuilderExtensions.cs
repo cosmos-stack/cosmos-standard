@@ -45,8 +45,15 @@ namespace System.Reflection.Emit
 
             ISet<string> propertyNames = new HashSet<string>(StringComparer.Ordinal);
 
+#if NETSTANDARD2_0
+            foreach (var property in properties)
+            {
+                var propertyName = property.Key;
+                var type = property.Value;
+#else
             foreach (var (propertyName, type) in properties)
             {
+#endif
                 if (propertyNames.Contains(propertyName))
                     throw new InvalidOperationException($"Encountered a duplicate property name of \"{propertyName}\"");
 
