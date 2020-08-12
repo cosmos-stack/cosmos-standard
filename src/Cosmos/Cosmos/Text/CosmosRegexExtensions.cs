@@ -1,13 +1,12 @@
 using System;
 using System.Text.RegularExpressions;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Text
 {
     /// <summary>
-    /// Regex extensons
+    /// Cosmos <see cref="Regex"/> extensions.
     /// </summary>
-    public static class RegexExtensions
+    public static class CosmosRegexExtensions
     {
         /// <summary>
         /// Get group value
@@ -32,5 +31,13 @@ namespace Cosmos.Text
 
             return g.Value;
         }
+
+        /// <summary>
+        /// To safe group value
+        /// </summary>
+        /// <param name="match"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static string SafeGroupValue(this Match match, string name) => match.Groups[name]?.Value;
     }
 }
