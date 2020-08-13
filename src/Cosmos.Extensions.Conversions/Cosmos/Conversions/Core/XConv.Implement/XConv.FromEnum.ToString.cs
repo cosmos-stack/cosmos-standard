@@ -22,11 +22,13 @@ namespace Cosmos.Conversions.Core
                 {
                     attributeName = attributes.Get<DisplayNameAttribute>()?.DisplayName ?? string.Empty;
                 }
+#if !NETCOREAPP3_0
                 else if (attributes.Has<DisplayAttribute>())
                 {
                     var attribute = attributes.Get<DisplayAttribute>();
                     attributeName = attribute?.GetDescription() ?? attribute?.GetName();
                 }
+#endif
             }
 
             if (string.IsNullOrWhiteSpace(attributeName))

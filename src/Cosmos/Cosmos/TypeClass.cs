@@ -306,5 +306,25 @@ namespace Cosmos
         /// Gets clazz for Generic List
         /// </summary>
         public static Type GenericListClass { get; } = typeof(List<>);
+
+        /// <summary>
+        /// Gets clazz for Nullable type
+        /// </summary>
+        public static Type NullableClass { get; } = typeof(Nullable);
+
+        /// <summary>
+        /// Gets clazz for Generic Nullable type
+        /// </summary>
+        public static Type GenericNullableClass { get; } = typeof(Nullable<>);
+
+        /// <summary>
+        /// Gets clazz for IFormattable
+        /// </summary>
+        public static Type FormattableClass { get; } = typeof(IFormattable);
+
+        /// <summary>
+        /// Gets clazz for IFormatProvider
+        /// </summary>
+        public static Type FormatProviderClass { get; } = typeof(IFormatProvider);
     }
 }
