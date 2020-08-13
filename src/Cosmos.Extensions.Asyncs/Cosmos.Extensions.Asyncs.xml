@@ -1341,26 +1341,26 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Threading.SemaphoreSlimExtensions">
+        <member name="T:Cosmos.Threading.CosmosSemaphoreSlimExtensions">
             <summary>
-            Extensions for SemaphoreSlim
+            Cosmos SemaphoreSlim extensions
             </summary>
         </member>
-        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute(System.Threading.Semaphore,System.Action)">
+        <member name="M:Cosmos.Threading.CosmosSemaphoreSlimExtensions.Execute(System.Threading.Semaphore,System.Action)">
             <summary>
             Executes an action within the context of a a Semaphore.
             </summary>
             <param name="target">The semaphore instance</param>
             <param name="closure">The action to execute.</param>
         </member>
-        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute(System.Threading.SemaphoreSlim,System.Action)">
+        <member name="M:Cosmos.Threading.CosmosSemaphoreSlimExtensions.Execute(System.Threading.SemaphoreSlim,System.Action)">
             <summary>
             Executes an action within the context of a a SemaphoreSlim.
             </summary>
             <param name="target">The semaphore instance</param>
             <param name="closure">The action to execute.</param>
         </member>
-        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute``1(System.Threading.Semaphore,System.Func{``0})">
+        <member name="M:Cosmos.Threading.CosmosSemaphoreSlimExtensions.Execute``1(System.Threading.Semaphore,System.Func{``0})">
             <summary>
             Executes a function within the context of a a Semaphore.
             </summary>
@@ -1369,7 +1369,7 @@
             <param name="closure">The function to execute.</param>
             <returns>The value of the function.</returns>
         </member>
-        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.Execute``1(System.Threading.SemaphoreSlim,System.Func{``0})">
+        <member name="M:Cosmos.Threading.CosmosSemaphoreSlimExtensions.Execute``1(System.Threading.SemaphoreSlim,System.Func{``0})">
             <summary>
             Executes a function within the context of a a SemaphoreSlim.
             </summary>
@@ -1378,7 +1378,7 @@
             <param name="closure">The function to execute.</param>
             <returns>The value of the function.</returns>
         </member>
-        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.ExecuteAsync``1(System.Threading.SemaphoreSlim,System.Func{``0})">
+        <member name="M:Cosmos.Threading.CosmosSemaphoreSlimExtensions.ExecuteAsync``1(System.Threading.SemaphoreSlim,System.Func{``0})">
             <summary>
             Executes a task within the context of a a SemaphoreSlim.
             </summary>
@@ -1387,7 +1387,7 @@
             <param name="closure">The function to execute as a task.</param>
             <returns>A task containing the result.</returns>
         </member>
-        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.TaskExecuteAsync``1(System.Threading.SemaphoreSlim,System.Threading.Tasks.Task{``0})">
+        <member name="M:Cosmos.Threading.CosmosSemaphoreSlimExtensions.TaskExecuteAsync``1(System.Threading.SemaphoreSlim,System.Threading.Tasks.Task{``0})">
             <summary>
             Executes a task within the context of a a SemaphoreSlim.
             </summary>
@@ -1396,7 +1396,7 @@
             <param name="task">The task being waited on.</param>
             <returns>The task provided.</returns>
         </member>
-        <member name="M:Cosmos.Threading.SemaphoreSlimExtensions.ExecuteAsync``1(System.Threading.SemaphoreSlim,System.Threading.Tasks.ValueTask{``0})">
+        <member name="M:Cosmos.Threading.CosmosSemaphoreSlimExtensions.ExecuteAsync``1(System.Threading.SemaphoreSlim,System.Threading.Tasks.ValueTask{``0})">
             <summary>
             Executes a task within the context of a a SemaphoreSlim.
             </summary>

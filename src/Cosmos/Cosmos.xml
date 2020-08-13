@@ -802,6 +802,190 @@
             Gets a func for unix utc_now.
             </summary>
         </member>
+        <member name="T:Cosmos.Dynamic.Exposed">
+            <summary>
+            Exposes hidden (private/protected/internal) members of an
+            <see langword="object"/> or <see cref="T:System.Type"/> through a <see langword="dynamic"/> wrapper.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Dynamic.Exposed._value">
+            <summary>
+            The <see langword="object"/> that is being exposed.
+            <see langword="null"/> if static members of a <see cref="T:System.Type"/> are being exposed.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Dynamic.Exposed.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cosmos.Dynamic.Exposed"/> class. 
+            Creates a new wrapper for accessing members of subject.
+            </summary>
+            <param name="subject">
+            The object which will have it's members exposed.
+            </param>
+            <returns>
+            A new wrapper around the subject.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.Exposed.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cosmos.Dynamic.Exposed"/> class. 
+            Creates a new wrapper for accessing hidden static members of a <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">
+            The <see cref="T:System.Type"/> which will have it's static members exposed.
+            </param>
+            <returns>
+            A new wrapper around a <see cref="T:System.Type"/>.
+            </returns>
+        </member>
+        <member name="P:Cosmos.Dynamic.Exposed.SubjectType">
+            <summary>
+            Gets the <see cref="T:System.Type"/> of the exposed object.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Dynamic.Exposed.From(System.Object)">
+            <summary>
+            Creates a new wrapper for accessing members of subject.
+            </summary>
+            <param name="subject">
+            The object which will have it's members exposed.
+            </param>
+            <returns>
+            A new wrapper around the subject.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.Exposed.From(System.Type)">
+            <summary>
+            Creates a new wrapper for accessing hidden static members of a <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">
+            The <see cref="T:System.Type"/> which will have it's static members exposed.
+            </param>
+            <returns>
+            A new wrapper around a <see cref="T:System.Type"/>.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.Exposed.New(System.Type)">
+            <summary>
+            Creates a new wrapper for accessing members of a new instance of <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">
+            The <see cref="T:System.Type"/> of which an instance will have it's members exposed.
+            </param>
+            <returns>
+            A new wrapper around a new instance of <see cref="T:System.Type"/>.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.Exposed.GetMetaObject(System.Linq.Expressions.Expression)">
+            <summary>
+            Returns the <see cref="T:System.Dynamic.DynamicMetaObject"/> responsible for binding operations performed on this object.
+            </summary>
+            <param name="parameter">
+            The expression tree representation of the runtime value.
+            </param>
+            <returns>
+            The <see cref="T:System.Dynamic.DynamicMetaObject"/> to bind this object.
+            </returns>
+        </member>
+        <member name="T:Cosmos.Dynamic.MetaObject">
+            <summary>
+            Represents the dynamic binding and a binding logic of an object participating in the dynamic binding.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Dynamic.MetaObject._isStatic">
+            <summary>
+            Should this <see cref="T:Cosmos.Dynamic.MetaObject"/> bind to <see langword="static"/> or instance methods and fields.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Dynamic.MetaObject.#ctor(System.Linq.Expressions.Expression,System.Object,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cosmos.Dynamic.MetaObject"/> class.
+            </summary>
+            <param name="expression">
+            The expression representing this <see cref="T:System.Dynamic.DynamicMetaObject"/> during the dynamic binding process.
+            </param>
+            <param name="value">
+            The runtime value represented by the <see cref="T:System.Dynamic.DynamicMetaObject"/>.
+            </param>
+            <param name="staticBind">
+            Should this MetaObject bind to <see langword="static"/> or instance methods and fields.
+            </param>
+        </member>
+        <member name="M:Cosmos.Dynamic.MetaObject.BindInvokeMember(System.Dynamic.InvokeMemberBinder,System.Dynamic.DynamicMetaObject[])">
+            <summary>
+            Performs the binding of the dynamic invoke member operation.
+            </summary>
+            <param name="binder">
+            An instance of the <see cref="T:System.Dynamic.InvokeMemberBinder"/> that represents the details of the dynamic operation.
+            </param>
+            <param name="args">
+            An array of <see cref="T:System.Dynamic.DynamicMetaObject"/> instances - arguments to the invoke member operation.
+            </param>
+            <returns>
+            The new <see cref="T:System.Dynamic.DynamicMetaObject"/> representing the result of the binding.
+            </returns>
+            <exception cref="T:System.MissingMemberException">
+            There is an attempt to dynamically access a class member that does not exist.
+            </exception>
+        </member>
+        <member name="M:Cosmos.Dynamic.MetaObject.BindGetMember(System.Dynamic.GetMemberBinder)">
+            <summary>
+            Performs the binding of the dynamic get member operation.
+            </summary>
+            <param name="binder">
+            An instance of the <see cref="T:System.Dynamic.GetMemberBinder"/> that represents the details of the dynamic operation.
+            </param>
+            <returns>
+            The new <see cref="T:System.Dynamic.DynamicMetaObject"/> representing the result of the binding.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.MetaObject.BindSetMember(System.Dynamic.SetMemberBinder,System.Dynamic.DynamicMetaObject)">
+            <summary>
+            Performs the binding of the dynamic set member operation.
+            </summary>
+            <param name="binder">
+            An instance of the <see cref="T:System.Dynamic.SetMemberBinder"/> that represents the details of the dynamic operation.
+            </param>
+            <param name="value">
+            The <see cref="T:System.Dynamic.DynamicMetaObject"/> representing the value for the set member operation.
+            </param>
+            <returns>
+            The new <see cref="T:System.Dynamic.DynamicMetaObject"/> representing the result of the binding.
+            </returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.MetaObject.GetMemberExpression(System.Linq.Expressions.Expression,System.String)">
+            <summary>
+            Generates the <see cref="T:System.Linq.Expressions.Expression"/> for accessing a member by name.
+            </summary>
+            <param name="self">
+            The <see cref="T:System.Linq.Expressions.Expression"/> for accessing the <see cref="T:Cosmos.Dynamic.Exposed"/> instance.
+            </param>
+            <param name="memberName">
+            The member name.
+            </param>
+            <returns>
+            <see cref="T:System.Linq.Expressions.MemberExpression"/> for accessing a member by name.
+            </returns>
+            <exception cref="T:System.MissingMemberException">
+            </exception>
+        </member>
+        <member name="M:Cosmos.Dynamic.MetaObject.ConvertExpressionType(System.Type,System.Linq.Expressions.Expression)">
+            <summary>
+            Coerces the expression type into the expected return type.
+            </summary>
+            <param name="expectedType">Type expeted at the dispatch site.</param>
+            <param name="target">Expression to coerce.</param>
+            <remarks>Dynamic dispatch expects a <see langword="void"/> method to return <see langword="null"/>.</remarks>
+            <returns>Target expression coerced to the required type.</returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.MetaObject.GetBindingFlags">
+            <summary>
+            Returns <see cref="T:System.Reflection.BindingFlags"/> for member search.
+            </summary>
+            <returns>
+            Static or instance flags depending on <see cref="F:Cosmos.Dynamic.MetaObject._isStatic"/>.
+            </returns>
+        </member>
         <member name="T:Cosmos.EqualityHelper`1">
             <summary>
             相等比较，用于快速创建<see cref="T:System.Collections.Generic.IEqualityComparer`1"/>的实例
@@ -2660,6 +2844,68 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Finders.BaseFinder`1">
+            <summary>
+            Base finder
+            </summary>
+        </member>
+        <member name="F:Cosmos.Finders.BaseFinder`1.ItemsCache">
+            <summary>
+            Cached items. <br />
+            已缓存的项目
+            </summary>
+        </member>
+        <member name="F:Cosmos.Finders.BaseFinder`1.Found">
+            <summary>
+            Mark whether the search has been completed.<br />
+            标记是否已完成查找。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Finders.BaseFinder`1.Find(System.Func{`0,System.Boolean},System.Boolean)">
+            <summary>
+            查找指定条件的项
+            </summary>
+            <param name="predicate">筛选条件</param>
+            <param name="fromCache">是否来自缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Finders.BaseFinder`1.FindAll(System.Boolean)">
+            <summary>
+            查找所有项
+            </summary>
+            <param name="fromCache">是否来自缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Finders.BaseFinder`1.FindAllItems">
+            <summary>
+            Perform search work for all items. <br />
+            执行所有项目的查找工作。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Finders.IFinder`1">
+            <summary>
+            Interface for finder
+            </summary>
+            <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="M:Cosmos.Finders.IFinder`1.Find(System.Func{`0,System.Boolean},System.Boolean)">
+            <summary>
+            Find items based on specified conditions. <br />
+            根据指定的条件查找项目。
+            </summary>
+            <param name="predicate">筛选条件</param>
+            <param name="fromCache">是否来自缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Finders.IFinder`1.FindAll(System.Boolean)">
+            <summary>
+            Find all items. <br />
+            查找所有项目。
+            </summary>
+            <param name="fromCache">是否来自缓存</param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.InterlockedUtil">
             <summary>
             Interlocked util
@@ -3170,6 +3416,14 @@
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Judgments.TypeJudgment.IsEnumerable(System.Type)">
+            <summary>
+            Determine whether the specified type is a collection type. <br />
+            判断指定的类型是否为集合类型。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Numeric.CosmosNumericExtensions">
             <summary>
             Extensions for numeric
@@ -3485,6 +3739,9 @@
             </summary>
         </member>
         <member name="T:Cosmos.Reflection.Reflections">
+            <summary>
+            Reflection Utilities.
+            </summary>
             <summary>
             Reflection Utilities.
             </summary>
@@ -3847,6 +4104,73 @@
             <param name="memberInfo">Special member</param>
             <returns>Name or description of special member</returns>
         </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsBool(System.Reflection.MemberInfo)">
+            <summary>
+            是否布尔类型
+            </summary>
+            <param name="member">成员</param>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsBool(System.Reflection.PropertyInfo)">
+            <summary>
+            是否布尔类型
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsEnum(System.Reflection.MemberInfo)">
+            <summary>
+            是否枚举类型
+            </summary>
+            <param name="member">成员</param>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsEnum(System.Reflection.PropertyInfo)">
+            <summary>
+            是否枚举类型
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsDate(System.Reflection.MemberInfo)">
+            <summary>
+            是否日期类型
+            </summary>
+            <param name="member">成员</param>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsDate(System.Reflection.PropertyInfo)">
+            <summary>
+            是否日期类型
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsInt(System.Reflection.MemberInfo)">
+            <summary>
+            是否整型
+            </summary>
+            <param name="member">成员</param>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsInt(System.Reflection.PropertyInfo)">
+            <summary>
+            是否整型
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsNumber(System.Reflection.MemberInfo)">
+            <summary>
+            是否数值类型
+            </summary>
+            <param name="member">成员</param>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsNumeric(System.Reflection.PropertyInfo)">
+            <summary>
+            是否数值类型
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsCollection(System.Type)">
+            <summary>
+            是否集合
+            </summary>
+            <param name="type">类型</param>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflections.IsGenericCollection(System.Type)">
+            <summary>
+            是否泛型集合
+            </summary>
+            <param name="type">类型</param>
+        </member>
         <member name="M:Cosmos.Reflection.Reflections.GetUnderlyingType``1">
             <summary>
             Get underlying type.
@@ -4010,6 +4334,15 @@
             </summary>
             <param name="typeInfo"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsTupleType(System.Type,System.Boolean)">
+            <summary>
+            Is tuple type
+            </summary>
+            <param name="type"></param>
+            <param name="checkBaseTypes"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Reflection.Types.CreateInstance``1(System.Object[])">
             <summary>
@@ -5136,6 +5469,16 @@
             Gets clazz for Generic Task
             </summary>
         </member>
+        <member name="P:Cosmos.TypeClass.ValueTaskClass">
+            <summary>
+            Gets clazz for ValueTask
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.GenericValueTaskClass">
+            <summary>
+            Gets clazz for Generic ValueTask
+            </summary>
+        </member>
         <member name="P:Cosmos.TypeClass.ListClass">
             <summary>
             Gets clazz for List
@@ -5144,6 +5487,26 @@
         <member name="P:Cosmos.TypeClass.GenericListClass">
             <summary>
             Gets clazz for Generic List
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.NullableClass">
+            <summary>
+            Gets clazz for Nullable type
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.GenericNullableClass">
+            <summary>
+            Gets clazz for Generic Nullable type
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.FormattableClass">
+            <summary>
+            Gets clazz for IFormattable
+            </summary>
+        </member>
+        <member name="P:Cosmos.TypeClass.FormatProviderClass">
+            <summary>
+            Gets clazz for IFormatProvider
             </summary>
         </member>
         <member name="T:Cosmos.TypeDefault">
@@ -5212,6 +5575,11 @@
         <member name="P:Cosmos.TypeDefault.TimeSpan">
             <summary>
             Gets default value for TimeSpan;
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validations.IHasValidationErrors.ValidationMessage">
+            <summary>
+            Gets validation message
             </summary>
         </member>
         <member name="T:Cosmos.Validations.ValidationErrors">
