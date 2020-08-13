@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Cosmos.Threading
 {
     /// <summary>
-    /// Extensions for SemaphoreSlim
+    /// Cosmos SemaphoreSlim extensions
     /// </summary>
-    public static class SemaphoreSlimExtensions
+    public static class CosmosSemaphoreSlimExtensions
     {
         /// <summary>
         /// Executes an action within the context of a a Semaphore.

@@ -1,12 +1,11 @@
-using System;
+﻿using System;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Exceptions
 {
     /// <summary>
-    /// Extensions for Try
+    /// Cosmos Try extensions.
     /// </summary>
-    public static class TryExtensions
+    public static class CosmosTryExtensions
     {
         /// <summary>
         /// Select

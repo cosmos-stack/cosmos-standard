@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Text;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Exceptions
 {
     /// <summary>
-    /// Exception extensions<br />
-    /// 异常扩展
+    /// Cosmos <see cref="Exception"/> extensions.
     /// </summary>
-    public static class ExceptionExtensions
+    public static class CosmosExceptionExtensions
     {
         /// <summary>
         /// Unwrap<br />
@@ -64,7 +62,7 @@ namespace Cosmos.Exceptions
         /// <param name="ex"></param>
         /// <returns></returns>
         public static Exception Unwrap<TException>(this Exception ex)
-        where TException : Exception
+            where TException : Exception
         {
             return ex.Unwrap(Reflection.Types.Of<TException>());
         }

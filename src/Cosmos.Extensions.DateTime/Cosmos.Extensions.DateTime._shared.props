@@ -1,0 +1,13 @@
+﻿<Project>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.DateTime</AssemblyName>
+        <PackageId>Cosmos.Extensions.DateTime</PackageId>
+        <Description>Cosmos Date/Time extension library</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NodaTime" Version="3.0.0" />
+    </ItemGroup>
+
+</Project>

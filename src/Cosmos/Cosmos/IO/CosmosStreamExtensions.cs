@@ -7,9 +7,9 @@ using Cosmos.Collections;
 namespace Cosmos.IO
 {
     /// <summary>
-    /// Extensions for stream
+    /// Cosmos <see cref="Stream"/> extensions.
     /// </summary>
-    public static class StreamExtensions
+    public static class CosmosStreamExtensions
     {
         #region Seek
 

@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="Cosmos.Extensions.DateTime._shared.props" />
+
+    <Import Project="..\..\common.props" />
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions._build.csproj" />
+    </ItemGroup>
+</Project>
