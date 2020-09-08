@@ -12,27 +12,27 @@ namespace Cosmos.Test.Conversions {
 
         [Fact]
         public void NullObjTest() {
-            ObjectConverter.To<One>(null).ShouldBe(default);
+            ObjectConv.To<One>(null).ShouldBe(default);
         }
 
         [Fact]
         public void NullValueTypeTest() {
-            ObjectConverter.To<int>(null).ShouldBe(default);
+            ObjectConv.To<int>(null).ShouldBe(default);
         }
 
         [Theory]
         [InlineData(1.0001D)]
         public void ValueTypeTest(double input) {
-            ObjectConverter.To<int>(input).ShouldBe(1);
+            ObjectConv.To<int>(input).ShouldBe(1);
         }
 
         [Fact]
         public void ParentClazzTest() {
             One one = new Two();
-            var one1 = ObjectConverter.To<One>(one);
-            var two1 = ObjectConverter.To<Two>(one);
-            var one2 = ObjectConverter.To<One, One>(one);
-            var two2 = ObjectConverter.To<One, Two>(one);
+            var one1 = ObjectConv.To<One>(one);
+            var two1 = ObjectConv.To<Two>(one);
+            var one2 = ObjectConv.To<One, One>(one);
+            var two2 = ObjectConv.To<One, Two>(one);
 
             Assert.Equal(typeof(Two), one1.GetType());
             Assert.Equal(typeof(Two), two1.GetType());
@@ -42,13 +42,13 @@ namespace Cosmos.Test.Conversions {
 
         [Fact]
         public void BoxedValueTypeTest() {
-            ObjectConverter.To<int>(100).ShouldBe(100);
+            ObjectConv.To<int>(100).ShouldBe(100);
         }
 
         [Fact]
         public void ObjectToListTest() {
             object list = new List<string> {"1", "2", "3"};
-            var list2 = ObjectConverter.To<List<string>>(list);
+            var list2 = ObjectConv.To<List<string>>(list);
 
             list2.ShouldNotBeNull();
             list2.ShouldNotBeEmpty();
@@ -59,7 +59,7 @@ namespace Cosmos.Test.Conversions {
         [Fact]
         public void ObjectValueListFailureTest() {
             object list = new List<string> {"1", "2", "3"};
-            ObjectConverter.To<List<One>>(list).ShouldBeNull();
+            ObjectConv.To<List<One>>(list).ShouldBeNull();
         }
 
         [Theory]
@@ -68,7 +68,7 @@ namespace Cosmos.Test.Conversions {
         [InlineData("1.1,2.2,3.3,4.4,5.5")]
         [InlineData("1.1,2.2,3.3,4.4,5.5,")]
         public void IntegerListTest(string str) {
-            var list = ObjectConverter.ToList<int>(str).ToList();
+            var list = ObjectConv.ToList<int>(str).ToList();
 
             list.ShouldNotBeNull();
             list.Count.ShouldBe(5);
@@ -79,7 +79,7 @@ namespace Cosmos.Test.Conversions {
         [InlineData("1.1,2.2,3.3,4.4,5.5")]
         [InlineData("1.1,2.2,3.3,4.4,5.5,")]
         public void DoubleListTest(string str) {
-            var list = ObjectConverter.ToList<double>(str).ToList();
+            var list = ObjectConv.ToList<double>(str).ToList();
 
             list.ShouldNotBeNull();
             list.Count.ShouldBe(5);
@@ -90,8 +90,8 @@ namespace Cosmos.Test.Conversions {
         [InlineData("")]
         [InlineData(",,,,,")]
         public void EmptyListTest(string str) {
-            var list0 = ObjectConverter.ToList<int>(str).ToList();
-            var list1 = ObjectConverter.ToList<One>(str).ToList();
+            var list0 = ObjectConv.ToList<int>(str).ToList();
+            var list1 = ObjectConv.ToList<One>(str).ToList();
 
             list0.ShouldNotBeNull();
             list1.ShouldNotBeNull();

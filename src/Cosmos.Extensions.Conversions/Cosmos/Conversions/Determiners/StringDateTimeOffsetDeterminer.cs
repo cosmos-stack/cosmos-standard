@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
+using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to DateTimeOffset
     /// </summary>
-    internal static class StringDateTimeOffsetDeterminer
+    public static class StringDateTimeOffsetDeterminer
     {
         /// <summary>
         /// Is

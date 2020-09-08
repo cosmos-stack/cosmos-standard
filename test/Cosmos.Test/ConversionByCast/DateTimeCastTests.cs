@@ -1,6 +1,7 @@
 using System;
 using Cosmos.Conversions;
 using Cosmos.Date;
+using Cosmos.Text;
 using Xunit;
 using Shouldly;
 

@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
+using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to TimeSpan
     /// </summary>
-    internal static class StringTimeSpanDeterminer
+    public static class StringTimeSpanDeterminer
     {
         /// <summary>
         /// Is

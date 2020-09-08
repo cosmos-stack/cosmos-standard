@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to char
     /// </summary>
-    internal static class StringCharDeterminer
+    public static class StringCharDeterminer
     {
         /// <summary>
         /// Is

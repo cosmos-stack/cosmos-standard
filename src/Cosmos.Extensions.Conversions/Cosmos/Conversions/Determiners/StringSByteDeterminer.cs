@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
+using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to sbyte
     /// </summary>
-    internal static class StringSByteDeterminer
+    public static class StringSByteDeterminer
     {
         /// <summary>
         /// Is

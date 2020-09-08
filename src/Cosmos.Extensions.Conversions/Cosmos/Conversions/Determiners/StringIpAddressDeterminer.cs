@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to IpAddress
     /// </summary>
-    internal static class StringIpAddressDeterminer
+    public static class StringIpAddressDeterminer
     {
         /// <summary>
         /// Is

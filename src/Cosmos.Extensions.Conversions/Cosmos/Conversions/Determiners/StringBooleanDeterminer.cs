@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to boolean
     /// </summary>
-    internal static class StringBooleanDeterminer
+    public static class StringBooleanDeterminer
     {
         /// <summary>
         /// Is

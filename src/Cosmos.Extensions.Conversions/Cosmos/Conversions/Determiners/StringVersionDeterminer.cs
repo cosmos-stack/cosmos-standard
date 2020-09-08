@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to version
     /// </summary>
-    internal static class StringVersionDeterminer
+    public static class StringVersionDeterminer
     {
         /// <summary>
         /// Is

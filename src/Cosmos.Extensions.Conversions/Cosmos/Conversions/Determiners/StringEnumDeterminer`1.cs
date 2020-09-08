@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to Enum
     /// </summary>
-    internal static class StringEnumDeterminer<TEnum> where TEnum : struct
+    public static class StringEnumDeterminer<TEnum> where TEnum : struct
     {
         /// <summary>
         /// Is

@@ -1,5 +1,8 @@
 using System;
 using System.Globalization;
+using Cosmos.Date;
+using Cosmos.IdUtils;
+using Cosmos.Text;
 
 namespace Cosmos.Conversions
 {

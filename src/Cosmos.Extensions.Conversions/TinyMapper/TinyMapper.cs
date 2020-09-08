@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Cosmos.Conversions.Mapper;
+using Cosmos.Conversions.Mappers;
 using TinyMapper.Bindings;
 using TinyMapper.Core;
 using TinyMapper.Core.DataStructures;

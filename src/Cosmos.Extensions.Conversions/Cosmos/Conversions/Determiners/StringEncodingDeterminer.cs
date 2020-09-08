@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cosmos.Conversions.Core;
+using Cosmos.Conversions.Common;
 
 namespace Cosmos.Conversions.Determiners
 {
     /// <summary>
     /// Internal core conversion helper from string to encoding
     /// </summary>
-    internal static class StringEncodingDeterminer
+    public static class StringEncodingDeterminer
     {
         /// <summary>
         /// Is

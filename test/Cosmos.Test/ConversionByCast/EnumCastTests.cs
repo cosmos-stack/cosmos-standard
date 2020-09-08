@@ -1,6 +1,7 @@
 using Xunit;
 using Shouldly;
 using Cosmos.Conversions;
+using Cosmos.Text;
 
 namespace Cosmos.Test.ConversionByCast {
     public class EnumCastTests {
