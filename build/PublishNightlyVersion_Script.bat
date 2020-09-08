@@ -34,7 +34,9 @@ dotnet pack src/Cosmos.Extensions.Collections/Cosmos.Extensions.Collections._bui
 dotnet pack src/Cosmos.Extensions.Disposables/Cosmos.Extensions.Disposables._build.csproj     -c Release -o nuget_packages --no-restore
 dotnet pack src/Cosmos.Extensions.Optionals/Cosmos.Extensions.Optionals._build.csproj         -c Release -o nuget_packages --no-restore
 dotnet pack src/Cosmos.Extensions.Reflection/Cosmos.Extensions.Reflection._build.csproj       -c Release -o nuget_packages --no-restore
-dotnet pack src/Cosmos.Extensions.Preconditions/Cosmos.Extensions.Preconditions._build.csproj -c Release -o nuget_packages --no-restore
+
+::cosmos-validation / solo
+dotnet pack ../cosmos-validation/src/Cosmos.Validation.Core/Cosmos.Validation.Core._build.csproj -c Release -o nuget_packages --no-restore
 
 ::cosmos-standard
 dotnet pack src/Cosmos.Standard/Cosmos.Standard._build.csproj                                 -c Release -o nuget_packages --no-restore
