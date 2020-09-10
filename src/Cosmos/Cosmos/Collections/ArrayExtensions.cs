@@ -6,7 +6,7 @@ namespace Cosmos.Collections
     /// <summary>
     /// Cosmos <see cref="Array"/> extensions
     /// </summary>
-    public static class CosmosArrayExtensions
+    public static class ArrayExtensions
     {
         #region Clear
 

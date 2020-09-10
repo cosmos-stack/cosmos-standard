@@ -4,7 +4,7 @@ using System.Collections;
 // ReSharper disable once CheckNamespace
 namespace Cosmos.Collections
 {
-    public static class CosmosArrayExtensions
+    public static class ArraySearchExtensions
     {
         #region Search
 
@@ -15,7 +15,9 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <returns></returns>
         public static int BinarySearch(this Array array, object value)
-            => Array.BinarySearch(array, value);
+        {
+            return Array.BinarySearch(array, value);
+        }
 
         /// <summary>
         /// Binary Search
@@ -26,7 +28,9 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <returns></returns>
         public static int BinarySearch(this Array array, int index, int length, object value)
-            => Array.BinarySearch(array, index, length, value);
+        {
+            return Array.BinarySearch(array, index, length, value);
+        }
 
         /// <summary>
         /// Binary Search
@@ -36,7 +40,9 @@ namespace Cosmos.Collections
         /// <param name="comparer"></param>
         /// <returns></returns>
         public static int BinarySearch(this Array array, object value, IComparer comparer)
-            => Array.BinarySearch(array, value, comparer);
+        {
+            return Array.BinarySearch(array, value, comparer);
+        }
 
         /// <summary>
         /// Binary Search
@@ -48,7 +54,9 @@ namespace Cosmos.Collections
         /// <param name="comparer"></param>
         /// <returns></returns>
         public static int BinarySearch(this Array array, int index, int length, object value, IComparer comparer)
-            => Array.BinarySearch(array, index, length, value, comparer);
+        {
+            return Array.BinarySearch(array, index, length, value, comparer);
+        }
 
         #endregion
     }

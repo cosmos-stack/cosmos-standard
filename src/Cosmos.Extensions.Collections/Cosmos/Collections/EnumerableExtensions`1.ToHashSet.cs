@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace System.Linq
+namespace Cosmos.Collections
 {
-    /// <summary>
-    /// Cosmos enumerable`1 extensions
-    /// </summary>
-    public static partial class CosmosEnumerableExtensions
+    public static partial class EnumerableExtensions
     {
         #region To HashSet
 

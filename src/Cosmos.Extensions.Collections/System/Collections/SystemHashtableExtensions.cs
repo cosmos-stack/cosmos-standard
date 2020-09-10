@@ -5,7 +5,7 @@ namespace System.Collections
     /// <summary>
     /// Cosmos Hashtable extensions
     /// </summary>
-    public static class CosmosHashtableExtensions
+    public static class SystemHashtableExtensions
     {
         /// <summary>
         /// To dictionary

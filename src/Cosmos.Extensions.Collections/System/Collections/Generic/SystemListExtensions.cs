@@ -5,7 +5,7 @@ namespace System.Collections.Generic
     /// <summary>
     /// Cosmos List extensions
     /// </summary>
-    public static class CosmosListExtensions
+    public static class SystemListExtensions
     {
         #region Add
 

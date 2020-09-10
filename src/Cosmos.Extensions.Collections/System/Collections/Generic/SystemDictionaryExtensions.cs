@@ -5,7 +5,7 @@ namespace System.Collections.Generic
     /// <summary>
     /// Cosmos Dictionary extensions
     /// </summary>
-    public static class CosmosDictionaryExtensions
+    public static class SystemDictionaryExtensions
     {
         #region Add
 

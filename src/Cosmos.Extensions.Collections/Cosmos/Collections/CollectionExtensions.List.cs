@@ -5,9 +5,9 @@ using System.Collections.ObjectModel;
 namespace Cosmos.Collections
 {
     /// <summary>
-    /// Cosmos List extensions
+    /// Cosmos collection extensions
     /// </summary>
-    public static class ListExtensions
+    public static partial class CollectionExtensions
     {
         #region Find
 

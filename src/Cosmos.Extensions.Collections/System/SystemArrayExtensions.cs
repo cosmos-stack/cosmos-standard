@@ -3,7 +3,7 @@
     /// <summary>
     /// Cosmos Array extensions
     /// </summary>
-    public static class CosmosArrayExtensions
+    public static class SystemArrayExtensions
     {
         /// <summary>
         /// Copy array

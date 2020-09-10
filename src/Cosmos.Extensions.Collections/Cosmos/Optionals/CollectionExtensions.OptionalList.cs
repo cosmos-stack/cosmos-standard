@@ -6,7 +6,7 @@ namespace Cosmos.Optionals
     /// <summary>
     /// Cosmos List extensions
     /// </summary>
-    public static class CosmosListExtensions
+    public static class OptionalCollectionExtensions
     {
         /// <summary>
         /// Safe remove range<br />
