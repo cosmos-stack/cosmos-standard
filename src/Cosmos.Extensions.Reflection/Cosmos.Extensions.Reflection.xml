@@ -304,85 +304,6 @@
             A finder for Type
             </summary>
         </member>
-        <member name="T:Cosmos.Reflection.CosmosLockExtensions">
-            <summary>
-            Cosmos lock extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosLockExtensions.LockAndRun(System.Object,System.Action)">
-            <summary>
-            Lock the specified resource, and then execute the delegation.<br />
-            对指定的资源进行加锁，然后执行委托。
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosLockExtensions.LockAndRun``1(``0,System.Action{``0})">
-            <summary>
-            Lock the specified resource, and then execute the delegation.<br />
-            对指定的资源进行加锁，然后执行委托。
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosLockExtensions.LockAndReturn``1(System.Object,System.Func{``0})">
-            <summary>
-            Lock the specified resource, execute the commission and return the result.<br />
-            对指定的资源进行加锁，执行委托并返回结果。
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosLockExtensions.LockAndReturn``2(``0,System.Func{``0,``1})">
-            <summary>
-            Lock the specified resource, execute the commission and return the result.<br />
-            对指定的资源进行加锁，执行委托并返回结果。
-            </summary>
-        </member>
-        <member name="T:Cosmos.Reflection.CosmosObjectCopyExtensions">
-            <summary>
-            Cosmos object copy extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosObjectCopyExtensions.DeepCopy``1(``0)">
-            <summary>
-            Deep copy<br />
-            深度复制
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="originalObj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosObjectCopyExtensions.ExpressionCopy``1(``0)">
-            <summary>
-            Expression copy<br />
-            表达式复制
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="originalObj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosObjectCopyExtensions.ExpressionCopyHelper.Copier`1.Copy(`0)">
-            <summary>
-            Deep copy by expression
-            </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Reflection.CosmosObjectExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Object"/> extensions.
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosObjectExtensions.CreateTypeAccessor(System.Type)">
-            <summary>
-            Create TypeAccessor
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosObjectExtensions.CreateTypeAccessor(System.Type,System.Boolean)">
-            <summary>
-            Create TypeAccessor
-            </summary>
-            <param name="type"></param>
-            <param name="allowNonPublicAccessors"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Reflection.CosmosTypeInstanceExtensions">
             <summary>
             Cosmos type instance extensions
@@ -439,6 +360,35 @@
             扫描，并返回实例集合。
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Reflection.LockExtensions">
+            <summary>
+            Cosmos lock extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.LockExtensions.LockAndRun(System.Object,System.Action)">
+            <summary>
+            Lock the specified resource, and then execute the delegation.<br />
+            对指定的资源进行加锁，然后执行委托。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.LockExtensions.LockAndRun``1(``0,System.Action{``0})">
+            <summary>
+            Lock the specified resource, and then execute the delegation.<br />
+            对指定的资源进行加锁，然后执行委托。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.LockExtensions.LockAndReturn``1(System.Object,System.Func{``0})">
+            <summary>
+            Lock the specified resource, execute the commission and return the result.<br />
+            对指定的资源进行加锁，执行委托并返回结果。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.LockExtensions.LockAndReturn``2(``0,System.Func{``0,``1})">
+            <summary>
+            Lock the specified resource, execute the commission and return the result.<br />
+            对指定的资源进行加锁，执行委托并返回结果。
+            </summary>
         </member>
         <member name="T:Cosmos.Reflection.NTypes">
             <summary>
@@ -519,6 +469,65 @@
             <summary>
             Index
             </summary>
+        </member>
+        <member name="T:Cosmos.Reflection.ObjectRefCopyExtensions">
+            <summary>
+            Cosmos object copy extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectRefCopyExtensions.DeepCopy``1(``0)">
+            <summary>
+            Deep copy<br />
+            深度复制
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="originalObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectRefCopyExtensions.ExpressionCopy``1(``0)">
+            <summary>
+            Expression copy<br />
+            表达式复制
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="originalObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectRefCopyExtensions.ExpressionCopyHelper.Copier`1.Copy(`0)">
+            <summary>
+            Deep copy by expression
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Reflection.ObjectRefExtensions">
+            <summary>
+            Cosmos <see cref="T:System.Object"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectRefExtensions.CreateTypeAccessor(System.Type)">
+            <summary>
+            Create TypeAccessor
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectRefExtensions.CreateTypeAccessor(System.Type,System.Boolean)">
+            <summary>
+            Create TypeAccessor
+            </summary>
+            <param name="type"></param>
+            <param name="allowNonPublicAccessors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.ObjectRefExtensions.GetHashCode``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{System.Object}})">
+            <summary>
+            Get hashcode
+            </summary>
+            <param name="x"></param>
+            <param name="hashFieldValuesFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Reflection.PropertyAccessType">
             <summary>
@@ -875,12 +884,57 @@
         <member name="M:DeepCopy.ReferenceEqualsComparer.System#Collections#Generic#IEqualityComparer{System#Object}#GetHashCode(System.Object)">
             <inheritdoc />
         </member>
-        <member name="T:System.Reflection.CosmosAssemblyExtensions">
+        <member name="T:System.Reflection.Emit.SystemModuleBuilderExtensions">
+            <summary>
+            Cosmos <see cref="T:System.Reflection.Emit.ModuleBuilder"/> extensions.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Emit.SystemModuleBuilderExtensions.DefinePOCO(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.KeyValuePair{System.String,System.Type}[])">
+            <summary>
+            Define POCO
+            </summary>
+            <param name="builder"></param>
+            <param name="name"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.Emit.SystemModuleBuilderExtensions.DefinePOCO(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Type}})">
+            <summary>
+            Define POCO
+            </summary>
+            <param name="builder"></param>
+            <param name="name"></param>
+            <param name="properties"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:System.Reflection.Emit.SystemTypeBuilderExtensions">
+            <summary>
+            Cosmos <see cref="T:System.Reflection.Emit.TypeBuilder"/> extensions.
+            </summary>
+        </member>
+        <member name="F:System.Reflection.Emit.SystemTypeBuilderExtensions.PROPERTY_GET_SET_METHOD_ATTRIBUTES">
+            <summary>
+            Property set and property get methods require a special set of attributes.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Emit.SystemTypeBuilderExtensions.DefineAutoImplementedProperty(System.Reflection.Emit.TypeBuilder,System.String,System.Type)">
+            <summary>
+            Define auto implemented property
+            </summary>
+            <param name="typeBuilder"></param>
+            <param name="name"></param>
+            <param name="propertyType"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:System.Reflection.SystemAssemblyExtensions">
             <summary>
             Cosmos <see cref="T:System.Reflection.Assembly"/> extensions
             </summary>
         </member>
-        <member name="M:System.Reflection.CosmosAssemblyExtensions.GetFileVersion(System.Reflection.Assembly)">
+        <member name="M:System.Reflection.SystemAssemblyExtensions.GetFileVersion(System.Reflection.Assembly)">
             <summary>
             Get assembly file version.<br />
             获取 Assembly 文件的版本
@@ -888,7 +942,7 @@
             <param name="assembly"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosAssemblyExtensions.GetProductVersion(System.Reflection.Assembly)">
+        <member name="M:System.Reflection.SystemAssemblyExtensions.GetProductVersion(System.Reflection.Assembly)">
             <summary>
             Get assembly product version.<br />
             获取 Assembly 文件的产品版本 
@@ -897,18 +951,18 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosAssemblyExtensions.GetCliVersion">
+        <member name="M:System.Reflection.SystemAssemblyExtensions.GetCliVersion">
             <summary>
             Get CLI version. <br />
             获取 CLI 版本号
             </summary>
         </member>
-        <member name="T:System.Reflection.CosmosMemberInfoExtensions">
+        <member name="T:System.Reflection.SystemMemberInfoExtensions">
             <summary>
             Cosmos <see cref="T:System.Reflection.MemberInfo"/> extensions
             </summary>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.IsDefined``1(System.Reflection.MemberInfo)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsDefined``1(System.Reflection.MemberInfo)">
             <summary>
             To determine whether the given Attribute is defined.<br />
             判断给定的特性是否定义。
@@ -917,7 +971,7 @@
             <param name="memberInfo">要检查的类型成员</param>
             <returns>是否存在</returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.IsDefined``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsDefined``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             To determine whether the given Attribute is defined.<br />
             判断给定的特性是否定义。
@@ -927,7 +981,7 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>是否存在</returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.IsNotDefined``1(System.Reflection.MemberInfo)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsNotDefined``1(System.Reflection.MemberInfo)">
             <summary>
             To determine whether the given Attribute is undefined.<br />
             判断给定的特性是否未定义。
@@ -936,7 +990,7 @@
             <param name="memberInfo">要检查的类型成员</param>
             <returns>是否不存在</returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.IsNotDefined``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsNotDefined``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             To determine whether the given Attribute is undefined.<br />
             判断给定的特性是否未定义。
@@ -946,7 +1000,7 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>是否不存在</returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.GetAttributeOrNull``1(System.Reflection.MemberInfo)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.GetAttributeOrNull``1(System.Reflection.MemberInfo)">
             <summary>
             Get an instance of the specified Attribute type from <see cref="T:System.Reflection.MemberInfo"/>.<br />
             从 <see cref="T:System.Reflection.MemberInfo"/> 中获取指定 Attribute 类型的实例。
@@ -955,7 +1009,7 @@
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.GetAttributeOrNull``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.GetAttributeOrNull``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             Get an instance of the specified Attribute type from <see cref="T:System.Reflection.MemberInfo"/>.<br />
             从 <see cref="T:System.Reflection.MemberInfo"/> 中获取指定 Attribute 类型的实例。
@@ -965,7 +1019,7 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>存在返回第一个，不存在返回null</returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.TryGetAttribute``1(System.Reflection.MemberInfo,``0@)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.TryGetAttribute``1(System.Reflection.MemberInfo,``0@)">
             <summary>
             Try to get an instance of the specified Attribute type from <see cref="T:System.Reflection.MemberInfo"/>.<br />
             尝试从 <see cref="T:System.Reflection.MemberInfo"/> 中获取指定 Attribute 类型的实例。
@@ -975,7 +1029,7 @@
             <param name="attribute"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.TryGetAttribute``1(System.Reflection.MemberInfo,System.Boolean,``0@)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.TryGetAttribute``1(System.Reflection.MemberInfo,System.Boolean,``0@)">
             <summary>
             Try to get an instance of the specified Attribute type from <see cref="T:System.Reflection.MemberInfo"/>.<br />
             尝试从 <see cref="T:System.Reflection.MemberInfo"/> 中获取指定 Attribute 类型的实例。
@@ -986,7 +1040,7 @@
             <param name="attribute"></param>
             <returns>存在返回第一个，不存在返回null</returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.GetAttributes``1(System.Reflection.MemberInfo)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.GetAttributes``1(System.Reflection.MemberInfo)">
             <summary>
             Get all instances of the specified Attribute type from <see cref="T:System.Reflection.MemberInfo"/>.<br />
             从 <see cref="T:System.Reflection.MemberInfo"/> 中获取指定 Attribute 类型的所有实例。
@@ -995,7 +1049,7 @@
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             Get all instances of the specified Attribute type from <see cref="T:System.Reflection.MemberInfo"/>.<br />
             从 <see cref="T:System.Reflection.MemberInfo"/> 中获取指定 Attribute 类型的所有实例。
@@ -1005,7 +1059,7 @@
             <param name="inherit">是否从继承中查找</param>
             <returns>存在返回第一个，不存在返回 null</returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.GetAttributeOfTypeOrBaseTypeOrNull``1(System.Type,System.Boolean)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.GetAttributeOfTypeOrBaseTypeOrNull``1(System.Type,System.Boolean)">
             <summary>
             Get an instance of the specified Attribute type from <see cref="T:System.Type"/> or its base type.<br />
             从 <see cref="T:System.Type"/> 或其基类中获取指定 Attribute 类型的实例。
@@ -1015,7 +1069,7 @@
             <param name="inherit"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosMemberInfoExtensions.GetMemberValue(System.Reflection.MemberInfo,System.Object)">
+        <member name="M:System.Reflection.SystemMemberInfoExtensions.GetMemberValue(System.Reflection.MemberInfo,System.Object)">
             <summary>
             Get property value from the given instance.
             </summary>
@@ -1024,12 +1078,12 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="T:System.Reflection.CosmosMethodInfoExtensions">
+        <member name="T:System.Reflection.SystemMethodInfoExtensions">
             <summary>
             Cosmos <see cref="T:System.Reflection.MethodInfo"/> extensions.
             </summary>
         </member>
-        <member name="M:System.Reflection.CosmosMethodInfoExtensions.GetFullName(System.Reflection.MethodInfo)">
+        <member name="M:System.Reflection.SystemMethodInfoExtensions.GetFullName(System.Reflection.MethodInfo)">
             <summary>
             Get full name of method including type name and method name.<br />
             获取方法的全名，包括类型名和方法名
@@ -1037,7 +1091,7 @@
             <param name="method"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosMethodInfoExtensions.GetFullyQualifiedName(System.Reflection.MethodInfo)">
+        <member name="M:System.Reflection.SystemMethodInfoExtensions.GetFullyQualifiedName(System.Reflection.MethodInfo)">
             <summary>
             Get unique fully qualified name for <see cref="T:System.Reflection.MethodInfo"/>.<br />
             获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的完全限定名。
@@ -1045,7 +1099,7 @@
             <param name="method"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosMethodInfoExtensions.IsAsyncMethod(System.Reflection.MethodInfo)">
+        <member name="M:System.Reflection.SystemMethodInfoExtensions.IsAsyncMethod(System.Reflection.MethodInfo)">
             <summary>
             Determine whether the specified method is an asynchronous method.<br />
             判断指定的方法是否为异步方法。
@@ -1053,7 +1107,7 @@
             <param name="method"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosMethodInfoExtensions.IsOverridden(System.Reflection.MethodInfo)">
+        <member name="M:System.Reflection.SystemMethodInfoExtensions.IsOverridden(System.Reflection.MethodInfo)">
             <summary>
             Determine whether the specified method is an overriding method.<br />
             判断指定方法是否是重写方法
@@ -1061,12 +1115,12 @@
             <param name="method">要判断的方法信息</param>
             <returns>是否是重写方法</returns>
         </member>
-        <member name="T:System.Reflection.CosmosPropertyInfoExtensions">
+        <member name="T:System.Reflection.SystemPropertyInfoExtensions">
             <summary>
             Cosmos <see cref="T:System.Reflection.PropertyInfo"/> extensions.
             </summary>
         </member>
-        <member name="M:System.Reflection.CosmosPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
             <summary>
             Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
             and return the remaining PropertyInfo.<br />
@@ -1078,7 +1132,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
             <summary>
             Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
             and return the remaining PropertyInfo.<br />
@@ -1090,7 +1144,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
             <summary>
             Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
             and return the remaining PropertyInfo.<br />
@@ -1101,7 +1155,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
             <summary>
             Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
             and return the remaining PropertyInfo.<br />
@@ -1113,7 +1167,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosPropertyInfoExtensions.GetAttribute``1(System.Reflection.PropertyInfo)">
+        <member name="M:System.Reflection.SystemPropertyInfoExtensions.GetAttribute``1(System.Reflection.PropertyInfo)">
             <summary>
             Get the Attribute of the specified type from the given PropertyInfo. <br />
             从给定的 PropertyInfo 中获取指定类型的 Attribute。
@@ -1122,13 +1176,13 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosPropertyInfoExtensions.IsVirtual(System.Reflection.PropertyInfo)">
+        <member name="M:System.Reflection.SystemPropertyInfoExtensions.IsVirtual(System.Reflection.PropertyInfo)">
             <summary>
             Determine whether the specified property is an virtual property.<br />
             判断指定属性是否是虚属性。
             </summary>
         </member>
-        <member name="T:System.Reflection.CosmosTypeExtensions">
+        <member name="T:System.Reflection.SystemTypeExtensions">
             <summary>
             Cosmos <see cref="T:System.Type"/> extensions
             </summary>
@@ -1136,7 +1190,7 @@
             Cosmos <see cref="T:System.Type"/> extensions
             </summary>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.ToNonNullableType(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.ToNonNullableType(System.Type)">
             <summary>
             Get a non-nullable underlying version of a given <see cref="T:System.Type"/>.<br />
             获取给定类型的非空版本。
@@ -1144,31 +1198,31 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+        <member name="M:System.Reflection.SystemTypeExtensions.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
             <summary>
-            Get a non-nullable underlying version of a given <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/>.<br />
+            Get a non-nullable underlying version of a given <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/>.<br />
             获取给定类型的非空版本。
             </summary>
             <param name="typeInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)">
+        <member name="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)">
             <summary>
-            Get that's <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/><br />
-            获取给定对象的 <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/>。
+            Get that's <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/><br />
+            获取给定对象的 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/>。
             </summary>
             <param name="that"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.ToTypeInfo(System.Type[])">
+        <member name="M:System.Reflection.SystemTypeExtensions.ToTypeInfo(System.Type[])">
             <summary>
-            Convert <see cref="T:System.Type"/> array to <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/> list.<br />
-            将给定的 <see cref="T:System.Type"/> 数组转换为 <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/> 列表。
+            Convert <see cref="T:System.Type"/> array to <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> list.<br />
+            将给定的 <see cref="T:System.Type"/> 数组转换为 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> 列表。
             </summary>
             <param name="types"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetAttribute``1(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetAttribute``1(System.Type)">
             <summary>
             Get the Attribute of the specified type from the given Type. <br />
             从给定的 Type 中获取指定类型的 Attribute。
@@ -1177,7 +1231,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessType)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessType)">
             <summary>
             Get all properties from the given Type.<br />
             从给定的 Type 中获得所有属性。
@@ -1188,7 +1242,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetProperties``1(Cosmos.Reflection.PropertyAccessType)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetProperties``1(Cosmos.Reflection.PropertyAccessType)">
             <summary>
             Get all properties from the given Type.<br />
             从给定的 Type 中获得所有属性。
@@ -1197,7 +1251,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetPropertyValue(System.Object,System.String)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetPropertyValue(System.Object,System.String)">
             <summary>
             Get the value of the specified property name from the that.<br />
             从对象中获取指定属性名称的值。
@@ -1206,26 +1260,7 @@
             <param name="propertyName">Property name in this that</param>
             <returns>Value of the specific property in this that</returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags)">
-            <summary>
-            Get the value of the specified property name from the that.<br />
-            从对象中获取指定属性名称的值。
-            </summary>
-            <param name="that"></param>
-            <param name="propertyName"></param>
-            <param name="bindingAttr"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetPropertyValue``1(System.Object,System.String)">
-            <summary>
-            Get the value of the specified property name from the that.<br />
-            从对象中获取指定属性名称的值。
-            </summary>
-            <param name="that">Any <see cref="T:System.Object"/></param>
-            <param name="propertyName">Property name in this that</param>
-            <returns>Value of the specific property in this that</returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags)">
             <summary>
             Get the value of the specified property name from the that.<br />
             从对象中获取指定属性名称的值。
@@ -1235,28 +1270,26 @@
             <param name="bindingAttr"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TryGetPropertyValue(System.Object,System.String,System.Object@)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetPropertyValue``1(System.Object,System.String)">
             <summary>
-            Try to get the value of the specified property name from the that.<br />
-            尝试从对象中获取指定属性名称的值。
+            Get the value of the specified property name from the that.<br />
+            从对象中获取指定属性名称的值。
             </summary>
             <param name="that">Any <see cref="T:System.Object"/></param>
             <param name="propertyName">Property name in this that</param>
-            <param name="value"></param>
             <returns>Value of the specific property in this that</returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TryGetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags,System.Object@)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags)">
             <summary>
-            Try to get the value of the specified property name from the that.<br />
-            尝试从对象中获取指定属性名称的值。
+            Get the value of the specified property name from the that.<br />
+            从对象中获取指定属性名称的值。
             </summary>
             <param name="that"></param>
             <param name="propertyName"></param>
             <param name="bindingAttr"></param>
-            <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TryGetPropertyValue``1(System.Object,System.String,``0@)">
+        <member name="M:System.Reflection.SystemTypeExtensions.TryGetPropertyValue(System.Object,System.String,System.Object@)">
             <summary>
             Try to get the value of the specified property name from the that.<br />
             尝试从对象中获取指定属性名称的值。
@@ -1266,7 +1299,7 @@
             <param name="value"></param>
             <returns>Value of the specific property in this that</returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TryGetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags,``0@)">
+        <member name="M:System.Reflection.SystemTypeExtensions.TryGetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags,System.Object@)">
             <summary>
             Try to get the value of the specified property name from the that.<br />
             尝试从对象中获取指定属性名称的值。
@@ -1277,7 +1310,28 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
+        <member name="M:System.Reflection.SystemTypeExtensions.TryGetPropertyValue``1(System.Object,System.String,``0@)">
+            <summary>
+            Try to get the value of the specified property name from the that.<br />
+            尝试从对象中获取指定属性名称的值。
+            </summary>
+            <param name="that">Any <see cref="T:System.Object"/></param>
+            <param name="propertyName">Property name in this that</param>
+            <param name="value"></param>
+            <returns>Value of the specific property in this that</returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.TryGetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags,``0@)">
+            <summary>
+            Try to get the value of the specified property name from the that.<br />
+            尝试从对象中获取指定属性名称的值。
+            </summary>
+            <param name="that"></param>
+            <param name="propertyName"></param>
+            <param name="bindingAttr"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
             <summary>
             Set a value to the specified property name in the that.<br />
             向对象中的指定属性名称设置值。
@@ -1286,7 +1340,7 @@
             <param name="propertyName"></param>
             <param name="value"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.SetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags,System.Object)">
+        <member name="M:System.Reflection.SystemTypeExtensions.SetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags,System.Object)">
             <summary>
             Set a value to the specified property name in the that.<br />
             向对象中的指定属性名称设置值。
@@ -1296,7 +1350,7 @@
             <param name="bindingAttr"></param>
             <param name="value"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.SetPropertyValue``1(System.Object,System.String,``0)">
+        <member name="M:System.Reflection.SystemTypeExtensions.SetPropertyValue``1(System.Object,System.String,``0)">
             <summary>
             Set a value to the specified property name in the that.<br />
             向对象中的指定属性名称设置值。
@@ -1305,7 +1359,7 @@
             <param name="propertyName"></param>
             <param name="value"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.SetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags,``0)">
+        <member name="M:System.Reflection.SystemTypeExtensions.SetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags,``0)">
             <summary>
             Set a value to the specified property name in the that.<br />
             向对象中的指定属性名称设置值。
@@ -1315,7 +1369,7 @@
             <param name="bindingAttr"></param>
             <param name="value"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TrySetPropertyValue(System.Object,System.String,System.Object)">
+        <member name="M:System.Reflection.SystemTypeExtensions.TrySetPropertyValue(System.Object,System.String,System.Object)">
             <summary>
             Try to set a value to the specified property name in the that.<br />
             尝试向对象中的指定属性名称设置值。
@@ -1324,26 +1378,7 @@
             <param name="propertyName"></param>
             <param name="value"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TrySetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags,System.Object)">
-            <summary>
-            Try to set a value to the specified property name in the that.<br />
-            尝试向对象中的指定属性名称设置值。
-            </summary>
-            <param name="that"></param>
-            <param name="propertyName"></param>
-            <param name="bindingAttr"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TrySetPropertyValue``1(System.Object,System.String,``0)">
-            <summary>
-            Try to set a value to the specified property name in the that.<br />
-            尝试向对象中的指定属性名称设置值。
-            </summary>
-            <param name="that"></param>
-            <param name="propertyName"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.TrySetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags,``0)">
+        <member name="M:System.Reflection.SystemTypeExtensions.TrySetPropertyValue(System.Object,System.String,System.Reflection.BindingFlags,System.Object)">
             <summary>
             Try to set a value to the specified property name in the that.<br />
             尝试向对象中的指定属性名称设置值。
@@ -1353,7 +1388,26 @@
             <param name="bindingAttr"></param>
             <param name="value"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetPropertyValueQuickly(System.Object,System.Type,System.String,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.TrySetPropertyValue``1(System.Object,System.String,``0)">
+            <summary>
+            Try to set a value to the specified property name in the that.<br />
+            尝试向对象中的指定属性名称设置值。
+            </summary>
+            <param name="that"></param>
+            <param name="propertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.TrySetPropertyValue``1(System.Object,System.String,System.Reflection.BindingFlags,``0)">
+            <summary>
+            Try to set a value to the specified property name in the that.<br />
+            尝试向对象中的指定属性名称设置值。
+            </summary>
+            <param name="that"></param>
+            <param name="propertyName"></param>
+            <param name="bindingAttr"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.GetPropertyValueQuickly(System.Object,System.Type,System.String,System.Boolean)">
             <summary>
             Get the value of the specified property name from the that.<br />
             从对象中获取指定属性名称的值。
@@ -1364,7 +1418,7 @@
             <param name="allowNonPublicAccessors"></param>
             <returns>Value of the specific property in this that</returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetPropertyValueQuickly``1(System.Object,System.String,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetPropertyValueQuickly``1(System.Object,System.String,System.Boolean)">
             <summary>
             Get the value of the specified property name from the that.<br />
             从对象中获取指定属性名称的值。
@@ -1374,7 +1428,7 @@
             <param name="allowNonPublicAccessors"></param>
             <returns>Value of the specific property in this that</returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.SetPropertyValueQuickly(System.Object,System.Type,System.String,System.Object,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.SetPropertyValueQuickly(System.Object,System.Type,System.String,System.Object,System.Boolean)">
             <summary>
             Set a value to the specified property name in the that.<br />
             向对象中的指定属性名称设置值。
@@ -1385,7 +1439,7 @@
             <param name="value"></param>
             <param name="allowNonPublicAccessors"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.SetPropertyValueQuickly``1(System.Object,System.String,System.Object,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.SetPropertyValueQuickly``1(System.Object,System.String,System.Object,System.Boolean)">
             <summary>
             Set a value to the specified property name in the that.<br />
             向对象中的指定属性名称设置值。
@@ -1395,15 +1449,15 @@
             <param name="value"></param>
             <param name="allowNonPublicAccessors"></param>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+        <member name="M:System.Reflection.SystemTypeExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
             <summary>
-            Find <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/> from the given type's parameters' type
+            Find <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> from the given type's parameters' type
             </summary>
             <param name="definition"></param>
             <param name="typeInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.FindGenericType(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.FindGenericType(System.Type,System.Type)">
             <summary>
             Find <see cref="T:System.Type"/> from the given type's parameters' type<br />
             </summary>
@@ -1411,23 +1465,23 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetFullyQualifiedName(System.Reflection.TypeInfo)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetFullyQualifiedName(System.Reflection.TypeInfo)">
             <summary>
-            Get unique fully qualified name for <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/>.<br />
-            获取给定 <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/> 的完全限定名。
+            Get unique fully qualified name for <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/>.<br />
+            获取给定 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> 的完全限定名。
             </summary>
             <param name="typeInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.GetFullyQualifiedName(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.GetFullyQualifiedName(System.Type)">
             <summary>
-            Get unique fully qualified name for <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/>.<br />
-            获取给定 <see cref="M:System.Reflection.CosmosTypeExtensions.TypeInfo(System.Object)"/> 的完全限定名。
+            Get unique fully qualified name for <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/>.<br />
+            获取给定 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> 的完全限定名。
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsObjectDeriveFrom``1(System.Object)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsObjectDeriveFrom``1(System.Object)">
             <summary>
             Determine whether the current Type (HereGivenType) is derived from the given class ThereType,
             or is an implementation of the interface ThereType.<br />
@@ -1437,7 +1491,7 @@
             <param name="hereGivenObj"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsObjectDeriveFrom(System.Object,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsObjectDeriveFrom(System.Object,System.Type)">
             <summary>
             Determine whether the current Type (HereGivenType) is derived from the given class ThereType,
             or is an implementation of the interface ThereType.<br />
@@ -1447,7 +1501,7 @@
             <param name="thereBaseType"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsDeriveClassFrom(System.Type,System.Type,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsDeriveClassFrom(System.Type,System.Type,System.Boolean)">
             <summary>
             Determine whether the current Type (HereGivenType) is derived from the given class ThereBaseType,
             or is an implementation of the interface ThereType.<br />
@@ -1459,7 +1513,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsDeriveClassFrom``1(System.Type,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsDeriveClassFrom``1(System.Type,System.Boolean)">
             <summary>
             Determine whether the current Type (HereGivenType) is derived from the given class ThereBaseType,
             or is an implementation of the interface ThereType.<br />
@@ -1470,7 +1524,7 @@
             <typeparam name="TBaseType"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsGenericAssignableFrom(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericAssignableFrom(System.Type,System.Type)">
             <summary>
             Determine whether the current HereGivenType is derived from the generic class thereGenericType
             or is an implementation of the generic interface thereGenericType. <br />
@@ -1480,7 +1534,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsGenericImplementationFor(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor(System.Type,System.Type)">
             <summary>
             Determine whether the current HereGivenType is derived from the generic class thereGenericType
             or is an implementation of the generic interface thereGenericType. <br />
@@ -1490,7 +1544,7 @@
             <param name="thereGenericType">泛型类型</param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsGenericImplementationFor(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
             <summary>
             Determine whether the current HereGivenType is derived from the generic class thereGenericType
             or is an implementation of the generic interface thereGenericType. <br />
@@ -1500,7 +1554,7 @@
             <param name="thereGenericType">泛型类型</param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsGenericImplementationFor``1(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor``1(System.Type)">
             <summary>
             Determine whether the current HereGivenType is derived from the generic class thereGenericType
             or is an implementation of the generic interface thereGenericType. <br />
@@ -1510,7 +1564,7 @@
             <param name="hereGivenType">给定类型</param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsGenericImplementationFor``1(System.Reflection.TypeInfo)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor``1(System.Reflection.TypeInfo)">
             <summary>
             Determine whether the current HereGivenType is derived from the generic class thereGenericType
             or is an implementation of the generic interface thereGenericType. <br />
@@ -1520,7 +1574,7 @@
             <param name="hereGivenType">给定类型</param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsBaseOn(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsBaseOn(System.Type,System.Type)">
             <summary>
             Determine whether the specified type is a derived class of the given base class.<br />
             判断制定类型是否是给定基类的派生类。
@@ -1530,7 +1584,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsBaseOn``1(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsBaseOn``1(System.Type)">
             <summary>
             Determine whether the specified type is a derived class of the given base class.<br />
             判断制定类型是否是给定基类的派生类。
@@ -1539,7 +1593,7 @@
             <typeparam name="TBaseType"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsNumeric(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsNumeric(System.Type)">
             <summary>
             Determine whether the specified type is a numeric type.<br />
             判断指定类型是否为数值类型
@@ -1547,7 +1601,7 @@
             <param name="type">要检查的类型</param>
             <returns>是否是数值类型</returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsNumeric(System.Reflection.TypeInfo)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsNumeric(System.Reflection.TypeInfo)">
             <summary>
             Determine whether the specified type is a numeric type.<br />
             判断指定类型是否为数值类型
@@ -1555,14 +1609,14 @@
             <param name="typeInfo">要检查的类型</param>
             <returns>是否是数值类型</returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsNullableType(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsNullableType(System.Type)">
             <summary>
             指示类型是否为可空类型
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsEnumerable(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsEnumerable(System.Type)">
             <summary>
             Determine whether the specified type is a collection type. <br />
             判断指定的类型是否为集合类型。
@@ -1570,7 +1624,7 @@
             <param name="that"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsTupleType(System.Type,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsTupleType(System.Type,System.Boolean)">
             <summary>
             指示类型是否为 TupleType。
             </summary>
@@ -1578,7 +1632,7 @@
             <param name="checkBaseTypes"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsDefined``1(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsDefined``1(System.Type)">
             <summary>
             Determine whether the specified type defines the specified Attribute.<br />
             判断指定类型是否定义了指定的特性。
@@ -1587,7 +1641,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsDefined``1(System.Type,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsDefined``1(System.Type,System.Boolean)">
             <summary>
             Determine whether the specified type defines the specified Attribute.<br />
             判断指定类型是否定义了指定的特性。
@@ -1597,7 +1651,7 @@
             <param name="inherit"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsDefined(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsDefined(System.Type,System.Type)">
             <summary>
             Determine whether the specified type defines the specified Attribute.<br />
             判断指定类型是否定义了指定的特性。
@@ -1606,63 +1660,7 @@
             <param name="attributeType"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsDefined(System.Type,System.Type,System.Boolean)">
-            <summary>
-            Determine whether the specified type defines the specified Attribute.<br />
-            判断指定类型是否定义了指定的特性。
-            </summary>
-            <param name="type"></param>
-            <param name="attributeType"></param>
-            <param name="inherit"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsNotDefined``1(System.Type)">
-            <summary>
-            Determine whether the specified type does NOT define the specified Attribute.<br />
-            判断指定类型是否未定义指定特性。
-            </summary>
-            <param name="type"></param>
-            <typeparam name="TAttribute"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.IsNotDefined(System.Type,System.Type)">
-            <summary>
-            Determine whether the specified type does NOT define the specified Attribute.<br />
-            判断指定类型是否未定义指定特性。
-            </summary>
-            <param name="type"></param>
-            <param name="attributeType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasAttribute``1(System.Type)">
-            <summary>
-            Determine whether the specified type defines the specified Attribute.<br />
-            判断指定类型是否定义了指定的特性。
-            </summary>
-            <param name="type"></param>
-            <typeparam name="TAttribute"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasAttribute``1(System.Type,System.Boolean)">
-            <summary>
-            Determine whether the specified type defines the specified Attribute.<br />
-            判断指定类型是否定义了指定的特性。
-            </summary>
-            <param name="type"></param>
-            <param name="inherit"></param>
-            <typeparam name="TAttribute"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasAttribute(System.Type,System.Type)">
-            <summary>
-            Determine whether the specified type defines the specified Attribute.<br />
-            判断指定类型是否定义了指定的特性。
-            </summary>
-            <param name="type"></param>
-            <param name="attributeType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasAttribute(System.Type,System.Type,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsDefined(System.Type,System.Type,System.Boolean)">
             <summary>
             Determine whether the specified type defines the specified Attribute.<br />
             判断指定类型是否定义了指定的特性。
@@ -1672,7 +1670,7 @@
             <param name="inherit"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasNotAttribute``1(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsNotDefined``1(System.Type)">
             <summary>
             Determine whether the specified type does NOT define the specified Attribute.<br />
             判断指定类型是否未定义指定特性。
@@ -1681,7 +1679,7 @@
             <typeparam name="TAttribute"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasNotAttribute(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsNotDefined(System.Type,System.Type)">
             <summary>
             Determine whether the specified type does NOT define the specified Attribute.<br />
             判断指定类型是否未定义指定特性。
@@ -1690,7 +1688,63 @@
             <param name="attributeType"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasInterface``1(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.HasAttribute``1(System.Type)">
+            <summary>
+            Determine whether the specified type defines the specified Attribute.<br />
+            判断指定类型是否定义了指定的特性。
+            </summary>
+            <param name="type"></param>
+            <typeparam name="TAttribute"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.HasAttribute``1(System.Type,System.Boolean)">
+            <summary>
+            Determine whether the specified type defines the specified Attribute.<br />
+            判断指定类型是否定义了指定的特性。
+            </summary>
+            <param name="type"></param>
+            <param name="inherit"></param>
+            <typeparam name="TAttribute"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.HasAttribute(System.Type,System.Type)">
+            <summary>
+            Determine whether the specified type defines the specified Attribute.<br />
+            判断指定类型是否定义了指定的特性。
+            </summary>
+            <param name="type"></param>
+            <param name="attributeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.HasAttribute(System.Type,System.Type,System.Boolean)">
+            <summary>
+            Determine whether the specified type defines the specified Attribute.<br />
+            判断指定类型是否定义了指定的特性。
+            </summary>
+            <param name="type"></param>
+            <param name="attributeType"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.HasNotAttribute``1(System.Type)">
+            <summary>
+            Determine whether the specified type does NOT define the specified Attribute.<br />
+            判断指定类型是否未定义指定特性。
+            </summary>
+            <param name="type"></param>
+            <typeparam name="TAttribute"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.HasNotAttribute(System.Type,System.Type)">
+            <summary>
+            Determine whether the specified type does NOT define the specified Attribute.<br />
+            判断指定类型是否未定义指定特性。
+            </summary>
+            <param name="type"></param>
+            <param name="attributeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.SystemTypeExtensions.HasInterface``1(System.Type)">
             <summary>
             Determine whether the specified type defines the specified interface.<br />
             判断指定类型是否定义了指定接口。
@@ -1701,7 +1755,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.ArgumentException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasInterface(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.HasInterface(System.Type,System.Type)">
             <summary>
             Determine whether the specified type defines the specified interface.<br />
             判断指定类型是否定义了指定接口。
@@ -1712,7 +1766,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.ArgumentException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasNotInterface``1(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.HasNotInterface``1(System.Type)">
             <summary>
             Determine whether the specified type does NOT define the specified interface.<br />
             判断指定类型是否未定义指定接口
@@ -1723,7 +1777,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.ArgumentException"></exception>
         </member>
-        <member name="M:System.Reflection.CosmosTypeExtensions.HasNotInterface(System.Type,System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.HasNotInterface(System.Type,System.Type)">
             <summary>
             Determine whether the specified type does NOT define the specified interface.<br />
             判断指定类型是否未定义指定接口
@@ -1733,51 +1787,6 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.ArgumentException"></exception>
-        </member>
-        <member name="T:System.Reflection.Emit.CosmosModuleBuilderExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Reflection.Emit.ModuleBuilder"/> extensions.
-            </summary>
-        </member>
-        <member name="M:System.Reflection.Emit.CosmosModuleBuilderExtensions.DefinePOCO(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.KeyValuePair{System.String,System.Type}[])">
-            <summary>
-            Define POCO
-            </summary>
-            <param name="builder"></param>
-            <param name="name"></param>
-            <param name="properties"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.Emit.CosmosModuleBuilderExtensions.DefinePOCO(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Type}})">
-            <summary>
-            Define POCO
-            </summary>
-            <param name="builder"></param>
-            <param name="name"></param>
-            <param name="properties"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="T:System.Reflection.Emit.CosmosTypeBuilderExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Reflection.Emit.TypeBuilder"/> extensions.
-            </summary>
-        </member>
-        <member name="F:System.Reflection.Emit.CosmosTypeBuilderExtensions.PROPERTY_GET_SET_METHOD_ATTRIBUTES">
-            <summary>
-            Property set and property get methods require a special set of attributes.
-            </summary>
-        </member>
-        <member name="M:System.Reflection.Emit.CosmosTypeBuilderExtensions.DefineAutoImplementedProperty(System.Reflection.Emit.TypeBuilder,System.String,System.Type)">
-            <summary>
-            Define auto implemented property
-            </summary>
-            <param name="typeBuilder"></param>
-            <param name="name"></param>
-            <param name="propertyType"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
     </members>
 </doc>

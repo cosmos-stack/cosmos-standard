@@ -5,7 +5,7 @@ namespace Cosmos.Optionals
     /// <summary>
     /// Cosmos safe invoking extensions
     /// </summary>
-    public static class CosmosSafeInvokingExtensions
+    public static class SafeInvokingExtensions
     {
         /// <summary>
         /// Invoke the given <see cref="EventHandler"/> in a safe way.<br />

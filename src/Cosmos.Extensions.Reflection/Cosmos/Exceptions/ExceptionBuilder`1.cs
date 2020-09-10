@@ -1,7 +1,7 @@
 using System;
 using Cosmos.Exceptions.BuildingDescriptors;
 using Cosmos.Reflection;
-using Cosmos.Validations;
+using Cosmos.Validation;
 
 namespace Cosmos.Exceptions
 {
@@ -20,7 +20,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         public ExceptionBuilder()
         {
-            _typeOfException = Reflection.Types.Of<TException>();
+            _typeOfException = Types.Of<TException>();
         }
 
         /// <summary>

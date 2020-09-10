@@ -11,7 +11,7 @@ namespace System.Reflection
     /// <summary>
     /// Cosmos <see cref="Type"/> extensions
     /// </summary>
-    public static partial class CosmosTypeExtensions
+    public static partial class SystemTypeExtensions
     {
         #region ToNonNullableType
 
@@ -68,7 +68,7 @@ namespace System.Reflection
         {
             var attributes = fromType.GetCustomAttributes(typeof(T), false);
 
-            return CosmosObjectExtensions.GetAttribute<T>(attributes);
+            return ObjectRefExtensions.GetAttribute<T>(attributes);
         }
 
         #endregion
@@ -430,7 +430,7 @@ namespace System.Reflection
 
         #region FindGenericType
 
-        private static readonly TypeInfo ObjectTypeInfo = TypeClass.ObjectClass.GetTypeInfo();
+        private static readonly TypeInfo ObjectTypeInfo = TypeClass.ObjectClazz.GetTypeInfo();
 
         /// <summary>
         /// Find <see cref="TypeInfo"/> from the given type's parameters' type

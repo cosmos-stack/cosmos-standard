@@ -5,6 +5,7 @@
     <Import Project="..\..\common.props" />
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\cosmos-validation\src\Cosmos.Validation.Core\Cosmos.Validation.Core._build.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />

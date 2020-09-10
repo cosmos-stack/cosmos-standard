@@ -1,6 +1,6 @@
 using System;
 
-namespace Cosmos
+namespace Cosmos.Reflection
 {
     /// <summary>
     /// Default value for type

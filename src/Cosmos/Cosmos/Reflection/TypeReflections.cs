@@ -6,7 +6,7 @@ namespace Cosmos.Reflection
     /// <summary>
     /// Reflection Utilities.
     /// </summary>
-    public static partial class Reflections
+    public static partial class TypeReflections
     {
         #region GetUnderlyingType
 
@@ -68,7 +68,7 @@ namespace Cosmos.Reflection
             if (!genericType.IsGenericType)
                 return null;
 
-            while (type != null && type != TypeClass.ObjectClass)
+            while (type != null && type != TypeClass.ObjectClazz)
             {
                 var testFlag = _checkRawGenericType(type);
                 if (testFlag)

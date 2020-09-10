@@ -5,7 +5,7 @@ namespace Cosmos.Reflection
     /// <summary>
     /// Cosmos lock extensions
     /// </summary>
-    public static class CosmosLockExtensions
+    public static class LockExtensions
     {
         /// <summary>
         /// Lock the specified resource, and then execute the delegation.<br />

@@ -5,7 +5,7 @@ namespace Cosmos.Exceptions
     /// <summary>
     /// Cosmos Try extensions.
     /// </summary>
-    public static class CosmosTryExtensions
+    public static class TryExtensions
     {
         /// <summary>
         /// Select

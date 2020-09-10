@@ -7,7 +7,7 @@ namespace Cosmos.Optionals
     /// <summary>
     /// Extensions for optional
     /// </summary>
-    public static class CosmosOptionalsExtensions
+    public static class OptionalsExtensions
     {
         #region Maybe
 

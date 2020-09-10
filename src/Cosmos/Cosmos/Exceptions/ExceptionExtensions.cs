@@ -6,7 +6,7 @@ namespace Cosmos.Exceptions
     /// <summary>
     /// Cosmos <see cref="Exception"/> extensions.
     /// </summary>
-    public static class CosmosExceptionExtensions
+    public static class ExceptionExtensions
     {
         /// <summary>
         /// Unwrap<br />

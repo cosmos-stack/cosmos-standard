@@ -2,13 +2,14 @@
 using System.Text;
 using System.Threading.Tasks;
 using Cosmos;
+using Cosmos.Reflection;
 
 namespace System.Reflection
 {
     /// <summary>
     /// Cosmos <see cref="MethodInfo"/> extensions.
     /// </summary>
-    public static class CosmosMethodInfoExtensions
+    public static class SystemMethodInfoExtensions
     {
         /// <summary>
         /// Get full name of method including type name and method name.<br />
@@ -74,10 +75,10 @@ namespace System.Reflection
         /// <returns></returns>
         public static bool IsAsyncMethod(this MethodInfo method)
         {
-            return method.ReturnType == TypeClass.TaskClass
-                   || method.ReturnType == TypeClass.ValueTaskClass
-                   || method.ReturnType.IsGenericType && method.ReturnType.GetGenericTypeDefinition() == TypeClass.GenericTaskClass
-                   || method.ReturnType.IsGenericType && method.ReturnType.GetGenericTypeDefinition() == TypeClass.GenericValueTaskClass;
+            return method.ReturnType == TypeClass.TaskClazz
+                   || method.ReturnType == TypeClass.ValueTaskClazz
+                   || method.ReturnType.IsGenericType && method.ReturnType.GetGenericTypeDefinition() == TypeClass.GenericTaskClazz
+                   || method.ReturnType.IsGenericType && method.ReturnType.GetGenericTypeDefinition() == TypeClass.GenericValueTaskClazz;
         }
         
         /// <summary>

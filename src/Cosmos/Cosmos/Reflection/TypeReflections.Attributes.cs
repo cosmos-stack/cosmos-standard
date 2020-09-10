@@ -8,7 +8,7 @@ namespace Cosmos.Reflection
     /// <summary>
     /// Reflection Utilities.
     /// </summary>
-    public static partial class Reflections
+    public static partial class TypeReflections
     {
         #region GetAttribute
 

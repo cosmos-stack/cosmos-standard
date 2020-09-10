@@ -8,7 +8,7 @@ namespace System.Reflection
     /// <summary>
     /// Cosmos <see cref="MemberInfo"/> extensions
     /// </summary>
-    public static class CosmosMemberInfoExtensions
+    public static class SystemMemberInfoExtensions
     {
         #region IsDefined
 

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Cosmos.Conversions;
-using Cosmos.Judgments;
+using Cosmos.Optionals.Internals;
+using Cosmos.Reflection;
 using Cosmos.Text;
 
 namespace Cosmos.Optionals
@@ -13,7 +13,7 @@ namespace Cosmos.Optionals
     /// <summary>
     /// Optionals extensions
     /// </summary>
-    public static class CosmosSafeValueExtensions
+    public static class SafeValueExtensions
     {
         #region SafeValue
 
@@ -41,7 +41,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public static string SafeValue(this string @string) => @string.AvoidNull().Trim();
+        public static string SafeValue(this string @string) => Strings.AvoidNull(@string).Trim();
 
         /// <summary>
         /// Return a safe <see cref="Encoding"/> value.<br />
@@ -161,7 +161,7 @@ namespace Cosmos.Optionals
         /// <param name="query"></param>
         /// <returns></returns>
         public static IQueryable<T> SafeQueryable<T>(this IQueryable<T> @query) =>
-            CollectionJudgment.IsNullOrEmpty(query) ? new List<T>().AsQueryable() : query;
+            CollectionHelper.IsNullOrEmpty(query) ? new List<T>().AsQueryable() : query;
 
         /// <summary>
         /// Return a safe <see cref="IQueryable{T}"/> value.<br />
@@ -179,8 +179,8 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public static IQueryable SafeQueryable(this IQueryable query) =>
-            CollectionJudgment.IsNullOrEmpty(query) ? new List<object>().AsQueryable() : query;
+        public static IQueryable SafeQueryable(this IQueryable query) => 
+            CollectionHelper.IsNullOrEmpty(query) ? new List<object>().AsQueryable() : query;
 
         /// <summary>
         /// Return a safe <see cref="IQueryable{T}"/> value.<br />
@@ -220,7 +220,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Type SafeType(this Type type) => TypeConverter.ToSafeNonNullableType(type);
+        public static Type SafeType(this Type type) => TypeConv.ToSafeNonNullableType(type);
 
         /// <summary>
         /// Return a non-nullable type version for the given <see cref="TypeInfo"/>.<br />
@@ -228,7 +228,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="typeInfo"></param>
         /// <returns></returns>
-        public static TypeInfo SafeType(this TypeInfo typeInfo) => TypeConverter.ToSafeNonNullableTypeInfo(typeInfo);
+        public static TypeInfo SafeType(this TypeInfo typeInfo) => TypeConv.ToSafeNonNullableTypeInfo(typeInfo);
 
         #endregion
     }

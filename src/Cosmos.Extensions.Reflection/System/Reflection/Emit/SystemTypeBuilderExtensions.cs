@@ -3,7 +3,7 @@
     /// <summary>
     /// Cosmos <see cref="TypeBuilder"/> extensions.
     /// </summary>
-    public static class CosmosTypeBuilderExtensions
+    public static class SystemTypeBuilderExtensions
     {
         /// <summary>
         /// Property set and property get methods require a special set of attributes.

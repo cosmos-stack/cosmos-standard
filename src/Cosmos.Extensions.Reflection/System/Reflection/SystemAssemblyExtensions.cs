@@ -7,7 +7,7 @@ namespace System.Reflection
     /// <summary>
     /// Cosmos <see cref="Assembly"/> extensions
     /// </summary>
-    public static class CosmosAssemblyExtensions
+    public static class SystemAssemblyExtensions
     {
         /// <summary>
         /// Get assembly file version.<br />

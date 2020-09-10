@@ -6,7 +6,7 @@ namespace Cosmos.Exceptions
     /// <summary>
     /// Options for cosmos exception
     /// </summary>
-    public class CosmosExceptionOptions
+    public class ExceptionOptions
     {
         /// <summary>
         /// Empty flag

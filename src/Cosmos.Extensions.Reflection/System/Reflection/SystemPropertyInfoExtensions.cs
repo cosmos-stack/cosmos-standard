@@ -9,7 +9,7 @@ namespace System.Reflection
     /// <summary>
     /// Cosmos <see cref="PropertyInfo"/> extensions.
     /// </summary>
-    public static class CosmosPropertyInfoExtensions
+    public static class SystemPropertyInfoExtensions
     {
         #region Exclude
 
@@ -88,7 +88,7 @@ namespace System.Reflection
         {
             var attributes = propertyInfo.GetCustomAttributes(typeof(T), false);
 
-            return CosmosObjectExtensions.GetAttribute<T>(attributes);
+            return ObjectRefExtensions.GetAttribute<T>(attributes);
         }
 
         #endregion

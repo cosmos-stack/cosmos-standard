@@ -1,6 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using AspectCore.Extensions.Reflection;
-using Cosmos.Judgments;
+using Cosmos;
 using Cosmos.Reflection;
 
 namespace System.Reflection
@@ -8,7 +9,7 @@ namespace System.Reflection
     /// <summary>
     /// Cosmos <see cref="Type"/> extensions
     /// </summary>
-    public static partial class CosmosTypeExtensions
+    public static partial class SystemTypeExtensions
     {
         #region IsObjectDeriveFrom
 
@@ -54,8 +55,8 @@ namespace System.Reflection
             if (hereGivenType is null) throw new ArgumentNullException(nameof(hereGivenType));
 
             return hereGivenType.IsClass
-                   && (canAbstract || !hereGivenType.IsAbstract)
-                   && hereGivenType.IsBaseOn(thereBaseType);
+                && (canAbstract || !hereGivenType.IsAbstract)
+                && hereGivenType.IsBaseOn(thereBaseType);
         }
 
         /// <summary>
@@ -182,7 +183,7 @@ namespace System.Reflection
         /// </summary>
         /// <param name="type">要检查的类型</param>
         /// <returns>是否是数值类型</returns>
-        public static bool IsNumeric(this Type type) => TypeJudgment.IsNumericType(type);
+        public static bool IsNumeric(this Type type) => Types.IsNumericType(type);
 
         /// <summary>
         /// Determine whether the specified type is a numeric type.<br />
@@ -190,7 +191,7 @@ namespace System.Reflection
         /// </summary>
         /// <param name="typeInfo">要检查的类型</param>
         /// <returns>是否是数值类型</returns>
-        public static bool IsNumeric(this TypeInfo typeInfo) => TypeJudgment.IsNumericType(typeInfo);
+        public static bool IsNumeric(this TypeInfo typeInfo) => Types.IsNumericType(typeInfo);
 
         #endregion
 
@@ -201,7 +202,7 @@ namespace System.Reflection
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsNullableType(this Type type) => TypeJudgment.IsNullableType(type);
+        public static bool IsNullableType(this Type type) => Types.IsNullableType(type);
 
         #endregion
 
@@ -213,7 +214,12 @@ namespace System.Reflection
         /// </summary>
         /// <param name="that"></param>
         /// <returns></returns>
-        public static bool IsEnumerable(this Type that) => TypeJudgment.IsEnumerable(that);
+        public static bool IsEnumerable(this Type that)
+        {
+            if (that == TypeClass.StringClazz)
+                return false;
+            return typeof(IEnumerable).IsAssignableFrom(that);
+        }
 
         #endregion
 

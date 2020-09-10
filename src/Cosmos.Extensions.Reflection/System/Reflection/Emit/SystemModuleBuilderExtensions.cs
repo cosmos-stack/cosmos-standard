@@ -11,7 +11,7 @@ namespace System.Reflection.Emit
     /// <summary>
     /// Cosmos <see cref="ModuleBuilder"/> extensions.
     /// </summary>
-    public static class CosmosModuleBuilderExtensions
+    public static class SystemModuleBuilderExtensions
     {
         /// <summary>
         /// Define POCO

@@ -9,7 +9,7 @@ namespace Cosmos.Reflection
     /// <summary>
     /// Cosmos object copy extensions
     /// </summary>
-    public static class CosmosObjectCopyExtensions
+    public static class ObjectRefCopyExtensions
     {
         #region DeepCopy
 
