@@ -5,7 +5,7 @@ namespace Cosmos.Date
     /// <summary>
     /// Cosmos <see cref="DateTimeSpan"/> extensions.
     /// </summary>
-    public static class CosmosDateTimeSpanExtensions
+    public static class DateTimeSpanExtensions
     {
         #region Ago
 

@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using Cosmos.Date;
-using Cosmos.Judgments;
 using NodaTime;
 
 namespace System
@@ -8,7 +7,7 @@ namespace System
     /// <summary>
     /// Cosmos <see cref="DateTimeOffset"/> extensions.
     /// </summary>
-    public static class CosmosDateTimeOffsetExtensions
+    public static class SystemDateTimeOffsetExtensions
     {
         #region Add
 
@@ -283,14 +282,14 @@ namespace System
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTimeOffset dto) => DateTimeJudgment.IsToday(dto);
+        public static bool IsToday(this DateTimeOffset dto) => dto.Date == DateTime.Today;
 
         /// <summary>
         /// 判断指定
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTimeOffset? dto) => DateTimeJudgment.IsToday(dto);
+        public static bool IsToday(this DateTimeOffset? dto) => dto.GetValueOrDefault().Date == DateTime.Today;
 
         /// <summary>
         /// Is before

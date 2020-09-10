@@ -6,7 +6,7 @@ namespace NodaTime
     /// <summary>
     /// Cosmos <see cref="Instant"/> extensions.
     /// </summary>
-    public static class CosmosInstantExtensions
+    public static class NodaInstantExtensions
     {
         #region Add
 

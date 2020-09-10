@@ -7,7 +7,7 @@ namespace NodaTime
     /// <summary>
     /// Cosmos <see cref="LocalDateTime"/> extensions.
     /// </summary>
-    public static class CosmosLocalDateTimeExtensions
+    public static class NodaLocalDateTimeExtensions
     {
         #region Add
 

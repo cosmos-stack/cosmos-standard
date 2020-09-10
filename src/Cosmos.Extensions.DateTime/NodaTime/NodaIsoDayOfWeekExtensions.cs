@@ -5,7 +5,7 @@ namespace NodaTime
     /// <summary>
     /// Cosmos <see cref="IsoDayOfWeek"/> extensions.
     /// </summary>
-    public static class CosmosIsoDayOfWeekExtensions
+    public static class NodaIsoDayOfWeekExtensions
     {
         /// <summary>
         /// Convert <see cref="DayOfWeek"/> to <see cref="IsoDayOfWeek"/>.<br />

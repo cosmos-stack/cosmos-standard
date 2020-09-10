@@ -2,12 +2,12 @@
 using Cosmos.Conversions.StringDeterminers;
 using Cosmos.Date;
 
-namespace Cosmos
+namespace Cosmos.Text
 {
     /// <summary>
     /// Cosmos <see cref="string"/> to <see cref="DateTime"/> extensions.
     /// </summary>
-    public static class CosmosStringDateTimeExtensions
+    public static class StringDateTimeExtensions
     {
         /// <summary>
         /// Convert the given string to <see cref="DateInfo"/>. <br />

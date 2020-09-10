@@ -5,7 +5,7 @@ namespace System
     /// <summary>
     /// Cosmos <see cref="TimeSpan"/> extensions.
     /// </summary>
-    public static class CosmosTimeSpanExtensions
+    public static class SystemTimeSpanExtensions
     {
         #region Ago
 

@@ -6,7 +6,7 @@ namespace Cosmos.Date
     /// <summary>
     /// Cosmos <see cref="DateInfo"/> extensions.
     /// </summary>
-    public static class CosmosDateInfoExtensions
+    public static class DateInfoExtensions
     {
         #region Add
 

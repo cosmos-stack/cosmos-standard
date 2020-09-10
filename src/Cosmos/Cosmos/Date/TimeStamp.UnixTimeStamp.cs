@@ -5,7 +5,7 @@ namespace Cosmos.Date
     /// <summary>
     /// Unix timestamp
     /// </summary>
-    public class UnixTimeStamp : CosmosTimeStamp
+    public class UnixTimeStamp : TimeStamp
     {
         /// <summary>
         /// Create a new instance of <see cref="UnixTimeStamp"/>

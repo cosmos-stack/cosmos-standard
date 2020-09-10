@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using Cosmos.Date;
-using Cosmos.Judgments;
 using Cosmos.Verba.Time;
 using NodaTime;
 
@@ -12,7 +11,7 @@ namespace System
     /// <summary>
     /// Cosmos <see cref="DateTime"/> extensions
     /// </summary>
-    public static class CosmosDateTimeExtensions
+    public static class SystemDateTimeExtensions
     {
         #region Add
 
@@ -358,8 +357,8 @@ namespace System
             var l = dt1 < dt2 ? dt1 : dt2;
             var r = dt1 >= dt2 ? dt1 : dt2;
             return (l.Day == r.Day ? 0 : l.Day > r.Day ? 0 : 1)
-                   + (l.Month == r.Month ? 0 : r.Month - l.Month)
-                   + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
+                 + (l.Month == r.Month ? 0 : r.Month - l.Month)
+                 + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
         }
 
         /// <summary>
@@ -383,8 +382,8 @@ namespace System
                     : (r.Day - l.Day) * 1d / rDfM;
 
             return dayFixOne
-                   + (l.Month == r.Month ? 0 : r.Month - l.Month)
-                   + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
+                 + (l.Month == r.Month ? 0 : r.Month - l.Month)
+                 + (l.Year == r.Year ? 0 : (r.Year - l.Year) * 12);
         }
 
         #endregion
@@ -829,7 +828,7 @@ namespace System
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTime date) => DateTimeJudgment.IsToday(date);
+        public static bool IsToday(this DateTime date) => date.Date == DateTime.Today;
 
         /// <summary>
         /// Determine whether the given time is today. <br />
@@ -837,7 +836,7 @@ namespace System
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsToday(this DateTime? date) => DateTimeJudgment.IsToday(date);
+        public static bool IsToday(this DateTime? date) => date.GetValueOrDefault().Date == DateTime.Today;
 
         /// <summary>
         /// Determine whether the given time is morning. <br />
@@ -939,7 +938,7 @@ namespace System
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekday(this DateTime date) => DateTimeJudgment.IsWeekday(date);
+        public static bool IsWeekday(this DateTime date) => !date.IsWeekend();
 
         /// <summary>
         /// Is Weekday <br />
@@ -947,7 +946,7 @@ namespace System
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekday(this DateTime? date) => DateTimeJudgment.IsWeekday(date);
+        public static bool IsWeekday(this DateTime? date) => date.GetValueOrDefault().IsWeekday();
 
         /// <summary>
         /// Is Weekday <br />
@@ -955,7 +954,7 @@ namespace System
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekend(this DateTime date) => DateTimeJudgment.IsWeekend(date);
+        public static bool IsWeekend(this DateTime date) => date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday;
 
         /// <summary>
         /// Is Weekday <br />
@@ -963,7 +962,7 @@ namespace System
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsWeekend(this DateTime? date) => DateTimeJudgment.IsWeekend(date);
+        public static bool IsWeekend(this DateTime? date) => date.GetValueOrDefault().IsWeekend();
 
         /// <summary>
         /// Is same day

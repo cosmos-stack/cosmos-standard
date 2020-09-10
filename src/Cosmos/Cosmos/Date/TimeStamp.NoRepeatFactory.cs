@@ -32,13 +32,13 @@ namespace Cosmos.Date
         /// Gets TimeStamp object
         /// </summary>
         /// <returns></returns>
-        public CosmosTimeStamp GetTimeStampObject() => new CosmosTimeStamp(GetTimeStamp());
+        public TimeStamp GetTimeStampObject() => new TimeStamp(GetTimeStamp());
 
         /// <summary>
         /// Gets utc TimeStamp object
         /// </summary>
         /// <returns></returns>
-        public CosmosTimeStamp GetUtcTimeStampObject() => new CosmosTimeStamp(GetUtcTimeStamp());
+        public TimeStamp GetUtcTimeStampObject() => new TimeStamp(GetUtcTimeStamp());
 
         /// <summary>
         /// Gets unix TimeStamp object

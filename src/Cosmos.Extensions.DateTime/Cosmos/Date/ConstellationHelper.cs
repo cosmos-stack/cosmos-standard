@@ -6,7 +6,7 @@ namespace Cosmos.Date
     /// Cosmos Constellation helper<br />
     /// 星座辅助类
     /// </summary>
-    public static class CosmosConstellationHelper
+    public static class ConstellationHelper
     {
         private static readonly string[] ConstellationName =
         {

@@ -6,7 +6,7 @@ namespace NodaTime
     /// <summary>
     /// Cosmos <see cref="Duration"/> extensions
     /// </summary>
-    public static class CosmosDurationExtensions
+    public static class NodaDurationExtensions
     {
         #region As duration
 

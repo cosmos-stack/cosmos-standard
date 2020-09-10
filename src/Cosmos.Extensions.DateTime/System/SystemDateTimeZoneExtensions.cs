@@ -1,12 +1,11 @@
-﻿using Cosmos.Date;
-using NodaTime;
+﻿using NodaTime;
 
 namespace System
 {
     /// <summary>
     /// Cosmos <see cref="DateTimeZone"/> extensions
     /// </summary>
-    public static class CosmosDateTimeZoneExtensions
+    public static class SystemDateTimeZoneExtensions
     {
         /// <summary>
         /// Apply <see cref="DateTimeZone"/> leniently.<br />

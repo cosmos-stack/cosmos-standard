@@ -1,5 +1,4 @@
 using System;
-using Cosmos.Judgments;
 using NodaTime;
 using NodaTime.Calendars;
 using NodaTime.Extensions;
@@ -60,14 +59,14 @@ namespace Cosmos.Date.Islamic
         /// 当天日期是否为周末
         /// </summary>
         /// <returns></returns>
-        public bool IsWeekend() => DateTimeJudgment.IsWeekend(InternalDateTime);
+        public bool IsWeekend() => InternalDateTime.IsWeekend();
 
         /// <summary>
         /// Is current day a work day<br />
         /// 当前日期是否为工作日
         /// </summary>
         /// <returns></returns>
-        public bool IsWorkDay() => DateTimeJudgment.IsWeekday(InternalDateTime);
+        public bool IsWorkDay() => InternalDateTime.IsWeekday();
 
         /// <summary>
         /// Gets Islamic year<br />

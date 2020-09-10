@@ -3,7 +3,7 @@
     /// <summary>
     /// Cosmos <see cref="DateTime"/> basic extensions.
     /// </summary>
-    public static class CosmosDateTimeExtensions
+    public static class SystemDateTimeExtensions
     {
         #region To DateTime String
 

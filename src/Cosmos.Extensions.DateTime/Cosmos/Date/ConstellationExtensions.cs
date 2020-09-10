@@ -5,7 +5,7 @@ namespace Cosmos.Date
     /// <summary>
     /// Cosmos <see cref="DateTime"/> Constellation extensions
     /// </summary>
-    public static class CosmosDataTimeConstellationExtensions
+    public static class ConstellationExtensions
     {
         /// <summary>
         /// Gets Constellation name<br />
@@ -13,7 +13,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static string GetConstellationName(this DateInfo dt) => CosmosConstellationHelper.Get(dt);
+        public static string GetConstellationName(this DateInfo dt) => ConstellationHelper.Get(dt);
 
         /// <summary>
         /// Gets Constellation name<br />
@@ -21,6 +21,6 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static string GetConstellationName(this DateTime dt) => CosmosConstellationHelper.Get(dt);
+        public static string GetConstellationName(this DateTime dt) => ConstellationHelper.Get(dt);
     }
 }

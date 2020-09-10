@@ -30,7 +30,7 @@ namespace Cosmos.Date.Chinese
             var fieldName = EnumsNET.Enums.GetName(chineseSolarTerms);
             var typeInfo = typeof(ChineseSolarTerms).GetTypeInfo();
             var fieldInfo = typeInfo.GetField(fieldName!);
-            return Reflections.GetDescriptionOrDisplayName(fieldInfo);
+            return TypeReflections.GetDescriptionOrDisplayName(fieldInfo);
         }
     }
 }

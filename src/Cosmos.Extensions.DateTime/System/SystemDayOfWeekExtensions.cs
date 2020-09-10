@@ -3,7 +3,7 @@
     /// <summary>
     /// Cosmos <see cref="DayOfWeek"/> extensions.
     /// </summary>
-    public static class CosmosDayOfWeekExtensions
+    public static class SystemDayOfWeekExtensions
     {
         /// <summary>
         /// Convert <see cref="DayOfWeek"/> to <see cref="int"/><br />
