@@ -9,10 +9,15 @@ namespace Cosmos.Text
     /// </summary>
     public static class Strings
     {
+        #region Null to empty / avoid null
+
         /// <summary>
-        /// New line
+        /// Avoid null, so convert null to empty.<br />
+        /// 将 null 转换为 Empty
         /// </summary>
-        public const string NEWLINE = "\r\n";
+        /// <param name="that"></param>
+        /// <returns></returns>
+        public static string AvoidNull(string that) => that ?? string.Empty;
 
         /// <summary>
         /// Convert null to empty.<br />
@@ -20,7 +25,11 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public static string NullToEmpty(string @string) => @string.AvoidNull();
+        public static string NullToEmpty(string @string) => AvoidNull(@string);
+
+        #endregion
+
+        #region Empty to null
 
         /// <summary>
         /// Convert empty to null.<br />
@@ -30,6 +39,54 @@ namespace Cosmos.Text
         /// <returns></returns>
         public static string EmptyToNull(string @string) => @string.IsNullOrEmpty() ? null : @string;
 
+        #endregion
+
+        #region Repeat
+
+        /// <summary>
+        /// Repeat<br />
+        /// 重复指定次数的字符
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="times"></param>
+        /// <returns></returns>
+        public static string Repeat(string source, int times) => source.Repeat(times);
+
+        /// <summary>
+        /// Repeat<br />
+        /// 重复指定次数的字符
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="times"></param>
+        /// <returns></returns>
+        public static string Repeat(char source, int times) => source.Repeat(times);
+
+        #endregion
+
+        #region Pad
+
+        /// <summary>
+        /// Padding left
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="width"></param>
+        /// <param name="appendChar"></param>
+        /// <returns></returns>
+        public static string PadStart(string source, int width, char appendChar) => source.PadLeft(width, appendChar);
+
+        /// <summary>
+        /// Padding right
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="width"></param>
+        /// <param name="appendChar"></param>
+        /// <returns></returns>
+        public static string PadEnd(string source, int width, char appendChar) => source.PadRight(width, appendChar);
+
+        #endregion
+
+        #region Prefix / Suffix
+        
         /// <summary>
         /// Returns the common prefix.<br />
         /// 从左到右，返回共有的字符，直至遇到第一个不同的字符。
@@ -79,41 +136,17 @@ namespace Cosmos.Text
 
             return sb.ToReverseString();
         }
+        
+        #endregion
+
+        #region New line
 
         /// <summary>
-        /// Repeat<br />
-        /// 重复指定次数的字符
+        /// New line
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="times"></param>
-        /// <returns></returns>
-        public static string Repeat(string source, int times) => source.Repeat(times);
+        public const string NEWLINE = "\r\n";
 
-        /// <summary>
-        /// Repeat<br />
-        /// 重复指定次数的字符
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="times"></param>
-        /// <returns></returns>
-        public static string Repeat(char source, int times) => source.Repeat(times);
+        #endregion
 
-        /// <summary>
-        /// Padding left
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="width"></param>
-        /// <param name="appendChar"></param>
-        /// <returns></returns>
-        public static string PadStart(string source, int width, char appendChar) => source.PadLeft(width, appendChar);
-
-        /// <summary>
-        /// Padding right
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="width"></param>
-        /// <param name="appendChar"></param>
-        /// <returns></returns>
-        public static string PadEnd(string source, int width, char appendChar) => source.PadRight(width, appendChar);
     }
 }

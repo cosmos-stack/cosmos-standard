@@ -3,7 +3,7 @@
     /// <summary>
     /// Type Similarity
     /// </summary>
-    public enum StringTypeSimilarity
+    public enum StringSimilarityTypes
     {
         /// <summary>
         /// Any

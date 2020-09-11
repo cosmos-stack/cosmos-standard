@@ -9,7 +9,7 @@ namespace Cosmos.Text
     /// <summary>
     /// Cosmos <see cref="StringBuilder"/> extensions.
     /// </summary>
-    public static class CosmosStringBuilderExtensions
+    public static class StringBuilderExtensions
     {
         #region Append
 

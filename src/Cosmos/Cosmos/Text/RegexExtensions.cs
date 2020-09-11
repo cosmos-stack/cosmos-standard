@@ -6,7 +6,7 @@ namespace Cosmos.Text
     /// <summary>
     /// Cosmos <see cref="Regex"/> extensions.
     /// </summary>
-    public static class CosmosRegexExtensions
+    public static class RegexExtensions
     {
         /// <summary>
         /// Get group value

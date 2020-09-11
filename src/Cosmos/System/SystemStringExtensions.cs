@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cosmos.Judgments;
 using Cosmos.Text;
 
 namespace System
@@ -9,7 +8,7 @@ namespace System
     /// <summary>
     /// Cosmos <see cref="String"/> extensions.
     /// </summary>
-    public static class CosmosStringExtensions
+    public static class SystemStringExtensions
     {
         #region Case
 
@@ -49,8 +48,8 @@ namespace System
             }
 
             return string.Join(" ", result).Replace(" Y ", " y ")
-                .Replace(" De ", " de ")
-                .Replace(" O ", " o ");
+                         .Replace(" De ", " de ")
+                         .Replace(" O ", " o ");
         }
 
         /// <summary>
@@ -133,31 +132,6 @@ namespace System
         #region Count
 
         /// <summary>
-        /// Count lines
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static int CountLines(this string s)
-        {
-            int index = 0, lines = 0;
-
-            while (true)
-            {
-                var newIndex = s.IndexOf(Environment.NewLine, index, StringComparison.Ordinal);
-                if (newIndex < 0)
-                {
-                    if (s.Length > index)
-                        lines++;
-
-                    return lines;
-                }
-
-                index = newIndex + 2;
-                lines++;
-            }
-        }
-
-        /// <summary>
         /// Count Occurrences
         /// </summary>
         /// <param name="text"></param>
@@ -198,7 +172,14 @@ namespace System
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool EndsWith(this string @string, params string[] values)
-            => StringJudgment.EndWithThese(@string, values);
+        {
+            {
+                if (string.IsNullOrWhiteSpace(@string) || values is null || values.Any(string.IsNullOrWhiteSpace))
+                    return false;
+
+                return values.Any(@string.EndsWith);
+            }
+        }
 
         /// <summary>
         /// 确定此字符串实例的结尾是否与指定的字符串数组中的某一个成员匹配。
@@ -208,7 +189,12 @@ namespace System
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool EndsWith(this string @string, ICollection<string> values)
-            => StringJudgment.EndWithThese(@string, values);
+        {
+            if (string.IsNullOrWhiteSpace(@string) || values is null || !values.Any())
+                return false;
+
+            return EndsWith(@string, values.ToArray());
+        }
 
         /// <summary>
         /// Ends with ignore case
@@ -373,7 +359,12 @@ namespace System
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool StartsWith(this string @string, params string[] values)
-            => StringJudgment.StartWithThese(@string, values);
+        {
+            if (string.IsNullOrWhiteSpace(@string) || values is null || values.Any(string.IsNullOrWhiteSpace))
+                return false;
+
+            return values.Any(@string.StartsWith);
+        }
 
         /// <summary>
         /// 确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
@@ -383,7 +374,12 @@ namespace System
         /// <param name="values"></param>
         /// <returns></returns>
         public static bool StartsWith(this string @string, ICollection<string> values)
-            => StringJudgment.StartWithThese(@string, values);
+        {
+            if (string.IsNullOrWhiteSpace(@string) || values is null || !values.Any())
+                return false;
+
+            return StartsWith(@string, values.ToArray());
+        }
 
         /// <summary>
         /// Starts with ignore case
@@ -421,7 +417,7 @@ namespace System
         #endregion
 
         #region Substring
-        
+
         /// <summary>
         /// Extract around
         /// </summary>
