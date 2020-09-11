@@ -11,7 +11,7 @@ namespace Cosmos.Asynchronous
     {
         #region CompletedTask
 
-#if NET451
+#if NET451 || NET452
         // ReSharper disable once InconsistentNaming
         private static readonly Task _completedTask = Task.FromResult(true);
 #endif
@@ -21,7 +21,7 @@ namespace Cosmos.Asynchronous
         /// <returns></returns>
         public static Task CompletedTask()
         {
-#if NET451
+#if NET451 || NET452
             return _completedTask;
 #else
             return Task.CompletedTask;
@@ -40,7 +40,7 @@ namespace Cosmos.Asynchronous
         /// <returns></returns>
         public static Task<TResult> FromCanceled<TResult>(CancellationToken cancellationToken)
         {
-#if NET451
+#if NET451 || NET452
             var tcs = new TaskCompletionSource<TResult>();
             tcs.SetCanceled();
             return tcs.Task;
@@ -57,7 +57,7 @@ namespace Cosmos.Asynchronous
         /// <returns></returns>
         public static Task<TResult> FromCanceled<TResult>(OperationCanceledException exception)
         {
-#if NET451
+#if NET451 || NET452
             var tcs = new TaskCompletionSource<TResult>();
             tcs.SetException(exception);
             tcs.SetCanceled();
@@ -79,7 +79,7 @@ namespace Cosmos.Asynchronous
         /// <returns></returns>
         public static Task<TResult> FromException<TResult>(Exception exception)
         {
-#if NET451
+#if NET451 || NET452
             var tcs = new TaskCompletionSource<TResult>();
             tcs.TrySetException(exception);
             return tcs.Task;

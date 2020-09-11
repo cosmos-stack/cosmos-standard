@@ -1,3 +1,5 @@
+#if !NETFRAMEWORK
+
 using System.Collections.Concurrent;
 using System.Threading;
 
@@ -33,3 +35,5 @@ namespace System.Runtime.Remoting.Messaging
             State.TryGetValue(name, out var data) ? data.Value : null;
     }
 }
+
+#endif

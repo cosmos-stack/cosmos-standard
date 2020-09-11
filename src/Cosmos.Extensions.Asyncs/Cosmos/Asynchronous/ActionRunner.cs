@@ -17,7 +17,7 @@ namespace Cosmos.Asynchronous
         public ActionRunner(Action action, TaskScheduler scheduler = null)
         {
             _action = action;
-            _scheduler = scheduler; // No need to hold a refernce to the default, just keep it null.
+            _scheduler = scheduler; // No need to hold a reference to the default, just keep it null.
             LastStart = DateTime.MaxValue;
             LastComplete = DateTime.MaxValue;
         }

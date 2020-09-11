@@ -312,138 +312,6 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Asynchronous.CancellableTask">
-            <summary>
-            Cancelable Task
-            </summary>
-        </member>
-        <member name="F:Cosmos.Asynchronous.CancellableTask.TokenSource">
-            <summary>
-            Token source
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.Cancel(System.Boolean)">
-            <summary>
-            Cancel
-            </summary>
-            <param name="onlyIfNotRunning"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.Cancel">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.Blank">
-            <summary>
-            Blank
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.Dispose(System.Boolean)">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Action,System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Action)">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.Init(System.Action)">
-            <summary>
-            Only allow for static initialization because this owns the TokenSource.
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.Start(System.TimeSpan,System.Threading.Tasks.TaskScheduler)">
-            <summary>
-            Start
-            </summary>
-            <param name="delay"></param>
-            <param name="scheduler"></param>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.Start(System.Int32,System.Threading.Tasks.TaskScheduler)">
-            <summary>
-            Start
-            </summary>
-            <param name="millisecondsDelay"></param>
-            <param name="scheduler"></param>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.TimeSpan,System.Action,System.Threading.Tasks.TaskScheduler)">
-            <summary>
-            Start new
-            </summary>
-            <param name="delay"></param>
-            <param name="action"></param>
-            <param name="scheduler"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Int32,System.Action)">
-            <summary>
-            Start new
-            </summary>
-            <param name="millisecondsDelay"></param>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Action,System.Nullable{System.TimeSpan},System.Threading.Tasks.TaskScheduler)">
-            <summary>
-            Start new
-            </summary>
-            <param name="action"></param>
-            <param name="delay"></param>
-            <param name="scheduler"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Action{System.Threading.CancellationToken},System.Nullable{System.TimeSpan},System.Threading.Tasks.TaskScheduler)">
-            <summary>
-            Start new
-            </summary>
-            <param name="action"></param>
-            <param name="delay"></param>
-            <param name="scheduler"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Asynchronous.Promise.Promises">
-            <summary>
-            Promises Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Asynchronous.Promise.Promises.Create``1">
-            <summary>
-            Create
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.Promise.Promises.Create``1(System.Action{System.Action{``0},System.Action{System.Exception}})">
-            <summary>
-            Create
-            </summary>
-            <param name="resolver"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.Promise.Promises.Resolved``1(``0)">
-            <summary>
-            Resolved
-            </summary>
-            <param name="promisedVal"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Asynchronous.Promise.Promises.Rejected``1(System.Exception)">
-            <summary>
-            Rejected
-            </summary>
-            <param name="exception"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Asynchronous.SyncRunner">
             <summary>
             Sync runner
@@ -567,6 +435,102 @@
             <param name="taskFunc"></param>
             <param name="defaultValueFunc"></param>
             <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Asynchronous.CancellableTask">
+            <summary>
+            Cancelable Task
+            </summary>
+        </member>
+        <member name="F:Cosmos.Asynchronous.CancellableTask.TokenSource">
+            <summary>
+            Token source
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Cancel(System.Boolean)">
+            <summary>
+            Cancel
+            </summary>
+            <param name="onlyIfNotRunning"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Cancel">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Blank">
+            <summary>
+            Blank
+            </summary>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Action,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Init(System.Action)">
+            <summary>
+            Only allow for static initialization because this owns the TokenSource.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Start(System.TimeSpan,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start
+            </summary>
+            <param name="delay"></param>
+            <param name="scheduler"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.Start(System.Int32,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start
+            </summary>
+            <param name="millisecondsDelay"></param>
+            <param name="scheduler"></param>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.TimeSpan,System.Action,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start new
+            </summary>
+            <param name="delay"></param>
+            <param name="action"></param>
+            <param name="scheduler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Int32,System.Action)">
+            <summary>
+            Start new
+            </summary>
+            <param name="millisecondsDelay"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Action,System.Nullable{System.TimeSpan},System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start new
+            </summary>
+            <param name="action"></param>
+            <param name="delay"></param>
+            <param name="scheduler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Asynchronous.CancellableTask.StartNew(System.Action{System.Threading.CancellationToken},System.Nullable{System.TimeSpan},System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Start new
+            </summary>
+            <param name="action"></param>
+            <param name="delay"></param>
+            <param name="scheduler"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Asynchronous.Tasks">
@@ -13339,26 +13303,6 @@
             <typeparam name="TP4"></typeparam>
             <typeparam name="TP5"></typeparam>
             <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:System.Runtime.Remoting.Messaging.CallContext">
-            <summary>
-            CallContext for .NET Standard and .NET Core
-            for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
-            </summary>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.SetData(System.String,System.Object)">
-            <summary>
-            Set data
-            </summary>
-            <param name="name"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.GetData(System.String)">
-            <summary>
-            Get data
-            </summary>
-            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
