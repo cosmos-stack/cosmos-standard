@@ -1,7 +1,6 @@
 using System;
 using Cosmos.Exceptions;
 
-// ReSharper disable once CheckNamespace
 namespace Cosmos
 {
     /// <summary>

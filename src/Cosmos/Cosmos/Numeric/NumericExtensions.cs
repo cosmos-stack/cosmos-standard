@@ -8,7 +8,7 @@ namespace Cosmos.Numeric
     /// <summary>
     /// Extensions for numeric
     /// </summary>
-    public static class CosmosNumericExtensions
+    public static class NumericExtensions
     {
         /// <summary>
         /// Is NaN
