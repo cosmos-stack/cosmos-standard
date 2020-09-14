@@ -433,18 +433,6 @@
             ZeroFormatter 序列化器接口
             </summary>
         </member>
-        <member name="T:Cosmos.Validations.Parameters.IValidationParameter">
-            <summary>
-            Validation parameter<br />
-            验证参数
-            </summary>
-        </member>
-        <member name="P:Cosmos.Validations.Parameters.IValidationParameter.Message">
-            <summary>
-            Gets or sets message<br />
-            消息
-            </summary>
-        </member>
         <member name="T:Cosmos.Verba.IVerba">
             <summary>
             Verba Meta Interface<br />

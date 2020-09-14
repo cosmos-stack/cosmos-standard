@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
         <PackageReference Include="Enums.NET" Version="3.0.3" />
         <PackageReference Include="Humanizer.Core" Version="2.8.26" />
         <PackageReference Include="Humanizer.Core.zh-Hans" Version="2.8.26" />
@@ -17,5 +16,39 @@
         <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
         <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
     </ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.0.0" />
+		<PackageReference Include="System.Memory" Version="4.5.4" />
+		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="AspectCore.Extensions.Reflection" Version="2.1.0" />
+	</ItemGroup>
     
 </Project>

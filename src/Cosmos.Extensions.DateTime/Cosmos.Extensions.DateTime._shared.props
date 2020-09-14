@@ -6,8 +6,36 @@
         <Description>Cosmos Date/Time extension library</Description>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="NodaTime" Version="3.0.0" />
-    </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+		<PackageReference Include="NodaTime" Version="2.4.8" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+		<PackageReference Include="NodaTime" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+		<PackageReference Include="NodaTime" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+		<PackageReference Include="NodaTime" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="NodaTime" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
+		<PackageReference Include="NodaTime" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+		<PackageReference Include="NodaTime" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="NodaTime" Version="3.0.0" />
+	</ItemGroup>
 
 </Project>

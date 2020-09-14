@@ -3935,6 +3935,26 @@
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.Types.IsGenericImplementation(System.Type,System.Type,System.Type[]@)">
+            <summary>
+            Determine whether the given type can be assigned to the specified generic type.<br />
+            判断给定的类型是否可赋值给指定的泛型类型。
+            </summary>
+            <param name="type">The given type</param>
+            <param name="genericType">The generic type</param>
+            <param name="genericArguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsGenericImplementation``2(System.Type[]@)">
+            <summary>
+            Determine whether the given type can be assigned to the specified generic type.<br />
+            判断给定的类型是否可赋值给指定的泛型类型。
+            </summary>
+            <typeparam name="TGot">The given type TGot</typeparam>
+            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
+            <param name="genericArguments"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.Types.GetRawTypeFromGenericClass(System.Type,System.Type)">
             <summary>
             Get the original type. <br />
@@ -5023,27 +5043,27 @@
             Minor long
             </summary>
         </member>
-        <member name="T:Cosmos.ThreeValuedBoolean">
+        <member name="T:Cosmos.ThreeValuedBooleans">
             <summary>
             Three value boolean
             </summary>
         </member>
-        <member name="P:Cosmos.ThreeValuedBoolean.True">
+        <member name="P:Cosmos.ThreeValuedBooleans.True">
             <summary>
             True
             </summary>
         </member>
-        <member name="P:Cosmos.ThreeValuedBoolean.False">
+        <member name="P:Cosmos.ThreeValuedBooleans.False">
             <summary>
             False
             </summary>
         </member>
-        <member name="P:Cosmos.ThreeValuedBoolean.Default">
+        <member name="P:Cosmos.ThreeValuedBooleans.Default">
             <summary>
             Default
             </summary>
         </member>
-        <member name="M:Cosmos.ThreeValuedBoolean.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:Cosmos.ThreeValuedBooleans.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
             And operator
             </summary>
@@ -5051,7 +5071,7 @@
             <param name="right"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ThreeValuedBoolean.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
+        <member name="M:Cosmos.ThreeValuedBooleans.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
             <summary>
             And operator
             </summary>
@@ -5059,7 +5079,7 @@
             <param name="rights"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ThreeValuedBoolean.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:Cosmos.ThreeValuedBooleans.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
             Or operator
             </summary>
@@ -5067,7 +5087,7 @@
             <param name="right"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ThreeValuedBoolean.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
+        <member name="M:Cosmos.ThreeValuedBooleans.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
             <summary>
             Or operator
             </summary>
@@ -5075,7 +5095,7 @@
             <param name="rights"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.ThreeValuedBoolean.Same(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:Cosmos.ThreeValuedBooleans.Same(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
             Same operator
             </summary>
