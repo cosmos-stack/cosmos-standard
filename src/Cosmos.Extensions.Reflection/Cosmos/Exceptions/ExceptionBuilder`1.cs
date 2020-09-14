@@ -1,3 +1,5 @@
+#if !NET451 && !NET452
+
 using System;
 using Cosmos.Exceptions.BuildingDescriptors;
 using Cosmos.Reflection;
@@ -176,3 +178,5 @@ namespace Cosmos.Exceptions
         }
     }
 }
+
+#endif

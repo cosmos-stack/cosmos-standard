@@ -1,3 +1,5 @@
+#if !NET451 && !NET452
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,3 +77,5 @@ namespace Cosmos.Reflection
         }
     }
 }
+
+#endif

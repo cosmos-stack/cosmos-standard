@@ -8,7 +8,7 @@ namespace Cosmos.Collections
     {
         #region To HashSet
 
-#if NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
 
         /// <summary>
         /// To hashset

@@ -18,7 +18,7 @@ namespace System.Collections.Generic
         /// <typeparam name="TVal"></typeparam>
         public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other)
         {
-#if NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
             foreach (var pair in other)
             {
                 me.Add(pair.Key, pair.Value);
@@ -48,7 +48,7 @@ namespace System.Collections.Generic
         {
             if (dictionary is null) return string.Empty;
             var sb = new StringBuilder();
-#if NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
             foreach (var pair in dictionary)
             {
                 sb.Append($"{pair.Key}{linker}{pair.Value}{separator}");

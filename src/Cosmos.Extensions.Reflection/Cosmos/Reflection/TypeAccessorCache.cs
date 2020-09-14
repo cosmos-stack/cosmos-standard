@@ -33,7 +33,7 @@ namespace Cosmos.Reflection
         private static void Clear(int clearNum)
         {
             var top100 = _indexOfCache.Where(pair => pair.Value < clearNum);
-#if NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
             foreach (var pair in top100)
             {
                 _indexOfCache.Remove(pair.Key);

@@ -22,7 +22,7 @@ namespace Cosmos.Optionals
 
         private DynamicOptionalBuilder(DynamicOptionalObject dynamicOptionalObject)
         {
-#if NET451 || NET461 || NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
             _dynamicDictionary = new Dictionary<string, dynamic>();
             foreach (var pair in dynamicOptionalObject)
             {

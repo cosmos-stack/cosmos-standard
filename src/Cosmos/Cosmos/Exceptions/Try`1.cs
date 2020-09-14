@@ -323,7 +323,7 @@ namespace Cosmos.Exceptions
 
         private static Task<TResult> FromException<TResult>(Exception exception)
         {
-#if NET451
+#if NET451 || NET452
             var tcs = new TaskCompletionSource<TResult>();
             tcs.TrySetException(exception);
             return tcs.Task;

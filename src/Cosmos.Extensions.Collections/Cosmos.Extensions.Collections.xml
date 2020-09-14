@@ -327,6 +327,29 @@
             <param name="key"></param>
             <param name="value"></param>
         </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.AddOrUpdate``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1},System.Func{``0,``1,``1})">
+            <summary>
+            Add or update
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="intsertFunc"></param>
+            <param name="updateFunc"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.DictionaryExtensions.AddOrUpdate``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1},System.Action{``0,``1})">
+            <summary>
+            Add or update
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="intsertFunc"></param>
+            <param name="updateFunc"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Collections.DictionaryExtensions.TryGetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
             <summary>
             Try get value
@@ -826,6 +849,15 @@
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Collections.EnumerableExtensions.RandomOrder``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Make the collection random order<br />
+            打乱一个集合的顺序
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.OrderByRandom``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Make the collection random order<br />
             打乱一个集合的顺序

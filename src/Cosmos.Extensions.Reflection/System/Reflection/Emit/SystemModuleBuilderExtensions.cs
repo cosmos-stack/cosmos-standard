@@ -45,7 +45,7 @@ namespace System.Reflection.Emit
 
             ISet<string> propertyNames = new HashSet<string>(StringComparer.Ordinal);
 
-#if NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
             foreach (var property in properties)
             {
                 var propertyName = property.Key;

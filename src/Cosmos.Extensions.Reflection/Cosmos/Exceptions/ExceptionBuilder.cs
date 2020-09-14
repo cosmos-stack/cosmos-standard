@@ -1,3 +1,5 @@
+#if !NET451 && !NET452
+
 using System;
 
 namespace Cosmos.Exceptions
@@ -24,3 +26,5 @@ namespace Cosmos.Exceptions
             => new ExceptionBuilder<TException>();
     }
 }
+
+#endif
