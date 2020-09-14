@@ -3,7 +3,7 @@ namespace Cosmos
     /// <summary>
     /// Three value boolean
     /// </summary>
-    public static class ThreeValuedBoolean
+    public static class ThreeValuedBooleans
     {
         /// <summary>
         /// True

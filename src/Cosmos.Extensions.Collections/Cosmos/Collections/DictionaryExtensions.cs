@@ -77,6 +77,67 @@ namespace Cosmos.Collections
         }
 
         /// <summary>
+        /// Add or update
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="key"></param>
+        /// <param name="intsertFunc"></param>
+        /// <param name="updateFunc"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> intsertFunc, Func<TKey, TValue, TValue> updateFunc)
+        {
+            if (intsertFunc is null)
+                throw new ArgumentNullException(nameof(intsertFunc));
+
+            if (updateFunc is null)
+                throw new ArgumentNullException(nameof(updateFunc));
+
+            TValue newVal;
+
+            if (dictionary.ContainsKey(key))
+            {
+                newVal = updateFunc(key, dictionary[key]);
+            }
+            else
+            {
+                newVal = intsertFunc(key);
+            }
+
+            dictionary.AddOrOverride(key, newVal);
+        }
+
+        /// <summary>
+        /// Add or update
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="key"></param>
+        /// <param name="intsertFunc"></param>
+        /// <param name="updateFunc"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> intsertFunc, Action<TKey, TValue> updateFunc)
+        {
+            if (intsertFunc is null)
+                throw new ArgumentNullException(nameof(intsertFunc));
+
+            if (updateFunc is null)
+                throw new ArgumentNullException(nameof(updateFunc));
+
+            if (dictionary.ContainsKey(key))
+            {
+                var oldVal = dictionary[key];
+                updateFunc(key, oldVal);
+            }
+            else
+            {
+                var newVal = intsertFunc(key);
+                dictionary.AddOrOverride(key, newVal);
+            }
+        }
+
+        /// <summary>
         /// Try get value
         /// </summary>
         /// <param name="dictionary"></param>
@@ -432,8 +493,8 @@ namespace Cosmos.Collections
         }
 
         #endregion
-        
-         #region To
+
+        #region To
 
         /// <summary>
         /// To dictionary ignore duplicate keys
@@ -511,7 +572,7 @@ namespace Cosmos.Collections
         public static List<Tuple<TKey, TValue>> ToTuple<TKey, TValue>(this Dictionary<TKey, TValue> me)
         {
             var res = new List<Tuple<TKey, TValue>>();
-#if NETSTANDARD2_0
+#if NETFRAMEWORK || NETSTANDARD2_0
             foreach (var pair in me)
             {
                 res.Add(Tuple.Create(pair.Key, pair.Value));

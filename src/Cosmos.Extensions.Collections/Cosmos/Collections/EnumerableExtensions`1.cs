@@ -542,6 +542,18 @@ namespace Cosmos.Collections
             return source.OrderBy(o => Guid.NewGuid());
         }
 
+        /// <summary>
+        /// Make the collection random order<br />
+        /// 打乱一个集合的顺序
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static IEnumerable<TSource> OrderByRandom<TSource>(this IEnumerable<TSource> source)
+        {
+            return source.RandomOrder();
+        }
+
         #endregion
 
         #region Split

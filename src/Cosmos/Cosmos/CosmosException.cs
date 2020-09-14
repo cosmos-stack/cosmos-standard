@@ -99,7 +99,7 @@ namespace Cosmos
         /// Create a new cosmos exception instance.
         /// </summary>
         /// <param name="options"></param>
-        protected CosmosException(CosmosExceptionOptions options) : base(options.Message, options.InnerException)
+        protected CosmosException(ExceptionOptions options) : base(options.Message, options.InnerException)
         {
             ExtraData = options.ExtraErrors;
             Code = options.ErrorCode;

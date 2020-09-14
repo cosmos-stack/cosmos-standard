@@ -13,7 +13,7 @@ namespace Cosmos.Expressions
     /// <summary>
     /// Lambda extensions
     /// </summary>
-    public static class CosmosLambdaExtensions
+    public static class LambdaExtensions
     {
         #region Property(属性表达式)
 
