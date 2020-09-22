@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+// ReSharper disable InconsistentNaming
 
 namespace Cosmos.Text
 {

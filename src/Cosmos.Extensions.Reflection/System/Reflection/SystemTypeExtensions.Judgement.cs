@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using AspectCore.Extensions.Reflection;
-using Cosmos;
 using Cosmos.Reflection;
 
 namespace System.Reflection

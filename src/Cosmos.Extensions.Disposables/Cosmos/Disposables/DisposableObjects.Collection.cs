@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
+// ReSharper disable PossibleMultipleEnumeration
 
 /*
  * Reference to:
@@ -22,7 +23,7 @@ namespace Cosmos.Disposables
         /// <summary>
         /// Count
         /// </summary>
-        private int _count = 0;
+        private int _count;
 
         /// <summary>
         /// Create a new instance of <see cref="CollectionDisposableObjects"/>.

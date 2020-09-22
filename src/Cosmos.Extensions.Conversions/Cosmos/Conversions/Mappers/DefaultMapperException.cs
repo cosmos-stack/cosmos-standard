@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
+// ReSharper disable UnusedMember.Local
+// ReSharper disable InconsistentNaming
 
 namespace Cosmos.Conversions.Mappers
 {
@@ -9,16 +11,12 @@ namespace Cosmos.Conversions.Mappers
     [Serializable]
     public class DefaultMapperException : CosmosException
     {
-        // ReSharper disable once InconsistentNaming
         private const string FLAG = "__COSMOS_DEFMAPPER";
 
-        // ReSharper disable once InconsistentNaming
         private const string ERROR_MESSAGE = "Default Mapper Exception";
 
-        // ReSharper disable once InconsistentNaming
         private const long ERROR_CODE = 1003;
 
-        // ReSharper disable once InconsistentNaming
         private const long EXTEND_ERROR_CODE = 1004;
 
         /// <summary>

@@ -1009,6 +1009,24 @@
             <typeparam name="TSource"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            To hashset
+            </summary>
+            <param name="src"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            To hashset
+            </summary>
+            <param name="src"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
             <summary>
             To HashSet

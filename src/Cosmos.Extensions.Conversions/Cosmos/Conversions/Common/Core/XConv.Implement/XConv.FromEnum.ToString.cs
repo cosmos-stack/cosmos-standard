@@ -1,6 +1,9 @@
 using System;
 using System.ComponentModel;
+#if !NETCOREAPP3_0
 using System.ComponentModel.DataAnnotations;
+
+#endif
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace

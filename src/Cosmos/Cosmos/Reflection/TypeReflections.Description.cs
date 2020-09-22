@@ -74,7 +74,7 @@ namespace Cosmos.Reflection
                 return string.Empty;
             return !string.IsNullOrWhiteSpace(memberName)
                 ? string.Empty
-                : GetDescription(typeInfo, typeInfo.GetField(memberName));
+                : GetDescription(typeInfo, typeInfo.GetField(memberName!));
         }
 
         /// <summary>
@@ -132,14 +132,14 @@ namespace Cosmos.Reflection
             var displayNameAttribute = GetAttribute<DisplayNameAttribute>(memberInfo);
             if (displayNameAttribute != null)
                 return displayNameAttribute.DisplayName;
-#if NETCOREAPP3_0
-            return string.Empty;
-#else
+//#if NETCOREAPP3_0
+//            return string.Empty;
+//#else
             var displayAttribute = GetAttribute<DisplayAttribute>(memberInfo);
             if (displayAttribute is null)
                 return string.Empty;
             return displayAttribute.Description;
-#endif
+//#endif
         }
 
         /// <summary>

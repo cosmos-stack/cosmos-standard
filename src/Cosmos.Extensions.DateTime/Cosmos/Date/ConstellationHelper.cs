@@ -1,4 +1,5 @@
 ﻿using System;
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
 
 namespace Cosmos.Date
 {

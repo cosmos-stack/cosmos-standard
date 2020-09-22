@@ -8,6 +8,7 @@ namespace TinyMapper.Mappers
 {
     internal abstract class MapperBuilder
     {
+        // ReSharper disable once InconsistentNaming
         protected const MethodAttributes OVERRIDE_PROTECTED = MethodAttributes.Family | MethodAttributes.Virtual;
         private const string AssemblyName = "DynamicTinyMapper";
 

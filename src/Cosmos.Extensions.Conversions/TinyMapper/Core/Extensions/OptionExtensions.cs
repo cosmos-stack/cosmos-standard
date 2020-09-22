@@ -1,5 +1,6 @@
 ﻿using System;
 using TinyMapper.Core.DataStructures;
+// ReSharper disable InconsistentNaming
 
 namespace TinyMapper.Core.Extensions
 {

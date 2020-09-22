@@ -21,7 +21,7 @@ namespace Cosmos.Finders
         /// Mark whether the search has been completed.<br />
         /// 标记是否已完成查找。
         /// </summary>
-        protected bool Found = false;
+        protected bool Found;
 
         /// <summary>
         /// 查找指定条件的项

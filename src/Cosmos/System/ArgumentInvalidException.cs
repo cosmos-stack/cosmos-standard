@@ -10,7 +10,7 @@ namespace System
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.ArgumentInvalidException"></see> class.
         /// </summary>
-        public ArgumentInvalidException() : base() { }
+        public ArgumentInvalidException() { }
 
         /// <summary>Initializes a new instance of the <see cref="T:System.ArgumentInvalidException"></see> class with serialized data.</summary>
         /// <param name="info">The object that holds the serialized object data.</param>

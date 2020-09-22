@@ -17,7 +17,9 @@ namespace Cosmos.Collections.Concurrent
         /// </summary>
         public bool IsEmpty => _dictionary.IsEmpty;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Count
+        /// </summary>
         public int Count => _dictionary.Count;
 
         /// <inheritdoc />

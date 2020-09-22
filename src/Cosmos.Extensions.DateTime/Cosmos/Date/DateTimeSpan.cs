@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using NodaTime;
+// ReSharper disable InconsistentNaming
 
 /*
  * Reference to:

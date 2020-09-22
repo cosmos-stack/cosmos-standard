@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using Cosmos.Expressions;
 using Cosmos.Queries;
 
 namespace Cosmos.Expressions
@@ -307,7 +306,7 @@ namespace Cosmos.Expressions
         /// <param name="methodName">方法名</param>
         /// <param name="values">参数值列表</param>
         public static Expression Call(this Expression instance, string methodName, params Expression[] values) =>
-            Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName), values);
+            Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName)!, values);
 
         /// <summary>
         /// 创建调用方法表达式

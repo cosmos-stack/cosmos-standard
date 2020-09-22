@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+// ReSharper disable InconsistentNaming
 
 namespace Cosmos.Disposables
 {

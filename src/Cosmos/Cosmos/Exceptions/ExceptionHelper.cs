@@ -6,7 +6,7 @@ namespace Cosmos.Exceptions
     /// <summary>
     /// Exception helper
     /// </summary>
-    public static partial class ExceptionHelper
+    public static class ExceptionHelper
     {
         /// <summary>
         /// Prepare for rethrow

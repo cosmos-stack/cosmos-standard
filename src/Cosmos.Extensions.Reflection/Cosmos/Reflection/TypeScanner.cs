@@ -42,6 +42,7 @@ namespace Cosmos.Reflection
         /// 创建一个新的 <see cref="TypeScanner"/> 实例。
         /// </summary>
         /// <param name="scannerName"></param>
+        // ReSharper disable once UnusedParameter.Local
         protected TypeScanner(string scannerName)
         {
             _anonymousDisposableObject = AnonymousDisposableObject.Create(() =>

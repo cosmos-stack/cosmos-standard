@@ -23,6 +23,7 @@ namespace TinyMapper.Core.Extensions
             }
 
             var count = 0;
+            // ReSharper disable once UnusedVariable
             foreach (var item in source)
             {
                 count++;
