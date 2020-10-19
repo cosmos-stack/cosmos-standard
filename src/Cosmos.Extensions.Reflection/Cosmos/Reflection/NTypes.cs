@@ -1,81 +1,190 @@
-#if !NET451 && !NET452
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Reflection;
 
 namespace Cosmos.Reflection
 {
     /// <summary>
     /// Advanced Types utilities
     /// </summary>
-    public static class NTypes
+    public static partial class NTypes
     {
-        /// <summary>
-        /// Create instance
-        /// </summary>
-        /// <param name="ctorArgDescriptors"></param>
-        /// <typeparam name="TInstance"></typeparam>
-        /// <returns></returns>
-        public static TInstance CreateInstance<TInstance>(IEnumerable<CtorArgDescriptor> ctorArgDescriptors)
-        {
-            if (ctorArgDescriptors is null)
-                return Types.CreateInstance<TInstance>();
-            var descriptors = ctorArgDescriptors.ToList();
-            return !descriptors.Any()
-                ? Types.CreateInstance<TInstance>()
-                : CreateInstanceCore<TInstance>(descriptors);
-        }
+        #region Of
 
         /// <summary>
-        /// Create instance
+        /// Get type
+        /// </summary>
+        /// <typeparam name="T">Special type T</typeparam>
+        public static Type Of<T>() => Types.Of<T>();
+
+        /// <summary>
+        /// Get types
+        /// </summary>
+        /// <param name="objColl">Object array</param>
+        /// <returns></returns>
+        public static Type[] Of(object[] objColl) => Types.Of(objColl);
+        
+        #endregion
+
+        #region DefaultValue
+
+        /// <summary>
+        /// Get default value of special type T.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T DefaultValue<T>() => Types.DefaultValue<T>();
+
+        #endregion
+
+        #region GenericImplementation and raw type
+
+        /// <summary>
+        /// Determine whether the given type can be assigned to the specified generic type.<br />
+        /// 判断给定的类型是否可赋值给指定的泛型类型。
+        /// </summary>
+        /// <param name="type">The given type</param>
+        /// <param name="genericType">The generic type</param>
+        /// <returns></returns>
+        public static bool IsGenericImplementation(Type type, Type genericType) => Types.IsGenericImplementation(type, genericType);
+
+        /// <summary>
+        /// Determine whether the given type can be assigned to the specified generic type.<br />
+        /// 判断给定的类型是否可赋值给指定的泛型类型。
+        /// </summary>
+        /// <typeparam name="TGot">The given type TGot</typeparam>
+        /// <typeparam name="TGeneric">The generic type TGeneric</typeparam>
+        /// <returns></returns>
+        public static bool IsGenericImplementation<TGot, TGeneric>() => Types.IsGenericImplementation<TGot, TGeneric>();
+
+        /// <summary>
+        /// Determine whether the given type can be assigned to the specified generic type.<br />
+        /// 判断给定的类型是否可赋值给指定的泛型类型。
+        /// </summary>
+        /// <param name="type">The given type</param>
+        /// <param name="genericType">The generic type</param>
+        /// <param name="genericArguments"></param>
+        /// <returns></returns>
+        public static bool IsGenericImplementation(Type type, Type genericType, out Type[] genericArguments) => Types.IsGenericImplementation(type, genericType, out genericArguments);
+
+        /// <summary>
+        /// Determine whether the given type can be assigned to the specified generic type.<br />
+        /// 判断给定的类型是否可赋值给指定的泛型类型。
+        /// </summary>
+        /// <typeparam name="TGot">The given type TGot</typeparam>
+        /// <typeparam name="TGeneric">The generic type TGeneric</typeparam>
+        /// <param name="genericArguments"></param>
+        /// <returns></returns>
+        public static bool IsGenericImplementation<TGot, TGeneric>(out Type[] genericArguments) => Types.IsGenericImplementation<TGot, TGeneric>(out genericArguments);
+        
+        /// <summary>
+        /// Get the original type. <br />
+        /// When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
+        /// </summary>
+        /// <param name="type">The given type</param>
+        /// <param name="genericType">The generic type</param>
+        /// <returns></returns>
+        public static Type GetRawTypeFromGenericClass(Type type, Type genericType) => Types.GetRawTypeFromGenericClass(type, genericType);
+
+        /// <summary>
+        /// Get the original type. <br />
+        /// When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
+        /// </summary>
+        /// <typeparam name="TGot">The given type TGot</typeparam>
+        /// <typeparam name="TGeneric">The generic type TGeneric</typeparam>
+        /// <returns></returns>
+        public static Type GetRawTypeFromGenericClass<TGot, TGeneric>() => Types.GetRawTypeFromGenericClass<TGot, TGeneric>();
+
+        #endregion
+
+        #region Enum Type
+
+        /// <summary>
+        /// Is enum type
+        /// </summary>
+        /// <param name="mayNullable"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsEnumType<T>(bool mayNullable = false) => Types.IsEnumType<T>(mayNullable);
+
+        /// <summary>
+        /// Is enum type
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="ctorArgDescriptors"></param>
-        /// <typeparam name="TInstance"></typeparam>
+        /// <param name="mayNullable"></param>
         /// <returns></returns>
-        public static TInstance CreateInstance<TInstance>(Type type, IEnumerable<CtorArgDescriptor> ctorArgDescriptors)
-        {
-            if (ctorArgDescriptors is null)
-                return Types.CreateInstance<TInstance>();
-            var descriptors = ctorArgDescriptors.ToList();
-            var instance = !descriptors.Any()
-                ? Types.CreateInstance(type)
-                : CreateInstanceCore(type, descriptors);
-
-            return instance is TInstance ret ? ret : default;
-        }
+        public static bool IsEnumType(Type type, bool mayNullable = false) => Types.IsEnumType(type, mayNullable);
 
         /// <summary>
-        /// Create instance
+        /// Is enum type
+        /// </summary>
+        /// <param name="typeInfo"></param>
+        /// <param name="mayNullable"></param>
+        /// <returns></returns>
+        public static bool IsEnumType(TypeInfo typeInfo, bool mayNullable = false) => Types.IsEnumType(typeInfo, mayNullable);
+
+        #endregion
+
+        #region Numeric Type
+
+        /// <summary>
+        /// Is numeric type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsNumericType<T>() => Types.IsNumericType<T>();
+
+        /// <summary>
+        /// Is numeric type
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="ctorArgDescriptors"></param>
         /// <returns></returns>
-        public static object CreateInstance(Type type, IEnumerable<CtorArgDescriptor> ctorArgDescriptors)
-        {
-            if (ctorArgDescriptors is null)
-                return Types.CreateInstance(type);
-            var descriptors = ctorArgDescriptors.ToList();
-            if (!descriptors.Any())
-                return Types.CreateInstance(type);
-            return CreateInstanceCore(type, descriptors);
-        }
+        public static bool IsNumericType(Type type) => Types.IsNumericType(type);
 
-        private static TInstance CreateInstanceCore<TInstance>(IEnumerable<CtorArgDescriptor> ctorArgDescriptors)
-            => CreateInstanceCore(typeof(TInstance), ctorArgDescriptors) is TInstance ret ? ret : default;
+        /// <summary>
+        /// Is numeric type
+        /// </summary>
+        /// <param name="typeInfo"></param>
+        /// <returns></returns>
+        public static bool IsNumericType(TypeInfo typeInfo) => Types.IsNumericType(typeInfo);
 
-        private static object CreateInstanceCore(Type type, IEnumerable<CtorArgDescriptor> ctorArgDescriptors)
-        {
-            /*
-             * Author: LanX
-             * 2020.01.03
-             */
+        #endregion
 
-            var template = CtorTemplate.Create(type);
-            return template.GetCtor(ctorArgDescriptors);
-        }
+        #region Nullable Type
+
+        /// <summary>
+        /// Is nullable type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsNullableType<T>() => Types.IsNullableType<T>();
+
+        /// <summary>
+        /// Is nullable type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsNullableType(Type type) => Types.IsNullableType(type);
+
+        /// <summary>
+        /// Is nullable type
+        /// </summary>
+        /// <param name="typeInfo"></param>
+        /// <returns></returns>
+        public static bool IsNullableType(TypeInfo typeInfo) => Types.IsNullableType(typeInfo);
+
+        #endregion
+
+        #region Tuple Type
+
+        /// <summary>
+        /// Is tuple type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="checkBaseTypes"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsTupleType(Type type, bool checkBaseTypes = false) => Types.IsTupleType(type, checkBaseTypes);
+
+        #endregion
     }
 }
-
-#endif
