@@ -7,7 +7,7 @@ namespace Cosmos.Disposables
     /// Only implementing OnDisposeAsync is enough to properly handle disposal.
     /// </summary>
     public abstract class AsynchronousDisposableBase : DisposableStateBase
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NETCOREAPP3_0 || NETCOREAPP3_1
                                                      , System.IAsyncDisposable
 #endif
     {
@@ -17,7 +17,10 @@ namespace Cosmos.Disposables
         /// </summary>
         protected abstract ValueTask OnDisposeAsync();
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Dispose async
+        /// </summary>
+        /// <returns></returns>
         public ValueTask DisposeAsync()
         {
             /*

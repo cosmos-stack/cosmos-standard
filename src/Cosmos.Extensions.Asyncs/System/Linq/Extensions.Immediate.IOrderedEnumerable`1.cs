@@ -1378,7 +1378,7 @@ namespace System.Linq
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        private static Task<double?> Sum<TSource>(this Task<IOrderedEnumerable<TSource>> source, Func<TSource, double?> selector, CancellationToken cancellationToken = default)
+        public static Task<double?> Sum<TSource>(this Task<IOrderedEnumerable<TSource>> source, Func<TSource, double?> selector, CancellationToken cancellationToken = default)
         {
             return Task.Factory.FromTaskEnumerable(source, selector, Enumerable.Sum, cancellationToken);
         }

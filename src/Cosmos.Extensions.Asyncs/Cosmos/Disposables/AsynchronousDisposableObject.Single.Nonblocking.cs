@@ -9,8 +9,8 @@ namespace Cosmos.Disposables
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class AsynchronousSingleNonblockingDisposableObject<T> : IDisposable
-#if NETSTANDARD2_1
-                                                                           , System.IAsyncDisposable
+#if NETSTANDARD2_1 || NETCOREAPP3_0 || NETCOREAPP3_1
+                                                                           , IAsyncDisposable
 #endif
     {
         private readonly AsynchronousDisposableActionField<T> _context;
@@ -48,7 +48,10 @@ namespace Cosmos.Disposables
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Dispose async
+        /// </summary>
+        /// <returns></returns>
         public ValueTask DisposeAsync()
         {
             var action = _context.TryGetAndUnset();

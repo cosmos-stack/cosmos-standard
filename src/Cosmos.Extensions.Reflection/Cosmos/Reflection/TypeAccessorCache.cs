@@ -9,7 +9,7 @@ namespace Cosmos.Reflection
     {
         private static Dictionary<(Type, bool), TypeAccessor> _typeAccessorDict;
         private static Dictionary<(Type, bool), int> _indexOfCache;
-        private static int _currentCount = 0;
+        private static int _currentCount;
         private static object _cacheLockObj = new object();
 
         private const int MAX_TYPE_ACCESSOR_CACHE = 1000;

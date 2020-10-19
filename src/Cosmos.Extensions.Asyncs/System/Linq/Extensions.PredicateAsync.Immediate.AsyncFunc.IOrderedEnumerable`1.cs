@@ -5,8 +5,6 @@
 // More projects: http://www.zzzprojects.com/
 // Copyright (c) 2015 ZZZ Projects. All rights reserved.
 
-using System.Collections.Generic;
-using System.Linq.Async;
 using System.Threading;
 using System.Threading.Tasks;
 

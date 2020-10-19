@@ -12,6 +12,8 @@ using System.Linq.Async;
 using System.Threading;
 using System.Threading.Tasks;
 
+// ReSharper disable UnusedParameter.Local
+
 /*
  * Reference to:
  *  ZZZProjects/LINQ-Async

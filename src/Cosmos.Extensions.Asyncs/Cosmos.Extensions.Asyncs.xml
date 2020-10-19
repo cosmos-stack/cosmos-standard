@@ -1082,7 +1082,10 @@
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousDisposableBase.DisposeAsync">
-            <inheritdoc />
+            <summary>
+            Dispose async
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Disposables.AsynchronousAnonymousDisposableObject">
             <summary>
@@ -1152,7 +1155,10 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousNoopDisposableObject.DisposeAsync">
-            <inheritdoc />
+            <summary>
+            Dispose async
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Disposables.AsynchronousSingleDisposableObject`1">
             <summary>
@@ -1228,7 +1234,10 @@
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.DisposeAsync">
-            <inheritdoc />
+            <summary>
+            Dispose async
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Disposables.AsynchronousSingleNonblockingDisposableObject`1.TryUpdateContext(System.Func{`0,`0})">
             <summary>
@@ -13305,26 +13314,6 @@
             <typeparam name="TP4"></typeparam>
             <typeparam name="TP5"></typeparam>
             <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:System.Runtime.Remoting.Messaging.CallContext">
-            <summary>
-            CallContext for .NET Standard and .NET Core
-            for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
-            </summary>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.SetData(System.String,System.Object)">
-            <summary>
-            Set data
-            </summary>
-            <param name="name"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.GetData(System.String)">
-            <summary>
-            Get data
-            </summary>
-            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">

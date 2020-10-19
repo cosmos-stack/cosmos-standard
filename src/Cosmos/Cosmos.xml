@@ -4073,6 +4073,13 @@
             <param name="args">Arguments for such type's constructor</param>
             <returns>Instance of special type</returns>
         </member>
+        <member name="M:Cosmos.Reflection.Types.CreateInstanceWithoutParam``1">
+            <summary>
+            Create instance with no param
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Singleton">
             <summary>
             Provide a unified singleton management portal.

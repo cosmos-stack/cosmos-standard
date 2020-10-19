@@ -46,6 +46,7 @@ namespace Cosmos.Collections
             /// <param name="listParams"></param>
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
+            // ReSharper disable once MemberHidesStaticFromOuterClass
             public static IReadOnlyList<T> OfList<T>(params IEnumerable<T>[] listParams) => EnumerableFactory.OfList(listParams);
 
             /// <summary>

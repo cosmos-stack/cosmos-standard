@@ -1,4 +1,5 @@
-﻿namespace Cosmos.Data.Common
+﻿// ReSharper disable UnusedTypeParameter
+namespace Cosmos.Data.Common
 {
     /// <summary>
     /// DbSet Meta Interface<br />
