@@ -335,9 +335,14 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator ==(DateInfo d1, DateInfo d2)
         {
-            if (d1 == null || d2 == null)
+            try
+            {
+                return d1!.Year == d2!.Year && d1.Month == d2.Month && d1.Day == d2.Day;
+            }
+            catch
+            {
                 return false;
-            return d1.Year == d2.Year && d1.Month == d2.Month && d1.Day == d2.Day;
+            }
         }
 
         /// <summary>
