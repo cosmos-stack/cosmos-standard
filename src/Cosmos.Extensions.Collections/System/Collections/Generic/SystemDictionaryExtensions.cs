@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace System.Collections.Generic
+﻿namespace System.Collections.Generic
 {
     /// <summary>
     /// Cosmos Dictionary extensions
@@ -12,55 +10,28 @@ namespace System.Collections.Generic
         /// <summary>
         /// Add dictionary into another dictionary
         /// </summary>
-        /// <param name="me"></param>
-        /// <param name="other"></param>
+        /// <param name="source"></param>
+        /// <param name="dict"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TVal"></typeparam>
-        public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> me, Dictionary<TKey, TVal> other)
+        public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> source, Dictionary<TKey, TVal> dict)
         {
-#if NETFRAMEWORK || NETSTANDARD2_0
-            foreach (var pair in other)
+            foreach (var pair in dict)
             {
-                me.Add(pair.Key, pair.Value);
+                source.Add(pair);
             }
-#else
-            foreach (var (key, value) in other)
-            {
-                me.Add(key, value);
-            }
-#endif
         }
 
-        #endregion
-
-        #region ToString
-
         /// <summary>
-        /// To string
+        /// Add key-value pair into another dictionary
         /// </summary>
-        /// <param name="dictionary"></param>
-        /// <param name="linker"></param>
-        /// <param name="separator"></param>
+        /// <param name="source"></param>
+        /// <param name="pair"></param>
         /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static string ToString<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, string linker, string separator)
+        /// <typeparam name="TVal"></typeparam>
+        public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> source, KeyValuePair<TKey, TVal> pair)
         {
-            if (dictionary is null) return string.Empty;
-            var sb = new StringBuilder();
-#if NETFRAMEWORK || NETSTANDARD2_0
-            foreach (var pair in dictionary)
-            {
-                sb.Append($"{pair.Key}{linker}{pair.Value}{separator}");
-            }
-#else
-            foreach (var (key, value) in dictionary)
-            {
-                sb.Append($"{key}{linker}{value}{separator}");
-            }
-#endif
-
-            return sb.ToString();
+            source.Add(pair.Key, pair.Value);
         }
 
         #endregion
