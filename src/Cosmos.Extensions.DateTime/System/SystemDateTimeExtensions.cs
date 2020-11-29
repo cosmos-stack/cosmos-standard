@@ -25,9 +25,6 @@ namespace System
         /// <exception cref="ArgumentNullException"></exception>
         public static DateTime AddWeeks(this DateTime dt, int weeks)
         {
-            if (dt == null)
-                throw new ArgumentNullException(nameof(dt));
-
             return dt + weeks.Weeks();
         }
 
@@ -41,9 +38,6 @@ namespace System
         /// <exception cref="ArgumentNullException"></exception>
         public static DateTime AddQuarters(this DateTime dt, int quarters)
         {
-            if (dt == null)
-                throw new ArgumentNullException(nameof(dt));
-
             return dt + quarters.Quarters();
         }
 
@@ -56,9 +50,6 @@ namespace System
         /// <returns></returns>
         public static DateTime AddDuration(this DateTime dt, Duration duration)
         {
-            if (dt == null)
-                throw new ArgumentNullException(nameof(dt));
-
             return dt + duration.ToTimeSpan();
         }
 

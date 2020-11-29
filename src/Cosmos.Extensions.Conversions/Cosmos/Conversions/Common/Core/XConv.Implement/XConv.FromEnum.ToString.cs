@@ -25,7 +25,7 @@ namespace Cosmos.Conversions.Common.Core
                 {
                     attributeName = attributes.Get<DisplayNameAttribute>()?.DisplayName ?? string.Empty;
                 }
-#if !NETCOREAPP3_0
+#if !NETCOREAPP3_0 && !NETCOREAPP3_1
                 else if (attributes.Has<DisplayAttribute>())
                 {
                     var attribute = attributes.Get<DisplayAttribute>();
