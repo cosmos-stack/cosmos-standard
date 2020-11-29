@@ -8,45 +8,8 @@ namespace Cosmos.Reflection
     /// <summary>
     /// Type Utilities
     /// </summary>
-    public static class Types
+    public static partial class Types
     {
-        #region Of
-
-        /// <summary>
-        /// Get type
-        /// </summary>
-        /// <typeparam name="T">Special type T</typeparam>
-        public static Type Of<T>() => TypeReflections.GetUnderlyingType<T>();
-
-        /// <summary>
-        /// Get types
-        /// </summary>
-        /// <param name="objColl">Object array</param>
-        /// <returns></returns>
-        public static Type[] Of(object[] objColl)
-        {
-            if (objColl is null)
-                return null;
-            if (!objColl.Contains(null))
-                return Type.GetTypeArray(objColl);
-            var types = new Type[objColl.Length];
-            for (var i = 0; i < objColl.Length; i++)
-                types[i] = objColl[i].GetType();
-            return types;
-        }
-
-        #endregion
-
-        #region DefaultValue
-
-        /// <summary>
-        /// Get default value of special type T.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static T DefaultValue<T>() => TypeDefault.Of<T>();
-
-        #endregion
 
         #region GenericImplementation and raw type
 
@@ -136,7 +99,10 @@ namespace Cosmos.Reflection
         /// <typeparam name="TGeneric">The generic type TGeneric</typeparam>
         /// <param name="genericArguments"></param>
         /// <returns></returns>
-        public static bool IsGenericImplementation<TGot, TGeneric>(out Type[] genericArguments) => IsGenericImplementation(typeof(TGot), typeof(TGeneric), out genericArguments);
+        public static bool IsGenericImplementation<TGot, TGeneric>(out Type[] genericArguments)
+        {
+            return IsGenericImplementation(typeof(TGot), typeof(TGeneric), out genericArguments);
+        }
 
         /// <summary>
         /// Get the original type. <br />
@@ -145,7 +111,10 @@ namespace Cosmos.Reflection
         /// <param name="type">The given type</param>
         /// <param name="genericType">The generic type</param>
         /// <returns></returns>
-        public static Type GetRawTypeFromGenericClass(Type type, Type genericType) => TypeReflections.GetRawTypeFromGenericClass(type, genericType);
+        public static Type GetRawTypeFromGenericClass(Type type, Type genericType)
+        {
+            return TypeReflections.GetRawTypeFromGenericClass(type, genericType);
+        }
 
         /// <summary>
         /// Get the original type. <br />
@@ -154,7 +123,10 @@ namespace Cosmos.Reflection
         /// <typeparam name="TGot">The given type TGot</typeparam>
         /// <typeparam name="TGeneric">The generic type TGeneric</typeparam>
         /// <returns></returns>
-        public static Type GetRawTypeFromGenericClass<TGot, TGeneric>() => TypeReflections.GetRawTypeFromGenericClass<TGot, TGeneric>();
+        public static Type GetRawTypeFromGenericClass<TGot, TGeneric>()
+        {
+            return TypeReflections.GetRawTypeFromGenericClass<TGot, TGeneric>();
+        }
 
         #endregion
 
@@ -239,24 +211,32 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool IsNullableType<T>() => IsNullableType(typeof(T));
+        public static bool IsNullableType<T>()
+        {
+            return IsNullableType(typeof(T));
+        }
 
         /// <summary>
         /// Is nullable type
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsNullableType(Type type) =>
-            type != null
-         && type.IsGenericType
-         && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+        public static bool IsNullableType(Type type)
+        {
+            return type != null
+                && type.IsGenericType
+                && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+        }
 
         /// <summary>
         /// Is nullable type
         /// </summary>
         /// <param name="typeInfo"></param>
         /// <returns></returns>
-        public static bool IsNullableType(TypeInfo typeInfo) => IsNullableType(typeInfo.AsType());
+        public static bool IsNullableType(TypeInfo typeInfo)
+        {
+            return IsNullableType(typeInfo.AsType());
+        }
 
         #endregion
 
@@ -339,7 +319,7 @@ namespace Cosmos.Reflection
         /// <returns>Instance of special type</returns>
         public static TInstance CreateInstance<TInstance>(Type type, params object[] args)
         {
-            return CreateInstance(type, args) is TInstance ret ? ret : TypeDefault.Of<TInstance>();
+            return CreateInstance(type, args) is TInstance ret ? ret : default;
         }
 
         /// <summary>
@@ -364,10 +344,10 @@ namespace Cosmos.Reflection
         }
 
         private static TInstance CreateInstanceCore<TInstance>() =>
-            CreateInstanceCore(typeof(TInstance)) is TInstance ret ? ret : TypeDefault.Of<TInstance>();
+            CreateInstanceCore(typeof(TInstance)) is TInstance ret ? ret : default;
 
         private static TInstance CreateInstanceCore<TInstance>(object[] args) =>
-            CreateInstanceCore(typeof(TInstance), args) is TInstance ret ? ret : TypeDefault.Of<TInstance>();
+            CreateInstanceCore(typeof(TInstance), args) is TInstance ret ? ret : default;
 
         private static object CreateInstanceCore(Type type, params object[] args) =>
             args is null || args.Length == 0

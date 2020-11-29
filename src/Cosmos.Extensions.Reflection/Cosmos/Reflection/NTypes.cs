@@ -8,34 +8,6 @@ namespace Cosmos.Reflection
     /// </summary>
     public static partial class NTypes
     {
-        #region Of
-
-        /// <summary>
-        /// Get type
-        /// </summary>
-        /// <typeparam name="T">Special type T</typeparam>
-        public static Type Of<T>() => Types.Of<T>();
-
-        /// <summary>
-        /// Get types
-        /// </summary>
-        /// <param name="objColl">Object array</param>
-        /// <returns></returns>
-        public static Type[] Of(object[] objColl) => Types.Of(objColl);
-        
-        #endregion
-
-        #region DefaultValue
-
-        /// <summary>
-        /// Get default value of special type T.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static T DefaultValue<T>() => Types.DefaultValue<T>();
-
-        #endregion
-
         #region GenericImplementation and raw type
 
         /// <summary>
