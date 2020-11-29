@@ -23,14 +23,6 @@ namespace System.Reflection
         /// <returns></returns>
         public static Type ToNonNullableType(this Type type) => type.SafeType();
 
-        /// <summary>
-        /// Get a non-nullable underlying version of a given <see cref="TypeInfo"/>.<br />
-        /// 获取给定类型的非空版本。
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <returns></returns>
-        public static TypeInfo ToNonNullableTypeInfo(this TypeInfo typeInfo) => typeInfo.SafeType();
-
         #endregion
 
         #region ToTypeInfo

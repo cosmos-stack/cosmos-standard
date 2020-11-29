@@ -1,5 +1,4 @@
 using System;
-using System.Reflection;
 
 namespace Cosmos.Reflection
 {
@@ -8,46 +7,6 @@ namespace Cosmos.Reflection
     /// </summary>
     public static partial class TypeReflections
     {
-        #region GetUnderlyingType
-
-        /// <summary>
-        /// Get underlying type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static Type GetUnderlyingType<T>()
-        {
-            var type = typeof(T);
-            return Nullable.GetUnderlyingType(type) ?? type;
-        }
-
-        /// <summary>
-        /// Get underlying type.
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static Type GetUnderlyingType(Type type)
-        {
-            if (type is null)
-                return null;
-            return Nullable.GetUnderlyingType(type) ?? type;
-        }
-
-        /// <summary>
-        /// Get underlying type.
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <returns></returns>
-        public static Type GetUnderlyingType(TypeInfo typeInfo)
-        {
-            if (typeInfo is null)
-                return null;
-            var type = typeInfo.AsType();
-            return Nullable.GetUnderlyingType(type) ?? type;
-        }
-
-        #endregion
-
         #region GenericImplementation and raw type
 
         /// <summary>

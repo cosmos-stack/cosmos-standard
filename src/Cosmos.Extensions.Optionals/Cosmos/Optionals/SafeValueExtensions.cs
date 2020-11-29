@@ -220,15 +220,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Type SafeType(this Type type) => TypeConv.ToSafeNonNullableType(type);
-
-        /// <summary>
-        /// Return a non-nullable type version for the given <see cref="TypeInfo"/>.<br />
-        /// 获取所给定的可空类型的不可空类型
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <returns></returns>
-        public static TypeInfo SafeType(this TypeInfo typeInfo) => TypeConv.ToSafeNonNullableTypeInfo(typeInfo);
+        public static Type SafeType(this Type type) => TypeConv.GetNonNullableType(type);
 
         #endregion
     }
