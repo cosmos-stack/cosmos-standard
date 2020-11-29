@@ -87,7 +87,7 @@ namespace Cosmos.Conversions.Common.Core
                 return true;
             }
 
-            var _ = TypeDefault.Of(xType);
+            var _ = TypeDeterminer.GetDefaultValue(xType);
             result = from.Is(xType, IgnoreCase.FALSE, t => _ = t) ? _ : defaultVal;
             return false;
         }
@@ -109,7 +109,7 @@ namespace Cosmos.Conversions.Common.Core
                 return true;
             }
 
-            var _ = TypeDefault.Of(xType);
+            var _ = TypeDeterminer.GetDefaultValue(xType);
             result = from.Is(xType, IgnoreCase.FALSE, t => _ = t) ? _ : null;
             return false;
         }
