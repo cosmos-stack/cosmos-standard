@@ -1,0 +1,45 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Validation.Basic</AssemblyName>
+        <PackageId>Cosmos.Extensions.Validation.Basic</PackageId>
+        <Description>Cosmos core validation library</Description>
+    </PropertyGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+		<PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+	</ItemGroup>
+    
+</Project>

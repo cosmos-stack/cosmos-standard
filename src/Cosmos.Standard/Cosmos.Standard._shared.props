@@ -1,7 +1,0 @@
-<Project>
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Standard</AssemblyName>
-        <PackageId>Cosmos.Standard</PackageId>
-        <Description>Cosmos standard library</Description>
-    </PropertyGroup>
-</Project>

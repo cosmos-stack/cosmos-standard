@@ -3324,101 +3324,19 @@
             Type conversion Utilities
             </summary>
         </member>
-        <member name="M:Cosmos.Reflection.TypeConv.ToNonNullableType(System.Type)">
+        <member name="M:Cosmos.Reflection.TypeConv.GetNonNullableType(System.Type)">
             <summary>
             Convert nullable type to underlying type.
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.TypeConv.ToNonNullableTypeInfo(System.Reflection.TypeInfo)">
+        <member name="M:Cosmos.Reflection.TypeConv.GetNonNullableType``1">
             <summary>
-            Convert nullable typeInfo to underlying typeInfo。
+            Convert nullable type to underlying type.
             </summary>
-            <param name="typeInfo"></param>
+            <typeparam name="T"></typeparam>
             <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeConv.ToSafeNonNullableType(System.Type)">
-            <summary>
-            Convert nullable type to underlying type safety.
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeConv.ToSafeNonNullableTypeInfo(System.Reflection.TypeInfo)">
-            <summary>
-            Convert nullable typeInfo to underlying typeInfo safety.
-            </summary>
-            <param name="typeInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Reflection.TypeDefault">
-            <summary>
-            Default value for type
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeDefault.Of``1">
-            <summary>
-            Gets default value for type TValue.
-            </summary>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeDefault.Of(System.Type)">
-            <summary>
-            Gets default value for type TValue.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.Int">
-            <summary>
-            Gets default value for int;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.Long">
-            <summary>
-            Gets default value for long;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.Float">
-            <summary>
-            Gets default value for float;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.Double">
-            <summary>
-            Gets default value for double;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.Decimal">
-            <summary>
-            Gets default value for decimal;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.Char">
-            <summary>
-            Gets default value for char;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.String">
-            <summary>
-            Gets default value for string;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.StringEmpty">
-            <summary>
-            Gets empty value for string;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.DateTime">
-            <summary>
-            Gets default value for DateTime;
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypeDefault.TimeSpan">
-            <summary>
-            Gets default value for TimeSpan;
-            </summary>
         </member>
         <member name="T:Cosmos.Reflection.TypeReflections">
             <summary>
@@ -3690,27 +3608,6 @@
             <param name="attributeType"></param>
             <returns>Attribute of special typeInfo</returns>
         </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetUnderlyingType``1">
-            <summary>
-            Get underlying type.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetUnderlyingType(System.Type)">
-            <summary>
-            Get underlying type.
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetUnderlyingType(System.Reflection.TypeInfo)">
-            <summary>
-            Get underlying type.
-            </summary>
-            <param name="typeInfo"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetRawTypeFromGenericClass(System.Type,System.Type)">
             <summary>
             Get the original type. <br />
@@ -3896,26 +3793,9 @@
             <summary>
             Type Utilities
             </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.Of``1">
             <summary>
-            Get type
+            Type Utilities
             </summary>
-            <typeparam name="T">Special type T</typeparam>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.Of(System.Object[])">
-            <summary>
-            Get types
-            </summary>
-            <param name="objColl">Object array</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.DefaultValue``1">
-            <summary>
-            Get default value of special type T.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.Types.IsGenericImplementation(System.Type,System.Type)">
             <summary>
@@ -4078,6 +3958,20 @@
             Create instance with no param
             </summary>
             <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``1(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Get type
+            </summary>
+            <typeparam name="T">Special type T</typeparam>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of(System.Object[],Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Get types
+            </summary>
+            <param name="objects">Object array</param>
+            <param name="options"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Singleton">

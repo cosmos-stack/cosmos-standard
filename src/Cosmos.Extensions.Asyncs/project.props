@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Asyncs</AssemblyName>
+        <PackageId>Cosmos.Extensions.Asyncs</PackageId>
+        <Description>Cosmos synchronous and asynchronous extension library</Description>
+    </PropertyGroup>
+    
+</Project>

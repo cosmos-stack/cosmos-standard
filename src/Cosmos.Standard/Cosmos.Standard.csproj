@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="Cosmos.Standard._shared.props" />
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Standard</AssemblyName>
+        <PackageId>Cosmos.Standard</PackageId>
+        <Description>Cosmos standard library</Description>
+    </PropertyGroup>
 
     <Import Project="..\..\common.props" />
 
@@ -12,6 +16,7 @@
         <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Validation.Basic\Cosmos.Extensions.Validation.Basic.csproj" />
         <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
     </ItemGroup>
 

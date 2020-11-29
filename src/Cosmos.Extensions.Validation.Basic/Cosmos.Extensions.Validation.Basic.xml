@@ -1,0 +1,3015 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cosmos.Extensions.Validation.Basic</name>
+    </assembly>
+    <members>
+        <member name="M:Cosmos.Collections.CollectionGuard.NotNull(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Check if the collection is empty or null. <br />
+            If the collection is empty or null, an exception is thrown. <br />
+            检查集合是否为空。 <br />
+            如果集合为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuard.NotEmpty(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Check if the collection is empty. <br />
+            If the collection is empty, an exception is thrown. <br />
+            检查集合是否为空。 <br />
+            如果集合为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuard.ContainsAtLeast``1(System.Collections.Generic.ICollection{``0},System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the set contains at least the specified number of elements. <br />
+            If the set is less than the specified number of elements, an exception is thrown. <br />
+            检查集合是否包含至少指定个数的元素。 <br />
+            如果集合少于指定数目的元素，则抛出异常。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="number"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuard.NotNull``2(System.Collections.Generic.KeyValuePair{``0,``1},System.String,System.String)">
+            <summary>
+            Check if the key/value pair is empty or null. <br />
+            If the key/value pair is empty or null, an exception is thrown. <br />
+            检查键值对是否为空。 <br />
+            如果键值对为空，则抛出异常。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuardExtensions.CheckNull(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Check if the collection is empty or null. <br />
+            If the collection is empty or null, an exception is thrown. <br />
+            检查集合是否为空。 <br />
+            如果集合为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuardExtensions.CheckNullOrEmpty(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Check if the collection is empty. <br />
+            If the collection is empty, an exception is thrown. <br />
+            检查集合是否为空。 <br />
+            如果集合为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuardExtensions.CheckAtLeast``1(System.Collections.Generic.ICollection{``0},System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the set contains at least the specified number of elements. <br />
+            If the set is less than the specified number of elements, an exception is thrown. <br />
+            检查集合是否包含至少指定个数的元素。 <br />
+            如果集合少于指定数目的元素，则抛出异常。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="number"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuardExtensions.Require(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Check if the collection is empty or null. <br />
+            If the collection is empty or null, an exception is thrown. <br />
+            检查集合是否为空。 <br />
+            如果集合为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuardExtensions.CheckNull``2(System.Collections.Generic.KeyValuePair{``0,``1},System.String,System.String)">
+            <summary>
+            Check if the key/value pair is empty or null. <br />
+            If the key/value pair is empty or null, an exception is thrown. <br />
+            检查键值对是否为空。 <br />
+            如果键值对为空，则抛出异常。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionGuardExtensions.Require``2(System.Collections.Generic.KeyValuePair{``0,``1},System.String,System.String)">
+            <summary>
+            Check if the key/value pair is empty or null. <br />
+            If the key/value pair is empty or null, an exception is thrown. <br />
+            检查键值对是否为空。 <br />
+            如果键值对为空，则抛出异常。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudge.IsNull(System.Collections.IEnumerable)">
+            <summary>
+            To judge whether the collection is null or not.<br />
+            判断集合是否为空。
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudge.IsNullOrEmpty(System.Collections.IEnumerable)">
+            <summary>
+            Determine whether the collection is empty or empty.<br />
+            判断集合是否为空。
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudge.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determine whether the collection is empty or empty.<br />
+            判断集合是否为空。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudge.ContainsAtLeast``1(System.Collections.Generic.ICollection{``0},System.Int32)">
+            <summary>
+            Determine whether a queryable set contains at least a specified number of elements.<br />
+            判断一个可查询集合是否至少包含指定数量的元素。
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="coll"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.CollectionJudge.ContainsSameNumberOfElements``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Determine whether the two collections contain the same number of elements.<br />
+            判断这两个集合是否包含相同数量的元素。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="leftColl"></param>
+            <param name="rightColl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.QueryableJudge.ContainsAtLeast``1(System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            Determine whether a queryable set contains at least a specified number of elements.<br />
+            判断一个可查询集合是否至少包含指定数量的元素。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.QueryableJudge.ContainsSameNumberOfElements``1(System.Linq.IQueryable{``0},System.Linq.IQueryable{``0})">
+            <summary>
+            Determine whether the two queryable sets contain the same number of elements.<br />
+            判断这两个可查询集合是否包含相同数量的元素。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="targetQuery"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateGuard.ValidDate(System.DateTime,System.String,System.String)">
+            <summary>
+            Check if the date is valid. <br />
+            If the date is invalid, an exception is thrown. <br />
+            检查日期是否有效。 <br />
+            如果日期是无效的，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateGuard.ValidDate(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Check if the date is valid. <br />
+            If the date is invalid, an exception is thrown. <br />
+            检查日期是否有效。 <br />
+            如果日期是无效的，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateGuard.InThePast(System.DateTime,System.String,System.String)">
+            <summary>
+            Check if the date is in the past. <br />
+            If the date is not in the past, an exception is thrown. <br />
+            检查日期是否为过去的时间。 <br />
+            如果日期不是过去的时间，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateGuard.InThePast(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Check if the date is in the past. <br />
+            If the date is not in the past, an exception is thrown. <br />
+            检查日期是否为过去的时间。 <br />
+            如果日期不是过去的时间，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateGuard.InTheFuture(System.DateTime,System.String,System.String)">
+            <summary>
+            Check if the date is in the future. <br />
+            If the date is not in the future, an exception is thrown. <br />
+            检查日期是否为将来的时间。 <br />
+            如果日期不是将来的时间，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateGuard.InTheFuture(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Check if the date is in the future. <br />
+            If the date is not in the future, an exception is thrown. <br />
+            检查日期是否为将来的时间。 <br />
+            如果日期不是将来的时间，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateGuardExtensions.CheckInvalidDate(System.DateTime,System.String,System.String)">
+            <summary>
+            Check if the date is valid. <br />
+            If the date is invalid, an exception is thrown. <br />
+            检查日期是否有效。 <br />
+            如果日期是无效的，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.DateGuardExtensions.CheckInvalidDate(System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Check if the date is valid. <br />
+            If the date is invalid, an exception is thrown. <br />
+            检查日期是否有效。 <br />
+            如果日期是无效的，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.Positive(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is positive. <br />
+            If the time span is negative or zero, an exception is thrown. <br />
+            检查时间跨度是否为正的。 <br />
+            如果时间跨度为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.Positive(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is positive. <br />
+            If the time span is negative or zero, an exception is thrown. <br />
+            检查时间跨度是否为正的。 <br />
+            如果时间跨度为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.PositiveOrZero(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is positive or zero. <br />
+            If the time span is negative, an exception is thrown. <br />
+            检查时间跨度是否为正或为零。 <br />
+            如果时间跨度为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.PositiveOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is positive or zero. <br />
+            If the time span is negative, an exception is thrown. <br />
+            检查时间跨度是否为正或为零。 <br />
+            如果时间跨度为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.Negative(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is negative. <br />
+            If the time span is positive or zero, an exception is thrown. <br />
+            检查时间跨度是否为负。 <br />
+            如果时间跨度为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.Negative(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is negative. <br />
+            If the time span is positive or zero, an exception is thrown. <br />
+            检查时间跨度是否为负。 <br />
+            如果时间跨度为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.NegativeOrZero(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is negative or zero. <br />
+            If the time span is positive, an exception is thrown. <br />
+            检查时间跨度是否为负或为零。 <br />
+            如果时间跨度为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuard.NegativeOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is negative or zero. <br />
+            If the time span is positive, an exception is thrown. <br />
+            检查时间跨度是否为负或为零。 <br />
+            如果时间跨度为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequirePositive(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is positive. <br />
+            If the time span is negative or zero, an exception is thrown. <br />
+            检查时间跨度是否为正的。 <br />
+            如果时间跨度为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequirePositive(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is positive. <br />
+            If the time span is negative or zero, an exception is thrown. <br />
+            检查时间跨度是否为正的。 <br />
+            如果时间跨度为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequirePositiveOrZero(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is positive or zero. <br />
+            If the time span is negative, an exception is thrown. <br />
+            检查时间跨度是否为正或为零。 <br />
+            如果时间跨度为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequirePositiveOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is positive or zero. <br />
+            If the time span is negative, an exception is thrown. <br />
+            检查时间跨度是否为正或为零。 <br />
+            如果时间跨度为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequireNegative(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is negative. <br />
+            If the time span is positive or zero, an exception is thrown. <br />
+            检查时间跨度是否为负。 <br />
+            如果时间跨度为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequireNegative(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is negative. <br />
+            If the time span is positive or zero, an exception is thrown. <br />
+            检查时间跨度是否为负。 <br />
+            如果时间跨度为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequireNegativeOrZero(System.TimeSpan,System.String,System.String)">
+            <summary>
+            Check whether the time span is negative or zero. <br />
+            If the time span is positive, an exception is thrown. <br />
+            检查时间跨度是否为负或为零。 <br />
+            如果时间跨度为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Date.TimeSpanGuardExtensions.RequireNegativeOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+            <summary>
+            Check whether the time span is negative or zero. <br />
+            If the time span is positive, an exception is thrown. <br />
+            检查时间跨度是否为负或为零。 <br />
+            如果时间跨度为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidGuard.ValidGuid(System.Guid,System.String,System.String)">
+            <summary>
+            Check if Guid is empty or null. <br />
+            If it is empty or null, an exception is thrown. <br />
+            检查 Guid 是否为空。 <br />
+            如果为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidGuard.ValidGuid(System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            Check if Guid is empty or null. <br />
+            If it is empty or null, an exception is thrown. <br />
+            检查 Guid 是否为空。 <br />
+            如果为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidGuardExtensions.CheckNull(System.Guid,System.String,System.String)">
+            <summary>
+            Check if Guid is empty or null. <br />
+            If it is empty or null, an exception is thrown. <br />
+            检查 Guid 是否为空。 <br />
+            如果为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidGuardExtensions.CheckNull(System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            Check if Guid is empty or null. <br />
+            If it is empty or null, an exception is thrown. <br />
+            检查 Guid 是否为空。 <br />
+            如果为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidGuardExtensions.Require(System.Guid,System.String,System.String)">
+            <summary>
+            Check if Guid is empty or null. <br />
+            If it is empty or null, an exception is thrown. <br />
+            检查 Guid 是否为空。 <br />
+            如果为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.IdUtils.GuidGuardExtensions.Require(System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            Check if Guid is empty or null. <br />
+            If it is empty or null, an exception is thrown. <br />
+            检查 Guid 是否为空。 <br />
+            如果为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Single,System.Single,System.Single,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Double,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Single,System.Single,System.Single,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Single,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Single},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Double,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Double},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Decimal,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsInt16(System.String)">
+            <summary>
+            To judge whether the string is short or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsInt32(System.String)">
+            <summary>
+            To judge whether the string is integer or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsInt64(System.String)">
+            <summary>
+            To judge whether the string is long or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsUInt16(System.String)">
+            <summary>
+            To judge whether the string is ushort or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsUInt32(System.String)">
+            <summary>
+            To judge whether the string is uinteger or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsUInt64(System.String)">
+            <summary>
+            To judge whether the string is ulong or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsNumeric(System.String)">
+            <summary>
+            To judge whether the string is numeric or not.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsBetween(System.Int16,System.Int16,System.Int16)">
+            <summary>
+            To judge whether the short value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsBetween(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            To judge whether the int value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsBetween(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            To judge whether the long value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsBetween(System.Single,System.Single,System.Single)">
+            <summary>
+            To judge whether the float value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsBetween(System.Double,System.Double,System.Double)">
+            <summary>
+            To judge whether the double value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsBetween(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            To judge whether the decimal value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsNaN(System.Double)">
+            <summary>
+            Is NaN
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericJudge.IsNaN(System.Single)">
+            <summary>
+            Is NaN
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.ObjectGuard.NotNull(System.Object,System.String,System.String)">
+            <summary>
+            Check if the object is empty.
+            If the object is empty, an exception is thrown.
+            检查对象是否为空。
+            如果对象为空，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.ObjectGuardExtensions.CheckNull(System.Object,System.String,System.String)">
+            <summary>
+            Check if the object is empty.
+            If the object is empty, an exception is thrown.
+            检查对象是否为空。
+            如果对象为空，则抛出异常。
+            </summary>
+            <param name="argument">对象</param>
+            <param name="argumentName">参数名</param>
+            <param name="message">消息</param>
+        </member>
+        <member name="T:Cosmos.Text.RegexJudge">
+            <summary>
+            Regex Judgment Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.RegexJudge.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Indicates whether the regular expression specified in the Regex constructor
+            finds a match in a specified input string.<br />
+            指示在Regex构造函数中指定的正则表达式是否在指定的输入字符串中找到匹配项。
+            </summary>
+            <param name="str"></param>
+            <param name="pattern"></param>
+            <param name="options">regex options, default is RegexOptions.IgnoreCase</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringGuard.NotNull(System.String,System.String,System.String)">
+            <summary>
+            Check if the string is null, empty or blank. <br />
+            If the string is null, empty or blank, an exception is thrown. <br />
+            检查字符串是否为空或空白。 <br />
+            如果字符串为空或空白，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.StringGuard.NotEmpty(System.String,System.String,System.String)">
+            <summary>
+            Check if the string is empty or blank. <br />
+            If the string is empty or blank, an exception is thrown. <br />
+            检查字符串是否为空或空白。 <br />
+            如果字符串为空或空白，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.StringGuard.NotBlank(System.String,System.String,System.String)">
+            <summary>
+            Check if the string is empty or blank. <br />
+            If the string is empty or blank, an exception is thrown. <br />
+            检查字符串是否为空或空白。 <br />
+            如果字符串为空或空白，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.StringGuard.NotOutOfLength(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Check whether the string exceeds the specified length.
+            If the string exceeds the specified length, an exception is thrown.
+            检查字符串是否超过指定长度。
+            如果字符串超过指定长度，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="length"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.StringGuardExtensions.CheckNull(System.String,System.String,System.String)">
+            <summary>
+            检查字符串是否为 null、String.Empty 或 Blank
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.StringGuardExtensions.CheckBlank(System.String,System.String,System.String)">
+            <summary>
+            检查字符串是否为 String.Empty 或 Blank
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.StringGuardExtensions.RequireMaxLength(System.String,System.Int32,System.String,System.String)">
+             <summary>
+            检查字符串长度是否超界
+             </summary>
+             <param name="argument"></param>
+             <param name="length"></param>
+             <param name="argumentName"></param>
+             <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.StartsWithThese(System.String,System.String[])">
+            <summary>
+            Determine whether the string starts with the specified string.<br />
+            判断字符串是否以指定的字符串开头。
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.StartsWithThese(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Determine whether the string starts with the specified string.<br />
+            判断字符串是否以指定的字符串开头。
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.EndsWithThese(System.String,System.String[])">
+            <summary>
+            Determine whether the string ends with the specified string.<br />
+            判断字符串是否以指定的字符串结尾。
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.EndsWithThese(System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Determine whether the string ends with the specified string.<br />
+            判断字符串是否以指定的字符串结尾。
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.ContainsChineseCharacters(System.String)">
+            <summary>
+            Determine whether the string contains Chinese characters.<br />
+            判断字符串是否包含汉字。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.ContainsNumber(System.String)">
+            <summary>
+            Determine whether the string contains numbers.<br />
+            判断字符串是否包含数字。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.IsWebUrl(System.String)">
+            <summary>
+            Determine whether the string is a Web Url address.<br />
+            判断字符串是否为 Web Url 地址。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudge.IsEmail(System.String)">
+            <summary>
+            Determine whether the string is an email.<br />
+            判断字符串是否为电子邮件。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsChar(System.String)">
+            <summary>
+            Determine whether the given string is char. <br />
+            判断给定的字符串是否是 char。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsBoolean(System.String)">
+            <summary>
+            Determine whether the given string is boolean. <br />
+            判断给定的字符串是否是 boolean。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsEncoding(System.String)">
+            <summary>
+            Determine whether the given string is <see cref="T:System.Text.Encoding"/>. <br />
+            判断给定的字符串是否是 <see cref="T:System.Text.Encoding"/>。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsVersion(System.String)">
+            <summary>
+            Determine whether the given string is a version number. <br />
+            判断给定的字符串是否是版本号。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsIpAddress(System.String)">
+            <summary>
+            Determine whether the given string is an IP address. <br />
+            判断给定的字符串是否是 IP 地址。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsDateTime(System.String)">
+            <summary>
+            Determine whether the given string is DateTime. <br />
+            判断给定的字符串是否为 DateTime。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsDateTimeOffset(System.String)">
+            <summary>
+            Determine whether the given string is DateTimeOffset. <br />
+            判断给定的字符串是否为 DateTimeOffset。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsTimeSpan(System.String)">
+            <summary>
+            Determine whether the given string is TimeSpan. <br />
+            判断给定的字符串是否为 TimeSpan。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsDateTimeExact(System.String,System.String)">
+            <summary>
+            Determine whether the given string is DateTime. <br />
+            判断给定的字符串是否为 DateTime。
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsDateTimeOffsetExact(System.String,System.String)">
+            <summary>
+            Determine whether the given string is DateTimeOffset. <br />
+            判断给定的字符串是否为 DateTimeOffset。
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsTimeSpanExact(System.String,System.String)">
+            <summary>
+            Determine whether the given string is TimeSpan. <br />
+            判断给定的字符串是否为 TimeSpan。
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsEnum(System.String,System.Type)">
+            <summary>
+            Determine whether the given string is an enumeration of the specified type.<br />
+            判断给定的字符串是否为指定类型的枚举。
+            </summary>
+            <param name="str"></param>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsEnum``1(System.String)">
+            <summary>
+            Determine whether the given string is an enumeration of the specified type.<br />
+            判断给定的字符串是否为指定类型的枚举。
+            </summary>
+            <param name="str"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsGuid(System.String)">
+            <summary>
+            Determine whether the given string is Guid. <br />
+            判断给定的字符串是否为 Guid。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsGuidExact(System.String,System.String)">
+            <summary>
+            Determine whether the given string is Guid. <br />
+            判断给定的字符串是否为 Guid。
+            </summary>
+            <param name="str"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsNumeric(System.String)">
+            <summary>
+            Determine whether the given string is a numeric value. <br />
+            判断给定的字符串是否是数值。
+            </summary>
+            <param name="string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsByte(System.String)">
+            <summary>
+            Determine whether the given string is byte. <br />
+            判断给定的字符串是否是 byte。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsSByte(System.String)">
+            <summary>
+            Determine whether the given string is sbyte. <br />
+            判断给定的字符串是否是 sbyte。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsShort(System.String)">
+            <summary>
+            Determine whether the given string is short. <br />
+            判断给定的字符串是否是 short。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsInt(System.String)">
+            <summary>
+            Determine whether the given string is int. <br />
+            判断给定的字符串是否是 int。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsLong(System.String)">
+            <summary>
+            Determine whether the given string is long. <br />
+            判断给定的字符串是否是 long。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsUShort(System.String)">
+            <summary>
+            Determine whether the given string is ushort. <br />
+            判断给定的字符串是否是 ushort。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsUInt(System.String)">
+            <summary>
+            Determine whether the given string is uint. <br />
+            判断给定的字符串是否是 uint。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsULong(System.String)">
+            <summary>
+            Determine whether the given string is ulong. <br />
+            判断给定的字符串是否是 ulong。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsInt16(System.String)">
+            <summary>
+            Determine whether the given string is int16(short). <br />
+            判断给定的字符串是否是 int16(short)。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsInt32(System.String)">
+            <summary>
+            Determine whether the given string is int32(int). <br />
+            判断给定的字符串是否是 int32(int)。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsInt64(System.String)">
+            <summary>
+            Determine whether the given string is int64(long). <br />
+            判断给定的字符串是否是 int64(long)。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsUInt16(System.String)">
+            <summary>
+            Determine whether the given string is uint16(ushort). <br />
+            判断给定的字符串是否是 uint16(ushort)。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsUInt32(System.String)">
+            <summary>
+            Determine whether the given string is uint32(uint). <br />
+            判断给定的字符串是否是 uint32(uint)。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.UsUInt64(System.String)">
+            <summary>
+            Determine whether the given string is uint64(ulong). <br />
+            判断给定的字符串是否是 uint64(ulong)。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsFloat(System.String)">
+            <summary>
+            Determine whether the given string is float. <br />
+            判断给定的字符串是否是 float。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsDouble(System.String)">
+            <summary>
+            Determine whether the given string is double. <br />
+            判断给定的字符串是否是 double。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsDecimal(System.String)">
+            <summary>
+            Determine whether the given string is decimal. <br />
+            判断给定的字符串是否是 decimal。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsWebUrl(System.String)">
+            <summary>
+            Determine whether the given string is a URL path. <br />
+            判断给定的字符串是否是 Url 路径。
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringJudgeExtensions.IsEmail(System.String)">
+            <summary>
+            Determine whether the given string is an email address. <br />
+            判断给定的字符串是否是电子邮件路径。
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Validation.IHasValidationErrors.ValidationMessage">
+            <summary>
+            Gets validation message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Internals.ValidationExceptionHelper.WrapAndRaise``1(System.Boolean,System.Object[])">
+            <summary>
+            Require.
+            </summary>
+            <param name="assertion"></param>
+            <param name="exceptionParams"></param>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.IValidationParameter">
+            <summary>
+            Validation parameter<br />
+            验证参数
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.IValidationParameter.Message">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.BetweenAttribute">
+            <summary>
+            Between, alias of <see cref="T:Cosmos.Validation.Parameters.NotOutOfRangeAttribute"/>
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.Internals.ParameterTypeValidation">
+            <summary>
+            Parameter type validation<br />
+            参数类型验证
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.Internals.ParameterTypeValidation.#ctor(System.Boolean,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.Parameters.Internals.ParameterTypeValidation"/><br />
+            创建一个参数类型验证实例
+            </summary>
+            <param name="result"></param>
+            <param name="parameterType"></param>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.Internals.ParameterTypeValidation.Result">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.Internals.ParameterTypeValidation.ParameterType">
+            <summary>
+            Gets parameter type<br />
+            获取参数类型
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.Internals.ParameterTypeValidation.op_Implicit(Cosmos.Validation.Parameters.Internals.ParameterTypeValidation)~System.Boolean">
+            <summary>
+            Convert instance of <see cref="T:Cosmos.Validation.Parameters.Internals.ParameterTypeValidation"/> to <see cref="T:System.Boolean"/>.<br />
+            隐式转换为布尔值
+            </summary>
+            <param name="result">被转换的参数类型验证对象</param>
+            <returns>返回布尔值结果</returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.MustIntAttribute">
+            <summary>
+            Must
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustIntAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustIntAttribute.MayBeNullable">
+            <summary>
+            May be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.MustIntAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.MustIntTypeAttribute">
+            <summary>
+            Must in type...
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustIntTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustIntTypeAttribute.MayBeNullable">
+            <summary>
+            My be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.MustIntTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.MustLongTypeAttribute">
+            <summary>
+            Must long
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustLongTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustLongTypeAttribute.MayBeNullable">
+            <summary>
+            My be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.MustLongTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.MustNumericTypeAttribute">
+            <summary>
+            Music numeric type
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustNumericTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustNumericTypeAttribute.MayBeNullable">
+            <summary>
+            My be nullable
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.MustNumericTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.MustStringTypeAttribute">
+            <summary>
+            Must string type
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.MustStringTypeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.MustStringTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentInvalidException"></exception>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotBlankAttribute">
+            <summary>
+            Not blank
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotInTheFutureAttribute">
+            <summary>
+            Not in future
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotInTheFutureAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotInTheFutureAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotInThePastAttribute">
+            <summary>
+            /Not in past
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotInThePastAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotInThePastAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotNegativeAttribute">
+            <summary>
+            Not negative
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotNegativeAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotNegativeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotNegativeOrZeroAttribute">
+            <summary>
+            Not negative or zero
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotNegativeOrZeroAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotNegativeOrZeroAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotNullAttribute">
+            <summary>
+            Not null
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotNullAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotNullAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotOutOfLengthAttribute">
+            <summary>
+            Not out of length
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotOutOfLengthAttribute.Message">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotOutOfLengthAttribute.Length">
+            <summary>
+            Length
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotOutOfLengthAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotOutOfRangeAttribute">
+            <summary>
+            Not out of range
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotOutOfRangeAttribute.Message">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotOutOfRangeAttribute.Min">
+            <summary>
+            Min
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotOutOfRangeAttribute.Max">
+            <summary>
+            Max
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotOutOfRangeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NotWhiteSpaceAttribute">
+            <summary>
+            Not whitespace
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.NotWhiteSpaceAttribute.Message">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.NotWhiteSpaceAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.NumberOnlyAttribute">
+            <summary>
+            Number only
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validation.Parameters.ValidDateAttribute">
+            <summary>
+            Valid date
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Parameters.ValidDateAttribute.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Parameters.ValidDateAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.ValidationErrors">
+            <summary>
+            Validation Error Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Null(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Null(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Null(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Null(System.ArgumentNullException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.NullAndRaise">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.NullAndRaise(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.NullAndRaise(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.NullAndRaise(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.NullAndRaise(System.ArgumentNullException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentNullException"/> and raise.
+            </summary>
+            <param name="exception"></param>
+            <exception cref="T:Cosmos.Validation.ValidationException"></exception>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRange(System.String,System.Object,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="actualValue"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRange(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRange(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRange(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRange(System.ArgumentOutOfRangeException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRangeAndRaise">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRangeAndRaise(System.String,System.Object,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="actualValue"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRangeAndRaise(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRangeAndRaise(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRangeAndRaise(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.OutOfRangeAndRaise(System.ArgumentOutOfRangeException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentOutOfRangeException"/> and raise.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Invalid(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Invalid(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Invalid(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.Invalid(System.ArgumentInvalidException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/>.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.InvalidAndRaise">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.InvalidAndRaise(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.InvalidAndRaise(System.String,System.String)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="paramName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.InvalidAndRaise(System.String,System.Exception)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationErrors.InvalidAndRaise(System.ArgumentInvalidException)">
+            <summary>
+            Returns an instance of <see cref="T:System.ArgumentInvalidException"/> and raise.
+            </summary>
+            <param name="exception"></param>
+            <exception cref="T:Cosmos.Validation.ValidationException"></exception>
+        </member>
+        <member name="T:Cosmos.Validation.ValidationException">
+            <summary>
+            Validation exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="flag"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.String,System.String,System.Exception)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="flag"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <param name="validationMessage"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="info"></param>
+            <param name="streamingContext"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(Cosmos.Exceptions.ExceptionOptions)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Validation.ValidationException.ValidationMessage">
+            <summary>
+            Gets validation message
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.GetFullMessage">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Validation.ValidationException.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Validation.ValidationExceptionExtensions">
+            <summary>
+            Validation exception extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentNullException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+            <exception cref="T:Cosmos.Validation.ValidationException"></exception>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentOutOfRangeException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.Validation.ValidationExceptionExtensions.ThrowAsValidationError(System.ArgumentInvalidException)">
+            <summary>
+            Throw as ValidationException.
+            </summary>
+            <param name="exception"></param>
+        </member>
+    </members>
+</doc>

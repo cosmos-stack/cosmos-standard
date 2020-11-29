@@ -1,9 +1,4 @@
 <Project>
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Abstractions</AssemblyName>
-        <PackageId>Cosmos.Abstractions</PackageId>
-        <Description>Cosmos abstractions library</Description>
-    </PropertyGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
 		<PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <Import Project="project.props" />
 
@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Cosmos\Cosmos.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
     </ItemGroup>
 
 </Project>

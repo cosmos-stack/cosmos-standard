@@ -1484,92 +1484,25 @@
             <summary>
             Add dictionary into another dictionary
             </summary>
-            <param name="me"></param>
-            <param name="other"></param>
+            <param name="source"></param>
+            <param name="dict"></param>
             <typeparam name="TKey"></typeparam>
             <typeparam name="TVal"></typeparam>
         </member>
-        <member name="M:System.Collections.Generic.SystemDictionaryExtensions.ToString``2(System.Collections.Generic.Dictionary{``0,``1},System.String,System.String)">
+        <member name="M:System.Collections.Generic.SystemDictionaryExtensions.Add``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.KeyValuePair{``0,``1})">
             <summary>
-            To string
+            Add key-value pair into another dictionary
             </summary>
-            <param name="dictionary"></param>
-            <param name="linker"></param>
-            <param name="separator"></param>
+            <param name="source"></param>
+            <param name="pair"></param>
             <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Collections.Generic.SystemEnumerableExtensions.SelectDistinctSorted``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
-            <summary>
-            Select distinct sorted
-            </summary>
-            <param name="collection"></param>
-            <param name="valCalculator"></param>
-            <typeparam name="TObj"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Collections.Generic.SystemEnumerableExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Select distinct sorted ignore case
-            </summary>
-            <param name="collection"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Collections.Generic.SystemEnumerableExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.String})">
-            <summary>
-            Select distinct sorted ignore case
-            </summary>
-            <param name="collection"></param>
-            <param name="valCalculator"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Collections.Generic.SystemEnumerableExtensions.SelectDistinctUnsorted``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
-            <summary>
-            Select distinct un-sorted
-            </summary>
-            <param name="collection"></param>
-            <param name="valCalculator"></param>
-            <typeparam name="TObj"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Collections.Generic.SystemEnumerableExtensions.TakeLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
-            <summary>
-            Take last
-            </summary>
-            <param name="src"></param>
-            <param name="count"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <typeparam name="TVal"></typeparam>
         </member>
         <member name="M:System.Collections.Generic.SystemEnumerableExtensions.ToReadOnlyCollection``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             To readonly collection
             </summary>
             <param name="src"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:System.Collections.Generic.SystemEnumerableExtensions.ToList``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
-            <summary>
-            To string list
-            </summary>
-            <param name="me"></param>
-            <param name="stringConverter"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Collections.Generic.SystemEnumerableExtensions.ToList``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
-            <summary>
-            To list
-            </summary>
-            <param name="src"></param>
-            <param name="func"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
@@ -1679,6 +1612,71 @@
             <typeparam name="TKey"></typeparam>
             <typeparam name="TValue"></typeparam>
             <returns></returns>
+        </member>
+        <member name="M:System.Linq.SystemLinqExtensions.SelectDistinctSorted``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Select distinct sorted
+            </summary>
+            <param name="collection"></param>
+            <param name="valCalculator"></param>
+            <typeparam name="TObj"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.SystemLinqExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Select distinct sorted ignore case
+            </summary>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.SystemLinqExtensions.SelectDistinctSortedIgnoreCase(System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.String})">
+            <summary>
+            Select distinct sorted ignore case
+            </summary>
+            <param name="collection"></param>
+            <param name="valCalculator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.SystemLinqExtensions.SelectDistinctUnsorted``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Select distinct un-sorted
+            </summary>
+            <param name="collection"></param>
+            <param name="valCalculator"></param>
+            <typeparam name="TObj"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.SystemLinqExtensions.TakeLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Take last
+            </summary>
+            <param name="src"></param>
+            <param name="count"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:System.Linq.SystemLinqExtensions.ToList``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            To string list
+            </summary>
+            <param name="source"></param>
+            <param name="stringConverter"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.SystemLinqExtensions.ToList``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            To list
+            </summary>
+            <param name="source"></param>
+            <param name="func"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:System.SystemArrayExtensions">
             <summary>

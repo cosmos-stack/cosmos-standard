@@ -80,9 +80,9 @@ ProjectSection(SolutionItems) = preProject
 	asset\props\package.props = asset\props\package.props
 EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solo-validation", "solo-validation", "{61F80E76-F300-4124-AA6D-B7E237A9427C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosStandardUT", "test\CosmosStandardUT\CosmosStandardUT.csproj", "{33585C50-BD8B-4006-8351-18C834CCA6CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Validation.Core", "..\cosmos-validation\src\Cosmos.Validation.Core\Cosmos.Validation.Core._build.csproj", "{89129FF1-B39F-457F-9598-1A92F4B21C1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Validation.Basic", "src\Cosmos.Extensions.Validation.Basic\Cosmos.Extensions.Validation.Basic.csproj", "{4D947FF0-6924-4AC8-BD39-6AC1C56492D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -154,10 +154,14 @@ Global
 		{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AFB7A68-BF2A-499A-93D8-653A3C94C49C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89129FF1-B39F-457F-9598-1A92F4B21C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89129FF1-B39F-457F-9598-1A92F4B21C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89129FF1-B39F-457F-9598-1A92F4B21C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89129FF1-B39F-457F-9598-1A92F4B21C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33585C50-BD8B-4006-8351-18C834CCA6CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33585C50-BD8B-4006-8351-18C834CCA6CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33585C50-BD8B-4006-8351-18C834CCA6CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33585C50-BD8B-4006-8351-18C834CCA6CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D947FF0-6924-4AC8-BD39-6AC1C56492D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D947FF0-6924-4AC8-BD39-6AC1C56492D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D947FF0-6924-4AC8-BD39-6AC1C56492D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D947FF0-6924-4AC8-BD39-6AC1C56492D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,8 +188,8 @@ Global
 		{0A2CA6C4-A168-460F-BD36-E2BAD2BCE353} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
 		{D35A0889-D466-42AB-AC27-82AE878A35B0} = {67C74D26-D686-4583-82AF-831904182C45}
 		{6B171B73-1DAA-4B4A-8CD2-B1307180B6C8} = {67C74D26-D686-4583-82AF-831904182C45}
-		{61F80E76-F300-4124-AA6D-B7E237A9427C} = {BDBDE50C-D11B-4B8B-8349-0B6681CC98FF}
-		{89129FF1-B39F-457F-9598-1A92F4B21C1E} = {61F80E76-F300-4124-AA6D-B7E237A9427C}
+		{33585C50-BD8B-4006-8351-18C834CCA6CC} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
+		{4D947FF0-6924-4AC8-BD39-6AC1C56492D9} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D68A6AF5-79FE-4679-AD20-67D6CFCF75B4}

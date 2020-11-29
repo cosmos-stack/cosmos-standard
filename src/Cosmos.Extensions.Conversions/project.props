@@ -5,9 +5,5 @@
         <PackageId>Cosmos.Extensions.Conversions</PackageId>
         <Description>Cosmos Conversions extension library</Description>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
-    </ItemGroup>
-
+    
 </Project>

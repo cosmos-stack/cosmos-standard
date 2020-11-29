@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     
-    <Import Project="Cosmos.Extensions.Disposables._shared.props" />
+    <Import Project="project.props" />
 
     <Import Project="..\..\common.props" />
 

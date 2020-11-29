@@ -1,0 +1,13 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Reflection</AssemblyName>
+        <PackageId>Cosmos.Extensions.Reflection</PackageId>
+        <Description>Cosmos reflection extension library</Description>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    
+</Project>

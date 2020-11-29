@@ -1,14 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="Cosmos.Extensions.Reflection._shared.props" />
+    <Import Project="project.props" />
+
+    <Import Project="project.dependency.props" />
 
     <Import Project="..\..\common.props" />
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\cosmos-validation\src\Cosmos.Validation.Core\Cosmos.Validation.Core._build.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Validation.Basic\Cosmos.Extensions.Validation.Basic.csproj" />
     </ItemGroup>
 
 </Project>
