@@ -1,16 +1,19 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 using Cosmos.Reflection;
+using CosmosStandardUT.Models;
 using Shouldly;
 using Xunit;
 
 namespace CosmosStandardUT.TypeUT
 {
-    [Trait("TypeUT","TypeIs.NumericType")]
+    [Trait("TypeUT", "TypeIs.NumericType")]
     public class TypeIsNumericTypeTests
     {
         [Fact(DisplayName = "Direct type should be numeric")]
         public void DirectTypeShouldBeNumericTest()
-        { 
+        {
             Types.IsNumericType(typeof(byte)).ShouldBeTrue();
             Types.IsNumericType(typeof(sbyte)).ShouldBeTrue();
             Types.IsNumericType(typeof(short)).ShouldBeTrue();
@@ -54,20 +57,20 @@ namespace CosmosStandardUT.TypeUT
             Types.IsNumericType(typeof(float?)).ShouldBeFalse();
             Types.IsNumericType(typeof(double?)).ShouldBeFalse();
             Types.IsNumericType(typeof(decimal?)).ShouldBeFalse();
-            
-            Types.IsNumericType(typeof(byte?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(sbyte?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(short?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(ushort?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(int?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(uint?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(long?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(ulong?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(float?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(double?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
-            Types.IsNumericType(typeof(decimal?),TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+
+            Types.IsNumericType(typeof(byte?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(sbyte?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(short?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(ushort?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(int?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(uint?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(long?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(ulong?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(float?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(double?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            Types.IsNumericType(typeof(decimal?), TypeIsOptions.IgnoreNullable).ShouldBeTrue();
         }
-        
+
         [Fact(DisplayName = "Generic nullable type should be numeric")]
         public void GenericNullableTypeShouldBeNumericTest()
         {
@@ -82,7 +85,7 @@ namespace CosmosStandardUT.TypeUT
             Types.IsNumericType<float?>().ShouldBeFalse();
             Types.IsNumericType<double?>().ShouldBeFalse();
             Types.IsNumericType<decimal?>().ShouldBeFalse();
-            
+
             Types.IsNumericType<byte?>(TypeIsOptions.IgnoreNullable).ShouldBeTrue();
             Types.IsNumericType<sbyte?>(TypeIsOptions.IgnoreNullable).ShouldBeTrue();
             Types.IsNumericType<short?>(TypeIsOptions.IgnoreNullable).ShouldBeTrue();
@@ -116,6 +119,40 @@ namespace CosmosStandardUT.TypeUT
             Types.IsNumericType(b, TypeIsOptions.IgnoreNullable).ShouldBeTrue();
             Types.IsNumericType(c).ShouldBeFalse();
             Types.IsNumericType(c, TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+        }
+
+        [Fact(DisplayName = "Reflection should be numeric test")]
+        public void ReflectionNumericTest()
+        {
+            Func<MemberInfo, bool> filter = member => member.MemberType == MemberTypes.TypeInfo
+                                                   || member.MemberType == MemberTypes.Field
+                                                   || member.MemberType == MemberTypes.Property;
+            var t = typeof(NormalValueTypeClass);
+            var m0 = (MemberInfo) t;
+            var allMembers = t.GetMembers().Where(filter).ToList();
+
+            allMembers.ShouldNotBeNull();
+            allMembers.ShouldNotBeEmpty();
+            var m1 = allMembers.Single(x => x.Name == nameof(NormalValueTypeClass.Int16V1));
+            var m2 = allMembers.Single(x => x.Name == nameof(NormalValueTypeClass.Int16V2));
+            var m3 = allMembers.Single(x => x.Name == nameof(NormalValueTypeClass.Int16V3));
+            var m4 = allMembers.Single(x => x.Name == nameof(NormalValueTypeClass.Int16V4));
+            var m5 = allMembers.Single(x => x.Name == nameof(NormalValueTypeClass.Str));
+
+            m1.MemberType.ShouldBe(MemberTypes.Property);
+            m2.MemberType.ShouldBe(MemberTypes.Field);
+            m3.MemberType.ShouldBe(MemberTypes.Property);
+            m4.MemberType.ShouldBe(MemberTypes.Field);
+            m5.MemberType.ShouldBe(MemberTypes.Property);
+
+            TypeReflections.IsNumeric(m0).ShouldBeFalse();
+            TypeReflections.IsNumeric(m1).ShouldBeTrue();
+            TypeReflections.IsNumeric(m2).ShouldBeTrue();
+            TypeReflections.IsNumeric(m3).ShouldBeFalse();
+            TypeReflections.IsNumeric(m4).ShouldBeFalse();
+            TypeReflections.IsNumeric(m3, TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            TypeReflections.IsNumeric(m4, TypeIsOptions.IgnoreNullable).ShouldBeTrue();
+            TypeReflections.IsNumeric(m5).ShouldBeFalse();
         }
     }
 }

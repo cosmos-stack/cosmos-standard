@@ -9,32 +9,61 @@ namespace Cosmos.Reflection
     /// </summary>
     public static partial class TypeReflections
     {
+        private static bool X(MemberInfo member, Func<Type, Type> typeClear, Func<Type, bool> typeInfer)
+        {
+            return member switch
+            {
+                null => false,
+                Type type => typeInfer(typeClear(type)),
+                PropertyInfo propertyInfo => typeInfer(typeClear(propertyInfo.PropertyType)),
+                FieldInfo fieldInfo => typeInfer(typeClear(fieldInfo.FieldType)),
+                _ => false
+            };
+        }
+
+        private static Type N(Type type, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return isOptions switch
+            {
+                TypeIsOptions.Default => type,
+                TypeIsOptions.IgnoreNullable => TypeConv.GetNonNullableType(type),
+                _ => type
+            };
+        }
+
         /// <summary>
-        /// 是否布尔类型
+        /// Determine whether the given MemberInfo is a Boolean type.<br />
+        /// 判断给定的 MemberInfo 元信息是否为布尔类型。
+        /// </summary>
+        /// <param name="isOptions"></param>
+        /// <param name="member">成员</param>
+        public static bool IsBoolean(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return X(member, type => N(type, isOptions), type => type == TypeClass.BooleanClazz);
+        }
+
+        /// <summary>
+        /// Determine whether the given MemberInfo is a datetime.<br />
+        /// 判断给定的 MemberInfo 元信息是否为 DateTime 类型。
+        /// </summary>
+        /// <param name="isOptions"></param>
+        /// <param name="member">成员</param>
+        public static bool IsDateTime(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return X(member, type => N(type, isOptions), type => type == TypeClass.DateTimeClazz);
+        }
+
+        /// <summary>
+        /// Determine whether the given MemberInfo is a numeric type.<br />
+        /// 判断给定的 MemberInfo 元信息是否为数字类型。
         /// </summary>
         /// <param name="member">成员</param>
-        public static bool IsBool(MemberInfo member)
+        /// <param name="isOptions"></param>
+        public static bool IsNumeric(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
-            if (member == null)
-                return false;
-            switch (member.MemberType)
-            {
-                case MemberTypes.TypeInfo:
-                    return member.ToString() == "System.Boolean";
-                case MemberTypes.Property:
-                    return IsBool((PropertyInfo) member);
-            }
-
-            return false;
+            return X(member, type => type, type => Types.IsNumericType(type, isOptions));
         }
 
-        /// <summary>
-        /// 是否布尔类型
-        /// </summary>
-        private static bool IsBool(PropertyInfo property)
-        {
-            return property.PropertyType == typeof(bool) || property.PropertyType == typeof(bool?);
-        }
 
         /// <summary>
         /// 是否枚举类型
@@ -64,105 +93,6 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// 是否日期类型
-        /// </summary>
-        /// <param name="member">成员</param>
-        public static bool IsDate(MemberInfo member)
-        {
-            if (member == null)
-                return false;
-            switch (member.MemberType)
-            {
-                case MemberTypes.TypeInfo:
-                    return member.ToString() == "System.DateTime";
-                case MemberTypes.Property:
-                    return IsDate((PropertyInfo) member);
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// 是否日期类型
-        /// </summary>
-        private static bool IsDate(PropertyInfo property)
-        {
-            if (property.PropertyType == typeof(DateTime))
-                return true;
-            if (property.PropertyType == typeof(DateTime?))
-                return true;
-            return false;
-        }
-
-        /// <summary>
-        /// 是否整型
-        /// </summary>
-        /// <param name="member">成员</param>
-        public static bool IsInt(MemberInfo member)
-        {
-            if (member == null)
-                return false;
-            switch (member.MemberType)
-            {
-                case MemberTypes.TypeInfo:
-                    return member.ToString() == "System.Int32" || member.ToString() == "System.Int16" || member.ToString() == "System.Int64";
-                case MemberTypes.Property:
-                    return IsInt((PropertyInfo) member);
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// 是否整型
-        /// </summary>
-        private static bool IsInt(PropertyInfo property)
-        {
-            if (property.PropertyType == typeof(int))
-                return true;
-            if (property.PropertyType == typeof(int?))
-                return true;
-            if (property.PropertyType == typeof(short))
-                return true;
-            if (property.PropertyType == typeof(short?))
-                return true;
-            if (property.PropertyType == typeof(long))
-                return true;
-            if (property.PropertyType == typeof(long?))
-                return true;
-            return false;
-        }
-
-        /// <summary>
-        /// 是否数值类型
-        /// </summary>
-        /// <param name="member">成员</param>
-        public static bool IsNumber(MemberInfo member)
-        {
-            if (member == null)
-                return false;
-            if (IsInt(member))
-                return true;
-            switch (member.MemberType)
-            {
-                case MemberTypes.TypeInfo:
-                    return member.ToString() == "System.Double" || member.ToString() == "System.Decimal" || member.ToString() == "System.Single";
-                case MemberTypes.Property:
-                    return IsNumeric((PropertyInfo) member);
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// 是否数值类型
-        /// </summary>
-        private static bool IsNumeric(PropertyInfo property)
-        {
-            return Types.IsNumericType(property.PropertyType);
-        }
-
-        /// <summary>
         /// 是否集合
         /// </summary>
         /// <param name="type">类型</param>
@@ -183,11 +113,11 @@ namespace Cosmos.Reflection
                 return false;
             var typeDefinition = type.GetGenericTypeDefinition();
             return typeDefinition == typeof(IEnumerable<>)
-                   || typeDefinition == typeof(IReadOnlyCollection<>)
-                   || typeDefinition == typeof(IReadOnlyList<>)
-                   || typeDefinition == typeof(ICollection<>)
-                   || typeDefinition == typeof(IList<>)
-                   || typeDefinition == typeof(List<>);
+                || typeDefinition == typeof(IReadOnlyCollection<>)
+                || typeDefinition == typeof(IReadOnlyList<>)
+                || typeDefinition == typeof(ICollection<>)
+                || typeDefinition == typeof(IList<>)
+                || typeDefinition == typeof(List<>);
         }
     }
 }

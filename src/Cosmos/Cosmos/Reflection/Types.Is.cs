@@ -124,7 +124,7 @@ namespace Cosmos.Reflection
 
             if (isOptions == TypeIsOptions.IgnoreNullable)
                 type = TypeConv.GetNonNullableType(type);
-
+            
             return type == TypeClass.ByteClazz
                 || type == TypeClass.SByteClazz
                 || type == TypeClass.Int16Clazz
