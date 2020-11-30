@@ -12,7 +12,8 @@ namespace Cosmos.Reflection
     public static class TypeConv
     {
         /// <summary>
-        /// Convert nullable type to underlying type.
+        /// Convert nullable type to underlying type. <br />
+        /// 将可为空的类型转换为基础类型。
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -116,7 +117,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Convert nullable type to underlying type.
+        /// Convert nullable type to underlying type. <br />
+        /// 将可为空的类型转换为基础类型。
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>

@@ -16,7 +16,8 @@ namespace Cosmos.Reflection
     public static partial class Types
     {
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <typeparam name="T">Special type T</typeparam>
         public static Type Of<T>(TypeOfOptions options = TypeOfOptions.Owner)
@@ -30,7 +31,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -47,7 +49,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -66,7 +69,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -87,7 +91,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -110,7 +115,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -135,7 +141,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -162,7 +169,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -191,7 +199,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -222,7 +231,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -255,7 +265,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -290,7 +301,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -327,7 +339,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -366,7 +379,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -407,7 +421,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -450,7 +465,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Return the corresponding type according to the given generic parameter.
+        /// Return the corresponding type according to the given generic parameter. <br />
+        /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <param name="options"></param>
         /// <typeparam name="T1"></typeparam>
@@ -495,7 +511,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// According to the given object, return its corresponding type.
+        /// According to the given object, return its corresponding type. <br />
+        /// 根据给定的对象，返回其对应的类型。
         /// </summary>
         /// <param name="objects">Object array</param>
         /// <param name="options"></param>
