@@ -165,33 +165,7 @@ namespace Cosmos.Reflection
                 : typeInfo.IsEnum;
 
         #endregion
-        
-        #region Nullable Type
 
-        /// <summary>
-        /// Is nullable type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsNullableType<T>()
-        {
-            return IsNullableType(typeof(T));
-        }
-
-        /// <summary>
-        /// Is nullable type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static bool IsNullableType(Type type)
-        {
-            return type != null
-                && type.IsGenericType
-                && type.GetGenericTypeDefinition() == typeof(Nullable<>);
-        }
-
-        #endregion
-        
         #region CreateInstance
 
         /// <summary>

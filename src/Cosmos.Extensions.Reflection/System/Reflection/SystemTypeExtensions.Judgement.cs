@@ -187,17 +187,6 @@ namespace System.Reflection
 
         #endregion
 
-        #region IsNullableType
-
-        /// <summary>
-        /// 指示类型是否为可空类型
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static bool IsNullableType(this Type type) => Types.IsNullableType(type);
-
-        #endregion
-
         #region IsEnumerable
 
         /// <summary>

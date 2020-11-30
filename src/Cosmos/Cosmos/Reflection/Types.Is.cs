@@ -164,5 +164,45 @@ namespace Cosmos.Reflection
         }
 
         #endregion
+
+        #region Nullable
+
+        /// <summary>
+        /// Determine whether the given type is a nullable type. <br />
+        /// 判断给定的类型是否为可空类型。
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsNullableType(Type type)
+        {
+            return type != null
+                && type.IsGenericType
+                && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+        }
+
+        /// <summary>
+        /// Determine whether the given type is a nullable type. <br />
+        /// 判断给定的类型是否为可空类型。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsNullableType<T>()
+        {
+            return IsNullableType(typeof(T));
+        }
+
+        /// <summary>
+        /// Determine whether the given object is a nullable type. <br />
+        /// 判断给定的对象是否为可空类型。
+        /// </summary>
+        /// <param name="value"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsNullableType<T>(T value)
+        {
+            return IsNullableType(value.GetUnboxedType());
+        }
+
+        #endregion
     }
 }

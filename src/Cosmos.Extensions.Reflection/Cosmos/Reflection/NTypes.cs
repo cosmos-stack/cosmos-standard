@@ -95,55 +95,5 @@ namespace Cosmos.Reflection
         public static bool IsEnumType(TypeInfo typeInfo, bool mayNullable = false) => Types.IsEnumType(typeInfo, mayNullable);
 
         #endregion
-
-        #region Numeric Type
-
-        /// <summary>
-        /// Is numeric type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsNumericType<T>() => Types.IsNumericType<T>();
-
-        /// <summary>
-        /// Is numeric type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static bool IsNumericType(Type type) => Types.IsNumericType(type);
-
-        /// <summary>
-        /// Is numeric type
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <returns></returns>
-        public static bool IsNumericType(TypeInfo typeInfo) => Types.IsNumericType(typeInfo);
-
-        #endregion
-
-        #region Nullable Type
-
-        /// <summary>
-        /// Is nullable type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsNullableType<T>() => Types.IsNullableType<T>();
-
-        /// <summary>
-        /// Is nullable type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static bool IsNullableType(Type type) => Types.IsNullableType(type);
-
-        /// <summary>
-        /// Is nullable type
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <returns></returns>
-        public static bool IsNullableType(TypeInfo typeInfo) => Types.IsNullableType(typeInfo);
-
-        #endregion
     }
 }
