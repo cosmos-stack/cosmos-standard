@@ -67,8 +67,7 @@ namespace CosmosStandardUT.TypeUT
             Types.IsTupleType(childTuple, TypeOfOptions.Underlying).ShouldBeTrue();
             Types.IsTupleType(123).ShouldBeFalse();
             Types.IsTupleType((object) null).ShouldBeFalse();
-
-            Assert.Throws<ArgumentNullException>(() => Types.IsTupleType(null));
+            Types.IsTupleType(null).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "Nullable Tuple test")]

@@ -172,12 +172,22 @@ namespace Cosmos.Reflection
         /// <summary>
         /// Gets clazz for float
         /// </summary>
-        public static Type FloatClazz { get; } = typeof(float);
+        public static Type FloatClazz => SingleClazz;
 
         /// <summary>
         /// Gets clazz for nullable float
         /// </summary>
-        public static Type FloatNullableClazz { get; } = typeof(float?);
+        public static Type FloatNullableClazz => SingleNullableClazz;
+
+        /// <summary>
+        /// Gets clazz for float
+        /// </summary>
+        public static Type SingleClazz { get; } = typeof(float);
+
+        /// <summary>
+        /// Gets clazz for nullable float
+        /// </summary>
+        public static Type SingleNullableClazz { get; } = typeof(float?);
 
         /// <summary>
         /// Gets clazz for double

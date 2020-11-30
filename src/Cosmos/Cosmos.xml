@@ -3171,6 +3171,16 @@
             Gets clazz for nullable float
             </summary>
         </member>
+        <member name="P:Cosmos.Reflection.TypeClass.SingleClazz">
+            <summary>
+            Gets clazz for float
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.TypeClass.SingleNullableClazz">
+            <summary>
+            Gets clazz for nullable float
+            </summary>
+        </member>
         <member name="P:Cosmos.Reflection.TypeClass.DoubleClazz">
             <summary>
             Gets clazz for double
@@ -3326,14 +3336,16 @@
         </member>
         <member name="M:Cosmos.Reflection.TypeConv.GetNonNullableType(System.Type)">
             <summary>
-            Convert nullable type to underlying type.
+            Convert nullable type to underlying type. <br />
+            将可为空的类型转换为基础类型。
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.TypeConv.GetNonNullableType``1">
             <summary>
-            Convert nullable type to underlying type.
+            Convert nullable type to underlying type. <br />
+            将可为空的类型转换为基础类型。
             </summary>
             <typeparam name="T"></typeparam>
             <returns></returns>
@@ -3722,60 +3734,38 @@
             <param name="memberInfo">Special member</param>
             <returns>Name or description of special member</returns>
         </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsBool(System.Reflection.MemberInfo)">
+        <member name="M:Cosmos.Reflection.TypeReflections.IsBoolean(System.Reflection.MemberInfo,Cosmos.Reflection.TypeIsOptions)">
             <summary>
-            是否布尔类型
+            Determine whether the given MemberInfo is a Boolean type.<br />
+            判断给定的 MemberInfo 元信息是否为布尔类型。
             </summary>
+            <param name="isOptions"></param>
             <param name="member">成员</param>
         </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsBool(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Reflection.TypeReflections.IsDateTime(System.Reflection.MemberInfo,Cosmos.Reflection.TypeIsOptions)">
             <summary>
-            是否布尔类型
+            Determine whether the given MemberInfo is a datetime.<br />
+            判断给定的 MemberInfo 元信息是否为 DateTime 类型。
             </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsEnum(System.Reflection.MemberInfo)">
-            <summary>
-            是否枚举类型
-            </summary>
+            <param name="isOptions"></param>
             <param name="member">成员</param>
         </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsEnum(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Reflection.TypeReflections.IsNumeric(System.Reflection.MemberInfo,Cosmos.Reflection.TypeIsOptions)">
             <summary>
-            是否枚举类型
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsDate(System.Reflection.MemberInfo)">
-            <summary>
-            是否日期类型
+            Determine whether the given MemberInfo is a numeric type.<br />
+            判断给定的 MemberInfo 元信息是否为数字类型。
             </summary>
             <param name="member">成员</param>
+            <param name="isOptions"></param>
         </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsDate(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Reflection.TypeReflections.IsEnum(System.Reflection.MemberInfo,Cosmos.Reflection.TypeIsOptions)">
             <summary>
-            是否日期类型
+            Determine whether the given MemberInfo is an enum type.<br />
+            判断给定的 MemberInfo 元信息是否为枚举类型。
             </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsInt(System.Reflection.MemberInfo)">
-            <summary>
-            是否整型
-            </summary>
-            <param name="member">成员</param>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsInt(System.Reflection.PropertyInfo)">
-            <summary>
-            是否整型
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsNumber(System.Reflection.MemberInfo)">
-            <summary>
-            是否数值类型
-            </summary>
-            <param name="member">成员</param>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.IsNumeric(System.Reflection.PropertyInfo)">
-            <summary>
-            是否数值类型
-            </summary>
+            <param name="member"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.TypeReflections.IsCollection(System.Type)">
             <summary>
@@ -3790,6 +3780,9 @@
             <param name="type">类型</param>
         </member>
         <member name="T:Cosmos.Reflection.Types">
+            <summary>
+            Type Utilities
+            </summary>
             <summary>
             Type Utilities
             </summary>
@@ -3853,81 +3846,6 @@
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.Types.IsEnumType``1(System.Boolean)">
-            <summary>
-            Is enum type
-            </summary>
-            <param name="mayNullable"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsEnumType(System.Type,System.Boolean)">
-            <summary>
-            Is enum type
-            </summary>
-            <param name="type"></param>
-            <param name="mayNullable"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsEnumType(System.Reflection.TypeInfo,System.Boolean)">
-            <summary>
-            Is enum type
-            </summary>
-            <param name="typeInfo"></param>
-            <param name="mayNullable"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsNumericType``1">
-            <summary>
-            Is numeric type
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsNumericType(System.Type)">
-            <summary>
-            Is numeric type
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsNumericType(System.Reflection.TypeInfo)">
-            <summary>
-            Is numeric type
-            </summary>
-            <param name="typeInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsNullableType``1">
-            <summary>
-            Is nullable type
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsNullableType(System.Type)">
-            <summary>
-            Is nullable type
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsNullableType(System.Reflection.TypeInfo)">
-            <summary>
-            Is nullable type
-            </summary>
-            <param name="typeInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsTupleType(System.Type,System.Boolean)">
-            <summary>
-            Is tuple type
-            </summary>
-            <param name="type"></param>
-            <param name="checkBaseTypes"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
         <member name="M:Cosmos.Reflection.Types.CreateInstance``1(System.Object[])">
             <summary>
             Create instance
@@ -3960,15 +3878,382 @@
             <typeparam name="TInstance"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.Types.IsTupleType(System.Type,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given type is a tuple type.<br />
+            判断给定的类型是否为元组类型
+            </summary>
+            <param name="type"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsTupleType``1(Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given type is a tuple type.<br />
+            判断给定的类型是否为元组类型
+            </summary>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsTupleType``1(``0,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given object is a tuple type.<br />
+            判断给定的对象是否为元组类型
+            </summary>
+            <param name="value"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsNumericType(System.Type,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given type is a numeric type.<br />
+            判断给定的类型是否为数字类型。
+            </summary>
+            <param name="type"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsNumericType``1(Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given type is a numeric type.<br />
+            判断给定的类型是否为数字类型。
+            </summary>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsNumericType``1(``0,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given object is a numeric type.<br />
+            判断给定的对象是否为数字类型。
+            </summary>
+            <param name="value"></param>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsNullableType(System.Type)">
+            <summary>
+            Determine whether the given type is a nullable type. <br />
+            判断给定的类型是否为可空类型。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsNullableType``1">
+            <summary>
+            Determine whether the given type is a nullable type. <br />
+            判断给定的类型是否为可空类型。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsNullableType``1(``0)">
+            <summary>
+            Determine whether the given object is a nullable type. <br />
+            判断给定的对象是否为可空类型。
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsEnumType(System.Type,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Is enum type
+            </summary>
+            <param name="type"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsEnumType``1(Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Is enum type
+            </summary>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsEnumType``1(``0,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Is enum type
+            </summary>
+            <param name="value"></param>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.Types.Of``1(Cosmos.Reflection.TypeOfOptions)">
             <summary>
-            Get type
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
             </summary>
             <typeparam name="T">Special type T</typeparam>
         </member>
+        <member name="M:Cosmos.Reflection.Types.Of``2(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``3(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``4(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``5(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``6(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``7(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``8(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``9(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``10(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``11(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``12(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``13(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``14(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``15(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.Of``16(Cosmos.Reflection.TypeOfOptions)">
+            <summary>
+            Return the corresponding type according to the given generic parameter. <br />
+            根据给定的通用参数返回相应的类型。
+            </summary>
+            <param name="options"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.Types.Of(System.Object[],Cosmos.Reflection.TypeOfOptions)">
             <summary>
-            Get types
+            According to the given object, return its corresponding type. <br />
+            根据给定的对象，返回其对应的类型。
             </summary>
             <param name="objects">Object array</param>
             <param name="options"></param>

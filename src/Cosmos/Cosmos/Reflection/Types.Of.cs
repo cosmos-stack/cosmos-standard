@@ -533,6 +533,10 @@ namespace Cosmos.Reflection
 
             Type[] GetNativeTypeArray(object[] objectCollection)
             {
+                // After the int? type is boxed, and then use GetType(), Nullable<int> will not be obtained.
+                // More info
+                //    https://github.com/dotnet/runtime/pull/42837
+                
                 //return objectCollection.Select(obj => obj?.GetType());
                 if (objectCollection.Contains(null))
                     return objectCollection.Select(obj => obj?.GetType()).ToArray();

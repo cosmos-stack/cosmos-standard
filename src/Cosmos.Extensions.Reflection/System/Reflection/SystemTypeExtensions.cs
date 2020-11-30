@@ -13,18 +13,6 @@ namespace System.Reflection
     /// </summary>
     public static partial class SystemTypeExtensions
     {
-        #region ToNonNullableType
-
-        /// <summary>
-        /// Get a non-nullable underlying version of a given <see cref="Type"/>.<br />
-        /// 获取给定类型的非空版本。
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static Type ToNonNullableType(this Type type) => type.SafeType();
-
-        #endregion
-
         #region ToTypeInfo
 
         /// <summary>

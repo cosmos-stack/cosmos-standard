@@ -39,6 +39,144 @@
             Error code
             </summary>
         </member>
+        <member name="T:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions">
+            <summary>
+            Exception building options.<br />
+            异常构建器选项。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.#ctor(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions"/>.<br />
+            构建一个新的 <see cref="T:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions"/> 实例。
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="P:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.ExceptionType">
+            <summary>
+            Gets exception type.<br />
+            获取异常类型。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.AddArg``1(System.String,``0)">
+            <summary>
+            Add args.<br />
+            添加参数。
+            </summary>
+            <param name="argumentName"></param>
+            <param name="argumentValue"></param>
+            <typeparam name="TArgVal"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.BuildingDescriptors.ExceptionBuildingOptions.AddArg``1(System.String,``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Add args.<br />
+            添加参数。
+            </summary>
+            <param name="argumentName"></param>
+            <param name="argumentValue"></param>
+            <param name="predicate"></param>
+            <typeparam name="TArgVal"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Exceptions.ExceptionBuilder">
+            <summary>
+            Exception builder
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder.Create``1">
+            <summary>
+            Create a new builder for of <typeparamref name="TException"/> <see cref="T:Cosmos.Exceptions.ExceptionBuilder`1"/>.<br />
+            If you want to use this feature, please add following xml-node in your csproj file:<br />
+            &lt;PreserveCompilationContext&gt;true&lt;/PreserveCompilationContext&gt;<br />
+            This feature is supported by LanX, the author of NCC Natasha.<br />
+            <br />
+            创建一个用于构建 <typeparamref name="TException"/> <see cref="T:Cosmos.Exceptions.ExceptionBuilder`1"/> 的 builder。<br />
+            如果你想使用此功能，需要在 csproj 文件中添加下述 Xml 节点：<br />
+            &lt;PreserveCompilationContext&gt;true&lt;/PreserveCompilationContext&gt;<br />
+            本功能由 NCC Natasha 的作者 LanX 提供支持。
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Exceptions.ExceptionBuilder`1">
+            <summary>
+            Exception builder<br />
+            异常构建器。
+            </summary>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.ExceptionBuilder`1"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Exceptions.ExceptionBuilder`1"/> 实例。
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.ExceptionBuilder`1.TargetType">
+            <summary>
+            Target type of exception.<br />
+            目标异常的类型
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.InnerException(System.Exception)">
+            <summary>
+            Sets inner exception.<br />
+            设置内部异常。
+            </summary>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.ParamName(System.String)">
+            <summary>
+            Sets parameter's name.<br />
+            设置参数名称。
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.Message(System.String)">
+            <summary>
+            Sets exception message.<br />
+            设置异常消息。
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.ActualValue(System.Object)">
+            <summary>
+            Sets actual value.<br />
+            设置实际的值。
+            </summary>
+            <param name="actualValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.ErrorCode(System.Int32)">
+            <summary>
+            Sets error code.<br />
+            设置错误代码（Error Code）。
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.Build">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.BuildAndThrow">
+            <summary>
+            Build, and throw exception.<br />
+            构建，并抛出异常。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.ExceptionBuilder`1.BuildAndThrowAsValidationError">
+            <summary>
+            Build, and throw as Validation error.<br />
+            构建，并抛出验证错误。
+            </summary>
+        </member>
         <member name="T:Cosmos.Exceptions.IFluentExceptionBuilder`1">
             <summary>
             Interface for fluent exception builder.<br />
@@ -292,6 +430,31 @@
             <typeparam name="TInstance"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
+            <summary>
+            Create instance
+            </summary>
+            <param name="ctorArgDescriptors"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
+            <summary>
+            Create instance
+            </summary>
+            <param name="type"></param>
+            <param name="ctorArgDescriptors"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.NTypes.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
+            <summary>
+            Create instance
+            </summary>
+            <param name="type"></param>
+            <param name="ctorArgDescriptors"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.NTypes.IsGenericImplementation(System.Type,System.Type)">
             <summary>
             Determine whether the given type can be assigned to the specified generic type.<br />
@@ -348,80 +511,55 @@
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsEnumType``1(System.Boolean)">
+        <member name="T:Cosmos.Reflection.CtorArgDescriptor">
             <summary>
-            Is enum type
+            Descriptor of argument
             </summary>
-            <param name="mayNullable"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsEnumType(System.Type,System.Boolean)">
+        <member name="M:Cosmos.Reflection.CtorArgDescriptor.#ctor(System.String,System.Object,System.Type)">
             <summary>
-            Is enum type
+            Create a new instance of <see cref="T:Cosmos.Reflection.CtorArgDescriptor"/>.
             </summary>
+            <param name="name"></param>
+            <param name="value"></param>
             <param name="type"></param>
-            <param name="mayNullable"></param>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsEnumType(System.Reflection.TypeInfo,System.Boolean)">
+        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Name">
             <summary>
-            Is enum type
+            Argument name
             </summary>
-            <param name="typeInfo"></param>
-            <param name="mayNullable"></param>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsNumericType``1">
+        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Value">
             <summary>
-            Is numeric type
+            Argument value
             </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsNumericType(System.Type)">
+        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Type">
             <summary>
-            Is numeric type
+            Argument type
             </summary>
-            <param name="type"></param>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsNumericType(System.Reflection.TypeInfo)">
+        <member name="T:Cosmos.Reflection.CtorMatchedResult">
             <summary>
-            Is numeric type
+            Ctor matched result
             </summary>
-            <param name="typeInfo"></param>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsNullableType``1">
+        <member name="M:Cosmos.Reflection.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
             <summary>
-            Is nullable type
+            Ctor matched result
             </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
+            <param name="values"></param>
+            <param name="index"></param>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsNullableType(System.Type)">
+        <member name="F:Cosmos.Reflection.CtorMatchedResult.Values">
             <summary>
-            Is nullable type
+            Values
             </summary>
-            <param name="type"></param>
-            <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsNullableType(System.Reflection.TypeInfo)">
+        <member name="F:Cosmos.Reflection.CtorMatchedResult.Index">
             <summary>
-            Is nullable type
+            Index
             </summary>
-            <param name="typeInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsTupleType(System.Type,System.Boolean)">
-            <summary>
-            Is tuple type
-            </summary>
-            <param name="type"></param>
-            <param name="checkBaseTypes"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:Cosmos.Reflection.ObjectRefCopyExtensions">
             <summary>
@@ -1538,28 +1676,14 @@
             <typeparam name="TBaseType"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsNumeric(System.Type)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsNumeric(System.Type,Cosmos.Reflection.TypeIsOptions)">
             <summary>
-            Determine whether the specified type is a numeric type.<br />
-            判断指定类型是否为数值类型
+            Determine whether the given type is a numeric type.<br />
+            判断给定的类型是否为数字类型。
             </summary>
             <param name="type">要检查的类型</param>
+            <param name="options"></param>
             <returns>是否是数值类型</returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsNumeric(System.Reflection.TypeInfo)">
-            <summary>
-            Determine whether the specified type is a numeric type.<br />
-            判断指定类型是否为数值类型
-            </summary>
-            <param name="typeInfo">要检查的类型</param>
-            <returns>是否是数值类型</returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsNullableType(System.Type)">
-            <summary>
-            指示类型是否为可空类型
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
         </member>
         <member name="M:System.Reflection.SystemTypeExtensions.IsEnumerable(System.Type)">
             <summary>
@@ -1569,12 +1693,14 @@
             <param name="that"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsTupleType(System.Type,System.Boolean)">
+        <member name="M:System.Reflection.SystemTypeExtensions.IsTupleType(System.Type,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
             <summary>
-            指示类型是否为 TupleType。
+            Determine whether the given type is a tuple type.<br />
+            判断给定的类型是否为元组类型
             </summary>
             <param name="type"></param>
-            <param name="checkBaseTypes"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
             <returns></returns>
         </member>
         <member name="M:System.Reflection.SystemTypeExtensions.IsDefined``1(System.Type)">
