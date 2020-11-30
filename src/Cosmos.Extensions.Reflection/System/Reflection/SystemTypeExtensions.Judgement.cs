@@ -225,12 +225,13 @@ namespace System.Reflection
         #region IsTupleType
 
         /// <summary>
-        /// 指示类型是否为 TupleType。
+        /// Determine whether the given type is a tuple type.<br />
+        /// 判断给定的类型是否为元组类型
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="checkBaseTypes"></param>
+        /// <param name="options"></param>
         /// <returns></returns>
-        public static bool IsTupleType(this Type type, bool checkBaseTypes = false) => Types.IsTupleType(type, checkBaseTypes);
+        public static bool IsTupleType(this Type type, TypeOfOptions options = TypeOfOptions.Owner) => Types.IsTupleType(type, options);
 
         #endregion
 

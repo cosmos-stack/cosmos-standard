@@ -145,18 +145,5 @@ namespace Cosmos.Reflection
         public static bool IsNullableType(TypeInfo typeInfo) => Types.IsNullableType(typeInfo);
 
         #endregion
-
-        #region Tuple Type
-
-        /// <summary>
-        /// Is tuple type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="checkBaseTypes"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static bool IsTupleType(Type type, bool checkBaseTypes = false) => Types.IsTupleType(type, checkBaseTypes);
-
-        #endregion
     }
 }
