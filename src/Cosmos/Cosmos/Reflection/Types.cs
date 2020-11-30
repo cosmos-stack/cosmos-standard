@@ -165,45 +165,7 @@ namespace Cosmos.Reflection
                 : typeInfo.IsEnum;
 
         #endregion
-
-        #region Numeric Type
-
-        /// <summary>
-        /// Is numeric type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsNumericType<T>() => IsNumericType(typeof(T));
-
-        /// <summary>
-        /// Is numeric type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static bool IsNumericType(Type type)
-        {
-            return type == TypeClass.ByteClazz
-                || type == TypeClass.Int16Clazz
-                || type == TypeClass.Int32Clazz
-                || type == TypeClass.Int64Clazz
-                || type == TypeClass.SByteClazz
-                || type == TypeClass.UInt16Clazz
-                || type == TypeClass.UInt32Clazz
-                || type == TypeClass.UInt64Clazz
-                || type == TypeClass.DecimalClazz
-                || type == TypeClass.DoubleClazz
-                || type == TypeClass.FloatClazz;
-        }
-
-        /// <summary>
-        /// Is numeric type
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <returns></returns>
-        public static bool IsNumericType(TypeInfo typeInfo) => IsNumericType(typeInfo.AsType());
-
-        #endregion
-
+        
         #region Nullable Type
 
         /// <summary>
@@ -226,16 +188,6 @@ namespace Cosmos.Reflection
             return type != null
                 && type.IsGenericType
                 && type.GetGenericTypeDefinition() == typeof(Nullable<>);
-        }
-
-        /// <summary>
-        /// Is nullable type
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <returns></returns>
-        public static bool IsNullableType(TypeInfo typeInfo)
-        {
-            return IsNullableType(typeInfo.AsType());
         }
 
         #endregion
