@@ -130,42 +130,6 @@ namespace Cosmos.Reflection
 
         #endregion
 
-        #region Enum Type
-
-        /// <summary>
-        /// Is enum type
-        /// </summary>
-        /// <param name="mayNullable"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsEnumType<T>(bool mayNullable = false) => mayNullable
-            ? (Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T)).IsEnum
-            : typeof(T).IsEnum;
-
-        /// <summary>
-        /// Is enum type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="mayNullable"></param>
-        /// <returns></returns>
-        public static bool IsEnumType(Type type, bool mayNullable = false) =>
-            mayNullable
-                ? (Nullable.GetUnderlyingType(type) ?? type).IsEnum
-                : type.IsEnum;
-
-        /// <summary>
-        /// Is enum type
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <param name="mayNullable"></param>
-        /// <returns></returns>
-        public static bool IsEnumType(TypeInfo typeInfo, bool mayNullable = false) =>
-            mayNullable
-                ? (Nullable.GetUnderlyingType(typeInfo) ?? typeInfo).IsEnum
-                : typeInfo.IsEnum;
-
-        #endregion
-
         #region CreateInstance
 
         /// <summary>

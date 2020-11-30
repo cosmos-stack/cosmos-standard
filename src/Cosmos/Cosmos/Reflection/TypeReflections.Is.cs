@@ -64,34 +64,18 @@ namespace Cosmos.Reflection
             return X(member, type => type, type => Types.IsNumericType(type, isOptions));
         }
 
-
         /// <summary>
-        /// 是否枚举类型
+        /// Determine whether the given MemberInfo is an enum type.<br />
+        /// 判断给定的 MemberInfo 元信息是否为枚举类型。
         /// </summary>
-        /// <param name="member">成员</param>
-        public static bool IsEnum(MemberInfo member)
+        /// <param name="member"></param>
+        /// <param name="isOptions"></param>
+        /// <returns></returns>
+        public static bool IsEnum(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
-            if (member == null)
-                return false;
-            switch (member.MemberType)
-            {
-                case MemberTypes.TypeInfo:
-                    return ((TypeInfo) member).IsEnum;
-                case MemberTypes.Property:
-                    return IsEnum((PropertyInfo) member);
-            }
-
-            return false;
+            return X(member, type => type, type => Types.IsEnumType(type, isOptions));
         }
-
-        /// <summary>
-        /// 是否枚举类型
-        /// </summary>
-        private static bool IsEnum(PropertyInfo property)
-        {
-            return Types.IsEnumType(property.PropertyType);
-        }
-
+        
         /// <summary>
         /// 是否集合
         /// </summary>

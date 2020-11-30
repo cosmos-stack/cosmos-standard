@@ -22,5 +22,11 @@ namespace CosmosStandardUT.Models
         public DateTime? DateTimeV4;
         
         public string Str { get; set; }
+        
+        public Int16Enum Int99V1 { get; set; }
+        public Int16Enum Int99V2;
+        
+        public Int16Enum? Int99V3 { get; set; }
+        public Int16Enum? Int99V4;
     }
 }

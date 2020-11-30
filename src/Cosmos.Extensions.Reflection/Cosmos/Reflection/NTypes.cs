@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 
 namespace Cosmos.Reflection
 {
@@ -65,34 +64,6 @@ namespace Cosmos.Reflection
         /// <typeparam name="TGeneric">The generic type TGeneric</typeparam>
         /// <returns></returns>
         public static Type GetRawTypeFromGenericClass<TGot, TGeneric>() => Types.GetRawTypeFromGenericClass<TGot, TGeneric>();
-
-        #endregion
-
-        #region Enum Type
-
-        /// <summary>
-        /// Is enum type
-        /// </summary>
-        /// <param name="mayNullable"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsEnumType<T>(bool mayNullable = false) => Types.IsEnumType<T>(mayNullable);
-
-        /// <summary>
-        /// Is enum type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="mayNullable"></param>
-        /// <returns></returns>
-        public static bool IsEnumType(Type type, bool mayNullable = false) => Types.IsEnumType(type, mayNullable);
-
-        /// <summary>
-        /// Is enum type
-        /// </summary>
-        /// <param name="typeInfo"></param>
-        /// <param name="mayNullable"></param>
-        /// <returns></returns>
-        public static bool IsEnumType(TypeInfo typeInfo, bool mayNullable = false) => Types.IsEnumType(typeInfo, mayNullable);
 
         #endregion
     }

@@ -32,7 +32,7 @@ namespace Cosmos.Reflection
         public static bool IsTupleType(Type type, TypeOfOptions ofOptions = TypeOfOptions.Owner, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             if (type is null)
-                throw new ArgumentNullException(nameof(type));
+                return false;
 
             if (isOptions == TypeIsOptions.IgnoreNullable)
                 type = TypeConv.GetNonNullableType(type);
@@ -124,7 +124,7 @@ namespace Cosmos.Reflection
 
             if (isOptions == TypeIsOptions.IgnoreNullable)
                 type = TypeConv.GetNonNullableType(type);
-            
+
             return type == TypeClass.ByteClazz
                 || type == TypeClass.SByteClazz
                 || type == TypeClass.Int16Clazz
@@ -175,7 +175,7 @@ namespace Cosmos.Reflection
         /// <returns></returns>
         public static bool IsNullableType(Type type)
         {
-            return type != null
+            return type is not null
                 && type.IsGenericType
                 && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
@@ -201,6 +201,50 @@ namespace Cosmos.Reflection
         public static bool IsNullableType<T>(T value)
         {
             return IsNullableType(value.GetUnboxedType());
+        }
+
+        #endregion
+
+        #region Enum
+
+        /// <summary>
+        /// Is enum type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="isOptions"></param>
+        /// <returns></returns>
+        public static bool IsEnumType(Type type, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return type is not null 
+                && isOptions switch
+            {
+                TypeIsOptions.Default => type.IsEnum,
+                TypeIsOptions.IgnoreNullable => TypeConv.GetNonNullableType(type).IsEnum,
+                _ => type.IsEnum
+            };
+        }
+
+        /// <summary>
+        /// Is enum type
+        /// </summary>
+        /// <param name="isOptions"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsEnumType<T>(TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return IsEnumType(typeof(T), isOptions);
+        }
+
+        /// <summary>
+        /// Is enum type
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="isOptions"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsEnumType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return value is not null && IsEnumType(typeof(T), isOptions) && typeof(T).IsEnumDefined(value);
         }
 
         #endregion
