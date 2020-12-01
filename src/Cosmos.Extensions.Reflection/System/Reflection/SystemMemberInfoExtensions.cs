@@ -34,6 +34,28 @@ namespace System.Reflection
         public static bool IsAttributeNotDefined<TAttribute>(this MemberInfo member, ReflectionOptions options = ReflectionOptions.Default) where TAttribute : Attribute
             => !TypeReflections.IsAttributeDefined<TAttribute>(member, options);
 
+        /// <summary>
+        /// To determine whether the given Attribute is defined.<br />
+        /// 判断给定的特性是否定义。
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="attributeType"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static bool IsAttributeDefined(this MemberInfo member,Type attributeType, ReflectionOptions options = ReflectionOptions.Default)
+            => TypeReflections.IsAttributeDefined(member,attributeType, options);
+        
+        /// <summary>
+        /// To determine whether the given Attribute is undefined.<br />
+        /// 判断给定的特性是否未定义。
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="attributeType"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static bool IsAttributeNotDefined(this MemberInfo member,Type attributeType, ReflectionOptions options = ReflectionOptions.Default)
+            => !TypeReflections.IsAttributeDefined(member,attributeType, options);
+        
         #endregion
 
         #region GetAttribute

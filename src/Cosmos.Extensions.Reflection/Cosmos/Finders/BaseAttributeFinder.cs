@@ -22,7 +22,7 @@ namespace Cosmos.Finders
         {
             Assembly[] assemblies = _allAssemblyFinder.FindAll(true);
             return assemblies.SelectMany(assembly => assembly.GetTypes())
-                .Where(type => type.IsClass && !type.IsAbstract && type.HasAttribute<TAttributeType>()).Distinct().ToArray();
+                .Where(type => type.IsClass && !type.IsAbstract && type.IsAttributeDefined<TAttributeType>()).Distinct().ToArray();
         }
     }
 }
