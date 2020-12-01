@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cosmos;
+using Cosmos.Reflection;
 
 namespace System.Reflection
 {
@@ -16,43 +17,22 @@ namespace System.Reflection
         /// 判断给定的特性是否定义。
         /// </summary>
         /// <typeparam name="TAttribute">要检查的特性类型</typeparam>
-        /// <param name="memberInfo">要检查的类型成员</param>
+        /// <param name="member">要检查的类型成员</param>
+        /// <param name="options">反射选项</param>
         /// <returns>是否存在</returns>
-        public static bool IsDefined<TAttribute>(this MemberInfo memberInfo) where TAttribute : Attribute
-            => memberInfo.GetCustomAttributes(typeof(TAttribute)).Any(m => m is TAttribute);
-
-        /// <summary>
-        /// To determine whether the given Attribute is defined.<br />
-        /// 判断给定的特性是否定义。
-        /// </summary>
-        /// <typeparam name="TAttribute">要检查的特性类型</typeparam>
-        /// <param name="memberInfo">要检查的类型成员</param>
-        /// <param name="inherit">是否从继承中查找</param>
-        /// <returns>是否存在</returns>
-        public static bool IsDefined<TAttribute>(this MemberInfo memberInfo, bool inherit) where TAttribute : Attribute
-            => memberInfo.GetCustomAttributes(typeof(TAttribute), inherit).Any(m => m is TAttribute);
-
+        public static bool IsAttributeDefined<TAttribute>(this MemberInfo member, ReflectionOptions options = ReflectionOptions.Default) where TAttribute : Attribute
+            => TypeReflections.IsAttributeDefined<TAttribute>(member, options);
+        
         /// <summary>
         /// To determine whether the given Attribute is undefined.<br />
         /// 判断给定的特性是否未定义。
         /// </summary>
         /// <typeparam name="TAttribute">要检查的特性类型</typeparam>
-        /// <param name="memberInfo">要检查的类型成员</param>
+        /// <param name="member">要检查的类型成员</param>
+        /// <param name="options">反射选项</param>
         /// <returns>是否不存在</returns>
-        public static bool IsNotDefined<TAttribute>(this MemberInfo memberInfo) where TAttribute : Attribute
-            => !memberInfo.IsDefined<TAttribute>();
-
-        /// <summary>
-        /// To determine whether the given Attribute is undefined.<br />
-        /// 判断给定的特性是否未定义。
-        /// </summary>
-        /// <typeparam name="TAttribute">要检查的特性类型</typeparam>
-        /// <param name="memberInfo">要检查的类型成员</param>
-        /// <param name="inherit">是否从继承中查找</param>
-        /// <returns>是否不存在</returns>
-        public static bool IsNotDefined<TAttribute>(this MemberInfo memberInfo, bool inherit)
-            where TAttribute : Attribute
-            => !memberInfo.IsDefined<TAttribute>(inherit);
+        public static bool IsAttributeNotDefined<TAttribute>(this MemberInfo member, ReflectionOptions options = ReflectionOptions.Default) where TAttribute : Attribute
+            => !TypeReflections.IsAttributeDefined<TAttribute>(member, options);
 
         #endregion
 
@@ -91,7 +71,7 @@ namespace System.Reflection
         public static bool TryGetAttribute<TAttribute>(this MemberInfo info, out TAttribute attribute)
             where TAttribute : Attribute
         {
-            var ret = info.IsDefined<TAttribute>();
+            var ret = info.IsAttributeDefined<TAttribute>();
             attribute = ret
                 ? info.GetAttributeOrNull<TAttribute>()
                 : default;
@@ -110,7 +90,7 @@ namespace System.Reflection
         public static bool TryGetAttribute<TAttribute>(this MemberInfo info, bool inherit, out TAttribute attribute)
             where TAttribute : Attribute
         {
-            var ret = info.IsDefined<TAttribute>();
+            var ret = info.IsAttributeDefined<TAttribute>();
             attribute = ret
                 ? info.GetAttributeOrNull<TAttribute>(inherit)
                 : default;

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Cosmos.Reflection
 {
@@ -215,13 +218,13 @@ namespace Cosmos.Reflection
         /// <returns></returns>
         public static bool IsEnumType(Type type, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
-            return type is not null 
+            return type is not null
                 && isOptions switch
-            {
-                TypeIsOptions.Default => type.IsEnum,
-                TypeIsOptions.IgnoreNullable => TypeConv.GetNonNullableType(type).IsEnum,
-                _ => type.IsEnum
-            };
+                   {
+                       TypeIsOptions.Default => type.IsEnum,
+                       TypeIsOptions.IgnoreNullable => TypeConv.GetNonNullableType(type).IsEnum,
+                       _ => type.IsEnum
+                   };
         }
 
         /// <summary>
@@ -245,6 +248,127 @@ namespace Cosmos.Reflection
         public static bool IsEnumType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return value is not null && IsEnumType(typeof(T), isOptions) && typeof(T).IsEnumDefined(value);
+        }
+
+        #endregion
+
+        #region Array/Collection
+
+        /// <summary>
+        /// Determine whether the given type is a collection or array type.<br />
+        /// 判断给定的类型是否为集合或数组类型。
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsCollectionType(Type type)
+        {
+            return type is not null && (type.IsArray || type.GetInterfaces().Any(InterfacePredicate));
+
+            bool InterfacePredicate(Type typeOfInterface)
+            {
+                if (typeOfInterface.IsGenericType)
+                    typeOfInterface = typeOfInterface.GetGenericTypeDefinition();
+
+                return typeOfInterface == typeof(IEnumerable<>)
+                    || typeOfInterface == typeof(ICollection<>)
+                    || typeOfInterface == typeof(IEnumerable)
+                    || typeOfInterface == typeof(ICollection);
+            }
+        }
+
+        /// <summary>
+        /// Determine whether the given type is a collection or array type.<br />
+        /// 判断给定的类型是否为集合或数组类型。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsCollectionType<T>()
+        {
+            return IsCollectionType(typeof(T));
+        }
+
+        /// <summary>
+        /// Determine whether the given object is a collection or array type.<br />
+        /// 判断给定的对象是否为集合或数组类型。
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="isOptions"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsCollectionType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return isOptions switch
+            {
+                TypeIsOptions.Default => value is not null && IsCollectionType(typeof(T)),
+                TypeIsOptions.IgnoreNullable => IsCollectionType(typeof(T)),
+                _ => value is not null && IsCollectionType(typeof(T))
+            };
+        }
+
+        #endregion
+
+        #region Attribute Defined
+
+        /// <summary>
+        /// To determine whether the given Attribute is defined.<br />
+        /// 判断给定的特性是否定义。
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="attributeType"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static bool IsAttributeDefined(Type type, Type attributeType, ReflectionOptions options = ReflectionOptions.Default)
+        {
+            return TypeReflections.IsAttributeDefined(type, attributeType, options);
+        }
+
+        /// <summary>
+        /// To determine whether the given Attribute is defined.<br />
+        /// 判断给定的特性是否定义。
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="options"></param>
+        /// <typeparam name="TAttribute"></typeparam>
+        /// <returns></returns>
+        public static bool IsAttributeDefined<TAttribute>(Type type, ReflectionOptions options = ReflectionOptions.Default)
+            where TAttribute : Attribute
+        {
+            return TypeReflections.IsAttributeDefined<TAttribute>(type, options);
+        }
+
+        /// <summary>
+        /// To determine whether the given Attribute is defined.<br />
+        /// 判断给定的特性是否定义。
+        /// </summary>
+        /// <param name="options"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TAttribute"></typeparam>
+        /// <returns></returns>
+        public static bool IsAttributeDefined<T, TAttribute>(ReflectionOptions options = ReflectionOptions.Default)
+            where TAttribute : Attribute
+        {
+            return TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options);
+        }
+        
+        /// <summary>
+        /// To determine whether the given Attribute is defined.<br />
+        /// 判断给定的特性是否定义。
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="options"></param>
+        /// <param name="isOptions"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TAttribute"></typeparam>
+        /// <returns></returns>
+        public static bool IsAttributeDefined<T, TAttribute>(T value, ReflectionOptions options = ReflectionOptions.Default, TypeIsOptions isOptions = TypeIsOptions.Default)
+            where TAttribute : Attribute
+        {
+            return isOptions switch
+            {
+                TypeIsOptions.Default => value is not null && TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options),
+                TypeIsOptions.IgnoreNullable => TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options),
+                _ => value is not null && TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options)
+            };
         }
 
         #endregion
