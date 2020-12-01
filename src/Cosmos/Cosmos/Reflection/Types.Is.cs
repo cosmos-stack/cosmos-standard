@@ -365,10 +365,43 @@ namespace Cosmos.Reflection
         {
             return isOptions switch
             {
-                TypeIsOptions.Default => value is not null && TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options),
-                TypeIsOptions.IgnoreNullable => TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options),
-                _ => value is not null && TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options)
+                TypeIsOptions.Default => value is not null && LocalFunc(),
+                TypeIsOptions.IgnoreNullable => LocalFunc(),
+                _ => value is not null && LocalFunc()
             };
+            
+            bool LocalFunc() => TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options);
+        }
+
+        #endregion
+
+        #region Interface Defined
+
+        public static bool IsInterfaceDefined(Type type, Type interfaceType, InterfaceOptions options = InterfaceOptions.Default)
+        {
+            return TypeReflections.IsInterfaceDefined(type, interfaceType, options);
+        }
+
+        public static bool IsInterfaceDefined<TInterface>(Type type, InterfaceOptions options = InterfaceOptions.Default)
+        {
+            return TypeReflections.IsInterfaceDefined<TInterface>(type, options);
+        }
+        
+        public static bool IsInterfaceDefined<T,TInterface>( InterfaceOptions options = InterfaceOptions.Default)
+        {
+            return TypeReflections.IsInterfaceDefined<TInterface>(typeof(T), options);
+        }
+        
+        public static bool IsInterfaceDefined<T,TInterface>(T value,  InterfaceOptions options = InterfaceOptions.Default, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return isOptions switch
+            {
+                TypeIsOptions.Default => value is not null && LocalFunc(),
+                TypeIsOptions.IgnoreNullable => LocalFunc(),
+                _ => value is not null && LocalFunc()
+            };
+            
+            bool LocalFunc() => TypeReflections.IsInterfaceDefined<TInterface>(typeof(T), options);
         }
 
         #endregion
