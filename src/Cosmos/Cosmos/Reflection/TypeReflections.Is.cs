@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace Cosmos.Reflection
@@ -75,33 +74,16 @@ namespace Cosmos.Reflection
         {
             return X(member, type => type, type => Types.IsEnumType(type, isOptions));
         }
-        
-        /// <summary>
-        /// 是否集合
-        /// </summary>
-        /// <param name="type">类型</param>
-        public static bool IsCollection(Type type)
-        {
-            if (type.IsArray)
-                return true;
-            return IsGenericCollection(type);
-        }
 
         /// <summary>
-        /// 是否泛型集合
+        /// Determine whether the given type is a collection or array type.<br />
+        /// 判断给定的类型是否为集合或数组类型。
         /// </summary>
-        /// <param name="type">类型</param>
-        public static bool IsGenericCollection(Type type)
+        /// <param name="member"></param>
+        /// <returns></returns>
+        public static bool IsCollection(MemberInfo member)
         {
-            if (!type.IsGenericType)
-                return false;
-            var typeDefinition = type.GetGenericTypeDefinition();
-            return typeDefinition == typeof(IEnumerable<>)
-                || typeDefinition == typeof(IReadOnlyCollection<>)
-                || typeDefinition == typeof(IReadOnlyList<>)
-                || typeDefinition == typeof(ICollection<>)
-                || typeDefinition == typeof(IList<>)
-                || typeDefinition == typeof(List<>);
+            return X(member, type => type, Types.IsCollectionType);
         }
     }
 }
