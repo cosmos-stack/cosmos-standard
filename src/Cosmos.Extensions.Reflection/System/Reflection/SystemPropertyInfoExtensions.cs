@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Linq.Expressions;
 using Cosmos.Expressions;
-using Cosmos.Reflection;
 
 namespace System.Reflection
 {
@@ -71,24 +70,6 @@ namespace System.Reflection
             ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(expressions.GetPropertyInfos());
 
             return properties.Where(p => !excluded.Contains(p));
-        }
-
-        #endregion
-
-        #region Gets Attribute
-
-        /// <summary>
-        /// Get the Attribute of the specified type from the given PropertyInfo. <br />
-        /// 从给定的 PropertyInfo 中获取指定类型的 Attribute。
-        /// </summary>
-        /// <param name="propertyInfo"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static T GetAttribute<T>(PropertyInfo propertyInfo) where T : Attribute
-        {
-            var attributes = propertyInfo.GetCustomAttributes(typeof(T), false);
-
-            return ObjectRefExtensions.GetAttribute<T>(attributes);
         }
 
         #endregion

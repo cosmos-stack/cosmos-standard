@@ -24,7 +24,7 @@ namespace CosmosStandardUT.Models
         [ModelTwo]
         public NormalWithAttrClass() { }
 
-        public NormalWithAttrClass([ModelTwo][ModelThree] string value)
+        public NormalWithAttrClass([ModelTwo] [ModelThree] string value)
         {
             Nice = value;
         }
@@ -56,12 +56,24 @@ namespace CosmosStandardUT.Models
         public NormalWithAttrClassWrapper(string value) : base(value) { }
     }
 
+    [ModelOne]
+    [ModelOne]
+    [ModelTwo]
+    [ModelThree]
+    public class NormalWithAttrClass2 { }
+
+    [ModelFour]
+    public class NormalWithAttrClassWrapper2 : NormalWithAttrClass2 { }
+
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class ModelOneAttribute : Attribute { }
 
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
     public class ModelTwoAttribute : Attribute { }
-    
+
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class ModelThreeAttribute : Attribute { }
+    
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class ModelFourAttribute : Attribute { }
 }
