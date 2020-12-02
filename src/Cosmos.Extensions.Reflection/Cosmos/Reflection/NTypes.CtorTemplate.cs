@@ -104,7 +104,7 @@ namespace Cosmos.Reflection
                 tempCache[item.Key] = builder.ToString();
             }
 
-            script.AppendLine(BTFTemplate.GetPrecisionPointBTFScript(tempCache, "temp"));
+            script.AppendLine(BTFTemplate.GetGroupPrecisionPointBTFScript(tempCache, "temp"));
             script.AppendLine("}");
             script.AppendLine(@"
                 int maxValue = 0;
