@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 using Cosmos.Expressions;
+using Cosmos.Reflection;
 
 namespace System.Reflection
 {
@@ -67,7 +68,7 @@ namespace System.Reflection
             if (expressions is null)
                 throw new ArgumentNullException(nameof(expressions));
 
-            ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(expressions.GetPropertyInfos());
+            ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(TypeVisit.GetProperties(expressions));
 
             return properties.Where(p => !excluded.Contains(p));
         }

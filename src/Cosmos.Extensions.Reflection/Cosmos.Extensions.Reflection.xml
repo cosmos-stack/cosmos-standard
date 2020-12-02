@@ -761,6 +761,57 @@
             释放。
             </summary>
         </member>
+        <member name="T:Cosmos.Reflection.TypeVisit">
+            <summary>
+            Type visit, an advanced TypeReflections utility.
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility.
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="type"></param>
+            <param name="accessOptions"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetProperties``1(Cosmos.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="accessOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Reflection.PropertyAccessOptions">
+            <summary>
+            Property access options
+            </summary>
+        </member>
+        <member name="F:Cosmos.Reflection.PropertyAccessOptions.Getters">
+            <summary>
+            Getters
+            </summary>
+        </member>
+        <member name="F:Cosmos.Reflection.PropertyAccessOptions.Setters">
+            <summary>
+            Setters
+            </summary>
+        </member>
+        <member name="F:Cosmos.Reflection.PropertyAccessOptions.Both">
+            <summary>
+            Both
+            </summary>
+        </member>
         <member name="T:DeepCopy.CopierGenerator`1">
             <summary>
             Generates copy delegates.
@@ -1166,25 +1217,9 @@
             Cosmos <see cref="T:System.Type"/> extensions
             </summary>
         </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)">
-            <summary>
-            Get that's <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/><br />
-            获取给定对象的 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/>。
-            </summary>
-            <param name="that"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.ToTypeInfo(System.Type[])">
-            <summary>
-            Convert <see cref="T:System.Type"/> array to <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> list.<br />
-            将给定的 <see cref="T:System.Type"/> 数组转换为 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> 列表。
-            </summary>
-            <param name="types"></param>
-            <returns></returns>
-        </member>
         <member name="M:System.Reflection.SystemTypeExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
             <summary>
-            Find <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> from the given type's parameters' type
+            Find <see cref="T:System.Reflection.TypeInfo"/> from the given type's parameters' type
             </summary>
             <param name="definition"></param>
             <param name="typeInfo"></param>
@@ -1198,18 +1233,10 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.GetFullyQualifiedName(System.Reflection.TypeInfo)">
-            <summary>
-            Get unique fully qualified name for <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/>.<br />
-            获取给定 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> 的完全限定名。
-            </summary>
-            <param name="typeInfo"></param>
-            <returns></returns>
-        </member>
         <member name="M:System.Reflection.SystemTypeExtensions.GetFullyQualifiedName(System.Type)">
             <summary>
-            Get unique fully qualified name for <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/>.<br />
-            获取给定 <see cref="M:System.Reflection.SystemTypeExtensions.TypeInfo(System.Object)"/> 的完全限定名。
+            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
             </summary>
             <param name="type"></param>
             <returns></returns>
