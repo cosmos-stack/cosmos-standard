@@ -8,12 +8,20 @@ using AspectCore.Extensions.Reflection;
 
 namespace Cosmos.Reflection
 {
+    /// <summary>
+    /// Reflection options <br />
+    /// 反射选项
+    /// </summary>
     public enum ReflectionOptions
     {
         Default = 0,
         Inherit = 1
     }
 
+    /// <summary>
+    /// Reflection Ambiguous options <br />
+    /// 反射歧义选项
+    /// </summary>
     public enum ReflectionAmbiguousOptions
     {
         Default = 0,
@@ -218,7 +226,8 @@ namespace Cosmos.Reflection
         #region GetAttribute
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo. <br />
+        /// 从成员信息中获取指定的 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
@@ -229,7 +238,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo. <br />
+        /// 从成员信息中获取指定的 Attribute 实例。
         /// </summary>
         /// <param name="member"></param>
         /// <param name="attributeType"></param>
@@ -252,7 +262,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo. <br />
+        /// 从成员信息中获取指定的 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
@@ -263,7 +274,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo. <br />
+        /// 从成员信息中获取指定的 Attribute 实例。
         /// </summary>
         /// <param name="member"></param>
         /// <param name="refOptions"></param>
@@ -308,7 +320,8 @@ namespace Cosmos.Reflection
         #region GetAttributes
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
@@ -319,7 +332,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="refOptions"></param>
@@ -336,7 +350,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
@@ -347,7 +362,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
@@ -395,7 +411,8 @@ namespace Cosmos.Reflection
         #region GetRequiredAttribute
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo, and throw an exception if the acquisition fails.<br />
+        /// 从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
@@ -406,7 +423,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo, and throw an exception if the acquisition fails.<br />
+        /// 从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="refOptions"></param>
@@ -426,7 +444,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo, and throw an exception if the acquisition fails.<br />
+        /// 从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
@@ -437,7 +456,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain the specified Attribute instance from the MemberInfo, and throw an exception if the acquisition fails.<br />
+        /// 从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
@@ -461,7 +481,8 @@ namespace Cosmos.Reflection
         #region GetRequiredAttributes
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo, and throw an exception if the acquisition fails. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
@@ -472,7 +493,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo, and throw an exception if the acquisition fails. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="refOptions"></param>
@@ -484,7 +506,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo, and throw an exception if the acquisition fails. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
@@ -495,7 +518,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain a set of specified Attribute instances from the MemberInfo, and throw an exception if the acquisition fails. <br />
+        /// 从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
@@ -511,7 +535,8 @@ namespace Cosmos.Reflection
         #region GetAllAttributes
 
         /// <summary>
-        /// Get attribute
+        /// Obtain all Attribute instances from the MemberInfo. <br />
+        /// 从成员信息中获取所有 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <returns>Attribute of special field</returns>
@@ -521,7 +546,8 @@ namespace Cosmos.Reflection
         }
 
         /// <summary>
-        /// Get attribute
+        /// Obtain all Attribute instances from the MemberInfo. <br />
+        /// 从成员信息中获取所有 Attribute 实例。
         /// </summary>
         /// <param name="member">Special member</param>
         /// <param name="refOptions"></param>
