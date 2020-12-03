@@ -333,7 +333,7 @@
             </summary>
             <param name="dictionary"></param>
             <param name="key"></param>
-            <param name="intsertFunc"></param>
+            <param name="insertFunc"></param>
             <param name="updateFunc"></param>
             <typeparam name="TKey"></typeparam>
             <typeparam name="TValue"></typeparam>
@@ -1008,24 +1008,6 @@
             <param name="source"></param>
             <typeparam name="TSource"></typeparam>
             <returns></returns>
-        </member>
-        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To hashset
-            </summary>
-            <param name="src"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
-            <summary>
-            To hashset
-            </summary>
-            <param name="src"></param>
-            <param name="comparer"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Collections.EnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
             <summary>

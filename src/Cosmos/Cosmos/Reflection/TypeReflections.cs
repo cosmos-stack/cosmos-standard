@@ -58,5 +58,6 @@ namespace Cosmos.Reflection
         public static Type GetRawTypeFromGenericClass<TGot, TGeneric>() => GetRawTypeFromGenericClass(typeof(TGot), typeof(TGeneric));
 
         #endregion
+        
     }
 }

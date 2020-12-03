@@ -1,4 +1,4 @@
-﻿#if NET || !NETSTANDARD2_1 && !NETCOREAPP3_0 && !NETCOREAPP3_1
+﻿#if NET || !NETSTANDARD2_1 && !NETCOREAPP3_0 && !NETCOREAPP3_1 && !NET5_0
 using Cosmos.Reflection;
 
 namespace System

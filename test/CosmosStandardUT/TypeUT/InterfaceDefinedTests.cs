@@ -86,6 +86,7 @@ namespace CosmosStandardUT.TypeUT
             Types.IsInterfaceDefined<NormalInterfaceClass<string>, IModelThree<int>>(InterfaceOptions.IgnoreGenericArgs).ShouldBeTrue();
         }
 
+        [Fact(DisplayName = "Object interface defined test")]
         public void ObjectInterfaceDefinedTest()
         {
             var model = new NormalInterfaceClass<string>();

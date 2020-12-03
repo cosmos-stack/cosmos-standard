@@ -81,14 +81,14 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
-        /// <param name="intsertFunc"></param>
+        /// <param name="insertFunc"></param>
         /// <param name="updateFunc"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
-        public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> intsertFunc, Func<TKey, TValue, TValue> updateFunc)
+        public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Func<TKey, TValue, TValue> updateFunc)
         {
-            if (intsertFunc is null)
-                throw new ArgumentNullException(nameof(intsertFunc));
+            if (insertFunc is null)
+                throw new ArgumentNullException(nameof(insertFunc));
 
             if (updateFunc is null)
                 throw new ArgumentNullException(nameof(updateFunc));
@@ -101,7 +101,7 @@ namespace Cosmos.Collections
             }
             else
             {
-                newVal = intsertFunc(key);
+                newVal = insertFunc(key);
             }
 
             dictionary.AddOrOverride(key, newVal);

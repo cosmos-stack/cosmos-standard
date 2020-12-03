@@ -11,4 +11,8 @@
         <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Cosmos\Exceptions" />
+    </ItemGroup>
+
 </Project>
