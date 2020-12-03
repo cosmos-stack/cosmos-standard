@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Cosmos.Expressions;
 using Cosmos.Reflection;
 
 namespace System.Reflection
@@ -71,25 +70,6 @@ namespace System.Reflection
             ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(TypeVisit.GetProperties(expressions));
 
             return properties.Where(p => !excluded.Contains(p));
-        }
-
-        #endregion
-
-        #region Is
-
-        /// <summary>
-        /// Determine whether the specified property is an virtual property.<br />
-        /// 判断指定属性是否是虚属性。
-        /// </summary>
-        public static bool IsVirtual(this PropertyInfo property)
-        {
-            var accessor = property.GetAccessors().FirstOrDefault();
-            if (accessor == null)
-            {
-                return false;
-            }
-
-            return accessor.IsVirtual && !accessor.IsFinal;
         }
 
         #endregion

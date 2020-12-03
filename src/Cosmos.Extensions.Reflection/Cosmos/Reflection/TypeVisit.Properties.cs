@@ -170,4 +170,30 @@ namespace Cosmos.Reflection
             return TypeVisit.GetProperties(typeof(T), accessOptions);
         }
     }
+
+    /// <summary>
+    /// Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
+    /// </summary>
+    public static partial class TypeMetaVisitExtensions
+    {
+        /// <summary>
+        /// Determine whether the specified property is a virtual property.<br />
+        /// 判断指定属性是否是虚属性。
+        /// </summary>
+        public static bool IsVirtual(this PropertyInfo property)
+        {
+            var accessor = property.GetAccessors().FirstOrDefault();
+            return accessor is not null && accessor.IsVirtual && !accessor.IsFinal;
+        }
+
+        /// <summary>
+        /// Determine whether the specified property is an abstract property.<br />
+        /// 判断指定属性是否是虚属性。
+        /// </summary>
+        public static bool IsAbstract(this PropertyInfo property)
+        {
+            var accessor = property.GetAccessors().FirstOrDefault();
+            return accessor is not null && accessor.IsAbstract && !accessor.IsFinal;
+        }
+    }
 }

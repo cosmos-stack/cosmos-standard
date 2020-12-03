@@ -170,33 +170,5 @@ namespace System.Reflection
         }
 
         #endregion
-
-        #region IsNumeric
-
-        /// <summary>
-        /// Determine whether the given type is a numeric type.<br />
-        /// 判断给定的类型是否为数字类型。
-        /// </summary>
-        /// <param name="type">要检查的类型</param>
-        /// <param name="options"></param>
-        /// <returns>是否是数值类型</returns>
-        public static bool IsNumeric(this Type type, TypeIsOptions options = TypeIsOptions.Default) => Types.IsNumericType(type, options);
-
-        #endregion
-
-        #region IsTupleType
-
-        /// <summary>
-        /// Determine whether the given type is a tuple type.<br />
-        /// 判断给定的类型是否为元组类型
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="ofOptions"></param>
-        /// <param name="isOptions"></param>
-        /// <returns></returns>
-        public static bool IsTupleType(this Type type, TypeOfOptions ofOptions = TypeOfOptions.Owner, TypeIsOptions isOptions = TypeIsOptions.Default)
-            => Types.IsTupleType(type, ofOptions, isOptions);
-
-        #endregion
     }
 }
