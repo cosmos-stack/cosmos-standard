@@ -124,7 +124,7 @@ namespace Cosmos.Exceptions
                    .AddArg(ExceptionArgConstants.PARAM_NAME, _paramName, x => !string.IsNullOrWhiteSpace(x))
                    .AddArg(ExceptionArgConstants.ACTUAL_VALUE, _actualValue)
                    .AddArg(ExceptionArgConstants.ERROR_CODE, _errorCode);
-                CachedException = NTypes.CreateInstance<TException>(options.ExceptionType, options.ArgumentDescriptors);
+                CachedException = TypeVisit.CreateInstance<TException>(options.ExceptionType, options.ArgumentDescriptors);
             }
         }
 

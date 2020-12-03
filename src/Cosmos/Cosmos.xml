@@ -1157,30 +1157,6 @@
             <param name="exception"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.ExceptionHelper.Raise``1(System.Boolean,System.String)">
-            <summary>
-            Require.
-            </summary>
-            <typeparam name="TException">Special type T.</typeparam>
-            <param name="assertion">Predicate.</param>
-            <param name="message">Error message.</param>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionHelper.Raise``1(System.Boolean,System.Object[])">
-            <summary>
-            Require.
-            </summary>
-            <typeparam name="TException">Special type TException.</typeparam>
-            <param name="assertion">Predicate.</param>
-            <param name="exceptionParams">Parameters for exception.</param>
-        </member>
-        <member name="M:Cosmos.Exceptions.ExceptionHelper.Raise``1(System.Boolean,Cosmos.Exceptions.ExceptionOptions)">
-            <summary>
-            Require.
-            </summary>
-            <typeparam name="TException">Special type TException.</typeparam>
-            <param name="assertion">Predicate.</param>
-            <param name="options">Cosmos exception options.</param>
-        </member>
         <member name="T:Cosmos.Exceptions.ExceptionOptions">
             <summary>
             Options for cosmos exception
@@ -3807,31 +3783,6 @@
             <typeparam name="TGot">The given type TGot</typeparam>
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
             <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.CreateInstance``1(System.Object[])">
-            <summary>
-            Create instance
-            </summary>
-            <typeparam name="TInstance">Special type you need to return.</typeparam>
-            <param name="args">Arguments for such type's constructor</param>
-            <returns>Instance of special type</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.CreateInstance``1(System.Type,System.Object[])">
-            <summary>
-            Create instance
-            </summary>
-            <typeparam name="TInstance">Special type you need to return.</typeparam>
-            <param name="type">Special type</param>
-            <param name="args">Arguments for such type's constructor</param>
-            <returns>Instance of special type</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.CreateInstance(System.Type,System.Object[])">
-            <summary>
-            Create instance
-            </summary>
-            <param name="type">Special type</param>
-            <param name="args">Arguments for such type's constructor</param>
-            <returns>Instance of special type</returns>
         </member>
         <member name="M:Cosmos.Reflection.Types.IsTupleType(System.Type,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
             <summary>

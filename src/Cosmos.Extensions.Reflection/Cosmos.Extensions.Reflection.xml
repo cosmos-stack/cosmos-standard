@@ -304,20 +304,22 @@
             A finder for Type
             </summary>
         </member>
-        <member name="T:Cosmos.Reflection.CosmosTypeInstanceExtensions">
+        <member name="M:Cosmos.Reflection.AssemblyVisit.GetFileVersion(System.Reflection.Assembly)">
             <summary>
-            Cosmos type instance extensions
+            Get assembly file version.<br />
+            获取 Assembly 文件的版本
             </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CosmosTypeInstanceExtensions.CreateInstance``1(System.Type,System.Object[])">
-            <summary>
-            Create an instance of the specified type.<br />
-            创建指定类型的实例。
-            </summary>
-            <typeparam name="TTypeInstance"></typeparam>
-            <param name="type"></param>
-            <param name="args"></param>
+            <param name="assembly"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.AssemblyVisit.GetProductVersion(System.Reflection.Assembly)">
+            <summary>
+            Get assembly product version.<br />
+            获取 Assembly 文件的产品版本 
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:Cosmos.Reflection.InstanceScanner`1">
             <summary>
@@ -394,66 +396,6 @@
             <summary>
             Advanced Types utilities
             </summary>
-            <summary>
-            Advanced Types utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Object[])">
-            <summary>
-            Create instance
-            </summary>
-            <typeparam name="TInstance">Special type you need to return.</typeparam>
-            <param name="args">Arguments for such type's constructor</param>
-            <returns>Instance of special type</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Type,System.Object[])">
-            <summary>
-            Create instance
-            </summary>
-            <typeparam name="TInstance">Special type you need to return.</typeparam>
-            <param name="type">Special type</param>
-            <param name="args">Arguments for such type's constructor</param>
-            <returns>Instance of special type</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.CreateInstance(System.Type,System.Object[])">
-            <summary>
-            Create instance
-            </summary>
-            <param name="type">Special type</param>
-            <param name="args">Arguments for such type's constructor</param>
-            <returns>Instance of special type</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.CreateInstanceWithoutParam``1">
-            <summary>
-            Create instance with no param
-            </summary>
-            <typeparam name="TInstance"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
-            <summary>
-            Create instance
-            </summary>
-            <param name="ctorArgDescriptors"></param>
-            <typeparam name="TInstance"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
-            <summary>
-            Create instance
-            </summary>
-            <param name="type"></param>
-            <param name="ctorArgDescriptors"></param>
-            <typeparam name="TInstance"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.CtorArgDescriptor})">
-            <summary>
-            Create instance
-            </summary>
-            <param name="type"></param>
-            <param name="ctorArgDescriptors"></param>
-            <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.NTypes.IsGenericImplementation(System.Type,System.Type)">
             <summary>
@@ -510,56 +452,6 @@
             <typeparam name="TGot">The given type TGot</typeparam>
             <typeparam name="TGeneric">The generic type TGeneric</typeparam>
             <returns></returns>
-        </member>
-        <member name="T:Cosmos.Reflection.CtorArgDescriptor">
-            <summary>
-            Descriptor of argument
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CtorArgDescriptor.#ctor(System.String,System.Object,System.Type)">
-            <summary>
-            Create a new instance of <see cref="T:Cosmos.Reflection.CtorArgDescriptor"/>.
-            </summary>
-            <param name="name"></param>
-            <param name="value"></param>
-            <param name="type"></param>
-        </member>
-        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Name">
-            <summary>
-            Argument name
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Value">
-            <summary>
-            Argument value
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.CtorArgDescriptor.Type">
-            <summary>
-            Argument type
-            </summary>
-        </member>
-        <member name="T:Cosmos.Reflection.CtorMatchedResult">
-            <summary>
-            Ctor matched result
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
-            <summary>
-            Ctor matched result
-            </summary>
-            <param name="values"></param>
-            <param name="index"></param>
-        </member>
-        <member name="F:Cosmos.Reflection.CtorMatchedResult.Values">
-            <summary>
-            Values
-            </summary>
-        </member>
-        <member name="F:Cosmos.Reflection.CtorMatchedResult.Index">
-            <summary>
-            Index
-            </summary>
         </member>
         <member name="T:Cosmos.Reflection.ObjectRefCopyExtensions">
             <summary>
@@ -771,6 +663,9 @@
             <summary>
             Type visit, an advanced TypeReflections utility.
             </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility.
+            </summary>
         </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessOptions)">
             <summary>
@@ -791,6 +686,235 @@
             <param name="accessOptions"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Reflection.TypeMetaVisitExtensions">
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsAttributeDefined``1(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is defined.<br />
+            判断给定的特性是否定义。
+            </summary>
+            <typeparam name="TAttribute">要检查的特性类型</typeparam>
+            <param name="member">要检查的类型成员</param>
+            <param name="options">反射选项</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsAttributeNotDefined``1(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is undefined.<br />
+            判断给定的特性是否未定义。
+            </summary>
+            <typeparam name="TAttribute">要检查的特性类型</typeparam>
+            <param name="member">要检查的类型成员</param>
+            <param name="options">反射选项</param>
+            <returns>是否不存在</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsAttributeDefined(System.Reflection.MemberInfo,System.Type,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is defined.<br />
+            判断给定的特性是否定义。
+            </summary>
+            <param name="member"></param>
+            <param name="attributeType"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsAttributeNotDefined(System.Reflection.MemberInfo,System.Type,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is undefined.<br />
+            判断给定的特性是否未定义。
+            </summary>
+            <param name="member"></param>
+            <param name="attributeType"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsNumeric(System.Reflection.MemberInfo,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given member is a numeric type.<br />
+            判断给定的成员是否为数字类型。
+            </summary>
+            <param name="member">要检查的类型</param>
+            <param name="options"></param>
+            <returns>是否是数值类型</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsNumeric(System.Reflection.ParameterInfo,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given parameter is a numeric type.<br />
+            判断给定的参数是否为数字类型。
+            </summary>
+            <param name="parameter"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsTupleType(System.Reflection.MemberInfo,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given member is a tuple type.<br />
+            判断给定的成员是否为元组类型
+            </summary>
+            <param name="member"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsTupleType(System.Reflection.ParameterInfo,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given parameter is a tuple type.<br />
+            判断给定的参数是否为数元组类型
+            </summary>
+            <param name="parameter"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsAsyncMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether the specified method is an asynchronous method.<br />
+            判断指定的方法是否为异步方法。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsOverridden(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether the specified method is an overriding method.<br />
+            判断指定方法是否是重写方法
+            </summary>
+            <param name="method">要判断的方法信息</param>
+            <returns>是否是重写方法</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsVirtual(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether the specified property is a virtual property.<br />
+            判断指定属性是否是虚属性。
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsAbstract(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether the specified property is an abstract property.<br />
+            判断指定属性是否是虚属性。
+            </summary>
+        </member>
+        <member name="T:Cosmos.Reflection.ArgumentDescriptor">
+            <summary>
+            Descriptor of argument
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.ArgumentDescriptor.#ctor(System.String,System.Object,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Reflection.ArgumentDescriptor"/>.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="type"></param>
+        </member>
+        <member name="P:Cosmos.Reflection.ArgumentDescriptor.Name">
+            <summary>
+            Argument name
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.ArgumentDescriptor.Value">
+            <summary>
+            Argument value
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.ArgumentDescriptor.Type">
+            <summary>
+            Argument type
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.CreateInstance``1(System.Type,System.Object[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="type"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.CreateInstance(System.Type,System.Object[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.ArgumentDescriptor})">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="arguments"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.CreateInstance``1(System.Type,Cosmos.Reflection.ArgumentDescriptor,Cosmos.Reflection.ArgumentDescriptor[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="argument"></param>
+            <param name="arguments"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{Cosmos.Reflection.ArgumentDescriptor})">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.CreateInstance(System.Type,Cosmos.Reflection.ArgumentDescriptor,Cosmos.Reflection.ArgumentDescriptor[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="argument"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult">
+            <summary>
+            Ctor matched result
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
+            <summary>
+            Ctor matched result
+            </summary>
+            <param name="values"></param>
+            <param name="index"></param>
+        </member>
+        <member name="F:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult.Values">
+            <summary>
+            Values
+            </summary>
+        </member>
+        <member name="F:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult.Index">
+            <summary>
+            Index
+            </summary>
         </member>
         <member name="T:Cosmos.Reflection.PropertyAccessOptions">
             <summary>
@@ -1041,79 +1165,6 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="T:System.Reflection.SystemAssemblyExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Reflection.Assembly"/> extensions
-            </summary>
-        </member>
-        <member name="M:System.Reflection.SystemAssemblyExtensions.GetFileVersion(System.Reflection.Assembly)">
-            <summary>
-            Get assembly file version.<br />
-            获取 Assembly 文件的版本
-            </summary>
-            <param name="assembly"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemAssemblyExtensions.GetProductVersion(System.Reflection.Assembly)">
-            <summary>
-            Get assembly product version.<br />
-            获取 Assembly 文件的产品版本 
-            </summary>
-            <param name="assembly"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:System.Reflection.SystemAssemblyExtensions.GetCliVersion">
-            <summary>
-            Get CLI version. <br />
-            获取 CLI 版本号
-            </summary>
-        </member>
-        <member name="T:System.Reflection.SystemMemberInfoExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Reflection.MemberInfo"/> extensions
-            </summary>
-        </member>
-        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsAttributeDefined``1(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions)">
-            <summary>
-            To determine whether the given Attribute is defined.<br />
-            判断给定的特性是否定义。
-            </summary>
-            <typeparam name="TAttribute">要检查的特性类型</typeparam>
-            <param name="member">要检查的类型成员</param>
-            <param name="options">反射选项</param>
-            <returns>是否存在</returns>
-        </member>
-        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsAttributeNotDefined``1(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions)">
-            <summary>
-            To determine whether the given Attribute is undefined.<br />
-            判断给定的特性是否未定义。
-            </summary>
-            <typeparam name="TAttribute">要检查的特性类型</typeparam>
-            <param name="member">要检查的类型成员</param>
-            <param name="options">反射选项</param>
-            <returns>是否不存在</returns>
-        </member>
-        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsAttributeDefined(System.Reflection.MemberInfo,System.Type,Cosmos.Reflection.ReflectionOptions)">
-            <summary>
-            To determine whether the given Attribute is defined.<br />
-            判断给定的特性是否定义。
-            </summary>
-            <param name="member"></param>
-            <param name="attributeType"></param>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemMemberInfoExtensions.IsAttributeNotDefined(System.Reflection.MemberInfo,System.Type,Cosmos.Reflection.ReflectionOptions)">
-            <summary>
-            To determine whether the given Attribute is undefined.<br />
-            判断给定的特性是否未定义。
-            </summary>
-            <param name="member"></param>
-            <param name="attributeType"></param>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
         <member name="T:System.Reflection.SystemMethodInfoExtensions">
             <summary>
             Cosmos <see cref="T:System.Reflection.MethodInfo"/> extensions.
@@ -1134,22 +1185,6 @@
             </summary>
             <param name="method"></param>
             <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemMethodInfoExtensions.IsAsyncMethod(System.Reflection.MethodInfo)">
-            <summary>
-            Determine whether the specified method is an asynchronous method.<br />
-            判断指定的方法是否为异步方法。
-            </summary>
-            <param name="method"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemMethodInfoExtensions.IsOverridden(System.Reflection.MethodInfo)">
-            <summary>
-            Determine whether the specified method is an overriding method.<br />
-            判断指定方法是否是重写方法
-            </summary>
-            <param name="method">要判断的方法信息</param>
-            <returns>是否是重写方法</returns>
         </member>
         <member name="T:System.Reflection.SystemPropertyInfoExtensions">
             <summary>
@@ -1202,12 +1237,6 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:System.Reflection.SystemPropertyInfoExtensions.IsVirtual(System.Reflection.PropertyInfo)">
-            <summary>
-            Determine whether the specified property is an virtual property.<br />
-            判断指定属性是否是虚属性。
-            </summary>
         </member>
         <member name="T:System.Reflection.SystemTypeExtensions">
             <summary>
@@ -1351,25 +1380,6 @@
             </summary>
             <param name="type"></param>
             <typeparam name="TBaseType"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsNumeric(System.Type,Cosmos.Reflection.TypeIsOptions)">
-            <summary>
-            Determine whether the given type is a numeric type.<br />
-            判断给定的类型是否为数字类型。
-            </summary>
-            <param name="type">要检查的类型</param>
-            <param name="options"></param>
-            <returns>是否是数值类型</returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsTupleType(System.Type,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
-            <summary>
-            Determine whether the given type is a tuple type.<br />
-            判断给定的类型是否为元组类型
-            </summary>
-            <param name="type"></param>
-            <param name="ofOptions"></param>
-            <param name="isOptions"></param>
             <returns></returns>
         </member>
     </members>

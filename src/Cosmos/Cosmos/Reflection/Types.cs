@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
-using AspectCore.Extensions.Reflection;
 
 namespace Cosmos.Reflection
 {
@@ -10,7 +8,6 @@ namespace Cosmos.Reflection
     /// </summary>
     public static partial class Types
     {
-
         #region GenericImplementation and raw type
 
         /// <summary>
@@ -127,65 +124,6 @@ namespace Cosmos.Reflection
         {
             return TypeReflections.GetRawTypeFromGenericClass<TGot, TGeneric>();
         }
-
-        #endregion
-
-        #region CreateInstance
-
-        /// <summary>
-        /// Create instance
-        /// </summary>
-        /// <typeparam name="TInstance">Special type you need to return.</typeparam>
-        /// <param name="args">Arguments for such type's constructor</param>
-        /// <returns>Instance of special type</returns>
-        public static TInstance CreateInstance<TInstance>(params object[] args)
-        {
-            return CreateInstanceCore<TInstance>(args);
-        }
-
-        /// <summary>
-        /// Create instance
-        /// </summary>
-        /// <typeparam name="TInstance">Special type you need to return.</typeparam>
-        /// <param name="type">Special type</param>
-        /// <param name="args">Arguments for such type's constructor</param>
-        /// <returns>Instance of special type</returns>
-        public static TInstance CreateInstance<TInstance>(Type type, params object[] args)
-        {
-            return CreateInstance(type, args) is TInstance ret ? ret : default;
-        }
-
-        /// <summary>
-        /// Create instance
-        /// </summary>
-        /// <param name="type">Special type</param>
-        /// <param name="args">Arguments for such type's constructor</param>
-        /// <returns>Instance of special type</returns>
-        public static object CreateInstance(Type type, params object[] args)
-        {
-            return CreateInstanceCore(type, args);
-        }
-
-        /// <summary>
-        /// Create instance with no param
-        /// </summary>
-        /// <typeparam name="TInstance"></typeparam>
-        /// <returns></returns>
-        public static TInstance CreateInstanceWithoutParam<TInstance>()
-        {
-            return CreateInstanceCore<TInstance>();
-        }
-
-        private static TInstance CreateInstanceCore<TInstance>() =>
-            CreateInstanceCore(typeof(TInstance)) is TInstance ret ? ret : default;
-
-        private static TInstance CreateInstanceCore<TInstance>(object[] args) =>
-            CreateInstanceCore(typeof(TInstance), args) is TInstance ret ? ret : default;
-
-        private static object CreateInstanceCore(Type type, params object[] args) =>
-            args is null || args.Length == 0
-                ? type.GetConstructors().FirstOrDefault(x => !x.GetParameters().Any())?.GetReflector().Invoke()
-                : type.GetConstructor(Of(args))?.GetReflector().Invoke(args);
 
         #endregion
     }

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
+using AspectCore.Extensions.Reflection;
 using Cosmos.Exceptions;
+using Cosmos.Reflection;
 
 namespace Cosmos.Validation.Internals
 {
@@ -17,17 +21,26 @@ namespace Cosmos.Validation.Internals
             if (assertion)
                 return;
 
-            var exception = Reflection.Types.CreateInstance<TException>(exceptionParams);
+            var exception = CreateException(typeof(TException),exceptionParams);
 
             var wrappedException = exception switch
             {
-                ArgumentNullException exception01 => (Exception) ValidationErrors.Null(exception01),
+                ArgumentNullException exception01 => ValidationErrors.Null(exception01),
                 ArgumentOutOfRangeException exception02 => ValidationErrors.OutOfRange(exception02),
                 ArgumentInvalidException exception03 => ValidationErrors.Invalid(exception03),
                 _ => exception
-            };
+            } as TException;
 
             ExceptionHelper.PrepareForRethrow(wrappedException);
+        }
+        
+        private static object CreateException(Type type, params object[] args)
+        {
+            return args is null || args.Length == 0
+                ? type.GetConstructors().FirstOrDefault(WithoutParamPredicate)?.GetReflector().Invoke()
+                : type.GetConstructor(Types.Of(args))?.GetReflector().Invoke(args);
+
+            bool WithoutParamPredicate(MethodBase ci) => !ci.GetParameters().Any();
         }
     }
 }

@@ -8,6 +8,8 @@ namespace CosmosStandardUT.Models
     public class NormalWithAttrClass
     {
         [ModelOne] [ModelTwo] public string Nice { get; set; }
+        
+        public int Index { get; set; }
 
         [ModelOne]
         [ModelTwo]
@@ -27,6 +29,12 @@ namespace CosmosStandardUT.Models
         public NormalWithAttrClass([ModelTwo] [ModelThree] string value)
         {
             Nice = value;
+        }
+
+        public NormalWithAttrClass(string value, int index)
+        {
+            Nice = value;
+            Index = index;
         }
     }
 

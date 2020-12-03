@@ -11,7 +11,7 @@ namespace Cosmos.Exceptions.BuildingDescriptors
     /// </summary>
     public class ExceptionBuildingOptions
     {
-        private readonly Dictionary<string, CtorArgDescriptor> _items = new Dictionary<string, CtorArgDescriptor>();
+        private readonly Dictionary<string, ArgumentDescriptor> _items = new Dictionary<string, ArgumentDescriptor>();
 
         /// <summary>
         /// Create a new instance of <see cref="ExceptionBuildingOptions"/>.<br />
@@ -29,7 +29,7 @@ namespace Cosmos.Exceptions.BuildingDescriptors
         /// </summary>
         public Type ExceptionType { get; }
 
-        internal IEnumerable<CtorArgDescriptor> ArgumentDescriptors => _items.Values;
+        internal IEnumerable<ArgumentDescriptor> ArgumentDescriptors => _items.Values;
 
         /// <summary>
         /// Add args.<br />
@@ -44,7 +44,7 @@ namespace Cosmos.Exceptions.BuildingDescriptors
             if (_items.ContainsKey(argumentName))
                 return this;
 
-            _items.Add(argumentName, new CtorArgDescriptor(argumentName, argumentValue, typeof(TArgVal)));
+            _items.Add(argumentName, new ArgumentDescriptor(argumentName, argumentValue, typeof(TArgVal)));
             return this;
         }
 
