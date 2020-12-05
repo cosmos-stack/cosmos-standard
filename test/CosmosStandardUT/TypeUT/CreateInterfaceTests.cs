@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-using Cosmos;
-using Cosmos.Reflection;
+﻿using Cosmos.Reflection;
 using CosmosStandardUT.Models;
 using Shouldly;
 using Xunit;
+
+#if !NETFRAMEWORK
+using System.Collections.Generic;
+#endif
 
 namespace CosmosStandardUT.TypeUT
 {
@@ -124,7 +126,7 @@ namespace CosmosStandardUT.TypeUT
             instance8.ShouldBeNull();
         }
 
-#if !NET452
+#if !NETFRAMEWORK
         [Fact(DisplayName = "Direct type create instance with with dynamic ctor args test")]
         public void DirectTypeCreateInstanceWithDynamicParamsTest()
         {

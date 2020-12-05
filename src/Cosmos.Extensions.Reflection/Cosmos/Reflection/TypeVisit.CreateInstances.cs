@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using AspectCore.Extensions.Reflection;
 
-#if !NET452
+#if !NETFRAMEWORK
 using System.Collections.Concurrent;
 using BTFindTree;
 using Natasha.CSharp;
@@ -84,7 +84,7 @@ namespace Cosmos.Reflection
             bool WithoutParamPredicate(MethodBase ci) => !ci.GetParameters().Any();
         }
 
-#if !NET452
+#if !NETFRAMEWORK
         public static TInstance CreateInstance<TInstance>(IEnumerable<ArgumentDescriptor> arguments)
         {
             return IsNoneParams(arguments, out var descriptors)
@@ -124,6 +124,32 @@ namespace Cosmos.Reflection
             return !descriptors.Any();
         }
 
+        /// <summary>
+        /// Ctor matched result
+        /// </summary>
+        public readonly struct CtorMatchedResult
+        {
+            /// <summary>
+            /// Ctor matched result
+            /// </summary>
+            /// <param name="values"></param>
+            /// <param name="index"></param>
+            public CtorMatchedResult(object[] values, int index)
+            {
+                Values = values;
+                Index = index;
+            }
+
+            /// <summary>
+            /// Values
+            /// </summary>
+            public readonly object[] Values;
+
+            /// <summary>
+            /// Index
+            /// </summary>
+            public readonly int Index;
+        }
 #endif
 
         #endregion
@@ -216,36 +242,9 @@ namespace Cosmos.Reflection
 #endif
     }
 
-#if !NET452
-    public static class CtorTypeMakingHelper
+#if !NETFRAMEWORK
+    internal static class CtorTypeMakingHelper
     {
-        /// <summary>
-        /// Ctor matched result
-        /// </summary>
-        public readonly struct CtorMatchedResult
-        {
-            /// <summary>
-            /// Ctor matched result
-            /// </summary>
-            /// <param name="values"></param>
-            /// <param name="index"></param>
-            public CtorMatchedResult(object[] values, int index)
-            {
-                Values = values;
-                Index = index;
-            }
-
-            /// <summary>
-            /// Values
-            /// </summary>
-            public readonly object[] Values;
-
-            /// <summary>
-            /// Index
-            /// </summary>
-            public readonly int Index;
-        }
-
         internal class Template
         {
             public readonly ConstructorInfo[] _ctors;
@@ -254,7 +253,7 @@ namespace Cosmos.Reflection
             public readonly int _defaultCtorIndex;
             public readonly Func<object[], object>[] _creators;
             public readonly string _typeFullQualifiedName;
-            public readonly Func<IEnumerable<ArgumentDescriptor>, CtorMatchedResult> GetIndex;
+            public readonly Func<IEnumerable<ArgumentDescriptor>, TypeVisit.CtorMatchedResult> GetIndex;
 
             private Template(Type type)
             {
@@ -302,7 +301,7 @@ namespace Cosmos.Reflection
 
                 var dynamicDictionary = new Dictionary<string, string>();
                 var script = new StringBuilder();
-                var resultFullQualifiedName = typeof(CtorMatchedResult).GetDevelopName();
+                var resultFullQualifiedName = typeof(TypeVisit.CtorMatchedResult).GetDevelopName();
 
                 script.Append($@"
 if(arg == default || arg.Count() == 0)
@@ -355,7 +354,7 @@ return new {resultFullQualifiedName}(values[maxIndex], maxIndex);
 ");
 
                 GetIndex = NDelegate.RandomDomain(c => c.SyntaxErrorBehavior = ExceptionBehavior.Throw)
-                                    .UnsafeFunc<IEnumerable<ArgumentDescriptor>, CtorMatchedResult>(script.ToString());
+                                    .UnsafeFunc<IEnumerable<ArgumentDescriptor>, TypeVisit.CtorMatchedResult>(script.ToString());
             }
 
             public object CreateInstance(IEnumerable<ArgumentDescriptor> arguments)

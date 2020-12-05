@@ -4,7 +4,7 @@
     {
         protected Prepare()
         {
-#if !NET452
+#if !NETFRAMEWORK
             NatashaInitializer.InitializeAndPreheating();
 #endif
         }
