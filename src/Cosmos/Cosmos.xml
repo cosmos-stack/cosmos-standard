@@ -3542,24 +3542,6 @@
             <param name="refOptions"></param>
             <returns>Attribute of special field</returns>
         </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetRawTypeFromGenericClass(System.Type,System.Type)">
-            <summary>
-            Get the original type. <br />
-            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
-            </summary>
-            <param name="type">The given type</param>
-            <param name="genericType">The generic type</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetRawTypeFromGenericClass``2">
-            <summary>
-            Get the original type. <br />
-            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
-            </summary>
-            <typeparam name="TGot">The given type TGot</typeparam>
-            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetDescription``1">
             <summary>
             Get description
@@ -3656,6 +3638,73 @@
             <param name="memberInfo">Special member</param>
             <returns>Name or description of special member</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.IsImplementationOfGenericType(System.Type,System.Type,System.Type@,System.Type[]@)">
+            <summary>
+            Determine whether the given type can be assigned to the specified generic type.<br />
+            判断给定的类型是否可赋值给指定的泛型类型。
+            </summary>
+            <param name="sourceType">The given type</param>
+            <param name="parentGenericType">The generic type</param>
+            <param name="genericType"></param>
+            <param name="genericArguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.IsImplementationOfGenericType(System.Type,System.Type,System.Type[]@)">
+            <summary>
+            Determine whether the given type can be assigned to the specified generic type.<br />
+            判断给定的类型是否可赋值给指定的泛型类型。
+            </summary>
+            <param name="sourceType">The given type</param>
+            <param name="parentGenericType">The generic type</param>
+            <param name="genericArguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.IsImplementationOfGenericType``2(System.Type[]@)">
+            <summary>
+            Determine whether the given type can be assigned to the specified generic type.<br />
+            判断给定的类型是否可赋值给指定的泛型类型。
+            </summary>
+            <param name="genericArguments"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TGenericParent"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetRawTypeFromGenericType(System.Type,System.Type)">
+            <summary>
+            Get the original <see cref="!:sourceType"/>. <br />
+            When type inherits from genericType, returns that type.
+            </summary>
+            <param name="sourceType"></param>
+            <param name="parentGenericType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetRawTypeFromGenericType``2">
+            <summary>
+            Get the original <see cref="!:TSource"/>. <br />
+            When type inherits from genericType, returns that type.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TGenericParent"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetRawTypeArgsFromGenericType(System.Type,System.Type)">
+            <summary>
+            Get the original <see cref="!:sourceType"/>. <br />
+            When type inherits from genericType, gets all generic arguments in the <see cref="!:parentGenericType"/> corresponding to the <see cref="!:sourceType"/>.
+            </summary>
+            <param name="sourceType"></param>
+            <param name="parentGenericType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetRawTypeArgsFromGenericType``2">
+            <summary>
+            Get the original <see cref="!:TSource"/>. <br />
+            When type inherits from genericType, gets all generic arguments in the <see cref="!:TGenericParent"/> corresponding to the <see cref="!:TSource"/>.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TGenericParent"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.IsInterfaceDefined(System.Type,System.Type,Cosmos.Reflection.InterfaceOptions)">
             <summary>
             To determine whether the given Interface is defined.<br />
@@ -3717,6 +3766,46 @@
             <param name="member"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeInheritReflectionExtensions.IsGenericAssignableFrom(System.Type,System.Type)">
+            <summary>
+            Determine whether the current <see cref="!:sourceType"/> is derived from the generic class <see cref="!:parentType"/>
+            or is an implementation of the generic interface <see cref="!:parentType"/>. <br />
+            判断当前类型 <see cref="!:sourceType"/> 是否派生自泛型类 <see cref="!:parentType"/>，或为泛型接口 <see cref="!:parentType"/> 的实现。
+            </summary>
+            <param name="parentType"></param>
+            <param name="sourceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeInheritReflectionExtensions.IsGenericAssignableFrom``1(System.Type)">
+            <summary>
+            Determine whether the current <see cref="!:TSource"/> is derived from the generic class <see cref="!:parentType"/>
+            or is an implementation of the generic interface <see cref="!:parentType"/>. <br />
+            判断当前类型 <see cref="!:TSource"/> 是否派生自泛型类 <see cref="!:parentType"/>，或为泛型接口 <see cref="!:parentType"/> 的实现。
+            </summary>
+            <param name="parentType"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeInheritReflectionExtensions.IsImplementationOfGenericType(System.Type,System.Type)">
+            <summary>
+            Determine whether the current <see cref="!:sourceType"/> is derived from the generic class <see cref="!:parentType"/>
+            or is an implementation of the generic interface <see cref="!:parentType"/>. <br />
+            判断当前类型 <see cref="!:sourceType"/> 是否派生自泛型类 <see cref="!:parentType"/>，或为泛型接口 <see cref="!:parentType"/> 的实现。
+            </summary>
+            <param name="sourceType">给定类型</param>
+            <param name="parentType">泛型类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeInheritReflectionExtensions.IsImplementationOfGenericType``1(System.Type)">
+            <summary>
+            Determine whether the current <see cref="!:sourceType"/> is derived from the generic class <see cref="!:TParent"/>
+            or is an implementation of the generic interface <see cref="!:TParent"/>. <br />
+            判断当前类型 <see cref="!:sourceType"/> 是否派生自泛型类 <see cref="!:TParent"/>，或为泛型接口 <see cref="!:TParent"/> 的实现。
+            </summary>
+            <param name="sourceType"></param>
+            <typeparam name="TParent"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Reflection.Types">
             <summary>
             Type Utilities
@@ -3724,65 +3813,6 @@
             <summary>
             Type Utilities
             </summary>
-            <summary>
-            Type Utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsGenericImplementation(System.Type,System.Type)">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <param name="type">The given type</param>
-            <param name="genericType">The generic type</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsGenericImplementation``2">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <typeparam name="TGot">The given type TGot</typeparam>
-            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsGenericImplementation(System.Type,System.Type,System.Type[]@)">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <param name="type">The given type</param>
-            <param name="genericType">The generic type</param>
-            <param name="genericArguments"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.IsGenericImplementation``2(System.Type[]@)">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <typeparam name="TGot">The given type TGot</typeparam>
-            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
-            <param name="genericArguments"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.GetRawTypeFromGenericClass(System.Type,System.Type)">
-            <summary>
-            Get the original type. <br />
-            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
-            </summary>
-            <param name="type">The given type</param>
-            <param name="genericType">The generic type</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.Types.GetRawTypeFromGenericClass``2">
-            <summary>
-            Get the original type. <br />
-            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
-            </summary>
-            <typeparam name="TGot">The given type TGot</typeparam>
-            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
-            <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.Types.IsTupleType(System.Type,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
             <summary>

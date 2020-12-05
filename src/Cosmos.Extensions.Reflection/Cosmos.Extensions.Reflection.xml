@@ -392,67 +392,6 @@
             对指定的资源进行加锁，执行委托并返回结果。
             </summary>
         </member>
-        <member name="T:Cosmos.Reflection.NTypes">
-            <summary>
-            Advanced Types utilities
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsGenericImplementation(System.Type,System.Type)">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <param name="type">The given type</param>
-            <param name="genericType">The generic type</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsGenericImplementation``2">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <typeparam name="TGot">The given type TGot</typeparam>
-            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsGenericImplementation(System.Type,System.Type,System.Type[]@)">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <param name="type">The given type</param>
-            <param name="genericType">The generic type</param>
-            <param name="genericArguments"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.IsGenericImplementation``2(System.Type[]@)">
-            <summary>
-            Determine whether the given type can be assigned to the specified generic type.<br />
-            判断给定的类型是否可赋值给指定的泛型类型。
-            </summary>
-            <typeparam name="TGot">The given type TGot</typeparam>
-            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
-            <param name="genericArguments"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.GetRawTypeFromGenericClass(System.Type,System.Type)">
-            <summary>
-            Get the original type. <br />
-            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
-            </summary>
-            <param name="type">The given type</param>
-            <param name="genericType">The generic type</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.NTypes.GetRawTypeFromGenericClass``2">
-            <summary>
-            Get the original type. <br />
-            When type inherits from genericType, gets the first type parameter in the genericType corresponding to the type.
-            </summary>
-            <typeparam name="TGot">The given type TGot</typeparam>
-            <typeparam name="TGeneric">The generic type TGeneric</typeparam>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Reflection.ObjectRefCopyExtensions">
             <summary>
             Cosmos object copy extensions
@@ -665,6 +604,28 @@
             </summary>
             <summary>
             Type visit, an advanced TypeReflections utility.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Reflection.TypeVisit.CtorMatchedResult">
+            <summary>
+            Ctor matched result
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
+            <summary>
+            Ctor matched result
+            </summary>
+            <param name="values"></param>
+            <param name="index"></param>
+        </member>
+        <member name="F:Cosmos.Reflection.TypeVisit.CtorMatchedResult.Values">
+            <summary>
+            Values
+            </summary>
+        </member>
+        <member name="F:Cosmos.Reflection.TypeVisit.CtorMatchedResult.Index">
+            <summary>
+            Index
             </summary>
         </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessOptions)">
@@ -893,28 +854,6 @@
             <param name="argument"></param>
             <param name="arguments"></param>
             <returns></returns>
-        </member>
-        <member name="T:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult">
-            <summary>
-            Ctor matched result
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
-            <summary>
-            Ctor matched result
-            </summary>
-            <param name="values"></param>
-            <param name="index"></param>
-        </member>
-        <member name="F:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult.Values">
-            <summary>
-            Values
-            </summary>
-        </member>
-        <member name="F:Cosmos.Reflection.CtorTypeMakingHelper.CtorMatchedResult.Index">
-            <summary>
-            Index
-            </summary>
         </member>
         <member name="T:Cosmos.Reflection.PropertyAccessOptions">
             <summary>
@@ -1242,25 +1181,6 @@
             <summary>
             Cosmos <see cref="T:System.Type"/> extensions
             </summary>
-            <summary>
-            Cosmos <see cref="T:System.Type"/> extensions
-            </summary>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.FindGenericTypeInfo(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
-            <summary>
-            Find <see cref="T:System.Reflection.TypeInfo"/> from the given type's parameters' type
-            </summary>
-            <param name="definition"></param>
-            <param name="typeInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.FindGenericType(System.Type,System.Type)">
-            <summary>
-            Find <see cref="T:System.Type"/> from the given type's parameters' type<br />
-            </summary>
-            <param name="definition"></param>
-            <param name="type"></param>
-            <returns></returns>
         </member>
         <member name="M:System.Reflection.SystemTypeExtensions.GetFullyQualifiedName(System.Type)">
             <summary>
@@ -1268,118 +1188,6 @@
             获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
             </summary>
             <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsObjectDeriveFrom``1(System.Object)">
-            <summary>
-            Determine whether the current Type (HereGivenType) is derived from the given class ThereType,
-            or is an implementation of the interface ThereType.<br />
-            判断当前 Type 是否派生自给定的类 ThereType，或为接口 ThereType 的实现。
-            </summary>
-            <typeparam name="TThereBaseClazz"></typeparam>
-            <param name="hereGivenObj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsObjectDeriveFrom(System.Object,System.Type)">
-            <summary>
-            Determine whether the current Type (HereGivenType) is derived from the given class ThereType,
-            or is an implementation of the interface ThereType.<br />
-            判断当前 Type 是否派生自给定的类 ThereType，或为接口 ThereType 的实现。
-            </summary>
-            <param name="hereGivenObj"></param>
-            <param name="thereBaseType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsDeriveClassFrom(System.Type,System.Type,System.Boolean)">
-            <summary>
-            Determine whether the current Type (HereGivenType) is derived from the given class ThereBaseType,
-            or is an implementation of the interface ThereType.<br />
-            判断当前 Type 是否派生自给定的类 ThereType，或为接口 ThereType 的实现。
-            </summary>
-            <param name="hereGivenType"></param>
-            <param name="thereBaseType"></param>
-            <param name="canAbstract"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsDeriveClassFrom``1(System.Type,System.Boolean)">
-            <summary>
-            Determine whether the current Type (HereGivenType) is derived from the given class ThereBaseType,
-            or is an implementation of the interface ThereType.<br />
-            判断当前 Type 是否派生自给定的类 ThereType，或为接口 ThereType 的实现。
-            </summary>
-            <param name="hereGivenType"></param>
-            <param name="canAbstract"></param>
-            <typeparam name="TBaseType"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericAssignableFrom(System.Type,System.Type)">
-            <summary>
-            Determine whether the current HereGivenType is derived from the generic class thereGenericType
-            or is an implementation of the generic interface thereGenericType. <br />
-            判断当前类型 HereGivenType 是否派生自泛型类 thereGenericType，或为泛型接口 thereGenericType 的实现。
-            </summary>
-            <param name="genericBaseType"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor(System.Type,System.Type)">
-            <summary>
-            Determine whether the current HereGivenType is derived from the generic class thereGenericType
-            or is an implementation of the generic interface thereGenericType. <br />
-            判断当前类型 HereGivenType 是否派生自泛型类 thereGenericType，或为泛型接口 thereGenericType 的实现。
-            </summary>
-            <param name="hereGivenType">给定类型</param>
-            <param name="thereGenericType">泛型类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor(System.Reflection.TypeInfo,System.Reflection.TypeInfo)">
-            <summary>
-            Determine whether the current HereGivenType is derived from the generic class thereGenericType
-            or is an implementation of the generic interface thereGenericType. <br />
-            判断当前类型 HereGivenType 是否派生自泛型类 thereGenericType，或为泛型接口 thereGenericType 的实现。
-            </summary>
-            <param name="hereGivenType">给定类型</param>
-            <param name="thereGenericType">泛型类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor``1(System.Type)">
-            <summary>
-            Determine whether the current HereGivenType is derived from the generic class thereGenericType
-            or is an implementation of the generic interface thereGenericType. <br />
-            判断当前类型 HereGivenType 是否派生自泛型类 thereGenericType，或为泛型接口 thereGenericType 的实现。
-            </summary>
-            <typeparam name="TGeneric">泛型类型</typeparam>
-            <param name="hereGivenType">给定类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsGenericImplementationFor``1(System.Reflection.TypeInfo)">
-            <summary>
-            Determine whether the current HereGivenType is derived from the generic class thereGenericType
-            or is an implementation of the generic interface thereGenericType. <br />
-            判断当前类型 HereGivenType 是否派生自泛型类 thereGenericType，或为泛型接口 thereGenericType 的实现。
-            </summary>
-            <typeparam name="TThereGenericClazz">泛型类型</typeparam>
-            <param name="hereGivenType">给定类型</param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsBaseOn(System.Type,System.Type)">
-            <summary>
-            Determine whether the specified type is a derived class of the given base class.<br />
-            判断制定类型是否是给定基类的派生类。
-            </summary>
-            <param name="type"></param>
-            <param name="baseType"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.IsBaseOn``1(System.Type)">
-            <summary>
-            Determine whether the specified type is a derived class of the given base class.<br />
-            判断制定类型是否是给定基类的派生类。
-            </summary>
-            <param name="type"></param>
-            <typeparam name="TBaseType"></typeparam>
             <returns></returns>
         </member>
     </members>
