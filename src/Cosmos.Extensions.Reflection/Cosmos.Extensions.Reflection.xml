@@ -392,36 +392,6 @@
             对指定的资源进行加锁，执行委托并返回结果。
             </summary>
         </member>
-        <member name="T:Cosmos.Reflection.ObjectRefCopyExtensions">
-            <summary>
-            Cosmos object copy extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.ObjectRefCopyExtensions.DeepCopy``1(``0)">
-            <summary>
-            Deep copy<br />
-            深度复制
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="originalObj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.ObjectRefCopyExtensions.ExpressionCopy``1(``0)">
-            <summary>
-            Expression copy<br />
-            表达式复制
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="originalObj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.ObjectRefCopyExtensions.ExpressionCopyHelper.Copier`1.Copy(`0)">
-            <summary>
-            Deep copy by expression
-            </summary>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Reflection.ObjectRefExtensions">
             <summary>
             Cosmos <see cref="T:System.Object"/> extensions.
@@ -435,61 +405,6 @@
             <param name="hashFieldValuesFunc"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
-        </member>
-        <member name="T:Cosmos.Reflection.PropertyPath">
-            <summary>
-            Property path
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.PropertyPath.Root">
-            <summary>
-            Root
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.PropertyPath.Path">
-            <summary>
-            Path
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.PropertyPath.Append(System.Reflection.PropertyInfo)">
-            <summary>
-            Append
-            </summary>
-            <param name="property"></param>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Reflection.PropertyPath.Of``1">
-            <summary>
-            Of
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Reflection.PropertyPath`1">
-            <summary>
-            Property path
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Cosmos.Reflection.PropertyPath`1.ThenEnumerable``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IEnumerable{``0}}})">
-            <summary>
-            Then enumerable
-            </summary>
-            <param name="expression"></param>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Reflection.PropertyPath`1.Then``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
-            <summary>
-            Then
-            </summary>
-            <param name="expression"></param>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="T:Cosmos.Reflection.TypeScanner">
             <summary>
@@ -608,27 +523,8 @@
             <summary>
             Type visit, an advanced TypeReflections utility.
             </summary>
-        </member>
-        <member name="T:Cosmos.Reflection.TypeVisit.CtorMatchedResult">
             <summary>
-            Ctor matched result
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeVisit.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
-            <summary>
-            Ctor matched result
-            </summary>
-            <param name="values"></param>
-            <param name="index"></param>
-        </member>
-        <member name="F:Cosmos.Reflection.TypeVisit.CtorMatchedResult.Values">
-            <summary>
-            Values
-            </summary>
-        </member>
-        <member name="F:Cosmos.Reflection.TypeVisit.CtorMatchedResult.Index">
-            <summary>
-            Index
+            Type visit, an advanced TypeReflections utility.
             </summary>
         </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessOptions)">
@@ -861,6 +757,38 @@
             <param name="arguments"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.ExpressionCopier`1.Copy(`0)">
+            <summary>
+            Deep copy by expression
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Reflection.DeepCopyContext">
+            <summary>
+            Records details about copied objects.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.DeepCopyContext.RecordCopy(System.Object,System.Object)">
+            <summary>
+            Records <paramref name="copy"/> as a copy of <paramref name="original"/>.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="copy">The copy of <paramref name="original"/>.</param>
+        </member>
+        <member name="M:Cosmos.Reflection.DeepCopyContext.TryGetCopy(System.Object,System.Object@)">
+            <summary>
+            Returns the copy of <paramref name="original"/> if it has been copied or <see langword="null"/> if it has not yet been copied.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="result">The copied object.</param>
+            <returns>The copy of <paramref name="original"/> or <see langword="null"/> if no copy has been made.</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.DeepCopyContext.Reset">
+            <summary>
+            Resets this instance so that it can be reused.
+            </summary>
+        </member>
         <member name="T:Cosmos.Reflection.PropertyAccessOptions">
             <summary>
             Property access options
@@ -880,190 +808,6 @@
             <summary>
             Both
             </summary>
-        </member>
-        <member name="T:DeepCopy.CopierGenerator`1">
-            <summary>
-            Generates copy delegates.
-            </summary>
-        </member>
-        <member name="M:DeepCopy.CopierGenerator`1.CreateCopier(System.Type)">
-            <summary>
-            Gets a copier for the provided type.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>A copier for the provided type.</returns>
-        </member>
-        <member name="T:DeepCopy.CopyContext">
-            <summary>
-            Records details about copied objects.
-            </summary>
-        </member>
-        <member name="M:DeepCopy.CopyContext.RecordCopy(System.Object,System.Object)">
-            <summary>
-            Records <paramref name="copy"/> as a copy of <paramref name="original"/>.
-            </summary>
-            <param name="original">The original object.</param>
-            <param name="copy">The copy of <paramref name="original"/>.</param>
-        </member>
-        <member name="M:DeepCopy.CopyContext.TryGetCopy(System.Object,System.Object@)">
-            <summary>
-            Returns the copy of <paramref name="original"/> if it has been copied or <see langword="null"/> if it has not yet been copied.
-            </summary>
-            <param name="original">The original object.</param>
-            <param name="result">The copied object.</param>
-            <returns>The copy of <paramref name="original"/> or <see langword="null"/> if no copy has been made.</returns>
-        </member>
-        <member name="M:DeepCopy.CopyContext.Reset">
-            <summary>
-            Resets this instance so that it can be reused.
-            </summary>
-        </member>
-        <member name="T:DeepCopy.CopyPolicy">
-            <summary>
-            Methods for determining the copyability of types and fields.
-            </summary>
-        </member>
-        <member name="M:DeepCopy.CopyPolicy.GetCopyableFields(System.Type)">
-            <summary>
-            Returns a sorted list of the copyable fields of the provided type.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>A sorted list of the fields of the provided type.</returns>
-        </member>
-        <member name="M:DeepCopy.CopyPolicy.IsImmutable(System.Type)">
-            <summary>
-            Returns true if the provided type is immutable, otherwise false.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>true if the provided type is immutable, otherwise false.</returns>
-        </member>
-        <member name="T:DeepCopy.CopyPolicy.FieldInfoComparer">
-            <summary>
-            A comparer for <see cref="T:System.Reflection.FieldInfo"/> which compares by name.
-            </summary>
-        </member>
-        <member name="P:DeepCopy.CopyPolicy.FieldInfoComparer.Instance">
-            <summary>
-            Gets the singleton instance of this class.
-            </summary>
-        </member>
-        <member name="M:DeepCopy.CopyPolicy.FieldInfoComparer.Compare(System.Reflection.FieldInfo,System.Reflection.FieldInfo)">
-            <inheritdoc />
-        </member>
-        <member name="T:DeepCopy.DeepCopier">
-            <summary>
-            Methods for creating deep copies of objects.
-            </summary>
-        </member>
-        <member name="M:DeepCopy.DeepCopier.Copy``1(``0)">
-            <summary>
-            Creates and returns a deep copy of the provided object.
-            </summary>
-            <typeparam name="T">The object type.</typeparam>
-            <param name="original">The object to copy.</param>
-            <returns>A deep copy of the provided object.</returns>
-        </member>
-        <member name="M:DeepCopy.DeepCopier.Copy``1(``0,DeepCopy.CopyContext)">
-            <summary>
-            Creates and returns a deep copy of the provided object.
-            </summary>
-            <typeparam name="T">The object type.</typeparam>
-            <param name="original">The object to copy.</param>
-            <param name="context">
-            The copy context, providing referential integrity between multiple calls to this method.
-            </param>
-            <returns>A deep copy of the provided object.</returns>
-        </member>
-        <member name="T:DeepCopy.DeepCopyDelegate`1">
-            <summary>
-            Deep copier delegate.
-            </summary>
-            <param name="original">Original object to be deep copied.</param>
-            <param name="context">The context.</param>
-            <returns>Deep copy of the original object.</returns>
-        </member>
-        <member name="T:DeepCopy.Immutable">
-            <summary>
-            Helper class for creating immutable values.
-            </summary>
-        </member>
-        <member name="M:DeepCopy.Immutable.Create``1(``0)">
-            <summary>
-            Returns an immutable wrapper over the provided value.
-            </summary>
-            <typeparam name="T">The value type.</typeparam>
-            <param name="value">The value.</param>
-            <returns>An immutable wrapper over the provided value.</returns>
-        </member>
-        <member name="T:DeepCopy.Immutable`1">
-            <summary>
-            Wrapper class for creating immutable values.
-            </summary>
-            <typeparam name="T">The wrapped type.</typeparam>
-        </member>
-        <member name="M:DeepCopy.Immutable`1.#ctor(`0)">
-            <summary>
-            Initializes a new <see cref="T:DeepCopy.Immutable`1"/> instance.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="P:DeepCopy.Immutable`1.Value">
-            <summary>
-            Gets the value held by this instance.
-            </summary>
-        </member>
-        <member name="T:DeepCopy.ImmutableAttribute">
-            <summary>
-            The Immutable attribute indicates that instances of the marked class or struct are never modified
-            after they are created.
-            </summary>
-            <remarks>
-            Note that this implies that sub-objects are also not modified after the instance is created.
-            </remarks>
-        </member>
-        <member name="T:DeepCopy.MethodInfos">
-            <summary>
-            Holds references to methods which are used during copying.
-            </summary>
-        </member>
-        <member name="F:DeepCopy.MethodInfos.TryGetCopy">
-            <summary>
-            A reference to the <see cref="M:DeepCopy.CopyContext.TryGetCopy(System.Object,System.Object@)"/> method.
-            </summary>
-        </member>
-        <member name="F:DeepCopy.MethodInfos.RecordObject">
-            <summary>
-            A reference to the <see cref="M:DeepCopy.CopyContext.RecordCopy(System.Object,System.Object)"/> method.
-            </summary>
-        </member>
-        <member name="F:DeepCopy.MethodInfos.CopyInner">
-            <summary>
-            A reference to <see cref="M:DeepCopy.DeepCopier.Copy``1(``0,DeepCopy.CopyContext)"/>
-            </summary>
-        </member>
-        <member name="F:DeepCopy.MethodInfos.GetUninitializedObject">
-            <summary>
-            A reference to a method which returns an uninitialized object of the provided type.
-            </summary>
-        </member>
-        <member name="F:DeepCopy.MethodInfos.GetTypeFromHandle">
-            <summary>
-            A reference to <see cref="M:System.Type.GetTypeFromHandle(System.RuntimeTypeHandle)"/>.
-            </summary>
-        </member>
-        <member name="T:DeepCopy.ReferenceEqualsComparer">
-            <inheritdoc />
-        </member>
-        <member name="P:DeepCopy.ReferenceEqualsComparer.Instance">
-            <summary>
-            Gets an instance of this class.
-            </summary>
-        </member>
-        <member name="M:DeepCopy.ReferenceEqualsComparer.System#Collections#Generic#IEqualityComparer{System#Object}#Equals(System.Object,System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:DeepCopy.ReferenceEqualsComparer.System#Collections#Generic#IEqualityComparer{System#Object}#GetHashCode(System.Object)">
-            <inheritdoc />
         </member>
         <member name="T:System.Reflection.Emit.SystemModuleBuilderExtensions">
             <summary>
