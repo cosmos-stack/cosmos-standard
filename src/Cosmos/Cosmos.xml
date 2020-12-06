@@ -3378,12 +3378,32 @@
             <param name="attributeType"></param>
             <returns>Attribute of special field</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttribute(System.Reflection.ParameterInfo,System.Type)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo. <br />
+            从成员信息中获取指定的 Attribute 实例。
+            </summary>
+            <param name="parameter">Special member</param>
+            <param name="attributeType"></param>
+            <returns>Attribute of special field</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttribute(System.Reflection.MemberInfo,System.Type,Cosmos.Reflection.ReflectionOptions,Cosmos.Reflection.ReflectionAmbiguousOptions)">
             <summary>
             Obtain the specified Attribute instance from the MemberInfo. <br />
             从成员信息中获取指定的 Attribute 实例。
             </summary>
             <param name="member"></param>
+            <param name="attributeType"></param>
+            <param name="refOptions"></param>
+            <param name="ambOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttribute(System.Reflection.ParameterInfo,System.Type,Cosmos.Reflection.ReflectionOptions,Cosmos.Reflection.ReflectionAmbiguousOptions)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo. <br />
+            从成员信息中获取指定的 Attribute 实例。
+            </summary>
+            <param name="parameter"></param>
             <param name="attributeType"></param>
             <param name="refOptions"></param>
             <param name="ambOptions"></param>
@@ -3398,12 +3418,32 @@
             <typeparam name="TAttribute">Special typeInfo of member</typeparam>
             <returns>Attribute of special field</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttribute``1(System.Reflection.ParameterInfo)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo. <br />
+            从成员信息中获取指定的 Attribute 实例。
+            </summary>
+            <param name="parameter">Special member</param>
+            <typeparam name="TAttribute">Special typeInfo of member</typeparam>
+            <returns>Attribute of special field</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttribute``1(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions,Cosmos.Reflection.ReflectionAmbiguousOptions)">
             <summary>
             Obtain the specified Attribute instance from the MemberInfo. <br />
             从成员信息中获取指定的 Attribute 实例。
             </summary>
             <param name="member"></param>
+            <param name="refOptions"></param>
+            <param name="ambOptions"></param>
+            <typeparam name="TAttribute"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttribute``1(System.Reflection.ParameterInfo,Cosmos.Reflection.ReflectionOptions,Cosmos.Reflection.ReflectionAmbiguousOptions)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo. <br />
+            从成员信息中获取指定的 Attribute 实例。
+            </summary>
+            <param name="parameter"></param>
             <param name="refOptions"></param>
             <param name="ambOptions"></param>
             <typeparam name="TAttribute"></typeparam>
@@ -3418,12 +3458,31 @@
             <typeparam name="TAttribute">Special typeInfo of member</typeparam>
             <returns>Attribute of special field</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes``1(System.Reflection.ParameterInfo)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo. <br />
+            从成员信息中获取一组指定的 Attribute 实例。
+            </summary>
+            <param name="parameter">Special member</param>
+            <typeparam name="TAttribute">Special typeInfo of member</typeparam>
+            <returns>Attribute of special field</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes``1(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions)">
             <summary>
             Obtain a set of specified Attribute instances from the MemberInfo. <br />
             从成员信息中获取一组指定的 Attribute 实例。
             </summary>
             <param name="member">Special member</param>
+            <param name="refOptions"></param>
+            <typeparam name="TAttribute">Special typeInfo of member</typeparam>
+            <returns>Attribute of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes``1(System.Reflection.ParameterInfo,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo. <br />
+            从成员信息中获取一组指定的 Attribute 实例。
+            </summary>
+            <param name="parameter">Special member</param>
             <param name="refOptions"></param>
             <typeparam name="TAttribute">Special typeInfo of member</typeparam>
             <returns>Attribute of special field</returns>
@@ -3437,6 +3496,15 @@
             <param name="attributeType"></param>
             <returns>Attribute of special field</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes(System.Reflection.ParameterInfo,System.Type)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo. <br />
+            从成员信息中获取一组指定的 Attribute 实例。
+            </summary>
+            <param name="parameter">Special member</param>
+            <param name="attributeType"></param>
+            <returns>Attribute of special field</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes(System.Reflection.MemberInfo,System.Type,Cosmos.Reflection.ReflectionOptions)">
             <summary>
             Obtain a set of specified Attribute instances from the MemberInfo. <br />
@@ -3447,12 +3515,31 @@
             <param name="refOptions"></param>
             <returns>Attribute of special field</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes(System.Reflection.ParameterInfo,System.Type,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo. <br />
+            从成员信息中获取一组指定的 Attribute 实例。
+            </summary>
+            <param name="parameter">Special member</param>
+            <param name="attributeType"></param>
+            <param name="refOptions"></param>
+            <returns>Attribute of special field</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributeRequired``1(System.Reflection.MemberInfo)">
             <summary>
             Obtain the specified Attribute instance from the MemberInfo, and throw an exception if the acquisition fails.<br />
             从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
             </summary>
             <param name="member">Special member</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special member</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributeRequired``1(System.Reflection.ParameterInfo)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo, and throw an exception if the acquisition fails.<br />
+            从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
             <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
             <returns>Attribute of special member</returns>
         </member>
@@ -3467,12 +3554,32 @@
             <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
             <returns>Attribute of special member</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributeRequired``1(System.Reflection.ParameterInfo,Cosmos.Reflection.ReflectionOptions,Cosmos.Reflection.ReflectionAmbiguousOptions)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo, and throw an exception if the acquisition fails.<br />
+            从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
+            <param name="refOptions"></param>
+            <param name="ambOptions"></param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special member</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributeRequired(System.Reflection.MemberInfo,System.Type)">
             <summary>
             Obtain the specified Attribute instance from the MemberInfo, and throw an exception if the acquisition fails.<br />
             从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
             </summary>
             <param name="member">Special member</param>
+            <param name="attributeType"></param>
+            <returns>Attribute of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributeRequired(System.Reflection.ParameterInfo,System.Type)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo, and throw an exception if the acquisition fails.<br />
+            从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
             <param name="attributeType"></param>
             <returns>Attribute of special field</returns>
         </member>
@@ -3487,12 +3594,32 @@
             <param name="ambOptions"></param>
             <returns>Attribute of special field</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributeRequired(System.Reflection.ParameterInfo,System.Type,Cosmos.Reflection.ReflectionOptions,Cosmos.Reflection.ReflectionAmbiguousOptions)">
+            <summary>
+            Obtain the specified Attribute instance from the ParameterInfo, and throw an exception if the acquisition fails.<br />
+            从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
+            <param name="attributeType"></param>
+            <param name="refOptions"></param>
+            <param name="ambOptions"></param>
+            <returns>Attribute of special field</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributesRequired``1(System.Reflection.MemberInfo)">
             <summary>
             Obtain a set of specified Attribute instances from the MemberInfo, and throw an exception if the acquisition fails. <br />
             从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
             </summary>
             <param name="member">Special member</param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special member</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributesRequired``1(System.Reflection.ParameterInfo)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo, and throw an exception if the acquisition fails. <br />
+            从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
             <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
             <returns>Attribute of special member</returns>
         </member>
@@ -3506,12 +3633,31 @@
             <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
             <returns>Attribute of special member</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributesRequired``1(System.Reflection.ParameterInfo,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo, and throw an exception if the acquisition fails. <br />
+            从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
+            <param name="refOptions"></param>
+            <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
+            <returns>Attribute of special member</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributesRequired(System.Reflection.MemberInfo,System.Type)">
             <summary>
             Obtain a set of specified Attribute instances from the MemberInfo, and throw an exception if the acquisition fails. <br />
             从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
             </summary>
             <param name="member">Special member</param>
+            <param name="attributeType"></param>
+            <returns>Attribute of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributesRequired(System.Reflection.ParameterInfo,System.Type)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo, and throw an exception if the acquisition fails. <br />
+            从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
             <param name="attributeType"></param>
             <returns>Attribute of special field</returns>
         </member>
@@ -3525,12 +3671,30 @@
             <param name="refOptions"></param>
             <returns>Attribute of special field</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributesRequired(System.Reflection.ParameterInfo,System.Type,Cosmos.Reflection.ReflectionOptions)">
+            <summary>
+            Obtain a set of specified Attribute instances from the ParameterInfo, and throw an exception if the acquisition fails. <br />
+            从成员信息中获取一组指定的 Attribute 实例，如果获取失败则抛出异常。
+            </summary>
+            <param name="parameter">Special member</param>
+            <param name="attributeType"></param>
+            <param name="refOptions"></param>
+            <returns>Attribute of special field</returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes(System.Reflection.MemberInfo)">
             <summary>
             Obtain all Attribute instances from the MemberInfo. <br />
             从成员信息中获取所有 Attribute 实例。
             </summary>
             <param name="member">Special member</param>
+            <returns>Attribute of special field</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes(System.Reflection.ParameterInfo)">
+            <summary>
+            Obtain all Attribute instances from the ParameterInfo. <br />
+            从成员信息中获取所有 Attribute 实例。
+            </summary>
+            <param name="parameter">Special member</param>
             <returns>Attribute of special field</returns>
         </member>
         <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions)">
@@ -3542,101 +3706,14 @@
             <param name="refOptions"></param>
             <returns>Attribute of special field</returns>
         </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription``1">
+        <member name="M:Cosmos.Reflection.TypeReflections.GetAttributes(System.Reflection.ParameterInfo,Cosmos.Reflection.ReflectionOptions)">
             <summary>
-            Get description
+            Obtain all Attribute instances from the ParameterInfo. <br />
+            从成员信息中获取所有 Attribute 实例。
             </summary>
-            <typeparam name="T">Special typeInfo</typeparam>
-            <returns>Description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription(System.Type)">
-            <summary>
-            Get description
-            </summary>
-            <param name="type">Special typeInfo</param>
-            <returns>Description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription(System.Reflection.TypeInfo)">
-            <summary>
-            Get description
-            </summary>
-            <param name="typeInfo">Special typeInfo</param>
-            <returns>Description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription``1(System.String)">
-            <summary>
-            Get description
-            </summary>
-            <typeparam name="T">Special typeInfo</typeparam>
-            <param name="memberName">Name of special member</param>
-            <returns>Description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription(System.Type,System.String)">
-            <summary>
-            Get description
-            </summary>
-            <param name="type">Special typeInfo</param>
-            <param name="memberName">Name of special member</param>
-            <returns>Description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription(System.Reflection.TypeInfo,System.String)">
-            <summary>
-            Get description
-            </summary>
-            <param name="typeInfo">Special typeInfo</param>
-            <param name="memberName">Name of special member</param>
-            <returns>Description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription(System.Reflection.MemberInfo)">
-            <summary>
-            Get description
-            </summary>
-            <param name="memberInfo">Special member</param>
-            <returns>Description of special member</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription(System.Type,System.Reflection.FieldInfo)">
-            <summary>
-            Get description
-            </summary>
-            <param name="type">Special typeInfo</param>
-            <param name="field">Special field</param>
-            <returns>Description of special field</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescription(System.Reflection.TypeInfo,System.Reflection.FieldInfo)">
-            <summary>
-            Get description
-            </summary>
-            <param name="typeInfo">Special typeInfo</param>
-            <param name="field">Special field</param>
-            <returns>Description of special field</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDisplayName``1">
-            <summary>
-            Get display name
-            </summary>
-            <typeparam name="T">Special typeInfo</typeparam>
-            <returns>Description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDisplayName2(System.Reflection.MemberInfo)">
-            <summary>
-            Get display name
-            </summary>
-            <param name="memberInfo">Special member</param>
-            <returns>Description of special member</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescriptionOrDisplayName``1">
-            <summary>
-            Get display name or description, name first.
-            </summary>
-            <typeparam name="T">Special typeInfo</typeparam>
-            <returns>Name or description of special typeInfo</returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeReflections.GetDescriptionOrDisplayName(System.Reflection.MemberInfo)">
-            <summary>
-            Get display name or description, name first.
-            </summary>
-            <param name="memberInfo">Special member</param>
-            <returns>Name or description of special member</returns>
+            <param name="parameter">Special member</param>
+            <param name="refOptions"></param>
+            <returns>Attribute of special field</returns>
         </member>
         <member name="M:Cosmos.Reflection.TypeReflections.IsImplementationOfGenericType(System.Type,System.Type,System.Type@,System.Type[]@)">
             <summary>

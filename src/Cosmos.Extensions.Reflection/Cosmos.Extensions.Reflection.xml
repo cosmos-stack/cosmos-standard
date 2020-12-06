@@ -605,6 +605,9 @@
             <summary>
             Type visit, an advanced TypeReflections utility.
             </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility.
+            </summary>
         </member>
         <member name="T:Cosmos.Reflection.TypeVisit.CtorMatchedResult">
             <summary>
@@ -649,6 +652,9 @@
             <returns></returns>
         </member>
         <member name="T:Cosmos.Reflection.TypeMetaVisitExtensions">
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
+            </summary>
             <summary>
             Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
             </summary>
