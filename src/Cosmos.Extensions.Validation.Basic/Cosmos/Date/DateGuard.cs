@@ -16,7 +16,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void ValidDate(DateTime argument, string argumentName, string message = null)
+        public static void ShouldBeValid(DateTime argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(
                 IsValid(argument),
@@ -40,9 +40,9 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void ValidDate(DateTime? argument, string argumentName, string message = null)
+        public static void ShouldBeValid(DateTime? argument, string argumentName, string message = null)
         {
-            ValidDate(argument.SafeValue(), argumentName, message);
+            ShouldBeValid(argument.SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -55,11 +55,11 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void InThePast(DateTime argument, string argumentName, string message = null)
+        public static void ShouldBeInThePast(DateTime argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument <= DateTime.UtcNow,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be in past.");
+                argumentName, argument, message ?? $"The given time ({nameof(argument)}) should happen in the past.");
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void InThePast(DateTime? argument, string argumentName, string message = null)
+        public static void ShouldBeInThePast(DateTime? argument, string argumentName, string message = null)
         {
-            InThePast(argument.SafeValue(), argumentName, message);
+            ShouldBeInThePast(argument.SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -87,11 +87,11 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void InTheFuture(DateTime argument, string argumentName, string message = null)
+        public static void ShouldBeInTheFuture(DateTime argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument >= DateTime.UtcNow,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be in future.");
+                argumentName, argument, message ?? $"The given time ({nameof(argument)}) should happen in the future.");
         }
 
         /// <summary>
@@ -104,9 +104,40 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void InTheFuture(DateTime? argument, string argumentName, string message = null)
+        public static void ShouldBeInTheFuture(DateTime? argument, string argumentName, string message = null)
         {
-            InTheFuture(argument.SafeValue(), argumentName, message);
+            ShouldBeInTheFuture(argument.SafeValue(), argumentName, message);
+        }
+    }
+    
+    public static class DateGuardExtensions
+    {
+        /// <summary>
+        /// Check if the date is valid. <br />
+        /// If the date is invalid, an exception is thrown. <br />
+        /// 检查日期是否有效。 <br />
+        /// 如果日期是无效的，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void CheckInvalidDate(this DateTime argument, string argumentName, string message = null)
+        {
+            DateGuard.ShouldBeValid(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check if the date is valid. <br />
+        /// If the date is invalid, an exception is thrown. <br />
+        /// 检查日期是否有效。 <br />
+        /// 如果日期是无效的，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void CheckInvalidDate(this DateTime? argument, string argumentName, string message = null)
+        {
+            DateGuard.ShouldBeValid(argument, argumentName, message);
         }
     }
 }

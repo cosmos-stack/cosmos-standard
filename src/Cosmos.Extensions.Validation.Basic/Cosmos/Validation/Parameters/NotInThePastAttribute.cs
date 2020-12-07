@@ -26,7 +26,7 @@ namespace Cosmos.Validation.Parameters
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsDateTimeType())
-                DateGuard.InTheFuture(context.Parameter.TryTo<DateTime?>(), context.Parameter.Name, Message);
+                DateGuard.ShouldBeInTheFuture(context.Parameter.TryTo<DateTime?>(), context.Parameter.Name, Message);
             return next(context);
         }
     }
