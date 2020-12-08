@@ -2555,6 +2555,9 @@
             <summary>
             Extensions for number utilities
             </summary>
+            <summary>
+            Extensions for number utilities
+            </summary>
         </member>
         <member name="M:Cosmos.Numeric.NumberExtensions.FixZero(System.Double)">
             <summary>
@@ -2593,6 +2596,61 @@
             </summary>
             <param name="value"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsZero(System.Single)">
+            <summary>
+            Shortcut for validating a if a floating point value is considered zero (within epsilon tolerance).
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsZero(System.Double)">
+            <summary>
+            Shortcut for validating a if a double tolerance floating point value is considered zero (within epsilon tolerance).
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsNearZero(System.Double,System.Double)">
+            <summary>
+            Shortcut for validating a if a double tolerance floating point value is considered zero (within provided tolerance).
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsNearEqual(System.Single,System.Single,System.Single)">
+            <summary>
+            Shortcut for validating a if a floating point value is close enough to another addValue using the given tolerance tolerance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsNearEqual(System.Double,System.Double,System.Double)">
+            <summary>
+            Shortcut for validating a if a double precision floating point value is close enough to another addValue using the given tolerance tolerance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsNearEqual(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Shortcut for validating a if a decimal addValue is close enough to another addValue using the given tolerance tolerance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsRelativeNearEqual(System.Double,System.Double,System.UInt32)">
+            <summary>
+            Shortcut for validating a if a decimal addValue is close enough to another addValue using the given tolerance tolerance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsPreciseEqual(System.Double,System.Double,System.Boolean)">
+            <summary>
+            Validates if values are equal within epsilon tolerance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsPreciseEqual(System.Single,System.Single,System.Boolean)">
+            <summary>
+            Validates if values are equal within epsilon tolerance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsPreciseEqual(System.Nullable{System.Double},System.Nullable{System.Double},System.Boolean)">
+            <summary>
+            Validates if values are equal within epsilon tolerance.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.IsPreciseEqual(System.Nullable{System.Single},System.Nullable{System.Single},System.Boolean)">
+            <summary>
+            Validates if values are equal within epsilon tolerance.
+            </summary>
         </member>
         <member name="M:Cosmos.Numeric.NumberExtensions.ToDecimal(System.Single)">
             <summary>

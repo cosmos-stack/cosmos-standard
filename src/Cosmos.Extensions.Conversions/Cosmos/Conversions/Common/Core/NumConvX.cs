@@ -708,13 +708,19 @@ namespace Cosmos.Conversions.Common.Core
 
         public static float? ObjectToNullableFloat(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is float myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableFloat(str);
-            return null;
+            return obj switch
+            {
+                null => null,
+                float myself => myself,
+                short @short => @short,
+                int @int => @int,
+                long @long => @long,
+                ushort @ushort => @ushort,
+                uint @uint => @uint,
+                ulong @ulong => @ulong,
+                string str => StringToNullableFloat(str),
+                _ => null
+            };
         }
 
         public static float? StringToNullableFloat(string str)

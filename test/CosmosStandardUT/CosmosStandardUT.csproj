@@ -64,7 +64,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DateTimeUT" />
       <Folder Include="StringUT" />
     </ItemGroup>
 
