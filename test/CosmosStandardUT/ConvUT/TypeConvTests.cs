@@ -9,7 +9,7 @@ using Xunit;
 namespace CosmosStandardUT.ConvUT
 {
     [Trait("TypeUT", "TypeConv")]
-    public class TypeConvTest
+    public class TypeConvTests
     {
         [Fact(DisplayName = "Convert Nullable Type to Non-Nullable Type")]
         public void NullableTypeToNonNullableTypeTest()

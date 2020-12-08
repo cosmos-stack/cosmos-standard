@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace Cosmos.Reflection
 {
@@ -25,39 +24,37 @@ namespace Cosmos.Reflection
             if (type.IsArray)
                 return GetNonNullableType(type.GetElementType())?.MakeArrayType();
 
-            var typeInfo = type.GetTypeInfo();
-
-            if (typeInfo.IsGenericType)
+            if (type.IsGenericType)
             {
-                var genericTypeDefinition = typeInfo.GetGenericTypeDefinition();
+                var genericTypeDefinition = type.GetGenericTypeDefinition();
 
                 if (genericTypeDefinition == typeof(Nullable<>))
-                    return typeInfo.GetGenericArguments()[0];
+                    return type.GetGenericArguments()[0];
 
                 if (genericTypeDefinition == typeof(KeyValuePair<,>))
                 {
                     var baseType = typeof(KeyValuePair<,>);
-                    var args = typeInfo.GetGenericArguments();
+                    var args = type.GetGenericArguments();
                     return baseType.MakeGenericType(args[0], GetNonNullableType(args[1]));
                 }
 
-                if (IsCollectionImplementation(typeInfo, out var argumentType, out var dictionaryType))
+                if (IsCollectionImplementation(type, out var argumentType, out var dictionaryType))
                 {
-                    var baseType = typeInfo.GetGenericTypeDefinition();
+                    var baseType = type.GetGenericTypeDefinition();
                     return baseType.MakeGenericType(argumentType);
                 }
 
                 if (dictionaryType)
                 {
-                    var args = typeInfo.GetGenericArguments();
-                    var baseType = typeInfo.GetGenericTypeDefinition();
+                    var args = type.GetGenericArguments();
+                    var baseType = type.GetGenericTypeDefinition();
                     return baseType.MakeGenericType(args[0], GetNonNullableType(args[1]));
                 }
             }
 
             return type;
 
-            bool IsCollectionImplementation(TypeInfo ti, out Type at, out bool dt)
+            bool IsCollectionImplementation(Type ti, out Type at, out bool dt)
             {
                 at = null;
                 dt = false;
