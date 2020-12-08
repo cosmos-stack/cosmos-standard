@@ -21,7 +21,7 @@ namespace Cosmos.Validation.Internals
             if (assertion)
                 return;
 
-            var exception = CreateException(typeof(TException),exceptionParams);
+            var exception = CreateException(typeof(TException), exceptionParams);
 
             var wrappedException = exception switch
             {
@@ -29,7 +29,7 @@ namespace Cosmos.Validation.Internals
                 ArgumentOutOfRangeException exception02 => ValidationErrors.OutOfRange(exception02),
                 ArgumentInvalidException exception03 => ValidationErrors.Invalid(exception03),
                 _ => exception
-            } as TException;
+            } as Exception;
 
             ExceptionHelper.PrepareForRethrow(wrappedException);
         }

@@ -46,24 +46,24 @@ namespace Cosmos.Validation.Parameters
             return next(context);
         }
 
-        private long LongMin => Min.TryTo(NumericConstants.LongMin);
+        private long LongMin => Min.TryTo(NumericConstants.LONG_MIN);
 
-        private long LongMax => Max.TryTo(NumericConstants.LongMax);
+        private long LongMax => Max.TryTo(NumericConstants.LONG_MAX);
 
-        private int IntMin => Min.TryTo(NumericConstants.IntMin);
+        private int IntMin => Min.TryTo(NumericConstants.INT_MIN);
 
-        private int IntMax => Max.TryTo(NumericConstants.IntMax);
+        private int IntMax => Max.TryTo(NumericConstants.INT_MAX);
 
-        private float FloatMin => Min.TryTo(NumericConstants.FloatMin);
+        private float FloatMin => Min.TryTo(NumericConstants.FLOAT_MIN);
 
-        private float FloatMax => Max.TryTo(NumericConstants.FloatMax);
+        private float FloatMax => Max.TryTo(NumericConstants.FLOAT_MAX);
 
-        private double DoubleMin => Min.TryTo(NumericConstants.DoubleMin);
+        private double DoubleMin => Min.TryTo(NumericConstants.DOUBLE_MIN);
 
-        private double DoubleMax => Max.TryTo(NumericConstants.DoubleMax);
+        private double DoubleMax => Max.TryTo(NumericConstants.DOUBLE_MAX);
 
-        private decimal DecimalMin => Min.TryTo(NumericConstants.DecimalMin);
+        private decimal DecimalMin => Min.TryTo(NumericConstants.DECIMAL_MIN);
 
-        private decimal DecimalMax => Max.TryTo(NumericConstants.DecimalMax);
+        private decimal DecimalMax => Max.TryTo(NumericConstants.DECIMAL_MAX);
     }
 }

@@ -112,13 +112,13 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static bool IsNaN(double value) => value.IsNaN();
+        public static bool IsNaN(double value) => Numbers.IsNaN(value);
 
         /// <summary>
         /// Is NaN
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static bool IsNaN(float value) => value.IsNaN();
+        public static bool IsNaN(float value) => Numbers.IsNaN(value);
     }
 }

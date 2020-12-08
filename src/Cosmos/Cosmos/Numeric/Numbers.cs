@@ -1,9 +1,18 @@
-﻿namespace Cosmos.Numeric
+﻿using System;
+using System.Globalization;
+
+namespace Cosmos.Numeric
 {
+    public enum NumericMayOptions
+    {
+        Default = 0,
+        IgnoreNullable = 1
+    }
+
     /// <summary>
     /// Number Utilities
     /// </summary>
-    public static class Numbers
+    public static partial class Numbers
     {
         #region GetMembersBetween
 
@@ -13,7 +22,7 @@
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static int[] GetMembersBetween(int min, int max)
+        public static int[] GetRangeBetween(int min, int max)
         {
             if (min == max)
             {
@@ -49,7 +58,7 @@
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public static long[] GetMembersBetween(long min, long max)
+        public static long[] GetRangeBetween(long min, long max)
         {
             if (min == max)
             {
@@ -81,22 +90,129 @@
 
         #endregion
 
-        #region IsNaN
+        /// <summary>
+        /// Shortcut for returning true zero if a double tolerance floating point value is considered zero (within epsilon tolerance).<br />
+        /// 如果将双公差浮点值视为零（在ε公差内），则返回真零的快捷方式。
+        /// </summary>
+        public static double FixZero(double value)
+        {
+            return !value.Equals(0) && IsZeroValue(value) ? 0 : value;
+        }
+
+        private static double ReturnZeroIfFinite(float value)
+        {
+            if (float.IsNegativeInfinity(value))
+                return double.NegativeInfinity;
+            if (float.IsPositiveInfinity(value))
+                return double.PositiveInfinity;
+
+            return float.IsNaN(value) ? double.NaN : 0D;
+        }
 
         /// <summary>
-        /// Is NaN
+        /// Returns the number of decimal places before last zero digit.<br />
+        /// 返回最后零位之前的小数位数。
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static bool IsNaN(double value) => value.IsNaN();
+        public static int GetDecimalPlaces(double source)
+        {
+            if (IsNaN(source))
+                return 0;
+
+            var valueString = source.ToString(CultureInfo.InvariantCulture); // To
+            var index = valueString.IndexOf('.');
+            return index == -1 ? 0 : valueString.Length - index - 1;
+        }
 
         /// <summary>
-        /// Is NaN
+        /// Ensures addition tolerance by trimming off unexpected imprecision.<br />
+        /// 通过消除意外的不准确性来确保附加公差。
         /// </summary>
+        public static double GetSumAccurate(double source, double value)
+        {
+            var result = source + value;
+            var vp = GetDecimalPlaces(source);
+            if (vp > 15)
+                return result;
+            var ap = GetDecimalPlaces(value);
+            if (ap > 15)
+                return result;
+
+            var digits = Math.Max(vp, ap);
+
+            return Math.Round(result, digits);
+        }
+
+        /// <summary>
+        /// Ensures addition tolerance by trimming off unexpected imprecision.<br />
+        /// 通过消除意外的不准确性来确保附加公差。
+        /// </summary>
+        public static double GetProductAccurate(double source, double value)
+        {
+            var result = source * value;
+            var vp = GetDecimalPlaces(source);
+            if (vp > 15)
+                return result;
+            var ap = GetDecimalPlaces(value);
+            if (ap > 15)
+                return result;
+
+            var digits = Math.Max(vp, ap);
+
+            return Math.Round(result, digits);
+        }
+
+        /// <summary>
+        /// Ensures addition tolerance by using integer math.<br />
+        /// 通过使用整数数学来确保加法公差。
+        /// </summary>
+        /// <param name="source"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static bool IsNaN(float value) => value.IsNaN();
+        public static double GetSumUsingIntegers(double source, double value)
+        {
+            var x = Math.Pow(10, Math.Max(GetDecimalPlaces(source), GetDecimalPlaces(value)));
 
-        #endregion
+            var v = (long) (source * x);
+            var a = (long) (value * x);
+            var result = v + a;
+            return result / x;
+        }
+    }
+
+    /// <summary>
+    /// Extensions for number utilities
+    /// </summary>
+    public static partial class NumberExtensions
+    {
+        /// <summary>
+        /// Shortcut for returning true zero if a double tolerance floating point value is considered zero (within epsilon tolerance).<br />
+        /// 如果将双公差浮点值视为零（在ε公差内），则返回真零的快捷方式。
+        /// </summary>
+        public static double FixZero(this double x) => Numbers.FixZero(x);
+
+        /// <summary>
+        /// Returns the number of decimal places before last zero digit.<br />
+        /// 返回最后零位之前的小数位数。
+        /// </summary>
+        public static int DecimalPlaces(this double x) => Numbers.GetDecimalPlaces(x);
+        
+        /// <summary>
+        /// Ensures addition tolerance by trimming off unexpected imprecision.<br />
+        /// 通过消除意外的不准确性来确保附加公差。
+        /// </summary>
+        public static double SumAccurate(this double x, double value)=> Numbers.GetSumAccurate(x,value);
+
+        /// <summary>
+        /// Ensures addition tolerance by trimming off unexpected imprecision.<br />
+        /// 通过消除意外的不准确性来确保附加公差。
+        /// </summary>
+        public static double ProductAccurate(this double x, double value)=> Numbers.GetProductAccurate(x,value);
+
+        /// <summary>
+        /// Ensures addition tolerance by using integer math.<br />
+        /// 通过使用整数数学来确保加法公差。
+        /// </summary>
+        /// <returns></returns>
+        public static double SumUsingIntegers(this double x, double value)=> Numbers.GetSumUsingIntegers(x,value);
     }
 }

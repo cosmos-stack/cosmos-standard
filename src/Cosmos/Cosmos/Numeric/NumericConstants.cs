@@ -8,81 +8,81 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Zero
         /// </summary>
-        public const int Zero = 0;
-        
+        public const int ZERO = 0;
+
         /// <summary>
         /// One
         /// </summary>
-        public const int One = 1;
+        public const int ONE = 1;
 
         /// <summary>
         /// Max value of Int32.
         /// </summary>
-        public const int IntMax = int.MaxValue;
+        public const int INT_MAX = int.MaxValue;
 
         /// <summary>
         /// Min value of Int32.
         /// </summary>
-        public const int IntMin = int.MinValue;
+        public const int INT_MIN = int.MinValue;
 
         /// <summary>
         /// Max value of Int64.
         /// </summary>
-        public const long LongMax = long.MaxValue;
+        public const long LONG_MAX = long.MaxValue;
 
         /// <summary>
         /// Min value of Int64.
         /// </summary>
-        public const long LongMin = long.MinValue;
+        public const long LONG_MIN = long.MinValue;
 
         /// <summary>
         /// Max value of float.
         /// </summary>
-        public const float FloatMax = float.MaxValue;
+        public const float FLOAT_MAX = float.MaxValue;
 
         /// <summary>
         /// Min value of float.
         /// </summary>
-        public const float FloatMin = float.MinValue;
+        public const float FLOAT_MIN = float.MinValue;
 
         /// <summary>
         /// Max value of double.
         /// </summary>
-        public const double DoubleMax = double.MaxValue;
+        public const double DOUBLE_MAX = double.MaxValue;
 
         /// <summary>
         /// Min value of double.
         /// </summary>
-        public const double DoubleMin = double.MinValue;
+        public const double DOUBLE_MIN = double.MinValue;
 
         /// <summary>
         /// Max value of decimal.
         /// </summary>
-        public const decimal DecimalMax = decimal.MaxValue;
+        public const decimal DECIMAL_MAX = decimal.MaxValue;
 
         /// <summary>
         /// Min value of decimal.
         /// </summary>
-        public const decimal DecimalMin = decimal.MinValue;
+        public const decimal DECIMAL_MIN = decimal.MinValue;
 
         /// <summary>
         /// Max value of short.
         /// </summary>
-        public const short ShortMax = short.MaxValue;
+        public const short SHORT_MAX = short.MaxValue;
 
         /// <summary>
         /// Min value of short.
         /// </summary>
-        public const short ShortMin = short.MinValue;
+        public const short SHORT_MIN = short.MinValue;
 
         /// <summary>
         /// Max value of ushort.
         /// </summary>
-        public const ushort UshortMax = ushort.MaxValue;
+        public const ushort USHORT_MAX = ushort.MaxValue;
 
         /// <summary>
         /// Min value of ushort.
         /// </summary>
-        public const ushort UshortMin = ushort.MinValue;
+        public const ushort USHORT_MIN = ushort.MinValue;
     }
 }

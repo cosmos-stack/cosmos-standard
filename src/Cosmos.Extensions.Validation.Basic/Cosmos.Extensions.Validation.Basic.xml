@@ -189,7 +189,7 @@
             <param name="targetQuery"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateGuard.ValidDate(System.DateTime,System.String,System.String)">
+        <member name="M:Cosmos.Date.DateGuard.ShouldBeValid(System.DateTime,System.String,System.String)">
             <summary>
             Check if the date is valid. <br />
             If the date is invalid, an exception is thrown. <br />
@@ -201,7 +201,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.DateGuard.ValidDate(System.Nullable{System.DateTime},System.String,System.String)">
+        <member name="M:Cosmos.Date.DateGuard.ShouldBeValid(System.Nullable{System.DateTime},System.String,System.String)">
             <summary>
             Check if the date is valid. <br />
             If the date is invalid, an exception is thrown. <br />
@@ -213,7 +213,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.DateGuard.InThePast(System.DateTime,System.String,System.String)">
+        <member name="M:Cosmos.Date.DateGuard.ShouldBeInThePast(System.DateTime,System.String,System.String)">
             <summary>
             Check if the date is in the past. <br />
             If the date is not in the past, an exception is thrown. <br />
@@ -225,7 +225,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.DateGuard.InThePast(System.Nullable{System.DateTime},System.String,System.String)">
+        <member name="M:Cosmos.Date.DateGuard.ShouldBeInThePast(System.Nullable{System.DateTime},System.String,System.String)">
             <summary>
             Check if the date is in the past. <br />
             If the date is not in the past, an exception is thrown. <br />
@@ -237,7 +237,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.DateGuard.InTheFuture(System.DateTime,System.String,System.String)">
+        <member name="M:Cosmos.Date.DateGuard.ShouldBeInTheFuture(System.DateTime,System.String,System.String)">
             <summary>
             Check if the date is in the future. <br />
             If the date is not in the future, an exception is thrown. <br />
@@ -249,7 +249,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.DateGuard.InTheFuture(System.Nullable{System.DateTime},System.String,System.String)">
+        <member name="M:Cosmos.Date.DateGuard.ShouldBeInTheFuture(System.Nullable{System.DateTime},System.String,System.String)">
             <summary>
             Check if the date is in the future. <br />
             If the date is not in the future, an exception is thrown. <br />
@@ -283,7 +283,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.Positive(System.TimeSpan,System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBePositive(System.TimeSpan,System.String,System.String)">
             <summary>
             Check whether the time span is positive. <br />
             If the time span is negative or zero, an exception is thrown. <br />
@@ -295,7 +295,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.Positive(System.Nullable{System.TimeSpan},System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBePositive(System.Nullable{System.TimeSpan},System.String,System.String)">
             <summary>
             Check whether the time span is positive. <br />
             If the time span is negative or zero, an exception is thrown. <br />
@@ -307,7 +307,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.PositiveOrZero(System.TimeSpan,System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBePositiveOrZero(System.TimeSpan,System.String,System.String)">
             <summary>
             Check whether the time span is positive or zero. <br />
             If the time span is negative, an exception is thrown. <br />
@@ -319,7 +319,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.PositiveOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBePositiveOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
             <summary>
             Check whether the time span is positive or zero. <br />
             If the time span is negative, an exception is thrown. <br />
@@ -331,7 +331,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.Negative(System.TimeSpan,System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBeNegative(System.TimeSpan,System.String,System.String)">
             <summary>
             Check whether the time span is negative. <br />
             If the time span is positive or zero, an exception is thrown. <br />
@@ -343,7 +343,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.Negative(System.Nullable{System.TimeSpan},System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBeNegative(System.Nullable{System.TimeSpan},System.String,System.String)">
             <summary>
             Check whether the time span is negative. <br />
             If the time span is positive or zero, an exception is thrown. <br />
@@ -355,7 +355,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.NegativeOrZero(System.TimeSpan,System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBeNegativeOrZero(System.TimeSpan,System.String,System.String)">
             <summary>
             Check whether the time span is negative or zero. <br />
             If the time span is positive, an exception is thrown. <br />
@@ -367,7 +367,7 @@
             <param name="message"></param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanGuard.NegativeOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
+        <member name="M:Cosmos.Date.TimeSpanGuard.ShouldBeNegativeOrZero(System.Nullable{System.TimeSpan},System.String,System.String)">
             <summary>
             Check whether the time span is negative or zero. <br />
             If the time span is positive, an exception is thrown. <br />
@@ -467,7 +467,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.IdUtils.GuidGuard.ValidGuid(System.Guid,System.String,System.String)">
+        <member name="M:Cosmos.IdUtils.GuidGuard.ShouldBeValid(System.Guid,System.String,System.String)">
             <summary>
             Check if Guid is empty or null. <br />
             If it is empty or null, an exception is thrown. <br />
@@ -478,7 +478,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.IdUtils.GuidGuard.ValidGuid(System.Nullable{System.Guid},System.String,System.String)">
+        <member name="M:Cosmos.IdUtils.GuidGuard.ShouldBeValid(System.Nullable{System.Guid},System.String,System.String)">
             <summary>
             Check if Guid is empty or null. <br />
             If it is empty or null, an exception is thrown. <br />
@@ -533,7 +533,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Int32,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Int32,System.String,System.String)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -544,7 +544,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -554,8 +554,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Int32,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Int32,System.String,System.String)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -566,7 +567,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -576,8 +577,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Int32,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Int32,System.String,System.String)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -588,7 +590,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -598,8 +600,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Int32,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Int32,System.String,System.String)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -610,7 +613,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -620,8 +623,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Int32,System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -634,7 +638,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -646,8 +650,9 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Int64,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Int64,System.String,System.String)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -658,7 +663,115 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Single,System.String,System.String)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -669,7 +782,19 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Int64,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Single,System.String,System.String)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -680,7 +805,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -690,8 +815,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Int64,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Single,System.String,System.String)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -702,7 +828,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -712,8 +838,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Int64,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Single,System.String,System.String)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -724,7 +851,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -734,8 +861,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Single,System.Single,System.Single,System.String,System.String)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -748,7 +876,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -760,8 +888,9 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Single,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Double,System.String,System.String)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -772,7 +901,115 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Single},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is positive. <br />
+            If the number is negative or zero, an exception is thrown. <br />
+            检查数值是否为正的。 <br />
+            如果数值为负或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is positive or zero. <br />
+            If the number is negative, an exception is thrown. <br />
+            检查数值是否为正或为零。 <br />
+            如果数值为负，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is negative. <br />
+            If the number is positive or zero, an exception is thrown. <br />
+            检查数值是否为负的。 <br />
+            如果数值为正或为零，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Double,System.String,System.String)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the number is negative or zero. <br />
+            If the number is positive, an exception is thrown. <br />
+            检查数值是否为负或为零。 <br />
+            如果数值为正，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Double,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查数值是否在范围内。
+            如果数值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Decimal,System.String,System.String)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -783,99 +1020,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Single,System.String,System.String)">
-            <summary>
-            Check whether the number is positive or zero. <br />
-            If the number is negative, an exception is thrown. <br />
-            检查数值是否为正或为零。 <br />
-            如果数值为负，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Single},System.String,System.String)">
-            <summary>
-            Check whether the number is positive or zero. <br />
-            If the number is negative, an exception is thrown. <br />
-            检查数值是否为正或为零。 <br />
-            如果数值为负，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Single,System.String,System.String)">
-            <summary>
-            Check whether the number is negative. <br />
-            If the number is positive or zero, an exception is thrown. <br />
-            检查数值是否为负的。 <br />
-            如果数值为正或为零，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Single},System.String,System.String)">
-            <summary>
-            Check whether the number is negative. <br />
-            If the number is positive or zero, an exception is thrown. <br />
-            检查数值是否为负的。 <br />
-            如果数值为正或为零，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Single,System.String,System.String)">
-            <summary>
-            Check whether the number is negative or zero. <br />
-            If the number is positive, an exception is thrown. <br />
-            检查数值是否为负或为零。 <br />
-            如果数值为正，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Single},System.String,System.String)">
-            <summary>
-            Check whether the number is negative or zero. <br />
-            If the number is positive, an exception is thrown. <br />
-            检查数值是否为负或为零。 <br />
-            如果数值为正，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Single,System.Single,System.Single,System.String,System.String)">
-            <summary>
-            Check whether the value is within the range.
-            If the value is out of range, an exception is thrown.
-            检查数值是否在范围内。
-            如果数值超出范围，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="min"></param>
-            <param name="max"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String)">
-            <summary>
-            Check whether the value is within the range.
-            If the value is out of range, an exception is thrown.
-            检查数值是否在范围内。
-            如果数值超出范围，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="min"></param>
-            <param name="max"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Double,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositive(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -885,19 +1030,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Double},System.String,System.String)">
-            <summary>
-            Check whether the number is positive. <br />
-            If the number is negative or zero, an exception is thrown. <br />
-            检查数值是否为正的。 <br />
-            如果数值为负或为零，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Double,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Decimal,System.String,System.String)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -908,7 +1043,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Double},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBePositiveOrZero(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -918,8 +1053,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Double,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Decimal,System.String,System.String)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -930,7 +1066,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Double},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegative(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -940,8 +1076,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Double,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Decimal,System.String,System.String)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -952,7 +1089,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Double},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeNegativeOrZero(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -962,8 +1099,9 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Double,System.Double,System.Double,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -976,7 +1114,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuard.ShouldBeWithinRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -988,120 +1126,7 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Decimal,System.String,System.String)">
-            <summary>
-            Check whether the number is positive. <br />
-            If the number is negative or zero, an exception is thrown. <br />
-            检查数值是否为正的。 <br />
-            如果数值为负或为零，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Positive(System.Nullable{System.Decimal},System.String,System.String)">
-            <summary>
-            Check whether the number is positive. <br />
-            If the number is negative or zero, an exception is thrown. <br />
-            检查数值是否为正的。 <br />
-            如果数值为负或为零，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Decimal,System.String,System.String)">
-            <summary>
-            Check whether the number is positive or zero. <br />
-            If the number is negative, an exception is thrown. <br />
-            检查数值是否为正或为零。 <br />
-            如果数值为负，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.PositiveOrZero(System.Nullable{System.Decimal},System.String,System.String)">
-            <summary>
-            Check whether the number is positive or zero. <br />
-            If the number is negative, an exception is thrown. <br />
-            检查数值是否为正或为零。 <br />
-            如果数值为负，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Decimal,System.String,System.String)">
-            <summary>
-            Check whether the number is negative. <br />
-            If the number is positive or zero, an exception is thrown. <br />
-            检查数值是否为负的。 <br />
-            如果数值为正或为零，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.Negative(System.Nullable{System.Decimal},System.String,System.String)">
-            <summary>
-            Check whether the number is negative. <br />
-            If the number is positive or zero, an exception is thrown. <br />
-            检查数值是否为负的。 <br />
-            如果数值为正或为零，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Decimal,System.String,System.String)">
-            <summary>
-            Check whether the number is negative or zero. <br />
-            If the number is positive, an exception is thrown. <br />
-            检查数值是否为负或为零。 <br />
-            如果数值为正，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.NegativeOrZero(System.Nullable{System.Decimal},System.String,System.String)">
-            <summary>
-            Check whether the number is negative or zero. <br />
-            If the number is positive, an exception is thrown. <br />
-            检查数值是否为负或为零。 <br />
-            如果数值为正，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
-            <summary>
-            Check whether the value is within the range.
-            If the value is out of range, an exception is thrown.
-            检查数值是否在范围内。
-            如果数值超出范围，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="min"></param>
-            <param name="max"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Cosmos.Numeric.NumericGuard.WithinRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String)">
-            <summary>
-            Check whether the value is within the range.
-            If the value is out of range, an exception is thrown.
-            检查数值是否在范围内。
-            如果数值超出范围，则抛出异常。
-            </summary>
-            <param name="argument"></param>
-            <param name="min"></param>
-            <param name="max"></param>
-            <param name="argumentName"></param>
-            <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Int32,System.Int32,System.Int32,System.String,System.String)">
             <summary>
@@ -1116,7 +1141,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Int32},System.Int32,System.Int32,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -1128,6 +1153,7 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Int32,System.String,System.String)">
             <summary>
@@ -1140,7 +1166,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -1150,6 +1176,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Int32,System.String,System.String)">
             <summary>
@@ -1162,7 +1189,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -1172,6 +1199,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Int32,System.String,System.String)">
             <summary>
@@ -1184,7 +1212,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -1194,6 +1222,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Int32,System.String,System.String)">
             <summary>
@@ -1206,7 +1235,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Int32},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -1216,6 +1245,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
             <summary>
@@ -1230,7 +1260,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Int64},System.Int64,System.Int64,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -1242,6 +1272,7 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Int64,System.String,System.String)">
             <summary>
@@ -1254,7 +1285,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -1264,6 +1295,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Int64,System.String,System.String)">
             <summary>
@@ -1276,7 +1308,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -1286,6 +1318,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Int64,System.String,System.String)">
             <summary>
@@ -1298,7 +1331,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -1308,6 +1341,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Int64,System.String,System.String)">
             <summary>
@@ -1320,7 +1354,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Int64},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Int64},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -1330,6 +1364,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Single,System.Single,System.Single,System.String,System.String)">
             <summary>
@@ -1344,7 +1379,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Single},System.Single,System.Single,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -1356,6 +1391,7 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Single,System.String,System.String)">
             <summary>
@@ -1368,7 +1404,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Single},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -1378,6 +1414,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Single,System.String,System.String)">
             <summary>
@@ -1390,7 +1427,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Single},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -1400,6 +1437,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Single,System.String,System.String)">
             <summary>
@@ -1412,7 +1450,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Single},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -1422,6 +1460,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Single,System.String,System.String)">
             <summary>
@@ -1434,7 +1473,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Single},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Single},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -1444,6 +1483,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Double,System.Double,System.Double,System.String,System.String)">
             <summary>
@@ -1458,7 +1498,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Double},System.Double,System.Double,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -1470,6 +1510,7 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Double,System.String,System.String)">
             <summary>
@@ -1482,7 +1523,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Double},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -1492,6 +1533,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Double,System.String,System.String)">
             <summary>
@@ -1504,7 +1546,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Double},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -1514,6 +1556,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Double,System.String,System.String)">
             <summary>
@@ -1526,7 +1569,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Double},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -1536,6 +1579,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Double,System.String,System.String)">
             <summary>
@@ -1548,7 +1592,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Double},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Double},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -1558,6 +1602,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
             <summary>
@@ -1572,7 +1617,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireWithinRange(System.Nullable{System.Decimal},System.Decimal,System.Decimal,System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the value is within the range.
             If the value is out of range, an exception is thrown.
@@ -1584,6 +1629,7 @@
             <param name="max"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Decimal,System.String,System.String)">
             <summary>
@@ -1596,7 +1642,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositiveOrZero(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive or zero. <br />
             If the number is negative, an exception is thrown. <br />
@@ -1606,6 +1652,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Decimal,System.String,System.String)">
             <summary>
@@ -1618,7 +1665,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Decimal},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequirePositive(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is positive. <br />
             If the number is negative or zero, an exception is thrown. <br />
@@ -1628,6 +1675,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Decimal,System.String,System.String)">
             <summary>
@@ -1640,7 +1688,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Decimal},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegativeOrZero(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative or zero. <br />
             If the number is positive, an exception is thrown. <br />
@@ -1650,6 +1698,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Decimal,System.String,System.String)">
             <summary>
@@ -1662,7 +1711,7 @@
             <param name="argumentName"></param>
             <param name="message"></param>
         </member>
-        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Decimal},System.String,System.String)">
+        <member name="M:Cosmos.Numeric.NumericGuardExtensions.RequireNegative(System.Nullable{System.Decimal},System.String,System.String,Cosmos.Numeric.NumericMayOptions)">
             <summary>
             Check whether the number is negative. <br />
             If the number is positive or zero, an exception is thrown. <br />
@@ -1672,6 +1721,7 @@
             <param name="argument"></param>
             <param name="argumentName"></param>
             <param name="message"></param>
+            <param name="options"></param>
         </member>
         <member name="M:Cosmos.Numeric.NumericJudge.IsInt16(System.String)">
             <summary>
@@ -1984,8 +2034,8 @@
         </member>
         <member name="M:Cosmos.Text.StringJudgeExtensions.IsEncoding(System.String)">
             <summary>
-            Determine whether the given string is <see cref="T:System.Text.Encoding"/>. <br />
-            判断给定的字符串是否是 <see cref="T:System.Text.Encoding"/>。
+            Determine whether the given string is <see cref="!:Encoding"/>. <br />
+            判断给定的字符串是否是 <see cref="!:Encoding"/>。
             </summary>
             <param name="str"></param>
             <returns></returns>

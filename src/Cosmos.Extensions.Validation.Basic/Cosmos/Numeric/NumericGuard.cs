@@ -1,9 +1,22 @@
 ﻿using System;
 using Cosmos.Optionals;
+using Cosmos.Reflection;
 using Cosmos.Validation.Internals;
 
 namespace Cosmos.Numeric
 {
+    internal static class NumericGuardHelper
+    {
+        public static T? N<T>(T? x, NumericMayOptions options, string argumentName, string message = null) where T : struct
+        {
+            if (options == NumericMayOptions.Default)
+                ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
+                    x is not null,
+                    argumentName, message ?? $"The given nullable number should not be null.");
+            return x;
+        }
+    }
+
     public static class NumericGuard
     {
         /// <summary>
@@ -15,11 +28,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(int argument, string argumentName, string message = null)
+        public static void ShouldBePositive(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument > 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive.");
         }
 
         /// <summary>
@@ -31,9 +44,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(int? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositive(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Positive(argument.SafeValue(), argumentName, message);
+            ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -45,11 +59,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(int argument, string argumentName, string message = null)
+        public static void ShouldBePositiveOrZero(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument >= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive or zero.");
         }
 
         /// <summary>
@@ -61,9 +75,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(int? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositiveOrZero(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            PositiveOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -75,11 +90,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(int argument, string argumentName, string message = null)
+        public static void ShouldBeNegative(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument < 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative.");
         }
 
         /// <summary>
@@ -91,9 +106,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(int? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegative(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Negative(argument.SafeValue(), argumentName, message);
+            ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -105,11 +121,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(int argument, string argumentName, string message = null)
+        public static void ShouldBeNegativeOrZero(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument <= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative or zero.");
         }
 
         /// <summary>
@@ -121,9 +137,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(int? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegativeOrZero(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            NegativeOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -137,11 +154,11 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(int argument, int min, int max, string argumentName, string message = null)
+        public static void ShouldBeWithinRange(int argument, int min, int max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 NumericJudge.IsBetween(argument, min, max),
-                argumentName, argument, message ?? $"{nameof(argument)} is not between {min} and {max}.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be between [{min}, {max}].");
         }
 
         /// <summary>
@@ -155,9 +172,10 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(int? argument, int min, int max, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeWithinRange(int? argument, int min, int max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            WithinRange(argument.SafeValue(), min, max, argumentName, message);
+            ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
         }
 
         /// <summary>
@@ -169,11 +187,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(long argument, string argumentName, string message = null)
+        public static void ShouldBePositive(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument > 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive.");
         }
 
         /// <summary>
@@ -185,9 +203,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(long? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositive(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Positive(argument.SafeValue(), argumentName, message);
+            ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -199,11 +218,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(long argument, string argumentName, string message = null)
+        public static void ShouldBePositiveOrZero(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument >= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive or zero.");
         }
 
         /// <summary>
@@ -215,9 +234,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(long? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositiveOrZero(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            PositiveOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -229,11 +249,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(long argument, string argumentName, string message = null)
+        public static void ShouldBeNegative(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument < 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative.");
         }
 
         /// <summary>
@@ -245,9 +265,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(long? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegative(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Negative(argument.SafeValue(), argumentName, message);
+            ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -259,11 +280,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(long argument, string argumentName, string message = null)
+        public static void ShouldBeNegativeOrZero(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument <= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative or zero.");
         }
 
         /// <summary>
@@ -275,9 +296,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(long? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegativeOrZero(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            NegativeOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -291,11 +313,11 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(long argument, long min, long max, string argumentName, string message = null)
+        public static void ShouldBeWithinRange(long argument, long min, long max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 NumericJudge.IsBetween(argument, min, max),
-                argumentName, argument, message ?? $"{nameof(argument)} is not between {min} and {max}.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be between [{min}, {max}].");
         }
 
         /// <summary>
@@ -309,9 +331,10 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(long? argument, long min, long max, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeWithinRange(long? argument, long min, long max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            WithinRange(argument.SafeValue(), min, max, argumentName, message);
+            ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
         }
 
         /// <summary>
@@ -323,11 +346,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(float argument, string argumentName, string message = null)
+        public static void ShouldBePositive(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument > 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive.");
         }
 
         /// <summary>
@@ -339,9 +362,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(float? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositive(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Positive(argument.SafeValue(), argumentName, message);
+            ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -353,11 +377,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(float argument, string argumentName, string message = null)
+        public static void ShouldBePositiveOrZero(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument >= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive or zero.");
         }
 
         /// <summary>
@@ -369,9 +393,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(float? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositiveOrZero(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            PositiveOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -383,11 +408,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(float argument, string argumentName, string message = null)
+        public static void ShouldBeNegative(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument < 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negativev.");
         }
 
         /// <summary>
@@ -399,9 +424,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(float? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegative(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Negative(argument.SafeValue(), argumentName, message);
+            ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -413,11 +439,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(float argument, string argumentName, string message = null)
+        public static void ShouldBeNegativeOrZero(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument <= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative or zero.");
         }
 
         /// <summary>
@@ -429,9 +455,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(float? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegativeOrZero(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            NegativeOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -445,11 +472,11 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(float argument, float min, float max, string argumentName, string message = null)
+        public static void ShouldBeWithinRange(float argument, float min, float max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 NumericJudge.IsBetween(argument, min, max),
-                argumentName, argument, message ?? $"{nameof(argument)} is not between {min} and {max}.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be between [{min}, {max}].");
         }
 
         /// <summary>
@@ -463,9 +490,10 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(float? argument, float min, float max, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeWithinRange(float? argument, float min, float max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            WithinRange(argument.SafeValue(), min, max, argumentName, message);
+            ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
         }
 
         /// <summary>
@@ -477,11 +505,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(double argument, string argumentName, string message = null)
+        public static void ShouldBePositive(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument > 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive.");
         }
 
         /// <summary>
@@ -493,9 +521,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(double? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositive(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Positive(argument.SafeValue(), argumentName, message);
+            ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -507,11 +536,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(double argument, string argumentName, string message = null)
+        public static void ShouldBePositiveOrZero(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument >= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive or zero.");
         }
 
         /// <summary>
@@ -523,9 +552,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(double? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositiveOrZero(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            PositiveOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -537,11 +567,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(double argument, string argumentName, string message = null)
+        public static void ShouldBeNegative(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument < 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative.");
         }
 
         /// <summary>
@@ -553,9 +583,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(double? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegative(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Negative(argument.SafeValue(), argumentName, message);
+            ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -567,11 +598,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(double argument, string argumentName, string message = null)
+        public static void ShouldBeNegativeOrZero(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument <= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative or zero.");
         }
 
         /// <summary>
@@ -583,9 +614,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(double? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegativeOrZero(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            NegativeOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -599,11 +631,11 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(double argument, double min, double max, string argumentName, string message = null)
+        public static void ShouldBeWithinRange(double argument, double min, double max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 NumericJudge.IsBetween(argument, min, max),
-                argumentName, argument, message ?? $"{nameof(argument)} is not between {min} and {max}.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be between [{min}, {max}].");
         }
 
         /// <summary>
@@ -617,9 +649,10 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(double? argument, double min, double max, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeWithinRange(double? argument, double min, double max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            WithinRange(argument.SafeValue(), min, max, argumentName, message);
+            ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
         }
 
         /// <summary>
@@ -631,10 +664,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(decimal argument, string argumentName, string message = null)
+        public static void ShouldBePositive(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
-                argument > 0, argumentName, argument, message ?? $"{nameof(argument)} can not be negative or zero.");
+                argument > 0, argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive.");
         }
 
         /// <summary>
@@ -646,9 +679,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Positive(decimal? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositive(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Positive(argument.SafeValue(), argumentName, message);
+            ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -660,11 +694,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(decimal argument, string argumentName, string message = null)
+        public static void ShouldBePositiveOrZero(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument >= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be negative.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive or zero.");
         }
 
         /// <summary>
@@ -676,9 +710,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void PositiveOrZero(decimal? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBePositiveOrZero(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            PositiveOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -690,11 +725,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(decimal argument, string argumentName, string message = null)
+        public static void ShouldBeNegative(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument < 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive or zero.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative.");
         }
 
         /// <summary>
@@ -706,9 +741,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void Negative(decimal? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegative(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            Negative(argument.SafeValue(), argumentName, message);
+            ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -720,11 +756,11 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(decimal argument, string argumentName, string message = null)
+        public static void ShouldBeNegativeOrZero(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 argument <= 0,
-                argumentName, argument, message ?? $"{nameof(argument)} can not be positive.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be negative or zero.");
         }
 
         /// <summary>
@@ -736,9 +772,10 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void NegativeOrZero(decimal? argument, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeNegativeOrZero(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            NegativeOrZero(argument.SafeValue(), argumentName, message);
+            ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
         }
 
         /// <summary>
@@ -752,11 +789,11 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(decimal argument, decimal min, decimal max, string argumentName, string message = null)
+        public static void ShouldBeWithinRange(decimal argument, decimal min, decimal max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
                 NumericJudge.IsBetween(argument, min, max),
-                argumentName, argument, message ?? $"{nameof(argument)} is not between {min} and {max}.");
+                argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be between [{min}, {max}].");
         }
 
         /// <summary>
@@ -770,9 +807,758 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
-        public static void WithinRange(decimal? argument, decimal min, decimal max, string argumentName, string message = null)
+        /// <param name="options"></param>
+        public static void ShouldBeWithinRange(decimal? argument, decimal min, decimal max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
-            WithinRange(argument.SafeValue(), min, max, argumentName, message);
+            ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
+        }
+    }
+
+    public static class NumericGuardExtensions
+    {
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireWithinRange(this int argument, int min, int max, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireWithinRange(this int? argument, int min, int max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositiveOrZero(this int argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositiveOrZero(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositive(this int argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositive(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegativeOrZero(this int argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegativeOrZero(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegative(this int argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegative(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireWithinRange(this long argument, long min, long max, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireWithinRange(this long? argument, long min, long max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositiveOrZero(this long argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositiveOrZero(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositive(this long argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositive(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegativeOrZero(this long argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegativeOrZero(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegative(this long argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegative(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireWithinRange(this float argument, float min, float max, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireWithinRange(this float? argument, float min, float max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositiveOrZero(this float argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositiveOrZero(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositive(this float argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositive(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegativeOrZero(this float argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegativeOrZero(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegative(this float argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegative(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireWithinRange(this double argument, double min, double max, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireWithinRange(this double? argument, double min, double max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositiveOrZero(this double argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositiveOrZero(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositive(this double argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositive(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegativeOrZero(this double argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegativeOrZero(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegative(this double argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegative(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireWithinRange(this decimal argument, decimal min, decimal max, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the value is within the range.
+        /// If the value is out of range, an exception is thrown.
+        /// 检查数值是否在范围内。
+        /// 如果数值超出范围，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireWithinRange(this decimal? argument, decimal min, decimal max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositiveOrZero(this decimal argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive or zero. <br />
+        /// If the number is negative, an exception is thrown. <br />
+        /// 检查数值是否为正或为零。 <br />
+        /// 如果数值为负，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositiveOrZero(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequirePositive(this decimal argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is positive. <br />
+        /// If the number is negative or zero, an exception is thrown. <br />
+        /// 检查数值是否为正的。 <br />
+        /// 如果数值为负或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequirePositive(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBePositive(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegativeOrZero(this decimal argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative or zero. <br />
+        /// If the number is positive, an exception is thrown. <br />
+        /// 检查数值是否为负或为零。 <br />
+        /// 如果数值为正，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegativeOrZero(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        public static void RequireNegative(this decimal argument, string argumentName, string message = null)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message);
+        }
+
+        /// <summary>
+        /// Check whether the number is negative. <br />
+        /// If the number is positive or zero, an exception is thrown. <br />
+        /// 检查数值是否为负的。 <br />
+        /// 如果数值为正或为零，则抛出异常。
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="argumentName"></param>
+        /// <param name="message"></param>
+        /// <param name="options"></param>
+        public static void RequireNegative(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+        {
+            NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
         }
     }
 }
