@@ -7,21 +7,14 @@ namespace Cosmos.Conversions.Common.Core
     {
         public static DateTime ObjectToDateTime(object obj, DateTime defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is string str)
-                return StringToDateTime(str, defaultVal);
-            str = obj.ToString();
-            if (StringDateTimeDeterminer.Is(str))
-                return StringToDateTime(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToDateTime(obj);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                string str => StringToDateTime(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringDateTimeDeterminer.IS, defaultVal, StringToDateTime, out var val) 
+                    ? val 
+                    : XConvHelper.T(() => Convert.ToDateTime(obj), defaultVal)
+            };
         }
 
         public static DateTime StringToDateTime(string str, DateTime defaultVal = default)
@@ -31,11 +24,12 @@ namespace Cosmos.Conversions.Common.Core
 
         public static DateTime? ObjectToNullableDateTime(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is string str)
-                return StringToNullableDateTime(str);
-            return StringToNullableDateTime(obj.ToString());
+            return obj switch
+            {
+                null => null,
+                string str => StringToNullableDateTime(str),
+                _ => StringToNullableDateTime(obj.ToString())
+            };
         }
 
         public static DateTime? StringToNullableDateTime(string str)
@@ -49,14 +43,14 @@ namespace Cosmos.Conversions.Common.Core
 
         public static DateTimeOffset ObjectToDateTimeOffset(object obj, DateTimeOffset defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is string str)
-                return StringToDateTimeOffset(str, defaultVal);
-            str = obj.ToString();
-            if (StringDateTimeOffsetDeterminer.Is(str))
-                return StringToDateTimeOffset(str, defaultVal);
-            return DateTimeOffset.TryParse(str, out var dateTimeOffset) ? dateTimeOffset : defaultVal;
+            return obj switch
+            {
+                null => defaultVal,
+                string str => StringToDateTimeOffset(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringDateTimeOffsetDeterminer.IS, defaultVal, StringToDateTimeOffset, out var val) 
+                    ? val 
+                    : DateTimeOffset.TryParse(obj.ToString(), out var dateTimeOffset) ? dateTimeOffset : defaultVal
+            };
         }
 
         public static DateTimeOffset StringToDateTimeOffset(string str, DateTimeOffset defaultVal = default)
@@ -66,11 +60,12 @@ namespace Cosmos.Conversions.Common.Core
 
         public static DateTimeOffset? ObjectToNullableDateTimeOffset(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is string str)
-                return StringToNullableDateTimeOffset(str);
-            return StringToNullableDateTimeOffset(obj.ToString());
+            return obj switch
+            {
+                null => null,
+                string str => StringToNullableDateTimeOffset(str),
+                _ => StringToNullableDateTimeOffset(obj.ToString())
+            };
         }
 
         public static DateTimeOffset? StringToNullableDateTimeOffset(string str)
@@ -84,14 +79,14 @@ namespace Cosmos.Conversions.Common.Core
 
         public static TimeSpan ObjectToTimeSpan(object obj, TimeSpan defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is string str)
-                return StringToTimeSpan(str, defaultVal);
-            str = obj.ToString();
-            if (StringTimeSpanDeterminer.Is(str))
-                return StringToTimeSpan(str, defaultVal);
-            return TimeSpan.TryParse(str, out var timeSpan) ? timeSpan : defaultVal;
+            return obj switch
+            {
+                null => defaultVal,
+                string str => StringToTimeSpan(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringTimeSpanDeterminer.IS, defaultVal, StringToTimeSpan, out var val) 
+                    ? val 
+                    : TimeSpan.TryParse(obj.ToString(), out var timeSpan) ? timeSpan : defaultVal
+            };
         }
 
         public static TimeSpan StringToTimeSpan(string str, TimeSpan defaultVal = default)
@@ -101,11 +96,12 @@ namespace Cosmos.Conversions.Common.Core
 
         public static TimeSpan? ObjectToNullableTimeSpan(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is string str)
-                return StringToNullableTimeSpan(str);
-            return StringToNullableTimeSpan(obj.ToString());
+            return obj switch
+            {
+                null => null,
+                string str => StringToNullableTimeSpan(str),
+                _ => StringToNullableTimeSpan(obj.ToString())
+            };
         }
 
         public static TimeSpan? StringToNullableTimeSpan(string str)

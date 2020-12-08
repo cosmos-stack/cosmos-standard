@@ -3,27 +3,20 @@ using Cosmos.Conversions.Determiners;
 
 namespace Cosmos.Conversions.Common.Core
 {
+
     internal static class NumConvX
     {
         public static sbyte ObjectToSByte(object obj, sbyte defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is sbyte myself)
-                return myself;
-            if (obj is string str)
-                return StringToSByte(str, defaultVal);
-            str = obj.ToString();
-            if (StringSByteDeterminer.Is(str))
-                return StringToSByte(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToSByte(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                sbyte myself => myself,
+                string str => StringToSByte(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringSByteDeterminer.IS, defaultVal, StringToSByte, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToSByte(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static sbyte StringToSByte(string str, sbyte defaultVal = default)
@@ -43,34 +36,23 @@ namespace Cosmos.Conversions.Common.Core
 
         public static sbyte EnumToSByte(Type enumType, object @enum, sbyte defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToSByte(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToSByte(enumType, @enum), defaultVal);
         }
 
         public static sbyte? ObjectToNullableSByte(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is sbyte myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableSByte(str);
-            if (sbyte.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                sbyte myself => myself,
+                string str => StringToNullableSByte(str),
+                _ => sbyte.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static sbyte? StringToNullableSByte(string str)
         {
-            if (StringSByteDeterminer.Is(str))
-                return StringSByteDeterminer.To(str);
-            return null;
+            return StringSByteDeterminer.Is(str) ? StringSByteDeterminer.To(str) : null;
         }
 
         public static sbyte? EnumToNullableSByte<TEnum>(TEnum @enum) where TEnum : struct
@@ -80,35 +62,20 @@ namespace Cosmos.Conversions.Common.Core
 
         public static sbyte? EnumToNullableSByte(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToSByte(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToSByte(enumType, @enum), default(sbyte?));
         }
 
         public static byte ObjectToByte(object obj, byte defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is byte myself)
-                return myself;
-            if (obj is string str)
-                return StringToByte(str, defaultVal);
-            str = obj.ToString();
-            if (StringByteDeterminer.Is(str))
-                return StringToByte(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToByte(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                byte myself => myself,
+                string str => StringToByte(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringByteDeterminer.IS, defaultVal, StringToByte, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToByte(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static byte StringToByte(string str, byte defaultVal = default)
@@ -128,34 +95,23 @@ namespace Cosmos.Conversions.Common.Core
 
         public static byte EnumToByte(Type enumType, object @enum, byte defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToByte(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToByte(enumType, @enum), defaultVal);
         }
 
         public static byte? ObjectToNullableByte(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is byte myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableByte(str);
-            if (byte.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                byte myself => myself,
+                string str => StringToNullableByte(str),
+                _ => byte.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static byte? StringToNullableByte(string str)
         {
-            if (StringByteDeterminer.Is(str))
-                return StringByteDeterminer.To(str);
-            return null;
+            return StringByteDeterminer.Is(str) ? StringByteDeterminer.To(str) : null;
         }
 
         public static byte? EnumToNullableByte<TEnum>(TEnum @enum) where TEnum : struct
@@ -165,35 +121,20 @@ namespace Cosmos.Conversions.Common.Core
 
         public static byte? EnumToNullableByte(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToByte(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToByte(enumType, @enum), default(byte?));
         }
 
         public static short ObjectToInt16(object obj, short defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is short myself)
-                return myself;
-            if (obj is string str)
-                return StringToInt16(str, defaultVal);
-            str = obj.ToString();
-            if (StringShortDeterminer.Is(str))
-                return StringToInt16(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToInt16(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                short myself => myself,
+                string str => StringToInt16(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringShortDeterminer.IS, defaultVal, StringToInt16, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToInt16(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static short StringToInt16(string str, short defaultVal = default)
@@ -213,34 +154,23 @@ namespace Cosmos.Conversions.Common.Core
 
         public static short EnumToInt16(Type enumType, object @enum, short defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToInt16(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToInt16(enumType, @enum), defaultVal);
         }
 
         public static short? ObjectToNullableInt16(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is short myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableInt16(str);
-            if (short.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                short myself => myself,
+                string str => StringToNullableInt16(str),
+                _ => short.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static short? StringToNullableInt16(string str)
         {
-            if (StringShortDeterminer.Is(str))
-                return StringShortDeterminer.To(str);
-            return null;
+            return StringShortDeterminer.Is(str) ? StringShortDeterminer.To(str) : null;
         }
 
         public static short? EnumToNullableInt16<TEnum>(TEnum @enum) where TEnum : struct
@@ -250,35 +180,20 @@ namespace Cosmos.Conversions.Common.Core
 
         public static short? EnumToNullableInt16(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToInt16(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToInt16(enumType, @enum), default(short?));
         }
 
         public static ushort ObjectToUInt16(object obj, ushort defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is ushort myself)
-                return myself;
-            if (obj is string str)
-                return StringToUInt16(str, defaultVal);
-            str = obj.ToString();
-            if (StringUShortDeterminer.Is(str))
-                return StringToUInt16(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToUInt16(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                ushort myself => myself,
+                string str => StringToUInt16(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringUShortDeterminer.IS, defaultVal, StringToUInt16, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToUInt16(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static ushort StringToUInt16(string str, ushort defaultVal = default)
@@ -298,34 +213,23 @@ namespace Cosmos.Conversions.Common.Core
 
         public static ushort EnumToUInt16(Type enumType, object @enum, ushort defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToUInt16(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToUInt16(enumType, @enum), defaultVal);
         }
 
         public static ushort? ObjectToNullableUInt16(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is ushort myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableUInt16(str);
-            if (ushort.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                ushort myself => myself,
+                string str => StringToNullableUInt16(str),
+                _ => ushort.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static ushort? StringToNullableUInt16(string str)
         {
-            if (StringUShortDeterminer.Is(str))
-                return StringUShortDeterminer.To(str);
-            return null;
+            return StringUShortDeterminer.Is(str) ? StringUShortDeterminer.To(str) : null;
         }
 
         public static ushort? EnumToNullableUInt16<TEnum>(TEnum @enum) where TEnum : struct
@@ -335,35 +239,24 @@ namespace Cosmos.Conversions.Common.Core
 
         public static ushort? EnumToNullableUInt16(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToUInt16(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToUInt16(enumType, @enum), default(ushort?));
         }
 
         public static int ObjectToInt32(object obj, int defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is int myself)
-                return myself;
-            if (obj is string str)
-                return StringToInt32(str, defaultVal);
-            str = obj.ToString();
-            if (StringIntDeterminer.Is(str))
-                return StringToInt32(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToInt32(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                string str => StringToInt32(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringIntDeterminer.IS, defaultVal, StringToInt32, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToInt32(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static int StringToInt32(string str, int defaultVal = default)
@@ -383,34 +276,27 @@ namespace Cosmos.Conversions.Common.Core
 
         public static int EnumToInt32(Type enumType, object @enum, int defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToInt32(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToInt32(enumType, @enum), defaultVal);
         }
 
         public static int? ObjectToNullableInt32(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is int myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableInt32(str);
-            if (int.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                string str => StringToNullableInt32(str),
+                _ => int.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static int? StringToNullableInt32(string str)
         {
-            if (StringIntDeterminer.Is(str))
-                return StringIntDeterminer.To(str);
-            return null;
+            return StringIntDeterminer.Is(str) ? StringIntDeterminer.To(str) : null;
         }
 
         public static int? EnumToNullableInt32<TEnum>(TEnum @enum) where TEnum : struct
@@ -420,35 +306,22 @@ namespace Cosmos.Conversions.Common.Core
 
         public static int? EnumToNullableInt32(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToInt32(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToInt32(enumType, @enum), default(int?));
         }
 
         public static uint ObjectToUInt32(object obj, uint defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is uint myself)
-                return myself;
-            if (obj is string str)
-                return StringToUInt32(str, defaultVal);
-            str = obj.ToString();
-            if (StringUIntDeterminer.Is(str))
-                return StringToUInt32(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToUInt32(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                byte myself => myself,
+                ushort myself => myself,
+                uint myself => myself,
+                string str => StringToUInt32(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringUIntDeterminer.IS, defaultVal, StringToUInt32, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToUInt32(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static uint StringToUInt32(string str, uint defaultVal = default)
@@ -468,34 +341,25 @@ namespace Cosmos.Conversions.Common.Core
 
         public static uint EnumToUInt32(Type enumType, object @enum, uint defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToUInt32(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToUInt32(enumType, @enum), defaultVal);
         }
 
         public static uint? ObjectToNullableUInt32(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is uint myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableUInt32(str);
-            if (uint.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                byte myself => myself,
+                ushort myself => myself,
+                uint myself => myself,
+                string str => StringToNullableUInt32(str),
+                _ => uint.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static uint? StringToNullableUInt32(string str)
         {
-            if (StringUIntDeterminer.Is(str))
-                return StringUIntDeterminer.To(str);
-            return null;
+            return StringUIntDeterminer.Is(str) ? StringUIntDeterminer.To(str) : null;
         }
 
         public static uint? EnumToNullableUInt32<TEnum>(TEnum @enum) where TEnum : struct
@@ -505,35 +369,26 @@ namespace Cosmos.Conversions.Common.Core
 
         public static uint? EnumToNullableUInt32(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToUInt32(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToUInt32(enumType, @enum), default(uint?));
         }
 
         public static long ObjectToInt64(object obj, long defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is long myself)
-                return myself;
-            if (obj is string str)
-                return StringToInt64(str, defaultVal);
-            str = obj.ToString();
-            if (StringLongDeterminer.Is(str))
-                return StringToInt64(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToInt64(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                uint myself => myself,
+                long myself => myself,
+                string str => StringToInt64(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringLongDeterminer.IS, defaultVal, StringToInt64, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToInt64(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static long StringToInt64(string str, long defaultVal = default)
@@ -553,34 +408,29 @@ namespace Cosmos.Conversions.Common.Core
 
         public static long EnumToInt64(Type enumType, object @enum, long defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToInt64(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToInt64(enumType, @enum), defaultVal);
         }
 
         public static long? ObjectToNullableInt64(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is long myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableInt64(str);
-            if (long.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                uint myself => myself,
+                long myself => myself,
+                string str => StringToNullableInt64(str),
+                _ => long.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static long? StringToNullableInt64(string str)
         {
-            if (StringLongDeterminer.Is(str))
-                return StringLongDeterminer.To(str);
-            return null;
+            return StringLongDeterminer.Is(str) ? StringLongDeterminer.To(str) : null;
         }
 
         public static long? EnumToNullableInt64<TEnum>(TEnum @enum) where TEnum : struct
@@ -590,35 +440,23 @@ namespace Cosmos.Conversions.Common.Core
 
         public static long? EnumToNullableInt64(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToInt64(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToInt64(enumType, @enum), default(long?));
         }
 
         public static ulong ObjectToUInt64(object obj, ulong defaultVal = default)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is ulong myself)
-                return myself;
-            if (obj is string str)
-                return StringToUInt64(str, defaultVal);
-            str = obj.ToString();
-            if (StringULongDeterminer.Is(str))
-                return StringToUInt64(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToUInt64(ObjectToDecimal(obj, defaultVal));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                byte myself => myself,
+                ushort myself => myself,
+                uint myself => myself,
+                ulong myself => myself,
+                string str => StringToUInt64(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringULongDeterminer.IS, defaultVal, StringToUInt64, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToUInt64(ObjectToDecimal(obj, defaultVal)), defaultVal)
+            };
         }
 
         public static ulong StringToUInt64(string str, ulong defaultVal = default)
@@ -638,34 +476,26 @@ namespace Cosmos.Conversions.Common.Core
 
         public static ulong EnumToUInt64(Type enumType, object @enum, ulong defaultVal = default)
         {
-            try
-            {
-                return EnumsNET.Enums.ToUInt64(enumType, @enum);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToUInt64(enumType, @enum), defaultVal);
         }
 
         public static ulong? ObjectToNullableUInt64(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is ulong myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableUInt64(str);
-            if (ulong.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                byte myself => myself,
+                ushort myself => myself,
+                uint myself => myself,
+                ulong myself => myself,
+                string str => StringToNullableUInt64(str),
+                _ => ulong.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static ulong? StringToNullableUInt64(string str)
         {
-            if (StringULongDeterminer.Is(str))
-                return StringULongDeterminer.To(str);
-            return null;
+            return StringULongDeterminer.Is(str) ? StringULongDeterminer.To(str) : null;
         }
 
         public static ulong? EnumToNullableUInt64<TEnum>(TEnum @enum) where TEnum : struct
@@ -675,25 +505,26 @@ namespace Cosmos.Conversions.Common.Core
 
         public static ulong? EnumToNullableUInt64(Type enumType, object @enum)
         {
-            try
-            {
-                return EnumsNET.Enums.ToUInt64(enumType, @enum);
-            }
-            catch
-            {
-                return null;
-            }
+            return XConvHelper.T(() => EnumsNET.Enums.ToUInt64(enumType, @enum), default(ulong?));
         }
 
         public static float ObjectToFloat(object obj, float defaultVal = 0F)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is float myself)
-                return myself;
-            if (obj is string str)
-                return StringToFloat(str, defaultVal);
-            return StringFloatDeterminer.To(obj.ToString(), defaultVal);
+            return obj switch
+            {
+                null => defaultVal,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                uint myself => myself,
+                long myself => myself,
+                ulong myself => myself,
+                float myself => myself,
+                string str => StringToFloat(str, defaultVal),
+                _ => StringFloatDeterminer.To(obj.ToString(), defaultVal)
+            };
         }
 
         public static float StringToFloat(string str, float defaultVal = default)
@@ -711,13 +542,15 @@ namespace Cosmos.Conversions.Common.Core
             return obj switch
             {
                 null => null,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                uint myself => myself,
+                long myself => myself,
+                ulong myself => myself,
                 float myself => myself,
-                short @short => @short,
-                int @int => @int,
-                long @long => @long,
-                ushort @ushort => @ushort,
-                uint @uint => @uint,
-                ulong @ulong => @ulong,
                 string str => StringToNullableFloat(str),
                 _ => null
             };
@@ -725,30 +558,22 @@ namespace Cosmos.Conversions.Common.Core
 
         public static float? StringToNullableFloat(string str)
         {
-            if (StringFloatDeterminer.Is(str))
-                return StringFloatDeterminer.To(str);
-            return null;
+            return StringFloatDeterminer.Is(str)
+                ? StringFloatDeterminer.To(str)
+                : null;
         }
 
         public static double ObjectToDouble(object obj, double defaultVal = 0D)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is double myself)
-                return myself;
-            if (obj is string str)
-                return StringToDouble(str, defaultVal);
-            str = obj.ToString();
-            if (StringDoubleDeterminer.Is(str))
-                return StringToDouble(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToDouble(ObjectToDecimal(obj));
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                double myself => myself,
+                string str => StringToDouble(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringDoubleDeterminer.IS, defaultVal, StringToDouble, out var val)
+                    ? val
+                    : XConvHelper.T(() => Convert.ToDouble(ObjectToDecimal(obj)), defaultVal)
+            };
         }
 
         public static double StringToDouble(string str, double defaultVal = default)
@@ -763,22 +588,29 @@ namespace Cosmos.Conversions.Common.Core
 
         public static double? ObjectToNullableDouble(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is double myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableDouble(str);
-            if (double.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                uint myself => myself,
+                long myself => myself,
+                ulong myself => myself,
+                float myself => myself,
+                double myself => myself,
+                string str => StringToNullableDouble(str),
+                _ => double.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static double? StringToNullableDouble(string str)
         {
-            if (StringDoubleDeterminer.Is(str))
-                return StringDoubleDeterminer.To(str);
-            return null;
+            return StringDoubleDeterminer.Is(str)
+                ? StringDoubleDeterminer.To(str)
+                : null;
         }
 
         public static double ObjectToRoundDouble(object obj, int digits, double defaultVal = 0D)
@@ -794,44 +626,42 @@ namespace Cosmos.Conversions.Common.Core
         public static double? ObjectToNullableRoundDouble(object obj, int digits)
         {
             var ret = ObjectToNullableDouble(obj);
-            if (ret is null)
+            return ret switch
             {
-                return null;
-            }
-
-            return Math.Round(ret.Value, digits);
+                null => null,
+                _ => Math.Round(ret.Value, digits)
+            };
         }
 
         public static double? StringToNullableRoundDouble(string str, int digits)
         {
             var ret = StringToNullableDouble(str);
-            if (ret is null)
+            return ret switch
             {
-                return null;
-            }
-
-            return Math.Round(ret.Value, digits);
+                null => null,
+                _ => Math.Round(ret.Value, digits)
+            };
         }
 
         public static decimal ObjectToDecimal(object obj, decimal defaultVal = 0M)
         {
-            if (obj is null)
-                return defaultVal;
-            if (obj is decimal myself)
-                return myself;
-            if (obj is string str)
-                return StringToDecimal(str, defaultVal);
-            str = obj.ToString();
-            if (StringDecimalDeterminer.Is(str))
-                return StringToDecimal(str, defaultVal);
-            try
+            return obj switch
             {
-                return Convert.ToDecimal(obj);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+                null => defaultVal,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                uint myself => myself,
+                long myself => myself,
+                ulong myself => myself,
+                float myself => (decimal) myself,
+                double myself => (decimal) myself,
+                decimal myself => myself,
+                string str => StringToDecimal(str, defaultVal),
+                _ => XConvHelper.D(obj.ToString(), StringDecimalDeterminer.IS, defaultVal, StringToDecimal, out var val) ? val : XConvHelper.T(() => Convert.ToDecimal(obj), defaultVal)
+            };
         }
 
         public static decimal StringToDecimal(string str, decimal defaultVal = default)
@@ -846,22 +676,28 @@ namespace Cosmos.Conversions.Common.Core
 
         public static decimal? ObjectToNullableDecimal(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is decimal myself)
-                return myself;
-            if (obj is string str)
-                return StringToNullableDecimal(str);
-            if (decimal.TryParse(obj.ToString(), out var ret))
-                return ret;
-            return null;
+            return obj switch
+            {
+                null => null,
+                byte myself => myself,
+                sbyte myself => myself,
+                short myself => myself,
+                ushort myself => myself,
+                int myself => myself,
+                uint myself => myself,
+                long myself => myself,
+                ulong myself => myself,
+                float myself => (decimal) myself,
+                double myself => (decimal) myself,
+                decimal myself => myself,
+                string str => StringToNullableDecimal(str),
+                _ => decimal.TryParse(obj.ToString(), out var ret) ? ret : null
+            };
         }
 
         public static decimal? StringToNullableDecimal(string str)
         {
-            if (StringDecimalDeterminer.Is(str))
-                return StringDecimalDeterminer.To(str);
-            return null;
+            return StringDecimalDeterminer.Is(str) ? StringDecimalDeterminer.To(str) : null;
         }
 
         public static decimal ObjectToRoundDecimal(object obj, int digits, decimal defaultVal = 0M)
@@ -877,23 +713,21 @@ namespace Cosmos.Conversions.Common.Core
         public static decimal? ObjectToNullableRoundDecimal(object obj, int digits)
         {
             var ret = ObjectToNullableDecimal(obj);
-            if (ret is null)
+            return ret switch
             {
-                return null;
-            }
-
-            return Math.Round(ret.Value, digits);
+                null => null,
+                _ => Math.Round(ret.Value, digits)
+            };
         }
 
         public static decimal? StringToNullableRoundDecimal(string str, int digits)
         {
             var ret = StringToNullableDecimal(str);
-            if (ret is null)
+            return ret switch
             {
-                return null;
-            }
-
-            return Math.Round(ret.Value, digits);
+                null => null,
+                _ => Math.Round(ret.Value, digits)
+            };
         }
     }
 }

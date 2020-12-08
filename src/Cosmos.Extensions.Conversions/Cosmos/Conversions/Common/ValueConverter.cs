@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cosmos.Conversions.Common.Core;
 
 // ReSharper disable InconsistentNaming
 
@@ -45,14 +46,7 @@ namespace Cosmos.Conversions.Common
 
         public static X ToXxxAgain<X>(string str, X defaultVal)
         {
-            try
-            {
-                return Convert.ChangeType(str, typeof(X)).AsOr(defaultVal);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(() => Convert.ChangeType(str, typeof(X)).AsOr(defaultVal), defaultVal);
         }
     }
 }

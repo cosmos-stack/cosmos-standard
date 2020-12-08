@@ -17,11 +17,12 @@ namespace Cosmos.Conversions.Common.Core
 
         public static Guid? ObjToNullableGuid(object obj)
         {
-            if (obj is null)
-                return null;
-            if (obj is string str)
-                return StringToNullableGuid(str);
-            return StringToNullableGuid(obj.ToString());
+            return obj switch
+            {
+                null => null,
+                string str => StringToNullableGuid(str),
+                _ => StringToNullableGuid(obj.ToString())
+            };
         }
 
         public static Guid? StringToNullableGuid(string str)

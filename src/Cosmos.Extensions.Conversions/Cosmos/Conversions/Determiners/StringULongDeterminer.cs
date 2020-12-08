@@ -12,6 +12,9 @@ namespace Cosmos.Conversions.Determiners
     public static class StringULongDeterminer
     {
         // ReSharper disable once InconsistentNaming
+        internal static bool IS(string str) => Is(str);
+
+        // ReSharper disable once InconsistentNaming
         private const NumberStyles NUMBER_STYLES = NumberStyles.AllowLeadingWhite
                                                  | NumberStyles.AllowTrailingWhite
                                                  | NumberStyles.AllowLeadingSign

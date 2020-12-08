@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cosmos.Conversions.Common.Core;
 
 // ReSharper disable InconsistentNaming
 
@@ -34,11 +35,11 @@ namespace Cosmos.Conversions.Common
                 return false;
             foreach (var @try in tries)
             {
-                if (@try.Is(from, out var to))
-                {
-                    act?.Invoke(to);
-                    return true;
-                }
+                if (!@try.Is(@from, out var to))
+                    continue;
+
+                act?.Invoke(to);
+                return true;
             }
 
             return false;
@@ -46,15 +47,7 @@ namespace Cosmos.Conversions.Common
 
         public static bool IsXxxAgain<X>(string str)
         {
-            try
-            {
-                var _ = Convert.ChangeType(str, typeof(X));
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return XConvHelper.I(() => Convert.ChangeType(str, typeof(X)));
         }
     }
 }

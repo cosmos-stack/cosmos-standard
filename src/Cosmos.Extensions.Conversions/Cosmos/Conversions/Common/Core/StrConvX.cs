@@ -14,7 +14,7 @@ namespace Cosmos.Conversions.Common.Core
 
         public static string Int16ToString(short number, string defaultVal = "0")
         {
-            return number == 0
+            return number is 0
                 ? defaultVal
                 : number.ToString();
         }
@@ -26,7 +26,7 @@ namespace Cosmos.Conversions.Common.Core
 
         public static string UInt16ToString(ushort number, string defaultVal = "0")
         {
-            return number == 0
+            return number is 0
                 ? defaultVal
                 : number.ToString();
         }
@@ -38,7 +38,7 @@ namespace Cosmos.Conversions.Common.Core
 
         public static string Int32ToString(int number, string defaultVal = "0")
         {
-            return number == 0
+            return number is 0
                 ? defaultVal
                 : number.ToString();
         }
@@ -50,7 +50,7 @@ namespace Cosmos.Conversions.Common.Core
 
         public static string UInt32ToString(uint number, string defaultVal = "0")
         {
-            return number == 0
+            return number is 0
                 ? defaultVal
                 : number.ToString();
         }
@@ -62,7 +62,7 @@ namespace Cosmos.Conversions.Common.Core
 
         public static string Int64ToString(long number, string defaultVal = "0")
         {
-            return number == 0
+            return number is 0
                 ? defaultVal
                 : number.ToString();
         }
@@ -74,7 +74,7 @@ namespace Cosmos.Conversions.Common.Core
 
         public static string UInt64ToString(ulong number, string defaultVal = "0")
         {
-            return number == 0
+            return number is 0
                 ? defaultVal
                 : number.ToString();
         }
@@ -137,7 +137,7 @@ namespace Cosmos.Conversions.Common.Core
         {
             if (digits < 0) digits = 2;
             var format = $"0.{"#".Repeat(digits)}";
-            return number == 0
+            return number is 0
                 ? defaultVal
                 : number.ToString(format);
         }
@@ -154,26 +154,16 @@ namespace Cosmos.Conversions.Common.Core
 
         public static string GuidToString(Guid guid, CastingContext context, string defaultVal = "")
         {
-            try
-            {
-                return guid.ToString(context.GuidFormatStyles.X(), context.FormatProvider);
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return XConvHelper.T(
+                () => guid.ToString(context.GuidFormatStyles.X(), context.FormatProvider),
+                defaultVal);
         }
 
         public static string GuidToString(Guid? guid, CastingContext context)
         {
-            try
-            {
-                return guid.SafeGuid()?.ToString(context.GuidFormatStyles.X(), context.FormatProvider) ?? string.Empty;
-            }
-            catch
-            {
-                return string.Empty;
-            }
+           return XConvHelper.T(
+                () => guid.SafeGuid()?.ToString(context.GuidFormatStyles.X(), context.FormatProvider) ?? string.Empty,
+                string.Empty);
         }
     }
 }

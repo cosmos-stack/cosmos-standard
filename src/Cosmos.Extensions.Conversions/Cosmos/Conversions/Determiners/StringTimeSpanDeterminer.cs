@@ -10,6 +10,9 @@ namespace Cosmos.Conversions.Determiners
     /// </summary>
     public static class StringTimeSpanDeterminer
     {
+        // ReSharper disable once InconsistentNaming
+        internal static bool IS(string str) => Is(str);
+
         /// <summary>
         /// Is
         /// </summary>

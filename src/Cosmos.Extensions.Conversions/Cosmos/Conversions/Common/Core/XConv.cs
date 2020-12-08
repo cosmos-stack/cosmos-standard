@@ -6,6 +6,52 @@ using Cosmos.Reflection;
 
 namespace Cosmos.Conversions.Common.Core
 {
+    internal static class XConvHelper
+    {
+        public static T T<T>(Func<T> func, T defaultVal)
+        {
+            try
+            {
+                return func();
+            }
+            catch
+            {
+                return defaultVal;
+            }
+        }
+        
+        public static bool I<T>(Func<T> func)
+        {
+            try
+            {
+                 func();
+                 return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool D<TSource, TTarget>(
+            TSource source,
+            Func<TSource, bool> @is,
+            TTarget defaultVal,
+            Func<TSource, TTarget, TTarget> to,
+            out TTarget val)
+        {
+            val = default;
+
+            if (@is(source))
+            {
+                val = to(source, defaultVal);
+                return true;
+            }
+
+            return false;
+        }
+    }
+    
     internal static partial class XConv
     {
         public static X To<O, X>(O from, X defaultVal = default, CastingContext context = null, IObjectMapper mapper = null)
