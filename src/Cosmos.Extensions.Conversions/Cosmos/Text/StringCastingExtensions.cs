@@ -240,26 +240,15 @@ namespace Cosmos.Text
 
         #endregion
 
-        #region Cast Hex to String
+        #region MyRegion
 
         /// <summary>
-        /// Convert the given hexadecimal value (string type) to a normal string.<br />
-        /// Currently only hexadecimal is supported.<br />
-        /// 将给定进制值（字符串类型）转换为普通字符串。<br />
-        /// 目前只支持十六进制。
+        /// Convert from bytes to ASCII <see cref="string"/>.
         /// </summary>
-        /// <param name="originalStr"></param>
-        /// <param name="fromStyle"></param>
-        /// <param name="encoding"></param>
+        /// <example>in: new byte[] {65, 66, 67}; out: ABC</example>
+        /// <param name="bytes"></param>
         /// <returns></returns>
-        public static string CastToString(this string originalStr, ScaleStyles fromStyle = ScaleStyles.String, Encoding encoding = null)
-        {
-            return fromStyle switch
-            {
-                ScaleStyles.Hexadecimal => HexadecimalConv.ToString(originalStr, encoding),
-                _ => originalStr
-            };
-        }
+        public static string CastToString(this byte[] bytes) => ScaleConv.BytesToAsciiString(bytes);
 
         #endregion
 
