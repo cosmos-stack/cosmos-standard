@@ -10,10 +10,6 @@
         <NoWarn>$(NoWarn);CS1591;NETSDK1138</NoWarn>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
-    </PropertyGroup>
-
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>

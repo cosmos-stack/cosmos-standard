@@ -13336,32 +13336,5 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="T:System.Threading.AsyncLocal`1">
-            <summary>
-            AsyncLocal for .NET Framework 4.5.x
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="T:System.Threading.AsyncLocalValueChangedArgs`1">
-            <summary>
-            AsyncLocal value changed args for .NET Framework 4.5.x
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.PreviousValue">
-            <summary>
-            Previous value
-            </summary>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.CurrentValue">
-            <summary>
-            Current value
-            </summary>
-        </member>
-        <member name="P:System.Threading.AsyncLocalValueChangedArgs`1.ThreadContextChanged">
-            <summary>
-            Thread context changed
-            </summary>
-        </member>
     </members>
 </doc>
