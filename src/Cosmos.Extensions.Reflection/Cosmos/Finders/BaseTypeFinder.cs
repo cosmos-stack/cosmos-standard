@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 using Cosmos.Reflection;
 
 namespace Cosmos.Finders
@@ -19,9 +18,12 @@ namespace Cosmos.Finders
 
         protected override Type[] FindAllItems()
         {
-            Assembly[] assemblies = _allAssemblyFinder.FindAll(true);
-            return assemblies.SelectMany(assembly => assembly.GetTypes())
-                             .Where(type => TypeReflections.IsTypeDerivedFrom(type, typeof(TBaseType))).Distinct().ToArray();
+            return _allAssemblyFinder
+                   .FindAll(true)
+                   .SelectMany(assembly => assembly.GetTypes())
+                   .Where(type => TypeReflections.IsTypeDerivedFrom(type, typeof(TBaseType)))
+                   .Distinct()
+                   .ToArray();
         }
     }
 }

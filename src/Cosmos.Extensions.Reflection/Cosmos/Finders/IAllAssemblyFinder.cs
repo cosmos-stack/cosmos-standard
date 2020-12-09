@@ -3,7 +3,5 @@
     /// <summary>
     /// A finder for all Assembly
     /// </summary>
-    public interface IAllAssemblyFinder : IAssemblyFinder
-    {
-    }
+    public interface IAllAssemblyFinder : IAssemblyFinder { }
 }

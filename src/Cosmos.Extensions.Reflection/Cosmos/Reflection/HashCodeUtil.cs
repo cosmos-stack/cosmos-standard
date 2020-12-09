@@ -26,7 +26,7 @@ namespace Cosmos.Reflection
                 const int offset = unchecked((int) 2166136261);
                 const int prime = 16777619;
 
-                int HashCodeAggregator(int hashCode, object value) => value == null
+                int HashCodeAggregator(int hashCode, object value) => value is null
                     ? (hashCode ^ 0) * prime
                     : (hashCode ^ value.GetHashCode()) * prime;
 

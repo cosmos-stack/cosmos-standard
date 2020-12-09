@@ -23,7 +23,7 @@ namespace Cosmos.Reflection
         /// Scanned result cache<br />
         /// 扫描结果缓存
         /// </summary>
-        protected List<Type> ScannedResultCache { get; private set; } = new List<Type>();
+        protected List<Type> ScannedResultCache { get; private set; } = new();
 
         /// <summary>
         /// Scanned result cached<br />
