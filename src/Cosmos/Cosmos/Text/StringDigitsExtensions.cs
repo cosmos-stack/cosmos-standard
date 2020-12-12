@@ -1,12 +1,11 @@
 ﻿using System;
-using Cosmos.Collections;
 
 namespace Cosmos.Text
 {
     public static class StringDigitsExtensions
     {
         #region Digits count
-
+        
         /// <summary>
         /// Total digits
         /// </summary>
@@ -16,9 +15,9 @@ namespace Cosmos.Text
         {
             return text.IsNullOrEmpty()
                 ? 0
-                : text.ToCharArray().FindAll(char.IsDigit).Length;
+                : Array.FindAll(text.ToCharArray(),char.IsDigit).Length;
         }
-
+        
         #endregion
 
         #region Contains

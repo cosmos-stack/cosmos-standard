@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Cosmos.Collections;
 
 namespace Cosmos.IO
 {
@@ -59,8 +58,8 @@ namespace Cosmos.IO
                         if (nextByte != -1)
                         {
                             var temp = new byte[readBuffer.Length * 2];
-                            readBuffer.BlockCopy(0, temp, 0, readBuffer.Length);
-                            temp.SetByte(totalBytesRead, (byte) nextByte);
+                            Buffer.BlockCopy(readBuffer,0, temp, 0, readBuffer.Length);
+                            Buffer.SetByte(temp,totalBytesRead, (byte) nextByte);
                             readBuffer = temp;
                             totalBytesRead++;
                         }
@@ -71,7 +70,7 @@ namespace Cosmos.IO
                 if (readBuffer.Length != totalBytesRead)
                 {
                     buffer = new byte[totalBytesRead];
-                    readBuffer.BlockCopy(0, buffer, 0, totalBytesRead);
+                    Buffer.BlockCopy(readBuffer,0, buffer, 0, totalBytesRead);
                 }
 
                 return buffer;
