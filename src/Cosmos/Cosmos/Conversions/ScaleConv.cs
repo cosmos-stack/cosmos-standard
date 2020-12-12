@@ -74,6 +74,8 @@ namespace Cosmos.Conversions
                 throw new ArgumentException($"The baseOfSource radix \"{baseOfSource}\" is not in the range 2..36.");
             if (baseOfTarget < 2 || baseOfTarget > 36)
                 throw new ArgumentException($"The baseOfTarget radix \"{baseOfTarget}\" is not in the range 2..36.");
+            if (baseOfSource == baseOfTarget)
+                return things;
             var val = ThingsToLong(things, baseOfSource);
             return LongToThings(val, baseOfTarget);
         }
@@ -87,29 +89,6 @@ namespace Cosmos.Conversions
         }
 
         private static readonly char[] DigitArray;
-    }
-
-    internal static class StringAsciiConvHelper
-    {
-        public static byte CharToAscii(char @char)
-        {
-            return (byte) @char;
-        }
-
-        public static byte[] StringToAscii(string @string)
-        {
-            return Encoding.ASCII.GetBytes(@string);
-        }
-
-        public static char AsciiToChar(byte @byte)
-        {
-            return (char) @byte;
-        }
-
-        public static string AsciiToString(byte[] bytes)
-        {
-            return Encoding.ASCII.GetString(bytes, 0, bytes.Length);
-        }
     }
 
     /// <summary>
@@ -197,7 +176,7 @@ namespace Cosmos.Conversions
             var system16Val = ScaleConvHelper.ThingsToThings(decimalThings, 10, 16);
             return system16Val.Length > formatLength
                 ? system16Val
-                : system16Val.PadLeft(formatLength - system16Val.Length, '0');
+                : system16Val.PadLeft(formatLength, '0');
         }
 
         /// <summary>
@@ -298,32 +277,8 @@ namespace Cosmos.Conversions
         {
             var sb = new StringBuilder();
             foreach (var decimalThings in decimalBytes)
-                sb.Append(DecToHex(decimalThings.ToString()));
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// Convert from bytes to ASCII <see cref="string"/>.
-        /// </summary>
-        /// <example>in: new byte[] {65, 66, 67}; out: ABC</example>
-        /// <param name="bytes"></param>
-        /// <returns></returns>
-        // ReSharper disable once InconsistentNaming
-        public static string BytesToAsciiString(byte[] bytes)
-        {
-            return StringAsciiConvHelper.AsciiToString(bytes);
-        }
-
-        /// <summary>
-        /// Convert from ASCII <see cref="string"/> to bytes.
-        /// </summary>
-        /// <example>in: ABC; out: new byte[] {65, 66, 67}</example>
-        /// <param name="asciiStr"></param>
-        /// <returns></returns>
-        // ReSharper disable once InconsistentNaming
-        public static byte[] AsciiStringToBytes(string asciiStr)
-        {
-            return StringAsciiConvHelper.StringToAscii(asciiStr);
+                sb.Append(DecToHex(decimalThings.ToString())).Append(" ");
+            return sb.Length > 0 ? sb.ToString(0, sb.Length - 1) : string.Empty;
         }
     }
 }
