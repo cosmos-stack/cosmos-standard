@@ -10,6 +10,15 @@ namespace Cosmos.Collections
     /// </summary>
     public static partial class Arrays
     {
+        public static T[] Empty<T>()
+        {
+#if NET452
+            return new T[0];
+#else
+            return Array.Empty<T>();
+#endif
+        }
+
         /// <summary>
         /// To safe array
         /// </summary>
@@ -18,13 +27,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         public static TElement[] ToArraySafety<TElement>(IEnumerable<TElement> src)
         {
-            return src as TElement[] ?? src?.ToArray() ??
-#if NET452
-                new TElement[0]
-#else
-                Array.Empty<TElement>()
-#endif
-                ;
+            return src as TElement[] ?? src?.ToArray() ?? Empty<TElement>();
         }
 
         /// <summary>
@@ -36,11 +39,7 @@ namespace Cosmos.Collections
         public static TElement[] ToArraySafety<TElement>(Array src)
         {
             if (src is null)
-#if NET452
-                return new TElement[0];
-#else
-                return Array.Empty<TElement>();
-#endif
+                return Empty<TElement>();
 
             var val = new TElement[src.Length];
             var index = 0;
