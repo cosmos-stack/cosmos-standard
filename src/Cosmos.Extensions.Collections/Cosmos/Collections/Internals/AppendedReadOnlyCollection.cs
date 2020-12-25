@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,10 +9,7 @@ namespace Cosmos.Collections.Internals
 
         internal AppendedReadOnlyCollection(IReadOnlyCollection<T> root, T item)
         {
-            // Validate parameters.
-
-            // Assign values.
-            _enumerable = root?.Append(item) ?? throw new ArgumentNullException(nameof(root));
+            _enumerable = ReadOnlyCollsHelper.Append(root, item);
             Count = root.Count + 1;
         }
 
