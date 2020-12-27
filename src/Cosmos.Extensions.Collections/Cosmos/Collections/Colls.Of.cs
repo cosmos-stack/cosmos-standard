@@ -98,48 +98,5 @@ namespace Cosmos.Collections
         {
             return enumerable.GetPage(pageNumber, itemCountPerPage) as EnumerablePage<T>;
         }
-        
-        /// <summary>
-        /// ReadOnly Collection
-        /// </summary>
-        public static partial class ReadOnly
-        {
-            /// <summary>
-            /// Create a readonly list instance of the specified type T. <br />
-            /// 创建一个指定类型 T 的只读列表实例。
-            /// </summary>
-            /// <param name="params"></param>
-            /// <typeparam name="T"></typeparam>
-            /// <returns></returns>
-            public static IReadOnlyList<T> OfList<T>(params T[] @params)
-            {
-                return Colls.OfList(@params).AsReadOnly();
-            }
-
-            /// <summary>
-            /// Create a readonly list instance of the specified type T. <br />
-            /// 创建一个指定类型 T 的只读列表实例。
-            /// </summary>
-            /// <param name="listParams"></param>
-            /// <typeparam name="T"></typeparam>
-            /// <returns></returns>
-            public static IReadOnlyList<T> OfList<T>(params IEnumerable<T>[] listParams)
-            {
-                return Colls.OfList(listParams).AsReadOnly();
-            }
-
-            /// <summary>
-            /// Create a readonly list instance of the specified type T. <br />
-            /// 创建一个指定类型 T 的只读列表实例。
-            /// </summary>
-            /// <param name="list"></param>
-            /// <param name="listParams"></param>
-            /// <typeparam name="T"></typeparam>
-            /// <returns></returns>
-            public static IReadOnlyList<T> OfList<T>(IEnumerable<T> list, params IEnumerable<T>[] listParams)
-            {
-                return Colls.OfList(list, listParams).AsReadOnly();
-            }
-        }
     }
 }

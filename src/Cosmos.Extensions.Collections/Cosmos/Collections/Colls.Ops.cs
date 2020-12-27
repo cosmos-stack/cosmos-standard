@@ -32,7 +32,7 @@ namespace Cosmos.Collections
             var counter = 0;
             return limit <= 0
                 ? AddRange(source, collection)
-                : AddRange(source, collection.TakeWhile(val => counter++ < limit));
+                : AddRange(source, collection.TakeWhile(_ => counter++ < limit));
         }
 
         public static TColl AddIf<TColl, T>(TColl source, T value, bool flag)
@@ -215,7 +215,7 @@ namespace Cosmos.Collections
         #endregion
 
         #region Merge
-        
+
         /// <summary>
         /// Merge
         /// </summary>
@@ -254,7 +254,7 @@ namespace Cosmos.Collections
             while (left.MoveNext()) yield return left.Current;
             yield return last;
         }
-        
+
         /// <summary>
         /// Merge<br />
         /// 合并集合
@@ -324,7 +324,7 @@ namespace Cosmos.Collections
         {
             return Flatten(src.Cast<object>(), o => (enumerate(o) ?? Arrays.Empty<object>()).Cast<object>());
         }
-        
+
         /// <summary>
         /// 将多层的集合展开并整理为单层集合
         /// </summary>
@@ -334,9 +334,9 @@ namespace Cosmos.Collections
         /// <returns></returns>
         public static IEnumerable<T> Flatten<T>(IEnumerable<T> source, Func<T, IEnumerable<T>> enumerate)
         {
-            if (source is null) 
+            if (source is null)
                 yield break;
-            
+
             var stack = new Stack<T>(source);
 
             while (stack.Count > 0)
@@ -345,52 +345,20 @@ namespace Cosmos.Collections
 
                 if (current is null)
                     continue;
-                
+
                 yield return current;
 
                 var enumerable = enumerate?.Invoke(current);
 
                 if (enumerable is null)
                     continue;
-                
+
                 foreach (var child in enumerable)
                     stack.Push(child);
             }
         }
 
         #endregion
-
-        /// <summary>
-        /// ReadOnly Collection
-        /// </summary>
-        public static partial class ReadOnly
-        {
-            #region AddRange
-
-            /// <summary>
-            /// Add range
-            /// </summary>
-            /// <param name="set"></param>
-            /// <param name="items"></param>
-            /// <typeparam name="T"></typeparam>
-            /// <returns></returns>
-            /// <exception cref="ArgumentNullException"></exception>
-            public static IReadOnlyCollection<SetAddRangeResult<T>> AddRange<T>(ISet<T> set, IEnumerable<T> items)
-            {
-                if (set is null)
-                    throw new ArgumentNullException(nameof(set));
-                if (items is null)
-                    throw new ArgumentNullException(nameof(items));
-
-                var added = new List<SetAddRangeResult<T>>(items is ICollection<T> collection ? collection.Count : 1);
-
-                added.AddRange(items.Select(i => new SetAddRangeResult<T>(i, set.Add(i))));
-
-                return ReadOnlyCollsHelper.WrapInReadOnlyCollection(added);
-            }
-
-            #endregion
-        }
     }
 
     public static partial class CollsExtensions
@@ -553,7 +521,7 @@ namespace Cosmos.Collections
 
         #endregion
     }
-    
+
     /// <summary>
     /// Set and range result
     /// </summary>

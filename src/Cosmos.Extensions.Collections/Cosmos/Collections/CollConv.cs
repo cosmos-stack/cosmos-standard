@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using Cosmos.Collections.Internals;
 
 namespace Cosmos.Collections
 {
-    /// <summary>
-    /// Collections utilities
-    /// </summary>
-    public static partial class Colls
+    public static class CollConv
     {
         #region ToEnumerable
 
@@ -104,83 +100,6 @@ namespace Cosmos.Collections
             var res = source.ToArray();
             Array.Sort(res);
             return res;
-        }
-
-        #endregion
-    }
-
-    public static partial class CollsExtensions
-    {
-        #region ToEnumerable
-
-        /// <summary>
-        /// To Enumerable
-        /// </summary>
-        /// <param name="enumerator"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> enumerator)
-        {
-            return Colls.ToEnumerable(enumerator);
-        }
-
-        /// <summary>
-        /// To Enumerable After
-        /// </summary>
-        /// <param name="enumerator"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T> ToEnumerableAfter<T>(this IEnumerator<T> enumerator)
-        {
-            return Colls.ToEnumerableAfter(enumerator);
-        }
-
-        #endregion
-
-        #region ToSortedArray
-
-        /// <summary>
-        /// To sorted array
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <returns></returns>
-        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source, Comparison<TSource> comparer)
-        {
-            return Colls.ToSortedArray(source, comparer);
-        }
-
-        /// <summary>
-        /// To sorted array
-        /// </summary>
-        /// <param name="source"></param>
-        /// <typeparam name="TSource"></typeparam>
-        /// <returns></returns>
-        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source)
-            where TSource : IComparable<TSource>
-        {
-            return Colls.ToSortedArray(source);
-        }
-
-        #endregion
-
-        #region AsReadOnly
-
-        /// <summary>
-        /// To readonly collection
-        /// </summary>
-        /// <param name="src"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static ReadOnlyCollection<T> AsReadOnly<T>(this IEnumerable<T> src)
-        {
-            if (src is null)
-                throw new ArgumentNullException(nameof(src));
-            return ReadOnlyCollsHelper.WrapInReadOnlyCollection(src.ToList());
         }
 
         #endregion
@@ -328,7 +247,66 @@ namespace Cosmos.Collections
         #endregion
     }
 
-    public static partial class CollsShortcutExtensions
+    public static class CollConvExtensions
+    {
+        #region ToEnumerable
+
+        /// <summary>
+        /// To Enumerable
+        /// </summary>
+        /// <param name="enumerator"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> enumerator)
+        {
+            return CollConv.ToEnumerable(enumerator);
+        }
+
+        /// <summary>
+        /// To Enumerable After
+        /// </summary>
+        /// <param name="enumerator"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IEnumerable<T> ToEnumerableAfter<T>(this IEnumerator<T> enumerator)
+        {
+            return CollConv.ToEnumerableAfter(enumerator);
+        }
+
+        #endregion
+
+        #region ToSortedArray
+
+        /// <summary>
+        /// To sorted array
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="comparer"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
+        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source, Comparison<TSource> comparer)
+        {
+            return CollConv.ToSortedArray(source, comparer);
+        }
+
+        /// <summary>
+        /// To sorted array
+        /// </summary>
+        /// <param name="source"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
+        public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source)
+            where TSource : IComparable<TSource>
+        {
+            return CollConv.ToSortedArray(source);
+        }
+
+        #endregion
+    }
+
+    public static class CollConvShortcutExtensions
     {
         /// <summary>
         /// To string list
