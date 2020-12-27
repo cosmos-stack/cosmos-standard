@@ -60,15 +60,15 @@ namespace Cosmos.Collections
         /// <summary>
         /// To index sequence
         /// </summary>
-        /// <param name="src"></param>
+        /// <param name="source"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<KeyValuePair<int, T>> ToIndexedSequence<T>(IEnumerable<T> src)
+        public static IEnumerable<KeyValuePair<int, T>> ToIndexedSequence<T>(IEnumerable<T> source)
         {
-            if (src is null)
-                throw new ArgumentNullException(nameof(src));
-            return src.Select((t, i) => new KeyValuePair<int, T>(i, t));
+            if (source is null)
+                throw new ArgumentNullException(nameof(source));
+            return source.Select((t, i) => new KeyValuePair<int, T>(i, t));
         }
 
         #endregion
@@ -113,7 +113,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<T?> AsOptionals<T>(this IEnumerable<T> source) where T : struct
+        public static IEnumerable<T?> AsOptionals<T>(IEnumerable<T> source) where T : struct
         {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
@@ -131,7 +131,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static EnumerableProxy<T> AsEnumerableProxy<T>(this IEnumerable<T> enumerable)
+        public static EnumerableProxy<T> AsEnumerableProxy<T>(IEnumerable<T> enumerable)
         {
             if (enumerable is null)
                 throw new ArgumentNullException(nameof(enumerable));
@@ -273,6 +273,22 @@ namespace Cosmos.Collections
         public static IEnumerable<T> ToEnumerableAfter<T>(this IEnumerator<T> enumerator)
         {
             return CollConv.ToEnumerableAfter(enumerator);
+        }
+
+        #endregion
+        
+        #region ToIndexedSequence
+
+        /// <summary>
+        /// To index sequence
+        /// </summary>
+        /// <param name="source"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IEnumerable<KeyValuePair<int, T>> ToIndexedSequence<T>(this IEnumerable<T> source)
+        {
+            return CollConv.ToIndexedSequence(source);
         }
 
         #endregion
