@@ -204,7 +204,7 @@ namespace Cosmos.Collections
         public static List<T> Empty<T>() => new();
 
         #endregion
-        
+
         #region IndexOf
 
         /// <summary>
@@ -262,7 +262,7 @@ namespace Cosmos.Collections
 
         #endregion
 
-        #region Order
+        #region OrderByRandom
 
         /// <summary>
         /// Make the collection random order<br />
@@ -280,16 +280,16 @@ namespace Cosmos.Collections
 
         #endregion
 
-        #region Shuffle
+        #region OrderByShuffle
 
         /// <summary>
         /// Shuffle in place
         /// </summary>
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Shuffle<T>(IList<T> items)
+        public static void OrderByShuffle<T>(IList<T> items)
         {
-            Shuffle(items, 4);
+            OrderByShuffle(items, 4);
         }
 
         /// <summary>
@@ -298,7 +298,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <param name="times"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Shuffle<T>(IList<T> items, int times)
+        public static void OrderByShuffle<T>(IList<T> items, int times)
         {
             for (var j = 0; j < times; j++)
             {
@@ -320,9 +320,9 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<T> ShuffleAndNewInstance<T>(IList<T> items)
+        public static List<T> OrderByShuffleAndNewInstance<T>(IList<T> items)
         {
-            return ShuffleAndNewInstance(items, 4);
+            return OrderByShuffleAndNewInstance(items, 4);
         }
 
         /// <summary>
@@ -332,10 +332,10 @@ namespace Cosmos.Collections
         /// <param name="times"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<T> ShuffleAndNewInstance<T>(IList<T> items, int times)
+        public static List<T> OrderByShuffleAndNewInstance<T>(IList<T> items, int times)
         {
             var res = new List<T>(items);
-            Shuffle(res, times);
+            OrderByShuffle(res, times);
             return res;
         }
 
@@ -548,7 +548,7 @@ namespace Cosmos.Collections
         }
 
         #endregion
-        
+
         #region IndexOf
 
         /// <summary>
@@ -579,7 +579,7 @@ namespace Cosmos.Collections
 
         #endregion
 
-        #region Order
+        #region OrderByRandom
 
         /// <summary>
         /// Make the collection random order<br />
@@ -591,6 +591,54 @@ namespace Cosmos.Collections
         public static IEnumerable<TSource> OrderByRandom<TSource>(this IEnumerable<TSource> source)
         {
             return Colls.OrderByRandom(source);
+        }
+
+        #endregion
+
+        #region OrderByShuffle
+
+        /// <summary>
+        /// Shuffle in place
+        /// </summary>
+        /// <param name="items"></param>
+        /// <typeparam name="T"></typeparam>
+        public static void OrderByShuffle<T>(this IList<T> items)
+        {
+            Colls.OrderByShuffle(items);
+        }
+
+        /// <summary>
+        /// Shuffle in place
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="times"></param>
+        /// <typeparam name="T"></typeparam>
+        public static void OrderByShuffle<T>(this IList<T> items, int times)
+        {
+            Colls.OrderByShuffle(items, times);
+        }
+
+        /// <summary>
+        /// Shuffle to new list
+        /// </summary>
+        /// <param name="items"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> OrderByShuffleAndNewInstance<T>(this IList<T> items)
+        {
+            return Colls.OrderByShuffleAndNewInstance(items);
+        }
+
+        /// <summary>
+        /// Shuffle to new list
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="times"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> OrderByShuffleAndNewInstance<T>(this IList<T> items, int times)
+        {
+            return Colls.OrderByShuffleAndNewInstance(items, times);
         }
 
         #endregion
