@@ -111,7 +111,7 @@ namespace Cosmos.Collections
         }
     }
 
-    public static partial class ArraysExtensions
+    public static class ArraysExtensions
     {
         /// <summary>
         /// Cloning of a one-dimensional array from an <see cref="T:System.Array" /> starting at the specified source index

@@ -49,8 +49,6 @@ namespace Cosmos.Collections
         }
     }
 
-    public static partial class ArraysExtensions { }
-
     public static partial class ArraysShortcutExtensions
     {
         /// <summary>
