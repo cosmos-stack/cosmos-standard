@@ -1,29 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Cosmos.Collections
 {
-    internal static class ReadOnlyDictsHelper
-    {
-        /// <summary>
-        /// Wrap in readonly dictionary
-        /// </summary>
-        /// <param name="dictionary"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static ReadOnlyDictionary<TKey, TValue> WrapInReadOnlyDictionary<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
-        {
-            if (dictionary is null)
-                throw new ArgumentNullException(nameof(dictionary));
-
-            return new ReadOnlyDictionary<TKey, TValue>(dictionary);
-        }
-    }
-
-    public static partial class Dicts
+    public static class Dicts
     {
         #region Add
 
@@ -348,7 +328,7 @@ namespace Cosmos.Collections
         #endregion
     }
 
-    public static partial class DictsExtensions
+    public static class DictsExtensions
     {
         #region Add
 
@@ -513,48 +493,8 @@ namespace Cosmos.Collections
             return Dicts.TryGetValueCascading(dictionaryColl, key, out value);
         }
 
-        /// <summary>
-        /// Try get value cascading
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
-        /// <param name="dictionaryColl"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static bool TryGetValueCascading<TKey, TValue>(this TKey key, out TValue value, params IDictionary<TKey, TValue>[] dictionaryColl)
-        {
-            return TryGetValueCascading(dictionaryColl, key, out value);
-        }
-
-        /// <summary>
-        /// Try get value cascading
-        /// </summary>
-        /// <param name="dictionaryColl"></param>
-        /// <param name="key"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static TValue? TryGetValueCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key) where TValue : struct
-        {
-            return TryGetValueCascading(dictionaryColl, key, out var value) ? value : (TValue?) null;
-        }
-
-        /// <summary>
-        /// Try get value cascading
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="dictionaryColl"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static TValue? TryGetValueCascading<TKey, TValue>(this TKey key, params IDictionary<TKey, TValue>[] dictionaryColl) where TValue : struct
-        {
-            return TryGetValueCascading(dictionaryColl, key);
-        }
-
         #endregion
-
+        
         #region Get or Add
 
         /// <summary>
