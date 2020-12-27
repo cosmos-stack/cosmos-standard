@@ -107,6 +107,22 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="item"></param>
         /// <param name="items"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool BeContainedIn<T>(T item, IEnumerable<T> items)
+        {
+            if (items is null)
+                throw new ArgumentNullException(nameof(items));
+
+            return items.Contains(item, EqualityComparer<T>.Default);
+        }
+
+        /// <summary>
+        /// In
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="items"></param>
         /// <param name="equalityComparer"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -121,8 +137,45 @@ namespace Cosmos.Collections
             return items.Contains(item, equalityComparer);
         }
 
+        /// <summary>
+        /// In
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="items"></param>
+        /// <param name="condition"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool BeContainedIn<T>(T item, IEnumerable<T> items, Expression<Func<T, bool>> condition)
+        {
+            if (items is null)
+                throw new ArgumentNullException(nameof(items));
+
+            return items.Where(condition.Compile()).Contains(item, EqualityComparer<T>.Default);
+        }
+
+        /// <summary>
+        /// In
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="items"></param>
+        /// <param name="condition"></param>
+        /// <param name="equalityComparer"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool BeContainedIn<T>(T item, IEnumerable<T> items, Expression<Func<T, bool>> condition, IEqualityComparer<T> equalityComparer)
+        {
+            if (items is null)
+                throw new ArgumentNullException(nameof(items));
+            if (equalityComparer is null)
+                throw new ArgumentNullException(nameof(equalityComparer));
+
+            return items.Where(condition.Compile()).Contains(item, equalityComparer);
+        }
+
         #endregion
-        
+
         #region Contains
 
         /// <summary>
@@ -152,6 +205,20 @@ namespace Cosmos.Collections
         public static bool ContainsAtLeast<T>(ICollection<T> source, int count)
         {
             return source?.Count >= count;
+        }
+
+        /// <summary>
+        /// Check if a set has a specified number of members. <br />
+        /// 检查一个集合是否拥有指定数量的成员
+        /// </summary>
+        /// <typeparam name="T">动态类型</typeparam>
+        /// <param name="source"></param>
+        /// <param name="condition"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static bool ContainsAtLeast<T>(IEnumerable<T> source, Expression<Func<T, bool>> condition, int count)
+        {
+            return source?.Where(condition.Compile()).Count() >= count;
         }
 
         /// <summary>
@@ -462,6 +529,35 @@ namespace Cosmos.Collections
             return Colls.BeContainedIn(item, items, equalityComparer);
         }
 
+        /// <summary>
+        /// In
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="items"></param>
+        /// <param name="condition"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool BeContainedIn<T>(this T item, IEnumerable<T> items, Expression<Func<T, bool>> condition)
+        {
+            return Colls.BeContainedIn(item, items, condition);
+        }
+
+        /// <summary>
+        /// In
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="items"></param>
+        /// <param name="condition"></param>
+        /// <param name="equalityComparer"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool BeContainedIn<T>(this T item, IEnumerable<T> items, Expression<Func<T, bool>> condition, IEqualityComparer<T> equalityComparer)
+        {
+            return Colls.BeContainedIn(item, items, condition, equalityComparer);
+        }
+
         #endregion
 
         #region Contains
@@ -490,6 +586,20 @@ namespace Cosmos.Collections
         public static bool ContainsAtLeast<T>(this ICollection<T> source, int count)
         {
             return Colls.ContainsAtLeast(source, count);
+        }
+
+        /// <summary>
+        /// Check if a set has a specified number of members. <br />
+        /// 检查一个集合是否拥有指定数量的成员
+        /// </summary>
+        /// <typeparam name="T">动态类型</typeparam>
+        /// <param name="source"></param>
+        /// <param name="condition"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static bool ContainsAtLeast<T>(this IEnumerable<T> source, Expression<Func<T, bool>> condition, int count)
+        {
+            return Colls.ContainsAtLeast(source, condition, count);
         }
 
         /// <summary>
