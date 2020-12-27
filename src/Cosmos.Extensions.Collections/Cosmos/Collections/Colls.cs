@@ -351,7 +351,7 @@ namespace Cosmos.Collections
         /// <returns></returns>
         public static int UniqueCount<TObj>(IEnumerable<TObj> source)
         {
-            return UniqueCount<TObj, TObj>(source, val => val);
+            return UniqueCount(source, val => val);
         }
 
         /// <summary>
