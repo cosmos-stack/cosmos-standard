@@ -55,51 +55,6 @@ namespace Cosmos.Collections
     /// </summary>
     public static partial class Colls
     {
-        #region Chunk
-
-        /// <summary>
-        /// Chunk
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="size"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> source, int size)
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-            if (size <= 0)
-                throw new ArgumentOutOfRangeException(nameof(size), size, $"The {nameof(size)} parameter must be a positive value.");
-
-            using (var enumerator = source.GetEnumerator())
-            {
-                do
-                {
-                    if (!enumerator.MoveNext())
-                        yield break;
-
-                    yield return ChunkSequence(enumerator, size);
-                } while (true);
-            }
-        }
-
-        private static IEnumerable<T> ChunkSequence<T>(IEnumerator<T> enumerator, int size)
-        {
-            if (enumerator is null)
-                throw new ArgumentNullException(nameof(enumerator));
-
-            var count = 0;
-
-            do
-            {
-                yield return enumerator.Current;
-            } while (++count < size && enumerator.MoveNext());
-        }
-
-        #endregion
-
         #region BeContainedIn
 
         /// <summary>
@@ -249,30 +204,7 @@ namespace Cosmos.Collections
         public static List<T> Empty<T>() => new();
 
         #endregion
-
-        #region ForEach
-
-        /// <summary>
-        /// Do action for each item, and returns the result.
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="action"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static IEnumerable<T> ForEach<T>(IEnumerable<T> source, Action<T> action)
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-
-            foreach (var item in source)
-            {
-                action?.Invoke(item);
-                yield return item;
-            }
-        }
-
-        #endregion
-
+        
         #region IndexOf
 
         /// <summary>
@@ -616,23 +548,7 @@ namespace Cosmos.Collections
         }
 
         #endregion
-
-        #region ForEach
-
-        /// <summary>
-        /// Do action for each item, and returns the result.
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="action"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> source, Action<T> action)
-        {
-            return Colls.ForEach(source, action);
-        }
-
-        #endregion
-
+        
         #region IndexOf
 
         /// <summary>
