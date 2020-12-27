@@ -341,45 +341,18 @@ namespace Cosmos.Collections
 
         #endregion
 
-        #region Take
-
+        #region Unique Count
+        
         /// <summary>
-        /// Take last
+        /// Unique Count
         /// </summary>
         /// <param name="source"></param>
-        /// <param name="count"></param>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TObj"></typeparam>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static IEnumerable<T> LastTake<T>(IEnumerable<T> source, int count)
+        public static int UniqueCount<TObj>(IEnumerable<TObj> source)
         {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-
-            if (count < 0)
-                throw new ArgumentOutOfRangeException(nameof(count), count, $"The {nameof(count)} parameter must be a non-negative number.");
-
-            // If the count is zero, return empty.
-            if (count == 0)
-                return Enumerable.Empty<T>();
-
-            // Start sniffing.
-            // Read-only collection.
-            if (source is IReadOnlyCollection<T> ro)
-                return LinqCollsHelper.ReadOnlyCollectionTakeLast(ro, count);
-
-            // Collection.
-            if (source is ICollection<T> c)
-                return LinqCollsHelper.CollectionTakeLast(c, count);
-
-            // Default.
-            return LinqCollsHelper.EnumerableTakeLast(source, count);
+            return UniqueCount<TObj, TObj>(source, val => val);
         }
-
-        #endregion
-
-        #region Unique Count
 
         /// <summary>
         /// Unique Count
@@ -389,7 +362,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TObj"></typeparam>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static int UniqueCount<TObj, TResult>(IList<TObj> source, Func<TObj, TResult> valCalculator)
+        public static int UniqueCount<TObj, TResult>(IEnumerable<TObj> source, Func<TObj, TResult> valCalculator)
         {
             var check = new HashSet<TResult>();
 
@@ -642,26 +615,19 @@ namespace Cosmos.Collections
         }
 
         #endregion
-
-        #region Take
-
+        
+        #region Unique Count
+        
         /// <summary>
-        /// Take last
+        /// Unique Count
         /// </summary>
         /// <param name="source"></param>
-        /// <param name="count"></param>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TObj"></typeparam>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static IEnumerable<T> LastTake<T>(this IEnumerable<T> source, int count)
+        public static int UniqueCount<TObj>(this IEnumerable<TObj> source)
         {
-            return Colls.LastTake(source, count);
+            return Colls.UniqueCount(source);
         }
-
-        #endregion
-
-        #region Unique Count
 
         /// <summary>
         /// Unique Count
@@ -671,7 +637,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TObj"></typeparam>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static int UniqueCount<TObj, TResult>(this IList<TObj> source, Func<TObj, TResult> valCalculator)
+        public static int UniqueCount<TObj, TResult>(this IEnumerable<TObj> source, Func<TObj, TResult> valCalculator)
         {
             return Colls.UniqueCount(source, valCalculator);
         }

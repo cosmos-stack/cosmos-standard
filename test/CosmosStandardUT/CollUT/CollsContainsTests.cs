@@ -254,5 +254,53 @@ namespace CosmosStandardUT.CollUT
             val1.ShouldBeTrue();
             val2.ShouldBeFalse();
         }
+
+        [Fact(DisplayName = "Unique count with default ValueCalculator test")]
+        public void UniqueCountWithDefaultValueCalculatorTest()
+        {
+            var list = new List<int> {1, 2, 3, 1, 2, 3, 1, 2, 3};
+
+            var val = list.Count;
+            var val2 = Colls.UniqueCount(list);
+
+            val.ShouldBe(9);
+            val2.ShouldBe(3);
+        }
+
+        [Fact(DisplayName = "Unique count with custom ValueCalculator test")]
+        public void UniqueCountWithCustomValueCalculatorTest()
+        {
+            var list = new List<int> {1, 2, 3, 1, 2, 3, 1, 2, 3};
+
+            var val = list.Count;
+            var val2 = Colls.UniqueCount(list, v => v * 0);
+
+            val.ShouldBe(9);
+            val2.ShouldBe(1);
+        }
+
+        [Fact(DisplayName = "Extension method for Unique count with default ValueCalculator test")]
+        public void ExtensionMethodForUniqueCountWithDefaultValueCalculatorTest()
+        {
+            var list = new List<int> {1, 2, 3, 1, 2, 3, 1, 2, 3};
+
+            var val = list.Count;
+            var val2 = list.UniqueCount();
+
+            val.ShouldBe(9);
+            val2.ShouldBe(3);
+        }
+
+        [Fact(DisplayName = "Extension method for Unique count with custom ValueCalculator test")]
+        public void ExtensionMethodForUniqueCountWithCustomValueCalculatorTest()
+        {
+            var list = new List<int> {1, 2, 3, 1, 2, 3, 1, 2, 3};
+
+            var val = list.Count;
+            var val2 = list.UniqueCount(v => v * 0);
+
+            val.ShouldBe(9);
+            val2.ShouldBe(1);
+        }
     }
 }
