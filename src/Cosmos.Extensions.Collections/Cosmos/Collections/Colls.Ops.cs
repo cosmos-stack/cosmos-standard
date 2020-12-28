@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
-using System.Collections;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 // ReSharper disable MemberHidesStaticFromOuterClass
@@ -14,20 +13,19 @@ namespace Cosmos.Collections
     {
         #region Add
 
-        public static TColl AddRange<TColl, T>(TColl source, IEnumerable<T> collection)
-            where TColl : IList<T>
+        public static IEnumerable<T> AddRange<T>(IEnumerable<T> source, IEnumerable<T> collection)
         {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (collection is null)
                 throw new ArgumentNullException(nameof(collection));
+            foreach (var item in source)
+                yield return item;
             foreach (var item in collection)
-                source.Add(item);
-            return source;
+                yield return item;
         }
 
-        public static TColl AddRange<TColl, T>(TColl source, IEnumerable<T> collection, int limit)
-            where TColl : IList<T>
+        public static IEnumerable<T> AddRange<T>(IEnumerable<T> source, IEnumerable<T> collection, int limit)
         {
             var counter = 0;
             return limit <= 0
@@ -35,34 +33,34 @@ namespace Cosmos.Collections
                 : AddRange(source, collection.TakeWhile(_ => counter++ < limit));
         }
 
-        public static TColl AddIf<TColl, T>(TColl source, T value, bool flag)
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIf<T>(IEnumerable<T> source, T value, bool flag)
         {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
+            foreach (var item in source)
+                yield return item;
             if (flag)
-                source.Add(value);
-            return source;
+                yield return value;
         }
 
-        public static TColl AddIf<TColl, T>(TColl source, T value, Func<bool> condition)
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIf<T>(IEnumerable<T> source, T value, Func<bool> condition)
         {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
+            foreach (var item in source)
+                yield return item;
             if (condition())
-                source.Add(value);
-            return source;
+                yield return value;
         }
 
-        public static TColl AddIf<TColl, T>(TColl source, T value, Func<T, bool> condition)
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIf<T>(IEnumerable<T> source, T value, Func<T, bool> condition)
         {
             if (source is null)
                 throw new ArgumentNullException(nameof(source));
+            foreach (var item in source)
+                yield return item;
             if (condition?.Invoke(value) ?? false)
-                source.Add(value);
-            return source;
+                yield return value;
         }
 
         #endregion
@@ -100,7 +98,7 @@ namespace Cosmos.Collections
         {
             var duplicateCheck = new HashSet<TSource>();
 
-            return source.RemoveIf(item =>
+            return RemoveIf(source,item =>
             {
                 if (duplicateCheck.Contains(item))
                     return true;
@@ -125,7 +123,7 @@ namespace Cosmos.Collections
 
             var duplicateCheck = new HashSet<TCheck>();
 
-            return source.RemoveIf(item =>
+            return RemoveIf(source,item =>
             {
                 var val = duplicatePredicate(item);
 
@@ -146,7 +144,7 @@ namespace Cosmos.Collections
         {
             var duplicateCheck = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-            return source.RemoveIf(item =>
+            return RemoveIf(source,item =>
             {
                 if (duplicateCheck.Contains(item))
                     return true;
@@ -179,9 +177,9 @@ namespace Cosmos.Collections
                     continue;
 
                 source.RemoveAt(i);
-
-                yield return item;
             }
+
+            return source;
         }
 
         /// <summary>
@@ -310,100 +308,39 @@ namespace Cosmos.Collections
         }
 
         #endregion
-
-        #region Flatten
-
-        /// <summary>
-        /// 将多层的集合展开并整理为单层集合
-        /// </summary>
-        /// <param name="src"></param>
-        /// <param name="enumerate"></param>
-        /// <returns></returns>
-        // ReSharper disable once FunctionRecursiveOnAllPaths
-        public static IEnumerable Flatten(IEnumerable src, Func<object, IEnumerable> enumerate)
-        {
-            return Flatten(src.Cast<object>(), o => (enumerate(o) ?? Arrays.Empty<object>()).Cast<object>());
-        }
-
-        /// <summary>
-        /// 将多层的集合展开并整理为单层集合
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source">   </param>
-        /// <param name="enumerate"></param>
-        /// <returns></returns>
-        public static IEnumerable<T> Flatten<T>(IEnumerable<T> source, Func<T, IEnumerable<T>> enumerate)
-        {
-            if (source is null)
-                yield break;
-
-            var stack = new Stack<T>(source);
-
-            while (stack.Count > 0)
-            {
-                var current = stack.Pop();
-
-                if (current is null)
-                    continue;
-
-                yield return current;
-
-                var enumerable = enumerate?.Invoke(current);
-
-                if (enumerable is null)
-                    continue;
-
-                foreach (var child in enumerable)
-                    stack.Push(child);
-            }
-        }
-
-        #endregion
     }
 
     public static partial class CollsExtensions
     {
         #region Add
-
-        public static TColl AddRange<TColl, T>(this TColl source, IEnumerable<T> collection)
-            where TColl : IList<T>
-        {
-            return Colls.AddRange(source, collection);
-        }
-
-        public static TColl AddRange<TColl, T>(this TColl source, IEnumerable<T> collection, int limit)
-            where TColl : IList<T>
+        
+        public static IEnumerable<T> AddRange<T>(this IEnumerable<T> source, IEnumerable<T> collection, int limit)
         {
             return Colls.AddRange(source, collection, limit);
         }
 
-        public static TColl AddIf<TColl, T>(this TColl source, T value, bool flag)
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIf<T>(this IEnumerable<T> source, T value, bool flag)
         {
             return Colls.AddIf(source, value, flag);
         }
 
-        public static TColl AddIf<TColl, T>(this TColl source, T value, Func<bool> condition)
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIf<T>(this IEnumerable<T> source, T value, Func<bool> condition)
         {
             return Colls.AddIf(source, value, condition);
         }
 
-        public static TColl AddIf<TColl, T>(this TColl source, T value, Func<T, bool> condition)
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIf<T>(this IEnumerable<T> source, T value, Func<T, bool> condition)
         {
             return Colls.AddIf(source, value, condition);
         }
 
-        public static TColl AddIfNotExist<TColl, T>(this TColl source, T value, Func<T, bool> existFunc = null)
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIfNotExist<T>(this IEnumerable<T> source, T value, Func<T, bool> existFunc = null)
         {
-            return Colls.AddIf(source, value, v => existFunc?.Invoke(v) ?? source.Contains(v));
+            Func<T, bool> condition = t => !source.Contains(t);
+            return Colls.AddIf(source, value, v => existFunc?.Invoke(v) ?? condition(v));
         }
 
-        public static TColl AddIfNotNull<TColl, T>(this TColl source, T value)
-            where T : class
-            where TColl : ICollection<T>
+        public static IEnumerable<T> AddIfNotNull<T>(this IEnumerable<T> source, T value)
         {
             return Colls.AddIf(source, value, v => v is not null);
         }
@@ -454,8 +391,7 @@ namespace Cosmos.Collections
         {
             return Colls.RemoveDuplicatesIgnoreCase(source);
         }
-
-
+        
         /// <summary>
         /// Remove where...<br />
         /// 移除满足条件的成员，并最终返回筛选后的结果
@@ -501,22 +437,6 @@ namespace Cosmos.Collections
         public static IEnumerable<T> Merge<T>(this IEnumerable<T> source, IEnumerable<T> right, int limit)
         {
             return Colls.Merge(source, right, limit);
-        }
-
-        #endregion
-
-        #region Flatten
-
-        /// <summary>
-        /// 将多层的集合展开并整理为单层集合
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source">   </param>
-        /// <param name="enumerate"></param>
-        /// <returns></returns>
-        public static IEnumerable<T> Flatten<T>(this IEnumerable<T> source, Func<T, IEnumerable<T>> enumerate)
-        {
-            return Colls.Flatten(source, enumerate);
         }
 
         #endregion
