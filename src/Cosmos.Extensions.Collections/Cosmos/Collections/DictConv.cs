@@ -110,13 +110,15 @@ namespace Cosmos.Collections
         /// To sorted array by value
         /// </summary>
         /// <param name="dictionary"></param>
+        /// <param name="asc"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <returns></returns>
-        public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(Dictionary<TKey, int> dictionary)
+        public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(Dictionary<TKey, int> dictionary, bool asc = true)
         {
             var val = dictionary.ToList();
+            var i = asc ? 1 : -1;
 
-            val.Sort((x, y) => -x.Value.CompareTo(y.Value));
+            val.Sort((x, y) => x.Value.CompareTo(y.Value) * i);
 
             return val;
         }
@@ -228,11 +230,12 @@ namespace Cosmos.Collections
         /// To sorted array by value
         /// </summary>
         /// <param name="dictionary"></param>
+        /// <param name="asc"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <returns></returns>
-        public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(this Dictionary<TKey, int> dictionary)
+        public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(this Dictionary<TKey, int> dictionary, bool asc = true)
         {
-            return DictConv.ToSortedArrayByValue(dictionary);
+            return DictConv.ToSortedArrayByValue(dictionary, asc);
         }
 
         /// <summary>
