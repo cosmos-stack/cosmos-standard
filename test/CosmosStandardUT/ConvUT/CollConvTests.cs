@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cosmos.Collections;
+using Cosmos.Reflection;
 using Shouldly;
 using Xunit;
 
@@ -307,6 +308,30 @@ namespace CosmosStandardUT.ConvUT
             target[2].ShouldBe(3);
             target[3].ShouldBe(4);
             target[4].ShouldBe(5);
+        }
+
+        [Fact(DisplayName = "ReadOnly Enumerable to normal Enumerable test")]
+        public void ReadOnlyListToNormalListTest()
+        {
+            var readOnlyList = new List<int> {1, 2}.AsReadOnly();
+            var list = ReadOnlyCollConv.AsList(readOnlyList);
+            list.Count.ShouldBe(2);
+        }
+
+        [Fact(DisplayName = "Extension method for ReadOnly Enumerable to normal Enumerable test")]
+        public void ExtensionMethodForReadOnlyListToNormalListTest()
+        {
+            var readOnlyList = new List<int> {1, 2}.AsReadOnly();
+            var list = readOnlyList.AsList();
+            list.Count.ShouldBe(2);
+        }
+
+        [Fact(DisplayName = "Extension method for normal Enumerable to ReadOnly Enumerable test")]
+        public void ExtensionMethodForNormalEnumerableToReadOnlyOneTest()
+        {
+            IEnumerable<int> v = new List<int> {1, 2, 3, 4, 5};
+            var coll = v.AsReadOnly();
+            TypeReflections.IsInterfaceDefined<IReadOnlyList<int>>(coll.GetType()).ShouldBeTrue();
         }
     }
 }

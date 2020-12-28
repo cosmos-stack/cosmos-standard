@@ -846,5 +846,27 @@ namespace CosmosStandardUT.CollUT
             target[8].ShouldBe(8);
             target[9].ShouldBe(9);
         }
+
+        [Fact(DisplayName = "Append one item into a readonly list test")]
+        public void ReadOnlyAppendOneItemIntoCollTest()
+        {
+            var list = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}.AsReadOnly();
+
+            var v = ReadOnlyColls.Append(list, 11);
+            
+            v.ShouldNotBeNull();
+            v.Count.ShouldBe(11);
+        }
+        
+        [Fact(DisplayName = "Extensions method for Append one item into a readonly list test")]
+        public void ExtensionsMethodForReadOnlyAppendOneItemIntoCollTest()
+        {
+            var list = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}.AsReadOnly();
+
+            var v = list.Append( 11);
+            
+            v.ShouldNotBeNull();
+            v.Count.ShouldBe(11);
+        }
     }
 }

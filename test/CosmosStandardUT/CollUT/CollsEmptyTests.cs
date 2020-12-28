@@ -15,5 +15,14 @@ namespace CosmosStandardUT.CollUT
             array.ShouldNotBeNull();
             array.ShouldBeEmpty();
         }
+        
+        [Fact(DisplayName = "ReadOnlyColls.Empty test")]
+        public void ReadOnlyEmptyArrayTest()
+        {
+            var array = ReadOnlyColls.Empty<string>();
+
+            array.ShouldNotBeNull();
+            array.ShouldBeEmpty();
+        }
     }
 }
