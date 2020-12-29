@@ -71,8 +71,7 @@ namespace Cosmos.Collections
                 AddValueOrOverride(dictionary, key, insertFunc(key));
             }
         }
-
-
+        
         /// <summary>
         /// Merge the second dictionary into the first one
         /// </summary>
@@ -80,7 +79,7 @@ namespace Cosmos.Collections
         /// <param name="dict"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TVal"></typeparam>
-        public static void Merge<TKey, TVal>(Dictionary<TKey, TVal> source, Dictionary<TKey, TVal> dict)
+        public static void Add<TKey, TVal>(Dictionary<TKey, TVal> source, Dictionary<TKey, TVal> dict)
         {
             foreach (var pair in dict)
                 source.Add(pair.Key, pair.Value);
@@ -341,7 +340,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TVal"></typeparam>
         public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> source, Dictionary<TKey, TVal> dict)
         {
-            Dicts.Merge(source, dict);
+            Dicts.Add(source, dict);
         }
 
         /// <summary>
@@ -417,6 +416,7 @@ namespace Cosmos.Collections
             return Dicts.GetValueOrDefault(dictionary, key, valueCalculator);
         }
 
+#if NETFRAMEWORK || NETSTANDARD2_0
         /// <summary>
         /// Get value or default
         /// </summary>
@@ -431,7 +431,7 @@ namespace Cosmos.Collections
         {
             return Dicts.GetValueOrDefault(dictionary, key, defaultValue);
         }
-
+        
         /// <summary>
         /// Get value or default
         /// </summary>
@@ -445,7 +445,8 @@ namespace Cosmos.Collections
         {
             return Dicts.GetValueOrDefault(dictionary, key);
         }
-
+#endif
+        
         #endregion
 
         #region Get or Default Cascading
