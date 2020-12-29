@@ -31,8 +31,4 @@
       <ProjectReference Include="..\..\src\Cosmos.Standard\Cosmos.Standard.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="StringUT" />
-    </ItemGroup>
-
 </Project>
