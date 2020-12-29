@@ -14,7 +14,7 @@ namespace CosmosStandardUT.ConvUT
         public void CastOneDictToAnotherTest()
         {
             // from int-int to string-long
-            var source = new Dictionary<int, int> {{1, 1}, {2, 2}, {3, 3}}.ToReadOnlyDictionary();
+            var source = new Dictionary<int, int> {{1, 1}, {2, 2}, {3, 3}}.AsReadOnlyDictionary();
             var target = DictConv.Cast<int, int, int, dynamic>(source);
 
             target.ShouldNotBeNull();
@@ -25,7 +25,7 @@ namespace CosmosStandardUT.ConvUT
         public void ExtensionMethodForCastOneDictToAnotherTest()
         {
             // from int-int to string-long
-            var source = new Dictionary<int, int> {{1, 1}, {2, 2}, {3, 3}}.ToReadOnlyDictionary();
+            var source = new Dictionary<int, int> {{1, 1}, {2, 2}, {3, 3}}.AsReadOnlyDictionary();
             var target = source.Cast<int, int, int, dynamic>();
 
             target.ShouldNotBeNull();

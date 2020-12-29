@@ -155,7 +155,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
+        public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
             this IEnumerable<KeyValuePair<TKey, TValue>> src)
         {
             return ReadOnlyDictConv.ToDictionary(src);
@@ -170,7 +170,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
+        public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
             this IEnumerable<KeyValuePair<TKey, TValue>> src, IEqualityComparer<TKey> comparer)
         {
             return ReadOnlyDictConv.ToDictionary(src, comparer);
@@ -185,7 +185,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
+        public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
             this IEnumerable<TValue> src, Func<TValue, TKey> keySelector)
         {
             return ReadOnlyDictConv.ToDictionary(src, keySelector);
@@ -201,7 +201,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TKey, TValue>(
+        public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
             this IEnumerable<TValue> src, Func<TValue, TKey> keySelector, IEqualityComparer<TKey> comparer)
         {
             return ReadOnlyDictConv.ToDictionary(src, keySelector, comparer);
@@ -219,7 +219,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TSource, TKey, TValue>(
+        public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TSource, TKey, TValue>(
             this IEnumerable<TSource> src, Func<TSource, TKey> keySelector, Func<TSource, TValue> elementSelector, IEqualityComparer<TKey> comparer)
         {
             return ReadOnlyDictConv.ToDictionary(src, keySelector, elementSelector, comparer);
@@ -236,7 +236,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TSource, TKey, TValue>(
+        public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TSource, TKey, TValue>(
             this IEnumerable<TSource> src, Func<TSource, TKey> keySelector, Func<TSource, TValue> elementSelector)
         {
             return ReadOnlyDictConv.ToDictionary(src, keySelector, elementSelector);
