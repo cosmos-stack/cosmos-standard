@@ -106,5 +106,100 @@ namespace CosmosStandardUT.StringUT
 
             Assert.Equal("Alex LEWIS", originalVal);
         }
+        
+        [Fact(DisplayName = "Extension method for Base32 string test")]
+        public void ExtensionMethodForBase32StringTest()
+        {
+            var baseVal = "Alex LEWIS".ToBase32String();
+            var originalVal = baseVal.FromBase32String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for Base32 byte[] test")]
+        public void ExtensionMethodForBase32BytesTest()
+        {
+            var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
+            var baseVal = byteArray.ToBase32String();
+            var originalVal = baseVal.FromBase32String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for Base64 string test")]
+        public void ExtensionMethodForBase64StringTest()
+        {
+            var baseVal = "Alex LEWIS".ToBase64String();
+            var originalVal = baseVal.FromBase64String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for Base64 byte[] test")]
+        public void ExtensionMethodForBase64BytesTest()
+        {
+            var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
+            var baseVal = byteArray.ToBase64String();
+            var originalVal = baseVal.FromBase64String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for Base91 string test")]
+        public void ExtensionMethodForBase91StringTest()
+        {
+            var baseVal = "Alex LEWIS".ToBase91String();
+            var originalVal = baseVal.FromBase91String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for Base91 byte[] test")]
+        public void ExtensionMethodForBase91BytesTest()
+        {
+            var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
+            var baseVal = byteArray.ToBase91String();
+            var originalVal = baseVal.FromBase91String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for Base256 string test")]
+        public void ExtensionMethodForBase256StringTest()
+        {
+            var baseVal = "Alex LEWIS".ToBase256String();
+            var originalVal = baseVal.FromBase256String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for Base256 byte[] test")]
+        public void ExtensionMethodForBase256BytesTest()
+        {
+            var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
+            var baseVal = byteArray.ToBase256String();
+            var originalVal = baseVal.FromBase256String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+        
+        [Fact(DisplayName = "Extension method for ZBase32 string test")]
+        public void ExtensionMethodForZBase32StringTest()
+        {
+            var baseVal = "Alex LEWIS".ToZBase32String();
+            var originalVal = baseVal.FromZBase32String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
+
+        [Fact(DisplayName = "Extension method for ZBase32 byte[] test")]
+        public void ExtensionMethodForZBase32BytesTest()
+        {
+            var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
+            var baseVal = byteArray.ToZBase32String();
+            var originalVal = baseVal.FromZBase32String();
+
+            Assert.Equal("Alex LEWIS", originalVal);
+        }
     }
 }
