@@ -9,28 +9,6 @@ namespace Cosmos.Text
     /// </summary>
     public static class StringExtensions
     {
-        #region Equals
-
-        /// <summary>
-        /// Equals ignore case
-        /// </summary>
-        /// <param name="text"></param>
-        /// <param name="toCheck"></param>
-        /// <returns></returns>
-        public static bool EqualsIgnoreCase(this string text, string toCheck) =>
-            string.Equals(text, toCheck, StringComparison.OrdinalIgnoreCase);
-
-        /// <summary>
-        /// Equals to any ignore case
-        /// </summary>
-        /// <param name="text"></param>
-        /// <param name="toCheck"></param>
-        /// <returns></returns>
-        public static bool EqualsToAnyIgnoreCase(this string text, params string[] toCheck) =>
-            toCheck != null && toCheck.Any(t => string.Equals(text, t, StringComparison.OrdinalIgnoreCase));
-
-        #endregion
-        
         #region Index
 
         /// <summary>
