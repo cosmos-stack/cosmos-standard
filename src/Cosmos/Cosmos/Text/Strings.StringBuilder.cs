@@ -2,14 +2,72 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Text;
-using Cosmos.Collections;
 
 namespace Cosmos.Text
 {
     /// <summary>
-    /// Cosmos <see cref="StringBuilder"/> extensions.
+    /// String Utils<br />
+    /// 字符串工具
     /// </summary>
-    public static class StringBuilderExtensions
+    public static partial class Strings
+    {
+        #region Reverse
+
+        /// <summary>
+        /// Reverse
+        /// </summary>
+        /// <param name="builder"></param>
+        public static void Reverse(StringBuilder builder)
+        {
+            if (builder is null || builder.Length == 0)
+                return;
+
+            var destination = new char[builder.Length];
+            builder.CopyTo(0, destination, 0, builder.Length);
+            Array.Reverse(destination);
+
+            builder.Clear();
+            builder.Append(destination);
+        }
+
+        /// <summary>
+        /// Reverse <see cref="StringBuilder"/>
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public static StringBuilder ReverseAndReturnNewInstance(StringBuilder builder)
+        {
+            if (builder is null)
+                return null;
+            if (builder.Length == 0)
+                return new StringBuilder();
+
+            var destination = new char[builder.Length];
+            builder.CopyTo(0, destination, 0, builder.Length);
+            Array.Reverse(destination);
+            return new StringBuilder().Append(destination);
+        }
+
+        /// <summary>
+        /// Reverse string
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public static string ReverseAndToString(StringBuilder builder)
+        {
+            if (builder is null || builder.Length == 0)
+                return string.Empty;
+
+            var destination = new char[builder.Length];
+            builder.CopyTo(0, destination, 0, builder.Length);
+            Array.Reverse(destination);
+            return string.Join(null, destination);
+        }
+
+        #endregion
+    }
+
+    public static partial class StringsExtensions
     {
         #region Append
 
@@ -23,7 +81,7 @@ namespace Cosmos.Text
 
             Contract.EndContractBlock();
 
-            if (values != null)
+            if (values is not null)
             {
                 if (string.IsNullOrEmpty(separator))
                 {
@@ -47,6 +105,7 @@ namespace Cosmos.Text
         {
             if (target is null)
                 throw new NullReferenceException();
+            
             Contract.EndContractBlock();
 
             if (values != null)
@@ -131,15 +190,7 @@ namespace Cosmos.Text
         /// <param name="builder"></param>
         public static void Reverse(this StringBuilder builder)
         {
-            if (builder is null || builder.Length == 0)
-                return;
-
-            var destination = new char[builder.Length];
-            builder.CopyTo(0, destination, 0, builder.Length);
-            destination.Reverse();
-
-            builder.Clear();
-            builder.Append(destination);
+            Strings.Reverse(builder);
         }
 
         /// <summary>
@@ -147,14 +198,9 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static StringBuilder ToReverseBuilder(this StringBuilder builder)
+        public static StringBuilder ReverseAndReturnNewInstance(this StringBuilder builder)
         {
-            if (builder is null || builder.Length == 0)
-                return builder;
-            var destination = new char[builder.Length];
-            builder.CopyTo(0, destination, 0, builder.Length);
-            destination.Reverse();
-            return new StringBuilder().Append(destination);
+            return Strings.ReverseAndReturnNewInstance(builder);
         }
 
         /// <summary>
@@ -162,16 +208,14 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static string ToReverseString(this StringBuilder builder)
+        public static string ReverseAndToString(this StringBuilder builder)
         {
-            if (builder is null || builder.Length == 0)
-                return string.Empty;
-            return builder.ToReverseBuilder().ToString();
+            return Strings.ReverseAndToString(builder);
         }
 
         #endregion
 
-        #region To
+        #region To Char Array
 
         /// <summary>
         /// To char array
