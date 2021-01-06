@@ -2,10 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using Cosmos.Optionals.Internals;
-using Cosmos.Reflection;
 using Cosmos.Text;
 
 namespace Cosmos.Optionals
@@ -97,9 +96,24 @@ namespace Cosmos.Optionals
         /// To remove space and return a safe <see cref="string"/> value.<br />
         /// 安全移除空白字符
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static string SafeTrim(this string str) => str?.Trim();
+        public static string SafeTrim(this string text) => text?.Trim();
+
+        #endregion
+
+        #region SafeGroupValue
+
+        /// <summary>
+        /// To safe group value
+        /// </summary>
+        /// <param name="match"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static string SafeGroupValue(this Match match, string name)
+        {
+            return match.Groups[name]?.Value;
+        }
 
         #endregion
 
