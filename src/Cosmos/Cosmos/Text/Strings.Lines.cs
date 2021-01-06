@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Cosmos.Text
 {
@@ -66,6 +67,35 @@ namespace Cosmos.Text
                 yield return currentString;
             }
         }
+
+        /// <summary>
+        /// Truncate by lines
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="maxLines"></param>
+        /// <param name="placeholder"></param>
+        /// <returns></returns>
+        public static string TruncateByLines(string text, int maxLines, string placeholder = "...")
+        {
+            if (string.IsNullOrEmpty(text) || maxLines <= 0)
+                return string.Empty;
+            if (string.IsNullOrEmpty(placeholder))
+                placeholder = "...";
+            var builder = new StringBuilder();
+            var counter = 0;
+            foreach(var line in SplitByLines(text))
+            {
+                if (++counter == maxLines)
+                {
+                    builder.AppendLine(placeholder);
+                    break;
+                }
+
+                builder.AppendLine(line);
+            }
+
+            return builder.ToString();
+        }
     }
 
     public static partial class StringsExtensions
@@ -88,6 +118,18 @@ namespace Cosmos.Text
         public static IEnumerable<string> SplitByLines(this string text)
         {
             return Strings.SplitByLines(text);
+        }
+
+        /// <summary>
+        /// Truncate by lines
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="maxLines"></param>
+        /// <param name="placeholder"></param>
+        /// <returns></returns>
+        public static string TruncateByLines(this string text, int maxLines, string placeholder = "...")
+        {
+            return Strings.TruncateByLines(text, maxLines, placeholder);
         }
     }
 }
