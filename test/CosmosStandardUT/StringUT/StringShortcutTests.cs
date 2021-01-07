@@ -261,13 +261,52 @@ namespace CosmosStandardUT.StringUT
         }
 
         [Fact(DisplayName = "IndexWholePhrase test")]
-        public void IndexWholePhraseTest()
+        public void IndexOfWholePhraseTest()
         {
             "AA BB CC DD DD EE DD".IndexOfWholePhrase("DD").ShouldBe(9);
             "AA BB CC DD DD EE DD".IndexOfWholePhrase("DD",6).ShouldBe(9);
             "AA BB CC DD DD EE DD".IndexOfWholePhrase("DD",7).ShouldBe(9);
             "AA BB CC DD DD EE DD".IndexOfWholePhrase("DD",8).ShouldBe(9);
             "AA BB CC DD DD EE DD".IndexOfWholePhrase("DD",10).ShouldBe(12);
+        }
+
+        [Fact(DisplayName = "LastIndexOfAny test")]
+        public void LastIndexOfAnyTest()
+        {
+            var text = "AABBCCDDEEFFGG";
+            
+            text.LastIndexOfAny("WW","XX","YY","ZZ","GG").ShouldBe(12);
+        }
+
+        [Fact(DisplayName = "Getting last index of text for the given text ignore case text")]
+        public void LastIndexOfWithIgnoreCaseTest()
+        {
+            var text = "AABBCCDDEEFFGG";
+            
+            text.LastIndexOfIgnoreCase("GG").ShouldBe(12);
+            text.LastIndexOfIgnoreCase("gg").ShouldBe(12);
+            text.LastIndexOfIgnoreCase("gG").ShouldBe(12);
+        }
+        
+        [Fact(DisplayName = "Getting last index of text for the given text ignore case and start text")]
+        public void LastIndexOfWithIgnoreCaseAndStartTest()
+        {
+            var text = "AABBCCDDEEFFGG";
+            
+            text.LastIndexOfIgnoreCase("GG",10,2).ShouldBe(-1);
+            text.LastIndexOfIgnoreCase("gg",10,2).ShouldBe(-1);
+            text.LastIndexOfIgnoreCase("gG",10,2).ShouldBe(-1);
+            text.LastIndexOfIgnoreCase("CC",6,4).ShouldBe(4);
+            text.LastIndexOfIgnoreCase("cc",6,4).ShouldBe(4);
+            text.LastIndexOfIgnoreCase("Cc",6,4).ShouldBe(4);
+        }
+
+        [Fact(DisplayName = "String encoding test")]
+        public void EncodingTest()
+        {
+            var text = "AlexLEWIS";
+            var val = text.ToBytes().GetString();
+            val.ShouldBe(text);
         }
     }
 }

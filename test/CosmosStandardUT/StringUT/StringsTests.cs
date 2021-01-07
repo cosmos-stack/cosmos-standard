@@ -124,6 +124,17 @@ namespace CosmosStandardUT.StringUT
             Strings.CountForDigit(null).ShouldBe(0);
         }
 
+        [Fact(DisplayName = "Count Occurrences test")]
+        public void CountOccurrencesTest()
+        {
+            var text = "AABBCCDDAABBCCDD";
+            Strings.CountOccurrences(text,"AA").ShouldBe(2);
+            Strings.CountOccurrences(text,"aa").ShouldBe(2);
+            
+            Strings.CountOccurrences(text,'A').ShouldBe(4);
+            Strings.CountOccurrences(text,'a').ShouldBe(4);
+        }
+
         [Fact(DisplayName = "Extension method for Count all letters in a string test")]
         public void ExtensionMethodForCountForLettersTest()
         {
@@ -210,68 +221,6 @@ namespace CosmosStandardUT.StringUT
             "ABC".Repeat(2).ShouldBe("ABCABC");
         }
 
-        [Fact(DisplayName = "String remove test")]
-        public void StringRemoveTest()
-        {
-            string text = " abcdefghijkl mnopqrstuvwxyz ";
-
-            Strings.RemoveChars(text, 'a', 'b', 'z').ShouldBe(" cdefghijkl mnopqrstuvwxy ");
-            Strings.RemoveChars(text, ' ').ShouldBe("abcdefghijklmnopqrstuvwxyz");
-            Strings.RemoveWhiteSpace(text).ShouldBe("abcdefghijklmnopqrstuvwxyz");
-        }
-
-        [Fact(DisplayName = "String remove duplicate space test")]
-        public void StringRemoveDuplicateWhiteSpacesTest()
-        {
-            Strings.RemoveDuplicateWhiteSpaces("  ").ShouldBe(" ");
-            Strings.RemoveDuplicateWhiteSpaces("  1").ShouldBe(" 1");
-            Strings.RemoveDuplicateWhiteSpaces("1  ").ShouldBe("1 ");
-            Strings.RemoveDuplicateWhiteSpaces("1  1").ShouldBe("1 1");
-            Strings.RemoveDuplicateWhiteSpaces(" 11 ").ShouldBe(" 11 ");
-            Strings.RemoveDuplicateWhiteSpaces("    ").ShouldBe(" ");
-            Strings.RemoveDuplicateWhiteSpaces("  1  ").ShouldBe(" 1 ");
-        }
-
-        [Fact(DisplayName = "String remove duplicate char test")]
-        public void StringRemoveDuplicateCharTest()
-        {
-            Strings.RemoveDuplicateChar("zz",'z').ShouldBe("z");
-            Strings.RemoveDuplicateChar("zz1",'z').ShouldBe("z1");
-            Strings.RemoveDuplicateChar("1zz",'z').ShouldBe("1z");
-            Strings.RemoveDuplicateChar("1zz1",'z').ShouldBe("1z1");
-            Strings.RemoveDuplicateChar("z11z",'z').ShouldBe("z11z");
-            Strings.RemoveDuplicateChar("zzz",'z').ShouldBe("z");
-            Strings.RemoveDuplicateChar("zz1zz",'z').ShouldBe("z1z");
-        }
-
-        [Fact(DisplayName = "String remove since the given index test")]
-        public void StringRemoveSinceTest()
-        {
-            Strings.RemoveSince("ABCDE",3).ShouldBe("ABC");
-        }
-
-        [Fact(DisplayName = "String remove since the given text test")]
-        public void StringRemoveSinceWithGivenTextTest()
-        {
-            Strings.RemoveSince("ABCDE","D").ShouldBe("ABC");
-        }
-
-        [Fact(DisplayName = "String remove since the given text and ignore case test")]
-        public void StringRemoveSinceWithGivenTextAndIgnoreCaseTest()
-        {
-            Strings.RemoveSinceIgnoreCase("ABCDE","d").ShouldBe("ABC");
-        }
-
-        [Fact(DisplayName = "Extension method for String remove test")]
-        public void ExtensionMethodForStringRemoveTest()
-        {
-            string text = " abcdefghijkl mnopqrstuvwxyz ";
-
-            text.RemoveChars('a', 'b', 'z').ShouldBe(" cdefghijkl mnopqrstuvwxy ");
-            text.RemoveChars(' ').ShouldBe("abcdefghijklmnopqrstuvwxyz");
-            text.RemoveWhiteSpace().ShouldBe("abcdefghijklmnopqrstuvwxyz");
-        }
-
         [Fact(DisplayName = "All char in given text should be Upper or Lower Case test")]
         public void UpperOrLowerCaseTest()
         {
@@ -300,7 +249,7 @@ namespace CosmosStandardUT.StringUT
             Strings.IsUpper("A A").ShouldBeTrue();
             Strings.IsUpper("a A").ShouldBeFalse();
             Strings.IsUpper("A a").ShouldBeFalse();
-            
+
             Strings.IsLower("").ShouldBeTrue();
             Strings.IsLower("a").ShouldBeTrue();
             Strings.IsLower("A").ShouldBeFalse();
@@ -331,13 +280,12 @@ namespace CosmosStandardUT.StringUT
         [Fact(DisplayName = "Truncate test")]
         public void TruncateTest()
         {
-            Strings.Truncate("Nietooo",8).ShouldBe("Nietooo");
-            Strings.Truncate("Nietooo",7).ShouldBe("Nietooo");
-            Strings.Truncate("Nietooo",6).ShouldBe("Nie...");
-            Strings.Truncate("Nietooo",5).ShouldBe("Ni...");
-            Strings.Truncate("Nietooo",4).ShouldBe("N...");
-            Strings.Truncate("Nietooo",3).ShouldBe("Ni.");
-            
+            Strings.Truncate("Nietooo", 8).ShouldBe("Nietooo");
+            Strings.Truncate("Nietooo", 7).ShouldBe("Nietooo");
+            Strings.Truncate("Nietooo", 6).ShouldBe("Nie...");
+            Strings.Truncate("Nietooo", 5).ShouldBe("Ni...");
+            Strings.Truncate("Nietooo", 4).ShouldBe("N...");
+            Strings.Truncate("Nietooo", 3).ShouldBe("Ni.");
         }
 
         [Fact(DisplayName = "String left or right test")]
@@ -362,6 +310,71 @@ namespace CosmosStandardUT.StringUT
             Strings.Right("ABCDEFG", 6).ShouldBe("BCDEFG");
             Strings.Right("ABCDEFG", 7).ShouldBe("ABCDEFG");
             Strings.Right("ABCDEFG", 8).ShouldBe("ABCDEFG");
+
+
+            "ABCDEFG".Left(0).ShouldBeEmpty();
+            "ABCDEFG".Left(1).ShouldBe("A");
+            "ABCDEFG".Left(2).ShouldBe("AB");
+            "ABCDEFG".Left(3).ShouldBe("ABC");
+            "ABCDEFG".Left(4).ShouldBe("ABCD");
+            "ABCDEFG".Left(5).ShouldBe("ABCDE");
+            "ABCDEFG".Left(6).ShouldBe("ABCDEF");
+            "ABCDEFG".Left(7).ShouldBe("ABCDEFG");
+            "ABCDEFG".Left(8).ShouldBe("ABCDEFG");
+
+            "ABCDEFG".Right(0).ShouldBeEmpty();
+            "ABCDEFG".Right(1).ShouldBe("G");
+            "ABCDEFG".Right(2).ShouldBe("FG");
+            "ABCDEFG".Right(3).ShouldBe("EFG");
+            "ABCDEFG".Right(4).ShouldBe("DEFG");
+            "ABCDEFG".Right(5).ShouldBe("CDEFG");
+            "ABCDEFG".Right(6).ShouldBe("BCDEFG");
+            "ABCDEFG".Right(7).ShouldBe("ABCDEFG");
+            "ABCDEFG".Right(8).ShouldBe("ABCDEFG");
+        }
+
+        [Fact(DisplayName = "String common prefix test")]
+        public void TextCommonPrefixTest()
+        {
+            var textOne = "AAABBBCCC";
+            var textTwo = "AABBCC";
+
+            Strings.CommonPrefix(textOne, textTwo).ShouldBe("AA");
+            Strings.CommonPrefix(textOne, textTwo, out var v1).ShouldBe("AA");
+            v1.ShouldBe(2);
+        }
+
+        [Fact(DisplayName = "String common suffix test")]
+        public void TextCommonSuffixTest()
+        {
+            var textOne = "AAABBBCCC";
+            var textTwo = "AABBCC";
+
+            Strings.CommonSuffix(textOne, textTwo).ShouldBe("CC");
+            Strings.CommonSuffix(textOne, textTwo, out var v1).ShouldBe("CC");
+            v1.ShouldBe(2);
+        }
+
+        [Fact(DisplayName = "Extension method for String common prefix test")]
+        public void ExtensionMethodForTextCommonPrefixTest()
+        {
+            var textOne = "AAABBBCCC";
+            var textTwo = "AABBCC";
+
+            textOne.CommonPrefix(textTwo).ShouldBe("AA");
+            textOne.CommonPrefix(textTwo, out var v1).ShouldBe("AA");
+            v1.ShouldBe(2);
+        }
+
+        [Fact(DisplayName = "Extension method for String common suffix test")]
+        public void ExtensionMethodForTextCommonSuffixTest()
+        {
+            var textOne = "AAABBBCCC";
+            var textTwo = "AABBCC";
+
+            textOne.CommonSuffix(textTwo).ShouldBe("CC");
+            textOne.CommonSuffix(textTwo, out var v1).ShouldBe("CC");
+            v1.ShouldBe(2);
         }
     }
 }

@@ -1411,8 +1411,8 @@ namespace Cosmos.Text
         }
 
         #endregion
-        
-         #region Prefix / Suffix
+
+        #region Prefix / Suffix
 
         /// <summary>
         /// Returns the common prefix.<br />
