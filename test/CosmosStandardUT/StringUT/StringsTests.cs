@@ -118,10 +118,10 @@ namespace CosmosStandardUT.StringUT
         [Fact(DisplayName = "Count all digit in a string test")]
         public void CountForDigitTest()
         {
-            Strings.CountForDigit("abcd1234").ShouldBe(4);
-            Strings.CountForDigit("").ShouldBe(0);
-            Strings.CountForDigit("abcd").ShouldBe(0);
-            Strings.CountForDigit(null).ShouldBe(0);
+            Strings.CountForNumbers("abcd1234").ShouldBe(4);
+            Strings.CountForNumbers("").ShouldBe(0);
+            Strings.CountForNumbers("abcd").ShouldBe(0);
+            Strings.CountForNumbers(null).ShouldBe(0);
         }
 
         [Fact(DisplayName = "Count Occurrences test")]
@@ -165,10 +165,10 @@ namespace CosmosStandardUT.StringUT
         [Fact(DisplayName = "Extension method for Count all digit in a string test")]
         public void ExtensionMethodForCountForDigitTest()
         {
-            "abcd1234".CountForDigit().ShouldBe(4);
-            "".CountForDigit().ShouldBe(0);
-            "abcd".CountForDigit().ShouldBe(0);
-            ((string) null).CountForDigit().ShouldBe(0);
+            "abcd1234".CountForNumbers().ShouldBe(4);
+            "".CountForNumbers().ShouldBe(0);
+            "abcd".CountForNumbers().ShouldBe(0);
+            ((string) null).CountForNumbers().ShouldBe(0);
         }
 
         [Fact(DisplayName = "Text has any digit or not test")]
