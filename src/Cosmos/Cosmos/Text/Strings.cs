@@ -19,6 +19,32 @@ namespace Cosmos.Text
         }
     }
 
+    internal static class DiffStringHelper
+    {
+        public static bool CheckLengthForParams(string text, string check, out int ret, out int times)
+        {
+            times = 0;
+            ret = -1;
+            if (text is null && check is null)
+                return false;
+
+            ret = 0;
+            if (string.IsNullOrEmpty(text) && string.IsNullOrEmpty(check))
+                return false;
+
+            string safeText = Strings.NullToEmpty(text), safeCheck = Strings.NullToEmpty(check);
+
+            ret = Math.Abs(safeText.Length - safeCheck.Length);
+
+            if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(check))
+                return false;
+
+            times = safeText.Length > safeCheck.Length ? safeCheck.Length : safeText.Length;
+
+            return ret > -1;
+        }
+    }
+
     /// <summary>
     /// String Utils<br />
     /// 字符串工具
@@ -66,7 +92,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static int CountForDigit(string text)
+        public static int CountForNumbers(string text)
         {
             return string.IsNullOrEmpty(text) ? 0 : FilterForNumbers(text).Count();
         }
@@ -99,6 +125,42 @@ namespace Cosmos.Text
                 offset += toCheck.Length;
                 ret++;
             }
+
+            return ret;
+        }
+
+        /// <summary>
+        /// Diff chars' count
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountForDiffChars(string text, string toCheck)
+        {
+            if (!DiffStringHelper.CheckLengthForParams(text, toCheck, out var ret, out var times))
+                return ret;
+
+            for (var i = 0; i < times; i++)
+                if (text[i] != toCheck[i])
+                    ret++;
+
+            return ret;
+        }
+
+        /// <summary>
+        /// Diff chars' count ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountForDiffCharsIgnoreCase(string text, string toCheck)
+        {
+            if (!DiffStringHelper.CheckLengthForParams(text, toCheck, out var ret, out var times))
+                return ret;
+
+            for (var i = 0; i < times; i++)
+                if (!text[i].EqualsIgnoreCase(toCheck[i]))
+                    ret++;
 
             return ret;
         }
@@ -996,9 +1058,9 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static int CountForDigit(this string text)
+        public static int CountForNumbers(this string text)
         {
-            return Strings.CountForDigit(text);
+            return Strings.CountForNumbers(text);
         }
 
         /// <summary>
@@ -1021,6 +1083,28 @@ namespace Cosmos.Text
         public static int CountOccurrences(this string text, string toCheck)
         {
             return Strings.CountOccurrences(text, toCheck);
+        }
+
+        /// <summary>
+        /// Diff chars' count
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountForDiffChars(this string text, string toCheck)
+        {
+            return Strings.CountForDiffChars(text, toCheck);
+        }
+
+        /// <summary>
+        /// Diff chars' count ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountForDiffCharsIgnoreCase(this string text, string toCheck)
+        {
+            return Strings.CountForDiffCharsIgnoreCase(text, toCheck);
         }
 
         #endregion
