@@ -15,7 +15,10 @@ namespace Cosmos.Text
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static string ToString(object obj, string defaultVal = default) => StrConvX.ObjectSafeToString(obj, defaultVal);
+        public static string ToString(object obj, string defaultVal = default)
+        {
+            return StrConvX.ObjectSafeToString(obj, defaultVal);
+        }
 
         #endregion
 

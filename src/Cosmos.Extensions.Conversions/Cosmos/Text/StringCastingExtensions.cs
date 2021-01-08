@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using Cosmos.Conversions;
 using Cosmos.Conversions.Common.Core;
 
@@ -240,7 +239,7 @@ namespace Cosmos.Text
 
         #endregion
 
-        #region MyRegion
+        #region Cast byte array to ascii string
 
         /// <summary>
         /// Convert from bytes to ASCII <see cref="string"/>.
@@ -248,7 +247,7 @@ namespace Cosmos.Text
         /// <example>in: new byte[] {65, 66, 67}; out: ABC</example>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public static string CastToString(this byte[] bytes) => ScaleConv.BytesToAsciiString(bytes);
+        public static string CastToString(this byte[] bytes) => AsciiConv.BytesToAsciiString(bytes);
 
         #endregion
 

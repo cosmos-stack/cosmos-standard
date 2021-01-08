@@ -17,7 +17,9 @@ namespace Cosmos.Text
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static DateInfo CastToDateInfo(this string str, DateInfo defaultVal = default)
-            => StringDateInfoDeterminer.To(str, defaultVal: defaultVal);
+        {
+            return StringDateInfoDeterminer.To(str, defaultVal: defaultVal);
+        }
 
         /// <summary>
         /// Convert the given string to <see cref="DateTimeSpan"/>. <br />
@@ -27,7 +29,9 @@ namespace Cosmos.Text
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static DateTimeSpan CastToDateTimeSpan(this string str, DateTimeSpan defaultVal = default)
-            => StringDateTimeSpanDeterminer.To(str, defaultVal: defaultVal);
+        {
+            return StringDateTimeSpanDeterminer.To(str, defaultVal: defaultVal);
+        }
 
         /// <summary>
         /// Convert the given string to a nullable <see cref="DateTimeSpan"/>. <br />
@@ -37,9 +41,9 @@ namespace Cosmos.Text
         /// <returns></returns>
         public static DateTimeSpan? CastToNullableDateTimeSpan(this string str)
         {
-            if (StringDateTimeSpanDeterminer.Is(str))
-                return CastToDateTimeSpan(str);
-            return null;
+            return StringDateTimeSpanDeterminer.Is(str)
+                ? CastToDateTimeSpan(str)
+                : null;
         }
     }
 }

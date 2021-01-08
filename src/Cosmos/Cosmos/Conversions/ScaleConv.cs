@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
+// ReSharper disable InconsistentNaming
+
 namespace Cosmos.Conversions
 {
     internal static class ScaleConvHelper
