@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Cosmos.Text;
+using CosmosStandardUT.Helpers;
 using Shouldly;
 using Xunit;
 
@@ -54,25 +55,25 @@ namespace CosmosStandardUT.StringUT
         [Fact(DisplayName = "Char is contained in a and b with ignore case test")]
         public void BeContainedInWithIgnoreCaseTest()
         {
-            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeTrue();
-            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeFalse();
+            Chars.BeContainedIn('a', ArrayCreator.Of('a', 'b', 'c'), IgnoreCase.FALSE).ShouldBeTrue();
+            Chars.BeContainedIn('a', ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.FALSE).ShouldBeFalse();
 
-            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeFalse();
-            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeTrue();
-            
-            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'A', 'b', 'c').ShouldBeFalse();
-            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeFalse();
+            Chars.BeNotContainedIn('a', ArrayCreator.Of('a', 'b', 'c'), IgnoreCase.FALSE).ShouldBeFalse();
+            Chars.BeNotContainedIn('a', ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.FALSE).ShouldBeTrue();
 
-            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'A', 'b', 'c').ShouldBeTrue();
-            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeTrue();
-            
-            Chars.BeContainedIn('a',IgnoreCase.TRUE, 'A', 'b', 'c').ShouldBeTrue();
-            Chars.BeContainedIn('a',IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeFalse();
+            Chars.BeContainedIn('a', ArrayCreator.Of('A', 'b', 'c'), IgnoreCase.FALSE).ShouldBeFalse();
+            Chars.BeContainedIn('a', ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.FALSE).ShouldBeFalse();
 
-            Chars.BeNotContainedIn('a',IgnoreCase.TRUE, 'A', 'b', 'c').ShouldBeFalse();
-            Chars.BeNotContainedIn('a',IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeTrue();
+            Chars.BeNotContainedIn('a', ArrayCreator.Of('A', 'b', 'c'), IgnoreCase.FALSE).ShouldBeTrue();
+            Chars.BeNotContainedIn('a', ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.FALSE).ShouldBeTrue();
+
+            Chars.BeContainedIn('a', ArrayCreator.Of('A', 'b', 'c'), IgnoreCase.TRUE).ShouldBeTrue();
+            Chars.BeContainedIn('a', ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.TRUE).ShouldBeFalse();
+
+            Chars.BeNotContainedIn('a', ArrayCreator.Of('A', 'b', 'c'), IgnoreCase.TRUE).ShouldBeFalse();
+            Chars.BeNotContainedIn('a', ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.TRUE).ShouldBeTrue();
         }
-        
+
         [Fact(DisplayName = "Extension method for Char is between a and b test")]
         public void ExtensionMethodForBetweenTest()
         {
@@ -90,18 +91,18 @@ namespace CosmosStandardUT.StringUT
 
             'a'.BeNotContainedIn('a', 'b', 'c').ShouldBeFalse();
             'a'.BeNotContainedIn('b', 'c', 'd').ShouldBeTrue();
-            
-            'a'.BeContainedIn(IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeTrue();
-            'a'.BeContainedIn(IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeFalse();
 
-            'a'.BeNotContainedIn(IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeFalse();
-            'a'.BeNotContainedIn(IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeTrue();
-            
-            'a'.BeContainedIn(IgnoreCase.TRUE, 'a', 'b', 'c').ShouldBeTrue();
-            'a'.BeContainedIn(IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeFalse();
+            'a'.BeContainedIn(ArrayCreator.Of('a', 'b', 'c'), IgnoreCase.FALSE).ShouldBeTrue();
+            'a'.BeContainedIn(ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.FALSE).ShouldBeFalse();
 
-            'a'.BeNotContainedIn(IgnoreCase.TRUE, 'a', 'b', 'c').ShouldBeFalse();
-            'a'.BeNotContainedIn(IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeTrue();
+            'a'.BeNotContainedIn(ArrayCreator.Of('a', 'b', 'c'), IgnoreCase.FALSE).ShouldBeFalse();
+            'a'.BeNotContainedIn(ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.FALSE).ShouldBeTrue();
+
+            'a'.BeContainedIn(ArrayCreator.Of('a', 'b', 'c'), IgnoreCase.TRUE).ShouldBeTrue();
+            'a'.BeContainedIn(ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.TRUE).ShouldBeFalse();
+
+            'a'.BeNotContainedIn(ArrayCreator.Of('a', 'b', 'c'), IgnoreCase.TRUE).ShouldBeFalse();
+            'a'.BeNotContainedIn(ArrayCreator.Of('b', 'c', 'd'), IgnoreCase.TRUE).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "Char should be equals to a ignore case test")]
@@ -111,12 +112,12 @@ namespace CosmosStandardUT.StringUT
             'a'.EqualsIgnoreCase('A').ShouldBeTrue();
             'A'.EqualsIgnoreCase('a').ShouldBeTrue();
             'A'.EqualsIgnoreCase('A').ShouldBeTrue();
-            
+
             'a'.Equals('a', IgnoreCase.TRUE).ShouldBeTrue();
             'a'.Equals('A', IgnoreCase.TRUE).ShouldBeTrue();
             'A'.Equals('a', IgnoreCase.TRUE).ShouldBeTrue();
             'A'.Equals('A', IgnoreCase.TRUE).ShouldBeTrue();
-            
+
             'a'.Equals('a', IgnoreCase.FALSE).ShouldBeTrue();
             'a'.Equals('A', IgnoreCase.FALSE).ShouldBeFalse();
             'A'.Equals('a', IgnoreCase.FALSE).ShouldBeFalse();

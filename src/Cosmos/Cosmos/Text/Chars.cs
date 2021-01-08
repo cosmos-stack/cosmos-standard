@@ -27,7 +27,7 @@ namespace Cosmos.Text
         /// <param name="case"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool BeContainedIn(char @char, IgnoreCase @case, params char[] values)
+        public static bool BeContainedIn(char @char, char[] values, IgnoreCase @case)
         {
             if (values is null || values.Length == 0)
                 return false;
@@ -54,7 +54,7 @@ namespace Cosmos.Text
         /// <param name="case"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool BeNotContainedIn(char @char, IgnoreCase @case, params char[] values)
+        public static bool BeNotContainedIn(char @char, char[] values, IgnoreCase @case)
         {
             if (values is null || values.Length == 0)
                 return true;
@@ -150,9 +150,9 @@ namespace Cosmos.Text
         /// <param name="case"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool BeContainedIn(this char @char, IgnoreCase @case, params char[] values)
+        public static bool BeContainedIn(this char @char, char[] values, IgnoreCase @case)
         {
-            return Chars.BeContainedIn(@char, @case, values);
+            return Chars.BeContainedIn(@char, values, @case);
         }
 
         /// <summary>
@@ -173,9 +173,9 @@ namespace Cosmos.Text
         /// <param name="case"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static bool BeNotContainedIn(this char @char, IgnoreCase @case, params char[] values)
+        public static bool BeNotContainedIn(this char @char, char[] values, IgnoreCase @case)
         {
-            return Chars.BeNotContainedIn(@char, @case, values);
+            return Chars.BeNotContainedIn(@char, values, @case);
         }
 
         #endregion
@@ -290,13 +290,13 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
-        public static bool Equals(this char @char, char toCheck,IgnoreCase @case)
+        public static bool Equals(this char @char, char toCheck, IgnoreCase @case)
         {
             return @case.X()
                 ? EqualsIgnoreCase(@char, toCheck)
                 : @char == toCheck;
         }
-        
+
         /// <summary>
         /// Equals
         /// </summary>
@@ -304,7 +304,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
-        public static bool Equals(this char? @char, char toCheck,IgnoreCase @case)
+        public static bool Equals(this char? @char, char toCheck, IgnoreCase @case)
         {
             if (@char is null)
                 return false;
