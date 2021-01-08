@@ -21,6 +21,22 @@ namespace Cosmos.Text
         }
 
         /// <summary>
+        /// In
+        /// </summary>
+        /// <param name="char"></param>
+        /// <param name="case"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool BeContainedIn(char @char, IgnoreCase @case, params char[] values)
+        {
+            if (values is null || values.Length == 0)
+                return false;
+            if (@case == IgnoreCase.FALSE)
+                return BeContainedIn(@char, values);
+            return BeContainedIn(@char, IgnoreCaseHelper.FillChars(values));
+        }
+
+        /// <summary>
         /// Not In
         /// </summary>
         /// <param name="char"></param>
@@ -29,6 +45,22 @@ namespace Cosmos.Text
         public static bool BeNotContainedIn(char @char, params char[] values)
         {
             return Array.IndexOf(values, @char) < 0;
+        }
+
+        /// <summary>
+        /// Not In
+        /// </summary>
+        /// <param name="char"></param>
+        /// <param name="case"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool BeNotContainedIn(char @char, IgnoreCase @case, params char[] values)
+        {
+            if (values is null || values.Length == 0)
+                return true;
+            if (@case == IgnoreCase.FALSE)
+                return BeNotContainedIn(@char, values);
+            return BeNotContainedIn(@char, IgnoreCaseHelper.FillChars(values));
         }
 
         #endregion
@@ -112,6 +144,18 @@ namespace Cosmos.Text
         }
 
         /// <summary>
+        /// In
+        /// </summary>
+        /// <param name="char"></param>
+        /// <param name="case"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool BeContainedIn(this char @char, IgnoreCase @case, params char[] values)
+        {
+            return Chars.BeContainedIn(@char, @case, values);
+        }
+
+        /// <summary>
         /// Not In
         /// </summary>
         /// <param name="char"></param>
@@ -120,6 +164,18 @@ namespace Cosmos.Text
         public static bool BeNotContainedIn(this char @char, params char[] values)
         {
             return Chars.BeNotContainedIn(@char, values);
+        }
+
+        /// <summary>
+        /// Not In
+        /// </summary>
+        /// <param name="char"></param>
+        /// <param name="case"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool BeNotContainedIn(this char @char, IgnoreCase @case, params char[] values)
+        {
+            return Chars.BeNotContainedIn(@char, @case, values);
         }
 
         #endregion
@@ -224,8 +280,38 @@ namespace Cosmos.Text
         }
 
         #endregion
-        
+
         #region Equals with IgnoreCase
+
+        /// <summary>
+        /// Equals
+        /// </summary>
+        /// <param name="char"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Equals(this char @char, char toCheck,IgnoreCase @case)
+        {
+            return @case.X()
+                ? EqualsIgnoreCase(@char, toCheck)
+                : @char == toCheck;
+        }
+        
+        /// <summary>
+        /// Equals
+        /// </summary>
+        /// <param name="char"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Equals(this char? @char, char toCheck,IgnoreCase @case)
+        {
+            if (@char is null)
+                return false;
+            return @case.X()
+                ? EqualsIgnoreCase(@char.Value, toCheck)
+                : @char.Value == toCheck;
+        }
 
         /// <summary>
         /// Equals ignore case
@@ -250,7 +336,7 @@ namespace Cosmos.Text
         }
 
         #endregion
-        
+
         #region Is
 
         /// <summary>
@@ -399,7 +485,7 @@ namespace Cosmos.Text
         }
 
         #endregion
-        
+
         #region Numeric
 
         /// <summary>

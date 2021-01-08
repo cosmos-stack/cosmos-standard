@@ -50,6 +50,28 @@ namespace CosmosStandardUT.StringUT
             Chars.BeNotContainedIn('a', 'a', 'b', 'c').ShouldBeFalse();
             Chars.BeNotContainedIn('a', 'b', 'c', 'd').ShouldBeTrue();
         }
+
+        [Fact(DisplayName = "Char is contained in a and b with ignore case test")]
+        public void BeContainedInWithIgnoreCaseTest()
+        {
+            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeTrue();
+            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeFalse();
+
+            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeFalse();
+            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeTrue();
+            
+            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'A', 'b', 'c').ShouldBeFalse();
+            Chars.BeContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeFalse();
+
+            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'A', 'b', 'c').ShouldBeTrue();
+            Chars.BeNotContainedIn('a',IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeTrue();
+            
+            Chars.BeContainedIn('a',IgnoreCase.TRUE, 'A', 'b', 'c').ShouldBeTrue();
+            Chars.BeContainedIn('a',IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeFalse();
+
+            Chars.BeNotContainedIn('a',IgnoreCase.TRUE, 'A', 'b', 'c').ShouldBeFalse();
+            Chars.BeNotContainedIn('a',IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeTrue();
+        }
         
         [Fact(DisplayName = "Extension method for Char is between a and b test")]
         public void ExtensionMethodForBetweenTest()
@@ -68,6 +90,18 @@ namespace CosmosStandardUT.StringUT
 
             'a'.BeNotContainedIn('a', 'b', 'c').ShouldBeFalse();
             'a'.BeNotContainedIn('b', 'c', 'd').ShouldBeTrue();
+            
+            'a'.BeContainedIn(IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeTrue();
+            'a'.BeContainedIn(IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeFalse();
+
+            'a'.BeNotContainedIn(IgnoreCase.FALSE, 'a', 'b', 'c').ShouldBeFalse();
+            'a'.BeNotContainedIn(IgnoreCase.FALSE, 'b', 'c', 'd').ShouldBeTrue();
+            
+            'a'.BeContainedIn(IgnoreCase.TRUE, 'a', 'b', 'c').ShouldBeTrue();
+            'a'.BeContainedIn(IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeFalse();
+
+            'a'.BeNotContainedIn(IgnoreCase.TRUE, 'a', 'b', 'c').ShouldBeFalse();
+            'a'.BeNotContainedIn(IgnoreCase.TRUE, 'b', 'c', 'd').ShouldBeTrue();
         }
 
         [Fact(DisplayName = "Char should be equals to a ignore case test")]
@@ -77,6 +111,16 @@ namespace CosmosStandardUT.StringUT
             'a'.EqualsIgnoreCase('A').ShouldBeTrue();
             'A'.EqualsIgnoreCase('a').ShouldBeTrue();
             'A'.EqualsIgnoreCase('A').ShouldBeTrue();
+            
+            'a'.Equals('a', IgnoreCase.TRUE).ShouldBeTrue();
+            'a'.Equals('A', IgnoreCase.TRUE).ShouldBeTrue();
+            'A'.Equals('a', IgnoreCase.TRUE).ShouldBeTrue();
+            'A'.Equals('A', IgnoreCase.TRUE).ShouldBeTrue();
+            
+            'a'.Equals('a', IgnoreCase.FALSE).ShouldBeTrue();
+            'a'.Equals('A', IgnoreCase.FALSE).ShouldBeFalse();
+            'A'.Equals('a', IgnoreCase.FALSE).ShouldBeFalse();
+            'A'.Equals('A', IgnoreCase.FALSE).ShouldBeTrue();
         }
     }
 }
