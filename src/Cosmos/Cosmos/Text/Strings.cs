@@ -120,13 +120,79 @@ namespace Cosmos.Text
                 return 0;
 
             int ret = 0, offset = 0;
-            while ((offset = text.IndexOfIgnoreCase(offset, toCheck)) != -1)
+            while ((offset = text.IndexOf(toCheck, offset, StringComparison.Ordinal)) != -1)
             {
                 offset += toCheck.Length;
                 ret++;
             }
 
             return ret;
+        }
+
+        /// <summary>
+        /// Count Occurrences ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountOccurrencesIgnoreCase(string text, char toCheck)
+        {
+            return CountOccurrencesIgnoreCase(text, toCheck.ToString());
+        }
+
+        /// <summary>
+        /// Count Occurrences ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountOccurrencesIgnoreCase(string text, string toCheck)
+        {
+            if (toCheck.IsNullOrEmpty())
+                return 0;
+
+            int ret = 0, offset = 0;
+            while ((offset = text.IndexOfIgnoreCase(toCheck, offset)) != -1)
+            {
+                offset += toCheck.Length;
+                ret++;
+            }
+
+            return ret;
+        }
+
+        /// <summary>
+        /// Count Occurrences with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static int CountOccurrences(string text, char toCheck, IgnoreCase @case)
+        {
+            return @case switch
+            {
+                IgnoreCase.TRUE => CountOccurrencesIgnoreCase(text, toCheck),
+                IgnoreCase.FALSE => CountOccurrences(text, toCheck),
+                _ => CountOccurrences(text, toCheck)
+            };
+        }
+
+        /// <summary>
+        /// Count Occurrences with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static int CountOccurrences(string text, string toCheck, IgnoreCase @case)
+        {
+            return @case switch
+            {
+                IgnoreCase.TRUE => CountOccurrencesIgnoreCase(text, toCheck),
+                IgnoreCase.FALSE => CountOccurrences(text, toCheck),
+                _ => CountOccurrences(text, toCheck)
+            };
         }
 
         /// <summary>
@@ -163,6 +229,23 @@ namespace Cosmos.Text
                     ret++;
 
             return ret;
+        }
+
+        /// <summary>
+        /// Diff chars' count with IgnoreCase options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static int CountForDiffChars(string text, string toCheck, IgnoreCase @case)
+        {
+            return @case switch
+            {
+                IgnoreCase.TRUE => CountForDiffCharsIgnoreCase(text, toCheck),
+                IgnoreCase.FALSE => CountForDiffChars(text, toCheck),
+                _ => CountForDiffChars(text, toCheck)
+            };
         }
 
         #endregion
@@ -220,6 +303,129 @@ namespace Cosmos.Text
                 foreach (var @char in characters)
                     yield return @char;
             }
+        }
+
+        /// <summary>
+        /// Contains ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="value"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool ContainsIgnoreCase(string text, string value, params string[] values)
+        {
+#if NETFRAMEWORK || NETSTANDARD2_0
+            return YieldReturnStrings().Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase));
+#else
+            return YieldReturnStrings().Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
+#endif
+            IEnumerable<string> YieldReturnStrings()
+            {
+                yield return value;
+                if (value is null)
+                    yield break;
+                foreach (var val in values)
+                    yield return val;
+            }
+        }
+
+        /// <summary>
+        /// Contains ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public static bool ContainsIgnoreCase(string text, char character)
+        {
+            return text.Any(c => c == char.ToUpperInvariant(character) || c == char.ToLowerInvariant(character));
+        }
+
+        /// <summary>
+        /// Contains ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="character"></param>
+        /// <param name="characters"></param>
+        /// <returns></returns>
+        public static bool ContainsIgnoreCase(string text, char character, params char[] characters)
+        {
+#if NETFRAMEWORK || NETSTANDARD2_0
+            foreach (var val in YieldReturnCharacters())
+                for (var i = 0; i < text.Length; i++)
+                    if (text[i].EqualsIgnoreCase(val))
+                        return true;
+
+            return false;
+#else
+            return YieldReturnCharacters().Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
+#endif
+
+            IEnumerable<char> YieldReturnCharacters()
+            {
+                yield return character;
+                if (characters is null)
+                    yield break;
+                foreach (var @char in characters)
+                    yield return @char;
+            }
+        }
+
+        /// <summary>
+        /// Contains with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="values"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Contains(string text, string[] values, IgnoreCase @case)
+        {
+            return @case.X()
+#if NETFRAMEWORK || NETSTANDARD2_0
+                ? values.Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase))
+#else
+                ? values.Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase))
+#endif
+                : values.Any(text.Contains);
+        }
+
+        /// <summary>
+        /// Contains with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="character"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Contains(string text, char character, IgnoreCase @case)
+        {
+            return @case.X()
+                ? text.Any(c => c == char.ToUpperInvariant(character) || c == char.ToLowerInvariant(character))
+                : text.Any(c => c == character);
+        }
+
+        /// <summary>
+        /// Contains with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="characters"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Contains(string text, char[] characters, IgnoreCase @case)
+        {
+            if (@case.X())
+            {
+#if NETFRAMEWORK || NETSTANDARD2_0
+                foreach (var val in characters)
+                    for (var i = 0; i < text.Length; i++)
+                        if (text[i].EqualsIgnoreCase(val))
+                            return true;
+
+                return false;
+#else
+                return characters.Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
+#endif
+            }
+
+            return characters.Any(text.Contains);
         }
 
         #endregion
@@ -495,10 +701,13 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <param name="removeText"></param>
+        /// <param name="case"></param>
         /// <returns></returns>
-        public static string Remove(string text, string removeText)
+        public static string Remove(string text, string removeText, IgnoreCase @case = IgnoreCase.FALSE)
         {
-            return text.Replace(removeText, string.Empty);
+            return @case.X()
+                ? text.Replace(removeText, string.Empty, StringComparison.OrdinalIgnoreCase)
+                : text.Replace(removeText, string.Empty);
         }
 
         /// <summary>
@@ -516,7 +725,7 @@ namespace Cosmos.Text
             builder.Replace(char.MinValue.ToString(), string.Empty);
             return builder.ToString();
         }
-
+        
         /// <summary>
         /// Remove all spaces. <br />
         /// 移除所有空格。
@@ -543,8 +752,9 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <param name="charRemove"></param>
+        /// <param name="case"></param>
         /// <returns></returns>
-        public static string RemoveDuplicateChar(string text, char charRemove)
+        public static string RemoveDuplicateChar(string text, char charRemove, IgnoreCase @case = IgnoreCase.FALSE)
         {
             if (string.IsNullOrEmpty(text))
                 return text;
@@ -555,13 +765,17 @@ namespace Cosmos.Text
             var offset = 0;
             var length = text.Length;
 
+            Func<char, char, bool> equals = @case.X()
+                ? (l, r) => l.EqualsIgnoreCase(r)
+                : (l, r) => l == r;
+
             while (true)
             {
                 if (index >= length) break;
 
                 var @char = text[index];
 
-                if (@char != charRemove)
+                if (!equals(@char , charRemove))
                 {
                     builder.Append(@char);
                     index++;
@@ -627,6 +841,23 @@ namespace Cosmos.Text
                 return text;
             var index = text.IndexOf(removeFromThis, StringComparison.OrdinalIgnoreCase);
             return RemoveSince(text, index);
+        }
+
+        /// <summary>
+        /// Remove since the given text with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="removeFromThis"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static string RemoveSince(string text, string removeFromThis, IgnoreCase @case)
+        {
+            return @case switch
+            {
+                IgnoreCase.TRUE => RemoveSinceIgnoreCase(text, removeFromThis),
+                IgnoreCase.FALSE => RemoveSince(text, removeFromThis),
+                _ => RemoveSince(text, removeFromThis)
+            };
         }
 
         #endregion
@@ -1086,6 +1317,52 @@ namespace Cosmos.Text
         }
 
         /// <summary>
+        /// Count Occurrences
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountOccurrencesIgnoreCase(this string text, char toCheck)
+        {
+            return Strings.CountOccurrencesIgnoreCase(text, toCheck);
+        }
+
+        /// <summary>
+        /// Count Occurrences
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <returns></returns>
+        public static int CountOccurrencesIgnoreCase(this string text, string toCheck)
+        {
+            return Strings.CountOccurrencesIgnoreCase(text, toCheck);
+        }
+
+        /// <summary>
+        /// Count Occurrences
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static int CountOccurrences(this string text, char toCheck, IgnoreCase @case)
+        {
+            return Strings.CountOccurrences(text, toCheck, @case);
+        }
+
+        /// <summary>
+        /// Count Occurrences
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="toCheck"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static int CountOccurrences(this string text, string toCheck, IgnoreCase @case)
+        {
+            return Strings.CountOccurrences(text, toCheck, @case);
+        }
+
+        /// <summary>
         /// Diff chars' count
         /// </summary>
         /// <param name="text"></param>
@@ -1144,6 +1421,77 @@ namespace Cosmos.Text
         public static bool Contains(this string text, char character, params char[] characters)
         {
             return Strings.Contains(text, character, characters);
+        }
+
+        /// <summary>
+        /// Contains ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="value"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool ContainsIgnoreCase(this string text, string value, params string[] values)
+        {
+            return Strings.ContainsIgnoreCase(text, value, values);
+        }
+
+        /// <summary>
+        /// Contains ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public static bool ContainsIgnoreCase(this string text, char character)
+        {
+            return Strings.ContainsIgnoreCase(text, character);
+        }
+
+        /// <summary>
+        /// Contains ignore case
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="character"></param>
+        /// <param name="characters"></param>
+        /// <returns></returns>
+        public static bool ContainsIgnoreCase(this string text, char character, params char[] characters)
+        {
+            return Strings.ContainsIgnoreCase(text, character, characters);
+        }
+
+        /// <summary>
+        /// Contains with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="values"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Contains(this string text, string[] values, IgnoreCase @case)
+        {
+            return Strings.Contains(text, values, @case);
+        }
+
+        /// <summary>
+        /// Contains with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="character"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Contains(this string text, char character, IgnoreCase @case)
+        {
+            return Strings.Contains(text, character, @case);
+        }
+
+        /// <summary>
+        /// Contains with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="characters"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static bool Contains(this string text, char[] characters, IgnoreCase @case)
+        {
+            return Strings.Contains(text, characters, @case);
         }
 
         #endregion
@@ -1267,10 +1615,11 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <param name="removeText"></param>
+        /// <param name="case"></param>
         /// <returns></returns>
-        public static string Remove(this string text, string removeText)
+        public static string Remove(this string text, string removeText,IgnoreCase @case = IgnoreCase.FALSE)
         {
-            return Strings.Remove(text, removeText);
+            return Strings.Remove(text, removeText, @case);
         }
 
         /// <summary>
@@ -1311,10 +1660,11 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <param name="charRemove"></param>
+        /// <param name="case"></param>
         /// <returns></returns>
-        public static string RemoveDuplicateChar(this string text, char charRemove)
+        public static string RemoveDuplicateChar(this string text, char charRemove,IgnoreCase @case = IgnoreCase.FALSE)
         {
-            return Strings.RemoveDuplicateChar(text, charRemove);
+            return Strings.RemoveDuplicateChar(text, charRemove, @case);
         }
 
         /// <summary>
@@ -1348,6 +1698,18 @@ namespace Cosmos.Text
         public static string RemoveSinceIgnoreCase(this string text, string removeFromThis)
         {
             return Strings.RemoveSinceIgnoreCase(text, removeFromThis);
+        }
+
+        /// <summary>
+        /// Remove since the given text with ignore case options
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="removeFromThis"></param>
+        /// <param name="case"></param>
+        /// <returns></returns>
+        public static string RemoveSince(this string text, string removeFromThis, IgnoreCase @case)
+        {
+            return Strings.RemoveSince(text, removeFromThis, @case);
         }
 
         #endregion
@@ -1694,7 +2056,7 @@ namespace Cosmos.Text
         /// <param name="startIndex"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
-        public static int IndexOfIgnoreCase(this string text, int startIndex, string toCheck)
+        public static int IndexOfIgnoreCase(this string text, string toCheck, int startIndex)
         {
             return text.IndexOf(toCheck, startIndex, StringComparison.OrdinalIgnoreCase);
         }
@@ -1760,7 +2122,7 @@ namespace Cosmos.Text
             //var length = toCheck.Length;
             while (startIndex <= text.Length)
             {
-                var index = text.IndexOfIgnoreCase(startIndex, toCheck);
+                var index = text.IndexOfIgnoreCase(toCheck, startIndex);
                 if (index < 0)
                     return -1;
 

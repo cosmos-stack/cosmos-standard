@@ -128,11 +128,54 @@ namespace CosmosStandardUT.StringUT
         public void CountOccurrencesTest()
         {
             var text = "AABBCCDDAABBCCDD";
+            
             Strings.CountOccurrences(text,"AA").ShouldBe(2);
-            Strings.CountOccurrences(text,"aa").ShouldBe(2);
+            Strings.CountOccurrences(text,"aa").ShouldBe(0);
             
             Strings.CountOccurrences(text,'A').ShouldBe(4);
-            Strings.CountOccurrences(text,'a').ShouldBe(4);
+            Strings.CountOccurrences(text,'a').ShouldBe(0);
+            
+            Strings.CountOccurrencesIgnoreCase(text,"AA").ShouldBe(2);
+            Strings.CountOccurrencesIgnoreCase(text,"aa").ShouldBe(2);
+            
+            Strings.CountOccurrencesIgnoreCase(text,'A').ShouldBe(4);
+            Strings.CountOccurrencesIgnoreCase(text,'a').ShouldBe(4);
+            
+            Strings.CountOccurrences(text,"AA", IgnoreCase.FALSE).ShouldBe(2);
+            Strings.CountOccurrences(text,"aa", IgnoreCase.FALSE).ShouldBe(0);
+            
+            Strings.CountOccurrences(text,'A', IgnoreCase.FALSE).ShouldBe(4);
+            Strings.CountOccurrences(text,'a', IgnoreCase.FALSE).ShouldBe(0);
+            
+            Strings.CountOccurrences(text,"AA", IgnoreCase.TRUE).ShouldBe(2);
+            Strings.CountOccurrences(text,"aa", IgnoreCase.TRUE).ShouldBe(2);
+            
+            Strings.CountOccurrences(text,'A', IgnoreCase.TRUE).ShouldBe(4);
+            Strings.CountOccurrences(text,'a', IgnoreCase.TRUE).ShouldBe(4);
+            
+            text.CountOccurrences("AA").ShouldBe(2);
+            text.CountOccurrences("aa").ShouldBe(0);
+            
+            text.CountOccurrences('A').ShouldBe(4);
+            text.CountOccurrences('a').ShouldBe(0);
+            
+            text.CountOccurrencesIgnoreCase("AA").ShouldBe(2);
+            text.CountOccurrencesIgnoreCase("aa").ShouldBe(2);
+            
+            text.CountOccurrencesIgnoreCase('A').ShouldBe(4);
+            text.CountOccurrencesIgnoreCase('a').ShouldBe(4);
+            
+            text.CountOccurrences("AA", IgnoreCase.FALSE).ShouldBe(2);
+            text.CountOccurrences("aa", IgnoreCase.FALSE).ShouldBe(0);
+            
+            text.CountOccurrences('A', IgnoreCase.FALSE).ShouldBe(4);
+            text.CountOccurrences('a', IgnoreCase.FALSE).ShouldBe(0);
+            
+            text.CountOccurrences("AA", IgnoreCase.TRUE).ShouldBe(2);
+            text.CountOccurrences("aa", IgnoreCase.TRUE).ShouldBe(2);
+            
+            text.CountOccurrences('A', IgnoreCase.TRUE).ShouldBe(4);
+            text.CountOccurrences('a', IgnoreCase.TRUE).ShouldBe(4);
         }
 
         [Fact(DisplayName = "Extension method for Count all letters in a string test")]

@@ -55,6 +55,20 @@ namespace CosmosStandardUT.StringUT
             Strings.CountForDiffCharsIgnoreCase("", (string) null).ShouldBe(0);
             Strings.CountForDiffCharsIgnoreCase((string) null, "").ShouldBe(0);
         }
+        
+        [Fact(DisplayName = "To count for diff chars with both null and empty text with IgnoreCase options test")]
+        public void BothNullOrEmptyTextAndIgnoreCaseOptionsTest()
+        {
+            Strings.CountForDiffChars("", "", IgnoreCase.FALSE).ShouldBe(0);
+            Strings.CountForDiffChars((string) null, (string) null, IgnoreCase.FALSE).ShouldBe(-1);
+            Strings.CountForDiffChars("", (string) null, IgnoreCase.FALSE).ShouldBe(0);
+            Strings.CountForDiffChars((string) null, "", IgnoreCase.FALSE).ShouldBe(0);
+            
+            Strings.CountForDiffChars("", "", IgnoreCase.TRUE).ShouldBe(0);
+            Strings.CountForDiffChars((string) null, (string) null, IgnoreCase.TRUE).ShouldBe(-1);
+            Strings.CountForDiffChars("", (string) null, IgnoreCase.TRUE).ShouldBe(0);
+            Strings.CountForDiffChars((string) null, "", IgnoreCase.TRUE).ShouldBe(0);
+        }
 
         [Fact(DisplayName = "To count for diff chars with one null and empty and another is valid text test")]
         public void OneNullOrEmptyAndAnotherValidTextAndIgnoreCaseTest()
@@ -63,6 +77,20 @@ namespace CosmosStandardUT.StringUT
             Strings.CountForDiffCharsIgnoreCase("1", (string) null).ShouldBe(1);
             Strings.CountForDiffCharsIgnoreCase("", "1").ShouldBe(1);
             Strings.CountForDiffCharsIgnoreCase((string) null, "1").ShouldBe(1);
+        }
+
+        [Fact(DisplayName = "To count for diff chars with one null and empty and another is valid text with IgnoreCase options test")]
+        public void OneNullOrEmptyAndAnotherValidTextAndIgnoreCaseOptionsTest()
+        {
+            Strings.CountForDiffChars("1", "", IgnoreCase.FALSE).ShouldBe(1);
+            Strings.CountForDiffChars("1", (string) null, IgnoreCase.FALSE).ShouldBe(1);
+            Strings.CountForDiffChars("", "1", IgnoreCase.FALSE).ShouldBe(1);
+            Strings.CountForDiffChars((string) null, "1", IgnoreCase.FALSE).ShouldBe(1);
+            
+            Strings.CountForDiffChars("1", "", IgnoreCase.TRUE).ShouldBe(1);
+            Strings.CountForDiffChars("1", (string) null, IgnoreCase.TRUE).ShouldBe(1);
+            Strings.CountForDiffChars("", "1", IgnoreCase.TRUE).ShouldBe(1);
+            Strings.CountForDiffChars((string) null, "1", IgnoreCase.TRUE).ShouldBe(1);
         }
 
         [Fact(DisplayName = "To count for diff chars with two valid texts test")]
@@ -87,6 +115,50 @@ namespace CosmosStandardUT.StringUT
             Strings.CountForDiffCharsIgnoreCase("12345","zyxwv").ShouldBe(5);
             
             Strings.CountForDiffCharsIgnoreCase("abcde","ABCDE").ShouldBe(0);
+        }
+
+        [Fact(DisplayName = "To count for diff chars with two valid texts with IgnoreCase options test")]
+        public void TwoValidTextsAndIgnoreCaseOptionsTest()
+        {
+            Strings.CountForDiffChars("abcde","ABCDE", IgnoreCase.TRUE).ShouldBe(0);
+            Strings.CountForDiffChars("abcde","ABCD", IgnoreCase.TRUE).ShouldBe(1);
+            Strings.CountForDiffChars("abcde","ABC", IgnoreCase.TRUE).ShouldBe(2);
+            Strings.CountForDiffChars("abcde","AB", IgnoreCase.TRUE).ShouldBe(3);
+            Strings.CountForDiffChars("abcde","A", IgnoreCase.TRUE).ShouldBe(4);
+            Strings.CountForDiffChars("abcde","", IgnoreCase.TRUE).ShouldBe(5);
+            
+            Strings.CountForDiffChars("abcde","BCDE", IgnoreCase.TRUE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","CDE", IgnoreCase.TRUE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","DE", IgnoreCase.TRUE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","E", IgnoreCase.TRUE).ShouldBe(5);
+            
+            Strings.CountForDiffChars("abcde","ZBCDE", IgnoreCase.TRUE).ShouldBe(1);
+            Strings.CountForDiffChars("abcde","ZYCDE", IgnoreCase.TRUE).ShouldBe(2);
+            Strings.CountForDiffChars("abcde","ZYXDE", IgnoreCase.TRUE).ShouldBe(3);
+            Strings.CountForDiffChars("abcde","ZYXWE", IgnoreCase.TRUE).ShouldBe(4);
+            Strings.CountForDiffChars("abcde","ZYXWV", IgnoreCase.TRUE).ShouldBe(5);
+            
+            Strings.CountForDiffChars("abcde","ABCDE", IgnoreCase.TRUE).ShouldBe(0);
+            
+            Strings.CountForDiffChars("abcde","ABCDE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","ABCD", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","ABC", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","AB", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","A", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","", IgnoreCase.FALSE).ShouldBe(5);
+            
+            Strings.CountForDiffChars("abcde","BCDE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","CDE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","DE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","E", IgnoreCase.FALSE).ShouldBe(5);
+            
+            Strings.CountForDiffChars("abcde","ZBCDE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","ZYCDE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","ZYXDE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","ZYXWE", IgnoreCase.FALSE).ShouldBe(5);
+            Strings.CountForDiffChars("abcde","ZYXWV", IgnoreCase.FALSE).ShouldBe(5);
+            
+            Strings.CountForDiffChars("abcde","ABCDE", IgnoreCase.FALSE).ShouldBe(5);
         }
     }
 }
