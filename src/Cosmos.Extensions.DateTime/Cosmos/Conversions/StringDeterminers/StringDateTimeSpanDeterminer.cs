@@ -25,11 +25,10 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            var result = TimeSpan.TryParse(str, formatProvider, out var timeSpan);
+            var result = DateTimeSpan.TryParse(str, formatProvider, out var dateTimeSpan);
 
             if (result)
             {
-                var dateTimeSpan = new DateTimeSpan {TimeSpan = timeSpan};
                 tsAct?.Invoke(dateTimeSpan);
             }
 
@@ -65,8 +64,8 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            return TimeSpan.TryParse(str, formatProvider, out var timeSpan)
-                ? new DateTimeSpan {TimeSpan = timeSpan}
+            return DateTimeSpan.TryParse(str, formatProvider, out var dateTimeSpan)
+                ? dateTimeSpan
                 : defaultVal;
         }
 

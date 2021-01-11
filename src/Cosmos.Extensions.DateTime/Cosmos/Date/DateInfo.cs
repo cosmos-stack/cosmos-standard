@@ -6,7 +6,7 @@ namespace Cosmos.Date
     /// <summary>
     /// DateInfo
     /// </summary>
-    public class DateInfo
+    public partial class DateInfo
     {
         // ReSharper disable once InconsistentNaming
         private DateTime _internalDateTime { get; set; }
@@ -20,7 +20,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         public DateInfo(DateTime dt)
         {
-            _internalDateTime = dt.SetTime(0, 0, 0, 0);
+            _internalDateTime = dt.Date;
         }
 
         /// <summary>
@@ -64,6 +64,14 @@ namespace Cosmos.Date
             get => _internalDateTime.Day;
             set => _internalDateTime = _internalDateTime.SetDay(value);
         }
+
+        /// <summary>
+        /// Ticks<br />
+        /// 获取表示此实例的日期的计时周期数。
+        /// </summary>
+        public virtual long Ticks => _internalDateTime.Ticks;
+
+        public static DateInfo Today => new(DateTime.Today);
 
         /// <summary>
         /// Convert to <see cref="DateTime"/><br />
@@ -166,7 +174,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         public static implicit operator DateInfo(DateTime dt)
         {
-            return new DateInfo(dt);
+            return new(dt);
         }
 
         /// <summary>
@@ -177,7 +185,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static DateInfo operator +(DateInfo d, TimeSpan t)
         {
-            return new DateInfo(d._internalDateTime + t);
+            return new(d._internalDateTime + t);
         }
 
         /// <summary>
@@ -188,7 +196,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static DateInfo operator -(DateInfo d, TimeSpan t)
         {
-            return new DateInfo(d._internalDateTime - t);
+            return new(d._internalDateTime - t);
         }
 
         /// <summary>
@@ -199,7 +207,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator >(DateInfo d1, DateInfo d2)
         {
-            if (d1 == null || d2 == null)
+            if (d1 is null || d2 is null)
                 return false;
             if (d1.Year > d2.Year)
                 return true;
@@ -220,7 +228,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator >(DateInfo d, DateTime dt)
         {
-            if (d == null)
+            if (d is null)
                 return false;
             if (d.Year > dt.Year)
                 return true;
@@ -241,7 +249,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator <(DateInfo d1, DateInfo d2)
         {
-            if (d1 == null || d2 == null)
+            if (d1 is null || d2 is null)
                 return false;
             if (d1.Year < d2.Year)
                 return true;
@@ -262,7 +270,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator <(DateInfo d, DateTime dt)
         {
-            if (d == null)
+            if (d is null)
                 return false;
             if (d.Year < dt.Year)
                 return true;
@@ -283,7 +291,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator >=(DateInfo d1, DateInfo d2)
         {
-            if (d1 == null || d2 == null)
+            if (d1 is null || d2 is null)
                 return false;
             return !(d1 < d2);
         }
@@ -296,7 +304,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator >=(DateInfo d, DateTime dt)
         {
-            if (d == null)
+            if (d is null)
                 return false;
             return !(d < dt);
         }
@@ -309,7 +317,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator <=(DateInfo d1, DateInfo d2)
         {
-            if (d1 == null || d2 == null)
+            if (d1 is null || d2 is null)
                 return false;
             return !(d1 > d2);
         }
@@ -322,7 +330,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator <=(DateInfo d, DateTime dt)
         {
-            if (d == null)
+            if (d is null)
                 return false;
             return !(d > dt);
         }
@@ -353,7 +361,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator ==(DateInfo d, DateTime dt)
         {
-            if (d == null)
+            if (d is null)
                 return false;
             return d.Year == dt.Year && d.Month == dt.Month && d.Day == dt.Day;
         }
@@ -366,7 +374,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator !=(DateInfo d1, DateInfo d2)
         {
-            if (d1 == null || d2 == null)
+            if (d1 is null || d2 is null)
                 return false;
             return !(d1 == d2);
         }
@@ -379,7 +387,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static bool operator !=(DateInfo d, DateTime dt)
         {
-            if (d == null)
+            if (d is null)
                 return false;
             return !(d == dt);
         }
@@ -392,7 +400,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if (obj == null)
+            if (obj is null)
                 return false;
 
             if (obj is DateInfo date)
@@ -411,6 +419,27 @@ namespace Cosmos.Date
         public override int GetHashCode()
         {
             return Day.GetHashCode() ^ Month.GetHashCode() ^ Year.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            // ReSharper disable once SpecifyACultureInStringConversionExplicitly
+            return _internalDateTime.ToString();
+        }
+
+        public string ToString(string format)
+        {
+            return _internalDateTime.ToString(format);
+        }
+
+        public string ToString(IFormatProvider provider)
+        {
+            return _internalDateTime.ToString(provider);
+        }
+
+        public string ToString(string format, IFormatProvider provider)
+        {
+            return _internalDateTime.ToString(format, provider);
         }
     }
 }

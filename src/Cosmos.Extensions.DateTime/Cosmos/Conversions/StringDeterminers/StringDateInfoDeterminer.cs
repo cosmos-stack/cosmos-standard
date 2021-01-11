@@ -29,11 +29,10 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            var result = DateTime.TryParse(str, formatProvider, style, out var dateTime);
+            var result = DateInfo.TryParse(str, formatProvider, style, out var dateInfo);
 
             if (result)
             {
-                var dateInfo = new DateInfo(dateTime);
                 dtAct?.Invoke(dateInfo);
             }
 
@@ -75,7 +74,9 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            return DateTime.TryParse(str, formatProvider, style, out var dateTime) ? new DateInfo(dateTime) : defaultVal;
+            return  DateInfo.TryParse(str, formatProvider, style, out var result) 
+                ? result
+                : defaultVal;
         }
 
         /// <summary>

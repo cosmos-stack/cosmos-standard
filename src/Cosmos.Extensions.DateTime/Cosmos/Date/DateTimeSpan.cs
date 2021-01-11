@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using NodaTime;
+
 // ReSharper disable InconsistentNaming
 
 /*
@@ -17,7 +18,7 @@ namespace Cosmos.Date
     /// DateTime span
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct DateTimeSpan : IEquatable<DateTimeSpan>, IComparable<TimeSpan>, IComparable<DateTimeSpan>
+    public partial struct DateTimeSpan : IEquatable<DateTimeSpan>, IComparable<TimeSpan>, IComparable<DateTimeSpan>
     {
         /// <summary>
         /// Days per year
@@ -739,7 +740,7 @@ namespace Cosmos.Date
         /// <returns>The result of the conversion.</returns>
         public static implicit operator DateTimeSpan(TimeSpan timeSpan)
         {
-            return new DateTimeSpan {TimeSpan = timeSpan};
+            return new() {TimeSpan = timeSpan};
         }
 
         /// <summary>
@@ -759,7 +760,7 @@ namespace Cosmos.Date
         /// <returns>The result of the conversion.</returns>
         public static implicit operator DateTimeSpan(Period period)
         {
-            return new DateTimeSpan
+            return new()
             {
                 Years = period.Years,
                 Months = period.Months,
@@ -784,7 +785,7 @@ namespace Cosmos.Date
         /// <returns>The result of the conversion.</returns>
         public static implicit operator DateTimeSpan(Duration duration)
         {
-            return new DateTimeSpan {TimeSpan = duration.ToTimeSpan()};
+            return new() {TimeSpan = duration.ToTimeSpan()};
         }
 
         /// <summary>
@@ -807,6 +808,16 @@ namespace Cosmos.Date
         public override string ToString()
         {
             return ((TimeSpan) this).ToString();
+        }
+
+        public string ToString(string format)
+        {
+            return ((TimeSpan) this).ToString(format);
+        }
+
+        public string ToString(string format, IFormatProvider provider)
+        {
+            return ((TimeSpan) this).ToString(format, provider);
         }
 
         /// <inheritdoc />
@@ -842,7 +853,7 @@ namespace Cosmos.Date
 
         static DateTimeSpan AddInternal(DateTimeSpan left, TimeSpan right)
         {
-            return new DateTimeSpan
+            return new()
             {
                 Months = left.Months,
                 Years = left.Years,
@@ -852,7 +863,7 @@ namespace Cosmos.Date
 
         static DateTimeSpan SubtractInternal(DateTimeSpan left, TimeSpan right)
         {
-            return new DateTimeSpan
+            return new()
             {
                 Months = left.Months,
                 Years = left.Years,
@@ -884,7 +895,7 @@ namespace Cosmos.Date
 
         internal static DateTimeSpan SubtractInternal(TimeSpan left, DateTimeSpan right)
         {
-            return new DateTimeSpan
+            return new()
             {
                 Months = -right.Months,
                 Years = -right.Years,
@@ -906,7 +917,7 @@ namespace Cosmos.Date
 
         static DateTimeSpan AddInternal(DateTimeSpan left, DateTimeSpan right)
         {
-            return new DateTimeSpan
+            return new()
             {
                 Years = left.Years + right.Years,
                 Months = left.Months + right.Months,
@@ -916,7 +927,7 @@ namespace Cosmos.Date
 
         static DateTimeSpan SubtractInternal(DateTimeSpan left, DateTimeSpan right)
         {
-            return new DateTimeSpan
+            return new()
             {
                 Years = left.Years - right.Years,
                 Months = left.Months - right.Months,
