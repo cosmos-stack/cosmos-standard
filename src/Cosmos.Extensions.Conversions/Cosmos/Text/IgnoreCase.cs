@@ -1,6 +1,6 @@
 ﻿namespace Cosmos.Text
 {
-    public static class IgnoreCaseExtensions
+    internal static class IgnoreCaseExtensions
     {
         public static bool X(this IgnoreCase ignoreCase)
         {
@@ -12,7 +12,7 @@
             };
         }
 
-        internal static IgnoreCase X(this bool b)
+        public static IgnoreCase X(this bool b)
         {
             return b switch
             {
