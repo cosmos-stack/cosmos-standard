@@ -43,7 +43,7 @@ namespace Cosmos.Text
         {
             return StringDateTimeSpanDeterminer.Is(str)
                 ? CastToDateTimeSpan(str)
-                : null;
+                : (DateTimeSpan?)null;
         }
     }
 }
