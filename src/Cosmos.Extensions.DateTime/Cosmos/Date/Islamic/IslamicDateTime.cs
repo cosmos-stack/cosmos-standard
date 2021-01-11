@@ -121,7 +121,7 @@ namespace Cosmos.Date.Islamic
         /// <returns></returns>
         public IslamicDateTime AddDays(int days)
         {
-            return new IslamicDateTime(InternalLocalDateTime.PlusDays(days));
+            return new(InternalLocalDateTime.PlusDays(days));
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Cosmos.Date.Islamic
         /// <returns></returns>
         public IslamicDateTime AddMonths(int months)
         {
-            return new IslamicDateTime(InternalLocalDateTime.PlusMonths(months));
+            return new(InternalLocalDateTime.PlusMonths(months));
         }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace Cosmos.Date.Islamic
         /// <param name="dt"></param>
         public static implicit operator IslamicDateTime(DateTime dt)
         {
-            return new IslamicDateTime(dt);
+            return new(dt);
         }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace Cosmos.Date.Islamic
         /// <returns></returns>
         public static IslamicDateTime Of(int year, int month, int day, CalendarSystem calendar = null)
         {
-            return new IslamicDateTime(DateTimeFactory.Create(year, month, day), calendar ?? _islamicCalendar);
+            return new(DateTimeFactory.Create(year, month, day), calendar ?? _islamicCalendar);
         }
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace Cosmos.Date.Islamic
         /// <returns></returns>
         public static IslamicDateTime Of(int year, int month, int day, int hour, int minute, int second, CalendarSystem calendar = null)
         {
-            return new IslamicDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second), calendar ?? _islamicCalendar);
+            return new(DateTimeFactory.Create(year, month, day, hour, minute, second), calendar ?? _islamicCalendar);
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace Cosmos.Date.Islamic
         /// <returns></returns>
         public static IslamicDateTime Of(int year, int month, int day, int hour, int minute, int second, int millisecond, CalendarSystem calendar = null)
         {
-            return new IslamicDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second, millisecond), calendar ?? _islamicCalendar);
+            return new(DateTimeFactory.Create(year, month, day, hour, minute, second, millisecond), calendar ?? _islamicCalendar);
         }
 
         /// <summary>

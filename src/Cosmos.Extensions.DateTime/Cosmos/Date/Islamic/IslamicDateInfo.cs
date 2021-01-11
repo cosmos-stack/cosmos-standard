@@ -227,7 +227,7 @@ namespace Cosmos.Date.Islamic
         /// <param name="dt"></param>
         public static implicit operator IslamicDateInfo(DateInfo dt)
         {
-            return new IslamicDateInfo(dt);
+            return new(dt);
         }
 
         /// <summary>
@@ -246,7 +246,7 @@ namespace Cosmos.Date.Islamic
         /// <returns></returns>
         public static IslamicDateInfo Of(int year, int month, int day, CalendarSystem calendar = null)
         {
-            return new IslamicDateInfo(DateTimeFactory.Create(year, month, day), calendar ?? _islamicCalendar);
+            return new(DateTimeFactory.Create(year, month, day), calendar ?? _islamicCalendar);
         }
 
         /// <summary>

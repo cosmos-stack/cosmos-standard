@@ -278,7 +278,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public ChineseDateInfo AddMonths(int months)
         {
-            return new ChineseDateInfo(InternalDateTime.AddMonths(months));
+            return new(InternalDateTime.AddMonths(months));
         }
 
         /// <summary>
@@ -338,7 +338,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="dt"></param>
         public static implicit operator ChineseDateInfo(DateInfo dt)
         {
-            return new ChineseDateInfo(dt);
+            return new(dt);
         }
 
         /// <summary>
@@ -356,7 +356,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateInfo Of(int year, int month, int day)
         {
-            return new ChineseDateInfo(DateTimeFactory.Create(year, month, day));
+            return new(DateTimeFactory.Create(year, month, day));
         }
 
         /// <summary>

@@ -15,7 +15,7 @@ namespace Cosmos.Date
         /// Create a new <see cref="InfinitePastInfo"/> instance.<br />
         /// 创建一个新的 <see cref="InfinitePastInfo"/> 实例。
         /// </summary>
-        public static InfinitePastInfo Instance { get; } = new InfinitePastInfo();
+        public static InfinitePastInfo Instance { get; } = new();
 
         private InfinitePastInfo() { }
 

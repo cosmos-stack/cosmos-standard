@@ -226,7 +226,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public ChineseDateTime AddDays(int days)
         {
-            return new ChineseDateTime(InternalDateTime.AddDays(days));
+            return new(InternalDateTime.AddDays(days));
         }
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public ChineseDateTime AddMonths(int months)
         {
-            return new ChineseDateTime(InternalDateTime.AddMonths(months));
+            return new(InternalDateTime.AddMonths(months));
         }
 
         /// <summary>
@@ -317,7 +317,7 @@ namespace Cosmos.Date.Chinese
         /// <param name="dt"></param>
         public static implicit operator ChineseDateTime(DateTime dt)
         {
-            return new ChineseDateTime(dt);
+            return new(dt);
         }
 
         /// <summary>
@@ -347,7 +347,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateTime Of(int year, int month, int day)
         {
-            return new ChineseDateTime(DateTimeFactory.Create(year, month, day));
+            return new(DateTimeFactory.Create(year, month, day));
         }
 
         /// <summary>
@@ -363,7 +363,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second)
         {
-            return new ChineseDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second));
+            return new(DateTimeFactory.Create(year, month, day, hour, minute, second));
         }
 
         /// <summary>
@@ -380,7 +380,7 @@ namespace Cosmos.Date.Chinese
         /// <returns></returns>
         public static ChineseDateTime Of(int year, int month, int day, int hour, int minute, int second, int millisecond)
         {
-            return new ChineseDateTime(DateTimeFactory.Create(year, month, day, hour, minute, second, millisecond));
+            return new(DateTimeFactory.Create(year, month, day, hour, minute, second, millisecond));
         }
 
         /// <summary>

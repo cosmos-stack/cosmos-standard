@@ -15,7 +15,7 @@ namespace Cosmos.Date
         /// Gets an <see cref="InfiniteFutureInfo"/> instance.<br />
         /// 获得一个 <see cref="InfiniteFutureInfo"/> 实例。
         /// </summary>
-        public static InfiniteFutureInfo Instance { get; } = new InfiniteFutureInfo();
+        public static InfiniteFutureInfo Instance { get; } = new();
 
         private InfiniteFutureInfo() { }
 

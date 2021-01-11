@@ -12,7 +12,7 @@ namespace Cosmos.Date
         private readonly IList<TDateInfo> _dateInfoCache;
 
         private TDateInfo LastDateInfo { get; set; }
-        private Func<TDateInfo, TDateInfo> ItemCreateFunc { get; set; }
+        private Func<TDateInfo, TDateInfo> ItemCreateFunc { get; }
 
         /// <summary>
         /// Create a new instance of DateInfoCache

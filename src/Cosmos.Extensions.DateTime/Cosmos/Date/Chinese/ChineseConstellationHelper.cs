@@ -76,7 +76,7 @@ namespace Cosmos.Date.Chinese
             "轸水蚓"
         };
 
-        private static readonly DateTime ChineseConstellationReferDay = new DateTime(2007, 9, 13); //28星宿参考值,本日为角
+        private static readonly DateTime ChineseConstellationReferDay = new(2007, 9, 13); //28星宿参考值,本日为角
 
         /// <summary>
         /// Get Chinese Constellation<br />
