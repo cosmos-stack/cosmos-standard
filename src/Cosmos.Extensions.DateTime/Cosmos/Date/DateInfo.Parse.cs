@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Cosmos.Conversions.StringDeterminers;
 
 namespace Cosmos.Date
 {
@@ -27,7 +28,21 @@ namespace Cosmos.Date
         {
             return DateInfoParse.TryParseExactMultiple(s, formats, DateTimeFormatInfo.GetInstance(provider), styles, out result);
         }
-    }
+
+        private static Func<object, bool> StringConvBeHandler => o =>
+        {
+            if (o is string str)
+                return StringDateInfoDeterminer.Is(str);
+            return false;
+        };
+
+        private static Func<object, object> StringConvToHandler => o =>
+        {
+            if (o is string str)
+                return StringDateInfoDeterminer.To(str);
+            return default(DateInfo);
+        };
+}
 
     internal static class DateInfoParse
     {

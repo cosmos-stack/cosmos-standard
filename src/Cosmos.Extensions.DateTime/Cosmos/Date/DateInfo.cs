@@ -1,4 +1,6 @@
 ﻿using System;
+using Cosmos.Conversions.Common;
+using Cosmos.Reflection;
 using NodaTime;
 
 namespace Cosmos.Date
@@ -33,6 +35,16 @@ namespace Cosmos.Date
         public DateInfo(int year, int month, int day)
         {
             _internalDateTime = new DateTime(year, month, day, 0, 0, 0, 0);
+        }
+
+        static DateInfo()
+        {
+            // to register DateInfo ConvertHandler and Checker into CustomConvertManager
+            CustomConvertManager.RegisterOrOverride(
+                TypeClass.StringClazz, 
+                typeof(DateInfo), 
+                StringConvBeHandler,
+                StringConvToHandler);
         }
 
         /// <summary>
