@@ -1,5 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
+using Cosmos.Conversions.Common;
+using Cosmos.Reflection;
 using NodaTime;
 
 // ReSharper disable InconsistentNaming
@@ -24,6 +26,16 @@ namespace Cosmos.Date
         /// Days per year
         /// </summary>
         public const int DAYS_PER_YEAR = 365;
+        
+        static DateTimeSpan()
+        {
+            // to register DateTimeSpan ConvertHandler and Checker into CustomConvertManager
+            CustomConvertManager.RegisterOrOverride(
+                TypeClass.StringClazz, 
+                typeof(DateTimeSpan), 
+                StringConvBeHandler,
+                StringConvToHandler);
+        }
 
         /// <summary>
         /// Months
