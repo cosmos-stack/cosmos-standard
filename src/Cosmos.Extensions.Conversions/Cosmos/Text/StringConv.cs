@@ -5,7 +5,7 @@ namespace Cosmos.Text
     /// <summary>
     /// Object converter
     /// </summary>
-    public static class StringConv
+    public static partial class StringConv
     {
         #region Object
 
@@ -235,5 +235,10 @@ namespace Cosmos.Text
         public static string ToString(decimal? num, int digits, string defaultVal = "") => StrConvX.DecimalToString(num, digits, defaultVal);
 
         #endregion
+    }
+
+    public static partial class StringConvExtensions
+    {
+        
     }
 }

@@ -13,10 +13,10 @@ namespace Cosmos.Conversions.Common
     // ReSharper disable once InconsistentNaming
     internal static class ValueConverter
     {
-        public static Action<X> ConvertAct<X>(Action<object> action) where X : struct =>
+        public static Action<X> ConvertAct<X>(Action<object> action) /*where X : struct*/ =>
             action is null ? null : new Action<X>(o => action(o));
 
-        public static Action<object> ConvertAct<X>(Action<X> action) where X : struct =>
+        public static Action<object> ConvertAct<X>(Action<X> action) /*where X : struct*/ =>
             action is null ? null : new Action<object>(o => action.Invoke((X) o));
 
         /// <summary>

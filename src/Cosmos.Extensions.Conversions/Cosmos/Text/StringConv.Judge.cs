@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Net;
 using System.Text;
 using Cosmos.Conversions.Common;
+using Cosmos.Reflection;
 
 namespace Cosmos.Text
 {
@@ -28,13 +29,29 @@ namespace Cosmos.Text
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public static bool Is(this string s, Type type, IgnoreCase ignoreCase = IgnoreCase.FALSE, Action<object> action = null,
-            string format = null, NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider provider = null)
+        public static bool Is(
+            this string s,
+            Type type,
+            IgnoreCase ignoreCase = IgnoreCase.FALSE,
+            Action<object> action = null,
+            string format = null,
+            NumberStyles? numberStyle = null,
+            DateTimeStyles? dateTimeStyle = null,
+            IFormatProvider provider = null)
         {
             if (type is null)
                 throw new ArgumentNullException(nameof(type));
 
-            __unsupportedTypeCheck(type, out var typeIsAssignableFromEncoding);
+            if (Types.IsNullableType(type))
+                return s is null || Is(s, TypeConv.GetNonNullableType(type), ignoreCase, action, format, numberStyle, dateTimeStyle, provider);
+
+            if (!__unsupportedTypeCheck(type,
+                out var typeIsAssignableFromEncoding,
+                out var typeCanBeChecking, out var checkingHandler))
+                return false;
+
+            if (typeCanBeChecking)
+                return __customChecking(checkingHandler);
 
             return TypeIs.__enumIs(s, type, action, ignoreCase)
                 || TypeIs.__charIs(s, type, action)
@@ -49,11 +66,28 @@ namespace Cosmos.Text
                 || TypeIs.__encodingIs(s, action, typeIsAssignableFromEncoding);
 
             // ReSharper disable once InconsistentNaming
-            void __unsupportedTypeCheck(Type t, out bool flag)
+            bool __unsupportedTypeCheck(Type t, out bool encodingFlag, out bool checkingFlag, out Func<object, bool> checker)
             {
-                flag = typeof(Encoding).IsAssignableFrom(t);
-                if (!t.IsValueType && !flag && t == typeof(Version) && t == typeof(IPAddress))
-                    throw new ArgumentException("Unsupported type");
+                encodingFlag = t == typeof(Encoding) || TypeReflections.IsTypeDerivedFrom(t, typeof(Encoding), TypeDerivedOptions.CanAbstract);
+                checkingFlag = CustomConvertManager.TryGetChecker(TypeClass.StringClazz, t, out checker);
+                return t.IsValueType
+                    || encodingFlag
+                    || checkingFlag
+                    || t == typeof(Version)
+                    || t == typeof(IPAddress);
+            }
+
+            // ReSharper disable once InconsistentNaming
+            bool __customChecking(Func<object, bool> handler)
+            {
+                var result = handler?.Invoke(s) ?? false;
+
+                if (result)
+                {
+                    action?.Invoke(s);
+                }
+
+                return result;
             }
         }
 
@@ -74,22 +108,17 @@ namespace Cosmos.Text
         /// <param name="formatProvider"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool Is<T>(this string str, IgnoreCase ignoreCase = IgnoreCase.FALSE, Action<T> action = null,
-            string format = null, NumberStyles? numberStyle = null, DateTimeStyles? dateTimeStyle = null, IFormatProvider formatProvider = null) where T : struct
+        public static bool Is<T>(
+            this string str,
+            IgnoreCase ignoreCase = IgnoreCase.FALSE,
+            Action<T> action = null,
+            string format = null,
+            NumberStyles? numberStyle = null,
+            DateTimeStyles? dateTimeStyle = null,
+            IFormatProvider formatProvider = null) //where T : struct
         {
             return str.Is(typeof(T), ignoreCase, ValueConverter.ConvertAct(action), format, numberStyle, dateTimeStyle, formatProvider);
         }
-
-        /// <summary>
-        /// Determine whether the given string can be of the given type. <br />
-        /// 判断给定的字符串是否能成为给定的类型。
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="action"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool Is<T>(this string str, Action<T> action = null) where T : class =>
-            str.Is(typeof(T), IgnoreCase.FALSE, o => action?.Invoke(o.As<T>()));
 
         #endregion
 
@@ -111,16 +140,16 @@ namespace Cosmos.Text
         /// <returns></returns>
         public static bool IsNullable<T>(
             this string s,
+            IgnoreCase ignoreCase = IgnoreCase.FALSE,
             Action<T> action = null,
             Action isNullAction = null,
-            bool ignoreCase = false,
             string format = null,
             NumberStyles? numberStyle = null,
             DateTimeStyles? dateTimeStyle = null,
-            IFormatProvider provider = null) where T : struct
+            IFormatProvider provider = null) //where T : struct
         {
             return s is null && NullableFunc()(isNullAction)
-                || Is(s, ignoreCase.X(), action, format, numberStyle, dateTimeStyle, provider);
+                || Is(s, ignoreCase, action, format, numberStyle, dateTimeStyle, provider);
         }
 
         /// <summary>
@@ -140,16 +169,16 @@ namespace Cosmos.Text
         public static bool IsNullable(
             this string s,
             Type type,
+            IgnoreCase ignoreCase = IgnoreCase.FALSE,
             Action<object> action = null,
             Action isNullAction = null,
-            bool ignoreCase = false,
             string format = null,
             NumberStyles? numberStyle = null,
             DateTimeStyles? dateTimeStyle = null,
             IFormatProvider provider = null)
         {
             return s is null && NullableFunc()(isNullAction)
-                || Is(s, type, ignoreCase.X(), action, format, numberStyle, dateTimeStyle, provider);
+                || Is(s, type, ignoreCase, action, format, numberStyle, dateTimeStyle, provider);
         }
 
         private static Func<Action, bool> NullableFunc() => act =>
