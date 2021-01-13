@@ -16,54 +16,70 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="tsAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, IFormatProvider formatProvider = null, Action<TimeSpan> tsAct = null)
+        public static bool Is(
+            string text, 
+            IFormatProvider formatProvider = null,
+            Action<TimeSpan> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = TimeSpan.TryParse(str, formatProvider.SafeDateTime(), out var timeSpan);
+            var result = TimeSpan.TryParse(text, formatProvider.SafeDateTime(), out var timeSpan);
             if (result)
-                tsAct?.Invoke(timeSpan);
+                matchedCallback?.Invoke(timeSpan);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="dtAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, TimeSpan>> tries,
-            IFormatProvider formatProvider = null, Action<TimeSpan> dtAct = null)
+        public static bool Is(
+            string text, 
+            IEnumerable<IConversionTry<string, TimeSpan>> tries,
+            IFormatProvider formatProvider = null, 
+            Action<TimeSpan> matchedCallback = null)
         {
-            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, formatProvider, act), tries, dtAct);
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, formatProvider, act), tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="formatProvider"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static TimeSpan To(string str, IFormatProvider formatProvider = null, TimeSpan defaultVal = default) =>
-            TimeSpan.TryParse(str, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
+        public static TimeSpan To(
+            string text,
+            IFormatProvider formatProvider = null,
+            TimeSpan defaultVal = default)
+        {
+            return TimeSpan.TryParse(text, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
+        }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static TimeSpan To(string str, IEnumerable<IConversionImpl<string, TimeSpan>> impls, IFormatProvider formatProvider = null) =>
-            ValueConverter.ToXxx(str, (s, act) => Is(s, formatProvider.SafeDateTime(), act), impls);
+        public static TimeSpan To(
+            string text,
+            IEnumerable<IConversionImpl<string, TimeSpan>> impls,
+            IFormatProvider formatProvider = null)
+        {
+            return ValueConverter.ToXxx(text, (s, act) => Is(s, formatProvider.SafeDateTime(), act), impls);
+        }
 
         /// <summary>
         /// Exact TimeSpan Determiner
@@ -73,58 +89,78 @@ namespace Cosmos.Conversions.Determiners
             /// <summary>
             /// Is
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="formatProvider"></param>
-            /// <param name="tsAct"></param>
+            /// <param name="matchedCallback"></param>
             /// <returns></returns>
-            public static bool Is(string str, string format, IFormatProvider formatProvider = null, Action<TimeSpan> tsAct = null)
+            public static bool Is(
+                string text,
+                string format,
+                IFormatProvider formatProvider = null,
+                Action<TimeSpan> matchedCallback = null)
             {
-                if (string.IsNullOrWhiteSpace(str))
+                if (string.IsNullOrWhiteSpace(text))
                     return false;
-                var result = TimeSpan.TryParseExact(str, format, formatProvider.SafeDateTime(), out var timeSpan);
+                var result = TimeSpan.TryParseExact(text, format, formatProvider.SafeDateTime(), out var timeSpan);
                 if (result)
-                    tsAct?.Invoke(timeSpan);
+                    matchedCallback?.Invoke(timeSpan);
                 return result;
             }
 
             /// <summary>
             /// Is
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="tries"></param>
             /// <param name="formatProvider"></param>
-            /// <param name="dtAct"></param>
+            /// <param name="matchedCallback"></param>
             /// <returns></returns>
-            public static bool Is(string str, string format, IEnumerable<IConversionTry<string, TimeSpan>> tries,
-                IFormatProvider formatProvider = null, Action<TimeSpan> dtAct = null)
+            public static bool Is(
+                string text,
+                string format,
+                IEnumerable<IConversionTry<string, TimeSpan>> tries,
+                IFormatProvider formatProvider = null,
+                Action<TimeSpan> matchedCallback = null)
             {
-                return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                    (s, act) => Is(s, format, formatProvider, act), tries, dtAct);
+                return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                    (s, act) => Is(s, format, formatProvider, act), tries, matchedCallback);
             }
 
             /// <summary>
             /// To
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="formatProvider"></param>
             /// <param name="defaultVal"></param>
             /// <returns></returns>
-            public static TimeSpan To(string str, string format, IFormatProvider formatProvider = null, TimeSpan defaultVal = default) =>
-                TimeSpan.TryParseExact(str, format, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
+            public static TimeSpan To(
+                string text,
+                string format, 
+                IFormatProvider formatProvider = null, 
+                TimeSpan defaultVal = default)
+            {
+                return TimeSpan.TryParseExact(text, format, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
+            }
 
             /// <summary>
             /// To
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="impls"></param>
             /// <param name="formatProvider"></param>
             /// <returns></returns>
-            public static TimeSpan To(string str, string format, IEnumerable<IConversionImpl<string, TimeSpan>> impls, IFormatProvider formatProvider = null) =>
-                ValueConverter.ToXxx(str, (s, act) => Is(s, format, formatProvider.SafeDateTime(), act), impls);
+            public static TimeSpan To(
+                string text, 
+                string format, 
+                IEnumerable<IConversionImpl<string, TimeSpan>> impls, 
+                IFormatProvider formatProvider = null)
+            {
+                return ValueConverter.ToXxx(text, (s, act) => Is(s, format, formatProvider.SafeDateTime(), act), impls);
+            }
         }
     }
 }

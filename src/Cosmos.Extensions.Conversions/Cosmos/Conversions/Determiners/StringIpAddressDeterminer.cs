@@ -13,49 +13,62 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="addressAct"></param>
+        /// <param name="text"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<IPAddress> addressAct = null)
+        public static bool Is(
+            string text, 
+            Action<IPAddress> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = IPAddress.TryParse(str, out var address);
+            var result = IPAddress.TryParse(text, out var address);
             if (result)
-                addressAct?.Invoke(address);
+                matchedCallback?.Invoke(address);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
-        /// <param name="addressAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, IPAddress>> tries, Action<IPAddress> addressAct = null) =>
-            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, addressAct);
-
-        /// <summary>
-        /// To
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static IPAddress To(string str, IPAddress defaultVal = default)
+        public static bool Is(
+            string text,
+            IEnumerable<IConversionTry<string, IPAddress>> tries,
+            Action<IPAddress> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
-                return defaultVal;
-            return IPAddress.TryParse(str, out var address) ? address : defaultVal;
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace, Is, tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static IPAddress To(
+            string text, 
+            IPAddress defaultVal = default)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return defaultVal;
+            return IPAddress.TryParse(text, out var address) ? address : defaultVal;
+        }
+
+        /// <summary>
+        /// To
+        /// </summary>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static IPAddress To(string str, IEnumerable<IConversionImpl<string, IPAddress>> impls) =>
-            ValueConverter.ToXxx(str, Is, impls);
+        public static IPAddress To(
+            string text, 
+            IEnumerable<IConversionImpl<string, IPAddress>> impls)
+        {
+            return ValueConverter.ToXxx(text, Is, impls);
+        }
     }
 }

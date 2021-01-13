@@ -17,59 +17,62 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="dtAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str,
+        public static bool Is(
+            string text,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateTime> dtAct = null)
+            Action<DateTime> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = DateTime.TryParse(str, formatProvider.SafeDateTime(), style, out var dateTime);
+            var result = DateTime.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTime);
             if (!result)
-                result = ValueDeterminer.IsXxxAgain<DateTime>(str);
+                result = ValueDeterminer.IsXxxAgain<DateTime>(text);
             if (result)
-                dtAct?.Invoke(dateTime);
+                matchedCallback?.Invoke(dateTime);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="dtAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str,
+        public static bool Is(
+            string text,
             IEnumerable<IConversionTry<string, DateTime>> tries,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateTime> dtAct = null)
+            Action<DateTime> matchedCallback = null)
         {
-            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, dtAct);
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider, act), tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static DateTime To(string str,
+        public static DateTime To(
+            string text,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
             DateTime defaultVal = default)
         {
-            return DateTime.TryParse(str, formatProvider.SafeDateTime(), style, out var dateTime)
+            return DateTime.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTime)
                 ? dateTime
                 : defaultVal;
         }
@@ -77,17 +80,18 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static DateTime To(string str,
+        public static DateTime To(
+            string text,
             IEnumerable<IConversionImpl<string, DateTime>> impls,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null)
         {
-            return ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeDateTime(), act), impls);
+            return ValueConverter.ToXxx(text, (s, act) => Is(s, style, formatProvider.SafeDateTime(), act), impls);
         }
 
         /// <summary>
@@ -98,83 +102,87 @@ namespace Cosmos.Conversions.Determiners
             /// <summary>
             /// Is
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
-            /// <param name="dtAct"></param>
+            /// <param name="matchedCallback"></param>
             /// <returns></returns>
-            public static bool Is(string str,
+            public static bool Is(
+                string text,
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                Action<DateTime> dtAct = null)
+                Action<DateTime> matchedCallback = null)
             {
-                if (string.IsNullOrWhiteSpace(str))
+                if (string.IsNullOrWhiteSpace(text))
                     return false;
-                var result = DateTime.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var dateTime);
+                var result = DateTime.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTime);
                 if (result)
-                    dtAct?.Invoke(dateTime);
+                    matchedCallback?.Invoke(dateTime);
                 return result;
             }
 
             /// <summary>
             /// Is
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="tries"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
-            /// <param name="dtAct"></param>
+            /// <param name="matchedCallback"></param>
             /// <returns></returns>
-            public static bool Is(string str,
+            public static bool Is(
+                string text,
                 string format,
                 IEnumerable<IConversionTry<string, DateTime>> tries,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                Action<DateTime> dtAct = null)
+                Action<DateTime> matchedCallback = null)
             {
-                return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                    (s, act) => Is(s, format, style, formatProvider, act), tries, dtAct);
+                return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                    (s, act) => Is(s, format, style, formatProvider, act), tries, matchedCallback);
             }
 
             /// <summary>
             /// To
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
             /// <param name="defaultVal"></param>
             /// <returns></returns>
-            public static DateTime To(string str,
+            public static DateTime To(
+                string text,
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
                 DateTime defaultVal = default)
             {
-                return DateTime.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var dateTime)
+                return DateTime.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTime)
                     ? dateTime
-                    : ValueConverter.ToXxxAgain(str, defaultVal);
+                    : ValueConverter.ToXxxAgain(text, defaultVal);
             }
 
             /// <summary>
             /// To
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="impls"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
             /// <returns></returns>
-            public static DateTime To(string str,
+            public static DateTime To(
+                string text,
                 string format,
                 IEnumerable<IConversionImpl<string, DateTime>> impls,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null)
             {
-                return ValueConverter.ToXxx(str, (s, act) => Is(s, format, style, formatProvider.SafeDateTime(), act), impls);
+                return ValueConverter.ToXxx(text, (s, act) => Is(s, format, style, formatProvider.SafeDateTime(), act), impls);
             }
         }
     }

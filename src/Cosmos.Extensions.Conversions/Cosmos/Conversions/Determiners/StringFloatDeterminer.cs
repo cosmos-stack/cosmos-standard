@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Common;
 using Cosmos.Conversions.Common.Core;
+using Cosmos.Exceptions;
 
 namespace Cosmos.Conversions.Determiners
 {
@@ -22,73 +23,84 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="floatAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, NumberStyles style = NUMBER_STYLES,
-            IFormatProvider formatProvider = null, Action<float> floatAct = null)
+        public static bool Is(
+            string text,
+            NumberStyles style = NUMBER_STYLES,
+            IFormatProvider formatProvider = null,
+             Action<float> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = float.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            var result = float.TryParse(text, style, formatProvider.SafeNumber(), out var number);
             if (!result)
-                result = ValueDeterminer.IsXxxAgain<float>(str);
+                result = ValueDeterminer.IsXxxAgain<float>(text);
             if (result)
-                floatAct?.Invoke(number);
+                matchedCallback?.Invoke(number);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="floatAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, float>> tries,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null, Action<float> floatAct = null)
+        public static bool Is(
+            string text, 
+            IEnumerable<IConversionTry<string, float>> tries,
+            NumberStyles style = NUMBER_STYLES, 
+            IFormatProvider formatProvider = null, 
+            Action<float> matchedCallback = null)
         {
-            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, floatAct);
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static float To(string str, float defaultVal = default,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null)
+        public static float To(
+            string text,
+            float defaultVal = default,
+            NumberStyles style = NUMBER_STYLES,
+            IFormatProvider formatProvider = null)
         {
-            if (float.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+            if (float.TryParse(text, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try
-            {
-                return Convert.ToSingle(Convert.ToDecimal(str));
-            }
-            catch
-            {
-                return ValueConverter.ToXxxAgain(str, defaultVal);
-            }
+
+            return Try.Create(() => Convert.ToSingle(Convert.ToDecimal(text)))
+                      .Recover(_ => ValueConverter.ToXxxAgain(text, defaultVal))
+                      .Value;
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static float To(string str, IEnumerable<IConversionImpl<string, float>> impls,
-            NumberStyles style = NUMBER_STYLES, IFormatProvider formatProvider = null) =>
-            ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
+        public static float To(
+            string text, 
+            IEnumerable<IConversionImpl<string, float>> impls,
+            NumberStyles style = NUMBER_STYLES, 
+            IFormatProvider formatProvider = null)
+        {
+            return ValueConverter.ToXxx(text, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
+        }
     }
 }

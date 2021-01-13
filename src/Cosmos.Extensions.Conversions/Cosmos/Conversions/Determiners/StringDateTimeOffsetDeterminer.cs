@@ -17,59 +17,62 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="dtAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str,
+        public static bool Is(
+            string text,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateTimeOffset> dtAct = null)
+            Action<DateTimeOffset> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = DateTimeOffset.TryParse(str, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
+            var result = DateTimeOffset.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
             if (!result)
-                result = ValueDeterminer.IsXxxAgain<DateTimeOffset>(str);
+                result = ValueDeterminer.IsXxxAgain<DateTimeOffset>(text);
             if (result)
-                dtAct?.Invoke(dateTimeOffset);
+                matchedCallback?.Invoke(dateTimeOffset);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="dtAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str,
+        public static bool Is(
+            string text,
             IEnumerable<IConversionTry<string, DateTimeOffset>> tries,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateTimeOffset> dtAct = null)
+            Action<DateTimeOffset> matchedCallback = null)
         {
-            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, dtAct);
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider, act), tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static DateTimeOffset To(string str,
+        public static DateTimeOffset To(
+            string text,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
             DateTimeOffset defaultVal = default)
         {
-            return DateTimeOffset.TryParse(str, formatProvider.SafeDateTime(), style, out var offset)
+            return DateTimeOffset.TryParse(text, formatProvider.SafeDateTime(), style, out var offset)
                 ? offset
                 : defaultVal;
         }
@@ -77,17 +80,18 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static DateTimeOffset To(string str,
+        public static DateTimeOffset To(
+            string text,
             IEnumerable<IConversionImpl<string, DateTimeOffset>> impls,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null)
         {
-            return ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeDateTime(), act), impls);
+            return ValueConverter.ToXxx(text, (s, act) => Is(s, style, formatProvider.SafeDateTime(), act), impls);
         }
 
         /// <summary>
@@ -98,63 +102,66 @@ namespace Cosmos.Conversions.Determiners
             /// <summary>
             /// Is
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
-            /// <param name="dtAct"></param>
+            /// <param name="matchedCallback"></param>
             /// <returns></returns>
-            public static bool Is(string str,
+            public static bool Is(
+                string text,
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                Action<DateTimeOffset> dtAct = null)
+                Action<DateTimeOffset> matchedCallback = null)
             {
-                if (string.IsNullOrWhiteSpace(str))
+                if (string.IsNullOrWhiteSpace(text))
                     return false;
-                var result = DateTimeOffset.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
+                var result = DateTimeOffset.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
                 if (result)
-                    dtAct?.Invoke(dateTimeOffset);
+                    matchedCallback?.Invoke(dateTimeOffset);
                 return result;
             }
 
             /// <summary>
             /// Is
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="tries"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
-            /// <param name="dtAct"></param>
+            /// <param name="matchedCallback"></param>
             /// <returns></returns>
-            public static bool Is(string str,
+            public static bool Is(
+                string text,
                 string format,
                 IEnumerable<IConversionTry<string, DateTimeOffset>> tries,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
-                Action<DateTimeOffset> dtAct = null)
+                Action<DateTimeOffset> matchedCallback = null)
             {
-                return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                    (s, act) => Is(s, format, style, formatProvider, act), tries, dtAct);
+                return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                    (s, act) => Is(s, format, style, formatProvider, act), tries, matchedCallback);
             }
 
             /// <summary>
             /// To
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
             /// <param name="defaultVal"></param>
             /// <returns></returns>
-            public static DateTimeOffset To(string str,
+            public static DateTimeOffset To(
+                string text,
                 string format,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null,
                 DateTimeOffset defaultVal = default)
             {
-                return DateTimeOffset.TryParseExact(str, format, formatProvider.SafeDateTime(), style, out var offset)
+                return DateTimeOffset.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var offset)
                     ? offset
                     : defaultVal;
             }
@@ -162,19 +169,20 @@ namespace Cosmos.Conversions.Determiners
             /// <summary>
             /// To
             /// </summary>
-            /// <param name="str"></param>
+            /// <param name="text"></param>
             /// <param name="format"></param>
             /// <param name="impls"></param>
             /// <param name="style"></param>
             /// <param name="formatProvider"></param>
             /// <returns></returns>
-            public static DateTimeOffset To(string str,
+            public static DateTimeOffset To(
+                string text,
                 string format,
                 IEnumerable<IConversionImpl<string, DateTimeOffset>> impls,
                 DateTimeStyles style = DateTimeStyles.None,
                 IFormatProvider formatProvider = null)
             {
-                return ValueConverter.ToXxx(str, (s, act) => Is(s, format, style, formatProvider.SafeDateTime(), act), impls);
+                return ValueConverter.ToXxx(text, (s, act) => Is(s, format, style, formatProvider.SafeDateTime(), act), impls);
             }
         }
     }

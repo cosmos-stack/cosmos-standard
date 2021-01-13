@@ -12,16 +12,20 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="text"></param>
         /// <param name="enumType"></param>
         /// <param name="ignoreCase"></param>
-        /// <param name="enumAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string s, Type enumType, bool ignoreCase = false, Action<object> enumAct = null)
+        public static bool Is(
+            string text, 
+            Type enumType, 
+            bool ignoreCase = false,
+            Action<object> matchedCallback = null)
         {
-            var result = EnumsNET.Enums.TryParse(enumType, s, ignoreCase, out var @enum);
+            var result = EnumsNET.Enums.TryParse(enumType, text, ignoreCase, out var @enum);
             if (result)
-                enumAct?.Invoke(@enum);
+                matchedCallback?.Invoke(@enum);
             return result;
         }
 
@@ -29,36 +33,55 @@ namespace Cosmos.Conversions.Determiners
         /// Is
         /// </summary>
         /// <param name="enumType"></param>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
         /// <param name="ignoreCase"></param>
-        /// <param name="enumAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, Type enumType, IEnumerable<IConversionTry<string, object>> tries, bool ignoreCase = false, Action<object> enumAct = null) =>
-            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, (s, act) => Is(s, enumType, ignoreCase, act), tries, enumAct);
+        public static bool Is(
+            string text,
+            Type enumType,
+            IEnumerable<IConversionTry<string, object>> tries,
+            bool ignoreCase = false,
+            Action<object> matchedCallback = null)
+        {
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace, (s, act) => Is(s, enumType, ignoreCase, act), tries, matchedCallback);
+        }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="text"></param>
         /// <param name="enumType"></param>
         /// <param name="ignoreCase"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static object To(string s, Type enumType, bool ignoreCase = false, object defaultVal = default) =>
-            EnumsNET.Enums.TryParse(enumType, s, ignoreCase, out var result)
+        public static object To(
+            string text,
+            Type enumType, 
+            bool ignoreCase = false,
+            object defaultVal = default)
+        {
+            return EnumsNET.Enums.TryParse(enumType, text, ignoreCase, out var result)
                 ? result
                 : defaultVal ?? Activator.CreateInstance(enumType);
+        }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="enumType"></param>
         /// <param name="impls"></param>
         /// <param name="ignoreCase"></param>
         /// <returns></returns>
-        public static object To(string str, Type enumType, IEnumerable<IConversionImpl<string, object>> impls, bool ignoreCase = false) =>
-            ValueConverter.ToXxx(str, (s, act) => Is(s, enumType, ignoreCase, act), impls);
+        public static object To(
+            string text,
+            Type enumType, 
+            IEnumerable<IConversionImpl<string, object>> impls,
+            bool ignoreCase = false)
+        {
+            return ValueConverter.ToXxx(text, (s, act) => Is(s, enumType, ignoreCase, act), impls);
+        }
     }
 }

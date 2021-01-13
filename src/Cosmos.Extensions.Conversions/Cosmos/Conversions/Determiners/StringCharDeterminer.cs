@@ -12,47 +12,62 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="charAct"></param>
+        /// <param name="text"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<char> charAct = null)
+        public static bool Is(
+            string text,
+            Action<char> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = char.TryParse(str, out var c);
+            var result = char.TryParse(text, out var c);
             if (!result)
-                result = ValueDeterminer.IsXxxAgain<char>(str);
+                result = ValueDeterminer.IsXxxAgain<char>(text);
             if (result)
-                charAct?.Invoke(c);
+                matchedCallback?.Invoke(c);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
-        /// <param name="charAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, char>> tries, Action<char> charAct = null) =>
-            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, charAct);
+        public static bool Is(
+            string text, 
+            IEnumerable<IConversionTry<string, char>> tries,
+            Action<char> matchedCallback = null)
+        {
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace, Is, tries, matchedCallback);
+        }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static char To(string str, char defaultVal = default) =>
-            char.TryParse(str, out var c) ? c : ValueConverter.ToXxxAgain(str, defaultVal);
+        public static char To(
+            string text,
+            char defaultVal = default)
+        {
+            return char.TryParse(text, out var c) ? c : ValueConverter.ToXxxAgain(text, defaultVal);
+        }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static char To(string str, IEnumerable<IConversionImpl<string, char>> impls) =>
-            ValueConverter.ToXxx(str, Is, impls);
+        public static char To(
+            string text, 
+            IEnumerable<IConversionImpl<string, char>> impls)
+        {
+            return ValueConverter.ToXxx(text, Is, impls);
+        }
     }
 }

@@ -12,49 +12,62 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="versionAct"></param>
+        /// <param name="text"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<Version> versionAct = null)
+        public static bool Is(
+            string text, 
+            Action<Version> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = Version.TryParse(str, out var n);
+            var result = Version.TryParse(text, out var n);
             if (result)
-                versionAct?.Invoke(n);
+                matchedCallback?.Invoke(n);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
-        /// <param name="versionAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, Version>> tries, Action<Version> versionAct = null) =>
-            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, versionAct);
-
-        /// <summary>
-        /// To
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static Version To(string str, Version defaultVal = default)
+        public static bool Is(
+            string text,
+            IEnumerable<IConversionTry<string, Version>> tries, 
+            Action<Version> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
-                return defaultVal;
-            return Version.TryParse(str, out var result) ? result : defaultVal;
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace, Is, tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static Version To(
+            string text, 
+            Version defaultVal = default)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return defaultVal;
+            return Version.TryParse(text, out var result) ? result : defaultVal;
+        }
+
+        /// <summary>
+        /// To
+        /// </summary>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static Version To(string str, IEnumerable<IConversionImpl<string, Version>> impls) =>
-            ValueConverter.ToXxx(str, Is, impls);
+        public static Version To(
+            string text, 
+            IEnumerable<IConversionImpl<string, Version>> impls)
+        {
+            return ValueConverter.ToXxx(text, Is, impls);
+        }
     }
 }

@@ -12,51 +12,64 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="booleanAct"></param>
+        /// <param name="text"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, Action<bool> booleanAct = null)
+        public static bool Is(
+            string text, 
+            Action<bool> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = bool.TryParse(str, out var boolean);
+            var result = bool.TryParse(text, out var boolean);
             if (!result)
-                result = ValueDeterminer.IsXxxAgain<bool>(str);
+                result = ValueDeterminer.IsXxxAgain<bool>(text);
             if (result)
-                booleanAct?.Invoke(boolean);
+                matchedCallback?.Invoke(boolean);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
-        /// <param name="booleanAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, IEnumerable<IConversionTry<string, bool>> tries, Action<bool> booleanAct = null) =>
-            ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace, Is, tries, booleanAct);
-
-        /// <summary>
-        /// To
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static bool To(string str, bool defaultVal = default)
+        public static bool Is(
+            string text,
+            IEnumerable<IConversionTry<string, bool>> tries,
+            Action<bool> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
-                return defaultVal;
-            return bool.TryParse(str, out var boolean) ? boolean : ValueConverter.ToXxxAgain(str, defaultVal);
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace, Is, tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static bool To(
+            string text,
+            bool defaultVal = default)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return defaultVal;
+            return bool.TryParse(text, out var boolean) ? boolean : ValueConverter.ToXxxAgain(text, defaultVal);
+        }
+
+        /// <summary>
+        /// To
+        /// </summary>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <returns></returns>
-        public static bool To(string str, IEnumerable<IConversionImpl<string, bool>> impls) =>
-            ValueConverter.ToXxx(str, Is, impls);
+        public static bool To(
+            string text, 
+            IEnumerable<IConversionImpl<string, bool>> impls)
+        {
+            return ValueConverter.ToXxx(text, Is, impls);
+        }
     }
 }

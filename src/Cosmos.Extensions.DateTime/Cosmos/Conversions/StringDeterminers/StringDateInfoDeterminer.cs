@@ -13,27 +13,28 @@ namespace Cosmos.Conversions.StringDeterminers
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="dtAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str,
+        public static bool Is(
+            string text,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateInfo> dtAct = null)
+            Action<DateInfo> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
 
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            var result = DateInfo.TryParse(str, formatProvider, style, out var dateInfo);
+            var result = DateInfo.TryParse(text, formatProvider, style, out var dateInfo);
 
             if (result)
             {
-                dtAct?.Invoke(dateInfo);
+                matchedCallback?.Invoke(dateInfo);
             }
 
             return result;
@@ -42,31 +43,33 @@ namespace Cosmos.Conversions.StringDeterminers
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="dtAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str,
+        public static bool Is(
+            string text,
             IEnumerable<IConversionTry<string, DateInfo>> tries,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
-            Action<DateInfo> dtAct = null)
+            Action<DateInfo> matchedCallback = null)
         {
-            return StringDeterminingHelper.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider, act), tries, dtAct);
+            return StringDeterminingHelper.IsXXX(text, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider, act), tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static DateInfo To(string str,
+        public static DateInfo To(
+            string text,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null,
             DateInfo defaultVal = default)
@@ -74,7 +77,7 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            return  DateInfo.TryParse(str, formatProvider, style, out var result) 
+            return  DateInfo.TryParse(text, formatProvider, style, out var result) 
                 ? result
                 : defaultVal;
         }
@@ -82,12 +85,13 @@ namespace Cosmos.Conversions.StringDeterminers
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static DateInfo To(string str,
+        public static DateInfo To(
+            string text,
             IEnumerable<IConversionImpl<string, DateInfo>> impls,
             DateTimeStyles style = DateTimeStyles.None,
             IFormatProvider formatProvider = null)
@@ -95,7 +99,7 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            return StringDeterminingHelper.ToXXX(str, (s, act) => Is(s, style, formatProvider, act), impls);
+            return StringDeterminingHelper.ToXXX(text, (s, act) => Is(s, style, formatProvider, act), impls);
         }
     }
 }

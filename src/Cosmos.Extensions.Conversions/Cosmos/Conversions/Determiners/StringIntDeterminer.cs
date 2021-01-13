@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cosmos.Conversions.Common;
 using Cosmos.Conversions.Common.Core;
+using Cosmos.Exceptions;
 
 namespace Cosmos.Conversions.Determiners
 {
@@ -17,77 +18,84 @@ namespace Cosmos.Conversions.Determiners
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="intAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
-        public static bool Is(string str, NumberStyles style = NumberStyles.Integer,
-            IFormatProvider formatProvider = null, Action<int> intAct = null)
+        public static bool Is(
+            string text,
+            NumberStyles style = NumberStyles.Integer,
+            IFormatProvider formatProvider = null,
+            Action<int> matchedCallback = null)
         {
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = int.TryParse(str, style, formatProvider.SafeNumber(), out var number);
+            var result = int.TryParse(text, style, formatProvider.SafeNumber(), out var number);
             if (!result)
-                result = ValueDeterminer.IsXxxAgain<int>(str);
+                result = ValueDeterminer.IsXxxAgain<int>(text);
             if (result)
-                intAct?.Invoke(number);
+                matchedCallback?.Invoke(number);
             return result;
         }
 
         /// <summary>
         /// Is
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="tries"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
-        /// <param name="intAct"></param>
+        /// <param name="matchedCallback"></param>
         /// <returns></returns>
         public static bool Is(
-            string str,
+            string text,
             IEnumerable<IConversionTry<string, int>> tries,
             NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null,
-            Action<int> intAct = null)
+            Action<int> matchedCallback = null)
         {
-            return ValueDeterminer.IsXXX(str, string.IsNullOrWhiteSpace,
-                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, intAct);
+            return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace,
+                (s, act) => Is(s, style, formatProvider.SafeNumber(), act), tries, matchedCallback);
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static int To(string str, int defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null)
+        public static int To(
+            string text,
+            int defaultVal = default,
+            NumberStyles style = NumberStyles.Integer,
+            IFormatProvider formatProvider = null)
         {
-            if (int.TryParse(str, style, formatProvider.SafeNumber(), out var number))
+            if (int.TryParse(text, style, formatProvider.SafeNumber(), out var number))
                 return number;
-            try
-            {
-                return Convert.ToInt32(Convert.ToDecimal(str));
-            }
-            catch
-            {
-                return ValueConverter.ToXxxAgain(str, defaultVal);
-            }
+
+            return Try.Create(() => Convert.ToInt32(Convert.ToDecimal(text)))
+                      .Recover(_ => ValueConverter.ToXxxAgain(text, defaultVal))
+                      .Value;
         }
 
         /// <summary>
         /// To
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="impls"></param>
         /// <param name="style"></param>
         /// <param name="formatProvider"></param>
         /// <returns></returns>
-        public static int To(string str, IEnumerable<IConversionImpl<string, int>> impls,
-            NumberStyles style = NumberStyles.Integer, IFormatProvider formatProvider = null) =>
-            ValueConverter.ToXxx(str, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
+        public static int To(
+            string text,
+            IEnumerable<IConversionImpl<string, int>> impls,
+            NumberStyles style = NumberStyles.Integer,
+            IFormatProvider formatProvider = null)
+        {
+            return ValueConverter.ToXxx(text, (s, act) => Is(s, style, formatProvider.SafeNumber(), act), impls);
+        }
     }
 }
