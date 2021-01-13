@@ -13,22 +13,22 @@ namespace Cosmos.Text
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="DateTime"/>
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static DateTime CastToDateTime(this string str, DateTime defaultVal = default)
+        public static DateTime CastToDateTime(this string text, DateTime defaultVal = default)
         {
-            return DtConvX.StringToDateTime(str, defaultVal);
+            return DtConvX.StringToDateTime(text, defaultVal);
         }
 
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="DateTime"/>
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static DateTime? CastToNullableDateTime(this string str)
+        public static DateTime? CastToNullableDateTime(this string text)
         {
-            return DtConvX.StringToNullableDateTime(str);
+            return DtConvX.StringToNullableDateTime(text);
         }
 
         #endregion
@@ -38,22 +38,22 @@ namespace Cosmos.Text
         /// <summary>
         /// To DateTimeOffset
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static DateTimeOffset CastToDateTimeOffset(this string str, DateTimeOffset defaultVal = default)
+        public static DateTimeOffset CastToDateTimeOffset(this string text, DateTimeOffset defaultVal = default)
         {
-            return DtConvX.StringToDateTimeOffset(str, defaultVal);
+            return DtConvX.StringToDateTimeOffset(text, defaultVal);
         }
 
         /// <summary>
         /// To nullable DateTimeOffset
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static DateTimeOffset? CastToNullableDateTimeOffset(this string str)
+        public static DateTimeOffset? CastToNullableDateTimeOffset(this string text)
         {
-            return DtConvX.StringToNullableDateTimeOffset(str);
+            return DtConvX.StringToNullableDateTimeOffset(text);
         }
 
         #endregion
@@ -63,22 +63,22 @@ namespace Cosmos.Text
         /// <summary>
         /// To TimeSpan
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static TimeSpan CastToTimeSpan(this string str, TimeSpan defaultVal = default)
+        public static TimeSpan CastToTimeSpan(this string text, TimeSpan defaultVal = default)
         {
-            return DtConvX.StringToTimeSpan(str, defaultVal);
+            return DtConvX.StringToTimeSpan(text, defaultVal);
         }
 
         /// <summary>
         /// To nullable TimeSpan
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static TimeSpan? CastToNullableTimeSpan(this string str)
+        public static TimeSpan? CastToNullableTimeSpan(this string text)
         {
-            return DtConvX.StringToNullableTimeSpan(str);
+            return DtConvX.StringToNullableTimeSpan(text);
         }
 
         #endregion

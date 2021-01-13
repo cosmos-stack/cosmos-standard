@@ -14,28 +14,40 @@ namespace Cosmos.IdUtils
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static Guid ToGuid(object obj, Guid defaultVal = default) => GuidConvX.ObjToGuid(obj, defaultVal);
+        public static Guid ToGuid(object obj, Guid defaultVal = default)
+        {
+            return GuidConvX.ObjToGuid(obj, defaultVal);
+        }
 
         /// <summary>
         /// Convert <see cref="Object"/> to nullable <see cref="Guid"/>
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static Guid? ToNullableGuid(object obj) => GuidConvX.ObjToNullableGuid(obj);
+        public static Guid? ToNullableGuid(object obj)
+        {
+            return GuidConvX.ObjToNullableGuid(obj);
+        }
 
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="Guid"/>
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static Guid ToGuid(string str, Guid defaultVal = default) => GuidConvX.StringToGuid(str, defaultVal);
+        public static Guid ToGuid(string text, Guid defaultVal = default)
+        {
+            return GuidConvX.StringToGuid(text, defaultVal);
+        }
 
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="Guid"/>
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static Guid? ToNullableGuid(string str) => GuidConvX.StringToNullableGuid(str);
+        public static Guid? ToNullableGuid(string text)
+        {
+            return GuidConvX.StringToNullableGuid(text);
+        }
     }
 }
