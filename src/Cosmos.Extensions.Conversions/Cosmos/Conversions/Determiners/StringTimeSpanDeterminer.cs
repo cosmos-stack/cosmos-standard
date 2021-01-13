@@ -63,6 +63,8 @@ namespace Cosmos.Conversions.Determiners
             IFormatProvider formatProvider = null,
             TimeSpan defaultVal = default)
         {
+            if (text is null)
+                return defaultVal;
             return TimeSpan.TryParse(text, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
         }
 
@@ -142,6 +144,8 @@ namespace Cosmos.Conversions.Determiners
                 IFormatProvider formatProvider = null, 
                 TimeSpan defaultVal = default)
             {
+                if (text is null)
+                    return defaultVal;
                 return TimeSpan.TryParseExact(text, format, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
             }
 

@@ -72,6 +72,8 @@ namespace Cosmos.Conversions.Determiners
             IFormatProvider formatProvider = null,
             DateTimeOffset defaultVal = default)
         {
+            if (text is null)
+                return defaultVal;
             return DateTimeOffset.TryParse(text, formatProvider.SafeDateTime(), style, out var offset)
                 ? offset
                 : defaultVal;
@@ -161,6 +163,8 @@ namespace Cosmos.Conversions.Determiners
                 IFormatProvider formatProvider = null,
                 DateTimeOffset defaultVal = default)
             {
+                if (text is null)
+                    return defaultVal;
                 return DateTimeOffset.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var offset)
                     ? offset
                     : defaultVal;

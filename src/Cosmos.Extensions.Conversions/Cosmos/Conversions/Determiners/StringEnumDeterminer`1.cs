@@ -56,6 +56,8 @@ namespace Cosmos.Conversions.Determiners
             bool ignoreCase = false, 
             TEnum defaultVal = default)
         {
+            if (text is null)
+                return defaultVal;
             return Enum.TryParse(text, ignoreCase, out TEnum @enum) ? @enum : defaultVal;
         }
 

@@ -8,7 +8,7 @@ namespace Cosmos.Text
         Default,
         ZeroAsEmpty
     }
-    
+
     /// <summary>
     /// Object converter
     /// </summary>
@@ -86,7 +86,7 @@ namespace Cosmos.Text
         {
             return StrConvX.ByteToString(num, options, defaultVal);
         }
-        
+
         /// <summary>
         /// Convert <see cref="sbyte"/> to <see cref="string"/>.
         /// </summary>
@@ -545,7 +545,7 @@ namespace Cosmos.Text
         {
             return StrConvX.UInt64ToString(num, NumericConvOptions.Default, defaultVal);
         }
-        
+
         /// <summary>
         /// Convert <see cref="ulong"/> to <see cref="string"/>.
         /// </summary>
@@ -1034,10 +1034,86 @@ namespace Cosmos.Text
     /// <summary>
     /// Cosmos <see cref="string"/> casting extensions.
     /// </summary>
-    public static partial class StringConvExtensions 
+    public static partial class StringConvExtensions
     {
         #region Cast String to Numeric
-        
+
+        #region SByte/sbyte
+
+        /// <summary>
+        /// Cast <see cref="string"/> to <see cref="sbyte"/>
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static sbyte CastToSByte(this string text, sbyte defaultVal = default)
+        {
+            return NumConvX.StringToSByte(text, defaultVal);
+        }
+
+        /// <summary>
+        /// Cast <see cref="string"/> to <see cref="sbyte"/>
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="impls"></param>
+        /// <returns></returns>
+        public static sbyte CastToSByte(this string text, params IConversionImpl<string, sbyte>[] impls)
+        {
+            return NumConvX.StringToSByte(text, impls);
+        }
+
+        /// <summary>
+        /// Cast TEnum to <see cref="sbyte"/>
+        /// </summary>
+        /// <param name="enum"></param>
+        /// <param name="defaultVal"></param>
+        /// <typeparam name="TEnum"></typeparam>
+        /// <returns></returns>
+        public static sbyte CastToSByte<TEnum>(this TEnum @enum, sbyte defaultVal = default) where TEnum : struct
+        {
+            return NumConvX.EnumToSByte(@enum, defaultVal);
+        }
+
+        #endregion
+
+        #region Byte/byte
+
+        /// <summary>
+        /// Cast <see cref="string"/> to <see cref="byte"/>
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static byte CastToByte(this string text, byte defaultVal = default)
+        {
+            return NumConvX.StringToByte(text, defaultVal);
+        }
+
+        /// <summary>
+        /// Cast <see cref="string"/> to <see cref="byte"/>
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="impls"></param>
+        /// <returns></returns>
+        public static byte CastToByte(this string text, params IConversionImpl<string, byte>[] impls)
+        {
+            return NumConvX.StringToByte(text, impls);
+        }
+
+        /// <summary>
+        /// Cast TEnum to <see cref="byte"/>
+        /// </summary>
+        /// <param name="enum"></param>
+        /// <param name="defaultVal"></param>
+        /// <typeparam name="TEnum"></typeparam>
+        /// <returns></returns>
+        public static byte CastToByte<TEnum>(this TEnum @enum, byte defaultVal = default) where TEnum : struct
+        {
+            return NumConvX.EnumToByte(@enum, defaultVal);
+        }
+
+        #endregion
+
         #region Int16/short
 
         /// <summary>
@@ -1549,9 +1625,9 @@ namespace Cosmos.Text
         #endregion
 
         #endregion
-        
+
         #region Cast Numeric to String
-        
+
         /// <summary>
         /// Cast <see cref="byte"/> to <see cref="string"/>. <br />
         /// 将 <see cref="byte"/> 转换为字符串。
@@ -1587,7 +1663,7 @@ namespace Cosmos.Text
         {
             return StrConvX.ByteToString(number, NumericConvOptions.Default, defaultVal);
         }
-        
+
         /// <summary>
         /// Cast <see cref="byte"/> to <see cref="string"/>. <br />
         /// 将 <see cref="byte"/> 转换为字符串。
@@ -1626,7 +1702,7 @@ namespace Cosmos.Text
         {
             return StrConvX.ByteToString(number, options, defaultVal);
         }
-        
+
         /// <summary>
         /// Cast <see cref="sbyte"/> to <see cref="string"/>. <br />
         /// 将 <see cref="sbyte"/> 转换为字符串。
@@ -1662,7 +1738,7 @@ namespace Cosmos.Text
         {
             return StrConvX.SByteToString(number, NumericConvOptions.Default, defaultVal);
         }
-        
+
         /// <summary>
         /// Cast <see cref="sbyte"/> to <see cref="string"/>. <br />
         /// 将 <see cref="sbyte"/> 转换为字符串。
@@ -1883,7 +1959,7 @@ namespace Cosmos.Text
         /// <param name="number"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static string CastToString(this int? number, int defaultVal )
+        public static string CastToString(this int? number, int defaultVal)
         {
             return StrConvX.Int32ToString(number, NumericConvOptions.Default, defaultVal);
         }
@@ -1922,7 +1998,7 @@ namespace Cosmos.Text
         /// <param name="options"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static string CastToString(this int? number, NumericConvOptions options, int defaultVal )
+        public static string CastToString(this int? number, NumericConvOptions options, int defaultVal)
         {
             return StrConvX.Int32ToString(number, options, defaultVal);
         }
@@ -1958,7 +2034,7 @@ namespace Cosmos.Text
         /// <param name="number"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static string CastToString(this uint? number, uint defaultVal )
+        public static string CastToString(this uint? number, uint defaultVal)
         {
             return StrConvX.UInt32ToString(number, NumericConvOptions.Default, defaultVal);
         }
@@ -1997,7 +2073,7 @@ namespace Cosmos.Text
         /// <param name="options"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static string CastToString(this uint? number, NumericConvOptions options, uint defaultVal )
+        public static string CastToString(this uint? number, NumericConvOptions options, uint defaultVal)
         {
             return StrConvX.UInt32ToString(number, options, defaultVal);
         }

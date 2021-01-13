@@ -81,6 +81,9 @@ namespace Cosmos.Conversions.Determiners
             NumberStyles style = NUMBER_STYLES, 
             IFormatProvider formatProvider = null)
         {
+            if (text is null)
+                return defaultVal;
+
             if (long.TryParse(text, style, formatProvider.SafeNumber(), out var number))
                 return number;
 

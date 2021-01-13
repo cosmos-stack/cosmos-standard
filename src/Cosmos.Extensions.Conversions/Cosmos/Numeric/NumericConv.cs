@@ -7,6 +7,74 @@ namespace Cosmos.Numeric
     /// </summary>
     public static class NumericConv
     {
+        #region Byte
+
+        /// <summary>
+        /// Convert <see cref="object"/> to <see cref="byte"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static byte ToByte(object obj, byte defaultVal = default) => NumConvX.ObjectToByte(obj, defaultVal);
+
+        /// <summary>
+        /// Convert <see cref="string"/> to <see cref="byte"/>.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static byte ToByte(string text, byte defaultVal = default) => NumConvX.StringToByte(text, defaultVal);
+
+        /// <summary>
+        /// Convert <see cref="object"/> to nullable <see cref="byte"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static byte? ToNullableByte(object obj) => NumConvX.ObjectToNullableByte(obj);
+
+        /// <summary>
+        /// Convert <see cref="string"/> to nullable <see cref="byte"/>.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static byte? ToNullableByte(string text) => NumConvX.StringToNullableByte(text);
+
+        #endregion
+        
+        #region SByte
+
+        /// <summary>
+        /// Convert <see cref="object"/> to <see cref="sbyte"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static sbyte ToSByte(object obj, sbyte defaultVal = default) => NumConvX.ObjectToSByte(obj, defaultVal);
+
+        /// <summary>
+        /// Convert <see cref="string"/> to <see cref="sbyte"/>.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static sbyte ToSByte(string text, sbyte defaultVal = default) => NumConvX.StringToSByte(text, defaultVal);
+
+        /// <summary>
+        /// Convert <see cref="object"/> to nullable <see cref="sbyte"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static sbyte? ToNullableSByte(object obj) => NumConvX.ObjectToNullableSByte(obj);
+
+        /// <summary>
+        /// Convert <see cref="string"/> to nullable <see cref="sbyte"/>.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static sbyte? ToNullableSByte(string text) => NumConvX.StringToNullableSByte(text);
+
+        #endregion
+        
         #region Int16/short
 
         /// <summary>
@@ -20,10 +88,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="short"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static short ToInt16(string str, short defaultVal = default) => NumConvX.StringToInt16(str, defaultVal);
+        public static short ToInt16(string text, short defaultVal = default) => NumConvX.StringToInt16(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="short"/>.
@@ -35,9 +103,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="short"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static short? ToNullableInt16(string str) => NumConvX.StringToNullableInt16(str);
+        public static short? ToNullableInt16(string text) => NumConvX.StringToNullableInt16(text);
 
         #endregion
 
@@ -54,10 +122,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="ushort"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static ushort ToUInt16(string str, ushort defaultVal = default) => NumConvX.StringToUInt16(str, defaultVal);
+        public static ushort ToUInt16(string text, ushort defaultVal = default) => NumConvX.StringToUInt16(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="ushort"/>.
@@ -69,9 +137,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="ushort"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static ushort? ToNullableUInt16(string str) => NumConvX.StringToNullableUInt16(str);
+        public static ushort? ToNullableUInt16(string text) => NumConvX.StringToNullableUInt16(text);
 
         #endregion
 
@@ -88,10 +156,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="int"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static int ToInt32(string str, int defaultVal = default) => NumConvX.StringToInt32(str, defaultVal);
+        public static int ToInt32(string text, int defaultVal = default) => NumConvX.StringToInt32(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="int"/>.
@@ -103,9 +171,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="int"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static int? ToNullableInt32(string str) => NumConvX.StringToNullableInt32(str);
+        public static int? ToNullableInt32(string text) => NumConvX.StringToNullableInt32(text);
 
         #endregion
 
@@ -122,10 +190,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="uint"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static uint ToUInt32(string str, uint defaultVal = default) => NumConvX.StringToUInt32(str, defaultVal);
+        public static uint ToUInt32(string text, uint defaultVal = default) => NumConvX.StringToUInt32(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="uint"/>.
@@ -137,9 +205,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="uint"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static uint? ToNullableUInt32(string str) => NumConvX.StringToNullableUInt32(str);
+        public static uint? ToNullableUInt32(string text) => NumConvX.StringToNullableUInt32(text);
 
         #endregion
 
@@ -156,10 +224,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="long"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static long ToInt64(string str, long defaultVal = default) => NumConvX.StringToInt64(str, defaultVal);
+        public static long ToInt64(string text, long defaultVal = default) => NumConvX.StringToInt64(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="long"/>.
@@ -171,9 +239,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="long"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static long? ToNullableInt64(string str) => NumConvX.StringToNullableInt64(str);
+        public static long? ToNullableInt64(string text) => NumConvX.StringToNullableInt64(text);
 
         #endregion
 
@@ -190,10 +258,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="ulong"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static ulong ToUInt64(string str, ulong defaultVal = default) => NumConvX.StringToUInt64(str, defaultVal);
+        public static ulong ToUInt64(string text, ulong defaultVal = default) => NumConvX.StringToUInt64(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="ulong"/>.
@@ -205,9 +273,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="ulong"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static ulong? ToNullableUInt64(string str) => NumConvX.StringToNullableUInt64(str);
+        public static ulong? ToNullableUInt64(string text) => NumConvX.StringToNullableUInt64(text);
 
         #endregion
 
@@ -224,10 +292,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="float"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static float ToFloat(string str, float defaultVal = 0F) => NumConvX.StringToFloat(str, defaultVal);
+        public static float ToFloat(string text, float defaultVal = 0F) => NumConvX.StringToFloat(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="float"/>.
@@ -239,9 +307,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="float"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static float? ToNullableFloat(string str) => NumConvX.StringToNullableFloat(str);
+        public static float? ToNullableFloat(string text) => NumConvX.StringToNullableFloat(text);
 
         #endregion
 
@@ -258,10 +326,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="double"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static double ToDouble(string str, double defaultVal = 0D) => NumConvX.StringToDouble(str, defaultVal);
+        public static double ToDouble(string text, double defaultVal = 0D) => NumConvX.StringToDouble(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="double"/>.
@@ -273,9 +341,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="double"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static double? ToNullableDouble(string str) => NumConvX.StringToNullableDouble(str);
+        public static double? ToNullableDouble(string text) => NumConvX.StringToNullableDouble(text);
 
         /// <summary>
         /// Convert <see cref="object"/> to <see cref="double"/> with specified precision.
@@ -289,11 +357,11 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="double"/> with specified precision.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="digits"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static double ToRoundDouble(string str, int digits, double defaultVal = 0D) => NumConvX.StringToRoundDouble(str, digits, defaultVal);
+        public static double ToRoundDouble(string text, int digits, double defaultVal = 0D) => NumConvX.StringToRoundDouble(text, digits, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="double"/> with specified precision.
@@ -306,10 +374,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="double"/> with specified precision.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
-        public static double? ToRoundNullableDouble(string str, int digits) => NumConvX.StringToNullableRoundDouble(str, digits);
+        public static double? ToRoundNullableDouble(string text, int digits) => NumConvX.StringToNullableRoundDouble(text, digits);
 
         #endregion
 
@@ -326,10 +394,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="decimal"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static decimal ToDecimal(string str, decimal defaultVal = 0M) => NumConvX.StringToDecimal(str, defaultVal);
+        public static decimal ToDecimal(string text, decimal defaultVal = 0M) => NumConvX.StringToDecimal(text, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="decimal"/>.
@@ -341,9 +409,9 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="decimal"/>.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <returns></returns>
-        public static decimal? ToNullableDecimal(string str) => NumConvX.StringToNullableDecimal(str);
+        public static decimal? ToNullableDecimal(string text) => NumConvX.StringToNullableDecimal(text);
 
         /// <summary>
         /// Convert <see cref="object"/> to <see cref="decimal"/> with specified precision.
@@ -357,11 +425,11 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to <see cref="decimal"/> with specified precision.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="digits"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static decimal ToRoundDecimal(string str, int digits, decimal defaultVal = 0M) => NumConvX.StringToRoundDecimal(str, digits, defaultVal);
+        public static decimal ToRoundDecimal(string text, int digits, decimal defaultVal = 0M) => NumConvX.StringToRoundDecimal(text, digits, defaultVal);
 
         /// <summary>
         /// Convert <see cref="object"/> to nullable <see cref="decimal"/> with specified precision.
@@ -374,10 +442,10 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Convert <see cref="string"/> to nullable <see cref="decimal"/> with specified precision.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="text"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
-        public static decimal? ToRoundNullableDecimal(string str, int digits) => NumConvX.StringToNullableRoundDecimal(str, digits);
+        public static decimal? ToRoundNullableDecimal(string text, int digits) => NumConvX.StringToNullableRoundDecimal(text, digits);
 
         #endregion
     }

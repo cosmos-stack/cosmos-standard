@@ -62,6 +62,8 @@ namespace Cosmos.Conversions.Determiners
             bool ignoreCase = false,
             object defaultVal = default)
         {
+            if (text is null)
+                return defaultVal;
             return EnumsNET.Enums.TryParse(enumType, text, ignoreCase, out var result)
                 ? result
                 : defaultVal ?? Activator.CreateInstance(enumType);

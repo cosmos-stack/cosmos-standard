@@ -54,6 +54,8 @@ namespace Cosmos.Conversions.Determiners
             string text,
             char defaultVal = default)
         {
+            if (text is null)
+                return defaultVal;
             return char.TryParse(text, out var c) ? c : ValueConverter.ToXxxAgain(text, defaultVal);
         }
 

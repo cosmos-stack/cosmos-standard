@@ -73,6 +73,9 @@ namespace Cosmos.Conversions.Determiners
             NumberStyles style = NumberStyles.Number, 
             IFormatProvider formatProvider = null)
         {
+            if (text is null)
+                return defaultVal;
+
             if (decimal.TryParse(text, style, formatProvider.SafeNumber(), out var number))
                 return number;
 
