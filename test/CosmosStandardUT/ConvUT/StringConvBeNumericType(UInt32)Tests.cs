@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Conversions;
 using Cosmos.Text;
 using Shouldly;
 using Xunit;
@@ -8,6 +9,16 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsNumeric(UInt32)")]
     public class StringConvBeUInt32TypeTests
     {
+        public StringConvBeUInt32TypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+
         [Fact(DisplayName = "To judge string is UInt32 type or not test")]
         public void JudgingStringIsUInt32TypeTest()
         {
@@ -29,9 +40,9 @@ namespace CosmosStandardUT.ConvUT
             var text1 = "0";
             var text2 = "1";
             
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is UInt32 type or not by generic type test")]
@@ -53,9 +64,9 @@ namespace CosmosStandardUT.ConvUT
             var text1 = "0";
             var text2 = "1";
 
-            text0.Is<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<UInt32>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<UInt32>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<UInt32>(Context).ShouldBeFalse();
+            text1.Is<UInt32>(Context).ShouldBeTrue();
+            text2.Is<UInt32>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is UInt32 type or not test")]
@@ -85,11 +96,11 @@ namespace CosmosStandardUT.ConvUT
             string text3 = "1.1";
             string text4 = "C";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
+            text4.Is(type, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is UInt32 type or not by generic type test")]
@@ -117,11 +128,11 @@ namespace CosmosStandardUT.ConvUT
             string text3 = "1.1";
             string text4 = "C";
 
-            text0.Is<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<UInt32>(Context).ShouldBeFalse();
+            text1.Is<UInt32>(Context).ShouldBeFalse();
+            text2.Is<UInt32>(Context).ShouldBeFalse();
+            text3.Is<UInt32>(Context).ShouldBeFalse();
+            text4.Is<UInt32>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge string is nullable UInt32 type or not test")]
@@ -159,21 +170,21 @@ namespace CosmosStandardUT.ConvUT
             var text1 = "0";
             var text2 = "1";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(nullableType, Context).ShouldBeFalse();
+            text1.Is(nullableType, Context).ShouldBeTrue();
+            text2.Is(nullableType, Context).ShouldBeTrue();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(type, Context).ShouldBeFalse();
+            text1.IsNullable(type, Context).ShouldBeTrue();
+            text2.IsNullable(type, Context).ShouldBeTrue();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(nullableType, Context).ShouldBeFalse();
+            text1.IsNullable(nullableType, Context).ShouldBeTrue();
+            text2.IsNullable(nullableType, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable UInt32 type or not by generic type test")]
@@ -207,21 +218,21 @@ namespace CosmosStandardUT.ConvUT
             var text1 = "0";
             var text2 = "1";
 
-            text0.Is<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<UInt32>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<UInt32>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<UInt32>(Context).ShouldBeFalse();
+            text1.Is<UInt32>(Context).ShouldBeTrue();
+            text2.Is<UInt32>(Context).ShouldBeTrue();
 
-            text0.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<UInt32?>(Context).ShouldBeFalse();
+            text1.Is<UInt32?>(Context).ShouldBeTrue();
+            text2.Is<UInt32?>(Context).ShouldBeTrue();
 
-            text0.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<UInt32>(Context).ShouldBeFalse();
+            text1.IsNullable<UInt32>(Context).ShouldBeTrue();
+            text2.IsNullable<UInt32>(Context).ShouldBeTrue();
 
-            text0.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<UInt32?>(Context).ShouldBeFalse();
+            text1.IsNullable<UInt32?>(Context).ShouldBeTrue();
+            text2.IsNullable<UInt32?>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable UInt32 type or not test")]
@@ -271,29 +282,29 @@ namespace CosmosStandardUT.ConvUT
             string text3 = "1.1";
             string text4 = "C";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
+            text4.Is(type, Context).ShouldBeFalse();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeFalse();
+            text2.Is(nullableType, Context).ShouldBeFalse();
+            text3.Is(nullableType, Context).ShouldBeFalse();
+            text4.Is(nullableType, Context).ShouldBeFalse();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
+            text3.IsNullable(type, Context).ShouldBeFalse();
+            text4.IsNullable(type, Context).ShouldBeFalse();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeFalse();
+            text2.IsNullable(nullableType, Context).ShouldBeFalse();
+            text3.IsNullable(nullableType, Context).ShouldBeFalse();
+            text4.IsNullable(nullableType, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable UInt32 type or not by generic type test")]
@@ -333,23 +344,23 @@ namespace CosmosStandardUT.ConvUT
             string text3 = "1.1";
             string text4 = "C";
 
-            text0.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<UInt32?>(Context).ShouldBeTrue();
+            text1.Is<UInt32?>(Context).ShouldBeFalse();
+            text2.Is<UInt32?>(Context).ShouldBeFalse();
+            text3.Is<UInt32?>(Context).ShouldBeFalse();
+            text4.Is<UInt32?>(Context).ShouldBeFalse();
 
-            text0.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable<UInt32>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<UInt32>(Context).ShouldBeTrue();
+            text1.IsNullable<UInt32>(Context).ShouldBeFalse();
+            text2.IsNullable<UInt32>(Context).ShouldBeFalse();
+            text3.IsNullable<UInt32>(Context).ShouldBeFalse();
+            text4.IsNullable<UInt32>(Context).ShouldBeFalse();
 
-            text0.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable<UInt32?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<UInt32?>(Context).ShouldBeTrue();
+            text1.IsNullable<UInt32?>(Context).ShouldBeFalse();
+            text2.IsNullable<UInt32?>(Context).ShouldBeFalse();
+            text3.IsNullable<UInt32?>(Context).ShouldBeFalse();
+            text4.IsNullable<UInt32?>(Context).ShouldBeFalse();
         }
     }
 }

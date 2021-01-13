@@ -1,4 +1,5 @@
-﻿using Cosmos.Text;
+﻿using Cosmos.Conversions;
+using Cosmos.Text;
 using Shouldly;
 using Xunit;
 
@@ -7,6 +8,16 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsChar")]
     public class StringConvBeCharTypeTests
     {
+        public StringConvBeCharTypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+        
         [Fact(DisplayName = "To judge string is char type or not test")]
         public void JudgingStringIsCharTypeTest()
         {
@@ -25,8 +36,8 @@ namespace CosmosStandardUT.ConvUT
             var text0 = "b";
             var text1 = "B";
             
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
         }
         
         [Fact(DisplayName = "To judge string is char type or not by generic type test")]
@@ -45,8 +56,8 @@ namespace CosmosStandardUT.ConvUT
             var text0 = "b";
             var text1 = "B";
             
-            text0.Is<char>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<char>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<char>(Context).ShouldBeTrue();
+            text1.Is<char>(Context).ShouldBeTrue();
         }
         
         [Fact(DisplayName = "To judge null or empty string is char type or not test")]
@@ -70,9 +81,9 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
             
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
         }
         
         [Fact(DisplayName = "To judge null or empty string is char type or not by generic type test")]
@@ -94,9 +105,9 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
             
-            text0.Is<char>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<char>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<char>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<char>(Context).ShouldBeFalse();
+            text1.Is<char>(Context).ShouldBeFalse();
+            text2.Is<char>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge string is nullable char type or not test")]
@@ -128,17 +139,17 @@ namespace CosmosStandardUT.ConvUT
             var text0 = "b";
             var text1 = "B";
             
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
             
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeTrue();
             
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeTrue();
             
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeTrue();
         }
         
         [Fact(DisplayName = "To judge string is nullable char type or not by generic type test")]
@@ -166,17 +177,17 @@ namespace CosmosStandardUT.ConvUT
             var text0 = "b";
             var text1 = "B";
             
-            text0.Is<char>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<char>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<char>(Context).ShouldBeTrue();
+            text1.Is<char>(Context).ShouldBeTrue();
             
-            text0.Is<char?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<char?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<char?>(Context).ShouldBeTrue();
+            text1.Is<char?>(Context).ShouldBeTrue();
             
-            text0.IsNullable<char>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<char>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<char>(Context).ShouldBeTrue();
+            text1.IsNullable<char>(Context).ShouldBeTrue();
             
-            text0.IsNullable<char?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<char?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<char?>(Context).ShouldBeTrue();
+            text1.IsNullable<char?>(Context).ShouldBeTrue();
         }
         
         [Fact(DisplayName = "To judge null or empty string is nullable char type or not test")]
@@ -214,21 +225,21 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
             
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
             
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeFalse();
+            text2.Is(nullableType, Context).ShouldBeFalse();
             
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
             
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeFalse();
+            text2.IsNullable(nullableType, Context).ShouldBeFalse();
         }
         
         [Fact(DisplayName = "To judge null or empty string is nullable char type or not by generic type test")]
@@ -258,17 +269,17 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
             
-            text0.Is<char?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<char?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<char?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<char?>(Context).ShouldBeTrue();
+            text1.Is<char?>(Context).ShouldBeFalse();
+            text2.Is<char?>(Context).ShouldBeFalse();
             
-            text0.IsNullable<char>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<char>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<char>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<char>(Context).ShouldBeTrue();
+            text1.IsNullable<char>(Context).ShouldBeFalse();
+            text2.IsNullable<char>(Context).ShouldBeFalse();
             
-            text0.IsNullable<char?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<char?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<char?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<char?>(Context).ShouldBeTrue();
+            text1.IsNullable<char?>(Context).ShouldBeFalse();
+            text2.IsNullable<char?>(Context).ShouldBeFalse();
         }
     }
 }

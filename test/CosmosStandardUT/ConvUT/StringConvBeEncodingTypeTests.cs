@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Cosmos.Conversions;
 using Cosmos.Text;
 using Shouldly;
 using Xunit;
@@ -8,6 +9,16 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsEncoding")]
     public class StringConvBeEncodingTypeTests
     {
+        public StringConvBeEncodingTypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+
         [Fact(DisplayName = "To judge string is Encoding type or not test")]
         public void JudgingStringIsEncodingTypeTest()
         {
@@ -43,19 +54,19 @@ namespace CosmosStandardUT.ConvUT
             var textB = Encoding.ASCII.BodyName.ToLowerInvariant();
             var textC = "ANSI";
             
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textC.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
+            text8.Is(type, Context).ShouldBeTrue();
+            text9.Is(type, Context).ShouldBeTrue();
+            textA.Is(type, Context).ShouldBeTrue();
+            textB.Is(type, Context).ShouldBeTrue();
+            textC.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is Encoding type or not by generic type test")]
@@ -91,19 +102,19 @@ namespace CosmosStandardUT.ConvUT
             var textB = Encoding.ASCII.BodyName.ToLowerInvariant();
             var textC = "ANSI";
 
-            text0.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textC.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Encoding>(Context).ShouldBeTrue();
+            text1.Is<Encoding>(Context).ShouldBeTrue();
+            text2.Is<Encoding>(Context).ShouldBeTrue();
+            text3.Is<Encoding>(Context).ShouldBeTrue();
+            text4.Is<Encoding>(Context).ShouldBeTrue();
+            text5.Is<Encoding>(Context).ShouldBeTrue();
+            text6.Is<Encoding>(Context).ShouldBeTrue();
+            text7.Is<Encoding>(Context).ShouldBeTrue();
+            text8.Is<Encoding>(Context).ShouldBeTrue();
+            text9.Is<Encoding>(Context).ShouldBeTrue();
+            textA.Is<Encoding>(Context).ShouldBeTrue();
+            textB.Is<Encoding>(Context).ShouldBeTrue();
+            textC.Is<Encoding>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is Encoding type or not test")]
@@ -130,10 +141,10 @@ namespace CosmosStandardUT.ConvUT
             string text2 = "";
             string text3 = "---";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is Encoding type or not by generic type test")]
@@ -158,10 +169,10 @@ namespace CosmosStandardUT.ConvUT
             string text2 = "";
             string text3 = "---";
 
-            text0.Is<Encoding>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<Encoding>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<Encoding>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is<Encoding>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<Encoding>(Context).ShouldBeFalse();
+            text1.Is<Encoding>(Context).ShouldBeFalse();
+            text2.Is<Encoding>(Context).ShouldBeFalse();
+            text3.Is<Encoding>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge string is nullable Encoding type or not test")]
@@ -205,33 +216,33 @@ namespace CosmosStandardUT.ConvUT
             var textB = Encoding.ASCII.BodyName.ToLowerInvariant();
             var textC = "ANSI";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textC.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
+            text8.Is(type, Context).ShouldBeTrue();
+            text9.Is(type, Context).ShouldBeTrue();
+            textA.Is(type, Context).ShouldBeTrue();
+            textB.Is(type, Context).ShouldBeTrue();
+            textC.Is(type, Context).ShouldBeTrue();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textC.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeTrue();
+            text2.IsNullable(type, Context).ShouldBeTrue();
+            text3.IsNullable(type, Context).ShouldBeTrue();
+            text4.IsNullable(type, Context).ShouldBeTrue();
+            text5.IsNullable(type, Context).ShouldBeTrue();
+            text6.IsNullable(type, Context).ShouldBeTrue();
+            text7.IsNullable(type, Context).ShouldBeTrue();
+            text8.IsNullable(type, Context).ShouldBeTrue();
+            text9.IsNullable(type, Context).ShouldBeTrue();
+            textA.IsNullable(type, Context).ShouldBeTrue();
+            textB.IsNullable(type, Context).ShouldBeTrue();
+            textC.IsNullable(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable Encoding type or not by generic type test")]
@@ -273,33 +284,33 @@ namespace CosmosStandardUT.ConvUT
             var textB = Encoding.ASCII.BodyName.ToLowerInvariant();
             var textC = "ANSI";
 
-            text0.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textC.Is<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Encoding>(Context).ShouldBeTrue();
+            text1.Is<Encoding>(Context).ShouldBeTrue();
+            text2.Is<Encoding>(Context).ShouldBeTrue();
+            text3.Is<Encoding>(Context).ShouldBeTrue();
+            text4.Is<Encoding>(Context).ShouldBeTrue();
+            text5.Is<Encoding>(Context).ShouldBeTrue();
+            text6.Is<Encoding>(Context).ShouldBeTrue();
+            text7.Is<Encoding>(Context).ShouldBeTrue();
+            text8.Is<Encoding>(Context).ShouldBeTrue();
+            text9.Is<Encoding>(Context).ShouldBeTrue();
+            textA.Is<Encoding>(Context).ShouldBeTrue();
+            textB.Is<Encoding>(Context).ShouldBeTrue();
+            textC.Is<Encoding>(Context).ShouldBeTrue();
 
-            text0.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            textC.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text1.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text2.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text3.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text4.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text5.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text6.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text7.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text8.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text9.IsNullable<Encoding>(Context).ShouldBeTrue();
+            textA.IsNullable<Encoding>(Context).ShouldBeTrue();
+            textB.IsNullable<Encoding>(Context).ShouldBeTrue();
+            textC.IsNullable<Encoding>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable Encoding type or not test")]
@@ -331,15 +342,15 @@ namespace CosmosStandardUT.ConvUT
             string text2 = "";
             string text3 = "---";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
+            text3.IsNullable(type, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable Encoding type or not by generic type test")]
@@ -364,10 +375,10 @@ namespace CosmosStandardUT.ConvUT
             string text2 = "";
             string text3 = "---";
 
-            text0.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable<Encoding>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<Encoding>(Context).ShouldBeTrue();
+            text1.IsNullable<Encoding>(Context).ShouldBeFalse();
+            text2.IsNullable<Encoding>(Context).ShouldBeFalse();
+            text3.IsNullable<Encoding>(Context).ShouldBeFalse();
         }
     }
 }

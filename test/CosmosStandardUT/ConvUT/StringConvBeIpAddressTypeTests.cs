@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Cosmos.Conversions;
 using Cosmos.Text;
 using Shouldly;
 using Xunit;
@@ -8,7 +9,17 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsIpAddress")]
     public class StringConvBeIpAddressTypeTests
     {
-          [Fact(DisplayName = "To judge string is IpAddress type or not test")]
+        public StringConvBeIpAddressTypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+
+        [Fact(DisplayName = "To judge string is IpAddress type or not test")]
         public void JudgingStringIsIpAddressTypeTest()
         {
             var type = typeof(IPAddress);
@@ -32,10 +43,10 @@ namespace CosmosStandardUT.ConvUT
             var text2 = IPAddress.Parse("fe80:0000:0001:0000:0440:44ff:1233:5678").ToString();
             var text3 = IPAddress.Parse("fe80::0001:0000").ToString();
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is IpAddress type or not by generic type test")]
@@ -60,10 +71,10 @@ namespace CosmosStandardUT.ConvUT
             var text2 = IPAddress.Parse("fe80:0000:0001:0000:0440:44ff:1233:5678").ToString();
             var text3 = IPAddress.Parse("fe80::0001:0000").ToString();
 
-            text0.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<IPAddress>(Context).ShouldBeTrue();
+            text1.Is<IPAddress>(Context).ShouldBeTrue();
+            text2.Is<IPAddress>(Context).ShouldBeTrue();
+            text3.Is<IPAddress>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is IpAddress type or not test")]
@@ -117,19 +128,19 @@ namespace CosmosStandardUT.ConvUT
             string textB = IPAddress.Loopback.ToString();
             string textC = IPAddress.IPv6Loopback.ToString();
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textC.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
+            text4.Is(type, Context).ShouldBeFalse();
+            text5.Is(type, Context).ShouldBeFalse();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
+            text8.Is(type, Context).ShouldBeTrue();
+            text9.Is(type, Context).ShouldBeTrue();
+            textA.Is(type, Context).ShouldBeTrue();
+            textB.Is(type, Context).ShouldBeTrue();
+            textC.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is IpAddress type or not by generic type test")]
@@ -181,19 +192,19 @@ namespace CosmosStandardUT.ConvUT
             string textB = IPAddress.Loopback.ToString();
             string textC = IPAddress.IPv6Loopback.ToString();
 
-            text0.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text5.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text6.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            textC.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<IPAddress>(Context).ShouldBeFalse();
+            text1.Is<IPAddress>(Context).ShouldBeFalse();
+            text2.Is<IPAddress>(Context).ShouldBeFalse();
+            text3.Is<IPAddress>(Context).ShouldBeFalse();
+            text4.Is<IPAddress>(Context).ShouldBeFalse();
+            text5.Is<IPAddress>(Context).ShouldBeFalse();
+            text6.Is<IPAddress>(Context).ShouldBeTrue();
+            text7.Is<IPAddress>(Context).ShouldBeTrue();
+            text8.Is<IPAddress>(Context).ShouldBeTrue();
+            text9.Is<IPAddress>(Context).ShouldBeTrue();
+            textA.Is<IPAddress>(Context).ShouldBeTrue();
+            textB.Is<IPAddress>(Context).ShouldBeTrue();
+            textC.Is<IPAddress>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable IpAddress type or not test")]
@@ -225,15 +236,15 @@ namespace CosmosStandardUT.ConvUT
             var text2 = IPAddress.Parse("fe80:0000:0001:0000:0440:44ff:1233:5678").ToString();
             var text3 = IPAddress.Parse("fe80::0001:0000").ToString();
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeTrue();
+            text2.IsNullable(type, Context).ShouldBeTrue();
+            text3.IsNullable(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable IpAddress type or not by generic type test")]
@@ -262,16 +273,16 @@ namespace CosmosStandardUT.ConvUT
             var text1 = IPAddress.Parse("202.96.209.133").ToString();
             var text2 = IPAddress.Parse("fe80:0000:0001:0000:0440:44ff:1233:5678").ToString();
             var text3 = IPAddress.Parse("fe80::0001:0000").ToString();
-            
-            text0.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
 
-            text0.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<IPAddress>(Context).ShouldBeTrue();
+            text1.Is<IPAddress>(Context).ShouldBeTrue();
+            text2.Is<IPAddress>(Context).ShouldBeTrue();
+            text3.Is<IPAddress>(Context).ShouldBeTrue();
+
+            text0.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            text1.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            text2.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            text3.IsNullable<IPAddress>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable IpAddress type or not test")]
@@ -338,34 +349,34 @@ namespace CosmosStandardUT.ConvUT
             string textA = IPAddress.Broadcast.ToString();
             string textB = IPAddress.Loopback.ToString();
             string textC = IPAddress.IPv6Loopback.ToString();
-            
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textC.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text5.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text6.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textC.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
+            text4.Is(type, Context).ShouldBeFalse();
+            text5.Is(type, Context).ShouldBeFalse();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
+            text8.Is(type, Context).ShouldBeTrue();
+            text9.Is(type, Context).ShouldBeTrue();
+            textA.Is(type, Context).ShouldBeTrue();
+            textB.Is(type, Context).ShouldBeTrue();
+            textC.Is(type, Context).ShouldBeTrue();
+
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
+            text3.IsNullable(type, Context).ShouldBeFalse();
+            text4.IsNullable(type, Context).ShouldBeFalse();
+            text5.IsNullable(type, Context).ShouldBeFalse();
+            text6.IsNullable(type, Context).ShouldBeTrue();
+            text7.IsNullable(type, Context).ShouldBeTrue();
+            text8.IsNullable(type, Context).ShouldBeTrue();
+            text9.IsNullable(type, Context).ShouldBeTrue();
+            textA.IsNullable(type, Context).ShouldBeTrue();
+            textB.IsNullable(type, Context).ShouldBeTrue();
+            textC.IsNullable(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable IpAddress type or not by generic type test")]
@@ -415,20 +426,20 @@ namespace CosmosStandardUT.ConvUT
             string textA = IPAddress.Broadcast.ToString();
             string textB = IPAddress.Loopback.ToString();
             string textC = IPAddress.IPv6Loopback.ToString();
-            
-            text0.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text5.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeFalse();
-            text6.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
-            textC.IsNullable<IPAddress>(IgnoreCase.TRUE).ShouldBeTrue();
+
+            text0.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            text1.IsNullable<IPAddress>(Context).ShouldBeFalse();
+            text2.IsNullable<IPAddress>(Context).ShouldBeFalse();
+            text3.IsNullable<IPAddress>(Context).ShouldBeFalse();
+            text4.IsNullable<IPAddress>(Context).ShouldBeFalse();
+            text5.IsNullable<IPAddress>(Context).ShouldBeFalse();
+            text6.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            text7.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            text8.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            text9.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            textA.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            textB.IsNullable<IPAddress>(Context).ShouldBeTrue();
+            textC.IsNullable<IPAddress>(Context).ShouldBeTrue();
         }
     }
 }

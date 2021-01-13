@@ -14,7 +14,7 @@ namespace Cosmos.Conversions
         /// <summary>
         /// Default casting context
         /// </summary>
-        internal static readonly CastingContext DefaultContext = new CastingContext();
+        internal static readonly CastingContext DefaultContext = new();
 
         /// <summary>
         /// Ignore case
@@ -29,12 +29,17 @@ namespace Cosmos.Conversions
         /// <summary>
         /// Number styles
         /// </summary>
-        public NumberStyles? NumberStyles { get; set; }
+        public NumberStyles? NumberStyles { get; set; } = null;
+
+        /// <summary>
+        /// Numeric converting options
+        /// </summary>
+        public NumericConvOptions NumericConvOptions { get; set; } = NumericConvOptions.Default;
 
         /// <summary>
         /// DateTime styles
         /// </summary>
-        public DateTimeStyles? DateTimeStyles { get; set; }
+        public DateTimeStyles? DateTimeStyles { get; set; } = null;
 
         /// <summary>
         /// DateTime target types

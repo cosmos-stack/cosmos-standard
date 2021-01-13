@@ -1,4 +1,5 @@
-﻿using Cosmos.Text;
+﻿using Cosmos.Conversions;
+using Cosmos.Text;
 using Shouldly;
 using Xunit;
 
@@ -7,6 +8,16 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsBoolean")]
     public class StringConvBeBooleanTypeTests
     {
+        public StringConvBeBooleanTypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+
         [Fact(DisplayName = "To judge string is bool type or not test")]
         public void JudgingStringIsBooleanTypeTest()
         {
@@ -37,12 +48,12 @@ namespace CosmosStandardUT.ConvUT
             var text4 = "False";
             var text5 = "FALSE";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is bool type or not by generic type test")]
@@ -73,12 +84,12 @@ namespace CosmosStandardUT.ConvUT
             var text4 = "False";
             var text5 = "FALSE";
 
-            text0.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<bool>(Context).ShouldBeTrue();
+            text1.Is<bool>(Context).ShouldBeTrue();
+            text2.Is<bool>(Context).ShouldBeTrue();
+            text3.Is<bool>(Context).ShouldBeTrue();
+            text4.Is<bool>(Context).ShouldBeTrue();
+            text5.Is<bool>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is bool type or not test")]
@@ -102,9 +113,9 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is bool type or not by generic type test")]
@@ -126,9 +137,9 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is<bool>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<bool>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<bool>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<bool>(Context).ShouldBeFalse();
+            text1.Is<bool>(Context).ShouldBeFalse();
+            text2.Is<bool>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge string is nullable bool type or not test")]
@@ -184,33 +195,33 @@ namespace CosmosStandardUT.ConvUT
             var text4 = "False";
             var text5 = "FALSE";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeTrue();
+            text2.Is(nullableType, Context).ShouldBeTrue();
+            text3.Is(nullableType, Context).ShouldBeTrue();
+            text4.Is(nullableType, Context).ShouldBeTrue();
+            text5.Is(nullableType, Context).ShouldBeTrue();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeTrue();
+            text2.IsNullable(type, Context).ShouldBeTrue();
+            text3.IsNullable(type, Context).ShouldBeTrue();
+            text4.IsNullable(type, Context).ShouldBeTrue();
+            text5.IsNullable(type, Context).ShouldBeTrue();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeTrue();
+            text2.IsNullable(nullableType, Context).ShouldBeTrue();
+            text3.IsNullable(nullableType, Context).ShouldBeTrue();
+            text4.IsNullable(nullableType, Context).ShouldBeTrue();
+            text5.IsNullable(nullableType, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable bool type or not by generic type test")]
@@ -262,33 +273,33 @@ namespace CosmosStandardUT.ConvUT
             var text4 = "False";
             var text5 = "FALSE";
 
-            text0.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<bool>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<bool>(Context).ShouldBeTrue();
+            text1.Is<bool>(Context).ShouldBeTrue();
+            text2.Is<bool>(Context).ShouldBeTrue();
+            text3.Is<bool>(Context).ShouldBeTrue();
+            text4.Is<bool>(Context).ShouldBeTrue();
+            text5.Is<bool>(Context).ShouldBeTrue();
 
-            text0.Is<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<bool?>(Context).ShouldBeTrue();
+            text1.Is<bool?>(Context).ShouldBeTrue();
+            text2.Is<bool?>(Context).ShouldBeTrue();
+            text3.Is<bool?>(Context).ShouldBeTrue();
+            text4.Is<bool?>(Context).ShouldBeTrue();
+            text5.Is<bool?>(Context).ShouldBeTrue();
 
-            text0.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<bool>(Context).ShouldBeTrue();
+            text1.IsNullable<bool>(Context).ShouldBeTrue();
+            text2.IsNullable<bool>(Context).ShouldBeTrue();
+            text3.IsNullable<bool>(Context).ShouldBeTrue();
+            text4.IsNullable<bool>(Context).ShouldBeTrue();
+            text5.IsNullable<bool>(Context).ShouldBeTrue();
 
-            text0.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<bool?>(Context).ShouldBeTrue();
+            text1.IsNullable<bool?>(Context).ShouldBeTrue();
+            text2.IsNullable<bool?>(Context).ShouldBeTrue();
+            text3.IsNullable<bool?>(Context).ShouldBeTrue();
+            text4.IsNullable<bool?>(Context).ShouldBeTrue();
+            text5.IsNullable<bool?>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable bool type or not test")]
@@ -326,21 +337,21 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeFalse();
+            text2.Is(nullableType, Context).ShouldBeFalse();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeFalse();
+            text2.IsNullable(nullableType, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable bool type or not by generic type test")]
@@ -370,17 +381,17 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<bool?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<bool?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<bool?>(Context).ShouldBeTrue();
+            text1.Is<bool?>(Context).ShouldBeFalse();
+            text2.Is<bool?>(Context).ShouldBeFalse();
 
-            text0.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<bool>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<bool>(Context).ShouldBeTrue();
+            text1.IsNullable<bool>(Context).ShouldBeFalse();
+            text2.IsNullable<bool>(Context).ShouldBeFalse();
 
-            text0.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<bool?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<bool?>(Context).ShouldBeTrue();
+            text1.IsNullable<bool?>(Context).ShouldBeFalse();
+            text2.IsNullable<bool?>(Context).ShouldBeFalse();
         }
     }
 }

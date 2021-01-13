@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Conversions;
 using Cosmos.Text;
 using Shouldly;
 using Xunit;
@@ -8,6 +9,16 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsGuid")]
     public class StringConvBeGuidTypeTests
     {
+        public StringConvBeGuidTypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+
         [Fact(DisplayName = "To judge string is Guid type or not test")]
         public void JudgingStringIsGuidTypeTest()
         {
@@ -56,18 +67,18 @@ namespace CosmosStandardUT.ConvUT
             var textA = Guid.NewGuid().ToString("N").ToLowerInvariant();
             var textB = Guid.NewGuid().ToString("P").ToLowerInvariant();
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
+            text8.Is(type, Context).ShouldBeTrue();
+            text9.Is(type, Context).ShouldBeTrue();
+            textA.Is(type, Context).ShouldBeTrue();
+            textB.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is Guid type or not by generic type test")]
@@ -116,18 +127,18 @@ namespace CosmosStandardUT.ConvUT
             var textA = Guid.NewGuid().ToString("N").ToLowerInvariant();
             var textB = Guid.NewGuid().ToString("P").ToLowerInvariant();
 
-            text0.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Guid>(Context).ShouldBeTrue();
+            text1.Is<Guid>(Context).ShouldBeTrue();
+            text2.Is<Guid>(Context).ShouldBeTrue();
+            text3.Is<Guid>(Context).ShouldBeTrue();
+            text4.Is<Guid>(Context).ShouldBeTrue();
+            text5.Is<Guid>(Context).ShouldBeTrue();
+            text6.Is<Guid>(Context).ShouldBeTrue();
+            text7.Is<Guid>(Context).ShouldBeTrue();
+            text8.Is<Guid>(Context).ShouldBeTrue();
+            text9.Is<Guid>(Context).ShouldBeTrue();
+            textA.Is<Guid>(Context).ShouldBeTrue();
+            textB.Is<Guid>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is Guid type or not test")]
@@ -166,14 +177,14 @@ namespace CosmosStandardUT.ConvUT
             string text6 = Guid.Empty.ToString("N");
             string text7 = Guid.Empty.ToString("P");
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is Guid type or not by generic type test")]
@@ -210,14 +221,14 @@ namespace CosmosStandardUT.ConvUT
             string text6 = Guid.Empty.ToString("N");
             string text7 = Guid.Empty.ToString("P");
 
-            text0.Is<Guid>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<Guid>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<Guid>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is<Guid>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Guid>(Context).ShouldBeFalse();
+            text1.Is<Guid>(Context).ShouldBeFalse();
+            text2.Is<Guid>(Context).ShouldBeFalse();
+            text3.Is<Guid>(Context).ShouldBeFalse();
+            text4.Is<Guid>(Context).ShouldBeTrue();
+            text5.Is<Guid>(Context).ShouldBeTrue();
+            text6.Is<Guid>(Context).ShouldBeTrue();
+            text7.Is<Guid>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable Guid type or not test")]
@@ -309,57 +320,57 @@ namespace CosmosStandardUT.ConvUT
             var textA = Guid.NewGuid().ToString("N").ToLowerInvariant();
             var textB = Guid.NewGuid().ToString("P").ToLowerInvariant();
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
+            text8.Is(type, Context).ShouldBeTrue();
+            text9.Is(type, Context).ShouldBeTrue();
+            textA.Is(type, Context).ShouldBeTrue();
+            textB.Is(type, Context).ShouldBeTrue();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeTrue();
+            text2.Is(nullableType, Context).ShouldBeTrue();
+            text3.Is(nullableType, Context).ShouldBeTrue();
+            text4.Is(nullableType, Context).ShouldBeTrue();
+            text5.Is(nullableType, Context).ShouldBeTrue();
+            text6.Is(nullableType, Context).ShouldBeTrue();
+            text7.Is(nullableType, Context).ShouldBeTrue();
+            text8.Is(nullableType, Context).ShouldBeTrue();
+            text9.Is(nullableType, Context).ShouldBeTrue();
+            textA.Is(nullableType, Context).ShouldBeTrue();
+            textB.Is(nullableType, Context).ShouldBeTrue();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeTrue();
+            text2.IsNullable(type, Context).ShouldBeTrue();
+            text3.IsNullable(type, Context).ShouldBeTrue();
+            text4.IsNullable(type, Context).ShouldBeTrue();
+            text5.IsNullable(type, Context).ShouldBeTrue();
+            text6.IsNullable(type, Context).ShouldBeTrue();
+            text7.IsNullable(type, Context).ShouldBeTrue();
+            text8.IsNullable(type, Context).ShouldBeTrue();
+            text9.IsNullable(type, Context).ShouldBeTrue();
+            textA.IsNullable(type, Context).ShouldBeTrue();
+            textB.IsNullable(type, Context).ShouldBeTrue();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeTrue();
+            text2.IsNullable(nullableType, Context).ShouldBeTrue();
+            text3.IsNullable(nullableType, Context).ShouldBeTrue();
+            text4.IsNullable(nullableType, Context).ShouldBeTrue();
+            text5.IsNullable(nullableType, Context).ShouldBeTrue();
+            text6.IsNullable(nullableType, Context).ShouldBeTrue();
+            text7.IsNullable(nullableType, Context).ShouldBeTrue();
+            text8.IsNullable(nullableType, Context).ShouldBeTrue();
+            text9.IsNullable(nullableType, Context).ShouldBeTrue();
+            textA.IsNullable(nullableType, Context).ShouldBeTrue();
+            textB.IsNullable(nullableType, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable Guid type or not by generic type test")]
@@ -447,57 +458,57 @@ namespace CosmosStandardUT.ConvUT
             var textA = Guid.NewGuid().ToString("N").ToLowerInvariant();
             var textB = Guid.NewGuid().ToString("P").ToLowerInvariant();
             
-            text0.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Guid>(Context).ShouldBeTrue();
+            text1.Is<Guid>(Context).ShouldBeTrue();
+            text2.Is<Guid>(Context).ShouldBeTrue();
+            text3.Is<Guid>(Context).ShouldBeTrue();
+            text4.Is<Guid>(Context).ShouldBeTrue();
+            text5.Is<Guid>(Context).ShouldBeTrue();
+            text6.Is<Guid>(Context).ShouldBeTrue();
+            text7.Is<Guid>(Context).ShouldBeTrue();
+            text8.Is<Guid>(Context).ShouldBeTrue();
+            text9.Is<Guid>(Context).ShouldBeTrue();
+            textA.Is<Guid>(Context).ShouldBeTrue();
+            textB.Is<Guid>(Context).ShouldBeTrue();
 
-            text0.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Guid?>(Context).ShouldBeTrue();
+            text1.Is<Guid?>(Context).ShouldBeTrue();
+            text2.Is<Guid?>(Context).ShouldBeTrue();
+            text3.Is<Guid?>(Context).ShouldBeTrue();
+            text4.Is<Guid?>(Context).ShouldBeTrue();
+            text5.Is<Guid?>(Context).ShouldBeTrue();
+            text6.Is<Guid?>(Context).ShouldBeTrue();
+            text7.Is<Guid?>(Context).ShouldBeTrue();
+            text8.Is<Guid?>(Context).ShouldBeTrue();
+            text9.Is<Guid?>(Context).ShouldBeTrue();
+            textA.Is<Guid?>(Context).ShouldBeTrue();
+            textB.Is<Guid?>(Context).ShouldBeTrue();
 
-            text0.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<Guid>(Context).ShouldBeTrue();
+            text1.IsNullable<Guid>(Context).ShouldBeTrue();
+            text2.IsNullable<Guid>(Context).ShouldBeTrue();
+            text3.IsNullable<Guid>(Context).ShouldBeTrue();
+            text4.IsNullable<Guid>(Context).ShouldBeTrue();
+            text5.IsNullable<Guid>(Context).ShouldBeTrue();
+            text6.IsNullable<Guid>(Context).ShouldBeTrue();
+            text7.IsNullable<Guid>(Context).ShouldBeTrue();
+            text8.IsNullable<Guid>(Context).ShouldBeTrue();
+            text9.IsNullable<Guid>(Context).ShouldBeTrue();
+            textA.IsNullable<Guid>(Context).ShouldBeTrue();
+            textB.IsNullable<Guid>(Context).ShouldBeTrue();
 
-            text0.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text4.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text8.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text9.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            textA.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            textB.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text1.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text2.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text3.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text4.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text5.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text6.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text7.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text8.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text9.IsNullable<Guid?>(Context).ShouldBeTrue();
+            textA.IsNullable<Guid?>(Context).ShouldBeTrue();
+            textB.IsNullable<Guid?>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable Guid type or not test")]
@@ -565,41 +576,41 @@ namespace CosmosStandardUT.ConvUT
             string text6 = Guid.Empty.ToString("N");
             string text7 = Guid.Empty.ToString("P");
             
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
+            text4.Is(type, Context).ShouldBeTrue();
+            text5.Is(type, Context).ShouldBeTrue();
+            text6.Is(type, Context).ShouldBeTrue();
+            text7.Is(type, Context).ShouldBeTrue();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeFalse();
+            text2.Is(nullableType, Context).ShouldBeFalse();
+            text3.Is(nullableType, Context).ShouldBeFalse();
+            text4.Is(nullableType, Context).ShouldBeTrue();
+            text5.Is(nullableType, Context).ShouldBeTrue();
+            text6.Is(nullableType, Context).ShouldBeTrue();
+            text7.Is(nullableType, Context).ShouldBeTrue();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
+            text3.IsNullable(type, Context).ShouldBeFalse();
+            text4.IsNullable(type, Context).ShouldBeTrue();
+            text5.IsNullable(type, Context).ShouldBeTrue();
+            text6.IsNullable(type, Context).ShouldBeTrue();
+            text7.IsNullable(type, Context).ShouldBeTrue();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeFalse();
+            text2.IsNullable(nullableType, Context).ShouldBeFalse();
+            text3.IsNullable(nullableType, Context).ShouldBeFalse();
+            text4.IsNullable(nullableType, Context).ShouldBeTrue();
+            text5.IsNullable(nullableType, Context).ShouldBeTrue();
+            text6.IsNullable(nullableType, Context).ShouldBeTrue();
+            text7.IsNullable(nullableType, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable Guid type or not by generic type test")]
@@ -654,32 +665,32 @@ namespace CosmosStandardUT.ConvUT
             string text6 = Guid.Empty.ToString("N");
             string text7 = Guid.Empty.ToString("P");
             
-            text0.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Guid?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<Guid?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is<Guid?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.Is<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Guid?>(Context).ShouldBeTrue();
+            text1.Is<Guid?>(Context).ShouldBeFalse();
+            text2.Is<Guid?>(Context).ShouldBeFalse();
+            text3.Is<Guid?>(Context).ShouldBeFalse();
+            text4.Is<Guid?>(Context).ShouldBeTrue();
+            text5.Is<Guid?>(Context).ShouldBeTrue();
+            text6.Is<Guid?>(Context).ShouldBeTrue();
+            text7.Is<Guid?>(Context).ShouldBeTrue();
 
-            text0.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable<Guid>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<Guid>(Context).ShouldBeTrue();
+            text1.IsNullable<Guid>(Context).ShouldBeFalse();
+            text2.IsNullable<Guid>(Context).ShouldBeFalse();
+            text3.IsNullable<Guid>(Context).ShouldBeFalse();
+            text4.IsNullable<Guid>(Context).ShouldBeTrue();
+            text5.IsNullable<Guid>(Context).ShouldBeTrue();
+            text6.IsNullable<Guid>(Context).ShouldBeTrue();
+            text7.IsNullable<Guid>(Context).ShouldBeTrue();
 
-            text0.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text4.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text5.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text6.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text7.IsNullable<Guid?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text1.IsNullable<Guid?>(Context).ShouldBeFalse();
+            text2.IsNullable<Guid?>(Context).ShouldBeFalse();
+            text3.IsNullable<Guid?>(Context).ShouldBeFalse();
+            text4.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text5.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text6.IsNullable<Guid?>(Context).ShouldBeTrue();
+            text7.IsNullable<Guid?>(Context).ShouldBeTrue();
         }
     }
 }

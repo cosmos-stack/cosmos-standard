@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Conversions;
 using Cosmos.Text;
 using Shouldly;
 using Xunit;
@@ -8,6 +9,16 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsDateTime")]
     public class StringConvBeDateTimeTypeTests
     {
+        public StringConvBeDateTimeTypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+
         [Fact(DisplayName = "To judge string is DateTime type or not test")]
         public void JudgingStringIsDateTimeTypeTest()
         {
@@ -32,10 +43,10 @@ namespace CosmosStandardUT.ConvUT
             var text2 = DateTime.Today.ToString("yyyy MM dd");
             var text3 = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is DateTime type or not by generic type test")]
@@ -60,10 +71,10 @@ namespace CosmosStandardUT.ConvUT
             var text2 = DateTime.Today.ToString("yyyy MM dd");
             var text3 = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
 
-            text0.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<DateTime>(Context).ShouldBeTrue();
+            text1.Is<DateTime>(Context).ShouldBeTrue();
+            text2.Is<DateTime>(Context).ShouldBeTrue();
+            text3.Is<DateTime>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is DateTime type or not test")]
@@ -87,9 +98,9 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is DateTime type or not by generic type test")]
@@ -111,9 +122,9 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<DateTime>(Context).ShouldBeFalse();
+            text1.Is<DateTime>(Context).ShouldBeFalse();
+            text2.Is<DateTime>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge invalid string test")]
@@ -125,22 +136,22 @@ namespace CosmosStandardUT.ConvUT
             var text2 = "2000-12-32";
 
             text0.Is(type).ShouldBeFalse();
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
 
             text0.Is<DateTime>().ShouldBeFalse();
-            text0.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<DateTime>(Context).ShouldBeFalse();
 
             text1.Is(type).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
 
             text1.Is<DateTime>().ShouldBeFalse();
-            text1.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text1.Is<DateTime>(Context).ShouldBeFalse();
 
             text2.Is(type).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
 
             text2.Is<DateTime>().ShouldBeFalse();
-            text2.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text2.Is<DateTime>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge string is nullable DateTime type or not test")]
@@ -184,25 +195,25 @@ namespace CosmosStandardUT.ConvUT
             var text2 = DateTime.Today.ToString("yyyy MM dd");
             var text3 = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeTrue();
+            text2.Is(nullableType, Context).ShouldBeTrue();
+            text3.Is(nullableType, Context).ShouldBeTrue();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeTrue();
+            text2.IsNullable(type, Context).ShouldBeTrue();
+            text3.IsNullable(type, Context).ShouldBeTrue();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeTrue();
+            text2.IsNullable(nullableType, Context).ShouldBeTrue();
+            text3.IsNullable(nullableType, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable DateTime type or not by generic type test")]
@@ -242,25 +253,25 @@ namespace CosmosStandardUT.ConvUT
             var text2 = DateTime.Today.ToString("yyyy MM dd");
             var text3 = DateTime.Now.ToString("yyyy MM dd HH:mm:ss");
 
-            text0.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<DateTime>(Context).ShouldBeTrue();
+            text1.Is<DateTime>(Context).ShouldBeTrue();
+            text2.Is<DateTime>(Context).ShouldBeTrue();
+            text3.Is<DateTime>(Context).ShouldBeTrue();
 
-            text0.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<DateTime?>(Context).ShouldBeTrue();
+            text1.Is<DateTime?>(Context).ShouldBeTrue();
+            text2.Is<DateTime?>(Context).ShouldBeTrue();
+            text3.Is<DateTime?>(Context).ShouldBeTrue();
 
-            text0.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<DateTime>(Context).ShouldBeTrue();
+            text1.IsNullable<DateTime>(Context).ShouldBeTrue();
+            text2.IsNullable<DateTime>(Context).ShouldBeTrue();
+            text3.IsNullable<DateTime>(Context).ShouldBeTrue();
 
-            text0.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.IsNullable<DateTime?>(Context).ShouldBeTrue();
+            text1.IsNullable<DateTime?>(Context).ShouldBeTrue();
+            text2.IsNullable<DateTime?>(Context).ShouldBeTrue();
+            text3.IsNullable<DateTime?>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable DateTime type or not test")]
@@ -298,21 +309,21 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
 
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(nullableType, Context).ShouldBeTrue();
+            text1.Is(nullableType, Context).ShouldBeFalse();
+            text2.Is(nullableType, Context).ShouldBeFalse();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
 
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(nullableType, Context).ShouldBeTrue();
+            text1.IsNullable(nullableType, Context).ShouldBeFalse();
+            text2.IsNullable(nullableType, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable DateTime type or not by generic type test")]
@@ -342,17 +353,17 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
 
-            text0.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<DateTime?>(Context).ShouldBeTrue();
+            text1.Is<DateTime?>(Context).ShouldBeFalse();
+            text2.Is<DateTime?>(Context).ShouldBeFalse();
 
-            text0.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<DateTime>(Context).ShouldBeTrue();
+            text1.IsNullable<DateTime>(Context).ShouldBeFalse();
+            text2.IsNullable<DateTime>(Context).ShouldBeFalse();
 
-            text0.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<DateTime?>(Context).ShouldBeTrue();
+            text1.IsNullable<DateTime?>(Context).ShouldBeFalse();
+            text2.IsNullable<DateTime?>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge invalid string to nullable DateTime type test")]
@@ -365,76 +376,76 @@ namespace CosmosStandardUT.ConvUT
             var text2 = "2000-12-32";
 
             text0.Is(type).ShouldBeFalse();
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
 
             text0.Is<DateTime>().ShouldBeFalse();
-            text0.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<DateTime>(Context).ShouldBeFalse();
 
             text0.Is(nullableType).ShouldBeFalse();
-            text0.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(nullableType, Context).ShouldBeFalse();
 
             text0.Is<DateTime?>().ShouldBeFalse();
-            text0.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<DateTime?>(Context).ShouldBeFalse();
 
             text0.IsNullable(type).ShouldBeFalse();
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(type, Context).ShouldBeFalse();
 
             text0.IsNullable(nullableType).ShouldBeFalse();
-            text0.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable(nullableType, Context).ShouldBeFalse();
 
             text0.IsNullable<DateTime>().ShouldBeFalse();
-            text0.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<DateTime>(Context).ShouldBeFalse();
 
             text0.IsNullable<DateTime?>().ShouldBeFalse();
-            text0.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.IsNullable<DateTime?>(Context).ShouldBeFalse();
 
             text1.Is(type).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
 
             text1.Is<DateTime>().ShouldBeFalse();
-            text1.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text1.Is<DateTime>(Context).ShouldBeFalse();
 
             text1.Is(nullableType).ShouldBeFalse();
-            text1.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text1.Is(nullableType, Context).ShouldBeFalse();
 
             text1.Is<DateTime?>().ShouldBeFalse();
-            text1.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text1.Is<DateTime?>(Context).ShouldBeFalse();
 
             text1.IsNullable(type).ShouldBeFalse();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text1.IsNullable(type, Context).ShouldBeFalse();
 
             text1.IsNullable(nullableType).ShouldBeFalse();
-            text1.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text1.IsNullable(nullableType, Context).ShouldBeFalse();
 
             text1.IsNullable<DateTime>().ShouldBeFalse();
-            text1.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text1.IsNullable<DateTime>(Context).ShouldBeFalse();
 
             text1.IsNullable<DateTime?>().ShouldBeFalse();
-            text1.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text1.IsNullable<DateTime?>(Context).ShouldBeFalse();
             
             text2.Is(type).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
 
             text2.Is<DateTime>().ShouldBeFalse();
-            text2.Is<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text2.Is<DateTime>(Context).ShouldBeFalse();
 
             text2.Is(nullableType).ShouldBeFalse();
-            text2.Is(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text2.Is(nullableType, Context).ShouldBeFalse();
 
             text2.Is<DateTime?>().ShouldBeFalse();
-            text2.Is<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text2.Is<DateTime?>(Context).ShouldBeFalse();
 
             text2.IsNullable(type).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
 
             text2.IsNullable(nullableType).ShouldBeFalse();
-            text2.IsNullable(nullableType, IgnoreCase.TRUE).ShouldBeFalse();
+            text2.IsNullable(nullableType, Context).ShouldBeFalse();
 
             text2.IsNullable<DateTime>().ShouldBeFalse();
-            text2.IsNullable<DateTime>(IgnoreCase.TRUE).ShouldBeFalse();
+            text2.IsNullable<DateTime>(Context).ShouldBeFalse();
 
             text2.IsNullable<DateTime?>().ShouldBeFalse();
-            text2.IsNullable<DateTime?>(IgnoreCase.TRUE).ShouldBeFalse();
+            text2.IsNullable<DateTime?>(Context).ShouldBeFalse();
         }
     }
 }

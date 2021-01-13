@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Conversions;
 using Cosmos.Text;
 using Shouldly;
 using Xunit;
@@ -8,13 +9,23 @@ namespace CosmosStandardUT.ConvUT
     [Trait("ConvUT", "StringConv.JudgeIsVersion")]
     public class StringConvBeVersionTypeTests
     {
-          [Fact(DisplayName = "To judge string is Version type or not test")]
+        public StringConvBeVersionTypeTests()
+        {
+            Context = new CastingContext
+            {
+                IgnoreCase = IgnoreCase.TRUE
+            };
+        }
+
+        private CastingContext Context { get; set; }
+
+        [Fact(DisplayName = "To judge string is Version type or not test")]
         public void JudgingStringIsVersionTypeTest()
         {
             var type = typeof(Version);
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
 
             text0.Is(type).ShouldBeTrue();
@@ -27,23 +38,23 @@ namespace CosmosStandardUT.ConvUT
         public void JudgingStringIsVersionTypeWithIgnoreCaseTest()
         {
             var type = typeof(Version);
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is Version type or not by generic type test")]
         public void JudgingStringIsVersionTypeByGenericTypeTest()
         {
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
 
             text0.Is<Version>().ShouldBeTrue();
@@ -55,15 +66,15 @@ namespace CosmosStandardUT.ConvUT
         [Fact(DisplayName = "To judge string is Version type or not by generic type and ignore case test")]
         public void JudgingStringIsVersionTypeByGenericTypeAndWithIgnoreCaseTest()
         {
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
 
-            text0.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Version>(Context).ShouldBeTrue();
+            text1.Is<Version>(Context).ShouldBeTrue();
+            text2.Is<Version>(Context).ShouldBeTrue();
+            text3.Is<Version>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is Version type or not test")]
@@ -90,10 +101,10 @@ namespace CosmosStandardUT.ConvUT
             string text2 = "";
             string text3 = "---";
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is Version type or not by generic type test")]
@@ -118,19 +129,19 @@ namespace CosmosStandardUT.ConvUT
             string text2 = "";
             string text3 = "---";
 
-            text0.Is<Version>(IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is<Version>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is<Version>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is<Version>(IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is<Version>(Context).ShouldBeFalse();
+            text1.Is<Version>(Context).ShouldBeFalse();
+            text2.Is<Version>(Context).ShouldBeFalse();
+            text3.Is<Version>(Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge string is nullable Version type or not test")]
         public void JudgingStringIsNullableVersionTypeTest()
         {
             var type = typeof(Version);
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
 
             text0.Is(type).ShouldBeTrue();
@@ -148,28 +159,28 @@ namespace CosmosStandardUT.ConvUT
         public void JudgingStringIsNullableVersionTypeWithIgnoreCaseTest()
         {
             var type = typeof(Version);
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
 
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeTrue();
-            
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is(type, Context).ShouldBeTrue();
+            text1.Is(type, Context).ShouldBeTrue();
+            text2.Is(type, Context).ShouldBeTrue();
+            text3.Is(type, Context).ShouldBeTrue();
+
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeTrue();
+            text2.IsNullable(type, Context).ShouldBeTrue();
+            text3.IsNullable(type, Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge string is nullable Version type or not by generic type test")]
         public void JudgingStringIsNullableVersionTypeByGenericTypeTest()
         {
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
 
             text0.Is<Version>().ShouldBeTrue();
@@ -186,20 +197,20 @@ namespace CosmosStandardUT.ConvUT
         [Fact(DisplayName = "To judge string is nullable Version type or not by generic type and ignore case test")]
         public void JudgingStringIsNullableVersionTypeByGenericTypeAndWithIgnoreCaseTest()
         {
-            var text0 = new Version(1,1).ToString();
-            var text1 = new Version(1,1,1).ToString();
-            var text2 = new Version(1,1,1,1).ToString();
+            var text0 = new Version(1, 1).ToString();
+            var text1 = new Version(1, 1, 1).ToString();
+            var text2 = new Version(1, 1, 1, 1).ToString();
             var text3 = new Version("1.1.1.1").ToString();
-            
-            text0.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.Is<Version>(IgnoreCase.TRUE).ShouldBeTrue();
 
-            text0.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text2.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text3.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeTrue();
+            text0.Is<Version>(Context).ShouldBeTrue();
+            text1.Is<Version>(Context).ShouldBeTrue();
+            text2.Is<Version>(Context).ShouldBeTrue();
+            text3.Is<Version>(Context).ShouldBeTrue();
+
+            text0.IsNullable<Version>(Context).ShouldBeTrue();
+            text1.IsNullable<Version>(Context).ShouldBeTrue();
+            text2.IsNullable<Version>(Context).ShouldBeTrue();
+            text3.IsNullable<Version>(Context).ShouldBeTrue();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable Version type or not test")]
@@ -230,16 +241,16 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
             string text3 = "---";
-            
-            text0.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text1.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.Is(type, IgnoreCase.TRUE).ShouldBeFalse();
 
-            text0.IsNullable(type, IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable(type, IgnoreCase.TRUE).ShouldBeFalse();
+            text0.Is(type, Context).ShouldBeFalse();
+            text1.Is(type, Context).ShouldBeFalse();
+            text2.Is(type, Context).ShouldBeFalse();
+            text3.Is(type, Context).ShouldBeFalse();
+
+            text0.IsNullable(type, Context).ShouldBeTrue();
+            text1.IsNullable(type, Context).ShouldBeFalse();
+            text2.IsNullable(type, Context).ShouldBeFalse();
+            text3.IsNullable(type, Context).ShouldBeFalse();
         }
 
         [Fact(DisplayName = "To judge null or empty string is nullable Version type or not by generic type test")]
@@ -263,11 +274,11 @@ namespace CosmosStandardUT.ConvUT
             string text1 = string.Empty;
             string text2 = "";
             string text3 = "---";
-            
-            text0.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeTrue();
-            text1.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeFalse();
-            text2.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeFalse();
-            text3.IsNullable<Version>(IgnoreCase.TRUE).ShouldBeFalse();
+
+            text0.IsNullable<Version>(Context).ShouldBeTrue();
+            text1.IsNullable<Version>(Context).ShouldBeFalse();
+            text2.IsNullable<Version>(Context).ShouldBeFalse();
+            text3.IsNullable<Version>(Context).ShouldBeFalse();
         }
     }
 }
