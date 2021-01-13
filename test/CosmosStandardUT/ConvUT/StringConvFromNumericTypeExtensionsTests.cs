@@ -5,7 +5,7 @@ using Xunit;
 
 namespace CosmosStandardUT.ConvUT
 {
-    [Trait("ConvUT", "StringConv.StrToNumeric")]
+    [Trait("ConvUT", "StringConv.StrFromNumeric")]
     public class StringConvFromNumericTypeExtensionsTests
     {
         [Fact(DisplayName = "Convert byte and sbyte value to string test")]

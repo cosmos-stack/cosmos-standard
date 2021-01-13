@@ -1,7 +1,31 @@
+using System;
+using Cosmos.Conversions;
 using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Text
 {
+    internal static class IgnoreCaseExtensions
+    {
+        public static bool X(this IgnoreCase ignoreCase)
+        {
+            return ignoreCase switch
+            {
+                IgnoreCase.TRUE => true,
+                IgnoreCase.FALSE => false,
+                _ => false
+            };
+        }
+
+        public static IgnoreCase X(this bool b)
+        {
+            return b switch
+            {
+                true => IgnoreCase.TRUE,
+                false => IgnoreCase.FALSE
+            };
+        }
+    }
+    
     /// <summary>
     /// Object converter
     /// </summary>
@@ -21,224 +45,149 @@ namespace Cosmos.Text
         }
 
         #endregion
-
-        #region Int16/short
-
-        /// <summary>
-        /// Convert <see cref="short"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(short num, string defaultVal = "0") => StrConvX.Int16ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="short"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(short? num, string defaultVal = "") => StrConvX.Int16ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert <see cref="ushort"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(ushort num, string defaultVal = "0") => StrConvX.UInt16ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="ushort"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(ushort? num, string defaultVal = "") => StrConvX.UInt16ToString(num, defaultVal);
-
-        #endregion
-
-        #region Int32/int
-
-        /// <summary>
-        /// Convert <see cref="int"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(int num, string defaultVal = "0") => StrConvX.Int32ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="int"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(int? num, string defaultVal = "") => StrConvX.Int32ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert <see cref="uint"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(uint num, string defaultVal = "0") => StrConvX.UInt32ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="uint"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(uint? num, string defaultVal = "") => StrConvX.UInt32ToString(num, defaultVal);
-
-        #endregion
-
-        #region Int64/long
-
-        /// <summary>
-        /// Convert <see cref="long"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(long num, string defaultVal = "0") => StrConvX.Int64ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="long"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(long? num, string defaultVal = "") => StrConvX.Int64ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert <see cref="ulong"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(ulong num, string defaultVal = "0") => StrConvX.UInt64ToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="ulong"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(ulong? num, string defaultVal = "") => StrConvX.UInt64ToString(num, defaultVal);
-
-        #endregion
-
-        #region Float32/float
-
-        /// <summary>
-        /// Convert <see cref="float"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static string ToString(float num) => StrConvX.FloatToString(num);
-
-        /// <summary>
-        /// Convert nullable <see cref="float"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static string ToString(float? num) => StrConvX.FloatToString(num);
-
-        /// <summary>
-        /// Convert <see cref="float"/> to <see cref="string"/> with specified precision.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="digits"></param>
-        /// <returns></returns>
-        public static string ToString(float num, int digits) => StrConvX.FloatToString(num, digits);
-
-        /// <summary>
-        /// Convert nullable <see cref="float"/> to <see cref="string"/> with specified precision.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="digits"></param>
-        /// <returns></returns>
-        public static string ToString(float? num, int digits) => StrConvX.FloatToString(num, digits);
-
-        #endregion
-
-        #region Float64/double
-
-        /// <summary>
-        /// Convert <see cref="double"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static string ToString(double num) => StrConvX.DoubleToString(num);
-
-        /// <summary>
-        /// Convert nullable <see cref="double"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static string ToString(double? num) => StrConvX.DoubleToString(num);
-
-        /// <summary>
-        /// Convert <see cref="double"/> to <see cref="string"/> with specified precision.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="digits"></param>
-        /// <returns></returns>
-        public static string ToString(double num, int digits) => StrConvX.DoubleToString(num, digits);
-
-        /// <summary>
-        /// Convert nullable <see cref="double"/> to <see cref="string"/> with specified precision.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="digits"></param>
-        /// <returns></returns>
-        public static string ToString(double? num, int digits) => StrConvX.DoubleToString(num, digits);
-
-        #endregion
-
-        #region Decimal/decimal
-
-        /// <summary>
-        /// Convert <see cref="decimal"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(decimal num, string defaultVal = "0") => StrConvX.DecimalToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="decimal"/> to <see cref="string"/>.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(decimal? num, string defaultVal = "") => StrConvX.DecimalToString(num, defaultVal);
-
-        /// <summary>
-        /// Convert <see cref="decimal"/> to <see cref="string"/> with specified precision.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="digits"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(decimal num, int digits, string defaultVal = "0") => StrConvX.DecimalToString(num, digits, defaultVal);
-
-        /// <summary>
-        /// Convert nullable <see cref="decimal"/> to <see cref="string"/> with specified precision.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <param name="digits"></param>
-        /// <param name="defaultVal"></param>
-        /// <returns></returns>
-        public static string ToString(decimal? num, int digits, string defaultVal = "") => StrConvX.DecimalToString(num, digits, defaultVal);
-
-        #endregion
     }
 
+    /// <summary>
+    /// Cosmos <see cref="string"/> casting extensions.
+    /// </summary>
     public static partial class StringConvExtensions
     {
-        
+        #region Cast Object to String
+
+        /// <summary>
+        /// Cast <see cref="object"/> to <see cref="string"/>. <br />
+        /// 将对象 <see cref="object"/> 转换为字符串。
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static string CastToString(this object obj)
+        {
+            return StrConvX.ObjectSafeToString(obj);
+        }
+
+        #endregion
+
+        #region Cast byte array to ascii string
+
+        /// <summary>
+        /// Convert from bytes to ASCII <see cref="string"/>.
+        /// </summary>
+        /// <example>in: new byte[] {65, 66, 67}; out: ABC</example>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static string CastToString(this byte[] bytes)
+        {
+            return AsciiConv.BytesToAsciiString(bytes);
+        }
+
+        #endregion
+
+        #region Cast char array to String
+
+        /// <summary>
+        /// Convert from char array to <see cref="string"/>.
+        /// </summary>
+        /// <param name="chars"></param>
+        /// <returns></returns>
+        public static string CastToString(this char[] chars)
+        {
+            return new(chars);
+        }
+
+        #endregion
+
+        #region Cast String to Enum
+
+        /// <summary>
+        /// Convert the given string to an enumerated type. <br />
+        /// 将给定的字符串转换为枚举类型。
+        /// </summary>
+        /// <typeparam name="TEnum">枚举类型</typeparam>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static TEnum CastToEnum<TEnum>(this string text) where TEnum : struct, Enum
+        {
+            return EnumConvX.StringToEnum<TEnum>(text);
+        }
+
+        /// <summary>
+        /// Convert the given string to an enumerated type. <br />
+        /// 将给定的字符串转换为枚举类型。
+        /// </summary>
+        /// <typeparam name="TEnum">枚举类型</typeparam>
+        /// <param name="text">     </param>
+        /// <param name="ignoreCase"> 是否区分大小写 </param>
+        /// <returns></returns>
+        public static TEnum CastToEnum<TEnum>(this string text, bool ignoreCase) where TEnum : struct, Enum
+        {
+            return EnumConvX.StringToEnum<TEnum>(text, ignoreCase);
+        }
+
+        /// <summary>
+        /// Convert the given string to an enumerated type. <br />
+        /// 将给定的字符串转换为枚举类型。
+        /// </summary>
+        /// <typeparam name="TEnum">枚举类型</typeparam>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static TEnum CastToEnum<TEnum>(this string text, TEnum defaultVal) where TEnum : struct, Enum
+        {
+            return EnumConvX.StringToEnum(text, defaultVal);
+        }
+
+        /// <summary>
+        /// Convert the given string to an enumerated type. <br />
+        /// 将给定的字符串转换为枚举类型。
+        /// </summary>
+        /// <typeparam name="TEnum">枚举类型</typeparam>
+        /// <param name="text"></param>
+        /// <param name="ignoreCase">是否区分大小写</param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static TEnum CastToEnum<TEnum>(this string text, bool ignoreCase, TEnum defaultVal) where TEnum : struct, Enum
+        {
+            return EnumConvX.StringToEnum(text, defaultVal, ignoreCase);
+        }
+
+        #endregion
+
+        #region Cast String to Guid
+
+        /// <summary>
+        /// To GUID <br />
+        /// 将字符串转换为 Guid。
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static Guid CastToGuid(this string text)
+        {
+            return GuidConvX.StringToGuid(text);
+        }
+
+        /// <summary>
+        /// To GUID <br />
+        /// 将字符串转换为 Guid。
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static Guid CastToGuid(this string text, Guid defaultVal)
+        {
+            return GuidConvX.StringToGuid(text, defaultVal);
+        }
+
+        /// <summary>
+        /// To nullable GUID. <br />
+        /// 将字符串转换为可空 Guid。
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static Guid? CastToNullableGuid(this string text)
+        {
+            return GuidConvX.StringToNullableGuid(text);
+        }
+
+        #endregion
     }
 }
