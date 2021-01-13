@@ -522,6 +522,8 @@ namespace Cosmos.Conversions.Common.Core
                 long myself => myself,
                 ulong myself => myself,
                 float myself => myself,
+                double myself => StringToFloat(myself.ToString("N9")),
+                decimal myself => StringToFloat(myself.ToString("N9")),
                 string str => StringToFloat(str, defaultVal),
                 _ => StringFloatDeterminer.To(obj.ToString(), defaultVal)
             };
@@ -551,6 +553,8 @@ namespace Cosmos.Conversions.Common.Core
                 long myself => myself,
                 ulong myself => myself,
                 float myself => myself,
+                double myself => StringToNullableFloat(myself.ToString("N9")),
+                decimal myself => StringToNullableFloat(myself.ToString("N9")),
                 string str => StringToNullableFloat(str),
                 _ => null
             };
