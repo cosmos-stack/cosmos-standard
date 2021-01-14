@@ -28,14 +28,8 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            var result = DateTimeSpan.TryParse(text, formatProvider, out var dateTimeSpan);
-
-            if (result)
-            {
-                matchedCallback?.Invoke(dateTimeSpan);
-            }
-
-            return result;
+            return DateTimeSpan.TryParse(text, formatProvider, out var dateTimeSpan)
+                               .IfTrueThenInvoke(matchedCallback, dateTimeSpan);
         }
 
         /// <summary>

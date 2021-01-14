@@ -31,12 +31,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = sbyte.TryParse(text, style, formatProvider.SafeNumber(), out var number);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<sbyte>(text);
-            if (result)
-                matchedCallback?.Invoke(number);
-            return result;
+
+            return sbyte.TryParse(text, style, formatProvider.SafeNumber(), out var number)
+                        .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<sbyte>, text)
+                        .IfTrueThenInvoke(matchedCallback, number);
         }
 
         /// <summary>

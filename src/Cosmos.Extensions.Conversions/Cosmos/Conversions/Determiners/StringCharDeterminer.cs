@@ -21,12 +21,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = char.TryParse(text, out var c);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<char>(text);
-            if (result)
-                matchedCallback?.Invoke(c);
-            return result;
+            
+            return char.TryParse(text, out var c)
+                       .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<char>, text)
+                       .IfTrueThenInvoke(matchedCallback, c);
         }
 
         /// <summary>
@@ -37,7 +35,7 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="matchedCallback"></param>
         /// <returns></returns>
         public static bool Is(
-            string text, 
+            string text,
             IEnumerable<IConversionTry<string, char>> tries,
             Action<char> matchedCallback = null)
         {
@@ -66,7 +64,7 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="impls"></param>
         /// <returns></returns>
         public static char To(
-            string text, 
+            string text,
             IEnumerable<IConversionImpl<string, char>> impls)
         {
             return ValueConverter.ToXxx(text, Is, impls);

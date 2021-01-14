@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cosmos.Exceptions;
 
 namespace Cosmos
@@ -24,6 +25,20 @@ namespace Cosmos
         }
 
         /// <summary>
+        /// If true...
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="action"></param>
+        /// <param name="context"></param>
+        public static void IfTrue<T>(this bool @this, Action<T> action, T context)
+        {
+            if (@this)
+            {
+                action?.Invoke(context);
+            }
+        }
+
+        /// <summary>
         /// If false...
         /// </summary>
         /// <param name="this"></param>
@@ -33,6 +48,20 @@ namespace Cosmos
             if (!@this)
             {
                 action?.Invoke();
+            }
+        }
+
+        /// <summary>
+        /// If false...
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="action"></param>
+        /// <param name="context"></param>
+        public static void IfFalse<T>(this bool @this, Action<T> action, T context)
+        {
+            if (!@this)
+            {
+                action?.Invoke(context);
             }
         }
 
@@ -134,6 +163,74 @@ namespace Cosmos
 
         #endregion
 
+        #region If then invoke
+
+        public static bool IfTrueThenInvoke(this bool @this, Func<bool> func)
+        {
+            if (@this)
+            {
+                @this = func?.Invoke() ?? false;
+            }
+
+            return @this;
+        }
+
+        public static bool IfTrueThenInvoke<T>(this bool @this, Func<T, bool> func, T context)
+        {
+            if (@this)
+            {
+                @this = func?.Invoke(context) ?? false;
+            }
+
+            return @this;
+        }
+
+        public static bool IfTrueThenInvoke(this bool @this, Action action)
+        {
+            @this.IfTrue(action);
+            return @this;
+        }
+
+        public static bool IfTrueThenInvoke<T>(this bool @this, Action<T> action, T context)
+        {
+            @this.IfTrue(action, context);
+            return @this;
+        }
+
+        public static bool IfFalseThenInvoke(this bool @this, Func<bool> func)
+        {
+            if (!@this)
+            {
+                @this = func?.Invoke() ?? false;
+            }
+
+            return @this;
+        }
+
+        public static bool IfFalseThenInvoke<T>(this bool @this, Func<T, bool> func, T context)
+        {
+            if (!@this)
+            {
+                @this = func?.Invoke(context) ?? false;
+            }
+
+            return @this;
+        }
+
+        public static bool IfFalseThenInvoke(this bool @this, Action action)
+        {
+            @this.IfFalse(action);
+            return @this;
+        }
+
+        public static bool IfFalseThenInvoke<T>(this bool @this, Action<T> action, T context)
+        {
+            @this.IfFalse(action, context);
+            return @this;
+        }
+
+        #endregion
+
         #region To binary
 
         /// <summary>
@@ -158,5 +255,66 @@ namespace Cosmos
             @this ? trueString : falseString;
 
         #endregion
+
+        #region Then
+
+        public static bool InvokeThenTrue(this Action action)
+        {
+            action?.Invoke();
+            return true;
+        }
+
+        public static bool InvokeThenFalse(this Action action)
+        {
+            action?.Invoke();
+            return false;
+        }
+
+        #endregion
+    }
+
+    public static class FluentBooleanExtensions
+    {
+        public static bool And(this bool current, Func<bool> next)
+        {
+            if (!current) return false;
+            return next?.Invoke() ?? false;
+        }
+
+        public static bool And(this bool current, IEnumerable<Func<bool>> nextSet)
+        {
+            if (!current) return false;
+            foreach (var next in nextSet)
+                if (!(next?.Invoke() ?? false))
+                    return false;
+            return true;
+        }
+
+        public static bool And(this bool current, bool next)
+        {
+            if (!current) return false;
+            return next;
+        }
+
+        public static bool Or(this bool current, Func<bool> next)
+        {
+            if (current) return true;
+            return next?.Invoke() ?? false;
+        }
+
+        public static bool Or(this bool current, IEnumerable<Func<bool>> nextSet)
+        {
+            if (current) return true;
+            foreach (var next in nextSet)
+                if (next?.Invoke() ?? false)
+                    return true;
+            return false;
+        }
+
+        public static bool Or(this bool current, bool next)
+        {
+            if (current) return true;
+            return next;
+        }
     }
 }

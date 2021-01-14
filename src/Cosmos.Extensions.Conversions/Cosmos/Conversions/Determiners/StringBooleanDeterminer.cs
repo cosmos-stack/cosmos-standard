@@ -22,12 +22,11 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = bool.TryParse(text, out var boolean)|| GlobalBooleanVerbaManager.MayBeDetermined(text);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<bool>(text);
-            if (result)
-                matchedCallback?.Invoke(boolean);
-            return result;
+            
+            return bool.TryParse(text, out var boolean)
+                       .Or(() => GlobalBooleanVerbaManager.MayBeDetermined(text))
+                       .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<bool>, text)
+                       .IfTrueThenInvoke(matchedCallback, boolean);
         }
 
         /// <summary>

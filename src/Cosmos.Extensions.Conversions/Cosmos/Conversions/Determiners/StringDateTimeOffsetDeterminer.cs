@@ -30,12 +30,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = DateTimeOffset.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<DateTimeOffset>(text);
-            if (result)
-                matchedCallback?.Invoke(dateTimeOffset);
-            return result;
+
+            return DateTimeOffset.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTimeOffset)
+                                 .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<DateTimeOffset>, text)
+                                 .IfTrueThenInvoke(matchedCallback, dateTimeOffset);
         }
 
         /// <summary>
@@ -74,6 +72,7 @@ namespace Cosmos.Conversions.Determiners
         {
             if (text is null)
                 return defaultVal;
+
             return DateTimeOffset.TryParse(text, formatProvider.SafeDateTime(), style, out var offset)
                 ? offset
                 : defaultVal;
@@ -119,10 +118,9 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (string.IsNullOrWhiteSpace(text))
                     return false;
-                var result = DateTimeOffset.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTimeOffset);
-                if (result)
-                    matchedCallback?.Invoke(dateTimeOffset);
-                return result;
+
+                return DateTimeOffset.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTimeOffset)
+                                     .IfTrueThenInvoke(matchedCallback, dateTimeOffset);
             }
 
             /// <summary>
@@ -165,6 +163,7 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (text is null)
                     return defaultVal;
+                
                 return DateTimeOffset.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var offset)
                     ? offset
                     : defaultVal;

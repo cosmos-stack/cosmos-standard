@@ -27,10 +27,9 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = TimeSpan.TryParse(text, formatProvider.SafeDateTime(), out var timeSpan);
-            if (result)
-                matchedCallback?.Invoke(timeSpan);
-            return result;
+
+            return TimeSpan.TryParse(text, formatProvider.SafeDateTime(), out var timeSpan)
+                           .IfTrueThenInvoke(matchedCallback, timeSpan);
         }
 
         /// <summary>
@@ -65,6 +64,7 @@ namespace Cosmos.Conversions.Determiners
         {
             if (text is null)
                 return defaultVal;
+            
             return TimeSpan.TryParse(text, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
         }
 
@@ -104,10 +104,9 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (string.IsNullOrWhiteSpace(text))
                     return false;
-                var result = TimeSpan.TryParseExact(text, format, formatProvider.SafeDateTime(), out var timeSpan);
-                if (result)
-                    matchedCallback?.Invoke(timeSpan);
-                return result;
+                
+                return TimeSpan.TryParseExact(text, format, formatProvider.SafeDateTime(), out var timeSpan)
+                               .IfTrueThenInvoke(matchedCallback, timeSpan);
             }
 
             /// <summary>
@@ -146,6 +145,7 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (text is null)
                     return defaultVal;
+                
                 return TimeSpan.TryParseExact(text, format, formatProvider.SafeDateTime(), out var timeSpan) ? timeSpan : defaultVal;
             }
 

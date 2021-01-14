@@ -30,12 +30,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = DateTime.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTime);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<DateTime>(text);
-            if (result)
-                matchedCallback?.Invoke(dateTime);
-            return result;
+
+            return DateTime.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTime)
+                           .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<DateTime>, text)
+                           .IfTrueThenInvoke(matchedCallback, dateTime);
         }
 
         /// <summary>
@@ -74,6 +72,7 @@ namespace Cosmos.Conversions.Determiners
         {
             if (text is null)
                 return defaultVal;
+
             return DateTime.TryParse(text, formatProvider.SafeDateTime(), style, out var dateTime)
                 ? dateTime
                 : defaultVal;
@@ -119,10 +118,9 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (string.IsNullOrWhiteSpace(text))
                     return false;
-                var result = DateTime.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTime);
-                if (result)
-                    matchedCallback?.Invoke(dateTime);
-                return result;
+
+                return DateTime.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTime)
+                               .IfTrueThenInvoke(matchedCallback, dateTime);
             }
 
             /// <summary>
@@ -165,6 +163,7 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (text is null)
                     return defaultVal;
+                
                 return DateTime.TryParseExact(text, format, formatProvider.SafeDateTime(), style, out var dateTime)
                     ? dateTime
                     : ValueConverter.ToXxxAgain(text, defaultVal);

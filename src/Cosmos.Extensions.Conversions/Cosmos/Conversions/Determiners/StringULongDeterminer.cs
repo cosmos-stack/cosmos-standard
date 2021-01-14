@@ -39,12 +39,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = ulong.TryParse(text, style, formatProvider.SafeNumber(), out var number);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<ulong>(text);
-            if (result)
-                matchedCallback?.Invoke(number);
-            return result;
+            
+            return ulong.TryParse(text, style, formatProvider.SafeNumber(), out var number)
+                        .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<ulong>, text)
+                        .IfTrueThenInvoke(matchedCallback, number);
         }
 
         /// <summary>

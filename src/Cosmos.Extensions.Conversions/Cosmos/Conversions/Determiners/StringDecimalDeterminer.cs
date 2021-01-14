@@ -31,12 +31,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = decimal.TryParse(text, style, formatProvider.SafeNumber(), out var number);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<decimal>(text);
-            if (result)
-                matchedCallback?.Invoke(number);
-            return result;
+
+            return decimal.TryParse(text, style, formatProvider.SafeNumber(), out var number)
+                          .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<decimal>, text)
+                          .IfTrueThenInvoke(matchedCallback, number);
         }
 
         /// <summary>

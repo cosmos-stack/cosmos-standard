@@ -14,7 +14,7 @@ namespace Cosmos.Conversions.Determiners
     {
         // ReSharper disable once InconsistentNaming
         internal static bool IS(string str) => Is(str);
-        
+
         /// <summary>
         /// Is
         /// </summary>
@@ -31,12 +31,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = byte.TryParse(text, style, formatProvider.SafeNumber(), out var number);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<byte>(text);
-            if (result)
-                matchedCallback?.Invoke(number);
-            return result;
+
+            return byte.TryParse(text, style, formatProvider.SafeNumber(), out var number)
+                       .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<byte>, text)
+                       .IfTrueThenInvoke(matchedCallback, number);
         }
 
         /// <summary>
@@ -68,14 +66,14 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="formatProvider"></param>
         /// <returns></returns>
         public static byte To(
-            string text, 
+            string text,
             byte defaultVal = default,
-            NumberStyles style = NumberStyles.Integer, 
+            NumberStyles style = NumberStyles.Integer,
             IFormatProvider formatProvider = null)
         {
             if (text is null)
                 return defaultVal;
-            
+
             if (byte.TryParse(text, style, formatProvider.SafeNumber(), out var number))
                 return number;
 

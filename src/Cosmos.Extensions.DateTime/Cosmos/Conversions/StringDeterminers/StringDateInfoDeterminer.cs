@@ -30,14 +30,8 @@ namespace Cosmos.Conversions.StringDeterminers
             if (formatProvider is null)
                 formatProvider = DateTimeFormatInfo.CurrentInfo;
 
-            var result = DateInfo.TryParse(text, formatProvider, style, out var dateInfo);
-
-            if (result)
-            {
-                matchedCallback?.Invoke(dateInfo);
-            }
-
-            return result;
+            return DateInfo.TryParse(text, formatProvider, style, out var dateInfo)
+                           .IfTrueThenInvoke(matchedCallback, dateInfo);
         }
 
         /// <summary>

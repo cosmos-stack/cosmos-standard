@@ -16,15 +16,14 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="matchedCallback"></param>
         /// <returns></returns>
         public static bool Is(
-            string text, 
+            string text,
             Action<Version> matchedCallback = null)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = Version.TryParse(text, out var n);
-            if (result)
-                matchedCallback?.Invoke(n);
-            return result;
+
+            return Version.TryParse(text, out var n)
+                          .IfTrueThenInvoke(matchedCallback, n);
         }
 
         /// <summary>
@@ -36,7 +35,7 @@ namespace Cosmos.Conversions.Determiners
         /// <returns></returns>
         public static bool Is(
             string text,
-            IEnumerable<IConversionTry<string, Version>> tries, 
+            IEnumerable<IConversionTry<string, Version>> tries,
             Action<Version> matchedCallback = null)
         {
             return ValueDeterminer.IsXXX(text, string.IsNullOrWhiteSpace, Is, tries, matchedCallback);
@@ -49,11 +48,12 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static Version To(
-            string text, 
+            string text,
             Version defaultVal = default)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return defaultVal;
+            
             return Version.TryParse(text, out var result) ? result : defaultVal;
         }
 
@@ -64,7 +64,7 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="impls"></param>
         /// <returns></returns>
         public static Version To(
-            string text, 
+            string text,
             IEnumerable<IConversionImpl<string, Version>> impls)
         {
             return ValueConverter.ToXxx(text, Is, impls);

@@ -18,15 +18,13 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="matchedCallback"></param>
         /// <returns></returns>
         public static bool Is(
-            string text, 
-            Type enumType, 
+            string text,
+            Type enumType,
             bool ignoreCase = false,
             Action<object> matchedCallback = null)
         {
-            var result = EnumsNET.Enums.TryParse(enumType, text, ignoreCase, out var @enum);
-            if (result)
-                matchedCallback?.Invoke(@enum);
-            return result;
+            return EnumsNET.Enums.TryParse(enumType, text, ignoreCase, out var @enum)
+                           .IfTrueThenInvoke(matchedCallback, @enum);
         }
 
         /// <summary>
@@ -58,12 +56,13 @@ namespace Cosmos.Conversions.Determiners
         /// <returns></returns>
         public static object To(
             string text,
-            Type enumType, 
+            Type enumType,
             bool ignoreCase = false,
             object defaultVal = default)
         {
             if (text is null)
                 return defaultVal;
+            
             return EnumsNET.Enums.TryParse(enumType, text, ignoreCase, out var result)
                 ? result
                 : defaultVal ?? Activator.CreateInstance(enumType);
@@ -79,7 +78,7 @@ namespace Cosmos.Conversions.Determiners
         /// <returns></returns>
         public static object To(
             string text,
-            Type enumType, 
+            Type enumType,
             IEnumerable<IConversionImpl<string, object>> impls,
             bool ignoreCase = false)
         {

@@ -16,15 +16,14 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="matchedCallback"></param>
         /// <returns></returns>
         public static bool Is(
-            string text, 
+            string text,
             Action<Guid> matchedCallback = null)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = Guid.TryParse(text, out var guid);
-            if (result)
-                matchedCallback?.Invoke(guid);
-            return result;
+
+            return Guid.TryParse(text, out var guid)
+                       .IfTrueThenInvoke(matchedCallback, guid);
         }
 
         /// <summary>
@@ -35,7 +34,7 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="matchedCallback"></param>
         /// <returns></returns>
         public static bool Is(
-            string text, 
+            string text,
             IEnumerable<IConversionTry<string, Guid>> tries,
             Action<Guid> matchedCallback = null)
         {
@@ -54,6 +53,7 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return defaultVal;
+
             return Guid.TryParse(text, out var guid) ? guid : defaultVal;
         }
 
@@ -64,7 +64,7 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="impls"></param>
         /// <returns></returns>
         public static Guid To(
-            string text, 
+            string text,
             IEnumerable<IConversionImpl<string, Guid>> impls)
         {
             return ValueConverter.ToXxx(text, Is, impls);
@@ -89,10 +89,9 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (string.IsNullOrWhiteSpace(text))
                     return false;
-                var result = Guid.TryParseExact(text, format, out var guid);
-                if (result)
-                    matchedCallback?.Invoke(guid);
-                return result;
+
+                return Guid.TryParseExact(text, format, out var guid)
+                           .IfTrueThenInvoke(matchedCallback, guid);
             }
 
             /// <summary>
@@ -126,6 +125,7 @@ namespace Cosmos.Conversions.Determiners
             {
                 if (string.IsNullOrWhiteSpace(text))
                     return defaultVal;
+                
                 return Guid.TryParse(text, out var guid) ? guid : defaultVal;
             }
 
@@ -137,8 +137,8 @@ namespace Cosmos.Conversions.Determiners
             /// <param name="impls"></param>
             /// <returns></returns>
             public static Guid To(
-                string text, 
-                string format, 
+                string text,
+                string format,
                 IEnumerable<IConversionImpl<string, Guid>> impls)
             {
                 return ValueConverter.ToXxx(text, (s, act) => Is(s, format, act), impls);

@@ -17,15 +17,14 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="matchedCallback"></param>
         /// <returns></returns>
         public static bool Is(
-            string text, 
+            string text,
             Action<IPAddress> matchedCallback = null)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = IPAddress.TryParse(text, out var address);
-            if (result)
-                matchedCallback?.Invoke(address);
-            return result;
+
+            return IPAddress.TryParse(text, out var address)
+                            .IfTrueThenInvoke(matchedCallback, address);
         }
 
         /// <summary>
@@ -50,11 +49,12 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="defaultVal"></param>
         /// <returns></returns>
         public static IPAddress To(
-            string text, 
+            string text,
             IPAddress defaultVal = default)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return defaultVal;
+            
             return IPAddress.TryParse(text, out var address) ? address : defaultVal;
         }
 
@@ -65,7 +65,7 @@ namespace Cosmos.Conversions.Determiners
         /// <param name="impls"></param>
         /// <returns></returns>
         public static IPAddress To(
-            string text, 
+            string text,
             IEnumerable<IConversionImpl<string, IPAddress>> impls)
         {
             return ValueConverter.ToXxx(text, Is, impls);

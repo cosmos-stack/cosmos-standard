@@ -39,12 +39,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = long.TryParse(text, style, formatProvider.SafeNumber(), out var number);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<long>(text);
-            if (result)
-                matchedCallback?.Invoke(number);
-            return result;
+
+            return long.TryParse(text, style, formatProvider.SafeNumber(), out var number)
+                       .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<long>, text)
+                       .IfTrueThenInvoke(matchedCallback, number);
         }
 
         /// <summary>

@@ -36,12 +36,10 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = float.TryParse(text, style, formatProvider.SafeNumber(), out var number);
-            if (!result)
-                result = ValueDeterminer.IsXxxAgain<float>(text);
-            if (result)
-                matchedCallback?.Invoke(number);
-            return result;
+
+            return float.TryParse(text, style, formatProvider.SafeNumber(), out var number)
+                        .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<float>, text)
+                        .IfTrueThenInvoke(matchedCallback, number);
         }
 
         /// <summary>
