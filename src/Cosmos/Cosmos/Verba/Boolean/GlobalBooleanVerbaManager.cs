@@ -84,23 +84,43 @@ namespace Cosmos.Verba.Boolean
         public static bool? Determining(string verbaAlias)
         {
             if (string.IsNullOrWhiteSpace(verbaAlias))
-            {
                 return null;
-            }
 
             var verba = verbaAlias.Trim().ToLower();
 
             if (m_falseVerbaCache.Contains(verba))
-            {
                 return false;
-            }
 
             if (m_trueVerbaCache.Contains(verba))
-            {
                 return true;
-            }
 
             return null;
+        }
+
+        /// <summary>
+        /// To determine the alas value is true, false or default value you have given.
+        /// </summary>
+        /// <param name="verbaAlias"></param>
+        /// <param name="defaultVal"></param>
+        /// <returns></returns>
+        public static bool Determining(string verbaAlias, bool defaultVal)
+        {
+            return Determining(verbaAlias) ?? defaultVal;
+        }
+
+        public static bool TryDetermining(string verbaAlias, out bool result)
+        {
+            var temp = Determining(verbaAlias);
+            result = temp ?? default;
+            return temp.HasValue;
+        }
+
+        public static bool MayBeDetermined(string verbaAlias)
+        {
+            if (string.IsNullOrWhiteSpace(verbaAlias))
+                return false;
+            var verba = verbaAlias.Trim().ToLower();
+            return m_falseVerbaCache.Contains(verba) || m_trueVerbaCache.Contains(verba);
         }
     }
 }

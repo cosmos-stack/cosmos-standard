@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cosmos.Conversions.Common;
+using Cosmos.Verba.Boolean;
 
 namespace Cosmos.Conversions.Determiners
 {
@@ -21,7 +22,7 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return false;
-            var result = bool.TryParse(text, out var boolean);
+            var result = bool.TryParse(text, out var boolean)|| GlobalBooleanVerbaManager.MayBeDetermined(text);
             if (!result)
                 result = ValueDeterminer.IsXxxAgain<bool>(text);
             if (result)
@@ -56,7 +57,11 @@ namespace Cosmos.Conversions.Determiners
         {
             if (string.IsNullOrWhiteSpace(text))
                 return defaultVal;
-            return bool.TryParse(text, out var boolean) ? boolean : ValueConverter.ToXxxAgain(text, defaultVal);
+            return bool.TryParse(text, out var boolean)
+                ? boolean
+                : GlobalBooleanVerbaManager.TryDetermining(text, out boolean)
+                    ? boolean
+                    : ValueConverter.ToXxxAgain(text, defaultVal);
         }
 
         /// <summary>

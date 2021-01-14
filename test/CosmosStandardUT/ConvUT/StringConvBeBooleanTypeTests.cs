@@ -18,380 +18,135 @@ namespace CosmosStandardUT.ConvUT
 
         private CastingContext Context { get; set; }
 
-        [Fact(DisplayName = "To judge string is bool type or not test")]
-        public void JudgingStringIsBooleanTypeTest()
+        [Theory(DisplayName = "To judge string is bool type or not test")]
+        [InlineData("true")] // inline determiner
+        [InlineData("True")]
+        [InlineData("TRUE")]
+        [InlineData("false")]
+        [InlineData("False")]
+        [InlineData("FALSE")]
+        [InlineData("yes")]   // boolean verba manager
+        [InlineData("Yes")]
+        [InlineData("no")]
+        [InlineData("No")]
+        [InlineData("1")]
+        [InlineData("0")]
+        public void JudgingStringIsBooleanTypeTest(string text)
         {
             var type = typeof(bool);
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
-
-            text0.Is(type).ShouldBeTrue();
-            text1.Is(type).ShouldBeTrue();
-            text2.Is(type).ShouldBeTrue();
-            text3.Is(type).ShouldBeTrue();
-            text4.Is(type).ShouldBeTrue();
-            text5.Is(type).ShouldBeTrue();
+            
+            text.Is(type).ShouldBeTrue();
+            text.Is(type, Context).ShouldBeTrue();
+            
+            text.Is<bool>().ShouldBeTrue();
+            text.Is<bool>(Context).ShouldBeTrue();
         }
-
-        [Fact(DisplayName = "To judge string is bool type or not and ignore case test")]
-        public void JudgingStringIsBooleanTypeWithIgnoreCaseTest()
-        {
-            var type = typeof(bool);
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
-
-            text0.Is(type, Context).ShouldBeTrue();
-            text1.Is(type, Context).ShouldBeTrue();
-            text2.Is(type, Context).ShouldBeTrue();
-            text3.Is(type, Context).ShouldBeTrue();
-            text4.Is(type, Context).ShouldBeTrue();
-            text5.Is(type, Context).ShouldBeTrue();
-        }
-
-        [Fact(DisplayName = "To judge string is bool type or not by generic type test")]
-        public void JudgingStringIsBooleanTypeByGenericTypeTest()
-        {
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
-
-            text0.Is<bool>().ShouldBeTrue();
-            text1.Is<bool>().ShouldBeTrue();
-            text2.Is<bool>().ShouldBeTrue();
-            text3.Is<bool>().ShouldBeTrue();
-            text4.Is<bool>().ShouldBeTrue();
-            text5.Is<bool>().ShouldBeTrue();
-        }
-
-        [Fact(DisplayName = "To judge string is bool type or not by generic type and ignore case test")]
-        public void JudgingStringIsBooleanTypeByGenericTypeAndWithIgnoreCaseTest()
-        {
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
-
-            text0.Is<bool>(Context).ShouldBeTrue();
-            text1.Is<bool>(Context).ShouldBeTrue();
-            text2.Is<bool>(Context).ShouldBeTrue();
-            text3.Is<bool>(Context).ShouldBeTrue();
-            text4.Is<bool>(Context).ShouldBeTrue();
-            text5.Is<bool>(Context).ShouldBeTrue();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is bool type or not test")]
-        public void JudgingNullOrEmptyStringIsBooleanTypeTest()
-        {
-            var type = typeof(bool);
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
-
-            text0.Is(type).ShouldBeFalse();
-            text1.Is(type).ShouldBeFalse();
-            text2.Is(type).ShouldBeFalse();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is bool type or not and ignore case test")]
-        public void JudgingNullOrEmptyStringIsBooleanTypeWithIgnoreCaseTest()
-        {
-            var type = typeof(bool);
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
-
-            text0.Is(type, Context).ShouldBeFalse();
-            text1.Is(type, Context).ShouldBeFalse();
-            text2.Is(type, Context).ShouldBeFalse();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is bool type or not by generic type test")]
-        public void JudgingNullOrEmptyStringIsBooleanTypeByGenericTypeTest()
-        {
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
-
-            text0.Is<bool>().ShouldBeFalse();
-            text1.Is<bool>().ShouldBeFalse();
-            text2.Is<bool>().ShouldBeFalse();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is bool type or not by generic type and ignore case test")]
-        public void JudgingNullOrEmptyStringIsBooleanTypeByGenericTypeAndWithIgnoreCaseTest()
-        {
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
-
-            text0.Is<bool>(Context).ShouldBeFalse();
-            text1.Is<bool>(Context).ShouldBeFalse();
-            text2.Is<bool>(Context).ShouldBeFalse();
-        }
-
-        [Fact(DisplayName = "To judge string is nullable bool type or not test")]
-        public void JudgingStringIsNullableBooleanTypeTest()
+        
+        [Theory(DisplayName = "To judge string is nullable bool type or not test")]
+        [InlineData("true")] // inline determiner
+        [InlineData("True")]
+        [InlineData("TRUE")]
+        [InlineData("false")]
+        [InlineData("False")]
+        [InlineData("FALSE")]
+        [InlineData("yes")]   // boolean verba manager
+        [InlineData("Yes")]
+        [InlineData("no")]
+        [InlineData("No")]
+        [InlineData("1")]
+        [InlineData("0")]
+        public void JudgingStringIsNullableBooleanTypeTest(string text)
         {
             var type = typeof(bool);
             var nullableType = typeof(bool?);
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
+            
+            text.Is(type).ShouldBeTrue();
+            text.Is(nullableType).ShouldBeTrue();
+            text.IsNullable(type).ShouldBeTrue();
+            text.IsNullable(nullableType).ShouldBeTrue();
+            
+            text.Is(type, Context).ShouldBeTrue();
+            text.Is(nullableType, Context).ShouldBeTrue();
+            text.IsNullable(type, Context).ShouldBeTrue();
+            text.IsNullable(nullableType, Context).ShouldBeTrue();
+            
+            text.Is<bool>().ShouldBeTrue();
+            text.Is<bool?>().ShouldBeTrue();
+            text.IsNullable<bool>().ShouldBeTrue();
+            text.IsNullable<bool?>().ShouldBeTrue();
+            
+            text.Is<bool>(Context).ShouldBeTrue();
+            text.Is<bool?>(Context).ShouldBeTrue();
+            text.IsNullable<bool>(Context).ShouldBeTrue();
+            text.IsNullable<bool?>(Context).ShouldBeTrue();
+        }
+        
+        [Theory(DisplayName = "To judge null or empty string is bool type or not test")]
+        [InlineData(null)] // inline determiner
+        [InlineData("null")]
+        [InlineData("")]
+        public void JudgingNullOrEmptyStringIsBooleanTypeTest(string text)
+        {
+            var type = typeof(bool);
 
-            text0.Is(type).ShouldBeTrue();
-            text1.Is(type).ShouldBeTrue();
-            text2.Is(type).ShouldBeTrue();
-            text3.Is(type).ShouldBeTrue();
-            text4.Is(type).ShouldBeTrue();
-            text5.Is(type).ShouldBeTrue();
-
-            text0.Is(nullableType).ShouldBeTrue();
-            text1.Is(nullableType).ShouldBeTrue();
-            text2.Is(nullableType).ShouldBeTrue();
-            text3.Is(nullableType).ShouldBeTrue();
-            text4.Is(nullableType).ShouldBeTrue();
-            text5.Is(nullableType).ShouldBeTrue();
-
-            text0.IsNullable(type).ShouldBeTrue();
-            text1.IsNullable(type).ShouldBeTrue();
-            text2.IsNullable(type).ShouldBeTrue();
-            text3.IsNullable(type).ShouldBeTrue();
-            text4.IsNullable(type).ShouldBeTrue();
-            text5.IsNullable(type).ShouldBeTrue();
-
-            text0.IsNullable(nullableType).ShouldBeTrue();
-            text1.IsNullable(nullableType).ShouldBeTrue();
-            text2.IsNullable(nullableType).ShouldBeTrue();
-            text3.IsNullable(nullableType).ShouldBeTrue();
-            text4.IsNullable(nullableType).ShouldBeTrue();
-            text5.IsNullable(nullableType).ShouldBeTrue();
+            text.Is(type).ShouldBeFalse();
+            text.Is(type, Context).ShouldBeFalse();
+            
+            text.Is<bool>().ShouldBeFalse();
+            text.Is<bool>(Context).ShouldBeFalse();
         }
 
-        [Fact(DisplayName = "To judge string is nullable bool type or not and ignore case test")]
-        public void JudgingStringIsNullableBooleanTypeWithIgnoreCaseTest()
+        [Theory(DisplayName = "To judge null is bool type or not test")]
+        [InlineData(null)] // inline determiner
+        public void JudgingNullStringIsNullableBooleanTypeTest(string text)
         {
             var type = typeof(bool);
             var nullableType = typeof(bool?);
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
 
-            text0.Is(type, Context).ShouldBeTrue();
-            text1.Is(type, Context).ShouldBeTrue();
-            text2.Is(type, Context).ShouldBeTrue();
-            text3.Is(type, Context).ShouldBeTrue();
-            text4.Is(type, Context).ShouldBeTrue();
-            text5.Is(type, Context).ShouldBeTrue();
+            text.Is(type).ShouldBeFalse();
+            text.Is(nullableType).ShouldBeTrue();
+            text.IsNullable(type).ShouldBeTrue();
+            text.IsNullable(nullableType).ShouldBeTrue();
 
-            text0.Is(nullableType, Context).ShouldBeTrue();
-            text1.Is(nullableType, Context).ShouldBeTrue();
-            text2.Is(nullableType, Context).ShouldBeTrue();
-            text3.Is(nullableType, Context).ShouldBeTrue();
-            text4.Is(nullableType, Context).ShouldBeTrue();
-            text5.Is(nullableType, Context).ShouldBeTrue();
+            text.Is(type, Context).ShouldBeFalse();
+            text.Is(nullableType, Context).ShouldBeTrue();
+            text.IsNullable(type, Context).ShouldBeTrue();
+            text.IsNullable(nullableType, Context).ShouldBeTrue();
 
-            text0.IsNullable(type, Context).ShouldBeTrue();
-            text1.IsNullable(type, Context).ShouldBeTrue();
-            text2.IsNullable(type, Context).ShouldBeTrue();
-            text3.IsNullable(type, Context).ShouldBeTrue();
-            text4.IsNullable(type, Context).ShouldBeTrue();
-            text5.IsNullable(type, Context).ShouldBeTrue();
+            text.Is<bool?>().ShouldBeTrue();
+            text.IsNullable<bool>().ShouldBeTrue();
+            text.IsNullable<bool?>().ShouldBeTrue();
 
-            text0.IsNullable(nullableType, Context).ShouldBeTrue();
-            text1.IsNullable(nullableType, Context).ShouldBeTrue();
-            text2.IsNullable(nullableType, Context).ShouldBeTrue();
-            text3.IsNullable(nullableType, Context).ShouldBeTrue();
-            text4.IsNullable(nullableType, Context).ShouldBeTrue();
-            text5.IsNullable(nullableType, Context).ShouldBeTrue();
+            text.Is<bool?>(Context).ShouldBeTrue();
+            text.IsNullable<bool>(Context).ShouldBeTrue();
+            text.IsNullable<bool?>(Context).ShouldBeTrue();
         }
-
-        [Fact(DisplayName = "To judge string is nullable bool type or not by generic type test")]
-        public void JudgingStringIsNullableBooleanTypeByGenericTypeTest()
-        {
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
-
-            text0.Is<bool>().ShouldBeTrue();
-            text1.Is<bool>().ShouldBeTrue();
-            text2.Is<bool>().ShouldBeTrue();
-            text3.Is<bool>().ShouldBeTrue();
-            text4.Is<bool>().ShouldBeTrue();
-            text5.Is<bool>().ShouldBeTrue();
-
-            text0.Is<bool?>().ShouldBeTrue();
-            text1.Is<bool?>().ShouldBeTrue();
-            text2.Is<bool?>().ShouldBeTrue();
-            text3.Is<bool?>().ShouldBeTrue();
-            text4.Is<bool?>().ShouldBeTrue();
-            text5.Is<bool?>().ShouldBeTrue();
-
-            text0.IsNullable<bool>().ShouldBeTrue();
-            text1.IsNullable<bool>().ShouldBeTrue();
-            text2.IsNullable<bool>().ShouldBeTrue();
-            text3.IsNullable<bool>().ShouldBeTrue();
-            text4.IsNullable<bool>().ShouldBeTrue();
-            text5.IsNullable<bool>().ShouldBeTrue();
-
-            text0.IsNullable<bool?>().ShouldBeTrue();
-            text1.IsNullable<bool?>().ShouldBeTrue();
-            text2.IsNullable<bool?>().ShouldBeTrue();
-            text3.IsNullable<bool?>().ShouldBeTrue();
-            text4.IsNullable<bool?>().ShouldBeTrue();
-            text5.IsNullable<bool?>().ShouldBeTrue();
-        }
-
-        [Fact(DisplayName = "To judge string is nullable bool type or not by generic type and ignore case test")]
-        public void JudgingStringIsNullableBooleanTypeByGenericTypeAndWithIgnoreCaseTest()
-        {
-            var text0 = "true";
-            var text1 = "True";
-            var text2 = "TRUE";
-            var text3 = "false";
-            var text4 = "False";
-            var text5 = "FALSE";
-
-            text0.Is<bool>(Context).ShouldBeTrue();
-            text1.Is<bool>(Context).ShouldBeTrue();
-            text2.Is<bool>(Context).ShouldBeTrue();
-            text3.Is<bool>(Context).ShouldBeTrue();
-            text4.Is<bool>(Context).ShouldBeTrue();
-            text5.Is<bool>(Context).ShouldBeTrue();
-
-            text0.Is<bool?>(Context).ShouldBeTrue();
-            text1.Is<bool?>(Context).ShouldBeTrue();
-            text2.Is<bool?>(Context).ShouldBeTrue();
-            text3.Is<bool?>(Context).ShouldBeTrue();
-            text4.Is<bool?>(Context).ShouldBeTrue();
-            text5.Is<bool?>(Context).ShouldBeTrue();
-
-            text0.IsNullable<bool>(Context).ShouldBeTrue();
-            text1.IsNullable<bool>(Context).ShouldBeTrue();
-            text2.IsNullable<bool>(Context).ShouldBeTrue();
-            text3.IsNullable<bool>(Context).ShouldBeTrue();
-            text4.IsNullable<bool>(Context).ShouldBeTrue();
-            text5.IsNullable<bool>(Context).ShouldBeTrue();
-
-            text0.IsNullable<bool?>(Context).ShouldBeTrue();
-            text1.IsNullable<bool?>(Context).ShouldBeTrue();
-            text2.IsNullable<bool?>(Context).ShouldBeTrue();
-            text3.IsNullable<bool?>(Context).ShouldBeTrue();
-            text4.IsNullable<bool?>(Context).ShouldBeTrue();
-            text5.IsNullable<bool?>(Context).ShouldBeTrue();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is nullable bool type or not test")]
-        public void JudgingNullOrEmptyStringIsNullableBooleanTypeTest()
+        
+        [Theory(DisplayName = "To judge empty or invalid string is nullable bool type or not test")]
+        [InlineData("")] // inline determiner
+        [InlineData("null")]
+        public void JudgingEmptyOrInvalidStringIsNullableBooleanTypeTest(string text)
         {
             var type = typeof(bool);
             var nullableType = typeof(bool?);
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
+            
+            text.Is(type).ShouldBeFalse();
+            text.Is(nullableType).ShouldBeFalse();
+            text.IsNullable(type).ShouldBeFalse();
+            text.IsNullable(nullableType).ShouldBeFalse();
+            
+            text.Is(type, Context).ShouldBeFalse();
+            text.Is(nullableType, Context).ShouldBeFalse();
+            text.IsNullable(type, Context).ShouldBeFalse();
+            text.IsNullable(nullableType, Context).ShouldBeFalse();
 
-            text0.Is(type).ShouldBeFalse();
-            text1.Is(type).ShouldBeFalse();
-            text2.Is(type).ShouldBeFalse();
+            text.Is<bool?>().ShouldBeFalse();
+            text.IsNullable<bool>().ShouldBeFalse();
+            text.IsNullable<bool?>().ShouldBeFalse();
 
-            text0.Is(nullableType).ShouldBeTrue();
-            text1.Is(nullableType).ShouldBeFalse();
-            text2.Is(nullableType).ShouldBeFalse();
-
-            text0.IsNullable(type).ShouldBeTrue();
-            text1.IsNullable(type).ShouldBeFalse();
-            text2.IsNullable(type).ShouldBeFalse();
-
-            text0.IsNullable(nullableType).ShouldBeTrue();
-            text1.IsNullable(nullableType).ShouldBeFalse();
-            text2.IsNullable(nullableType).ShouldBeFalse();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is nullable bool type or not and ignore case test")]
-        public void JudgingNullOrEmptyStringIsNullableBooleanTypeWithIgnoreCaseTest()
-        {
-            var type = typeof(bool);
-            var nullableType = typeof(bool?);
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
-
-            text0.Is(type, Context).ShouldBeFalse();
-            text1.Is(type, Context).ShouldBeFalse();
-            text2.Is(type, Context).ShouldBeFalse();
-
-            text0.Is(nullableType, Context).ShouldBeTrue();
-            text1.Is(nullableType, Context).ShouldBeFalse();
-            text2.Is(nullableType, Context).ShouldBeFalse();
-
-            text0.IsNullable(type, Context).ShouldBeTrue();
-            text1.IsNullable(type, Context).ShouldBeFalse();
-            text2.IsNullable(type, Context).ShouldBeFalse();
-
-            text0.IsNullable(nullableType, Context).ShouldBeTrue();
-            text1.IsNullable(nullableType, Context).ShouldBeFalse();
-            text2.IsNullable(nullableType, Context).ShouldBeFalse();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is nullable bool type or not by generic type test")]
-        public void JudgingNullOrEmptyStringIsNullableBooleanTypeByGenericTypeTest()
-        {
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
-
-            text0.Is<bool?>().ShouldBeTrue();
-            text1.Is<bool?>().ShouldBeFalse();
-            text2.Is<bool?>().ShouldBeFalse();
-
-            text0.IsNullable<bool>().ShouldBeTrue();
-            text1.IsNullable<bool>().ShouldBeFalse();
-            text2.IsNullable<bool>().ShouldBeFalse();
-
-            text0.IsNullable<bool?>().ShouldBeTrue();
-            text1.IsNullable<bool?>().ShouldBeFalse();
-            text2.IsNullable<bool?>().ShouldBeFalse();
-        }
-
-        [Fact(DisplayName = "To judge null or empty string is nullable bool type or not by generic type and ignore case test")]
-        public void JudgingNullOrEmptyStringIsNullableBooleanTypeByGenericTypeAndWithIgnoreCaseTest()
-        {
-            string text0 = null;
-            string text1 = string.Empty;
-            string text2 = "";
-
-            text0.Is<bool?>(Context).ShouldBeTrue();
-            text1.Is<bool?>(Context).ShouldBeFalse();
-            text2.Is<bool?>(Context).ShouldBeFalse();
-
-            text0.IsNullable<bool>(Context).ShouldBeTrue();
-            text1.IsNullable<bool>(Context).ShouldBeFalse();
-            text2.IsNullable<bool>(Context).ShouldBeFalse();
-
-            text0.IsNullable<bool?>(Context).ShouldBeTrue();
-            text1.IsNullable<bool?>(Context).ShouldBeFalse();
-            text2.IsNullable<bool?>(Context).ShouldBeFalse();
+            text.Is<bool?>(Context).ShouldBeFalse();
+            text.IsNullable<bool>(Context).ShouldBeFalse();
+            text.IsNullable<bool?>(Context).ShouldBeFalse();
         }
     }
 }

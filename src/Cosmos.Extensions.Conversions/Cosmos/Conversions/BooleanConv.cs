@@ -16,9 +16,7 @@ namespace Cosmos.Conversions
         public static bool ToBoolean(object obj)
         {
             if (obj is null)
-            {
                 return false;
-            }
 
             var boolean = GetBoolean(obj);
 
@@ -33,9 +31,7 @@ namespace Cosmos.Conversions
         public static bool? ToNullableBoolean(object obj)
         {
             if (obj is null)
-            {
                 return null;
-            }
 
             var boolean = GetBoolean(obj);
 
