@@ -7,8 +7,7 @@ using Cosmos.Reflection;
 
 namespace Cosmos.Validation.Internals
 {
-    //todo 临时性 public，最终将使用 internal
-    public static class ValidationExceptionHelper
+    internal static class ValidationExceptionHelper
     {
         /// <summary>
         /// Require.
