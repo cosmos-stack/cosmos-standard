@@ -17,15 +17,9 @@ namespace Cosmos.Exceptions
         public static Exception Unwrap(this Exception ex)
         {
             if (ex is null)
-            {
                 throw new ArgumentNullException(nameof(ex));
-            }
-
             while (ex.InnerException != null)
-            {
                 ex = ex.InnerException;
-            }
-
             return ex;
         }
 
@@ -45,13 +39,13 @@ namespace Cosmos.Exceptions
                 throw new ArgumentNullException(nameof(untilType));
             if (!untilType.IsSubclassOf(typeof(Exception)))
                 throw new ArgumentException($"Type '{untilType}' does not devide from {typeof(Exception)}", nameof(untilType));
-            if (ex.InnerException is null)
-                return null;
 
-            var exception = ex.Unwrap();
+            var exception = ex;
             return exception.GetType() == untilType || mayDerivedClass && exception.GetType().IsSubclassOf(untilType)
                 ? exception
-                : Unwrap(exception, untilType);
+                : exception.InnerException is null
+                    ? null
+                    : Unwrap(exception.InnerException, untilType, mayDerivedClass);
         }
 
         /// <summary>
