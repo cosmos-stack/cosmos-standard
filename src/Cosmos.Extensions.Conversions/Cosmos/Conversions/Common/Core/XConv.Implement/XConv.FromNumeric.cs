@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Reflection;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
@@ -10,17 +11,11 @@ namespace Cosmos.Conversions.Common.Core
             Type oType, bool oTypeNullableFlag, object oVal, CastingContext context,
             Type xType, bool xTypeNullableFlag, X defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (oTypeNullableFlag)
-            {
-                valueUpdated = FromNullableNumericTypeToTypeProxy(oType, oVal, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromNumericTypeToTypeProxy(oVal, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = oTypeNullableFlag 
+                ? FromNullableNumericTypeToTypeProxy(oType, oVal, context, xType, out result)
+                : FromNumericTypeToTypeProxy(oVal, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? (X) result
@@ -33,17 +28,11 @@ namespace Cosmos.Conversions.Common.Core
             Type oType, bool oTypeNullableFlag, object oVal, CastingContext context,
             Type xType, bool xTypeNullableFlag, object defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (oTypeNullableFlag)
-            {
-                valueUpdated = FromNullableNumericTypeToTypeProxy(oType, oVal, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromNumericTypeToTypeProxy(oVal, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = oTypeNullableFlag 
+                ? FromNullableNumericTypeToTypeProxy(oType, oVal, context, xType, out result) 
+                : FromNumericTypeToTypeProxy(oVal, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? result
@@ -70,7 +59,7 @@ namespace Cosmos.Conversions.Common.Core
 
         private static bool FromNullableNumericTypeToTypeProxy(Type oType, object oVal, CastingContext context, Type xType, out object result)
         {
-            var innerType = Nullable.GetUnderlyingType(xType);
+            var innerType = TypeConv.GetNonNullableType(xType);
             if (TypeDeterminer.IsStringType(innerType))
                 return FromNullableNumericTypeToString(oVal, oType, context, out result);
             if (TypeDeterminer.IsNumericType(innerType))

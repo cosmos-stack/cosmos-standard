@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Reflection;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
@@ -8,17 +9,11 @@ namespace Cosmos.Conversions.Common.Core
     {
         public static X FromDateTimeTo<X>(DateTime dateTime, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromDateTimeToNullableTypeProxy(dateTime, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromDateTimeToTypeProxy(dateTime, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromDateTimeToNullableTypeProxy(dateTime, context, xType, out result) 
+                : FromDateTimeToTypeProxy(dateTime, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? (X) result
@@ -29,17 +24,11 @@ namespace Cosmos.Conversions.Common.Core
 
         public static object FromDateTimeTo(DateTime dateTime, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromDateTimeToNullableTypeProxy(dateTime, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromDateTimeToTypeProxy(dateTime, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromDateTimeToNullableTypeProxy(dateTime, context, xType, out result)
+                : FromDateTimeToTypeProxy(dateTime, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? result
@@ -82,7 +71,7 @@ namespace Cosmos.Conversions.Common.Core
 
         private static bool FromDateTimeToNullableTypeProxy(DateTime dateTime, CastingContext context, Type xType, out object result)
         {
-            var innerType = Nullable.GetUnderlyingType(xType);
+            var innerType = TypeConv.GetNonNullableType(xType);
             if (TypeDeterminer.IsStringType(innerType))
                 return FromDateTimeToNullableString(dateTime, context, out result);
             if (TypeDeterminer.IsNumericType(innerType))

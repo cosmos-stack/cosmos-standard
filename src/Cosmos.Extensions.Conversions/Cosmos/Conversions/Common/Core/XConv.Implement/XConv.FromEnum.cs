@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Reflection;
 
 // ReSharper disable UnusedParameter.Local
 // ReSharper disable InconsistentNaming
@@ -9,17 +10,11 @@ namespace Cosmos.Conversions.Common.Core
     {
         public static X FromEnumTo<X>(Type enumType, object enumVal, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromEnumToNullableTypeProxy(enumType, enumVal, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromEnumToTypeProxy(enumType, enumVal, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag
+                ? FromEnumToNullableTypeProxy(enumType, enumVal, context, xType, out result)
+                : FromEnumToTypeProxy(enumType, enumVal, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? (X) result
@@ -30,17 +25,11 @@ namespace Cosmos.Conversions.Common.Core
 
         public static object FromEnumTo(Type enumType, object enumVal, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromEnumToNullableTypeProxy(enumType, enumVal, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromEnumToTypeProxy(enumType, enumVal, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag
+                ? FromEnumToNullableTypeProxy(enumType, enumVal, context, xType, out result) 
+                : FromEnumToTypeProxy(enumType, enumVal, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? result
@@ -83,7 +72,7 @@ namespace Cosmos.Conversions.Common.Core
 
         private static bool FromEnumToNullableTypeProxy(Type enumType, object enumVal, CastingContext context, Type xType, out object result)
         {
-            var innerType = Nullable.GetUnderlyingType(xType);
+            var innerType = TypeConv.GetNonNullableType(xType);
             if (TypeDeterminer.IsNumericType(innerType))
                 return FromEnumToNullableNumericType(enumType, enumVal, innerType, out result);
             if (TypeDeterminer.IsStringType(innerType))

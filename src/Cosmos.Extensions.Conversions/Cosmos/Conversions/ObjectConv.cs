@@ -20,8 +20,10 @@ namespace Cosmos.Conversions
         /// <param name="source"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public static object To(Type sourceType, Type targetType, object source, CastingContext context = default) =>
-            XConv.To(source, sourceType, targetType, context: context);
+        public static object To(Type sourceType, Type targetType, object source, CastingContext context = default)
+        {
+            return XConv.To(source, sourceType, targetType, context: context);
+        }
 
         /// <summary>
         /// Convert from sourceType to targetType
@@ -32,8 +34,10 @@ namespace Cosmos.Conversions
         /// <param name="defaultVal"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public static object To(Type sourceType, Type targetType, object source, object defaultVal, CastingContext context = default) =>
-            XConv.To(source, sourceType, targetType, defaultVal, context);
+        public static object To(Type sourceType, Type targetType, object source, object defaultVal, CastingContext context = default)
+        {
+            return XConv.To(source, sourceType, targetType, defaultVal, context);
+        }
 
         #endregion
 
@@ -46,8 +50,10 @@ namespace Cosmos.Conversions
         /// <param name="context"></param>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
-        public static TTo To<TTo>(object source, CastingContext context = default) =>
-            XConv.To(source, source?.GetType(), typeof(TTo), context: context).As<TTo>();
+        public static TTo To<TTo>(object source, CastingContext context = default)
+        {
+            return XConv.To(source, source?.GetType(), typeof(TTo), context: context).As<TTo>();
+        }
 
         /// <summary>
         /// Convert from sourceType to targetType
@@ -57,8 +63,10 @@ namespace Cosmos.Conversions
         /// <param name="context"></param>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
-        public static TTo To<TTo>(object source, TTo defaultVal, CastingContext context = default) =>
-            XConv.To(source, source?.GetType(), typeof(TTo), defaultVal, context).As<TTo>();
+        public static TTo To<TTo>(object source, TTo defaultVal, CastingContext context = default)
+        {
+            return XConv.To(source, source?.GetType(), typeof(TTo), defaultVal, context).As<TTo>();
+        }
 
         #endregion
 
@@ -72,8 +80,10 @@ namespace Cosmos.Conversions
         /// <typeparam name="TFrom"></typeparam>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
-        public static TTo To<TFrom, TTo>(TFrom source, CastingContext context = default) =>
-            XConv.To<TFrom, TTo>(source, context: context);
+        public static TTo To<TFrom, TTo>(TFrom source, CastingContext context = default)
+        {
+            return XConv.To<TFrom, TTo>(source, context: context);
+        }
 
         /// <summary>
         /// Convert from TFrom to TTo
@@ -84,8 +94,10 @@ namespace Cosmos.Conversions
         /// <typeparam name="TFrom"></typeparam>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
-        public static TTo To<TFrom, TTo>(TFrom source, TTo defaultVal, CastingContext context = default) =>
-            XConv.To(source, defaultVal, context);
+        public static TTo To<TFrom, TTo>(TFrom source, TTo defaultVal, CastingContext context = default)
+        {
+            return XConv.To(source, defaultVal, context);
+        }
 
         #endregion
 
@@ -103,9 +115,7 @@ namespace Cosmos.Conversions
             var results = new List<TTo>();
 
             if (string.IsNullOrWhiteSpace(listStr))
-            {
                 return results;
-            }
 
             var array = listStr.Split(splitChar);
             results.AddRange(from each in array where !string.IsNullOrWhiteSpace(each) select each.CastTo<TTo>());

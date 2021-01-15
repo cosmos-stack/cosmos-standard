@@ -1,5 +1,6 @@
 using System;
 using Cosmos.Conversions.Mappers;
+using Cosmos.Reflection;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable once CheckNamespace
@@ -9,17 +10,11 @@ namespace Cosmos.Conversions.Common.Core
     {
         public static X FromObjTo<X>(object fromObj, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromObjToNullableTypeProxy(fromObj, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromObjToTypeProxy(fromObj, defaultVal, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromObjToNullableTypeProxy(fromObj, xType, out result) 
+                : FromObjToTypeProxy(fromObj, defaultVal, xType, out result);
 
             if (valueUpdated)
             {
@@ -45,17 +40,11 @@ namespace Cosmos.Conversions.Common.Core
 
         public static object FromObjTo(object fromObj, Type oType, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromObjToNullableTypeProxy(fromObj, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromObjToTypeProxy(fromObj, defaultVal, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromObjToNullableTypeProxy(fromObj, xType, out result)
+                : FromObjToTypeProxy(fromObj, defaultVal, xType, out result);
 
             if (valueUpdated)
             {
@@ -160,7 +149,7 @@ namespace Cosmos.Conversions.Common.Core
 
         private static bool FromObjToNullableTypeProxy(object fromObj, Type xType, out object result)
         {
-            var innerType = Nullable.GetUnderlyingType(xType);
+            var innerType = TypeConv.GetNonNullableType(xType);
             if (TypeDeterminer.IsStringType(innerType))
             {
                 result = StrConvX.ObjectSafeToString(fromObj);

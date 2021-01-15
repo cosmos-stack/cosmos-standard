@@ -1,5 +1,6 @@
 using System;
 using Cosmos.Conversions.Mappers;
+using Cosmos.Exceptions;
 using Cosmos.Reflection;
 
 // ReSharper disable InconsistentNaming
@@ -10,27 +11,12 @@ namespace Cosmos.Conversions.Common.Core
     {
         public static T T<T>(Func<T> func, T defaultVal)
         {
-            try
-            {
-                return func();
-            }
-            catch
-            {
-                return defaultVal;
-            }
+            return Try.Create(func).Recover(_ => defaultVal).Value;
         }
-        
+
         public static bool I<T>(Func<T> func)
         {
-            try
-            {
-                 func();
-                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return Try.Create(func).IsSuccess;
         }
 
         public static bool D<TSource, TTarget>(
@@ -51,7 +37,7 @@ namespace Cosmos.Conversions.Common.Core
             return false;
         }
     }
-    
+
     internal static partial class XConv
     {
         public static X To<O, X>(O from, X defaultVal = default, CastingContext context = null, IObjectMapper mapper = null)
@@ -74,6 +60,11 @@ namespace Cosmos.Conversions.Common.Core
             if (oType == xType)
             {
                 return from.AsOrDefault(defaultVal);
+            }
+
+            if (CustomConvertManager.TryGetConvertHandler(oType, xType, out var handler))
+            {
+                return (handler?.Invoke(from)).As<X>() ?? defaultVal;
             }
 
             if (from is string strFrom)

@@ -10,17 +10,11 @@ namespace Cosmos.Conversions.Common.Core
     {
         public static X FromStringTo<X>(string @from, Type xType, bool xTypeNullableFlag, X defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromStringToNullableTypeProxy(from, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromStringToTypeProxy(from, defaultVal, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromStringToNullableTypeProxy(@from, xType, out result) 
+                : FromStringToTypeProxy(@from, defaultVal, xType, out result);
 
             return valueUpdated
                 ? (X) result
@@ -31,17 +25,11 @@ namespace Cosmos.Conversions.Common.Core
 
         public static object FromStringTo(string @from, Type xType, bool xTypeNullableFlag, object defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromStringToNullableTypeProxy(from, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromStringToTypeProxy(from, defaultVal, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromStringToNullableTypeProxy(@from, xType, out result) 
+                : FromStringToTypeProxy(@from, defaultVal, xType, out result);
 
             return valueUpdated
                 ? result
@@ -94,7 +82,7 @@ namespace Cosmos.Conversions.Common.Core
 
         private static bool FromStringToNullableTypeProxy(string from, Type xType, out object result)
         {
-            var innerType = Nullable.GetUnderlyingType(xType);
+            var innerType = TypeConv.GetNonNullableType(xType);
             if (TypeDeterminer.IsNumericType(innerType))
                 return FromStringToNullableNumericType(from, innerType, out result);
             if (TypeDeterminer.IsGuidType(innerType))

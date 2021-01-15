@@ -9,17 +9,11 @@ namespace Cosmos.Conversions.Common.Core
     {
         public static X FromGuidTo<X>(Guid guid, CastingContext context, Type xType, bool xTypeNullableFlag, X defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromGuidToNullableTypeProxy(guid, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromGuidToTypeProxy(guid, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromGuidToNullableTypeProxy(guid, context, xType, out result) 
+                : FromGuidToTypeProxy(guid, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? (X) result
@@ -30,17 +24,11 @@ namespace Cosmos.Conversions.Common.Core
 
         public static object FromGuidTo(Guid guid, CastingContext context, Type xType, bool xTypeNullableFlag, object defaultVal = default)
         {
-            bool valueUpdated;
             object result;
 
-            if (xTypeNullableFlag)
-            {
-                valueUpdated = FromGuidToNullableTypeProxy(guid, context, xType, out result);
-            }
-            else
-            {
-                valueUpdated = FromGuidToTypeProxy(guid, defaultVal, context, xType, out result);
-            }
+            var valueUpdated = xTypeNullableFlag 
+                ? FromGuidToNullableTypeProxy(guid, context, xType, out result) 
+                : FromGuidToTypeProxy(guid, defaultVal, context, xType, out result);
 
             return valueUpdated
                 ? result
@@ -103,7 +91,7 @@ namespace Cosmos.Conversions.Common.Core
 
         private static bool FromGuidToNullableTypeProxy(Guid from, CastingContext context, Type xType, out object result)
         {
-            var innerType = Nullable.GetUnderlyingType(xType);
+            var innerType = TypeConv.GetNonNullableType(xType);
             if (innerType == TypeClass.StringClazz)
                 return FromGuidToString(from, context, string.Empty, out result);
             if (TypeDeterminer.IsOriginObject(innerType))
