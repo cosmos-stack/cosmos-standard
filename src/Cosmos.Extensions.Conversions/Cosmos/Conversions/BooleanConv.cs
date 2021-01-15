@@ -36,14 +36,10 @@ namespace Cosmos.Conversions
             var boolean = GetBoolean(obj);
 
             if (boolean.HasValue)
-            {
                 return boolean.Value;
-            }
 
             if (bool.TryParse(obj.ToString(), out var ret))
-            {
                 return ret;
-            }
 
             return null;
         }
