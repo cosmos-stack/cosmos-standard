@@ -54,7 +54,10 @@ namespace Cosmos.Exceptions
         }
 
         /// <inheritdoc />
-        public override Try<T> Recover(Func<Exception, T> recoverFunction) => RecoverWith(ex => Try.LiftValue(recoverFunction(ex)));
+        public override Try<T> Recover(Func<Exception, T> recoverFunction)
+        {
+            return RecoverWith(ex => Try.LiftValue(recoverFunction(ex)));
+        }
 
         /// <inheritdoc />
         public override Try<T> RecoverWith(Func<Exception, Try<T>> recoverFunction)
