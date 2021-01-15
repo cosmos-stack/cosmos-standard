@@ -35,6 +35,47 @@ namespace Cosmos.Optionals
         public static T SafeValue<T>(this T? value, T defaultValue) where T : struct => value.GetValueOrDefault(defaultValue);
 
         /// <summary>
+        /// Return a safe value<br />
+        /// 安全返回值
+        /// <para>如果可空值真为空，则返回默认值</para>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="defaultValFunc"></param>
+        /// <returns></returns>
+        public static T SafeValue<T>(this T? value, Func<T> defaultValFunc) where T : struct => value.GetValueOrDefault(defaultValFunc?.Invoke() ?? default);
+
+        /// <summary>
+        /// Return a safe value<br />
+        /// 安全返回值
+        /// <para>如果可空值真为空，则返回默认值</para>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="condition"></param>
+        /// <param name="defaultValFunc"></param>
+        /// <param name="elseValFunc"></param>
+        /// <returns></returns>
+        public static T SafeValue<T>(this T? value, Func<T?, bool> condition, Func<T> defaultValFunc,Func<T> elseValFunc) where T : struct
+        {
+            if (condition?.Invoke(value) ?? false)
+                return defaultValFunc?.Invoke() ?? default;
+            return value.SafeValue(elseValFunc);
+        }
+
+        /// <summary>
+        /// Return a safe value<br />
+        /// 安全返回值
+        /// </summary>
+        /// <param name="value"> 可空值 </param>
+        /// <param name="result"></param>
+        public static bool TrySafeValue<T>(this T? value, out T result) where T : struct
+        {
+            result = value.HasValue ? value.Value : default;
+            return value.HasValue;
+        }
+        
+        /// <summary>
         /// Return a safe <see cref="string"/> value.
         /// 获取 Null安全 的字符串
         /// </summary>
