@@ -24,16 +24,21 @@ namespace CosmosStandardUT.ConditionUT
             var lvC = lv5.Unwrap<ArgumentNullException>();
             var lvD = lv5.Unwrap(typeof(InvalidOperationException));
             var lvE = lv5.Unwrap<InvalidOperationException>();
-            
+
             lvA.ShouldNotBeNull();
             lvB.ShouldNotBeNull();
             lvC.ShouldNotBeNull();
             lvD.ShouldNotBeNull();
             lvE.ShouldNotBeNull();
 
-            var message = @"lv0
+            var message =
+#if NETFRAMEWORK
+                @"lv0
 Parameter name: name";
-            
+#else
+                @"lv0 (Parameter 'name')";
+#endif
+
             lvA.Message.ShouldBe(message);
             lvB.Message.ShouldBe(message);
             lvC.Message.ShouldBe(message);
@@ -56,24 +61,34 @@ Parameter name: name";
             var lvB = lv5.ToFullUnwrappedString();
             var lvC = lvZ.ToUnwrappedString();
             var lvD = lvZ.ToFullUnwrappedString();
-            
+
+            var fullMessage =
+#if NETFRAMEWORK
+                @"lvZ
+lv0
+Parameter name: name";
+#else
+                @"lvZ
+lv0 (Parameter 'name')";
+#endif
+
             lvA.ShouldBe(lv0.Message);
             lvB.ShouldBe(lv0.Message);
             lvC.ShouldBe(lv0.Message);
-            lvD.ShouldBe(@"lvZ
-lv0
-Parameter name: name");
+            lvD.ShouldBe(fullMessage);
         }
 
         [Fact(DisplayName = "Exceptions options creating test")]
         public void ExceptionOptionsCreatingTest()
         {
-            var options = new ExceptionOptions();
-            options.InnerException = new InvalidOperationException("invalid ops");
-            options.ErrorCode = 1000;
-            options.Flag = "TEST_ERR";
-            var lvZ=new ValidationException(options);
-            
+            var options = new ExceptionOptions
+            {
+                InnerException = new InvalidOperationException("invalid ops"),
+                ErrorCode = 1000,
+                Flag = "TEST_ERR"
+            };
+            var lvZ = new ValidationException(options);
+
             lvZ.InnerException.ShouldNotBeNull();
             lvZ.InnerException.Message.ShouldBe("invalid ops");
             lvZ.Code.ShouldBe(1000);
