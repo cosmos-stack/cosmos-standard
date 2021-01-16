@@ -1,4 +1,4 @@
-#if !NET451 && !NET452
+﻿#if !NET451 && !NET452
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +12,7 @@ namespace Cosmos.Exceptions
     /// Exception builder<br />
     /// 异常构建器。
     /// </summary>
-    /// <typeparam name="TException"></typeparam>
-    internal class ExceptionBuilder<TException> : IFluentExceptionBuilder<TException> where TException : Exception
+    internal class CommonExceptionBuilder : ICommonExceptionBuilder
     {
         private readonly Type _typeOfException;
 
@@ -21,9 +20,13 @@ namespace Cosmos.Exceptions
         /// Create a new instance of <see cref="ExceptionBuilder{TException}"/>. <br />
         /// 创建一个新的 <see cref="ExceptionBuilder{TException}"/> 实例。
         /// </summary>
-        public ExceptionBuilder()
+        public CommonExceptionBuilder(Type typeOfException)
         {
-            _typeOfException = Types.Of<TException>();
+            if (typeOfException is null)
+                throw new ArgumentNullException(nameof(typeOfException));
+            if (!typeOfException.IsSubclassOf(typeof(Exception)))
+                throw new ArgumentException($"Type '{typeOfException}' does not be divided from {typeof(Exception)}", nameof(typeOfException));
+            _typeOfException = typeOfException;
             _additionalOps = null;
         }
 
@@ -31,9 +34,14 @@ namespace Cosmos.Exceptions
         /// Create a new instance of <see cref="ExceptionBuilder{TException}"/>. <br />
         /// 创建一个新的 <see cref="ExceptionBuilder{TException}"/> 实例。
         /// </summary>
-        public ExceptionBuilder(Action<Dictionary<string, IArgDescriptionVal>, ExceptionBuildingOptions> additionalOps)
+        public CommonExceptionBuilder(Type typeOfException,
+            Action<Dictionary<string, IArgDescriptionVal>, ExceptionBuildingOptions> additionalOps)
         {
-            _typeOfException = Types.Of<TException>();
+            if (typeOfException is null)
+                throw new ArgumentNullException(nameof(typeOfException));
+            if (!typeOfException.IsSubclassOf(typeof(Exception)))
+                throw new ArgumentException($"Type '{typeOfException}' does not be divided from {typeof(Exception)}", nameof(typeOfException));
+            _typeOfException = typeOfException;
             _additionalOps = additionalOps;
         }
 
@@ -52,7 +60,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="innerException"></param>
         /// <returns></returns>
-        public IFluentExceptionBuilder<TException> InnerException(Exception innerException)
+        public ICommonExceptionBuilder InnerException(Exception innerException)
         {
             if (innerException is null)
                 return this;
@@ -69,7 +77,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="paramName"></param>
         /// <returns></returns>
-        public IFluentExceptionBuilder<TException> ParamName(string paramName)
+        public ICommonExceptionBuilder ParamName(string paramName)
         {
             if (string.IsNullOrWhiteSpace(paramName))
                 return this;
@@ -86,7 +94,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public IFluentExceptionBuilder<TException> Message(string message)
+        public ICommonExceptionBuilder Message(string message)
         {
             if (string.IsNullOrWhiteSpace(message))
                 return this;
@@ -103,7 +111,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="actualValue"></param>
         /// <returns></returns>
-        public IFluentExceptionBuilder<TException> ActualValue(object actualValue)
+        public ICommonExceptionBuilder ActualValue(object actualValue)
         {
             _actualValue = actualValue;
             return this;
@@ -117,13 +125,13 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="errorCode"></param>
         /// <returns></returns>
-        public IFluentExceptionBuilder<TException> ErrorCode(int errorCode)
+        public ICommonExceptionBuilder ErrorCode(int errorCode)
         {
             _errorCode = errorCode;
             return this;
         }
 
-        private TException CachedException { get; set; }
+        private Exception CachedException { get; set; }
 
         private readonly Action<Dictionary<string, IArgDescriptionVal>, ExceptionBuildingOptions> _additionalOps;
 
@@ -132,8 +140,8 @@ namespace Cosmos.Exceptions
             if (CachedException is null)
             {
                 var options = new ExceptionBuildingOptions(TargetType, exceptionParams)
-                              .AddArg(ExceptionArgConstants.INNER, _innerException, x => x != null && __hasArgName(ExceptionArgConstants.INNER))
-                              .AddArg(ExceptionArgConstants.INNER_EXCEPTION, _innerException, x => x != null && __hasArgName(ExceptionArgConstants.INNER_EXCEPTION))
+                              .AddArg(ExceptionArgConstants.INNER, _innerException, x => x != null)
+                              .AddArg(ExceptionArgConstants.INNER_EXCEPTION, _innerException, x => x != null)
                               .AddArg(ExceptionArgConstants.MESSAGE, _message, x => !string.IsNullOrWhiteSpace(x))
                               .AddArg(ExceptionArgConstants.PARAM_NAME, _paramName, x => !string.IsNullOrWhiteSpace(x))
                               .AddArg(ExceptionArgConstants.ACTUAL_VALUE, _actualValue, x => x is not null)
@@ -142,18 +150,10 @@ namespace Cosmos.Exceptions
                 if (exceptionParams is not null)
                     _additionalOps?.Invoke(exceptionParams, options);
 #if !NETFRAMEWORK
-                CachedException = TypeVisit.CreateInstance<TException>(options.ExceptionType, options.ArgumentDescriptors);
+                CachedException = TypeVisit.CreateInstance(options.ExceptionType, options.ArgumentDescriptors).As<Exception>();
 #else
-                CachedException = TypeVisit.CreateInstance<TException>(options.ExceptionType, options.ArgumentDescriptors.ToArray());
+                CachedException = TypeVisit.CreateInstance(options.ExceptionType, options.ArgumentDescriptors.ToArray()).As<Exception>();
 #endif
-            }
-
-            // ReSharper disable once InconsistentNaming
-            bool __hasArgName(string argName)
-            {
-                return TargetType
-                       .GetConstructors()
-                       .Any(ctor => ctor.GetParameters().Any(parameter => parameter.Name == argName));
             }
         }
 
@@ -162,7 +162,7 @@ namespace Cosmos.Exceptions
         /// 构建。
         /// </summary>
         /// <returns></returns>
-        public TException Build()
+        public Exception Build()
         {
             return Build(null);
         }
@@ -172,29 +172,7 @@ namespace Cosmos.Exceptions
         /// 构建。
         /// </summary>
         /// <returns></returns>
-        public TException Build(Dictionary<string, IArgDescriptionVal> exceptionParams)
-        {
-            CreateAndCacheExceptionInstance(exceptionParams);
-            return CachedException;
-        }
-
-        /// <summary>
-        /// Build.<br />
-        /// 构建。
-        /// </summary>
-        /// <returns></returns>
-        Exception IFluentExceptionBuilder.Build()
-        {
-            CreateAndCacheExceptionInstance(null);
-            return CachedException;
-        }
-
-        /// <summary>
-        /// Build.<br />
-        /// 构建。
-        /// </summary>
-        /// <returns></returns>
-        Exception IFluentExceptionBuilder.Build(Dictionary<string, IArgDescriptionVal> exceptionParams)
+        public Exception Build(Dictionary<string, IArgDescriptionVal> exceptionParams)
         {
             CreateAndCacheExceptionInstance(exceptionParams);
             return CachedException;

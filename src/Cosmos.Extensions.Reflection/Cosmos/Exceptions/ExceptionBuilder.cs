@@ -1,4 +1,3 @@
-#if !NET451 && !NET452
 using System;
 using Cosmos.Reflection;
 
@@ -9,6 +8,7 @@ namespace Cosmos.Exceptions
     /// </summary>
     public static class ExceptionBuilder
     {
+#if !NET451 && !NET452
         /// <summary>
         /// Create a new builder for of <typeparamref name="TException"/> <see cref="ExceptionBuilder{TException}"/>.<br />
         /// 创建一个用于构建 <typeparamref name="TException"/> <see cref="ExceptionBuilder{TException}"/> 的 builder。
@@ -17,6 +17,16 @@ namespace Cosmos.Exceptions
         /// <returns></returns>
         public static IFluentExceptionBuilder<TException> Create<TException>() where TException : Exception
             => new ExceptionBuilder<TException>();
+
+        /// <summary>
+        /// Create a new builder for the given type of exception for <see cref="CommonExceptionBuilder"/>.<br />
+        /// 创建一个用于构建指定异常类型的 builder。
+        /// </summary>
+        /// <returns></returns>
+        public static ICommonExceptionBuilder Create(Type typeOfException)
+            => new CommonExceptionBuilder(typeOfException);
+
+#endif
 
         /// <summary>
         /// Create an exception and raise.
@@ -37,7 +47,11 @@ namespace Cosmos.Exceptions
             }
             else
             {
+#if !NET451 && !NET452
                 exception = Create<TException>().Message(message).Build();
+#else
+                exception = TypeVisit.CreateInstance<TException>(message);
+#endif
             }
 
             ExceptionHelper.PrepareForRethrow(exception);
@@ -50,7 +64,7 @@ namespace Cosmos.Exceptions
         /// <param name="assertion">Predicate.</param>
         /// <param name="message">Error message.</param>
         /// <param name="innerException"></param>
-        public static void Raise<TException>(bool assertion, string message,Exception innerException) where TException : Exception
+        public static void Raise<TException>(bool assertion, string message, Exception innerException) where TException : Exception
         {
             if (assertion)
                 return;
@@ -63,7 +77,11 @@ namespace Cosmos.Exceptions
             }
             else
             {
+#if !NETFRAMEWORK
                 exception = Create<TException>().Message(message).InnerException(innerException).Build();
+#else
+                exception = TypeVisit.CreateInstance<TException>(message, innerException);
+#endif
             }
 
             ExceptionHelper.PrepareForRethrow(exception);
@@ -111,5 +129,3 @@ namespace Cosmos.Exceptions
         }
     }
 }
-
-#endif

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using AspectCore.Extensions.Reflection;
-
 #if !NETFRAMEWORK
+using System.Text;
 using System.Collections.Concurrent;
 using BTFindTree;
 using Natasha.CSharp;
@@ -15,6 +14,43 @@ using Natasha.Error.Model;
 
 namespace Cosmos.Reflection
 {
+    public interface IArgDescriptionVal
+    {
+        string Name { get; }
+        Type Type { get; }
+        ArgumentDescriptor ToDescriptor();
+    }
+
+    public class ArgumentDescriptionVal<T> : IArgDescriptionVal
+    {
+        public ArgumentDescriptionVal(string name, T value)
+        {
+            Name = name;
+            Value = value;
+            Type = typeof(T);
+        }
+
+        /// <summary>
+        /// Argument name
+        /// </summary>
+        public string Name { get; }
+
+        /// <summary>
+        /// Argument value
+        /// </summary>
+        public T Value { get; }
+
+        /// <summary>
+        /// Argument type
+        /// </summary>
+        public Type Type { get; }
+
+        public ArgumentDescriptor ToDescriptor()
+        {
+            return new(Name, Value, Type);
+        }
+    }
+
     /// <summary>
     /// Descriptor of argument
     /// </summary>
@@ -47,6 +83,24 @@ namespace Cosmos.Reflection
         /// Argument type
         /// </summary>
         public Type Type { get; set; }
+
+        public static implicit operator ArgumentDescriptor((string Name, object Value, Type Type) tuple)
+        {
+            return new(tuple.Name, tuple.Value, tuple.Type);
+        }
+
+        public static implicit operator (string Name, object Value, Type Type)(ArgumentDescriptor descriptor)
+        {
+            return (descriptor.Name, descriptor.Value, descriptor.Type);
+        }
+    }
+
+    public static class ArgumentDescriptorExtensions
+    {
+        public static IEnumerable<ArgumentDescriptor> ToDescriptors(this IEnumerable<IArgDescriptionVal> descriptionVals)
+        {
+            return descriptionVals.Select(val => val.ToDescriptor());
+        }
     }
 
     /// <summary>
@@ -77,7 +131,7 @@ namespace Cosmos.Reflection
 
         private static object CreateInstanceImpl(Type type, params object[] args)
         {
-            return args is null || args is {Length: <=0}
+            return args is null || args.Length == 0
                 ? type.GetConstructors().FirstOrDefault(WithoutParamPredicate)?.GetReflector().Invoke()
                 : type.GetConstructor(Types.Of(args))?.GetReflector().Invoke(args);
 
