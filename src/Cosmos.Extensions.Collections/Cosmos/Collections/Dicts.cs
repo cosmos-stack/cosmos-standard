@@ -71,6 +71,21 @@ namespace Cosmos.Collections
                 AddValueOrOverride(dictionary, key, insertFunc(key));
             }
         }
+
+        /// <summary>
+        /// Add if not exist
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void AddValueIfNotExist<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        {
+            if (dictionary.ContainsKey(key)) return;
+            dictionary[key] = value;
+        }
         
         /// <summary>
         /// Merge the second dictionary into the first one
@@ -395,6 +410,20 @@ namespace Cosmos.Collections
         public static void AddValueOrDo<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Action<TKey, TValue> doAct)
         {
             Dicts.AddValueOrDo(dictionary, key, insertFunc, doAct);
+        }
+
+        /// <summary>
+        /// Add if not exist
+        /// </summary>
+        /// <param name="dictionary"></param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void AddValueIfNotExist<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        {
+            Dicts.AddValueIfNotExist(dictionary, key, value);
         }
 
         #endregion
