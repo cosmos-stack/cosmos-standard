@@ -237,37 +237,7 @@ namespace Cosmos
         }
 
         #endregion
-
-        #region If null or whitespace
-
-        /// <summary>
-        /// If null or whitespace then...
-        /// </summary>
-        /// <param name="string"></param>
-        /// <param name="action"></param>
-        public static void IfNullOrWhiteSpace(this string @string, Action action)
-        {
-            if (string.IsNullOrWhiteSpace(@string))
-            {
-                action?.Invoke();
-            }
-        }
-
-        /// <summary>
-        /// If not null nor whitespace then...
-        /// </summary>
-        /// <param name="string"></param>
-        /// <param name="action"></param>
-        public static void IfNotNullNorWhiteSpace(this string @string, Action action)
-        {
-            if (!string.IsNullOrWhiteSpace(@string))
-            {
-                action?.Invoke();
-            }
-        }
-
-        #endregion
-
+        
         #region If then invoke
 
         public static bool IfTrueThenInvoke(this bool @this, Func<bool> func)
@@ -322,12 +292,6 @@ namespace Cosmos
             return @this;
         }
 
-        public static BooleanVal<T> IfTrueThenInvoke<T>(this BooleanVal<T> @this, Action<T> action, T context)
-        {
-            @this.IfTrue(action);
-            return @this;
-        }
-
         public static bool IfFalseThenInvoke(this bool @this, Func<bool> func)
         {
             if (!@this)
@@ -377,12 +341,6 @@ namespace Cosmos
                 @this = func?.Invoke(@this.Object) ?? false;
             }
 
-            return @this;
-        }
-
-        public static BooleanVal<T> IfFalseThenInvoke<T>(this BooleanVal<T> @this, Action<T> action, T context)
-        {
-            @this.IfFalse(action);
             return @this;
         }
 
