@@ -1,11 +1,15 @@
 #if !NET451 &&!NET452
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Cosmos.Collections;
 using Cosmos.Reflection;
 
-namespace Cosmos.Exceptions.BuildingDescriptors
+#if NETFRAMEWORK
+using System.Linq;
+
+#endif
+
+namespace Cosmos.Exceptions.BuildingServices
 {
     /// <summary>
     /// Exception building options.<br />
@@ -76,21 +80,21 @@ namespace Cosmos.Exceptions.BuildingDescriptors
             }
 
             // ReSharper disable once InconsistentNaming
-            IEnumerable<(string Name,ArgumentDescriptor Descriptor)> __restDtors()
+            IEnumerable<(string Name, ArgumentDescriptor Descriptor)> __restDtors()
             {
                 var inlineArgNames = new List<string>
                 {
                     ExceptionArgConstants.INNER,
                     ExceptionArgConstants.INNER_EXCEPTION,
-                    ExceptionArgConstants.MESSAGE, 
+                    ExceptionArgConstants.MESSAGE,
                     ExceptionArgConstants.PARAM_NAME,
                     ExceptionArgConstants.ACTUAL_VALUE,
                     ExceptionArgConstants.ERROR_CODE
                 };
-                
+
                 foreach (var pair in exceptionParams)
                 {
-                    if(inlineArgNames.Contains(pair.Key))
+                    if (inlineArgNames.Contains(pair.Key))
                         continue;
                     yield return (pair.Key, pair.Value.ToDescriptor());
                 }
@@ -102,12 +106,12 @@ namespace Cosmos.Exceptions.BuildingDescriptors
         /// 获取异常类型。
         /// </summary>
         public Type ExceptionType { get; }
-        
+
 #if !NETFRAMEWORK
         internal IEnumerable<ArgumentDescriptor> ArgumentDescriptors => _items.Values;
 #else
         internal IEnumerable<object> ArgumentDescriptors => _items.Values.Select(x => x.Value);
-        #endif
+#endif
 
         /// <summary>
         /// Add args.<br />

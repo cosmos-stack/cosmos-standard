@@ -4,11 +4,16 @@ using Cosmos.Reflection;
 
 namespace Cosmos.Exceptions
 {
+    internal interface IParamsCheckable
+    {
+        void UpdateArgumentsChecker(Func<Dictionary<string, IArgDescriptionVal>, bool> checker);
+    }
+    
     /// <summary>
     /// Interface for fluent exception builder.<br />
     /// 流畅异常构建器接口。
     /// </summary>
-    public interface IFluentExceptionBuilder
+    public interface IExceptionBuilder
     {
         /// <summary>
         /// Target type of exception.<br />
@@ -53,13 +58,15 @@ namespace Cosmos.Exceptions
         /// 构建，并抛出验证错误。
         /// </summary>
         void BuildAndThrowAsValidationError(Dictionary<string, IArgDescriptionVal> exceptionParams);
+
+        Func<Dictionary<string, IArgDescriptionVal>, bool> ArgumentsChecker { get; }
     }
 
     /// <summary>
     /// Interface for fluent exception builder.<br />
     /// 流畅异常构建器接口。
     /// </summary>
-    public interface IFluentExceptionBuilder<out TException> : IFluentExceptionBuilder
+    public interface IFluentExceptionBuilder<out TException> : IExceptionBuilder
         where TException : Exception
     {
         /// <summary>
@@ -126,7 +133,7 @@ namespace Cosmos.Exceptions
     /// Interface for non-generic fluent exception builder.<br />
     /// 流畅异常构建器接口。
     /// </summary>
-    public interface ICommonExceptionBuilder : IFluentExceptionBuilder
+    public interface IFluentExceptionBuilder : IExceptionBuilder
     {
         /// <summary>
         /// With inner exception.<br />
@@ -135,7 +142,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="innerException"></param>
         /// <returns></returns>
-        ICommonExceptionBuilder InnerException(Exception innerException);
+        IFluentExceptionBuilder InnerException(Exception innerException);
 
         /// <summary>
         /// With parameter's name.<br />
@@ -144,7 +151,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="paramName"></param>
         /// <returns></returns>
-        ICommonExceptionBuilder ParamName(string paramName);
+        IFluentExceptionBuilder ParamName(string paramName);
 
         /// <summary>
         /// With message.<br />
@@ -153,7 +160,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        ICommonExceptionBuilder Message(string message);
+        IFluentExceptionBuilder Message(string message);
 
         /// <summary>
         /// Actual value.<br />
@@ -162,7 +169,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="actualValue"></param>
         /// <returns></returns>
-        ICommonExceptionBuilder ActualValue(object actualValue);
+        IFluentExceptionBuilder ActualValue(object actualValue);
 
         /// <summary>
         /// Error code.<br />
@@ -171,6 +178,6 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="errorCode"></param>
         /// <returns></returns>
-        ICommonExceptionBuilder ErrorCode(int errorCode);
+        IFluentExceptionBuilder ErrorCode(int errorCode);
     }
 }

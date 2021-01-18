@@ -1,5 +1,5 @@
 // ReSharper disable InconsistentNaming
-namespace Cosmos.Exceptions.BuildingDescriptors
+namespace Cosmos.Exceptions.BuildingServices
 {
     /// <summary>
     /// Exception arg constants

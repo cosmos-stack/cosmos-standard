@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Exceptions.BuildingServices;
 using Cosmos.Reflection;
 
 namespace Cosmos.Exceptions
@@ -10,21 +11,29 @@ namespace Cosmos.Exceptions
     {
 #if !NET451 && !NET452
         /// <summary>
-        /// Create a new builder for of <typeparamref name="TException"/> <see cref="ExceptionBuilder{TException}"/>.<br />
-        /// 创建一个用于构建 <typeparamref name="TException"/> <see cref="ExceptionBuilder{TException}"/> 的 builder。
+        /// Create a new builder for of <typeparamref name="TException"/> <see cref="FluentExceptionBuilder{TException}"/>.<br />
+        /// 创建一个用于构建 <typeparamref name="TException"/> <see cref="FluentExceptionBuilder{TException}"/> 的 builder。
         /// </summary>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static IFluentExceptionBuilder<TException> Create<TException>() where TException : Exception
-            => new ExceptionBuilder<TException>();
+        {
+            if (CustomExceptionBuildingManager.TryGetBuilder<TException>(out var b) && b is FluentExceptionBuilder<TException> builder)
+                return builder;
+            return new FluentExceptionBuilder<TException>();
+        }
 
         /// <summary>
-        /// Create a new builder for the given type of exception for <see cref="CommonExceptionBuilder"/>.<br />
+        /// Create a new builder for the given type of exception for <see cref="FluentExceptionBuilder"/>.<br />
         /// 创建一个用于构建指定异常类型的 builder。
         /// </summary>
         /// <returns></returns>
-        public static ICommonExceptionBuilder Create(Type typeOfException)
-            => new CommonExceptionBuilder(typeOfException);
+        public static IFluentExceptionBuilder Create(Type typeOfException)
+        {
+            if (CustomExceptionBuildingManager.TryGetBuilder(typeOfException, out var b) && b is FluentExceptionBuilder builder)
+                return builder;
+            return new FluentExceptionBuilder(typeOfException);
+        }
 
 #endif
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using AspectCore.Extensions.Reflection;
+using Cosmos.Collections;
 #if !NETFRAMEWORK
 using System.Text;
 using System.Collections.Concurrent;
@@ -14,6 +15,8 @@ using Natasha.Error.Model;
 
 namespace Cosmos.Reflection
 {
+    #region Argument Description
+
     public interface IArgDescriptionVal
     {
         string Name { get; }
@@ -94,15 +97,29 @@ namespace Cosmos.Reflection
             return (descriptor.Name, descriptor.Value, descriptor.Type);
         }
     }
-
+    
     public static class ArgumentDescriptorExtensions
     {
         public static IEnumerable<ArgumentDescriptor> ToDescriptors(this IEnumerable<IArgDescriptionVal> descriptionVals)
         {
             return descriptionVals.Select(val => val.ToDescriptor());
         }
-    }
 
+        public static Dictionary<string, IArgDescriptionVal> ToDictionary(this IEnumerable<IArgDescriptionVal> descriptionVals)
+        {
+            var d = new Dictionary<string, IArgDescriptionVal>();
+
+            foreach (var val in descriptionVals)
+            {
+                d.AddValueOrOverride(val.Name, val);
+            }
+            
+            return d;
+        }
+    }
+    
+    #endregion
+    
     /// <summary>
     /// Type visit, an advanced TypeReflections utility.
     /// </summary>
@@ -209,6 +226,9 @@ namespace Cosmos.Reflection
         #endregion
     }
 
+    /// <summary>
+    /// Type visit extensions
+    /// </summary>
     public static partial class TypeVisitExtensions
     {
         /// <summary>
