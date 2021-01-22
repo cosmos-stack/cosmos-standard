@@ -34,7 +34,7 @@ namespace Cosmos.Exceptions
                 return builder;
             return new FluentExceptionBuilder(typeOfException);
         }
-
+        
 #endif
 
         /// <summary>

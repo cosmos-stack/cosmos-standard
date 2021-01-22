@@ -96,7 +96,7 @@ namespace Cosmos.Exceptions
             _errorCode = errorCode;
             return this;
         }
-        
+
         /// <summary>
         /// Build.<br />
         /// 构建。
@@ -122,7 +122,7 @@ namespace Cosmos.Exceptions
         /// Build, and throw exception.<br />
         /// 构建，并抛出异常。
         /// </summary>
-        public new  void BuildAndThrow()
+        public new void BuildAndThrow()
         {
             BuildAndThrow(null);
         }
@@ -131,7 +131,7 @@ namespace Cosmos.Exceptions
         /// Build, and throw exception.<br />
         /// 构建，并抛出异常。
         /// </summary>
-        public new  void BuildAndThrow(Dictionary<string, IArgDescriptionVal> exceptionParams)
+        public new void BuildAndThrow(Dictionary<string, IArgDescriptionVal> exceptionParams)
         {
             CreateAndCacheExceptionInstance(exceptionParams);
             ExceptionHelper.PrepareForRethrow(CachedException.As<TException>());
@@ -141,7 +141,7 @@ namespace Cosmos.Exceptions
         /// Build, and throw as Validation error.<br />
         /// 构建，并抛出验证错误。
         /// </summary>
-        public new  void BuildAndThrowAsValidationError()
+        public new void BuildAndThrowAsValidationError()
         {
             BuildAndThrowAsValidationError(null);
         }
@@ -150,7 +150,7 @@ namespace Cosmos.Exceptions
         /// Build, and throw as Validation error.<br />
         /// 构建，并抛出验证错误。
         /// </summary>
-        public  new void BuildAndThrowAsValidationError(Dictionary<string, IArgDescriptionVal> exceptionParams)
+        public new void BuildAndThrowAsValidationError(Dictionary<string, IArgDescriptionVal> exceptionParams)
         {
             CreateAndCacheExceptionInstance(exceptionParams);
             switch (CachedException)

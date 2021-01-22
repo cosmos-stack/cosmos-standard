@@ -18,7 +18,7 @@ namespace Cosmos.Exceptions
     /// Exception builder<br />
     /// 异常构建器。
     /// </summary>
-    internal class FluentExceptionBuilder : IFluentExceptionBuilder,IParamsCheckable
+    internal class FluentExceptionBuilder : IFluentExceptionBuilder, IParamsCheckable
     {
         protected readonly Type _typeOfException;
 
