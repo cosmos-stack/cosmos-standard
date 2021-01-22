@@ -109,6 +109,19 @@ namespace CosmosStandardUT.ConditionUT
             Assert.Throws<ArgumentException>(() => BooleanVal.Of(false, 1).IfFalseThenThrow(x => exception));
         }
 
+#if !NET451 && !NET452
+        [Fact(DisplayName = "Boolean value if this then throw exception by builder test")]
+        public void BooleanIfThisThenThrowByBuilderTest()
+        {
+            Assert.Throws<ArgumentException>(() => true.IfTrueThenThrow<ArgumentException>());
+            Assert.Throws<ArgumentException>(() => BooleanVal.Of(true, 1).IfTrueThenThrow<int, ArgumentException>());
+
+            Assert.Throws<ArgumentException>(() => false.IfFalseThenThrow<ArgumentException>());
+            Assert.Throws<ArgumentException>(() => BooleanVal.Of(false, 1).IfFalseThenThrow<int, ArgumentException>());
+        }
+
+#endif
+
         [Fact(DisplayName = "Boolean value if this then invoke, and return the bool value test")]
         public void BooleanIfThisThenInvokeTest()
         {
@@ -193,10 +206,10 @@ namespace CosmosStandardUT.ConditionUT
             int val0 = 0, val1 = 0;
             Action act0 = () => val0 = 1;
             Action act1 = () => val1 = 1;
-            
+
             act0.InvokeThenTrue().ShouldBeTrue();
             act1.InvokeThenFalse().ShouldBeFalse();
-            
+
             val0.ShouldBe(1);
             val1.ShouldBe(1);
         }
