@@ -1,29 +1,34 @@
 ﻿using System;
 using System.Globalization;
-using Cosmos.Conversions;
 using Cosmos.Text;
-using Xunit;
 using Shouldly;
+using Xunit;
 
-namespace Cosmos.Test.Conversions {
-    public class ObjectConversionTest {
+namespace CosmosStandardUT.ConvUT
+{
+    public class ObjectConversionTest
+    {
         class One { }
 
-        class Two {
-            public override string ToString() {
+        class Two
+        {
+            public override string ToString()
+            {
                 return "i'm two!";
             }
         }
 
         [Fact]
-        public void NullObjectTest() {
+        public void NullObjectTest()
+        {
             var str = StringConv.ToString((object) null);
 
             str.ShouldBeEmpty();
         }
 
         [Fact]
-        public void ValueTypeTest() {
+        public void ValueTypeTest()
+        {
             var str1 = StringConv.ToString(1);
             var str2 = StringConv.ToString(1.1D);
 
@@ -32,7 +37,8 @@ namespace Cosmos.Test.Conversions {
         }
 
         [Fact]
-        public void DatetimeTest() {
+        public void DatetimeTest()
+        {
             var dt = new DateTime(2017, 10, 1, 10, 10, 12, 933);
             var str = StringConv.ToString(dt);
             var expectedStr = dt.ToString(CultureInfo.CurrentCulture);
@@ -41,7 +47,8 @@ namespace Cosmos.Test.Conversions {
         }
 
         [Fact]
-        public void GuidTest() {
+        public void GuidTest()
+        {
             var guid = new Guid();
             var str1 = guid.ToString();
             var str2 = StringConv.ToString(guid);
@@ -50,7 +57,8 @@ namespace Cosmos.Test.Conversions {
         }
 
         [Fact]
-        public void ObjectTest() {
+        public void ObjectTest()
+        {
             var one = new One();
             var two = new Two();
             var str1 = StringConv.ToString(one);

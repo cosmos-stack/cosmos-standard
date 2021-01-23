@@ -2,13 +2,18 @@ using System;
 using Cosmos.Exceptions;
 using Xunit;
 
-namespace Cosmos.Test {
-    public class TryTests {
-
-        private static Func<bool, Func<string, Func<string>>> _func = success => str => {
-            if (success) {
+namespace CosmosStandardUT.ConditionUT
+{
+    public class Try2Tests
+    {
+        private static Func<bool, Func<string, Func<string>>> _func = success => str =>
+        {
+            if (success)
+            {
                 return () => str;
-            } else {
+            }
+            else
+            {
                 return () => throw new ArgumentNullException(nameof(str));
             }
         };
@@ -16,7 +21,8 @@ namespace Cosmos.Test {
         [Theory]
         [InlineData(true, "9", 1)]
         [InlineData(true, "Alex", 4)]
-        public void TrySuccess(bool success, string value, int length) {
+        public void TrySuccess(bool success, string value, int length)
+        {
             var @try = Try.Create(_func(success)(value));
             Assert.True(@try.IsSuccess);
             Assert.False(@try.IsFailure);
@@ -38,7 +44,8 @@ namespace Cosmos.Test {
         [Theory]
         [InlineData(false, "")]
         [InlineData(false, null)]
-        public void TryFailure(bool failure, string value) {
+        public void TryFailure(bool failure, string value)
+        {
             var @try = Try.Create(_func(failure)(value));
             Assert.False(@try.IsSuccess);
             Assert.True(@try.IsFailure);
@@ -48,15 +55,18 @@ namespace Cosmos.Test {
             var len = @try.Match(s => s.Length, ex => 0);
             Assert.Equal(0, len);
 
-            try {
+            try
+            {
                 var map = @try.Map(s => s.Length);
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 Assert.NotNull(ex);
             }
 
             var recover = @try.Recover(ex => "Error");
             Assert.Equal("Error", recover.Value);
-            
+
             var select = @try.Select(str => str.Length);
             Assert.NotNull(select.Exception);
         }

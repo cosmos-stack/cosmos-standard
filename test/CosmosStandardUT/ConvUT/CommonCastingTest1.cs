@@ -1,13 +1,16 @@
 using System;
 using System.Text;
 using Cosmos.Conversions;
-using Xunit;
 using Shouldly;
+using Xunit;
 
-namespace Cosmos.Test.ConversionByCast {
-    public class CastingTest1 {
+namespace CosmosStandardUT.ConvUT
+{
+    public class CommonCastingTest1
+    {
         [Fact]
-        public void ObjectToObject() {
+        public void ObjectToObject()
+        {
             var str_1 = "1";
             var int_1 = 1;
             var obj_1 = (object) int_1;
@@ -15,7 +18,8 @@ namespace Cosmos.Test.ConversionByCast {
         }
 
         [Fact]
-        public void ObjectToObject_FailureWithDefault() {
+        public void ObjectToObject_FailureWithDefault()
+        {
             var str_1 = "1";
             var int_1 = 1;
             var obj_1 = (object) int_1;
@@ -23,7 +27,8 @@ namespace Cosmos.Test.ConversionByCast {
         }
 
         [Fact]
-        public void ObjectToGenericObject() {
+        public void ObjectToGenericObject()
+        {
             var str_1 = "1";
             var int_1 = 1;
             var obj_1 = (object) int_1;
@@ -32,7 +37,8 @@ namespace Cosmos.Test.ConversionByCast {
         }
 
         [Fact]
-        public void ObjectToGenericObject_FailureWithDefault() {
+        public void ObjectToGenericObject_FailureWithDefault()
+        {
             var str_1 = "1";
             var int_1 = 1;
             var obj_1 = (object) int_1;
@@ -45,7 +51,8 @@ namespace Cosmos.Test.ConversionByCast {
         }
 
         [Fact]
-        public void ObjectToAny() {
+        public void ObjectToAny()
+        {
             string number = "1";
             string utf8 = "utf-8";
 

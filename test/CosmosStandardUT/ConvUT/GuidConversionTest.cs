@@ -1,12 +1,14 @@
 ﻿using System;
-using Cosmos.Conversions;
 using Cosmos.IdUtils;
 using Xunit;
 
-namespace Cosmos.Test.Conversions {
-    public class GuidConversionTest {
+namespace CosmosStandardUT.ConvUT
+{
+    public class GuidConversionTest
+    {
         [Fact]
-        public void StringToGuidTest() {
+        public void StringToGuidTest()
+        {
             var guid = new Guid();
             var guidStr = guid.ToString();
 
@@ -18,7 +20,8 @@ namespace Cosmos.Test.Conversions {
         [Theory]
         [InlineData("")]
         [InlineData("lalala")]
-        public void StringToNullableGuidTest(string str) {
+        public void StringToNullableGuidTest(string str)
+        {
             var guid = GuidConv.ToNullableGuid(str);
 
             Assert.Null(guid);
@@ -31,7 +34,8 @@ namespace Cosmos.Test.Conversions {
         [InlineData(null)]
         [InlineData(1)]
         [InlineData(1234.56789)]
-        public void ConvertFailureTest(object obj) {
+        public void ConvertFailureTest(object obj)
+        {
             var guid = GuidConv.ToGuid(obj);
 
             Assert.Equal(Guid.Empty, guid);

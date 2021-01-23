@@ -1,12 +1,16 @@
 using System.Text;
 using Cosmos.Conversions;
+using CosmosStandardUT.Models;
 using Shouldly;
 using Xunit;
 
-namespace Cosmos.Test.ConversionByCast {
-    public class CastingTest2 {
+namespace CosmosStandardUT.ConvUT
+{
+    public class CommonCastingTest2
+    {
         [Fact]
-        public void AnyToAny() {
+        public void AnyToAny()
+        {
             "1".CastTo<short>().ShouldBe((short) 1);
             "1".CastTo<ushort>().ShouldBe((ushort) 1);
             "1".CastTo<int>().ShouldBe(1);

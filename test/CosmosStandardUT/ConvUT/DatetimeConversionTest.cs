@@ -1,13 +1,15 @@
 ﻿using System;
-using Cosmos.Conversions;
 using Cosmos.Date;
 using Xunit;
 
-namespace Cosmos.Test.Conversions {
-    public class DatetimeConversionTest {
+namespace CosmosStandardUT.ConvUT
+{
+    public class DatetimeConversionTest
+    {
         [Theory]
         [InlineData("2017-02-10 10:10:10")]
-        public void StringDatetimeTest(string datetime) {
+        public void StringDatetimeTest(string datetime)
+        {
             var dt = DateTimeConv.ToDateTime(datetime);
 
             Assert.Equal(2017, dt.Year);
@@ -21,7 +23,8 @@ namespace Cosmos.Test.Conversions {
 
         [Theory]
         [InlineData("2017-02-10 10:10:10.011")]
-        public void StringDatetimeWithMillisecondTest(string datetime) {
+        public void StringDatetimeWithMillisecondTest(string datetime)
+        {
             var dt = DateTimeConv.ToDateTime(datetime);
 
             Assert.Equal(2017, dt.Year);
@@ -36,7 +39,8 @@ namespace Cosmos.Test.Conversions {
 
         [Theory]
         [InlineData("2017-01-01 00:00:00.001")]
-        public void StringDefaultDatetimeTest(string datetime) {
+        public void StringDefaultDatetimeTest(string datetime)
+        {
             var def = new DateTime(2017, 1, 1, 0, 0, 0, 001);
             var dt = DateTimeConv.ToDateTime(datetime, def);
 
@@ -45,7 +49,8 @@ namespace Cosmos.Test.Conversions {
 
         [Theory]
         [InlineData("2017-02-30 10:10:10")]
-        public void StringNullDefaultDatetimeTest(string datetime) {
+        public void StringNullDefaultDatetimeTest(string datetime)
+        {
             var dt = DateTimeConv.ToNullableDateTime(datetime);
             Assert.Equal(default, dt);
         }
