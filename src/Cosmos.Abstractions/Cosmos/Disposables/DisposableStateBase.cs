@@ -5,7 +5,8 @@ using System.Threading;
 namespace Cosmos.Disposables
 {
     /// <summary>
-    /// Disposable state base
+    /// Disposable state base. <br />
+    /// 可释放状态基类
     /// </summary>
     public abstract class DisposableStateBase : IDisposalState
     {
@@ -18,7 +19,8 @@ namespace Cosmos.Disposables
         protected int DisposalState => _disposeState;
 
         /// <summary>
-        /// Was disposed
+        /// Was disposed. <br />
+        /// 标识是否已释放。
         /// </summary>
         // Expected majority use will be 'alive'.
         public bool WasDisposed => _disposeState != ALIVE && _disposeState != DISPOSE_CALLED;
@@ -50,7 +52,8 @@ namespace Cosmos.Disposables
         private event EventHandler BeforeDisposeInternal;
 
         /// <summary>
-        /// BeforeDispose will be triggered once right before disposal commences.
+        /// BeforeDispose will be triggered once right before disposal commences. <br />
+        /// 在释放之前触发一次 BeforeDispose。
         /// </summary>
         public event EventHandler BeforeDispose
         {
