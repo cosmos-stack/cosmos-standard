@@ -161,10 +161,10 @@ namespace Cosmos.Optionals
         public override string ToString()
         {
             return _hasValue
-                ? _value == null
+                ? _value is null
                     ? "Some(null)"
                     : $"Some({_value})"
-                : _exception == null
+                : _exception is null
                     ? "None(null)"
                     : $"None({_exception})";
         }
@@ -177,8 +177,8 @@ namespace Cosmos.Optionals
         public override int GetHashCode()
         {
             return _hasValue
-                ? _value == null ? 1 : _value.GetHashCode()
-                : _exception == null
+                ? _value is null ? 1 : _value.GetHashCode()
+                : _exception is null
                     ? 0
                     : _exception.GetHashCode();
         }
@@ -220,8 +220,8 @@ namespace Cosmos.Optionals
         {
             if (_hasValue)
             {
-                if (_value == null)
-                    return value == null;
+                if (_value is null)
+                    return value is null;
                 return _value.Equals(value);
             }
 
@@ -619,13 +619,13 @@ namespace Cosmos.Optionals
         /// To wrapped optional some
         /// </summary>
         /// <returns></returns>
-        public Some<T, TException> ToWrappedSome() => new Some<T, TException>(this);
+        public Some<T, TException> ToWrappedSome() => new(this);
 
         /// <summary>
         /// To wrapped optional none
         /// </summary>
         /// <returns></returns>
-        public None<T, TException> ToWrappedNone() => new None<T, TException>(_exception);
+        public None<T, TException> ToWrappedNone() => new(_exception);
 
         #endregion
     }

@@ -155,7 +155,7 @@ namespace Cosmos.Optionals
         public static IOptional<T> SomeNotNull<T>(this T value,
             OptionalType type = OptionalType.ReferenceType)
         {
-            return value.Some(val => val != null, type);
+            return value.Some(val => val is not null, type);
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace Cosmos.Optionals
         public static IOptional<T, TException> SomeNotNull<T, TException>(this T value, TException exception,
             OptionalType type = OptionalType.ReferenceType)
         {
-            return value.Some(val => val != null, exception, type);
+            return value.Some(val => val is not null, exception, type);
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace Cosmos.Optionals
         {
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
-            return value.Some(val => val != null, exceptionFactory, type);
+            return value.Some(val => val is not null, exceptionFactory, type);
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Cosmos.Optionals
         {
             if (exceptionFactory is null)
                 throw new ArgumentNullException(nameof(exceptionFactory));
-            return value.Some(val => val != null, exceptionFactory, type);
+            return value.Some(val => val is not null, exceptionFactory, type);
         }
 
         #endregion

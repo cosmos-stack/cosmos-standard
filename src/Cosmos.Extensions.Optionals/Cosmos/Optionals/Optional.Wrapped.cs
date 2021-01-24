@@ -19,7 +19,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public static Some<T> Some<T>(T some) => new Some<T>(some);
+            public static Some<T> Some<T>(T some) => new(some);
 
             /// <summary>
             /// For some value
@@ -29,7 +29,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="TException"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public static Some<T, TException> Some<T, TException>(T some) => new Some<T, TException>(some);
+            public static Some<T, TException> Some<T, TException>(T some) => new(some);
 
             /// <summary>
             /// For nothing
@@ -37,7 +37,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public static None<T> None<T>() => new None<T>();
+            public static None<T> None<T>() => new();
 
             /// <summary>
             /// For nothing
@@ -46,14 +46,14 @@ namespace Cosmos.Optionals
             /// <typeparam name="TException"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public static None<T, TException> None<T, TException>(TException exception) => new None<T, TException>(exception);
+            public static None<T, TException> None<T, TException>(TException exception) => new(exception);
 
             /// <summary>
             /// For nothing
             /// </summary>
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
-            public static Some<T> NoneSlim<T>() => new Some<T>(Optional.None<T>());
+            public static Some<T> NoneSlim<T>() => new(Optional.None<T>());
 
             /// <summary>
             /// For nothing
@@ -62,7 +62,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <typeparam name="TException"></typeparam>
             /// <returns></returns>
-            public static Some<T, TException> NoneSlim<T, TException>(TException exception) => new Some<T, TException>(Optional.None<T, TException>(exception));
+            public static Some<T, TException> NoneSlim<T, TException>(TException exception) => new(Optional.None<T, TException>(exception));
 
             /// <summary>
             /// Create an instance of <see cref="IOptional{T}"/> from the given value.

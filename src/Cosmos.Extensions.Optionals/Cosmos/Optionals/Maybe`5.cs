@@ -562,11 +562,11 @@ namespace Cosmos.Optionals
         public Maybe<T1, T2, T3, T4, T5> NotNull()
         {
             return HasValue &&
-                   _o1.Value == null &&
-                   _o2.Value == null &&
-                   _o3.Value == null &&
-                   _o4.Value == null &&
-                   _o5.Value == null
+                   _o1.Value is null &&
+                   _o2.Value is null &&
+                   _o3.Value is null &&
+                   _o4.Value is null &&
+                   _o5.Value is null
                 ? Nothing
                 : this;
         }
@@ -579,13 +579,13 @@ namespace Cosmos.Optionals
         /// To wrapped optional some
         /// </summary>
         /// <returns></returns>
-        public Some<(T1, T2, T3, T4, T5)> ToWrappedSome() => new Some<(T1, T2, T3, T4, T5)>(Value);
+        public Some<(T1, T2, T3, T4, T5)> ToWrappedSome() => new(Value);
 
         /// <summary>
         /// To wrapped optional none
         /// </summary>
         /// <returns></returns>
-        public None<(T1, T2, T3, T4, T5)> ToWrappedNone() => new None<(T1, T2, T3, T4, T5)>();
+        public None<(T1, T2, T3, T4, T5)> ToWrappedNone() => new();
 
         #endregion
 
@@ -598,7 +598,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T6"></typeparam>
         /// <returns></returns>
         public Maybe<T1, T2, T3, T4, T5, T6> Join<T6>(T6 valueToJoin)
-            => new Maybe<T1, T2, T3, T4, T5, T6>(_o1, _o2, _o3, _o4, _o5, Optional.From(valueToJoin));
+            => new(_o1, _o2, _o3, _o4, _o5, Optional.From(valueToJoin));
 
         /// <summary>
         /// Join
@@ -608,7 +608,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T6"></typeparam>
         /// <returns></returns>
         public Maybe<T1, T2, T3, T4, T5, T6> Join<T6>(T6 valueToJoin, Func<T6, bool> condition)
-            => new Maybe<T1, T2, T3, T4, T5, T6>(_o1, _o2, _o3, _o4, _o5, Optional.From(valueToJoin, condition));
+            => new(_o1, _o2, _o3, _o4, _o5, Optional.From(valueToJoin, condition));
 
         /// <summary>
         /// Join
@@ -617,7 +617,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T6"></typeparam>
         /// <returns></returns>
         public Maybe<T1, T2, T3, T4, T5, T6> Join<T6>(Maybe<T6> optionalToJoin)
-            => new Maybe<T1, T2, T3, T4, T5, T6>(_o1, _o2, _o3, _o4, _o5, optionalToJoin);
+            => new(_o1, _o2, _o3, _o4, _o5, optionalToJoin);
 
         #endregion
 

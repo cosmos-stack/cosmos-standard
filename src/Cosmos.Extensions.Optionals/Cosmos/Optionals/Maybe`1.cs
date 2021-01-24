@@ -160,7 +160,7 @@ namespace Cosmos.Optionals
         public override string ToString()
         {
             return _hasValue
-                ? _value == null
+                ? _value is null
                     ? "Some(null)"
                     : $"Some({_value})"
                 : "None";
@@ -174,7 +174,7 @@ namespace Cosmos.Optionals
         public override int GetHashCode()
         {
             return _hasValue
-                ? _value == null
+                ? _value is null
                     ? 1
                     : _value.GetHashCode()
                 : 0;
@@ -216,8 +216,8 @@ namespace Cosmos.Optionals
         public bool Contains(T value)
         {
             if (_hasValue)
-                if (_value == null)
-                    return value == null;
+                if (_value is null)
+                    return value is null;
                 else
                     return _value.Equals(value);
             return false;
@@ -510,13 +510,13 @@ namespace Cosmos.Optionals
         /// To wrapped optional some
         /// </summary>
         /// <returns></returns>
-        public Some<T> ToWrappedSome() => new Some<T>(this);
+        public Some<T> ToWrappedSome() => new(this);
 
         /// <summary>
         /// To wrapped optional none
         /// </summary>
         /// <returns></returns>
-        public None<T> ToWrappedNone() => new None<T>();
+        public None<T> ToWrappedNone() => new();
 
         #endregion
 
@@ -528,8 +528,8 @@ namespace Cosmos.Optionals
         /// <param name="valueToJoin"></param>
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
-        public Maybe<T, T2> Join<T2>(T2 valueToJoin)
-            => new Maybe<T, T2>(this, Optional.From(valueToJoin));
+        public Maybe<T, T2> Join<T2>(T2 valueToJoin) 
+            => new(this, Optional.From(valueToJoin));
 
         /// <summary>
         /// Join
@@ -538,8 +538,8 @@ namespace Cosmos.Optionals
         /// <param name="condition"></param>
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
-        public Maybe<T, T2> Join<T2>(T2 valueToJoin, Func<T2, bool> condition)
-            => new Maybe<T, T2>(this, Optional.From(valueToJoin, condition));
+        public Maybe<T, T2> Join<T2>(T2 valueToJoin, Func<T2, bool> condition) 
+            => new(this, Optional.From(valueToJoin, condition));
 
         /// <summary>
         /// Join
@@ -548,7 +548,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
         public Maybe<T, T2> Join<T2>(Maybe<T2> optionalToJoin)
-            => new Maybe<T, T2>(this, optionalToJoin);
+            => new(this, optionalToJoin);
 
         #endregion
 

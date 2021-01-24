@@ -71,7 +71,7 @@ namespace Cosmos.Optionals
         /// <param name="result"></param>
         public static bool TrySafeValue<T>(this T? value, out T result) where T : struct
         {
-            result = value.HasValue ? value.Value : default;
+            result = value ?? default;
             return value.HasValue;
         }
         

@@ -12,7 +12,7 @@ namespace Cosmos.Optionals
     {
         private readonly Dictionary<string, dynamic> _dynamicDictionary;
         private readonly List<string> _queueLikeList;
-        private object _dynamicLockObj = new object();
+        private object _dynamicLockObj = new();
 
         private DynamicOptionalBuilder()
         {
@@ -38,9 +38,9 @@ namespace Cosmos.Optionals
         /// Create the dynamic optional builder
         /// </summary>
         /// <returns></returns>
-        public static DynamicOptionalBuilder Create() => new DynamicOptionalBuilder();
+        public static DynamicOptionalBuilder Create() => new();
 
-        internal static DynamicOptionalBuilder Returns(DynamicOptionalObject dynamicOptionalObject) => new DynamicOptionalBuilder(dynamicOptionalObject);
+        internal static DynamicOptionalBuilder Returns(DynamicOptionalObject dynamicOptionalObject) => new(dynamicOptionalObject);
 
         internal static DynamicOptionalBuilder Returns(IDictionary<string, dynamic> dynamicDictionary, IEnumerable<string> queueLikeList) =>
             Returns(new DynamicOptionalObject(dynamicDictionary, queueLikeList));

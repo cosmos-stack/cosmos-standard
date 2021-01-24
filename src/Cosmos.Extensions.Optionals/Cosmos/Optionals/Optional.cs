@@ -14,7 +14,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static Maybe<T> Some<T>(T value)
-            => new Maybe<T>(value, true);
+            => new(value, true);
 
         /// <summary>
         /// Some
@@ -33,7 +33,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static Either<T, TException> Some<T, TException>(T value)
-            => new Either<T, TException>(value, default, true);
+            => new(value, default, true);
 
         /// <summary>
         /// Some
@@ -52,7 +52,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static Maybe<T> None<T>()
-            => new Maybe<T>(default, false);
+            => new(default, false);
 
         /// <summary>
         /// None
@@ -62,7 +62,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
         public static Either<T, TException> None<T, TException>(TException exception)
-            => new Either<T, TException>(default, exception, false);
+            => new(default, exception, false);
 
         /// <summary>
         /// Create an instance of <see cref="IOptional{T}"/> from the given value.

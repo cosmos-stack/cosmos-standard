@@ -16,7 +16,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2> From<T1, T2>(T1 value1, T2 value2)
-            => new Maybe<T1, T2>(value1, value2, true);
+            => new(value1, value2, true);
 
         /// <summary>
         /// Some
@@ -29,7 +29,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T3"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3> From<T1, T2, T3>(T1 value1, T2 value2, T3 value3)
-            => new Maybe<T1, T2, T3>(value1, value2, value3, true);
+            => new(value1, value2, value3, true);
 
         /// <summary>
         /// Some
@@ -44,7 +44,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T4"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4> From<T1, T2, T3, T4>(T1 value1, T2 value2, T3 value3, T4 value4)
-            => new Maybe<T1, T2, T3, T4>(value1, value2, value3, value4, true);
+            => new(value1, value2, value3, value4, true);
 
         /// <summary>
         /// Some
@@ -61,7 +61,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T5"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5> From<T1, T2, T3, T4, T5>(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5)
-            => new Maybe<T1, T2, T3, T4, T5>(value1, value2, value3, value4, value5, true);
+            => new(value1, value2, value3, value4, value5, true);
 
         /// <summary>
         /// Some
@@ -80,7 +80,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T6"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6> From<T1, T2, T3, T4, T5, T6>(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6)
-            => new Maybe<T1, T2, T3, T4, T5, T6>(value1, value2, value3, value4, value5, value6, true);
+            => new(value1, value2, value3, value4, value5, value6, true);
 
         /// <summary>
         /// Some
@@ -101,7 +101,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T7"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6, T7> From<T1, T2, T3, T4, T5, T6, T7>(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7)
-            => new Maybe<T1, T2, T3, T4, T5, T6, T7>(value1, value2, value3, value4, value5, value6, value7, true);
+            => new(value1, value2, value3, value4, value5, value6, value7, true);
 
         #endregion
 
@@ -115,7 +115,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2> From<T1, T2>((T1, T2) value)
-            => new Maybe<T1, T2>(value.Item1, value.Item2, true);
+            => new(value.Item1, value.Item2, true);
 
         /// <summary>
         /// Some
@@ -126,7 +126,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T3"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3> From<T1, T2, T3>((T1, T2, T3) value)
-            => new Maybe<T1, T2, T3>(value.Item1, value.Item2, value.Item3, true);
+            => new(value.Item1, value.Item2, value.Item3, true);
 
         /// <summary>
         /// Some
@@ -138,7 +138,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T4"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4> From<T1, T2, T3, T4>((T1, T2, T3, T4) value)
-            => new Maybe<T1, T2, T3, T4>(value.Item1, value.Item2, value.Item3, value.Item4, true);
+            => new(value.Item1, value.Item2, value.Item3, value.Item4, true);
 
         /// <summary>
         /// Some
@@ -151,7 +151,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T5"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5> From<T1, T2, T3, T4, T5>((T1, T2, T3, T4, T5) value)
-            => new Maybe<T1, T2, T3, T4, T5>(value.Item1, value.Item2, value.Item3, value.Item4, value.Item5, true);
+            => new(value.Item1, value.Item2, value.Item3, value.Item4, value.Item5, true);
 
         /// <summary>
         /// Some
@@ -165,7 +165,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T6"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6> From<T1, T2, T3, T4, T5, T6>((T1, T2, T3, T4, T5, T6) value)
-            => new Maybe<T1, T2, T3, T4, T5, T6>(value.Item1, value.Item2, value.Item3, value.Item4, value.Item5, value.Item6, true);
+            => new(value.Item1, value.Item2, value.Item3, value.Item4, value.Item5, value.Item6, true);
 
         /// <summary>
         /// Some
@@ -180,7 +180,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T7"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6, T7> From<T1, T2, T3, T4, T5, T6, T7>((T1, T2, T3, T4, T5, T6, T7) value)
-            => new Maybe<T1, T2, T3, T4, T5, T6, T7>(value.Item1, value.Item2, value.Item3, value.Item4, value.Item5, value.Item6, value.Item7, true);
+            => new(value.Item1, value.Item2, value.Item3, value.Item4, value.Item5, value.Item6, value.Item7, true);
 
         #endregion
 
@@ -195,7 +195,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2> Some<T1, T2>(T1 value1, T2 value2)
-            => new Maybe<T1, T2>(value1, value2, true);
+            => new(value1, value2, true);
 
         /// <summary>
         /// Some
@@ -208,7 +208,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T3"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3> Some<T1, T2, T3>(T1 value1, T2 value2, T3 value3)
-            => new Maybe<T1, T2, T3>(value1, value2, value3, true);
+            => new(value1, value2, value3, true);
 
         /// <summary>
         /// Some
@@ -223,7 +223,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T4"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4> Some<T1, T2, T3, T4>(T1 value1, T2 value2, T3 value3, T4 value4)
-            => new Maybe<T1, T2, T3, T4>(value1, value2, value3, value4, true);
+            => new(value1, value2, value3, value4, true);
 
         /// <summary>
         /// Some
@@ -240,7 +240,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T5"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5> Some<T1, T2, T3, T4, T5>(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5)
-            => new Maybe<T1, T2, T3, T4, T5>(value1, value2, value3, value4, value5, true);
+            => new(value1, value2, value3, value4, value5, true);
 
         /// <summary>
         /// Some
@@ -259,7 +259,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T6"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6> Some<T1, T2, T3, T4, T5, T6>(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6)
-            => new Maybe<T1, T2, T3, T4, T5, T6>(value1, value2, value3, value4, value5, value6, true);
+            => new(value1, value2, value3, value4, value5, value6, true);
 
         /// <summary>
         /// Some
@@ -280,7 +280,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T7"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6, T7> Some<T1, T2, T3, T4, T5, T6, T7>(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7)
-            => new Maybe<T1, T2, T3, T4, T5, T6, T7>(value1, value2, value3, value4, value5, value6, value7, true);
+            => new(value1, value2, value3, value4, value5, value6, value7, true);
 
         #endregion
 
@@ -293,7 +293,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2> None<T1, T2>()
-            => new Maybe<T1, T2>(default, default, false);
+            => new(default, default, false);
 
         /// <summary>
         /// None
@@ -303,7 +303,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T3"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3> None<T1, T2, T3>()
-            => new Maybe<T1, T2, T3>(default, default, default, false);
+            => new(default, default, default, false);
 
         /// <summary>
         /// None
@@ -314,7 +314,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T4"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4> None<T1, T2, T3, T4>()
-            => new Maybe<T1, T2, T3, T4>(default, default, default, default, false);
+            => new(default, default, default, default, false);
 
         /// <summary>
         /// None
@@ -326,7 +326,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T5"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5> None<T1, T2, T3, T4, T5>()
-            => new Maybe<T1, T2, T3, T4, T5>(default, default, default, default, default, false);
+            => new(default, default, default, default, default, false);
 
         /// <summary>
         /// None
@@ -339,7 +339,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T6"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6> None<T1, T2, T3, T4, T5, T6>()
-            => new Maybe<T1, T2, T3, T4, T5, T6>(default, default, default, default, default, default, false);
+            => new(default, default, default, default, default, default, false);
 
         /// <summary>
         /// None
@@ -353,7 +353,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T7"></typeparam>
         /// <returns></returns>
         public static Maybe<T1, T2, T3, T4, T5, T6, T7> None<T1, T2, T3, T4, T5, T6, T7>()
-            => new Maybe<T1, T2, T3, T4, T5, T6, T7>(default, default, default, default, default, default, default, false);
+            => new(default, default, default, default, default, default, default, false);
 
         #endregion
     }

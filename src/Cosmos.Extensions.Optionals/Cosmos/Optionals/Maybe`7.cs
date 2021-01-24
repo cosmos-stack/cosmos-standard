@@ -614,13 +614,13 @@ namespace Cosmos.Optionals
         public Maybe<T1, T2, T3, T4, T5, T6, T7> NotNull()
         {
             return HasValue &&
-                   _o1.Value == null &&
-                   _o2.Value == null &&
-                   _o3.Value == null &&
-                   _o4.Value == null &&
-                   _o5.Value == null &&
-                   _o6.Value == null &&
-                   _o7.Value == null
+                   _o1.Value is null &&
+                   _o2.Value is null &&
+                   _o3.Value is null &&
+                   _o4.Value is null &&
+                   _o5.Value is null &&
+                   _o6.Value is null &&
+                   _o7.Value is null
                 ? Nothing
                 : this;
         }
@@ -633,13 +633,13 @@ namespace Cosmos.Optionals
         /// To wrapped optional some
         /// </summary>
         /// <returns></returns>
-        public Some<(T1, T2, T3, T4, T5, T6, T7)> ToWrappedSome() => new Some<(T1, T2, T3, T4, T5, T6, T7)>(Value);
+        public Some<(T1, T2, T3, T4, T5, T6, T7)> ToWrappedSome() => new(Value);
 
         /// <summary>
         /// To wrapped optional none
         /// </summary>
         /// <returns></returns>
-        public None<(T1, T2, T3, T4, T5, T6, T7)> ToWrappedNone() => new None<(T1, T2, T3, T4, T5, T6, T7)>();
+        public None<(T1, T2, T3, T4, T5, T6, T7)> ToWrappedNone() => new();
 
         #endregion
 

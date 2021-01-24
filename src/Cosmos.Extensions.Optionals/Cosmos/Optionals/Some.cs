@@ -257,7 +257,7 @@ namespace Cosmos.Optionals
         /// <inheritdoc />
         public override Some<T> NotNull()
         {
-            return HasValue && Value == null ? Optional.Wrapped.NoneSlim<T>() : this;
+            return HasValue && Value is null ? Optional.Wrapped.NoneSlim<T>() : this;
         }
 
         #endregion

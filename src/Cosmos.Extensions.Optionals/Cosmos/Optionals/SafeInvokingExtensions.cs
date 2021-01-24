@@ -31,10 +31,10 @@ namespace Cosmos.Optionals
         /// 以给定参数安全执行事件
         /// </summary>
         /// <typeparam name="TEventArgs"></typeparam>
-        /// <param name="hander"></param>
+        /// <param name="handler"></param>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public static void SafeInvoke<TEventArgs>(this EventHandler<TEventArgs> hander, object sender, TEventArgs e) =>
-            hander?.Invoke(sender, e);
+        public static void SafeInvoke<TEventArgs>(this EventHandler<TEventArgs> handler, object sender, TEventArgs e) =>
+            handler?.Invoke(sender, e);
     }
 }
