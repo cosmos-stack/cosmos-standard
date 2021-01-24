@@ -44,7 +44,7 @@ namespace Cosmos.Disposables
         /// <param name="dispose"></param>
         public void Add(Action dispose)
         {
-            if (dispose == null)
+            if (dispose is null)
                 return;
             if (!TryUpdateContext(x => x + dispose))
                 dispose();
@@ -64,13 +64,13 @@ namespace Cosmos.Disposables
         /// </summary>
         /// <param name="dispose"></param>
         /// <returns></returns>
-        public static AnonymousDisposableObject Create(Action dispose) => new AnonymousDisposableObject(dispose);
+        public static AnonymousDisposableObject Create(Action dispose) => new(dispose);
 
         /// <summary>
         /// Create a new disposable that executes dispose when disposed.
         /// </summary>
         /// <param name="disposableAction"></param>
         /// <returns></returns>
-        public static AnonymousDisposableObject Create(DisposableAction disposableAction) => new AnonymousDisposableObject(disposableAction);
+        public static AnonymousDisposableObject Create(DisposableAction disposableAction) => new(disposableAction);
     }
 }

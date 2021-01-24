@@ -10,7 +10,7 @@ namespace Cosmos.Disposables
         /// <summary>
         /// Gets a <see cref="NoopDisposableAction"/> cache.
         /// </summary>
-        public static NoopDisposableAction Instance { get; } = new NoopDisposableAction();
+        public static NoopDisposableAction Instance { get; } = new();
 
         private NoopDisposableAction() { }
 

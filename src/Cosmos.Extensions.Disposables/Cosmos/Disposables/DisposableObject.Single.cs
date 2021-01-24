@@ -19,7 +19,7 @@ namespace Cosmos.Disposables
     {
         private readonly DisposableActionField<T> _context;
 
-        private readonly ManualResetEventSlim _slim = new ManualResetEventSlim();
+        private readonly ManualResetEventSlim _slim = new();
 
         /// <summary>
         /// Create a single disposable object for such context
@@ -57,7 +57,7 @@ namespace Cosmos.Disposables
         protected override void OnDispose()
         {
             var context = _context.TryGetAndUnset();
-            if (context == null)
+            if (context is null)
             {
                 _slim.Wait();
                 return;

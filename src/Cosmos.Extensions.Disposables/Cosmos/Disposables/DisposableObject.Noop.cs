@@ -18,7 +18,7 @@ namespace Cosmos.Disposables
         /// <summary>
         /// Gets a <see cref="NoopDisposableObject"/> cache.
         /// </summary>
-        public static NoopDisposableObject Instance { get; } = new NoopDisposableObject();
+        public static NoopDisposableObject Instance { get; } = new();
 
         private NoopDisposableObject() { }
 

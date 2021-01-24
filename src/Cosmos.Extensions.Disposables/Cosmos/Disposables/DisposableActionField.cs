@@ -32,7 +32,7 @@ namespace Cosmos.Disposables
         /// <summary>
         /// To flag this field is empty or not.
         /// </summary>
-        public bool IsEmpty => Interlocked.CompareExchange(ref _field, null, null) == null;
+        public bool IsEmpty => Interlocked.CompareExchange(ref _field, null, null) is null;
 
         /// <summary>
         /// Atomically retrieves this disposable action from the field, and sets such field to <c>null</c>. May return <c>null</c>.

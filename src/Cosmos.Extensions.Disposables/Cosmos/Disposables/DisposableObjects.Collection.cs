@@ -59,7 +59,7 @@ namespace Cosmos.Disposables
         /// <param name="disposable"></param>
         public void Add(IDisposable disposable)
         {
-            if (disposable == null)
+            if (disposable is null)
                 return;
             if (!TryUpdateContext(x => x.Enqueue(disposable)))
                 disposable.Dispose();
@@ -71,13 +71,13 @@ namespace Cosmos.Disposables
         /// </summary>
         /// <param name="disposables">The disposables to dispose</param>
         /// <returns></returns>
-        public static CollectionDisposableObjects Create(params IDisposable[] disposables) => new CollectionDisposableObjects(disposables);
+        public static CollectionDisposableObjects Create(params IDisposable[] disposables) => new(disposables);
 
         /// <summary>
         /// Create a disposable that disposes a collection of disposables.
         /// </summary>
         /// <param name="disposables">The disposables to dispose</param>
         /// <returns></returns>
-        public static CollectionDisposableObjects Create(IEnumerable<IDisposable> disposables) => new CollectionDisposableObjects(disposables);
+        public static CollectionDisposableObjects Create(IEnumerable<IDisposable> disposables) => new(disposables);
     }
 }

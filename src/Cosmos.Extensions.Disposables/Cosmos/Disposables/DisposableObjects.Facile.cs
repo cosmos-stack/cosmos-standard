@@ -28,7 +28,7 @@ namespace Cosmos.Disposables
         /// <typeparam name="TDisposableObj"></typeparam>
         protected void AddDisposableObject<TDisposableObj>(TDisposableObj obj) where TDisposableObj : class, IDisposable
         {
-            if (obj != null)
+            if (obj is not null)
             {
                 _collectionDisposableObjects.Add(obj);
             }
@@ -40,7 +40,7 @@ namespace Cosmos.Disposables
         /// <param name="objs"></param>
         protected void AddDisposableObjects(params object[] objs)
         {
-            foreach (var obj in objs.Select(x => x as IDisposable).Where(o => o != null))
+            foreach (var obj in objs.Select(x => x as IDisposable).Where(o => o is not null))
             {
                 _collectionDisposableObjects.Add(obj);
             }
