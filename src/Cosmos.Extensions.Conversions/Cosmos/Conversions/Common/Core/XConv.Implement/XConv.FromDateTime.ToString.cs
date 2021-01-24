@@ -18,13 +18,13 @@ namespace Cosmos.Conversions.Common.Core
             result = context.DateTimeFormatStyles switch
             {
                 DateTimeFormatStyles.Normal    => dateTime.ToString(format, context.FormatProvider),
-                DateTimeFormatStyles.Date      => dateTime.ToDateString(),
-                DateTimeFormatStyles.Time      => dateTime.ToTimeString(),
-                DateTimeFormatStyles.DateTime  => dateTime.ToDateTimeString(),
-                DateTimeFormatStyles.LongDate  => dateTime.ToLongDateString(),
-                DateTimeFormatStyles.LongTime  => dateTime.ToLongTimeString(),
-                DateTimeFormatStyles.ShortDate => dateTime.ToShortDateString(),
-                DateTimeFormatStyles.ShortTime => dateTime.ToShortTimeString(),
+                DateTimeFormatStyles.Date      => dateTime.ToString(DateTimeOutputStyles.Date),
+                DateTimeFormatStyles.Time      => dateTime.ToString(DateTimeOutputStyles.Time),
+                DateTimeFormatStyles.DateTime  => dateTime.ToString(DateTimeOutputStyles.DateTime),
+                DateTimeFormatStyles.LongDate  => dateTime.ToString(DateTimeOutputStyles.LongDate),
+                DateTimeFormatStyles.LongTime  => dateTime.ToString(DateTimeOutputStyles.LongTime),
+                DateTimeFormatStyles.ShortDate => dateTime.ToString(DateTimeOutputStyles.ShortDate),
+                DateTimeFormatStyles.ShortTime => dateTime.ToString(DateTimeOutputStyles.ShortTime),
                 DateTimeFormatStyles.Local     => dateTime.ToLocalTime().ToString(format, context.FormatProvider),
                 DateTimeFormatStyles.Universal => dateTime.ToUniversalTime().ToString(format, context.FormatProvider),
                 _                              => dateTime.ToString(format, context.FormatProvider)
@@ -42,13 +42,13 @@ namespace Cosmos.Conversions.Common.Core
             result = context.DateTimeFormatStyles switch
             {
                 DateTimeFormatStyles.Normal    => dateTime.ToString(format, context.FormatProvider),
-                DateTimeFormatStyles.Date      => dateTime.ToDateString(),
-                DateTimeFormatStyles.Time      => dateTime.ToTimeString(),
-                DateTimeFormatStyles.DateTime  => dateTime.ToDateTimeString(),
-                DateTimeFormatStyles.LongDate  => dateTime.ToLongDateString(),
-                DateTimeFormatStyles.LongTime  => dateTime.ToLongTimeString(),
-                DateTimeFormatStyles.ShortDate => dateTime.ToShortDateString(),
-                DateTimeFormatStyles.ShortTime => dateTime.ToShortTimeString(),
+                DateTimeFormatStyles.Date      => dateTime.ToString(DateTimeOutputStyles.Date),
+                DateTimeFormatStyles.Time      => dateTime.ToString(DateTimeOutputStyles.Time),
+                DateTimeFormatStyles.DateTime  => dateTime.ToString(DateTimeOutputStyles.DateTime),
+                DateTimeFormatStyles.LongDate  => dateTime.ToString(DateTimeOutputStyles.LongDate),
+                DateTimeFormatStyles.LongTime  => dateTime.ToString(DateTimeOutputStyles.LongTime),
+                DateTimeFormatStyles.ShortDate => dateTime.ToString(DateTimeOutputStyles.ShortDate),
+                DateTimeFormatStyles.ShortTime => dateTime.ToString(DateTimeOutputStyles.ShortTime),
                 DateTimeFormatStyles.Local     => dateTime.ToLocalTime().ToString(format, context.FormatProvider),
                 DateTimeFormatStyles.Universal => dateTime.ToUniversalTime().ToString(format, context.FormatProvider),
                 _                              => dateTime.ToString(format, context.FormatProvider)
