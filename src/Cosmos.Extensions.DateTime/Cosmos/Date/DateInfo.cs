@@ -41,8 +41,8 @@ namespace Cosmos.Date
         {
             // to register DateInfo ConvertHandler and Checker into CustomConvertManager
             CustomConvertManager.RegisterOrOverride(
-                TypeClass.StringClazz, 
-                typeof(DateInfo), 
+                TypeClass.StringClazz,
+                typeof(DateInfo),
                 StringConvBeHandler,
                 StringConvToHandler);
         }
@@ -453,5 +453,27 @@ namespace Cosmos.Date
         {
             return _internalDateTime.ToString(format, provider);
         }
+
+        public static int DaysInMonth(int year, int month)
+        {
+            return DateTime.DaysInMonth(year, month);
+        }
+
+        public static int DaysInYear(int year)
+        {
+            return DateTime.IsLeapYear(year) ? 366 : 365;
+        }
+        
+        public static bool IsLeapYear(int year) => DateTime.IsLeapYear(year);
+        
+        /// <summary>
+        /// To get an instance of Infinite Future Info.
+        /// </summary>
+        public static InfiniteFutureInfo InfiniteFuture => InfiniteFutureInfo.Instance;
+
+        /// <summary>
+        /// To get an instance of Infinite Past Info.
+        /// </summary>
+        public static InfinitePastInfo InfinitePast => InfinitePastInfo.Instance;
     }
 }
