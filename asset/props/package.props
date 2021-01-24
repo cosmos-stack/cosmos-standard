@@ -7,6 +7,6 @@
 		<PackageProjectUrl>https://github.com/cosmos-loops/cosmos-standard</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageTags>Cosmos;Cosmosloops;Standard;Framework</PackageTags>
+		<PackageTags>Cosmos;Cosmosloops;Standard;Common;Framework</PackageTags>
 	</PropertyGroup>
 </Project>
