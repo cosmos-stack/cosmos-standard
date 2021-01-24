@@ -1,4 +1,5 @@
 using System;
+using Cosmos.Conversions;
 using NodaTime;
 
 namespace Cosmos.Date
@@ -16,8 +17,8 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static int DaysBetween(DayOfWeek left, DayOfWeek right)
         {
-            var leftVal = left.ToInt();
-            var rightVal = right.ToInt();
+            var leftVal = left.CastToInt();
+            var rightVal = right.CastToInt();
 
             if (leftVal <= rightVal)
                 return rightVal - leftVal;
