@@ -26,7 +26,7 @@
         /// </summary>
         public override DateInfo To => _to.Clone();
 
-        private static DateInfo Next(DateInfo date) => date.AddDay();
+        private static DateInfo Next(DateInfo date) => date.Tomorrow();
 
         /// <summary>
         /// Initialize<br />
