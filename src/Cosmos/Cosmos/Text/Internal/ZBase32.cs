@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+// ReSharper disable InconsistentNaming
+
 namespace Cosmos.Text.Internal
 {
     /*

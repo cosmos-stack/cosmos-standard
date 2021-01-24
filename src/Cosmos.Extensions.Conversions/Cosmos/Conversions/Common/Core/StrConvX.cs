@@ -297,7 +297,6 @@ namespace Cosmos.Conversions.Common.Core
                 NumericConvOptions.ZeroAsEmpty => DoubleToString(number.SafeValue(), DEFAULT_DIGITS, options, defaultVal.ToString(format)),
                 _ => DoubleToString(number.SafeValue(defaultVal), DEFAULT_DIGITS, options, defaultVal.ToString(format))
             };
-            return DoubleToString(number, DEFAULT_DIGITS, options, defaultVal);
         }
 
         public static string DoubleToString(double? number, int digits, NumericConvOptions options, string defaultVal = "")
