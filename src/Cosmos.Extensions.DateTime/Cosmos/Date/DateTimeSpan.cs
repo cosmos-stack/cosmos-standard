@@ -59,51 +59,31 @@ namespace Cosmos.Date
         /// <returns>
         /// <c>true</c> if the current object is equal to the other parameter; otherwise, <c>false</c>.
         /// </returns>
-        public bool Equals(DateTimeSpan other)
-        {
-            return this == other;
-        }
+        public bool Equals(DateTimeSpan other) => this == other;
 
         /// <summary>
         /// Adds two <see cref="DateTimeSpan"/> according operator +.
         /// </summary>
         /// <param name="number">The number to add to this <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the addition.</returns>
-        public DateTimeSpan Add(DateTimeSpan number)
-        {
-            return AddInternal(this, number);
-        }
+        public DateTimeSpan Add(DateTimeSpan number) => AddInternal(this, number);
 
         /// <summary>
         /// Returns a new <see cref="DateTimeSpan"/> that adds the value of the specified <see cref="TimeSpan"/> to the value of this instance.
         /// </summary>
         /// <param name="timeSpan">The <see cref="TimeSpan"/> to add to this <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the addition.</returns>
-        public DateTimeSpan Add(TimeSpan timeSpan)
-        {
-            return AddInternal(this, timeSpan);
-        }
+        public DateTimeSpan Add(TimeSpan timeSpan) => AddInternal(this, timeSpan);
 
         /// <summary>
         /// Subtracts the number according operator -.
         /// </summary>
         /// <param name="dateTimeSpan">The matrix to subtract from this <see cref="DateTimeSpan"/>.</param>
         /// <returns>The result of the subtraction.</returns>
-        public DateTimeSpan Subtract(DateTimeSpan dateTimeSpan)
-        {
-            return SubtractInternal(this, dateTimeSpan);
-        }
+        public DateTimeSpan Subtract(DateTimeSpan dateTimeSpan) => SubtractInternal(this, dateTimeSpan);
 
-        /// <summary>
-        /// Returns a new <see cref="DateTimeSpan"/> that subtracts the value of the specified <see cref="TimeSpan"/> to the value of this instance.
-        /// </summary>
-        /// <param name="timeSpan">The <see cref="TimeSpan"/> to subtract from this <see cref="DateTimeSpan"/>.</param>
-        /// <returns>The result of the subtraction.</returns>
-        public DateTimeSpan Subtract(TimeSpan timeSpan)
-        {
-            return SubtractInternal(this, timeSpan);
-        }
-
+        #region Operators
+        
         /// <summary>
         /// Overload of the operator +
         /// </summary>
@@ -800,6 +780,10 @@ namespace Cosmos.Date
             return new() {TimeSpan = duration.ToTimeSpan()};
         }
 
+        #endregion
+
+        #region Clone
+
         /// <summary>
         /// Creates a new object that is a copy of the current instance.
         /// </summary>
@@ -815,7 +799,11 @@ namespace Cosmos.Date
                 Years = Years
             };
         }
+        
+        #endregion
 
+        #region Override Methods
+        
         /// <inheritdoc />
         public override string ToString()
         {
@@ -861,7 +849,9 @@ namespace Cosmos.Date
             return Months.GetHashCode() ^ Years.GetHashCode() ^ TimeSpan.GetHashCode();
         }
 
-        //DateTimeSpan ops others
+        #endregion
+        
+        #region DateTimeSpan ops others
 
         static DateTimeSpan AddInternal(DateTimeSpan left, TimeSpan right)
         {
@@ -902,9 +892,11 @@ namespace Cosmos.Date
         {
             return left - right.ToTimeSpan();
         }
+        
+        #endregion
 
-        //others ops DateTimeSpan
-
+        #region Others ops DateTimeSpan
+        
         internal static DateTimeSpan SubtractInternal(TimeSpan left, DateTimeSpan right)
         {
             return new()
@@ -924,9 +916,11 @@ namespace Cosmos.Date
         {
             return left.ToTimeSpan() - right;
         }
+        
+        #endregion
 
-        //DateTimeSpan ops DateTimeSpan
-
+        #region DateTimeSpan ops DateTimeSpan
+        
         static DateTimeSpan AddInternal(DateTimeSpan left, DateTimeSpan right)
         {
             return new()
@@ -946,7 +940,11 @@ namespace Cosmos.Date
                 TimeSpan = left.TimeSpan - right.TimeSpan
             };
         }
-
+        
+        #endregion
+        
+        #region Fields Getters
+        
         /// <summary>
         /// Gets the number of ticks that represent the value of the current <see cref="TimeSpan"/> structure.
         /// </summary>
@@ -1001,7 +999,11 @@ namespace Cosmos.Date
         /// Total seconds
         /// </summary>
         public double TotalSeconds => ((TimeSpan) this).TotalSeconds;
-
+        
+        #endregion
+        
+        #region CompareTo
+        
         /// <inheritdoc />
         public int CompareTo(TimeSpan other)
         {
@@ -1033,6 +1035,8 @@ namespace Cosmos.Date
         {
             return ((TimeSpan) this).CompareTo(value);
         }
+
+        #endregion
 
         /// <summary>
         /// Negate

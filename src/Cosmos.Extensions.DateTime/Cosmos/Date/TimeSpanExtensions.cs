@@ -1,11 +1,8 @@
-﻿using Cosmos.Date;
+﻿using System;
 
-namespace System
+namespace Cosmos.Date
 {
-    /// <summary>
-    /// Cosmos <see cref="TimeSpan"/> extensions.
-    /// </summary>
-    public static class SystemTimeSpanExtensions
+    public static class TimeSpanExtensions
     {
         #region Ago
 
@@ -14,10 +11,7 @@ namespace System
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
-        public static DateTime Ago(this TimeSpan ts)
-        {
-            return ts.Before(DateTime.Now);
-        }
+        public static DateTime Ago(this TimeSpan ts) => ts.Before(DateTime.Now);
 
         /// <summary>
         /// Ago
@@ -25,20 +19,14 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTime Ago(this TimeSpan ts, DateTime originalValue)
-        {
-            return ts.Before(originalValue);
-        }
+        public static DateTime Ago(this TimeSpan ts, DateTime originalValue) => ts.Before(originalValue);
 
         /// <summary>
         /// DateTimeOffset Ago
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
-        public static DateTimeOffset OffsetAgo(this TimeSpan ts)
-        {
-            return ts.Before(DateTimeOffset.Now);
-        }
+        public static DateTimeOffset OffsetAgo(this TimeSpan ts) => ts.Before(DateTimeOffset.Now);
 
         /// <summary>
         /// DateTimeOffset Ago
@@ -46,10 +34,7 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTimeOffset Ago(this TimeSpan ts, DateTimeOffset originalValue)
-        {
-            return ts.Before(originalValue);
-        }
+        public static DateTimeOffset Ago(this TimeSpan ts, DateTimeOffset originalValue) => ts.Before(originalValue);
 
         #endregion
 
@@ -61,10 +46,7 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTime Before(this TimeSpan ts, DateTime originalValue)
-        {
-            return originalValue - ts;
-        }
+        public static DateTime Before(this TimeSpan ts, DateTime originalValue) => originalValue - ts;
 
         /// <summary>
         /// DateTimeOffset Before
@@ -72,10 +54,7 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTimeOffset Before(this TimeSpan ts, DateTimeOffset originalValue)
-        {
-            return originalValue - ts;
-        }
+        public static DateTimeOffset Before(this TimeSpan ts, DateTimeOffset originalValue) => originalValue - ts;
 
         #endregion
 
@@ -84,18 +63,12 @@ namespace System
         /// <summary>
         /// Adds the given <see cref="DateTimeSpan"/> from a <see cref="TimeSpan"/> and returns resulting <see cref="DateTimeSpan"/>.
         /// </summary>
-        public static DateTimeSpan AddFluentTimeSpan(this TimeSpan ts, DateTimeSpan fluentTimeSpan)
-        {
-            return fluentTimeSpan.Add(ts);
-        }
+        public static DateTimeSpan AddFluentTimeSpan(this TimeSpan ts, DateTimeSpan fluentTimeSpan) => fluentTimeSpan.Add(ts);
 
         /// <summary>
         /// Subtracts the given <see cref="DateTimeSpan"/> from a <see cref="TimeSpan"/> and returns resulting <see cref="DateTimeSpan"/>.
         /// </summary>
-        public static DateTimeSpan SubtractFluentTimeSpan(this TimeSpan ts, DateTimeSpan fluentTimeSpan)
-        {
-            return DateTimeSpan.SubtractInternal(ts, fluentTimeSpan);
-        }
+        public static DateTimeSpan SubtractFluentTimeSpan(this TimeSpan ts, DateTimeSpan fluentTimeSpan) => DateTimeSpan.SubtractInternal(ts, fluentTimeSpan);
 
         #endregion
 
@@ -106,10 +79,7 @@ namespace System
         /// </summary>
         /// <param name="from"></param>
         /// <returns></returns>
-        public static DateTime FromNow(this TimeSpan from)
-        {
-            return from.From(DateTime.Now);
-        }
+        public static DateTime FromNow(this TimeSpan from) => @from.From(DateTime.Now);
 
         /// <summary>
         /// From
@@ -117,20 +87,14 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTime From(this TimeSpan ts, DateTime originalValue)
-        {
-            return originalValue + ts;
-        }
+        public static DateTime From(this TimeSpan ts, DateTime originalValue) => originalValue + ts;
 
         /// <summary>
         /// DateTimeOffset from now
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
-        public static DateTimeOffset OffsetFromNow(this TimeSpan ts)
-        {
-            return ts.From(DateTimeOffset.Now);
-        }
+        public static DateTimeOffset OffsetFromNow(this TimeSpan ts) => ts.From(DateTimeOffset.Now);
 
         /// <summary>
         /// DateTimeOffset from
@@ -138,10 +102,7 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTimeOffset From(this TimeSpan ts, DateTimeOffset originalValue)
-        {
-            return originalValue + ts;
-        }
+        public static DateTimeOffset From(this TimeSpan ts, DateTimeOffset originalValue) => originalValue + ts;
 
         #endregion
 
@@ -219,10 +180,7 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTime Since(this TimeSpan ts, DateTime originalValue)
-        {
-            return From(ts, originalValue);
-        }
+        public static DateTime Since(this TimeSpan ts, DateTime originalValue) => From(ts, originalValue);
 
         /// <summary>
         /// DateTimeOffset since
@@ -230,10 +188,7 @@ namespace System
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
-        public static DateTimeOffset Since(this TimeSpan ts, DateTimeOffset originalValue)
-        {
-            return From(ts, originalValue);
-        }
+        public static DateTimeOffset Since(this TimeSpan ts, DateTimeOffset originalValue) => From(ts, originalValue);
 
         #endregion
 
@@ -283,8 +238,7 @@ namespace System
             var ticks = time.Ticks;
             if (ticks < 0 || ticks > 3155378975999999999)
                 throw new ArgumentOutOfRangeException(nameof(time));
-
-            return new DateTime(ticks);
+            return new(ticks);
         }
 
         #endregion

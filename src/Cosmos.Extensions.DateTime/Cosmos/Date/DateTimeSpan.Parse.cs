@@ -9,67 +9,61 @@ namespace Cosmos.Date
     /// </summary>
     public partial struct DateTimeSpan
     {
-        public static bool TryParse(string s, out DateTimeSpan result)
+        public static bool TryParse(string s, out DateTimeSpan result) => 
+            DateTimeSpanParse.TryParse(s, null, out result);
+
+        public static bool TryParse(string s, IFormatProvider provider, out DateTimeSpan result) =>
+            DateTimeSpanParse.TryParse(s, provider, out result);
+
+        public static bool TryParseExact(string input, string format, IFormatProvider provider, out DateTimeSpan result) => 
+            DateTimeSpanParse.TryParseExact(input, format, provider, TimeSpanStyles.None, out result);
+
+        public static bool TryParseExact(string input, string[] formats, IFormatProvider provider, out DateTimeSpan result) => 
+            DateTimeSpanParse.TryParseExactMultiple(input, formats, provider, TimeSpanStyles.None, out result);
+
+        public static bool TryParseExact(string input, string format, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result) =>
+            DateTimeSpanParse.TryParseExact(input, format, provider, styles, out result);
+
+        public static bool TryParseExact(string input, string[] formats, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result) =>
+            DateTimeSpanParse.TryParseExactMultiple(input, formats, provider, styles, out result);
+
+        private static Func<object, bool> StringConvBeHandler
         {
-            return DateTimeSpanParse.TryParse(s, null, out result);
+            get
+            {
+                return obj =>
+                {
+                    if (obj is string str)
+                        return StringDateTimeSpanDeterminer.Is(str);
+                    return false;
+                };
+            }
         }
 
-        public static bool TryParse(string s, IFormatProvider provider, out DateTimeSpan result)
+        private static Func<object, object> StringConvToHandler
         {
-            return DateTimeSpanParse.TryParse(s, provider, out result);
+            get
+            {
+                return obj =>
+                {
+                    if (obj is string str)
+                        return StringDateTimeSpanDeterminer.To(str);
+                    return default(DateInfo);
+                };
+            }
         }
-
-        public static bool TryParseExact(string input, string format, IFormatProvider provider, out DateTimeSpan result)
-        {
-            return DateTimeSpanParse.TryParseExact(input, format, provider, TimeSpanStyles.None, out result);
-        }
-
-        public static bool TryParseExact(string input, string[] formats, IFormatProvider provider, out DateTimeSpan result)
-        {
-            return DateTimeSpanParse.TryParseExactMultiple(input, formats, provider, TimeSpanStyles.None, out result);
-        }
-
-        public static bool TryParseExact(string input, string format, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result)
-        {
-            return DateTimeSpanParse.TryParseExact(input, format, provider, styles, out result);
-        }
-
-        public static bool TryParseExact(string input, string[] formats, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result)
-        {
-            return DateTimeSpanParse.TryParseExactMultiple(input, formats, provider, styles, out result);
-        }
-        
-        private static Func<object, bool> StringConvBeHandler => o =>
-        {
-            if (o is string str)
-                return StringDateTimeSpanDeterminer.Is(str);
-            return false;
-        };
-
-        private static Func<object, object> StringConvToHandler => o =>
-        {
-            if (o is string str)
-                return StringDateTimeSpanDeterminer.To(str);
-            return default(DateInfo);
-        };
     }
 
     internal static class DateTimeSpanParse
     {
-        public static bool TryParse(string s, IFormatProvider provider, out DateTimeSpan result)
-        {
-            return TryCreateDateTimeSpan(TimeSpan.TryParse(s, provider, out var timeSpan), timeSpan, out result);
-        }
+        public static bool TryParse(string s, IFormatProvider provider, out DateTimeSpan result) =>
+            TryCreateDateTimeSpan(TimeSpan.TryParse(s, provider, out var timeSpan), timeSpan, out result);
 
-        public static bool TryParseExact(string s, string format, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result)
-        {
-            return TryCreateDateTimeSpan(TimeSpan.TryParseExact(s, format, provider, styles, out var timeSpan), timeSpan, out result);
-        }
+        public static bool TryParseExact(string s, string format, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result) => 
+            TryCreateDateTimeSpan(TimeSpan.TryParseExact(s, format, provider, styles, out var timeSpan), timeSpan, out result);
 
-        public static bool TryParseExactMultiple(string s, string[] formats, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result)
-        {
-            return TryCreateDateTimeSpan(TimeSpan.TryParseExact(s, formats, provider, styles, out var timeSpan), timeSpan, out result);
-        }
+        public static bool TryParseExactMultiple(string s, string[] formats, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result) =>
+            TryCreateDateTimeSpan(TimeSpan.TryParseExact(s, formats, provider, styles, out var timeSpan), timeSpan, out result);
 
         private static bool TryCreateDateTimeSpan(bool condition, TimeSpan timeSpan, out DateTimeSpan result)
         {
