@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{CF
 		.gitignore = .gitignore
 		common.tests.props = common.tests.props
 		logo.png = logo.png
+		asset\version.props = asset\version.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}"
