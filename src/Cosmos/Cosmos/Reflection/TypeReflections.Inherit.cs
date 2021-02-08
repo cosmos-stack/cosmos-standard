@@ -236,6 +236,26 @@ namespace Cosmos.Reflection
         }
 
         #endregion
+
+        #region GetEnumUnderlyingType
+
+        public static Type GetEnumUnderlyingType(Type type)
+        {
+            if (type is null)
+                return null;
+
+            if (!type.IsEnum)
+                return null;
+
+            return type.GetEnumUnderlyingType();
+        }
+
+        public static Type GetEnumUnderlyingType<T>()
+        {
+            return GetEnumUnderlyingType(typeof(T));
+        }
+
+        #endregion
     }
 
     public static class TypeInheritReflectionExtensions
