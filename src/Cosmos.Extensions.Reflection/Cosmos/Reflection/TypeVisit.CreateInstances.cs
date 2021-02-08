@@ -96,6 +96,8 @@ namespace Cosmos.Reflection
         {
             return (descriptor.Name, descriptor.Value, descriptor.Type);
         }
+
+        public static IEnumerable<ArgumentDescriptor> EmptyArguments => Enumerable.Empty<ArgumentDescriptor>();
     }
     
     public static class ArgumentDescriptorExtensions
@@ -149,10 +151,8 @@ namespace Cosmos.Reflection
         private static object CreateInstanceImpl(Type type, params object[] args)
         {
             return args is null || args.Length == 0
-                ? type.GetConstructors().FirstOrDefault(WithoutParamPredicate)?.GetReflector().Invoke()
+                ? type.GetConstructor(Type.EmptyTypes)?.GetReflector().Invoke()
                 : type.GetConstructor(Types.Of(args))?.GetReflector().Invoke(args);
-
-            bool WithoutParamPredicate(MethodBase ci) => !ci.GetParameters().Any();
         }
 
 #if !NETFRAMEWORK
