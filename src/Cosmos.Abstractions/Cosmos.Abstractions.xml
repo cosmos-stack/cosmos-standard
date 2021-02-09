@@ -6,59 +6,66 @@
     <members>
         <member name="T:Cosmos.Asynchronous.ICancellable">
             <summary>
-            Interface for cancellable
+            Interface for cancellable.<br />
+            可取消接口
             </summary>
         </member>
         <member name="M:Cosmos.Asynchronous.ICancellable.Cancel">
             <summary>
-            Returns true if cancelled.
-            Returns false if already run or already cancelled or unable to cancel.
+            Returns true if cancelled. <br />
+            Returns false if already run or already cancelled or unable to cancel. <br />
+            当取消时返回 true，当已在运行、已取消或无法取消时返回 false。
             </summary>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Conversions.IConversionImpl`2">
             <summary>
-            Interface for conversion impl
+            Interface for conversion impl.<br />
+            带实现的转换接口。
             </summary>
         </member>
         <member name="M:Cosmos.Conversions.IConversionImpl`2.TryTo(`0,`1@)">
             <summary>
-            To
+            Try to convert.<br />
+            尝试转换。
             </summary>
-            <param name="from"></param>
-            <param name="to"></param>
-            <returns></returns>
+            <param name="from">The object to be converted.</param>
+            <param name="to">Return the converted result.</param>
+            <returns>If the conversion is successful, return true; otherwise, return false.</returns>
         </member>
         <member name="T:Cosmos.Conversions.IConversionTry`2">
             <summary>
-            Interface for conversion try
+            Interface for conversion try. <br />
+            带尝试的转换接口。
             </summary>
         </member>
         <member name="M:Cosmos.Conversions.IConversionTry`2.Is(`0,`1@)">
             <summary>
-            Is
+            Check if it can be converted. <br />
+            检查是否可被转换。
             </summary>
-            <param name="from"></param>
-            <param name="to"></param>
-            <returns></returns>
+            <param name="from">The object to be converted.</param>
+            <param name="to">Return the converted result.</param>
+            <returns>If it can be converted, return true; otherwise, return false.</returns>
         </member>
         <member name="T:Cosmos.Data.Common.IDbContext">
             <summary>
-            DbContext Meta Interface<br />
-            DnContext 元接口
+            DbContext Meta Interface. <br />
+            DnContext 元接口。
             </summary>
         </member>
         <member name="T:Cosmos.Data.Common.IDbSet`1">
             <summary>
-            DbSet Meta Interface<br />
-            DbSet 元接口
+            DbSet Meta Interface. <br />
+            DbSet 元接口。
             </summary>
             <typeparam name="TEntity">指定的实体类型</typeparam>
         </member>
         <member name="T:Cosmos.Disposables.DisposableBase">
             <summary>
-            A base class for properly implementing the synchronous dispose pattern.
-            Implement OnDispose to handle disposal.
+            A base class for properly implementing the synchronous dispose pattern. <br />
+            Implement OnDispose to handle disposal. <br />
+            同步释放模式的基类，通过实现 OnDispose 来处理。
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.DisposableBase.Dispose">
@@ -66,12 +73,14 @@
         </member>
         <member name="M:Cosmos.Disposables.DisposableBase.OnDispose">
             <summary>
-            When implemented will be called (only once) when being disposed.
+            When implemented will be called (only once) when being disposed. <br />
+            当释放时调用此方法（且仅一次）。
             </summary>
         </member>
         <member name="T:Cosmos.Disposables.DisposableStateBase">
             <summary>
-            Disposable state base
+            Disposable state base. <br />
+            可释放状态基类
             </summary>
         </member>
         <member name="P:Cosmos.Disposables.DisposableStateBase.DisposalState">
@@ -81,7 +90,8 @@
         </member>
         <member name="P:Cosmos.Disposables.DisposableStateBase.WasDisposed">
             <summary>
-            Was disposed
+            Was disposed. <br />
+            标识是否已释放。
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.DisposableStateBase.AssertIsAlive(System.Boolean)">
@@ -98,7 +108,8 @@
         </member>
         <member name="E:Cosmos.Disposables.DisposableStateBase.BeforeDispose">
             <summary>
-            BeforeDispose will be triggered once right before disposal commences.
+            BeforeDispose will be triggered once right before disposal commences. <br />
+            在释放之前触发一次 BeforeDispose。
             </summary>
         </member>
         <member name="M:Cosmos.Disposables.DisposableStateBase.StartDispose">
@@ -173,12 +184,14 @@
         </member>
         <member name="T:Cosmos.Disposables.IDisposalState">
             <summary>
-            Interface for disposal state
+            Interface for disposal state <br />
+            可释放状态接口
             </summary>
         </member>
         <member name="P:Cosmos.Disposables.IDisposalState.WasDisposed">
             <summary>
-            Was disposed
+            Was disposed <br />
+            标识是否已释放。
             </summary>
         </member>
         <member name="T:Cosmos.IObjectMapper">

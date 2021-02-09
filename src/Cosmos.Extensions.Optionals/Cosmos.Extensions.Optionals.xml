@@ -5725,7 +5725,7 @@
             以给定参数安全执行事件
             </summary>
             <typeparam name="TEventArgs"></typeparam>
-            <param name="hander"></param>
+            <param name="handler"></param>
             <param name="sender"></param>
             <param name="e"></param>
         </member>
@@ -5751,6 +5751,38 @@
             <param name="value"></param>
             <param name="defaultValue"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeValue``1(System.Nullable{``0},System.Func{``0})">
+            <summary>
+            Return a safe value<br />
+            安全返回值
+            <para>如果可空值真为空，则返回默认值</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="defaultValFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeValue``1(System.Nullable{``0},System.Func{System.Nullable{``0},System.Boolean},System.Func{``0},System.Func{``0})">
+            <summary>
+            Return a safe value<br />
+            安全返回值
+            <para>如果可空值真为空，则返回默认值</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="condition"></param>
+            <param name="defaultValFunc"></param>
+            <param name="elseValFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.TrySafeValue``1(System.Nullable{``0},``0@)">
+            <summary>
+            Return a safe value<br />
+            安全返回值
+            </summary>
+            <param name="value"> 可空值 </param>
+            <param name="result"></param>
         </member>
         <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeValue(System.String)">
             <summary>
@@ -5799,7 +5831,15 @@
             To remove space and return a safe <see cref="T:System.String"/> value.<br />
             安全移除空白字符
             </summary>
-            <param name="str"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeGroupValue(System.Text.RegularExpressions.Match,System.String)">
+            <summary>
+            To safe group value
+            </summary>
+            <param name="match"></param>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeDateTime(System.Object)">

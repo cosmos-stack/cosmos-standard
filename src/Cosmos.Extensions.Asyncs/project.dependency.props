@@ -15,19 +15,7 @@
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
 		<PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
 	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-		<PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
-		<PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
-		<PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
-	</ItemGroup>
-
+	
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
 		<PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
 	</ItemGroup>

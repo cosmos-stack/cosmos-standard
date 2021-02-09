@@ -4,6 +4,8 @@
         <AssemblyName>Cosmos.Standard</AssemblyName>
         <PackageId>Cosmos.Standard</PackageId>
         <Description>Cosmos standard library</Description>
+        <Configurations>Debug;Release;Gen-Xml</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
     <Import Project="..\..\common.props" />
