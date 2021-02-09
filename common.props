@@ -7,17 +7,12 @@
     <PropertyGroup>
         <RootNamespace/>
         <LangVersion>latest</LangVersion>
-    </PropertyGroup>
-    
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <NoWarn>$(NoWarn);NETSDK1138</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <NoWarn>$(NoWarn);CS1591;NETSDK1138</NoWarn>
+        <NoWarn Condition=" '$(Configuration)' == 'Debug' ">$(NoWarn);NETSDK1138</NoWarn>
+        <NoWarn Condition=" '$(Configuration)' == 'Gen-Xml' ">$(NoWarn);CS1591;NETSDK1138</NoWarn>
+        <NoWarn Condition=" '$(Configuration)' == 'Release' ">$(NoWarn);CS1591;NETSDK1138</NoWarn>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Gen-Xml|AnyCPU' ">
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
 
