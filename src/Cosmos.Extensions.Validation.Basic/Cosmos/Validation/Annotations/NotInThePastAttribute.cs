@@ -2,9 +2,9 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Date;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
     /// /Not in past

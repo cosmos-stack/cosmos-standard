@@ -2,21 +2,25 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Reflection;
-using Cosmos.Validation.Internals;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Must string type
+    /// Must
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class MustStringTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class MustIntAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
         /// <summary>
         /// Message
         /// </summary>
         public string Message { get; set; }
+
+        /// <summary>
+        /// May be nullable
+        /// </summary>
+        public bool MayBeNullable { get; set; }
 
         /// <summary>
         /// Invoke
@@ -27,8 +31,10 @@ namespace Cosmos.Validation.Parameters
         /// <exception cref="ArgumentInvalidException"></exception>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
-            ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(
-                context.Parameter.Type.Is(TypeClass.StringClazz),
+            var condition = MayBeNullable
+                ? context.Parameter.IsNot(TypeClass.IntClazz).OrNot(TypeClass.IntNullableClazz)
+                : context.Parameter.Type.IsNot(TypeClass.IntClazz);
+            ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(condition,
                 Message, context.Parameter.Name);
             return next(context);
         }

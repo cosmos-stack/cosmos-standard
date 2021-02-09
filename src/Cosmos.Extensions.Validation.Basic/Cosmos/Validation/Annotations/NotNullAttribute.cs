@@ -2,24 +2,20 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Reflection;
-using Cosmos.Text;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Not out of length
+    /// Not null
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotOutOfLengthAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotNullAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
-        /// <inheritdoc />
-        public string Message { get; set; }
-
         /// <summary>
-        /// Length
+        /// Message
         /// </summary>
-        public int Length { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// Invoke
@@ -30,7 +26,9 @@ namespace Cosmos.Validation.Parameters
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.Type.Is(TypeClass.StringClazz))
-                context.Parameter.TryTo(string.Empty).RequireMaxLength(Length, context.Parameter.Name, Message);
+                context.Parameter.TryTo(string.Empty).CheckNull(context.Parameter.Name, Message);
+            else
+                context.Parameter.Value.CheckNull(context.Parameter.Name, Message);
             return next(context);
         }
     }

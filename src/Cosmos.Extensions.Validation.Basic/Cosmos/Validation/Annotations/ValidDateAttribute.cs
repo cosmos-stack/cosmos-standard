@@ -2,15 +2,15 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Date;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Not in future
+    /// Valid date
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotInTheFutureAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class ValidDateAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
         /// <summary>
         /// Message
@@ -26,7 +26,7 @@ namespace Cosmos.Validation.Parameters
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsDateTimeType())
-                DateGuard.ShouldBeInThePast(context.Parameter.TryTo<DateTime?>(), context.Parameter.Name, Message);
+                context.Parameter.TryTo<DateTime?>().CheckInvalidDate(context.Parameter.Name, Message);
             return next(context);
         }
     }

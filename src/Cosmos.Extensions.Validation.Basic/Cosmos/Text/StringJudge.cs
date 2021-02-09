@@ -127,8 +127,8 @@ namespace Cosmos.Text
         public static bool IsBoolean(this string str) => StringBooleanDeterminer.Is(str);
 
         /// <summary>
-        /// Determine whether the given string is <see cref="Encoding"/>. <br />
-        /// 判断给定的字符串是否是 <see cref="Encoding"/>。
+        /// Determine whether the given string is <see cref="System.Text.Encoding"/>. <br />
+        /// 判断给定的字符串是否是 <see cref="System.Text.Encoding"/>。
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>

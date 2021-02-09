@@ -1,4 +1,4 @@
-﻿namespace Cosmos.Validation.Parameters
+﻿namespace Cosmos.Validation
 {
     /// <summary>
     /// Validation parameter<br />

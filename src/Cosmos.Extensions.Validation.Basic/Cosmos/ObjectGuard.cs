@@ -1,5 +1,5 @@
 ﻿using System;
-using Cosmos.Validation.Internals;
+using Cosmos.Validation;
 
 namespace Cosmos
 {
@@ -17,7 +17,7 @@ namespace Cosmos
         public static void NotNull(object argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
-                argument != null,
+                argument is not null,
                 argumentName, message ?? $"{nameof(argument)} can not be null.");
         }
     }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Cosmos.Validation.Internals;
+using Cosmos.Validation;
 
 namespace Cosmos.Text
 {

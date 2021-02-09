@@ -2,19 +2,18 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Reflection;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Text;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Not null
+    /// Not whitespace
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotNullAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotWhiteSpaceAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
-        /// <summary>
-        /// Message
-        /// </summary>
+        /// <inheritdoc />
         public string Message { get; set; }
 
         /// <summary>
@@ -26,9 +25,7 @@ namespace Cosmos.Validation.Parameters
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.Type.Is(TypeClass.StringClazz))
-                context.Parameter.TryTo(string.Empty).CheckNull(context.Parameter.Name, Message);
-            else
-                context.Parameter.Value.CheckNull(context.Parameter.Name, Message);
+                context.Parameter.TryTo(string.Empty).CheckBlank(context.Parameter.Name, Message);
             return next(context);
         }
     }

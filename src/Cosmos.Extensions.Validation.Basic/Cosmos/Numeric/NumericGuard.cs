@@ -1,7 +1,7 @@
 ﻿using System;
 using Cosmos.Optionals;
 using Cosmos.Reflection;
-using Cosmos.Validation.Internals;
+using Cosmos.Validation;
 
 namespace Cosmos.Numeric
 {
@@ -9,7 +9,7 @@ namespace Cosmos.Numeric
     {
         public static T? N<T>(T? x, NumericMayOptions options, string argumentName, string message = null) where T : struct
         {
-            if (options == NumericMayOptions.Default)
+            if (options is NumericMayOptions.Default)
                 ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
                     x is not null,
                     argumentName, message ?? $"The given nullable number should not be null.");

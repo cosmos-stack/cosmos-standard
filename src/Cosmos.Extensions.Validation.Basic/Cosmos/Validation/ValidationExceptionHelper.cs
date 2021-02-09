@@ -5,7 +5,7 @@ using AspectCore.Extensions.Reflection;
 using Cosmos.Exceptions;
 using Cosmos.Reflection;
 
-namespace Cosmos.Validation.Internals
+namespace Cosmos.Validation
 {
     internal static class ValidationExceptionHelper
     {

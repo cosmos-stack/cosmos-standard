@@ -1,16 +1,16 @@
 using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
-using Cosmos.Date;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Reflection;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Valid date
+    /// Must string type
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class ValidDateAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class MustStringTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
         /// <summary>
         /// Message
@@ -23,10 +23,12 @@ namespace Cosmos.Validation.Parameters
         /// <param name="context"></param>
         /// <param name="next"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentInvalidException"></exception>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
-            if (context.Parameter.IsDateTimeType())
-                context.Parameter.TryTo<DateTime?>().CheckInvalidDate(context.Parameter.Name, Message);
+            ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(
+                context.Parameter.Type.Is(TypeClass.StringClazz),
+                Message, context.Parameter.Name);
             return next(context);
         }
     }

@@ -1,7 +1,7 @@
 using System;
 using AspectCore.DynamicProxy.Parameters;
 
-namespace Cosmos.Validation.Parameters.Internals
+namespace Cosmos.Validation.Annotations.Internals
 {
     internal static class ParameterTypeChecker
     {

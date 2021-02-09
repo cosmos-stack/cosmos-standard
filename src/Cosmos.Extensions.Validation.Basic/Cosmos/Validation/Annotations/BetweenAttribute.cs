@@ -1,6 +1,6 @@
 using System;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
     /// Between, alias of <see cref="NotOutOfRangeAttribute"/>

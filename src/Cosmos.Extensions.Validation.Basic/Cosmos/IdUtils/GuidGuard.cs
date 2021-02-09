@@ -1,6 +1,6 @@
 ﻿using System;
 using Cosmos.Optionals;
-using Cosmos.Validation.Internals;
+using Cosmos.Validation;
 
 namespace Cosmos.IdUtils
 {

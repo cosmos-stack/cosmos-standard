@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cosmos.Validation.Internals;
+using Cosmos.Validation;
 
 namespace Cosmos.Collections
 {
@@ -19,7 +19,7 @@ namespace Cosmos.Collections
         public static void ShouldBeNotNull(IEnumerable argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
-                argument != null,
+                argument is not null,
                 argumentName, message ?? $"{nameof(argument)} can not be null.");
         }
 

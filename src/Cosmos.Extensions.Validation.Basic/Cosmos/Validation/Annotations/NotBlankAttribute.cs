@@ -1,10 +1,10 @@
 using System;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Number only
+    /// Not blank
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NumberOnlyAttribute : MustNumericTypeAttribute, IValidationParameter { }
+    public class NotBlankAttribute : NotWhiteSpaceAttribute, IValidationParameter { }
 }

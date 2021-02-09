@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Date;
 using Cosmos.Numeric;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
     /// Not negative or zero

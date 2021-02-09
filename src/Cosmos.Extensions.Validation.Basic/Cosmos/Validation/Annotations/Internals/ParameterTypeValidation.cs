@@ -1,12 +1,12 @@
 using System;
 
-namespace Cosmos.Validation.Parameters.Internals
+namespace Cosmos.Validation.Annotations.Internals
 {
     /// <summary>
     /// Parameter type validation<br />
     /// 参数类型验证
     /// </summary>
-    public class ParameterTypeValidation : IOperationResult<bool>
+    internal class ParameterTypeValidation : IOperationResult<bool>
     {
         /// <summary>
         /// Create a new instance of <see cref="ParameterTypeValidation"/><br />

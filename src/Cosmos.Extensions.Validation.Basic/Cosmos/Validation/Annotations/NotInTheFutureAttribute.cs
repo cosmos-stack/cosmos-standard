@@ -1,19 +1,20 @@
 using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
-using Cosmos.Reflection;
-using Cosmos.Text;
-using Cosmos.Validation.Parameters.Internals;
+using Cosmos.Date;
+using Cosmos.Validation.Annotations.Internals;
 
-namespace Cosmos.Validation.Parameters
+namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Not whitespace
+    /// Not in future
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotWhiteSpaceAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotInTheFutureAttribute : ParameterInterceptorAttribute, IValidationParameter
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Message
+        /// </summary>
         public string Message { get; set; }
 
         /// <summary>
@@ -24,8 +25,8 @@ namespace Cosmos.Validation.Parameters
         /// <returns></returns>
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
-            if (context.Parameter.Type.Is(TypeClass.StringClazz))
-                context.Parameter.TryTo(string.Empty).CheckBlank(context.Parameter.Name, Message);
+            if (context.Parameter.IsDateTimeType())
+                DateGuard.ShouldBeInThePast(context.Parameter.TryTo<DateTime?>(), context.Parameter.Name, Message);
             return next(context);
         }
     }
