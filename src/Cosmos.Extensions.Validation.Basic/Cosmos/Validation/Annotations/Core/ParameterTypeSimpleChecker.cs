@@ -1,6 +1,6 @@
 using System;
 
-namespace Cosmos.Validation.Annotations.Internals
+namespace Cosmos.Validation.Annotations.Core
 {
     internal static class ParameterTypeSimpleChecker
     {

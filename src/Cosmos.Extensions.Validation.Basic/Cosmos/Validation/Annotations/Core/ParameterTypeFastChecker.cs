@@ -2,7 +2,7 @@ using System;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Reflection;
 
-namespace Cosmos.Validation.Annotations.Internals
+namespace Cosmos.Validation.Annotations.Core
 {
     internal static class ParameterTypeFastChecker
     {

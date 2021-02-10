@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Reflection;
 using Cosmos.Text;
-using Cosmos.Validation.Annotations.Internals;
+using Cosmos.Validation.Annotations.Core;
 
 namespace Cosmos.Validation.Annotations
 {
@@ -11,11 +11,8 @@ namespace Cosmos.Validation.Annotations
     /// Not whitespace
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotWhiteSpaceAttribute : ParameterInterceptorAttribute, IValidationAnnotation
+    public class NotWhiteSpaceAttribute : ValidationParameterAttribute
     {
-        /// <inheritdoc />
-        public string Message { get; set; }
-
         /// <summary>
         /// Invoke
         /// </summary>

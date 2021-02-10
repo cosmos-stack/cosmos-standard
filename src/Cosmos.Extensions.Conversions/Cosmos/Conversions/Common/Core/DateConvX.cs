@@ -11,8 +11,9 @@ namespace Cosmos.Conversions.Common.Core
             {
                 null => defaultVal,
                 string str => StringToDateTime(str, defaultVal),
-                _ => XConvHelper.D(obj.ToString(), StringDateTimeDeterminer.IS, defaultVal, StringToDateTime, out var val) 
-                    ? val 
+                DateTime d => d,
+                _ => XConvHelper.D(obj.ToString(), StringDateTimeDeterminer.IS, defaultVal, StringToDateTime, out var val)
+                    ? val
                     : XConvHelper.T(() => Convert.ToDateTime(obj), defaultVal)
             };
         }
@@ -28,6 +29,7 @@ namespace Cosmos.Conversions.Common.Core
             {
                 null => null,
                 string str => StringToNullableDateTime(str),
+                DateTime d => d,
                 _ => StringToNullableDateTime(obj.ToString())
             };
         }
@@ -47,9 +49,12 @@ namespace Cosmos.Conversions.Common.Core
             {
                 null => defaultVal,
                 string str => StringToDateTimeOffset(str, defaultVal),
-                _ => XConvHelper.D(obj.ToString(), StringDateTimeOffsetDeterminer.IS, defaultVal, StringToDateTimeOffset, out var val) 
-                    ? val 
-                    : DateTimeOffset.TryParse(obj.ToString(), out var dateTimeOffset) ? dateTimeOffset : defaultVal
+                DateTimeOffset d => d,
+                _ => XConvHelper.D(obj.ToString(), StringDateTimeOffsetDeterminer.IS, defaultVal, StringToDateTimeOffset, out var val)
+                    ? val
+                    : DateTimeOffset.TryParse(obj.ToString(), out var dateTimeOffset)
+                        ? dateTimeOffset
+                        : defaultVal
             };
         }
 
@@ -64,6 +69,7 @@ namespace Cosmos.Conversions.Common.Core
             {
                 null => null,
                 string str => StringToNullableDateTimeOffset(str),
+                DateTimeOffset d => d,
                 _ => StringToNullableDateTimeOffset(obj.ToString())
             };
         }
@@ -83,9 +89,12 @@ namespace Cosmos.Conversions.Common.Core
             {
                 null => defaultVal,
                 string str => StringToTimeSpan(str, defaultVal),
-                _ => XConvHelper.D(obj.ToString(), StringTimeSpanDeterminer.IS, defaultVal, StringToTimeSpan, out var val) 
-                    ? val 
-                    : TimeSpan.TryParse(obj.ToString(), out var timeSpan) ? timeSpan : defaultVal
+                TimeSpan t => t,
+                _ => XConvHelper.D(obj.ToString(), StringTimeSpanDeterminer.IS, defaultVal, StringToTimeSpan, out var val)
+                    ? val
+                    : TimeSpan.TryParse(obj.ToString(), out var timeSpan)
+                        ? timeSpan
+                        : defaultVal
             };
         }
 
@@ -100,6 +109,7 @@ namespace Cosmos.Conversions.Common.Core
             {
                 null => null,
                 string str => StringToNullableTimeSpan(str),
+                TimeSpan t => t,
                 _ => StringToNullableTimeSpan(obj.ToString())
             };
         }

@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Reflection;
-using Cosmos.Validation.Annotations.Internals;
+using Cosmos.Validation.Annotations.Core;
 
 namespace Cosmos.Validation.Annotations
 {
@@ -10,13 +10,8 @@ namespace Cosmos.Validation.Annotations
     /// Must string type
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class MustStringTypeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
+    public class MustStringTypeAttribute : ValidationParameterAttribute
     {
-        /// <summary>
-        /// Message
-        /// </summary>
-        public string Message { get; set; }
-
         /// <summary>
         /// Invoke
         /// </summary>

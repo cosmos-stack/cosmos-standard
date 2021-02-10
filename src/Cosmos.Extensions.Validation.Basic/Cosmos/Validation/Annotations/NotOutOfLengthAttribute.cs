@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Reflection;
 using Cosmos.Text;
-using Cosmos.Validation.Annotations.Internals;
+using Cosmos.Validation.Annotations.Core;
 
 namespace Cosmos.Validation.Annotations
 {
@@ -11,11 +11,8 @@ namespace Cosmos.Validation.Annotations
     /// Not out of length
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotOutOfLengthAttribute : ParameterInterceptorAttribute, IValidationAnnotation
+    public class NotOutOfLengthAttribute : ValidationParameterAttribute
     {
-        /// <inheritdoc />
-        public string Message { get; set; }
-
         /// <summary>
         /// Length
         /// </summary>

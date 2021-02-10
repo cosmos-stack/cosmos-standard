@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Date;
 using Cosmos.Numeric;
-using Cosmos.Validation.Annotations.Internals;
+using Cosmos.Validation.Annotations.Core;
 
 namespace Cosmos.Validation.Annotations
 {
@@ -11,13 +11,8 @@ namespace Cosmos.Validation.Annotations
     /// Not negative or zero
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotNegativeOrZeroAttribute : ParameterInterceptorAttribute, IValidationAnnotation
+    public class NotNegativeOrZeroAttribute : ValidationParameterAttribute
     {
-        /// <summary>
-        /// Message
-        /// </summary>
-        public string Message { get; set; }
-
         /// <summary>
         /// Invoke
         /// </summary>

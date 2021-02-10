@@ -1,8 +1,9 @@
 using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
+using Cosmos.Conversions.Determiners;
 using Cosmos.Date;
-using Cosmos.Validation.Annotations.Internals;
+using Cosmos.Validation.Annotations.Core;
 
 namespace Cosmos.Validation.Annotations
 {
@@ -10,13 +11,8 @@ namespace Cosmos.Validation.Annotations
     /// Valid date
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class ValidDateAttribute : ParameterInterceptorAttribute, IValidationAnnotation
+    public class ValidDateValueAttribute : ValidationParameterAttribute, IQuietVerifiableAnnotation
     {
-        /// <summary>
-        /// Message
-        /// </summary>
-        public string Message { get; set; }
-
         /// <summary>
         /// Invoke
         /// </summary>
@@ -28,6 +24,26 @@ namespace Cosmos.Validation.Annotations
             if (context.Parameter.IsDateTimeType())
                 context.Parameter.TryTo<DateTime?>().CheckInvalidDate(context.Parameter.Name, Message);
             return next(context);
+        }
+
+        /// <summary>
+        /// Quiet Verify
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public bool QuietVerify<T>(T instance)
+        {
+            if (instance is null)
+                return false;
+
+            if (typeof(T).Is<DateTime>() || typeof(T).Is<DateTime?>())
+                return true;
+
+            return instance switch
+            {
+                string str => StringDateTimeDeterminer.Is(str),
+                _ => StringDateTimeDeterminer.Is(instance.ToString())
+            };
         }
     }
 }

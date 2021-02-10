@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Numeric;
-using Cosmos.Validation.Annotations.Internals;
+using Cosmos.Validation.Annotations.Core;
 
 namespace Cosmos.Validation.Annotations
 {
@@ -10,11 +10,8 @@ namespace Cosmos.Validation.Annotations
     /// Not out of range
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotOutOfRangeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
+    public class NotOutOfRangeAttribute : ValidationParameterAttribute 
     {
-        /// <inheritdoc />
-        public string Message { get; set; }
-
         /// <summary>
         /// Min
         /// </summary>

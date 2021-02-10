@@ -1,6 +1,6 @@
 using System;
 
-namespace Cosmos.Validation.Annotations.Internals
+namespace Cosmos.Validation.Annotations.Core
 {
     /// <summary>
     /// Parameter type validation<br />
