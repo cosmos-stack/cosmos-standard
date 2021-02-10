@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// Must string type
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class MustStringTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class MustStringTypeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

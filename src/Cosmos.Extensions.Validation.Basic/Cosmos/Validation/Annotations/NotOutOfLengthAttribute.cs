@@ -11,7 +11,7 @@ namespace Cosmos.Validation.Annotations
     /// Not out of length
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotOutOfLengthAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotOutOfLengthAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <inheritdoc />
         public string Message { get; set; }

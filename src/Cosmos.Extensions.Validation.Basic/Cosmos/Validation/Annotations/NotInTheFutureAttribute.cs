@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// Not in future
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotInTheFutureAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotInTheFutureAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

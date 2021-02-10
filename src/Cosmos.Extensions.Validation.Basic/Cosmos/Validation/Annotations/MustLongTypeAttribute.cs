@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// Must long
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class MustLongTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class MustLongTypeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

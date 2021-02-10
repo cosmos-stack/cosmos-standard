@@ -6,5 +6,5 @@ namespace Cosmos.Validation.Annotations
     /// Number only
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NumberOnlyAttribute : MustNumericTypeAttribute, IValidationParameter { }
+    public class NumberOnlyAttribute : MustNumericTypeAttribute, IValidationAnnotation { }
 }

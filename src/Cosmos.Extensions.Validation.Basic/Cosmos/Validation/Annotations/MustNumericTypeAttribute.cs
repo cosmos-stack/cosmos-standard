@@ -8,7 +8,7 @@ namespace Cosmos.Validation.Annotations
     /// <summary>
     /// Music numeric type
     /// </summary>
-    public class MustNumericTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class MustNumericTypeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

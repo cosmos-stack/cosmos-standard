@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// /Not in past
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotInThePastAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotInThePastAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

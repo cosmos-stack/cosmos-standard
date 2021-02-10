@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// Must in type...
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class MustIntTypeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class MustIntTypeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// Not null
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotNullAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotNullAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

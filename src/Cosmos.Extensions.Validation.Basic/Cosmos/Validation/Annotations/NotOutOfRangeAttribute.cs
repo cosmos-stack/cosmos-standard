@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// Not out of range
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotOutOfRangeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotOutOfRangeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <inheritdoc />
         public string Message { get; set; }

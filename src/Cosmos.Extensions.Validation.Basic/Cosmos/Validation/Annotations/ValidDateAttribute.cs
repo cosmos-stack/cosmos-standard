@@ -10,7 +10,7 @@ namespace Cosmos.Validation.Annotations
     /// Valid date
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class ValidDateAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class ValidDateAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

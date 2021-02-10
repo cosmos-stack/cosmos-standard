@@ -11,7 +11,7 @@ namespace Cosmos.Validation.Annotations
     /// Not negative
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotNegativeAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotNegativeAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <summary>
         /// Message

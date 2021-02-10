@@ -11,7 +11,7 @@ namespace Cosmos.Validation.Annotations
     /// Not whitespace
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotWhiteSpaceAttribute : ParameterInterceptorAttribute, IValidationParameter
+    public class NotWhiteSpaceAttribute : ParameterInterceptorAttribute, IValidationAnnotation
     {
         /// <inheritdoc />
         public string Message { get; set; }
