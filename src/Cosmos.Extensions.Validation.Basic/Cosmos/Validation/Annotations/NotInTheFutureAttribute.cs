@@ -13,6 +13,11 @@ namespace Cosmos.Validation.Annotations
     public class NotInTheFutureAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Not-In-The-Future Annotation";
+        
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>
@@ -21,7 +26,7 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsDateTimeType())
-                DateGuard.ShouldBeInThePast(context.Parameter.TryTo<DateTime?>(), context.Parameter.Name, Message);
+                DateGuard.ShouldBeInThePast(context.Parameter.TryTo<DateTime?>(), context.Parameter.Name, ErrorMessage);
             return next(context);
         }
     }

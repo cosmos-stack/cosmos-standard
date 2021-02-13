@@ -14,6 +14,11 @@ namespace Cosmos.Validation.Annotations
     public class NotNegativeOrZeroAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Not-Negative-Or-Zero Annotation";
+        
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>
@@ -22,17 +27,17 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsIntType())
-                context.Parameter.TryTo<int?>().RequirePositive(context.Parameter.Name, Message);
+                context.Parameter.TryTo<int?>().RequirePositive(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsLongType())
-                context.Parameter.TryTo<long?>().RequirePositive(context.Parameter.Name, Message);
+                context.Parameter.TryTo<long?>().RequirePositive(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsFloatType())
-                context.Parameter.TryTo<float?>().RequirePositive(context.Parameter.Name, Message);
+                context.Parameter.TryTo<float?>().RequirePositive(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsDoubleType())
-                context.Parameter.TryTo<double?>().RequirePositive(context.Parameter.Name, Message);
+                context.Parameter.TryTo<double?>().RequirePositive(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsDecimalType())
-                context.Parameter.TryTo<decimal?>().RequirePositive(context.Parameter.Name, Message);
+                context.Parameter.TryTo<decimal?>().RequirePositive(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsTimeSpanType())
-                context.Parameter.TryTo<TimeSpan?>().RequirePositive(context.Parameter.Name, Message);
+                context.Parameter.TryTo<TimeSpan?>().RequirePositive(context.Parameter.Name, ErrorMessage);
             return next(context);
         }
     }

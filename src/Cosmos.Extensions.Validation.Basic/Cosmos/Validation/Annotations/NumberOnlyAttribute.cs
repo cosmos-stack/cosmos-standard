@@ -6,5 +6,11 @@ namespace Cosmos.Validation.Annotations
     /// Number only
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NumberOnlyAttribute : MustNumericTypeAttribute { }
+    public class NumberOnlyAttribute : MustNumericTypeAttribute
+    {
+        /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Number-Only Annotation";
+    }
 }

@@ -13,6 +13,11 @@ namespace Cosmos.Validation.Annotations
     public class MustStringTypeAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Must-String Annotation";
+        
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>
@@ -23,7 +28,7 @@ namespace Cosmos.Validation.Annotations
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(
                 context.Parameter.Type.Is(TypeClass.StringClazz),
-                Message, context.Parameter.Name);
+                ErrorMessage, context.Parameter.Name);
             return next(context);
         }
     }

@@ -14,6 +14,11 @@ namespace Cosmos.Validation.Annotations
     public class NotWhiteSpaceAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Not-WhiteSpace Annotation";
+        
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>
@@ -22,7 +27,7 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.Type.Is(TypeClass.StringClazz))
-                context.Parameter.TryTo(string.Empty).CheckBlank(context.Parameter.Name, Message);
+                context.Parameter.TryTo(string.Empty).CheckBlank(context.Parameter.Name, ErrorMessage);
             return next(context);
         }
     }

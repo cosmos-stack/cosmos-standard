@@ -13,6 +13,11 @@ namespace Cosmos.Validation.Annotations
     public class MustLongTypeAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Must-Int64 Annotation";
+        
+        /// <summary>
         /// My be nullable
         /// </summary>
         public bool MayBeNullable { get; set; }
@@ -30,7 +35,7 @@ namespace Cosmos.Validation.Annotations
                 ? context.Parameter.IsNot(TypeClass.LongClazz).OrNot(TypeClass.LongNullableClazz)
                 : context.Parameter.Type.IsNot(TypeClass.LongClazz);
             ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(condition,
-                Message, context.Parameter.Name);
+                ErrorMessage, context.Parameter.Name);
             return next(context);
         }
     }

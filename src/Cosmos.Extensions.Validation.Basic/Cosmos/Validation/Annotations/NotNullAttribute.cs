@@ -13,6 +13,11 @@ namespace Cosmos.Validation.Annotations
     public class NotNullAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Not-Null Annotation";
+        
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>
@@ -21,9 +26,9 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.Type.Is(TypeClass.StringClazz))
-                context.Parameter.TryTo(string.Empty).CheckNull(context.Parameter.Name, Message);
+                context.Parameter.TryTo(string.Empty).CheckNull(context.Parameter.Name, ErrorMessage);
             else
-                context.Parameter.Value.CheckNull(context.Parameter.Name, Message);
+                context.Parameter.Value.CheckNull(context.Parameter.Name, ErrorMessage);
             return next(context);
         }
     }

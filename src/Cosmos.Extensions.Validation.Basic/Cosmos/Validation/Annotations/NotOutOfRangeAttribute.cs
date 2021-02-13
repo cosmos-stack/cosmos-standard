@@ -13,6 +13,11 @@ namespace Cosmos.Validation.Annotations
     public class NotOutOfRangeAttribute : ValidationParameterAttribute 
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Not-Out-Of-Range Annotation";
+        
+        /// <summary>
         /// Min
         /// </summary>
         public decimal Min { get; set; }
@@ -31,15 +36,15 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsIntType())
-                context.Parameter.TryTo<int?>().RequireWithinRange(IntMin, IntMax, context.Parameter.Name, Message);
+                context.Parameter.TryTo<int?>().RequireWithinRange(IntMin, IntMax, context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsLongType())
-                context.Parameter.TryTo<long?>().RequireWithinRange(LongMin, LongMax, context.Parameter.Name, Message);
+                context.Parameter.TryTo<long?>().RequireWithinRange(LongMin, LongMax, context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsFloatType())
-                context.Parameter.TryTo<float?>().RequireWithinRange(FloatMin, FloatMax, context.Parameter.Name, Message);
+                context.Parameter.TryTo<float?>().RequireWithinRange(FloatMin, FloatMax, context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsDoubleType())
-                context.Parameter.TryTo<double?>().RequireWithinRange(DoubleMin, DoubleMax, context.Parameter.Name, Message);
+                context.Parameter.TryTo<double?>().RequireWithinRange(DoubleMin, DoubleMax, context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsDecimalType())
-                context.Parameter.TryTo<decimal?>().RequireWithinRange(DecimalMin, DecimalMax, context.Parameter.Name, Message);
+                context.Parameter.TryTo<decimal?>().RequireWithinRange(DecimalMin, DecimalMax, context.Parameter.Name, ErrorMessage);
             return next(context);
         }
 

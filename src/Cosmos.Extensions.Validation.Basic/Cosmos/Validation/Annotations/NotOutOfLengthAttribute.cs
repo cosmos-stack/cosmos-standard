@@ -14,6 +14,11 @@ namespace Cosmos.Validation.Annotations
     public class NotOutOfLengthAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Not-Out-Of-Length Annotation";
+        
+        /// <summary>
         /// Length
         /// </summary>
         public int Length { get; set; }
@@ -27,7 +32,7 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.Type.Is(TypeClass.StringClazz))
-                context.Parameter.TryTo(string.Empty).RequireMaxLength(Length, context.Parameter.Name, Message);
+                context.Parameter.TryTo(string.Empty).RequireMaxLength(Length, context.Parameter.Name, ErrorMessage);
             return next(context);
         }
     }

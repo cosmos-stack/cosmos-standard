@@ -14,6 +14,11 @@ namespace Cosmos.Validation.Annotations
     public class ValidDateValueAttribute : ValidationParameterAttribute, IQuietVerifiableAnnotation
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Valid-Date-Value Annotation";
+
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>
@@ -22,7 +27,7 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsDateTimeType())
-                context.Parameter.TryTo<DateTime?>().CheckInvalidDate(context.Parameter.Name, Message);
+                context.Parameter.TryTo<DateTime?>().CheckInvalidDate(context.Parameter.Name, ErrorMessage);
             return next(context);
         }
 
@@ -37,6 +42,27 @@ namespace Cosmos.Validation.Annotations
                 return false;
 
             if (typeof(T).Is<DateTime>() || typeof(T).Is<DateTime?>())
+                return true;
+
+            return instance switch
+            {
+                string str => StringDateTimeDeterminer.Is(str),
+                _ => StringDateTimeDeterminer.Is(instance.ToString())
+            };
+        }
+
+        /// <summary>
+        /// Quiet Verify
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public bool QuietVerify(Type type, object instance)
+        {
+            if (instance is null)
+                return false;
+
+            if (instance is DateTime)
                 return true;
 
             return instance switch

@@ -11,6 +11,11 @@ namespace Cosmos.Validation.Annotations
     public class MustNumericTypeAttribute : ValidationParameterAttribute
     {
         /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Must-Numeric-Type Annotation";
+        
+        /// <summary>
         /// My be nullable
         /// </summary>
         public bool MayBeNullable { get; set; }
@@ -28,7 +33,7 @@ namespace Cosmos.Validation.Annotations
                 ? Types.IsNumericType(context.Parameter.Type)
                 : Types.IsNumericType(context.Parameter.Type) && !Types.IsNullableType(context.Parameter.Type);
             ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(condition,
-                Message, context.Parameter.Name);
+                ErrorMessage, context.Parameter.Name);
             return next(context);
         }
     }

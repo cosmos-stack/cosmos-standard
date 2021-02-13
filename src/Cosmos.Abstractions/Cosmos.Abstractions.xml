@@ -446,6 +446,37 @@
             ZeroFormatter 序列化器接口
             </summary>
         </member>
+        <member name="T:Cosmos.Validation.Annotations.IQuietVerifiableAnnotation">
+            <summary>
+            A Quiet Verify Interface
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.IQuietVerifiableAnnotation.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Annotations.IQuietVerifiableAnnotation.QuietVerify``1(``0)">
+            <summary>
+            Quiet Verify
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Validation.Annotations.IQuietVerifiableAnnotation.QuietVerify(System.Type,System.Object)">
+            <summary>
+            Quiet Verify
+            </summary>
+            <param name="type"></param>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.IVerifiable">
+            <summary>
+            A verifiable interface
+            </summary>
+        </member>
         <member name="T:Cosmos.Verba.IVerba">
             <summary>
             Verba Meta Interface<br />

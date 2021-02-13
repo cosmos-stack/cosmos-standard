@@ -6,5 +6,11 @@ namespace Cosmos.Validation.Annotations
     /// Between, alias of <see cref="NotOutOfRangeAttribute"/>
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class BetweenAttribute : NotOutOfRangeAttribute { }
+    public class BetweenAttribute : NotOutOfRangeAttribute
+    {
+        /// <summary>
+        /// Name of this Attribute/Annotation
+        /// </summary>
+        public override string Name => "Between Annotation";
+    }
 }
