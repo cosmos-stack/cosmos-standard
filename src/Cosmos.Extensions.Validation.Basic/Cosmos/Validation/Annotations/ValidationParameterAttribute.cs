@@ -1,10 +1,12 @@
-﻿using AspectCore.DynamicProxy.Parameters;
+﻿using System;
+using AspectCore.DynamicProxy.Parameters;
 
 namespace Cosmos.Validation.Annotations
 {
     /// <summary>
     /// Validation Parameter attribute
     /// </summary>
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
     public abstract class ValidationParameterAttribute : ParameterInterceptorAttribute, IFlagAnnotation
     {
         /// <summary>

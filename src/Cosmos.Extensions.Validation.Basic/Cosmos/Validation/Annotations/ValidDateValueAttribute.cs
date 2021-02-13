@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Conversions.Determiners;
 using Cosmos.Date;
+using Cosmos.Reflection;
+using Cosmos.Text;
 using Cosmos.Validation.Annotations.Core;
 
 namespace Cosmos.Validation.Annotations
@@ -28,6 +30,10 @@ namespace Cosmos.Validation.Annotations
         {
             if (context.Parameter.IsDateTimeType())
                 context.Parameter.TryTo<DateTime?>().CheckInvalidDate(context.Parameter.Name, ErrorMessage);
+            else if (context.Parameter.Is(TypeClass.StringClazz))
+                ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(
+                    context.Parameter.TryTo<string>().IsDateTime(),
+                    ErrorMessage, context.Parameter.Name);
             return next(context);
         }
 
