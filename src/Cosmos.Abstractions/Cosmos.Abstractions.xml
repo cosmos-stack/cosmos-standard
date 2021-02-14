@@ -477,6 +477,11 @@
             A verifiable interface
             </summary>
         </member>
+        <member name="P:Cosmos.Validation.IVerifiable.Name">
+            <summary>
+            Name of this Attribute/Annotation/VerifiableObject
+            </summary>
+        </member>
         <member name="T:Cosmos.Verba.IVerba">
             <summary>
             Verba Meta Interface<br />
