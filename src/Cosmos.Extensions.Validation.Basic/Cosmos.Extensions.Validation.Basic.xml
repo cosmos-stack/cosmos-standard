@@ -2601,6 +2601,12 @@
             Name of this Attribute/Annotation
             </summary>
         </member>
+        <member name="P:Cosmos.Validation.Annotations.MustIntTypeAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
         <member name="P:Cosmos.Validation.Annotations.MustIntTypeAttribute.MayBeNullable">
             <summary>
             My be nullable
@@ -2625,6 +2631,12 @@
             Name of this Attribute/Annotation
             </summary>
         </member>
+        <member name="P:Cosmos.Validation.Annotations.MustLongTypeAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
         <member name="P:Cosmos.Validation.Annotations.MustLongTypeAttribute.MayBeNullable">
             <summary>
             My be nullable
@@ -2639,6 +2651,26 @@
             <returns></returns>
             <exception cref="T:System.ArgumentInvalidException"></exception>
         </member>
+        <member name="T:Cosmos.Validation.Annotations.MustNegativeAttribute">
+            <summary>
+            Must negative, alias of <see cref="T:Cosmos.Validation.Annotations.NotPositiveOrZeroAttribute"/>
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.MustNegativeAttribute.Name">
+            <summary>
+            Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validation.Annotations.MustNegativeOrZeroAttribute">
+            <summary>
+            Must negative or zero, alias of <see cref="T:Cosmos.Validation.Annotations.NotPositiveAttribute"/>
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.MustNegativeOrZeroAttribute.Name">
+            <summary>
+            Name of this Attribute/Annotation
+            </summary>
+        </member>
         <member name="T:Cosmos.Validation.Annotations.MustNumericTypeAttribute">
             <summary>
             Music numeric type
@@ -2647,6 +2679,12 @@
         <member name="P:Cosmos.Validation.Annotations.MustNumericTypeAttribute.Name">
             <summary>
             Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.MustNumericTypeAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="P:Cosmos.Validation.Annotations.MustNumericTypeAttribute.MayBeNullable">
@@ -2663,6 +2701,26 @@
             <returns></returns>
             <exception cref="T:System.ArgumentInvalidException"></exception>
         </member>
+        <member name="T:Cosmos.Validation.Annotations.MustPositiveAttribute">
+            <summary>
+            Must positive, alias of <see cref="T:Cosmos.Validation.Annotations.NotNegativeOrZeroAttribute"/>
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.MustPositiveAttribute.Name">
+            <summary>
+            Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="T:Cosmos.Validation.Annotations.MustPositiveOrZeroAttribute">
+            <summary>
+            Must positive or zero, alias of <see cref="T:Cosmos.Validation.Annotations.NotNegativeAttribute"/>
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.MustPositiveOrZeroAttribute.Name">
+            <summary>
+            Name of this Attribute/Annotation
+            </summary>
+        </member>
         <member name="T:Cosmos.Validation.Annotations.MustStringTypeAttribute">
             <summary>
             Must string type
@@ -2671,6 +2729,12 @@
         <member name="P:Cosmos.Validation.Annotations.MustStringTypeAttribute.Name">
             <summary>
             Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.MustStringTypeAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="M:Cosmos.Validation.Annotations.MustStringTypeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
@@ -2702,6 +2766,12 @@
             Name of this Attribute/Annotation
             </summary>
         </member>
+        <member name="P:Cosmos.Validation.Annotations.NotInTheFutureAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
         <member name="M:Cosmos.Validation.Annotations.NotInTheFutureAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
             <summary>
             Invoke
@@ -2718,6 +2788,12 @@
         <member name="P:Cosmos.Validation.Annotations.NotInThePastAttribute.Name">
             <summary>
             Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotInThePastAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="M:Cosmos.Validation.Annotations.NotInThePastAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
@@ -2738,6 +2814,12 @@
             Name of this Attribute/Annotation
             </summary>
         </member>
+        <member name="P:Cosmos.Validation.Annotations.NotNegativeAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
         <member name="M:Cosmos.Validation.Annotations.NotNegativeAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
             <summary>
             Invoke
@@ -2754,6 +2836,12 @@
         <member name="P:Cosmos.Validation.Annotations.NotNegativeOrZeroAttribute.Name">
             <summary>
             Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotNegativeOrZeroAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="M:Cosmos.Validation.Annotations.NotNegativeOrZeroAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
@@ -2774,6 +2862,12 @@
             Name of this Attribute/Annotation
             </summary>
         </member>
+        <member name="P:Cosmos.Validation.Annotations.NotNullAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
         <member name="M:Cosmos.Validation.Annotations.NotNullAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
             <summary>
             Invoke
@@ -2790,6 +2884,12 @@
         <member name="P:Cosmos.Validation.Annotations.NotOutOfLengthAttribute.Name">
             <summary>
             Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotOutOfLengthAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="P:Cosmos.Validation.Annotations.NotOutOfLengthAttribute.Length">
@@ -2815,6 +2915,12 @@
             Name of this Attribute/Annotation
             </summary>
         </member>
+        <member name="P:Cosmos.Validation.Annotations.NotOutOfRangeAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
         <member name="P:Cosmos.Validation.Annotations.NotOutOfRangeAttribute.Min">
             <summary>
             Min
@@ -2833,6 +2939,54 @@
             <param name="next"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Validation.Annotations.NotPositiveAttribute">
+            <summary>
+            Not positive
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotPositiveAttribute.Name">
+            <summary>
+            Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotPositiveAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Annotations.NotPositiveAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Validation.Annotations.NotPositiveOrZeroAttribute">
+            <summary>
+            Not positive or zero
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotPositiveOrZeroAttribute.Name">
+            <summary>
+            Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotPositiveOrZeroAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
+        <member name="M:Cosmos.Validation.Annotations.NotPositiveOrZeroAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Validation.Annotations.NotWhiteSpaceAttribute">
             <summary>
             Not whitespace
@@ -2841,6 +2995,12 @@
         <member name="P:Cosmos.Validation.Annotations.NotWhiteSpaceAttribute.Name">
             <summary>
             Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.NotWhiteSpaceAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="M:Cosmos.Validation.Annotations.NotWhiteSpaceAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">
@@ -2890,6 +3050,12 @@
         <member name="P:Cosmos.Validation.Annotations.ValidDateValueAttribute.Name">
             <summary>
             Name of this Attribute/Annotation
+            </summary>
+        </member>
+        <member name="P:Cosmos.Validation.Annotations.ValidDateValueAttribute.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
             </summary>
         </member>
         <member name="M:Cosmos.Validation.Annotations.ValidDateValueAttribute.Invoke(AspectCore.DynamicProxy.Parameters.ParameterAspectContext,AspectCore.DynamicProxy.Parameters.ParameterAspectDelegate)">

@@ -18,6 +18,12 @@ namespace Cosmos.Validation.Annotations
         public override string Name => "Not-Out-Of-Range Annotation";
         
         /// <summary>
+        /// Gets or sets message<br />
+        /// 消息
+        /// </summary>
+        public override string ErrorMessage { get; set; } = "The current value exceeds the upper and lower bounds.";
+        
+        /// <summary>
         /// Min
         /// </summary>
         public decimal Min { get; set; }

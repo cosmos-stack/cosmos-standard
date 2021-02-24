@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy.Parameters;
 using Cosmos.Date;
@@ -8,21 +8,21 @@ using Cosmos.Validation.Annotations.Core;
 namespace Cosmos.Validation.Annotations
 {
     /// <summary>
-    /// Not negative
+    /// Not positive or zero
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-    public class NotNegativeAttribute : ValidationParameterAttribute
+    public class NotPositiveOrZeroAttribute: ValidationParameterAttribute
     {
         /// <summary>
         /// Name of this Attribute/Annotation
         /// </summary>
-        public override string Name => "Not-Negative Annotation";
+        public override string Name => "Not-Positive-Or-Zero Annotation";
         
         /// <summary>
         /// Gets or sets message<br />
         /// 消息
         /// </summary>
-        public override string ErrorMessage { get; set; } = "The current value cannot be negative.";
+        public override string ErrorMessage { get; set; } = "The current value cannot be positive or zero.";
         
         /// <summary>
         /// Invoke
@@ -33,17 +33,17 @@ namespace Cosmos.Validation.Annotations
         public override Task Invoke(ParameterAspectContext context, ParameterAspectDelegate next)
         {
             if (context.Parameter.IsIntType())
-                context.Parameter.TryTo<int?>().RequirePositiveOrZero(context.Parameter.Name, ErrorMessage);
+                context.Parameter.TryTo<int?>().RequireNegative(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsLongType())
-                context.Parameter.TryTo<long?>().RequirePositiveOrZero(context.Parameter.Name, ErrorMessage);
+                context.Parameter.TryTo<long?>().RequireNegative(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsFloatType())
-                context.Parameter.TryTo<float?>().RequirePositiveOrZero(context.Parameter.Name, ErrorMessage);
+                context.Parameter.TryTo<float?>().RequireNegative(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsDoubleType())
-                context.Parameter.TryTo<double?>().RequirePositiveOrZero(context.Parameter.Name, ErrorMessage);
+                context.Parameter.TryTo<double?>().RequireNegative(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsDecimalType())
-                context.Parameter.TryTo<decimal?>().RequirePositiveOrZero(context.Parameter.Name, ErrorMessage);
+                context.Parameter.TryTo<decimal?>().RequireNegative(context.Parameter.Name, ErrorMessage);
             else if (context.Parameter.IsTimeSpanType())
-                context.Parameter.TryTo<TimeSpan?>().RequirePositiveOrZero(context.Parameter.Name, ErrorMessage);
+                context.Parameter.TryTo<TimeSpan?>().RequireNegative(context.Parameter.Name, ErrorMessage);
             return next(context);
         }
     }

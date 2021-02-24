@@ -18,6 +18,12 @@ namespace Cosmos.Validation.Annotations
         public override string Name => "Must-String Annotation";
         
         /// <summary>
+        /// Gets or sets message<br />
+        /// 消息
+        /// </summary>
+        public override string ErrorMessage { get; set; } = "The type of the current value must be a string.";
+        
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>

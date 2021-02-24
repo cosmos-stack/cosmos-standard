@@ -18,7 +18,7 @@ namespace Cosmos.Validation.Annotations
         /// Gets or sets message<br />
         /// 消息
         /// </summary>
-        public string ErrorMessage { get; set; }
+        public virtual string ErrorMessage { get; set; }
 
         /// <summary>
         /// Gets or sets name of parameter

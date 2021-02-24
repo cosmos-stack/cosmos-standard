@@ -21,6 +21,12 @@ namespace Cosmos.Validation.Annotations
         public override string Name => "Valid-Date-Value Annotation";
 
         /// <summary>
+        /// Gets or sets message<br />
+        /// 消息
+        /// </summary>
+        public override string ErrorMessage { get; set; } = "The current value is not a valid time or date.";
+
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>

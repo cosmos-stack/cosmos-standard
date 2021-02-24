@@ -19,6 +19,12 @@ namespace Cosmos.Validation.Annotations
         public override string Name => "Not-Negative-Or-Zero Annotation";
         
         /// <summary>
+        /// Gets or sets message<br />
+        /// 消息
+        /// </summary>
+        public override string ErrorMessage { get; set; } = "The current value cannot be negative or zero.";
+        
+        /// <summary>
         /// Invoke
         /// </summary>
         /// <param name="context"></param>

@@ -19,6 +19,12 @@ namespace Cosmos.Validation.Annotations
         public override string Name => "Not-Out-Of-Length Annotation";
         
         /// <summary>
+        /// Gets or sets message<br />
+        /// 消息
+        /// </summary>
+        public override string ErrorMessage { get; set; } = "The current value exceeds the length limit.";
+        
+        /// <summary>
         /// Length
         /// </summary>
         public int Length { get; set; }

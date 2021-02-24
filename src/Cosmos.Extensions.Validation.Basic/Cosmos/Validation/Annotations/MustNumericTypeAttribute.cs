@@ -16,6 +16,12 @@ namespace Cosmos.Validation.Annotations
         public override string Name => "Must-Numeric-Type Annotation";
         
         /// <summary>
+        /// Gets or sets message<br />
+        /// 消息
+        /// </summary>
+        public override string ErrorMessage { get; set; } = "The type of the current value must be a numeric type.";
+        
+        /// <summary>
         /// My be nullable
         /// </summary>
         public bool MayBeNullable { get; set; }
