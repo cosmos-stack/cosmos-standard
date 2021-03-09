@@ -236,7 +236,7 @@ namespace Cosmos.Reflection
         {
             return GetAttributeImpl(TypeReflectorHelper.GetReflector(member), attributeType);
         }
-        
+
         /// <summary>
         /// Obtain the specified Attribute instance from the ParameterInfo. <br />
         /// 从成员信息中获取指定的 Attribute 实例。
@@ -272,7 +272,7 @@ namespace Cosmos.Reflection
                 _ => member.GetCustomAttribute(attributeType)
             };
         }
-        
+
         /// <summary>
         /// Obtain the specified Attribute instance from the ParameterInfo. <br />
         /// 从成员信息中获取指定的 Attribute 实例。
@@ -343,7 +343,9 @@ namespace Cosmos.Reflection
                 },
                 _ => member.GetCustomAttribute<TAttribute>()
             };
-        }/// <summary>
+        }
+
+        /// <summary>
         /// Obtain the specified Attribute instance from the ParameterInfo. <br />
         /// 从成员信息中获取指定的 Attribute 实例。
         /// </summary>
@@ -617,7 +619,7 @@ namespace Cosmos.Reflection
         {
             return GetAttribute(member, attributeType).AttrRequired($"There is no {attributeType} attribute can be found.");
         }
-        
+
         /// <summary>
         /// Obtain the specified Attribute instance from the ParameterInfo, and throw an exception if the acquisition fails.<br />
         /// 从成员信息中获取指定的 Attribute 实例，如果获取失败则抛出异常。
