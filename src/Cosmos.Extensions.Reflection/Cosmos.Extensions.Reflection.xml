@@ -786,6 +786,28 @@
             <summary>
             Type visit, an advanced TypeReflections utility.
             </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility.
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetFullName(System.Reflection.MethodInfo)">
+            <summary>
+            Get full name of method including type name and method name.<br />
+            获取方法的全名，包括类型名和方法名
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetFullyQualifiedName(System.Reflection.MethodInfo)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.MethodInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的完全限定名。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessOptions)">
             <summary>
@@ -807,7 +829,73 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetFullName(System.Type)">
+            <summary>
+            Get unique fully name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的名称。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetFullyQualifiedName(System.Type)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Reflection.TypeMetaVisitExtensions">
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
+            </summary>
             <summary>
             Type metadata visit, a meta information access entry for TypeReflections and TypeVisit.
             </summary>
@@ -920,6 +1008,22 @@
             </summary>
             <param name="method">要判断的方法信息</param>
             <returns>是否是重写方法</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetFullName(System.Reflection.MethodInfo)">
+            <summary>
+            Get full name of method including type name and method name.<br />
+            获取方法的全名，包括类型名和方法名
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetFullyQualifiedName(System.Reflection.MethodInfo)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.MethodInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的完全限定名。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsVirtual(System.Reflection.PropertyInfo)">
             <summary>
@@ -1040,6 +1144,53 @@
             <param name="arguments"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Reflection.ExpressionCopier`1.Copy(`0)">
             <summary>
             Deep copy by expression
@@ -1136,92 +1287,6 @@
             <param name="propertyType"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="T:System.Reflection.SystemMethodInfoExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Reflection.MethodInfo"/> extensions.
-            </summary>
-        </member>
-        <member name="M:System.Reflection.SystemMethodInfoExtensions.GetFullName(System.Reflection.MethodInfo)">
-            <summary>
-            Get full name of method including type name and method name.<br />
-            获取方法的全名，包括类型名和方法名
-            </summary>
-            <param name="method"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemMethodInfoExtensions.GetFullyQualifiedName(System.Reflection.MethodInfo)">
-            <summary>
-            Get unique fully qualified name for <see cref="T:System.Reflection.MethodInfo"/>.<br />
-            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的完全限定名。
-            </summary>
-            <param name="method"></param>
-            <returns></returns>
-        </member>
-        <member name="T:System.Reflection.SystemPropertyInfoExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Reflection.PropertyInfo"/> extensions.
-            </summary>
-        </member>
-        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
-            <summary>
-            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
-            and return the remaining PropertyInfo.<br />
-            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
-            </summary>
-            <param name="properties"></param>
-            <param name="shape"></param>
-            <param name="expressions"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
-            <summary>
-            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
-            and return the remaining PropertyInfo.<br />
-            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
-            </summary>
-            <param name="properties"></param>
-            <param name="shape"></param>
-            <param name="expressions"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
-            <summary>
-            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
-            and return the remaining PropertyInfo.<br />
-            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
-            </summary>
-            <param name="properties"></param>
-            <param name="expressions"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.SystemPropertyInfoExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
-            <summary>
-            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
-            and return the remaining PropertyInfo.<br />
-            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
-            </summary>
-            <param name="properties"></param>
-            <param name="expressions"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="T:System.Reflection.SystemTypeExtensions">
-            <summary>
-            Cosmos <see cref="T:System.Type"/> extensions
-            </summary>
-        </member>
-        <member name="M:System.Reflection.SystemTypeExtensions.GetFullyQualifiedName(System.Type)">
-            <summary>
-            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
-            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>

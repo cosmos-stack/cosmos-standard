@@ -3373,13 +3373,13 @@
             <param name="validationMessage"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:Cosmos.Validation.ValidationException.#ctor(Cosmos.Text.StringVal)">
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(Cosmos.Text.StructuredStringVal)">
             <summary>
             Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
             </summary>
             <param name="messageVal"></param>
         </member>
-        <member name="M:Cosmos.Validation.ValidationException.#ctor(Cosmos.Text.StringVal,System.String)">
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(Cosmos.Text.StructuredStringVal,System.String)">
             <summary>
             Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
             </summary>
@@ -3450,14 +3450,14 @@
             <param name="validationMessage"></param>
             <param name="flag"></param>
         </member>
-        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,Cosmos.Text.StringVal)">
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,Cosmos.Text.StructuredStringVal)">
             <summary>
             Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
             </summary>
             <param name="errorCode"></param>
             <param name="messageVal"></param>
         </member>
-        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,Cosmos.Text.StringVal,System.String)">
+        <member name="M:Cosmos.Validation.ValidationException.#ctor(System.Int64,Cosmos.Text.StructuredStringVal,System.String)">
             <summary>
             Create a new instance of <see cref="T:Cosmos.Validation.ValidationException"/>.
             </summary>

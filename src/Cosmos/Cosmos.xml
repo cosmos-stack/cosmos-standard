@@ -6207,7 +6207,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Text.StringVal">
+        <member name="T:Cosmos.Text.StructuredStringVal">
             <summary>
             Structure String Value
             </summary>
