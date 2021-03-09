@@ -29,8 +29,8 @@ namespace Cosmos.Collections
         {
             var counter = 0;
             return limit <= 0
-                ? AddRange(source, collection)
-                : AddRange(source, collection.TakeWhile(_ => counter++ < limit));
+                ? AddRange(source, collection).ToList()
+                : AddRange(source, collection.TakeWhile(_ => counter++ < limit)).ToList();
         }
 
         public static IEnumerable<T> AddIf<T>(IEnumerable<T> source, T value, bool flag)
