@@ -7,28 +7,28 @@ namespace Cosmos.Text
     /// <summary>
     /// Structure String Value
     /// </summary>
-    public readonly struct StringVal : IEnumerable<StringVal>
+    public readonly struct StructuredStringVal : IEnumerable<StructuredStringVal>
     {
-        private readonly List<StringVal> _children;
+        private readonly List<StructuredStringVal> _children;
 
-        public StringVal(string value)
+        public StructuredStringVal(string value)
         {
             Value = value;
-            _children = new List<StringVal>();
+            _children = new List<StructuredStringVal>();
         }
 
         public string Value { get; }
 
-        public IReadOnlyList<StringVal> Children => _children.AsReadOnly();
+        public IReadOnlyList<StructuredStringVal> Children => _children.AsReadOnly();
 
         #region Append Child
 
         public void Append(string value)
         {
-            _children.Add(new StringVal(value));
+            _children.Add(new StructuredStringVal(value));
         }
 
-        public void Append(StringVal value)
+        public void Append(StructuredStringVal value)
         {
             _children.Add(value);
         }
@@ -55,12 +55,12 @@ namespace Cosmos.Text
 
         #region String
 
-        public static implicit operator string(StringVal val)
+        public static implicit operator string(StructuredStringVal val)
         {
             return val.Value;
         }
 
-        public static implicit operator StringVal(string value)
+        public static implicit operator StructuredStringVal(string value)
         {
             return new(value);
         }
@@ -69,11 +69,11 @@ namespace Cosmos.Text
 
         #region StringVal
 
-        public StringVal GetStringVal(int index) => _children[index];
+        public StructuredStringVal GetStringVal(int index) => _children[index];
 
         #endregion
 
-        public IEnumerator<StringVal> GetEnumerator() => _children.GetEnumerator();
+        public IEnumerator<StructuredStringVal> GetEnumerator() => _children.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => _children.GetEnumerator();
 

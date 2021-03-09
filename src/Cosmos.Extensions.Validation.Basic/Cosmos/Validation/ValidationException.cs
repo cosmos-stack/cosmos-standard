@@ -98,7 +98,7 @@ namespace Cosmos.Validation
         /// Create a new instance of <see cref="ValidationException"/>.
         /// </summary>
         /// <param name="messageVal"></param>
-        public ValidationException(StringVal messageVal) : base(messageVal.Value, ValidationFlag)
+        public ValidationException(StructuredStringVal messageVal) : base(messageVal.Value, ValidationFlag)
         {
             _validationMessage = messageVal.Children.Select(node => node.ToString());
         }
@@ -108,7 +108,7 @@ namespace Cosmos.Validation
         /// </summary>
         /// <param name="messageVal"></param>
         /// <param name="flag"></param>
-        public ValidationException(StringVal messageVal, string flag) : base(messageVal.Value, flag)
+        public ValidationException(StructuredStringVal messageVal, string flag) : base(messageVal.Value, flag)
         {
             _validationMessage = messageVal.Children.Select(node => node.ToString());
         }
@@ -194,7 +194,7 @@ namespace Cosmos.Validation
         /// </summary>
         /// <param name="errorCode"></param>
         /// <param name="messageVal"></param>
-        public ValidationException(long errorCode, StringVal messageVal) : base(errorCode, messageVal.Value, ValidationFlag)
+        public ValidationException(long errorCode, StructuredStringVal messageVal) : base(errorCode, messageVal.Value, ValidationFlag)
         {
             _validationMessage = messageVal.Children.Select(node => node.ToString());
         }
@@ -205,7 +205,7 @@ namespace Cosmos.Validation
         /// <param name="errorCode"></param>
         /// <param name="messageVal"></param>
         /// <param name="flag"></param>
-        public ValidationException(long errorCode, StringVal messageVal, string flag) : base(errorCode, messageVal.Value, flag)
+        public ValidationException(long errorCode, StructuredStringVal messageVal, string flag) : base(errorCode, messageVal.Value, flag)
         {
             _validationMessage = messageVal.Children.Select(node => node.ToString());
         }
