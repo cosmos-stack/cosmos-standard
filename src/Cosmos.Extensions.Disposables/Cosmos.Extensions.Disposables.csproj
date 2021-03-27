@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    
-    <PropertyGroup>
-      <Configurations>Debug;Release;Gen-Xml</Configurations>
-      <Platforms>AnyCPU</Platforms>
-    </PropertyGroup>
-    
-    <Import Project="project.props" />
 
-    <Import Project="..\..\common.props" />
+    <PropertyGroup>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <Import Project="project.props"/>
+
+    <Import Project="..\..\common.props"/>
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj"/>
     </ItemGroup>
 </Project>

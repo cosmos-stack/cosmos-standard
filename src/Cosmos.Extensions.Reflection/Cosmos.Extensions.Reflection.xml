@@ -793,6 +793,28 @@
             Type visit, an advanced TypeReflections utility.
             </summary>
         </member>
+        <member name="T:Cosmos.Reflection.TypeVisit.CtorMatchedResult">
+            <summary>
+            Ctor matched result
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
+            <summary>
+            Ctor matched result
+            </summary>
+            <param name="values"></param>
+            <param name="index"></param>
+        </member>
+        <member name="F:Cosmos.Reflection.TypeVisit.CtorMatchedResult.Values">
+            <summary>
+            Values
+            </summary>
+        </member>
+        <member name="F:Cosmos.Reflection.TypeVisit.CtorMatchedResult.Index">
+            <summary>
+            Index
+            </summary>
+        </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetFullName(System.Reflection.MethodInfo)">
             <summary>
             Get full name of method including type name and method name.<br />
