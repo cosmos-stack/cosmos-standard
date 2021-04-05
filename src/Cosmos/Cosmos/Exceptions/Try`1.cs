@@ -223,6 +223,78 @@ namespace Cosmos.Exceptions
             }
         }
 
+        public virtual Try<T> GetValueOut(out T value)
+        {
+            value = GetValue();
+            return this;
+        }
+
+        public virtual Try<T> GetValueOutAsync(out Task<T> value)
+        {
+            value = GetValueAsync();
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOut(out T value)
+        {
+            value = GetSafeValue();
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOut(out T value, T defaultVal)
+        {
+            value = GetSafeValue(defaultVal);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOut(out T value, Func<T> defaultValFunc)
+        {
+            value = GetSafeValue(defaultValFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOut(out T value, Func<Exception, T> defaultValFunc)
+        {
+            value = GetSafeValue(defaultValFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value)
+        {
+            value = GetSafeValueAsync();
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, T defaultVal)
+        {
+            value = GetSafeValueAsync(defaultVal);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<T> defaultValFunc)
+        {
+            value = GetSafeValueAsync(defaultValFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<Exception, T> defaultValFunc)
+        {
+            value = GetSafeValueAsync(defaultValFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<Task<T>> defaultValAsyncFunc)
+        {
+            value = GetSafeValueAsync(defaultValAsyncFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<Exception, Task<T>> defaultValAsyncFunc)
+        {
+            value = GetSafeValueAsync(defaultValAsyncFunc);
+            return this;
+        }
+
         /// <summary>
         /// ==
         /// </summary>
@@ -261,6 +333,14 @@ namespace Cosmos.Exceptions
         /// <param name="value"></param>
         /// <param name="exception"></param>
         public abstract void Deconstruct(out T value, out Exception exception);
+
+        /// <summary>
+        /// Deconstruct
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="tryResult"></param>
+        /// <param name="exception"></param>
+        public abstract void Deconstruct(out T value, out bool tryResult, out Exception exception);
 
         /// <summary>
         /// Exception as

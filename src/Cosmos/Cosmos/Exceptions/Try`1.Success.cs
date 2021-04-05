@@ -49,6 +49,13 @@ namespace Cosmos.Exceptions
             exception = default;
         }
 
+        public override void Deconstruct(out T value, out bool tryResult, out Exception exception)
+        {
+            value = Value;
+            tryResult = IsSuccess;
+            exception = default;
+        }
+
         /// <inheritdoc />
         public override Try<T> Recover(Func<Exception, T> recoverFunction) => this;
 

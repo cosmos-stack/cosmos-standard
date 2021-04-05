@@ -12,7 +12,7 @@ namespace Cosmos.Exceptions
         /// <summary>
         /// Initializes a new instance of the <see cref="Failure{T}"/> class.
         /// </summary>
-        /// <param name="exception">The exception to wrapp.</param>
+        /// <param name="exception">The exception to wrap.</param>
         internal Failure(Exception exception)
         {
             Exception = exception ?? new ArgumentNullException(nameof(exception));
@@ -50,6 +50,13 @@ namespace Cosmos.Exceptions
         public override void Deconstruct(out T value, out Exception exception)
         {
             value = default;
+            exception = Exception;
+        }
+
+        public override void Deconstruct(out T value, out bool tryResult, out Exception exception)
+        {
+            value = Value;
+            tryResult = IsSuccess;
             exception = Exception;
         }
 
