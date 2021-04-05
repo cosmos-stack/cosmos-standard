@@ -91,5 +91,23 @@ namespace Cosmos.Exceptions
                 throw ExceptionHelper.PrepareForRethrow(ex.InnerException);
             }
         }
+
+        /// <summary>
+        /// Create a new instance of <see cref="TryAction"/>.
+        /// </summary>
+        /// <param name="invokeAction"></param>
+        /// <returns></returns>
+        public static TryAction Invoke(Action invokeAction)
+        {
+            try
+            {
+                invokeAction();
+                return new SuccessAction(invokeAction.GetHashCode());
+            }
+            catch (Exception ex)
+            {
+                return new FailureAction(ex, invokeAction?.GetHashCode() ?? 0);
+            }
+        }
     }
 }
