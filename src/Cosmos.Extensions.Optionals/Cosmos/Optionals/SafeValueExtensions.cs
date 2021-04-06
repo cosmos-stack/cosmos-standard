@@ -56,7 +56,7 @@ namespace Cosmos.Optionals
         /// <param name="defaultValFunc"></param>
         /// <param name="elseValFunc"></param>
         /// <returns></returns>
-        public static T SafeValue<T>(this T? value, Func<T?, bool> condition, Func<T> defaultValFunc,Func<T> elseValFunc) where T : struct
+        public static T SafeValue<T>(this T? value, Func<T?, bool> condition, Func<T> defaultValFunc, Func<T> elseValFunc) where T : struct
         {
             if (condition?.Invoke(value) ?? false)
                 return defaultValFunc?.Invoke() ?? default;
@@ -74,14 +74,54 @@ namespace Cosmos.Optionals
             result = value ?? default;
             return value.HasValue;
         }
-        
+
+        #endregion
+
+        #region SafeRefValue
+
         /// <summary>
-        /// Return a safe <see cref="string"/> value.
-        /// 获取 Null安全 的字符串
+        /// Return a safe value<br />
+        /// 安全返回值
+        /// <para>如果可空值真为空，则返回默认值</para>
         /// </summary>
-        /// <param name="string"></param>
+        /// <param name="value"></param>
+        /// <param name="defaultValue"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static string SafeValue(this string @string) => Strings.AvoidNull(@string).Trim();
+        public static T SafeRefValue<T>(this T value, T defaultValue) where T : class => value ?? defaultValue;
+
+        /// <summary>
+        /// Return a safe value<br />
+        /// 安全返回值
+        /// <para>如果可空值真为空，则返回默认值</para>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="defaultValFunc"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T SafeRefValue<T>(this T value, Func<T> defaultValFunc) where T : class => value ?? (defaultValFunc?.Invoke() ?? default(T));
+
+        /// <summary>
+        /// Return a safe value<br />
+        /// 安全返回值
+        /// <para>如果可空值真为空，则返回默认值</para>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="condition"></param>
+        /// <param name="defaultValFunc"></param>
+        /// <param name="elseValFunc"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T SafeRefValue<T>(this T value, Func<T, bool> condition, Func<T> defaultValFunc, Func<T> elseValFunc) where T : class
+        {
+            if (condition?.Invoke(value) ?? false)
+                return defaultValFunc?.Invoke();
+            return value.SafeRefValue(elseValFunc);
+        }
+
+        #endregion
+
+        #region SafeEncodingValue
 
         /// <summary>
         /// Return a safe <see cref="Encoding"/> value.<br />
@@ -89,7 +129,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="encoding"></param>
         /// <returns></returns>
-        public static Encoding SafeValue(this Encoding encoding) => encoding ?? Encoding.UTF8;
+        public static Encoding SafeEncodingValue(this Encoding encoding) => encoding ?? Encoding.UTF8;
 
         /// <summary>
         /// Return a safe <see cref="Encoding"/> value.<br />
@@ -98,11 +138,19 @@ namespace Cosmos.Optionals
         /// <param name="encoding"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static Encoding SafeValue(this Encoding encoding, Encoding defaultVal) => encoding ?? defaultVal ?? Encoding.UTF8;
+        public static Encoding SafeEncodingValue(this Encoding encoding, Encoding defaultVal) => encoding ?? defaultVal ?? Encoding.UTF8;
 
         #endregion
 
-        #region SafeString
+        #region SafeStringValue
+
+        /// <summary>
+        /// Return a safe <see cref="string"/> value.
+        /// 获取 Null安全 的字符串
+        /// </summary>
+        /// <param name="string"></param>
+        /// <returns></returns>
+        public static string SafeStringValue(this string @string) => Strings.AvoidNull(@string).Trim();
 
         /// <summary>
         /// Return a safe <see cref="string"/> value.<br />
@@ -110,11 +158,11 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="object"></param>
         /// <returns></returns>
-        public static string SafeString(this object @object)
+        public static string SafeStringValue(this object @object)
         {
             return @object switch
             {
-                string str => str.SafeValue(),
+                string str => str.SafeStringValue(),
                 null => string.Empty,
                 _ => @object.ToString()
             };
@@ -127,9 +175,9 @@ namespace Cosmos.Optionals
         /// <param name="object"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
-        public static string SafeString(this object @object, string defaultVal)
+        public static string SafeStringValue(this object @object, string defaultVal)
         {
-            var @string = @object.SafeString();
+            var @string = @object.SafeStringValue();
             return string.IsNullOrWhiteSpace(@string) ? defaultVal : @string;
         }
 
@@ -139,7 +187,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string SafeTrim(this string text) => text?.Trim();
+        public static string SafeTrimStringValue(this string text) => text?.Trim();
 
         #endregion
 
@@ -158,7 +206,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region SafeDateTime
+        #region SafeDateTimeValue
 
         /// <summary>
         /// Return a safe <see cref="DateTime"/> value.<br />
@@ -166,7 +214,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="object"></param>
         /// <returns></returns>
-        public static DateTime? SafeDateTime(this object @object)
+        public static DateTime? SafeDateTimeValue(this object @object)
         {
             if (@object is DateTime dateTime)
                 return dateTime;
@@ -180,12 +228,12 @@ namespace Cosmos.Optionals
         /// <param name="object"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static DateTime SafeDateTime(this object @object, DateTime defaultValue) =>
-            @object.SafeDateTime().SafeValue(defaultValue);
+        public static DateTime SafeDateTimeValue(this object @object, DateTime defaultValue) =>
+            @object.SafeDateTimeValue().SafeValue(defaultValue);
 
         #endregion
 
-        #region SafeGuid
+        #region SafeGuidValue
 
         /// <summary>
         /// Return a safe <see cref="Guid"/> value.<br />
@@ -193,7 +241,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="object"></param>
         /// <returns></returns>
-        public static Guid? SafeGuid(this object @object) => @object as Guid?;
+        public static Guid? SafeGuidValue(this object @object) => @object as Guid?;
 
         /// <summary>
         /// Return a safe <see cref="Guid"/> value.<br />
@@ -202,11 +250,11 @@ namespace Cosmos.Optionals
         /// <param name="object"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static Guid SafeGuid(this object @object, Guid defaultValue) => @object.SafeGuid().SafeValue(defaultValue);
+        public static Guid SafeGuidValue(this object @object, Guid defaultValue) => @object.SafeGuidValue().SafeValue(defaultValue);
 
         #endregion
 
-        #region SafeQueryable
+        #region SafeQueryableValue
 
         /// <summary>
         /// Return a safe <see cref="IQueryable{T}"/> value.<br />
@@ -215,7 +263,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <param name="query"></param>
         /// <returns></returns>
-        public static IQueryable<T> SafeQueryable<T>(this IQueryable<T> @query) =>
+        public static IQueryable<T> SafeQueryableValue<T>(this IQueryable<T> @query) =>
             CollectionHelper.IsNullOrEmpty(query) ? new List<T>().AsQueryable() : query;
 
         /// <summary>
@@ -225,8 +273,8 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <param name="enumerable"></param>
         /// <returns></returns>
-        public static IQueryable<T> SafeQueryable<T>(this IEnumerable<T> enumerable) =>
-            enumerable.AsQueryable().SafeQueryable();
+        public static IQueryable<T> SafeQueryableValue<T>(this IEnumerable<T> enumerable) =>
+            enumerable.AsQueryable().SafeQueryableValue();
 
         /// <summary>
         /// Return a safe <see cref="IQueryable{T}"/> value.<br />
@@ -234,7 +282,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public static IQueryable SafeQueryable(this IQueryable query) => 
+        public static IQueryable SafeQueryableValue(this IQueryable query) =>
             CollectionHelper.IsNullOrEmpty(query) ? new List<object>().AsQueryable() : query;
 
         /// <summary>
@@ -243,12 +291,12 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="enumerable"></param>
         /// <returns></returns>
-        public static IQueryable SafeQueryable(this IEnumerable enumerable) =>
-            enumerable.AsQueryable().SafeQueryable();
+        public static IQueryable SafeQueryableValue(this IEnumerable enumerable) =>
+            enumerable.AsQueryable().SafeQueryableValue();
 
         #endregion
 
-        #region SafeDictionary
+        #region SafeDictionaryValue
 
         /// <summary>
         /// TryGetValue wrapper with option types.
