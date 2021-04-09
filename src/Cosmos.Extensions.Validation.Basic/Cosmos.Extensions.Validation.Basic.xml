@@ -2110,6 +2110,69 @@
             <param name="options"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Text.CharGuard.ShouldBeWithinRange(System.Char,System.Char,System.Char,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查 Char 值是否在范围内。
+            如果 Char 值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.CharGuard.ShouldBeWithinRange(System.Nullable{System.Char},System.Char,System.Char,System.String,System.String,Cosmos.Text.CharMayOptions)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查 Char 值是否在范围内。
+            如果 Char 值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Text.CharGuardExtensions.RequireWithinRange(System.Char,System.Char,System.Char,System.String,System.String)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查 Char 值是否在范围内。
+            如果 Char 值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cosmos.Text.CharGuardExtensions.RequireWithinRange(System.Nullable{System.Char},System.Char,System.Char,System.String,System.String,Cosmos.Text.CharMayOptions)">
+            <summary>
+            Check whether the value is within the range.
+            If the value is out of range, an exception is thrown.
+            检查 Char 值是否在范围内。
+            如果 Char 值超出范围，则抛出异常。
+            </summary>
+            <param name="argument"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="argumentName"></param>
+            <param name="message"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Cosmos.Text.CharJudge.IsBetween(System.Char,System.Char,System.Char)">
+            <summary>
+            To judge whether the char value is between left and right.
+            </summary>
+            <param name="value"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Text.RegexJudge">
             <summary>
             Regex Judgment Utilities

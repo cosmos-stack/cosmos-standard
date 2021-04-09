@@ -961,6 +961,175 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Exceptions.Try.Invoke(System.Action)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Exceptions.TryAction">
+            <summary>
+            Try action
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.TryAction.IsFailure">
+            <summary>
+            Is failure
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.TryAction.IsSuccess">
+            <summary>
+            Is success
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.TryAction.Exception">
+            <summary>
+            Exception
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.op_Equality(Cosmos.Exceptions.TryAction,Cosmos.Exceptions.TryAction)">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.op_Inequality(Cosmos.Exceptions.TryAction,Cosmos.Exceptions.TryAction)">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Deconstruct(System.Boolean@,System.Exception@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="tryResult"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.ExceptionAs``1">
+            <summary>
+            Exception as
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Recover(System.Action{System.Exception})">
+            <summary>
+            Recover
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
+            <summary>
+            Recover with
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Tap(System.Action,System.Action{System.Exception})">
+            <summary>
+            Tap
+            </summary>
+            <param name="successFunction"></param>
+            <param name="failureFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.#ctor(System.Exception,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cosmos.Exceptions.Failure`1"/> class.
+            </summary>
+            <param name="exception">The exception to wrap.</param>
+            <param name="hashOfAction"></param>
+        </member>
+        <member name="P:Cosmos.Exceptions.FailureAction.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.FailureAction.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.FailureAction.Exception">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Equals(Cosmos.Exceptions.FailureAction)">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Recover(System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Tap(System.Action,System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.#ctor(System.Int32)">
+            <summary>
+            Success
+            </summary>
+            <param name="hashOfAction"></param>
+        </member>
+        <member name="P:Cosmos.Exceptions.SuccessAction.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.SuccessAction.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.SuccessAction.Exception">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Equals(Cosmos.Exceptions.SuccessAction)">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Recover(System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Tap(System.Action,System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.Exceptions.TryExtensions">
             <summary>
             Cosmos Try extensions.
@@ -1176,6 +1345,14 @@
             <param name="value"></param>
             <param name="exception"></param>
         </member>
+        <member name="M:Cosmos.Exceptions.Try`1.Deconstruct(`0@,System.Boolean@,System.Exception@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="value"></param>
+            <param name="tryResult"></param>
+            <param name="exception"></param>
+        </member>
         <member name="M:Cosmos.Exceptions.Try`1.ExceptionAs``1">
             <summary>
             Exception as
@@ -1240,7 +1417,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Cosmos.Exceptions.Failure`1"/> class.
             </summary>
-            <param name="exception">The exception to wrapp.</param>
+            <param name="exception">The exception to wrap.</param>
         </member>
         <member name="P:Cosmos.Exceptions.Failure`1.IsFailure">
             <inheritdoc />

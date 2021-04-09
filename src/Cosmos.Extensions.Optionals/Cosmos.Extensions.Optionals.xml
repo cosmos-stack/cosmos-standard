@@ -5784,7 +5784,59 @@
             <param name="value"> 可空值 </param>
             <param name="result"></param>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeValue(System.String)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeRefValue``1(``0,``0)">
+            <summary>
+            Return a safe value<br />
+            安全返回值
+            <para>如果可空值真为空，则返回默认值</para>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeRefValue``1(``0,System.Func{``0})">
+            <summary>
+            Return a safe value<br />
+            安全返回值
+            <para>如果可空值真为空，则返回默认值</para>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeRefValue``1(``0,System.Func{``0,System.Boolean},System.Func{``0},System.Func{``0})">
+            <summary>
+            Return a safe value<br />
+            安全返回值
+            <para>如果可空值真为空，则返回默认值</para>
+            </summary>
+            <param name="value"></param>
+            <param name="condition"></param>
+            <param name="defaultValFunc"></param>
+            <param name="elseValFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeEncodingValue(System.Text.Encoding)">
+            <summary>
+            Return a safe <see cref="T:System.Text.Encoding"/> value.<br />
+            返回一个 <see cref="T:System.Text.Encoding"/> 安全值。
+            </summary>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeEncodingValue(System.Text.Encoding,System.Text.Encoding)">
+            <summary>
+            Return a safe <see cref="T:System.Text.Encoding"/> value.<br />
+            返回一个 <see cref="T:System.Text.Encoding"/> 安全值。
+            </summary>
+            <param name="encoding"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeStringValue(System.String)">
             <summary>
             Return a safe <see cref="T:System.String"/> value.
             获取 Null安全 的字符串
@@ -5792,24 +5844,7 @@
             <param name="string"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeValue(System.Text.Encoding)">
-            <summary>
-            Return a safe <see cref="T:System.Text.Encoding"/> value.<br />
-            返回一个 <see cref="T:System.Text.Encoding"/> 安全值。
-            </summary>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeValue(System.Text.Encoding,System.Text.Encoding)">
-            <summary>
-            Return a safe <see cref="T:System.Text.Encoding"/> value.<br />
-            返回一个 <see cref="T:System.Text.Encoding"/> 安全值。
-            </summary>
-            <param name="encoding"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeString(System.Object)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeStringValue(System.Object)">
             <summary>
             Return a safe <see cref="T:System.String"/> value.<br />
             安全获取字符串类型
@@ -5817,7 +5852,7 @@
             <param name="object"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeString(System.Object,System.String)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeStringValue(System.Object,System.String)">
             <summary>
             Return a safe <see cref="T:System.String"/> value.<br />
             安全获取字符串类型
@@ -5826,7 +5861,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeTrim(System.String)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeTrimStringValue(System.String)">
             <summary>
             To remove space and return a safe <see cref="T:System.String"/> value.<br />
             安全移除空白字符
@@ -5842,7 +5877,7 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeDateTime(System.Object)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeDateTimeValue(System.Object)">
             <summary>
             Return a safe <see cref="T:System.DateTime"/> value.<br />
             获取安全时间类型
@@ -5850,7 +5885,7 @@
             <param name="object"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeDateTime(System.Object,System.DateTime)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeDateTimeValue(System.Object,System.DateTime)">
             <summary>
             Return a safe <see cref="T:System.DateTime"/> value.<br />
             获取安全时间类型
@@ -5859,7 +5894,7 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeGuid(System.Object)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeGuidValue(System.Object)">
             <summary>
             Return a safe <see cref="T:System.Guid"/> value.<br />
             获取安全的 Guid 类型
@@ -5867,7 +5902,7 @@
             <param name="object"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeGuid(System.Object,System.Guid)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeGuidValue(System.Object,System.Guid)">
             <summary>
             Return a safe <see cref="T:System.Guid"/> value.<br />
             获取安全的 Guid 类型
@@ -5876,7 +5911,7 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryable``1(System.Linq.IQueryable{``0})">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryableValue``1(System.Linq.IQueryable{``0})">
             <summary>
             Return a safe <see cref="T:System.Linq.IQueryable`1"/> value.<br />
             安全获得 <see cref="T:System.Linq.IQueryable`1"/> 集合
@@ -5885,7 +5920,7 @@
             <param name="query"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryable``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryableValue``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Return a safe <see cref="T:System.Linq.IQueryable`1"/> value.<br />
             安全获得 <see cref="T:System.Linq.IQueryable`1"/> 集合
@@ -5894,7 +5929,7 @@
             <param name="enumerable"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryable(System.Linq.IQueryable)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryableValue(System.Linq.IQueryable)">
             <summary>
             Return a safe <see cref="T:System.Linq.IQueryable`1"/> value.<br />
             安全获得 <see cref="T:System.Linq.IQueryable`1"/> 集合
@@ -5902,7 +5937,7 @@
             <param name="query"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryable(System.Collections.IEnumerable)">
+        <member name="M:Cosmos.Optionals.SafeValueExtensions.SafeQueryableValue(System.Collections.IEnumerable)">
             <summary>
             Return a safe <see cref="T:System.Linq.IQueryable`1"/> value.<br />
             安全获得 <see cref="T:System.Linq.IQueryable`1"/> 集合
