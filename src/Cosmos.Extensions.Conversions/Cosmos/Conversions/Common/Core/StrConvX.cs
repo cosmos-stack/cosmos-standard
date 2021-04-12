@@ -376,14 +376,14 @@ namespace Cosmos.Conversions.Common.Core
         public static string GuidToString(Guid? guid, CastingContext context)
         {
             return XConvHelper.T(
-                () => guid.SafeGuid()?.ToString(context.GuidFormatStyles.X(), context.FormatProvider) ?? string.Empty,
+                () => guid.SafeGuidValue()?.ToString(context.GuidFormatStyles.X(), context.FormatProvider) ?? string.Empty,
                 string.Empty);
         }
 
         public static string GuidToString(Guid? guid, CastingContext context, Guid defaultVal)
         {
             return XConvHelper.T(
-                () => guid.SafeGuid()?.ToString(context.GuidFormatStyles.X(), context.FormatProvider) ?? string.Empty,
+                () => guid.SafeGuidValue()?.ToString(context.GuidFormatStyles.X(), context.FormatProvider) ?? string.Empty,
                 GuidToString(defaultVal, context, string.Empty));
         }
     }
