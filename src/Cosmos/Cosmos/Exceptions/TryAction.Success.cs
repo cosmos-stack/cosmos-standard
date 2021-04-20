@@ -23,7 +23,10 @@ namespace Cosmos.Exceptions
         public override bool IsSuccess => true;
 
         /// <inheritdoc />
-        public override Exception Exception => null;
+        public override TryInvokingException Exception => default;
+
+        /// <inheritdoc />
+        public override string Cause => string.Empty;
 
         /// <inheritdoc />
         public override string ToString() => $"SuccessAction<Void>";
@@ -41,7 +44,7 @@ namespace Cosmos.Exceptions
         /// <inheritdoc />
         public override int GetHashCode() => EqualityComparer<int>.Default.GetHashCode(_hashOfAction);
 
-        public override void Deconstruct(out bool tryResult, out Exception exception)
+        public override void Deconstruct(out bool tryResult, out TryInvokingException exception)
         {
             tryResult = IsSuccess;
             exception = default;

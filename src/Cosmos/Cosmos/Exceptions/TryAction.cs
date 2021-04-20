@@ -20,7 +20,12 @@ namespace Cosmos.Exceptions
         /// <summary>
         /// Exception
         /// </summary>
-        public abstract Exception Exception { get; }
+        public abstract TryInvokingException Exception { get; }
+        
+        /// <summary>
+        /// Cause
+        /// </summary>
+        public abstract string Cause { get; }
 
         /// <summary>
         /// ==
@@ -59,7 +64,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="tryResult"></param>
         /// <param name="exception"></param>
-        public abstract void Deconstruct(out bool tryResult, out Exception exception);
+        public abstract void Deconstruct(out bool tryResult, out TryInvokingException exception);
 
         /// <summary>
         /// Exception as

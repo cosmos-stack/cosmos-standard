@@ -11,9 +11,10 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="exception">The exception to wrap.</param>
         /// <param name="hashOfAction"></param>
-        internal FailureAction(Exception exception, int hashOfAction)
+        /// <param name="cause"></param>
+        internal FailureAction(Exception exception, int hashOfAction, string cause)
         {
-            Exception = exception ?? new ArgumentNullException(nameof(exception));
+            Exception = new TryInvokingException(exception, cause);
             _hashOfAction = hashOfAction;
         }
 
@@ -24,7 +25,10 @@ namespace Cosmos.Exceptions
         public override bool IsSuccess => false;
 
         /// <inheritdoc />
-        public override Exception Exception { get; }
+        public override TryInvokingException Exception { get; }
+
+        /// <inheritdoc />
+        public override string Cause => Exception.Cause;
 
         /// <inheritdoc />
         public override string ToString() => $"FailureAction<{Exception}>";
@@ -42,7 +46,7 @@ namespace Cosmos.Exceptions
         /// <inheritdoc/>
         public override int GetHashCode() => Exception.GetHashCode();
 
-        public override void Deconstruct(out bool tryResult, out Exception exception)
+        public override void Deconstruct(out bool tryResult, out TryInvokingException exception)
         {
             tryResult = IsSuccess;
             exception = Exception;
@@ -63,7 +67,7 @@ namespace Cosmos.Exceptions
             }
             catch (Exception ex)
             {
-                return new FailureAction(ex, recoverFunction?.GetHashCode() ?? 0);
+                return new FailureAction(ex, recoverFunction?.GetHashCode() ?? 0, "An exception occurred during recovery.");
             }
         }
 

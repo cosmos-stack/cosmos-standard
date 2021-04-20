@@ -22,7 +22,7 @@ namespace Cosmos.Exceptions
         /// <summary>
         /// Exception
         /// </summary>
-        public abstract Exception Exception { get; }
+        public abstract TryCreatingValueException Exception { get; }
 
         /// <summary>
         /// Value
@@ -84,13 +84,27 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="defaultValFunc"></param>
         /// <returns></returns>
-        public virtual T GetSafeValue(Func<Exception, T> defaultValFunc)
+        public virtual T GetSafeValue(Func<TryCreatingValueException, T> defaultValFunc)
         {
             return IsSuccess
                 ? Value
                 : defaultValFunc is null
                     ? default
                     : defaultValFunc(Exception);
+        }
+
+        /// <summary>
+        /// Get safe value
+        /// </summary>
+        /// <param name="defaultValFunc"></param>
+        /// <returns></returns>
+        public virtual T GetSafeValue(Func<Exception, string, T> defaultValFunc)
+        {
+            return IsSuccess
+                ? Value
+                : defaultValFunc is null
+                    ? default
+                    : defaultValFunc(Exception.InnerException, Exception.Cause);
         }
 
         /// <summary>
@@ -127,7 +141,17 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="defaultValFunc"></param>
         /// <returns></returns>
-        public virtual Task<T> GetSafeValueAsync(Func<Exception, T> defaultValFunc)
+        public virtual Task<T> GetSafeValueAsync(Func<TryCreatingValueException, T> defaultValFunc)
+        {
+            return Task.FromResult(GetSafeValue(defaultValFunc));
+        }
+
+        /// <summary>
+        /// Get safe value async
+        /// </summary>
+        /// <param name="defaultValFunc"></param>
+        /// <returns></returns>
+        public virtual Task<T> GetSafeValueAsync(Func<Exception, string, T> defaultValFunc)
         {
             return Task.FromResult(GetSafeValue(defaultValFunc));
         }
@@ -151,13 +175,27 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="defaultValAsyncFunc"></param>
         /// <returns></returns>
-        public virtual Task<T> GetSafeValueAsync(Func<Exception, Task<T>> defaultValAsyncFunc)
+        public virtual Task<T> GetSafeValueAsync(Func<TryCreatingValueException, Task<T>> defaultValAsyncFunc)
         {
             return IsSuccess
                 ? Task.FromResult(Value)
                 : defaultValAsyncFunc is null
                     ? Task.FromResult(default(T))
                     : defaultValAsyncFunc(Exception);
+        }
+
+        /// <summary>
+        /// Get safe value async
+        /// </summary>
+        /// <param name="defaultValAsyncFunc"></param>
+        /// <returns></returns>
+        public virtual Task<T> GetSafeValueAsync(Func<Exception, string, Task<T>> defaultValAsyncFunc)
+        {
+            return IsSuccess
+                ? Task.FromResult(Value)
+                : defaultValAsyncFunc is null
+                    ? Task.FromResult(default(T))
+                    : defaultValAsyncFunc(Exception.InnerException, Exception.Cause);
         }
 
         /// <summary>
@@ -209,7 +247,27 @@ namespace Cosmos.Exceptions
         /// <param name="value"></param>
         /// <param name="defaultValFunc"></param>
         /// <returns></returns>
-        public virtual bool TryGetValue(out T value, Func<Exception, T> defaultValFunc)
+        public virtual bool TryGetValue(out T value, Func<TryCreatingValueException, T> defaultValFunc)
+        {
+            try
+            {
+                value = GetSafeValue(defaultValFunc);
+                return true;
+            }
+            catch
+            {
+                value = default;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Try get value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="defaultValFunc"></param>
+        /// <returns></returns>
+        public virtual bool TryGetValue(out T value, Func<Exception, string, T> defaultValFunc)
         {
             try
             {
@@ -253,7 +311,13 @@ namespace Cosmos.Exceptions
             return this;
         }
 
-        public virtual Try<T> GetSafeValueOut(out T value, Func<Exception, T> defaultValFunc)
+        public virtual Try<T> GetSafeValueOut(out T value, Func<TryCreatingValueException, T> defaultValFunc)
+        {
+            value = GetSafeValue(defaultValFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOut(out T value, Func<Exception, string, T> defaultValFunc)
         {
             value = GetSafeValue(defaultValFunc);
             return this;
@@ -277,7 +341,13 @@ namespace Cosmos.Exceptions
             return this;
         }
 
-        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<Exception, T> defaultValFunc)
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<TryCreatingValueException, T> defaultValFunc)
+        {
+            value = GetSafeValueAsync(defaultValFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<Exception, string, T> defaultValFunc)
         {
             value = GetSafeValueAsync(defaultValFunc);
             return this;
@@ -289,7 +359,13 @@ namespace Cosmos.Exceptions
             return this;
         }
 
-        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<Exception, Task<T>> defaultValAsyncFunc)
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<TryCreatingValueException, Task<T>> defaultValAsyncFunc)
+        {
+            value = GetSafeValueAsync(defaultValAsyncFunc);
+            return this;
+        }
+
+        public virtual Try<T> GetSafeValueOutAsync(out Task<T> value, Func<Exception, string, Task<T>> defaultValAsyncFunc)
         {
             value = GetSafeValueAsync(defaultValAsyncFunc);
             return this;
@@ -347,21 +423,35 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
-        public TException ExceptionAs<TException>() where TException : Exception => Exception as TException;
+        public TException ExceptionAs<TException>() where TException : Exception => Exception.InnerException as TException;
 
         /// <summary>
         /// Recover
         /// </summary>
         /// <param name="recoverFunction"></param>
         /// <returns></returns>
-        public abstract Try<T> Recover(Func<Exception, T> recoverFunction);
+        public abstract Try<T> Recover(Func<TryCreatingValueException, T> recoverFunction);
+
+        /// <summary>
+        /// Recover
+        /// </summary>
+        /// <param name="recoverFunction"></param>
+        /// <returns></returns>
+        public abstract Try<T> Recover(Func<Exception, string, T> recoverFunction);
 
         /// <summary>
         /// Recover with
         /// </summary>
         /// <param name="recoverFunction"></param>
         /// <returns></returns>
-        public abstract Try<T> RecoverWith(Func<Exception, Try<T>> recoverFunction);
+        public abstract Try<T> RecoverWith(Func<TryCreatingValueException, Try<T>> recoverFunction);
+
+        /// <summary>
+        /// Recover with
+        /// </summary>
+        /// <param name="recoverFunction"></param>
+        /// <returns></returns>
+        public abstract Try<T> RecoverWith(Func<Exception, string, Try<T>> recoverFunction);
 
         /// <summary>
         /// Match
@@ -370,7 +460,16 @@ namespace Cosmos.Exceptions
         /// <param name="whenException"></param>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public abstract TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, TResult> whenException);
+        public abstract TResult Match<TResult>(Func<T, TResult> whenValue, Func<TryCreatingValueException, TResult> whenException);
+
+        /// <summary>
+        /// Match
+        /// </summary>
+        /// <param name="whenValue"></param>
+        /// <param name="whenException"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public abstract TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, string, TResult> whenException);
 
         /// <summary>
         /// Map
@@ -391,7 +490,15 @@ namespace Cosmos.Exceptions
         /// <param name="successFunction"></param>
         /// <param name="failureFunction"></param>
         /// <returns></returns>
-        public abstract Try<T> Tap(Action<T> successFunction = null, Action<Exception> failureFunction = null);
+        public abstract Try<T> Tap(Action<T> successFunction = null, Action<TryCreatingValueException> failureFunction = null);
+
+        /// <summary>
+        /// Tap
+        /// </summary>
+        /// <param name="successFunction"></param>
+        /// <param name="failureFunction"></param>
+        /// <returns></returns>
+        public abstract Try<T> Tap(Action<T> successFunction = null, Action<Exception, string> failureFunction = null);
 
         /// <summary>
         /// Bind

@@ -13,9 +13,10 @@ namespace Cosmos.Exceptions
         /// Initializes a new instance of the <see cref="Failure{T}"/> class.
         /// </summary>
         /// <param name="exception">The exception to wrap.</param>
-        internal Failure(Exception exception)
+        /// <param name="cause"></param>
+        internal Failure(Exception exception, string cause)
         {
-            Exception = exception ?? new ArgumentNullException(nameof(exception));
+            Exception = new TryCreatingValueException(exception, cause);
         }
 
         /// <inheritdoc />
@@ -25,7 +26,7 @@ namespace Cosmos.Exceptions
         public override bool IsSuccess => false;
 
         /// <inheritdoc />
-        public override Exception Exception { get; }
+        public override TryCreatingValueException Exception { get; }
 
         /// <inheritdoc />
         public override T Value => throw Rethrow();
@@ -61,13 +62,19 @@ namespace Cosmos.Exceptions
         }
 
         /// <inheritdoc />
-        public override Try<T> Recover(Func<Exception, T> recoverFunction)
+        public override Try<T> Recover(Func<TryCreatingValueException, T> recoverFunction)
         {
             return RecoverWith(ex => Try.LiftValue(recoverFunction(ex)));
         }
 
         /// <inheritdoc />
-        public override Try<T> RecoverWith(Func<Exception, Try<T>> recoverFunction)
+        public override Try<T> Recover(Func<Exception, string, T> recoverFunction)
+        {
+            return RecoverWith(ex => Try.LiftValue(recoverFunction(ex.InnerException, ex.Cause)));
+        }
+
+        /// <inheritdoc />
+        public override Try<T> RecoverWith(Func<TryCreatingValueException, Try<T>> recoverFunction)
         {
             try
             {
@@ -75,12 +82,25 @@ namespace Cosmos.Exceptions
             }
             catch (Exception ex)
             {
-                return new Failure<T>(ex);
+                return new Failure<T>(ex, "An exception occurred during recovery.");
             }
         }
 
         /// <inheritdoc />
-        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, TResult> whenException)
+        public override Try<T> RecoverWith(Func<Exception, string, Try<T>> recoverFunction)
+        {
+            try
+            {
+                return recoverFunction(Exception.InnerException, Exception.Cause);
+            }
+            catch (Exception ex)
+            {
+                return new Failure<T>(ex, "An exception occurred during recovery.");
+            }
+        }
+
+        /// <inheritdoc />
+        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<TryCreatingValueException, TResult> whenException)
         {
             if (whenException is null)
                 throw new ArgumentNullException(nameof(whenException));
@@ -88,9 +108,24 @@ namespace Cosmos.Exceptions
         }
 
         /// <inheritdoc />
-        public override Try<T> Tap(Action<T> successFunction = null, Action<Exception> failureFunction = null)
+        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, string, TResult> whenException)
+        {
+            if (whenException is null)
+                throw new ArgumentNullException(nameof(whenException));
+            return whenException(Exception.InnerException, Exception.Cause);
+        }
+
+        /// <inheritdoc />
+        public override Try<T> Tap(Action<T> successFunction = null, Action<TryCreatingValueException> failureFunction = null)
         {
             failureFunction?.Invoke(Exception);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public override Try<T> Tap(Action<T> successFunction = null, Action<Exception, string> failureFunction = null)
+        {
+            failureFunction?.Invoke(Exception.InnerException, Exception.Cause);
             return this;
         }
 

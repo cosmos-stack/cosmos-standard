@@ -21,7 +21,7 @@ namespace Cosmos.Exceptions
         public override bool IsSuccess => true;
 
         /// <inheritdoc />
-        public override Exception Exception => null;
+        public override TryCreatingValueException Exception => default;
 
         /// <inheritdoc />
         public override T Value { get; }
@@ -57,13 +57,19 @@ namespace Cosmos.Exceptions
         }
 
         /// <inheritdoc />
-        public override Try<T> Recover(Func<Exception, T> recoverFunction) => this;
+        public override Try<T> Recover(Func<TryCreatingValueException, T> recoverFunction) => this;
 
         /// <inheritdoc />
-        public override Try<T> RecoverWith(Func<Exception, Try<T>> recoverFunction) => this;
+        public override Try<T> Recover(Func<Exception, string, T> recoverFunction) => this;
 
         /// <inheritdoc />
-        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, TResult> whenException)
+        public override Try<T> RecoverWith(Func<TryCreatingValueException, Try<T>> recoverFunction) => this;
+
+        /// <inheritdoc />
+        public override Try<T> RecoverWith(Func<Exception, string, Try<T>> recoverFunction) => this;
+
+        /// <inheritdoc />
+        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<TryCreatingValueException, TResult> whenException)
         {
             if (whenValue is null)
                 throw new ArgumentNullException(nameof(whenValue));
@@ -71,7 +77,22 @@ namespace Cosmos.Exceptions
         }
 
         /// <inheritdoc />
-        public override Try<T> Tap(Action<T> successFunction = null, Action<Exception> failureFunction = null)
+        public override TResult Match<TResult>(Func<T, TResult> whenValue, Func<Exception, string, TResult> whenException)
+        {
+            if (whenValue is null)
+                throw new ArgumentNullException(nameof(whenValue));
+            return whenValue(Value);
+        }
+
+        /// <inheritdoc />
+        public override Try<T> Tap(Action<T> successFunction = null, Action<TryCreatingValueException> failureFunction = null)
+        {
+            successFunction?.Invoke(Value);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public override Try<T> Tap(Action<T> successFunction = null, Action<Exception, string> failureFunction = null)
         {
             successFunction?.Invoke(Value);
             return this;
