@@ -270,7 +270,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region MyRegion
+        #region Operator
 
         /// <summary>
         /// Convert maybe to tuple
