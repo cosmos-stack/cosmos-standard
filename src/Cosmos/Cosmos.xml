@@ -929,19 +929,709 @@
             Try
             </summary>
         </member>
-        <member name="M:Cosmos.Exceptions.Try.Create``1(System.Func{``0})">
+        <member name="M:Cosmos.Exceptions.Try.Create``1(System.Func{``0},System.String)">
             <summary>
             Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="cause"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``2(System.Func{``0,``1},``0,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg"></param>
+            <param name="cause"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``3(System.Func{``0,``1,``2},``0,``1,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``4(System.Func{``0,``1,``2,``3},``0,``1,``2,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``6(System.Func{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``7(System.Func{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``10(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},``0,``1,``2,``3,``4,``5,``6,``7,``8,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``11(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``12(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``13(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``14(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``15(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``16(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Create``17(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/>.
+            </summary>
+            <param name="createFunction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <param name="arg16"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``1(System.Func{``0})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
             </summary>
             <param name="createFunction"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try.CreateFromTask``1(System.Func{System.Threading.Tasks.Task{``0}})">
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``2(System.Func{``0,``1})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``3(System.Func{``0,``1,``2})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``4(System.Func{``0,``1,``2,``3})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``5(System.Func{``0,``1,``2,``3,``4})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``6(System.Func{``0,``1,``2,``3,``4,``5})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``7(System.Func{``0,``1,``2,``3,``4,``5,``6})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``10(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``11(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``12(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``13(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``14(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``15(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``16(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFuture``17(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.Try`1"/> in the future.
+            </summary>
+            <param name="createFunction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.CreateFromTask``1(System.Func{System.Threading.Tasks.Task{``0}},System.String)">
             <summary>
             Create for asynchronous functions.
             </summary>
             <param name="createFunctionAsync"></param>
+            <param name="cause"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
@@ -953,182 +1643,541 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try.LiftException``1(System.Exception)">
+        <member name="M:Cosmos.Exceptions.Try.LiftException``1(System.Exception,System.String)">
             <summary>
             Lifts
             </summary>
             <param name="ex"></param>
+            <param name="cause"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try.Invoke(System.Action)">
+        <member name="M:Cosmos.Exceptions.Try.Invoke(System.Action,System.String)">
             <summary>
             Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
             <param name="invokeAction"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Exceptions.TryAction">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``1(System.Action{``0},``0,System.String)">
             <summary>
-            Try action
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-        </member>
-        <member name="P:Cosmos.Exceptions.TryAction.IsFailure">
-            <summary>
-            Is failure
-            </summary>
-        </member>
-        <member name="P:Cosmos.Exceptions.TryAction.IsSuccess">
-            <summary>
-            Is success
-            </summary>
-        </member>
-        <member name="P:Cosmos.Exceptions.TryAction.Exception">
-            <summary>
-            Exception
-            </summary>
-        </member>
-        <member name="M:Cosmos.Exceptions.TryAction.op_Equality(Cosmos.Exceptions.TryAction,Cosmos.Exceptions.TryAction)">
-            <summary>
-            ==
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
+            <param name="invokeAction"></param>
+            <param name="obj"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryAction.op_Inequality(Cosmos.Exceptions.TryAction,Cosmos.Exceptions.TryAction)">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``2(System.Action{``0,``1},``0,``1,System.String)">
             <summary>
-            !=
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-            <param name="left"></param>
-            <param name="right"></param>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryAction.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cosmos.Exceptions.TryAction.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cosmos.Exceptions.TryAction.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cosmos.Exceptions.TryAction.Deconstruct(System.Boolean@,System.Exception@)">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``3(System.Action{``0,``1,``2},``0,``1,``2,System.String)">
             <summary>
-            Deconstruct
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-            <param name="tryResult"></param>
-            <param name="exception"></param>
-        </member>
-        <member name="M:Cosmos.Exceptions.TryAction.ExceptionAs``1">
-            <summary>
-            Exception as
-            </summary>
-            <typeparam name="TException"></typeparam>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryAction.Recover(System.Action{System.Exception})">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.String)">
             <summary>
-            Recover
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-            <param name="recoverFunction"></param>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``5(System.Action{``0,``1,``2,``3,``4},``0,``1,``2,``3,``4,System.String)">
             <summary>
-            Recover with
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-            <param name="recoverFunction"></param>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.TryAction.Tap(System.Action,System.Action{System.Exception})">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``6(System.Action{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,``5,System.String)">
             <summary>
-            Tap
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-            <param name="successFunction"></param>
-            <param name="failureFunction"></param>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.#ctor(System.Exception,System.Int32)">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``7(System.Action{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,``6,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Cosmos.Exceptions.Failure`1"/> class.
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-            <param name="exception">The exception to wrap.</param>
-            <param name="hashOfAction"></param>
-        </member>
-        <member name="P:Cosmos.Exceptions.FailureAction.IsFailure">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.Exceptions.FailureAction.IsSuccess">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.Exceptions.FailureAction.Exception">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.ToString">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.Equals(Cosmos.Exceptions.FailureAction)">
-            <summary>
-            Equals
-            </summary>
-            <param name="other"></param>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.Recover(System.Action{System.Exception})">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Exceptions.FailureAction.Tap(System.Action,System.Action{System.Exception})">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.#ctor(System.Int32)">
+        <member name="M:Cosmos.Exceptions.Try.Invoke``8(System.Action{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6,``7,System.String)">
             <summary>
-            Success
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
             </summary>
-            <param name="hashOfAction"></param>
-        </member>
-        <member name="P:Cosmos.Exceptions.SuccessAction.IsFailure">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.Exceptions.SuccessAction.IsSuccess">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.Exceptions.SuccessAction.Exception">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.ToString">
-            <inheritdoc />
-        </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.Equals(Cosmos.Exceptions.SuccessAction)">
-            <summary>
-            Equals
-            </summary>
-            <param name="other"></param>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="cause"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.Equals(System.Object)">
-            <inheritdoc />
+        <member name="M:Cosmos.Exceptions.Try.Invoke``9(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7,``8,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="cause"></param>
+            <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.GetHashCode">
-            <inheritdoc />
+        <member name="M:Cosmos.Exceptions.Try.Invoke``10(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="cause"></param>
+            <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.Recover(System.Action{System.Exception})">
-            <inheritdoc />
+        <member name="M:Cosmos.Exceptions.Try.Invoke``11(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="cause"></param>
+            <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
-            <inheritdoc />
+        <member name="M:Cosmos.Exceptions.Try.Invoke``12(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="cause"></param>
+            <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.SuccessAction.Tap(System.Action,System.Action{System.Exception})">
-            <inheritdoc />
+        <member name="M:Cosmos.Exceptions.Try.Invoke``13(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="cause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Invoke``14(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="cause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Invoke``15(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <param name="cause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Invoke``16(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="invokeAction"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <param name="arg16"></param>
+            <param name="cause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future(System.Action)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``1(System.Action{``0})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``2(System.Action{``0,``1})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``3(System.Action{``0,``1,``2})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``4(System.Action{``0,``1,``2,``3})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``5(System.Action{``0,``1,``2,``3,``4})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``6(System.Action{``0,``1,``2,``3,``4,``5})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``7(System.Action{``0,``1,``2,``3,``4,``5,``6})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``8(System.Action{``0,``1,``2,``3,``4,``5,``6,``7})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``9(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``10(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``11(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``12(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``13(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``14(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``15(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.Future``16(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15})">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Exceptions.TryAction"/> in the future.
+            </summary>
+            <param name="invokeAction"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Exceptions.TryExtensions">
             <summary>
@@ -1175,6 +2224,180 @@
             <param name="predicate"></param>
             <typeparam name="TSource"></typeparam>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Exceptions.TryAction">
+            <summary>
+            Try action
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.TryAction.IsFailure">
+            <summary>
+            Is failure
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.TryAction.IsSuccess">
+            <summary>
+            Is success
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.TryAction.Exception">
+            <summary>
+            Exception
+            </summary>
+        </member>
+        <member name="P:Cosmos.Exceptions.TryAction.Cause">
+            <summary>
+            Cause
+            </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.op_Equality(Cosmos.Exceptions.TryAction,Cosmos.Exceptions.TryAction)">
+            <summary>
+            ==
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.op_Inequality(Cosmos.Exceptions.TryAction,Cosmos.Exceptions.TryAction)">
+            <summary>
+            !=
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Deconstruct(System.Boolean@,Cosmos.Exceptions.TryInvokingException@)">
+            <summary>
+            Deconstruct
+            </summary>
+            <param name="tryResult"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.ExceptionAs``1">
+            <summary>
+            Exception as
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Recover(System.Action{System.Exception})">
+            <summary>
+            Recover
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
+            <summary>
+            Recover with
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryAction.Tap(System.Action,System.Action{System.Exception})">
+            <summary>
+            Tap
+            </summary>
+            <param name="successFunction"></param>
+            <param name="failureFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.#ctor(System.Exception,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cosmos.Exceptions.Failure`1"/> class.
+            </summary>
+            <param name="exception">The exception to wrap.</param>
+            <param name="hashOfAction"></param>
+            <param name="cause"></param>
+        </member>
+        <member name="P:Cosmos.Exceptions.FailureAction.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.FailureAction.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.FailureAction.Exception">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.FailureAction.Cause">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Equals(Cosmos.Exceptions.FailureAction)">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Recover(System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.FailureAction.Tap(System.Action,System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.#ctor(System.Int32)">
+            <summary>
+            Success
+            </summary>
+            <param name="hashOfAction"></param>
+        </member>
+        <member name="P:Cosmos.Exceptions.SuccessAction.IsFailure">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.SuccessAction.IsSuccess">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.SuccessAction.Exception">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Exceptions.SuccessAction.Cause">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Equals(Cosmos.Exceptions.SuccessAction)">
+            <summary>
+            Equals
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Recover(System.Action{System.Exception})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.TryAction})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.SuccessAction.Tap(System.Action,System.Action{System.Exception})">
+            <inheritdoc />
         </member>
         <member name="T:Cosmos.Exceptions.Try`1">
             <summary>
@@ -1234,7 +2457,14 @@
             <param name="defaultValFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValue(System.Func{System.Exception,`0})">
+        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValue(System.Func{Cosmos.Exceptions.TryCreatingValueException,`0})">
+            <summary>
+            Get safe value
+            </summary>
+            <param name="defaultValFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValue(System.Func{System.Exception,System.String,`0})">
             <summary>
             Get safe value
             </summary>
@@ -1261,7 +2491,14 @@
             <param name="defaultValFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValueAsync(System.Func{System.Exception,`0})">
+        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValueAsync(System.Func{Cosmos.Exceptions.TryCreatingValueException,`0})">
+            <summary>
+            Get safe value async
+            </summary>
+            <param name="defaultValFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValueAsync(System.Func{System.Exception,System.String,`0})">
             <summary>
             Get safe value async
             </summary>
@@ -1275,7 +2512,14 @@
             <param name="defaultValAsyncFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValueAsync(System.Func{System.Exception,System.Threading.Tasks.Task{`0}})">
+        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValueAsync(System.Func{Cosmos.Exceptions.TryCreatingValueException,System.Threading.Tasks.Task{`0}})">
+            <summary>
+            Get safe value async
+            </summary>
+            <param name="defaultValAsyncFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.GetSafeValueAsync(System.Func{System.Exception,System.String,System.Threading.Tasks.Task{`0}})">
             <summary>
             Get safe value async
             </summary>
@@ -1305,7 +2549,15 @@
             <param name="defaultValFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.TryGetValue(`0@,System.Func{System.Exception,`0})">
+        <member name="M:Cosmos.Exceptions.Try`1.TryGetValue(`0@,System.Func{Cosmos.Exceptions.TryCreatingValueException,`0})">
+            <summary>
+            Try get value
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.TryGetValue(`0@,System.Func{System.Exception,System.String,`0})">
             <summary>
             Try get value
             </summary>
@@ -1360,21 +2612,44 @@
             <typeparam name="TException"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.Recover(System.Func{System.Exception,`0})">
+        <member name="M:Cosmos.Exceptions.Try`1.Recover(System.Func{Cosmos.Exceptions.TryCreatingValueException,`0})">
             <summary>
             Recover
             </summary>
             <param name="recoverFunction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.Try{`0}})">
+        <member name="M:Cosmos.Exceptions.Try`1.Recover(System.Func{System.Exception,System.String,`0})">
+            <summary>
+            Recover
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.RecoverWith(System.Func{Cosmos.Exceptions.TryCreatingValueException,Cosmos.Exceptions.Try{`0}})">
             <summary>
             Recover with
             </summary>
             <param name="recoverFunction"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+        <member name="M:Cosmos.Exceptions.Try`1.RecoverWith(System.Func{System.Exception,System.String,Cosmos.Exceptions.Try{`0}})">
+            <summary>
+            Recover with
+            </summary>
+            <param name="recoverFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.Match``1(System.Func{`0,``0},System.Func{Cosmos.Exceptions.TryCreatingValueException,``0})">
+            <summary>
+            Match
+            </summary>
+            <param name="whenValue"></param>
+            <param name="whenException"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,System.String,``0})">
             <summary>
             Match
             </summary>
@@ -1391,7 +2666,15 @@
             <typeparam name="TResult"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Exceptions.Try`1.Tap(System.Action{`0},System.Action{System.Exception})">
+        <member name="M:Cosmos.Exceptions.Try`1.Tap(System.Action{`0},System.Action{Cosmos.Exceptions.TryCreatingValueException})">
+            <summary>
+            Tap
+            </summary>
+            <param name="successFunction"></param>
+            <param name="failureFunction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try`1.Tap(System.Action{`0},System.Action{System.Exception,System.String})">
             <summary>
             Tap
             </summary>
@@ -1413,11 +2696,12 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:Cosmos.Exceptions.Failure`1.#ctor(System.Exception)">
+        <member name="M:Cosmos.Exceptions.Failure`1.#ctor(System.Exception,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Cosmos.Exceptions.Failure`1"/> class.
             </summary>
             <param name="exception">The exception to wrap.</param>
+            <param name="cause"></param>
         </member>
         <member name="P:Cosmos.Exceptions.Failure`1.IsFailure">
             <inheritdoc />
@@ -1450,16 +2734,28 @@
         <member name="M:Cosmos.Exceptions.Failure`1.Deconstruct(`0@,System.Exception@)">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Failure`1.Recover(System.Func{System.Exception,`0})">
+        <member name="M:Cosmos.Exceptions.Failure`1.Recover(System.Func{Cosmos.Exceptions.TryCreatingValueException,`0})">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Failure`1.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.Try{`0}})">
+        <member name="M:Cosmos.Exceptions.Failure`1.Recover(System.Func{System.Exception,System.String,`0})">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Failure`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+        <member name="M:Cosmos.Exceptions.Failure`1.RecoverWith(System.Func{Cosmos.Exceptions.TryCreatingValueException,Cosmos.Exceptions.Try{`0}})">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Failure`1.Tap(System.Action{`0},System.Action{System.Exception})">
+        <member name="M:Cosmos.Exceptions.Failure`1.RecoverWith(System.Func{System.Exception,System.String,Cosmos.Exceptions.Try{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Failure`1.Match``1(System.Func{`0,``0},System.Func{Cosmos.Exceptions.TryCreatingValueException,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Failure`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,System.String,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Failure`1.Tap(System.Action{`0},System.Action{Cosmos.Exceptions.TryCreatingValueException})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Failure`1.Tap(System.Action{`0},System.Action{System.Exception,System.String})">
             <inheritdoc />
         </member>
         <member name="T:Cosmos.Exceptions.Success`1">
@@ -1499,16 +2795,28 @@
         <member name="M:Cosmos.Exceptions.Success`1.Deconstruct(`0@,System.Exception@)">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Success`1.Recover(System.Func{System.Exception,`0})">
+        <member name="M:Cosmos.Exceptions.Success`1.Recover(System.Func{Cosmos.Exceptions.TryCreatingValueException,`0})">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Success`1.RecoverWith(System.Func{System.Exception,Cosmos.Exceptions.Try{`0}})">
+        <member name="M:Cosmos.Exceptions.Success`1.Recover(System.Func{System.Exception,System.String,`0})">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Success`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,``0})">
+        <member name="M:Cosmos.Exceptions.Success`1.RecoverWith(System.Func{Cosmos.Exceptions.TryCreatingValueException,Cosmos.Exceptions.Try{`0}})">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Exceptions.Success`1.Tap(System.Action{`0},System.Action{System.Exception})">
+        <member name="M:Cosmos.Exceptions.Success`1.RecoverWith(System.Func{System.Exception,System.String,Cosmos.Exceptions.Try{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Success`1.Match``1(System.Func{`0,``0},System.Func{Cosmos.Exceptions.TryCreatingValueException,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Success`1.Match``1(System.Func{`0,``0},System.Func{System.Exception,System.String,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Success`1.Tap(System.Action{`0},System.Action{Cosmos.Exceptions.TryCreatingValueException})">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Exceptions.Success`1.Tap(System.Action{`0},System.Action{System.Exception,System.String})">
             <inheritdoc />
         </member>
         <member name="T:Cosmos.Expressions.CosmosExpressionExtensions">

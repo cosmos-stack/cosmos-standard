@@ -5729,6 +5729,821 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke(System.Action)">
+            <summary>
+            Invoke the given <see cref="T:System.Action"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``1(System.Action{``0},``0)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`1"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="obj"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``2(System.Action{``0,``1},``0,``1)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`2"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``3(System.Action{``0,``1,``2},``0,``1,``2)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`3"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`4"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``5(System.Action{``0,``1,``2,``3,``4},``0,``1,``2,``3,``4)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`5"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``6(System.Action{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,``5)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`6"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``7(System.Action{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,``6)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`7"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``8(System.Action{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6,``7)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`8"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``9(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7,``8)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`9"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``10(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`10"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``11(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`11"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``12(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`12"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``13(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`13"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``14(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`14"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``15(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`15"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeInvoke``16(System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15)">
+            <summary>
+            Invoke the given <see cref="T:System.Action`16"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="action"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <param name="arg16"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``1(System.Func{``0})">
+            <summary>
+            Invoke the given <see cref="T:System.Func`1"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``2(System.Func{``0,``1},``0)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`2"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``3(System.Func{``0,``1,``2},``0,``1)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`3"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``4(System.Func{``0,``1,``2,``3},``0,``1,``2)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`4"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`5"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``6(System.Func{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`6"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``7(System.Func{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`7"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`8"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`9"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``10(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},``0,``1,``2,``3,``4,``5,``6,``7,``8)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`10"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``11(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`11"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``12(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`12"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``13(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`13"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``14(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`14"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``15(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`15"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``16(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`16"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.SafeInvokingExtensions.SafeFuncInvoke``17(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16},``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15)">
+            <summary>
+            Invoke the given <see cref="T:System.Func`17"/> in a safe way.<br />
+            以给定参数安全执行事件
+            </summary>
+            <param name="func"></param>
+            <param name="arg1"></param>
+            <param name="arg2"></param>
+            <param name="arg3"></param>
+            <param name="arg4"></param>
+            <param name="arg5"></param>
+            <param name="arg6"></param>
+            <param name="arg7"></param>
+            <param name="arg8"></param>
+            <param name="arg9"></param>
+            <param name="arg10"></param>
+            <param name="arg11"></param>
+            <param name="arg12"></param>
+            <param name="arg13"></param>
+            <param name="arg14"></param>
+            <param name="arg15"></param>
+            <param name="arg16"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
+            <typeparam name="T"></typeparam>
+        </member>
         <member name="T:Cosmos.Optionals.SafeValueExtensions">
             <summary>
             Optionals extensions
