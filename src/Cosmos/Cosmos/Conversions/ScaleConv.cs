@@ -67,7 +67,7 @@ namespace Cosmos.Conversions
 
             return new string(digitsOut, digitsOut.Length - digitsIndex, digitsIndex);
         }
-
+        
         public static string ThingsToThings(string things, int baseOfSource, int baseOfTarget)
         {
             if (string.IsNullOrWhiteSpace(things))
@@ -240,7 +240,7 @@ namespace Cosmos.Conversions
         /// <returns></returns>
         public static string LettersToHex(string letters, Encoding encoding = null)
         {
-            return  BitConverter.ToString((encoding ?? Encoding.UTF8).GetBytes(letters)).Replace("-", " ");
+            return BitConverter.ToString((encoding ?? Encoding.UTF8).GetBytes(letters)).Replace("-", " ");
         }
 
         public static string HexToLetters(string hexadecimalThings, Encoding encoding = null)
@@ -252,9 +252,10 @@ namespace Cosmos.Conversions
                 if (!byte.TryParse(mc[i].Value, NumberStyles.HexNumber, null, out bytes[i]))
                     bytes[i] = 0;
             }
+
             return (encoding ?? Encoding.UTF8).GetString(bytes);
         }
-        
+
         /// <summary>
         /// Convert long hexadecimal value to decimal bytes value. <br />
         /// 长十六进制字符串值转换为十进制 byte 值

@@ -1,5 +1,6 @@
 ﻿using System;
 using Cosmos.Reflection;
+using Shouldly;
 using Xunit;
 
 namespace CosmosStandardUT.TypeUT
@@ -131,6 +132,18 @@ namespace CosmosStandardUT.TypeUT
              != HashCode64.Parse("01234ABCD56789EF"));
             Assert.True(HashCode64.Parse("01234abcd56789ef") != HashCode64.Zero);
             Assert.False(HashCode64.Parse("01234abcd56789ef") == HashCode64.Zero);
+        }
+
+        [Fact]
+        public void OutputTest()
+        {
+            var hash = HashCode64.Parse("01234abcd56789ef");
+
+            hash.AsHexString(false).ShouldBe("01234abcd56789ef");
+            hash.AsHexString(true).ShouldBe("01234ABCD56789EF");
+
+            hash.AsBinString(false).ShouldBe("100100011010010101011110011010101011001111000100111101111");
+            hash.AsBinString(true).ShouldBe("0000000100100011010010101011110011010101011001111000100111101111");
         }
     }
 }

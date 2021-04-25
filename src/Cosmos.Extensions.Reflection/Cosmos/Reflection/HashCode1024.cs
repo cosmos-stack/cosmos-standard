@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections;
+using System.Text;
+using Cosmos.Conversions;
+using Cosmos.Optionals;
 
 namespace Cosmos.Reflection
 {
     [Serializable]
-    public struct HashCode1024 : IEquatable<HashCode1024>
+    public struct HashCode1024 : IEquatable<HashCode1024>, IHashCode
     {
         public static readonly HashCode1024 Zero = default;
+
+        public int HashSizeInBits => 1024;
 
         [CLSCompliant(false)]
         public HashCode1024(
@@ -28,6 +34,9 @@ namespace Cosmos.Reflection
             UHash14 = hash14;
             UHash15 = hash15;
             UHash16 = hash16;
+
+            HasCreatedByteArray = false;
+            Hash = null;
         }
 
         public HashCode1024(
@@ -140,11 +149,37 @@ namespace Cosmos.Reflection
             return false;
         }
 
+        public static bool TryParseLoosely(string s, out HashCode1024 result)
+        {
+            if (HashCodeUtil.InternalParser.TryParse(s, 1024, out ulong[] valColl, false) && valColl.Length == 16)
+            {
+                result = new HashCode1024(
+                    valColl[0], valColl[1], valColl[2], valColl[3],
+                    valColl[4], valColl[5], valColl[6], valColl[7],
+                    valColl[8], valColl[9], valColl[10], valColl[11],
+                    valColl[12], valColl[13], valColl[14], valColl[15]);
+                return true;
+            }
+
+            result = default;
+            return false;
+        }
+
         public static HashCode1024 Parse(string s)
         {
             if (s is null)
                 throw new ArgumentNullException(nameof(s));
             if (!TryParse(s, out var ret))
+                throw new FormatException("The string did not contain a 32-digit hexadecimal number.");
+
+            return ret;
+        }
+
+        public static HashCode1024 ParseLoosely(string s)
+        {
+            if (s is null)
+                throw new ArgumentNullException(nameof(s));
+            if (!TryParseLoosely(s, out var ret))
                 throw new FormatException("The string did not contain a 32-digit hexadecimal number.");
 
             return ret;
@@ -179,6 +214,22 @@ namespace Cosmos.Reflection
         public override bool Equals(object obj) => obj is HashCode1024 code1024 && Equals(code1024);
 
         public override string ToString() => AsHexString(true);
+
+        #region AsString
+
+        public string AsString()
+        {
+            return AsString(Encoding.UTF8);
+        }
+
+        public string AsString(Encoding encoding)
+        {
+            return encoding.SafeEncodingValue().GetString(AsByteArray());
+        }
+
+        #endregion
+
+        #region AsHexString
 
         public string AsHexString() => AsHexString(false);
 
@@ -231,6 +282,123 @@ namespace Cosmos.Reflection
                 UHash1.ToString(formatString);
         }
 
+        #endregion
+
+        #region AsBinString
+
+        public string AsBinString()
+        {
+            return AsBinString(false);
+        }
+
+        public string AsBinString(bool complementZero)
+        {
+            var littleEndian = BitConverter.IsLittleEndian;
+            var fragment1 = AsBinStringFragments(UHash1, littleEndian == true);
+            var fragment2 = AsBinStringFragments(UHash2, false);
+            var fragment3 = AsBinStringFragments(UHash3, false);
+            var fragment4 = AsBinStringFragments(UHash4, false);
+            var fragment5 = AsBinStringFragments(UHash5, false);
+            var fragment6 = AsBinStringFragments(UHash6, false);
+            var fragment7 = AsBinStringFragments(UHash7, false);
+            var fragment8 = AsBinStringFragments(UHash8, false);
+            var fragment9 = AsBinStringFragments(UHash9, false);
+            var fragment10 = AsBinStringFragments(UHash10, false);
+            var fragment11 = AsBinStringFragments(UHash11, false);
+            var fragment12 = AsBinStringFragments(UHash12, false);
+            var fragment13 = AsBinStringFragments(UHash13, false);
+            var fragment14 = AsBinStringFragments(UHash14, false);
+            var fragment15 = AsBinStringFragments(UHash15, false);
+            var fragment16 = AsBinStringFragments(UHash16, littleEndian == false);
+
+            var result = littleEndian
+                ? $"{fragment1}{fragment2}{fragment3}{fragment4}{fragment5}{fragment6}{fragment7}{fragment8}{fragment9}{fragment10}{fragment11}{fragment12}{fragment13}{fragment14}{fragment15}{fragment16}"
+                : $"{fragment16}{fragment15}{fragment14}{fragment13}{fragment12}{fragment11}{fragment10}{fragment9}{fragment8}{fragment7}{fragment6}{fragment5}{fragment4}{fragment3}{fragment2}{fragment1}";
+
+            if (complementZero == false || result.Length == 1024)
+                return result;
+
+            return result.PadLeft(1024, '0');
+        }
+
+        private string AsBinStringFragments(ulong hashVal, bool firstFlag)
+        {
+            var fragment = ScaleConv.HexToBin(hashVal.ToString("x16"));
+
+            if (firstFlag || fragment.Length == 64)
+                return fragment;
+
+            return fragment.PadLeft(64, '0');
+        }
+
+        #endregion
+
+        #region AsBase64Sting
+
+        public string AsBase64String()
+        {
+            return BaseConv.ToBase64(AsByteArray());
+        }
+
+        #endregion
+
+        #region AsByteArray
+
+        private bool HasCreatedByteArray { get; set; }
+        private byte[] Hash { get; set; }
+
+        private void CreateByteArray()
+        {
+            if (!HasCreatedByteArray)
+            {
+                Hash = HashCodeUtil.InternalByteArrayConverter.ToBytes(1024, UHash1, UHash2, UHash3, UHash4, UHash5, UHash6, UHash7, UHash8, UHash9, UHash10, UHash11, UHash12, UHash13, UHash14, UHash15, UHash16);
+                HasCreatedByteArray = true;
+            }
+        }
+
+        public byte[] AsByteArray()
+        {
+            CreateByteArray();
+            var ret = new byte[1024];
+            Array.Copy(Hash, 0, ret, 0, 1024);
+            return ret;
+        }
+
+        #endregion
+
+        #region AsBitArray
+
+        public BitArray AsBitArray()
+        {
+            return new(AsByteArray()) {Length = 1024};
+        }
+
+        #endregion
+
+        #region Convert to other HashCode
+
+        public (HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64, HashCode64) ToHashCode64Tuple()
+        {
+            return (
+                new HashCode64(UHash1),
+                new HashCode64(UHash2),
+                new HashCode64(UHash3),
+                new HashCode64(UHash4),
+                new HashCode64(UHash5),
+                new HashCode64(UHash6),
+                new HashCode64(UHash7),
+                new HashCode64(UHash8),
+                new HashCode64(UHash9),
+                new HashCode64(UHash10),
+                new HashCode64(UHash11),
+                new HashCode64(UHash12),
+                new HashCode64(UHash13),
+                new HashCode64(UHash14),
+                new HashCode64(UHash15),
+                new HashCode64(UHash16)
+            );
+        }
+
         public (HashCode128, HashCode128, HashCode128, HashCode128, HashCode128, HashCode128, HashCode128, HashCode128) ToHashCode128Tuple()
         {
             return (
@@ -262,5 +430,7 @@ namespace Cosmos.Reflection
                 new HashCode512(UHash9, UHash10, UHash11, UHash12, UHash13, UHash14, UHash15, UHash16)
             );
         }
+
+        #endregion
     }
 }

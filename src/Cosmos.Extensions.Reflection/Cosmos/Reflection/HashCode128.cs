@@ -1,17 +1,26 @@
 ﻿using System;
+using System.Collections;
+using System.Text;
+using Cosmos.Conversions;
+using Cosmos.Optionals;
 
 namespace Cosmos.Reflection
 {
     [Serializable]
-    public struct HashCode128 : IEquatable<HashCode128>
+    public struct HashCode128 : IEquatable<HashCode128>, IHashCode
     {
         public static readonly HashCode128 Zero = default;
+
+        public int HashSizeInBits => 128;
 
         [CLSCompliant(false)]
         public HashCode128(ulong hash1, ulong hash2)
         {
             UHash1 = hash1;
             UHash2 = hash2;
+
+            HasCreatedByteArray = false;
+            Hash = null;
         }
 
         public HashCode128(long hash1, long hash2)
@@ -37,11 +46,33 @@ namespace Cosmos.Reflection
             return false;
         }
 
+        public static bool TryParseLoosely(string s, out HashCode128 result)
+        {
+            if (HashCodeUtil.InternalParser.TryParse(s, 128, out ulong[] valColl, false) && valColl.Length == 2)
+            {
+                result = new HashCode128(valColl[0], valColl[1]);
+                return true;
+            }
+
+            result = default;
+            return false;
+        }
+
         public static HashCode128 Parse(string s)
         {
             if (s is null)
                 throw new ArgumentNullException(nameof(s));
             if (!TryParse(s, out var ret))
+                throw new FormatException("The string did not contain a 32-digit hexadecimal number.");
+
+            return ret;
+        }
+
+        public static HashCode128 ParseLoosely(string s)
+        {
+            if (s is null)
+                throw new ArgumentNullException(nameof(s));
+            if (!TryParseLoosely(s, out var ret))
                 throw new FormatException("The string did not contain a 32-digit hexadecimal number.");
 
             return ret;
@@ -60,6 +91,22 @@ namespace Cosmos.Reflection
         public override bool Equals(object obj) => obj is HashCode128 code128 && Equals(code128);
 
         public override string ToString() => AsHexString(true);
+
+        #region AsString
+
+        public string AsString()
+        {
+            return AsString(Encoding.UTF8);
+        }
+
+        public string AsString(Encoding encoding)
+        {
+            return encoding.SafeEncodingValue().GetString(AsByteArray());
+        }
+
+        #endregion
+
+        #region AsHexString
 
         public string AsHexString() => AsHexString(false);
 
@@ -80,5 +127,96 @@ namespace Cosmos.Reflection
             var formatString = uppercase ? "X16" : "x16";
             return UHash2.ToString(formatString) + UHash1.ToString(formatString);
         }
+
+        #endregion
+
+        #region AsBinString
+
+        public string AsBinString()
+        {
+            return AsBinString(false);
+        }
+
+        public string AsBinString(bool complementZero)
+        {
+            var littleEndian = BitConverter.IsLittleEndian;
+            var fragment1 = AsBinStringFragments(UHash1, littleEndian == true);
+            var fragment2 = AsBinStringFragments(UHash2, littleEndian == false);
+
+            var result = littleEndian
+                ? $"{fragment1}{fragment2}"
+                : $"{fragment2}{fragment1}";
+
+            if (complementZero == false || result.Length == 128)
+                return result;
+
+            return result.PadLeft(128, '0');
+        }
+
+        private string AsBinStringFragments(ulong hashVal, bool firstFlag)
+        {
+            var fragment = ScaleConv.HexToBin(hashVal.ToString("x16"));
+
+            if (firstFlag || fragment.Length == 64)
+                return fragment;
+
+            return fragment.PadLeft(64, '0');
+        }
+
+        #endregion
+
+        #region AsBase64Sting
+
+        public string AsBase64String()
+        {
+            return BaseConv.ToBase64(AsByteArray());
+        }
+
+        #endregion
+
+        #region AsByteArray
+
+        private bool HasCreatedByteArray { get; set; }
+        private byte[] Hash { get; set; }
+
+        private void CreateByteArray()
+        {
+            if (!HasCreatedByteArray)
+            {
+                Hash = HashCodeUtil.InternalByteArrayConverter.ToBytes(128, UHash1, UHash2);
+                HasCreatedByteArray = true;
+            }
+        }
+
+        public byte[] AsByteArray()
+        {
+            CreateByteArray();
+            var ret = new byte[128];
+            Array.Copy(Hash, 0, ret, 0, 128);
+            return ret;
+        }
+
+        #endregion
+
+        #region AsBitArray
+
+        public BitArray AsBitArray()
+        {
+            return new(AsByteArray()) {Length = 128};
+        }
+
+        #endregion
+
+        #region Convert to other HashCode
+
+        public (HashCode64, HashCode64) ToHashCode64Tuple()
+        {
+            return (
+                new HashCode64(UHash1),
+                new HashCode64(UHash2)
+            );
+        }
+
+        #endregion
     }
 }

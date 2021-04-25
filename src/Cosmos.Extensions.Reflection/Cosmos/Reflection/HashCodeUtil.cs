@@ -350,5 +350,125 @@ namespace Cosmos.Reflection
 
             private static void UpdateForUpperCaseLetter(ref uint val, char c) => val = (val << 4) + c - ((uint) 'A' - 0xA);
         }
+
+        internal static class InternalByteArrayConverter
+        {
+            public static byte[] ToBytes(int sizeInBits, params ulong[] longValColl)
+            {
+                var size = sizeInBits < 64 ? 1 : sizeInBits / 64;
+                var lastBitLength = sizeInBits % 64;
+
+                if (longValColl is null)
+                    return new byte[0];
+
+                if (longValColl.Length < size)
+                    return new byte[0];
+
+                var valueBytes = new byte[(sizeInBits + 7) / 8];
+                var destinationIndex = 0;
+
+                for (var i = 0; i < size; ++i)
+                {
+                    var value = longValColl[i];
+                    var fragmentLength = lastBitLength;
+
+                    if (i == size - 1)
+                        value &= (ulong.MaxValue >> (64 - lastBitLength));
+                    else
+                        fragmentLength = 64 / 8;
+
+                    var fragment = new byte[fragmentLength];
+
+                    for (var x = 0; x < fragmentLength; ++x)
+                    {
+                        fragment[x] = (byte) value;
+                        value >>= 8;
+                    }
+
+                    Array.Copy(fragment, 0, valueBytes, destinationIndex, fragmentLength);
+                    destinationIndex += fragmentLength;
+                }
+
+                return valueBytes;
+            }
+
+            public static byte[] ToBytes(int sizeInBits, params uint[] intValColl)
+            {
+                var size = sizeInBits < 32 ? 1 : sizeInBits / 32;
+                var lastBitLength = sizeInBits % 32;
+
+                if (intValColl is null)
+                    return new byte[0];
+
+                if (intValColl.Length < size)
+                    return new byte[0];
+
+                var valueBytes = new byte[(sizeInBits + 7) / 8];
+                var destinationIndex = 0;
+
+                for (var i = 0; i < size; ++i)
+                {
+                    var value = intValColl[i];
+                    var fragmentLength = lastBitLength;
+
+                    if (i == size - 1)
+                        value &= (uint.MaxValue >> (32 - lastBitLength));
+                    else
+                        fragmentLength = 32 / 8;
+
+                    var fragment = new byte[fragmentLength];
+
+                    for (var x = 0; x < fragmentLength; ++x)
+                    {
+                        fragment[x] = (byte) value;
+                        value >>= 8;
+                    }
+
+                    Array.Copy(fragment, 0, valueBytes, destinationIndex, fragmentLength);
+                    destinationIndex += fragmentLength;
+                }
+
+                return valueBytes;
+            }
+
+            public static byte[] ToBytes(int sizeInBits, params ushort[] intValColl)
+            {
+                var size = sizeInBits < 16 ? 1 : sizeInBits / 16;
+                var lastBitLength = sizeInBits % 16;
+
+                if (intValColl is null)
+                    return new byte[0];
+
+                if (intValColl.Length < size)
+                    return new byte[0];
+
+                var valueBytes = new byte[(sizeInBits + 7) / 8];
+                var destinationIndex = 0;
+
+                for (var i = 0; i < size; ++i)
+                {
+                    var value = intValColl[i];
+                    var fragmentLength = lastBitLength;
+
+                    if (i == size - 1)
+                        value = (ushort) (value & (ushort.MaxValue >> (16 - lastBitLength)));
+                    else
+                        fragmentLength = 16 / 8;
+
+                    var fragment = new byte[fragmentLength];
+
+                    for (var x = 0; x < fragmentLength; ++x)
+                    {
+                        fragment[x] = (byte) value;
+                        value >>= 8;
+                    }
+
+                    Array.Copy(fragment, 0, valueBytes, destinationIndex, fragmentLength);
+                    destinationIndex += fragmentLength;
+                }
+
+                return valueBytes;
+            }
+        }
     }
 }
