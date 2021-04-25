@@ -11,7 +11,7 @@ namespace Cosmos.Reflection
     {
         public static readonly HashCode64 Zero = default;
 
-        public int HashSizeInBits => 64;
+        public int BitLength => 64;
 
         [CLSCompliant(false)]
         public HashCode64(ulong hash)
@@ -101,9 +101,25 @@ namespace Cosmos.Reflection
 
         public bool Equals(HashCode64 other) => UHash1 == other.UHash1 && UHash2 == other.UHash2;
 
-        // ironically not really true if you create this struct any way other than as the result
-        // of a good hash operation in the first place.
-        public override int GetHashCode() => unchecked((int) UHash1);
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                if (UHash1 == 0 && UHash2 == 0)
+                    return 0;
+                
+                var hashCode = 17;
+                CreateByteArray();
+
+                hashCode = (hashCode * 31) ^ BitLength.GetHashCode();
+                
+                // ReSharper disable once NonReadonlyMemberInGetHashCode
+                foreach (var value in Hash)
+                    hashCode = (hashCode * 31) ^ value.GetHashCode();
+
+                return hashCode;
+            }
+        }
 
         public override bool Equals(object obj) => obj is HashCode64 code64 && Equals(code64);
 

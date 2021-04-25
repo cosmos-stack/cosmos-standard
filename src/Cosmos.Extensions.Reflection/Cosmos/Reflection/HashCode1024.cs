@@ -11,7 +11,7 @@ namespace Cosmos.Reflection
     {
         public static readonly HashCode1024 Zero = default;
 
-        public int HashSizeInBits => 1024;
+        public int BitLength => 1024;
 
         [CLSCompliant(false)]
         public HashCode1024(
@@ -207,9 +207,28 @@ namespace Cosmos.Reflection
             UHash15 == other.UHash15 &&
             UHash16 == other.UHash16;
 
-        // ironically not really true if you create this struct any way other than as the result
-        // of a good hash operation in the first place.
-        public override int GetHashCode() => unchecked((int) UHash1);
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                if (UHash1 == 0 && UHash2 == 0 && UHash3 == 0 && UHash4 == 0 &&
+                    UHash5 == 0 && UHash6 == 0 && UHash7 == 0 && UHash8 == 0 &&
+                    UHash9 == 0 && UHash10 == 0 && UHash11 == 0 && UHash12 == 0 &&
+                    UHash13 == 0 && UHash14 == 0 && UHash15 == 0 && UHash16 == 0)
+                    return 0;
+
+                var hashCode = 17;
+                CreateByteArray();
+
+                hashCode = (hashCode * 31) ^ BitLength.GetHashCode();
+
+                // ReSharper disable once NonReadonlyMemberInGetHashCode
+                foreach (var value in Hash)
+                    hashCode = (hashCode * 31) ^ value.GetHashCode();
+
+                return hashCode;
+            }
+        }
 
         public override bool Equals(object obj) => obj is HashCode1024 code1024 && Equals(code1024);
 

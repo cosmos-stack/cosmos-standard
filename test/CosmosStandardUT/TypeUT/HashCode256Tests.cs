@@ -21,7 +21,7 @@ namespace CosmosStandardUT.TypeUT
             Assert.True(HashCode256.TryParse("123456789abcdef00fedcba987654321123456789abcdef00fedcba987654321", out hash));
             Assert.Equal(hash, HashCode256.Parse("  123456789ABCD EF0  0fe DCB a98 765 4321   123456789AbcdeF0 0FED cbA 987 65 4321"));
             Assert.Equal(HashCode256.Parse("0000000000000000000000000000000000000000000000000000000000000000"), HashCode256.Zero);
-            Assert.Equal(hash.GetHashCode(), HashCode256.Parse("123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0").GetHashCode());
+            Assert.Equal(hash.GetHashCode(), HashCode256.Parse("123456789abcdef00fedcba987654321123456789abcdef00fedcba987654321").GetHashCode());
             Assert.NotEqual(hash.GetHashCode(), HashCode256.Zero.GetHashCode());
             Assert.Equal(0, HashCode256.Zero.GetHashCode());
             Assert.Equal<ulong>(0x123456789abcdef0, hash.UHash1);

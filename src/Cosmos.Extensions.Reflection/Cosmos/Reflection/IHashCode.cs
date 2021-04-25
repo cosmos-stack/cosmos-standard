@@ -5,7 +5,7 @@ namespace Cosmos.Reflection
 {
     public interface IHashCode
     {
-        int HashSizeInBits { get; }
+        int BitLength { get; }
 
         public string AsString();
 
