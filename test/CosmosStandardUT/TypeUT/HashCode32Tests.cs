@@ -139,11 +139,11 @@ namespace CosmosStandardUT.TypeUT
         {
             var hash = HashCode32.Parse("12ab34cd");
 
-            hash.AsHexString(false).ShouldBe("12ab34cd");
-            hash.AsHexString(true).ShouldBe("12AB34CD");
+            hash.GetHexString(false).ShouldBe("12ab34cd");
+            hash.GetHexString(true).ShouldBe("12AB34CD");
 
-            hash.AsBinString(false).ShouldBe("10010101010110011010011001101");
-            hash.AsBinString(true).ShouldBe("00010010101010110011010011001101");
+            hash.GetBinString(false).ShouldBe("10010101010110011010011001101");
+            hash.GetBinString(true).ShouldBe("00010010101010110011010011001101");
         }
     }
 }

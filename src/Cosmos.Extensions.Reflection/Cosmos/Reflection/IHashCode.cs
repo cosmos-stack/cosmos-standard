@@ -7,30 +7,30 @@ namespace Cosmos.Reflection
     {
         int BitLength { get; }
 
-        public string AsString();
+        public string GetString();
 
-        public string AsString(Encoding encoding);
+        public string GetString(Encoding encoding);
 
-        string AsHexString();
+        string GetHexString();
 
-        string AsHexString(bool uppercase);
+        string GetHexString(bool uppercase);
 
-        string AsLittleEndianHexString();
+        string GetLittleEndianHexString();
 
-        string AsLittleEndianHexString(bool uppercase);
+        string GetLittleEndianHexString(bool uppercase);
 
-        string AsBigEndianHexString();
+        string GetBigEndianHexString();
 
-        string AsBigEndianHexString(bool uppercase);
+        string GetBigEndianHexString(bool uppercase);
 
-        string AsBinString();
+        string GetBinString();
 
-        string AsBinString(bool complementZero);
+        string GetBinString(bool complementZero);
 
-        string AsBase64String();
+        string GetBase64String();
 
-        byte[] AsByteArray();
+        byte[] GetByteArray();
 
-        BitArray AsBitArray();
+        BitArray GetBitArray();
     }
 }

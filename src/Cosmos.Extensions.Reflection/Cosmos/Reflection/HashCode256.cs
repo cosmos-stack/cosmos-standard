@@ -123,31 +123,31 @@ namespace Cosmos.Reflection
 
         public override bool Equals(object obj) => obj is HashCode256 code256 && Equals(code256);
 
-        public override string ToString() => AsHexString(true);
+        public override string ToString() => GetHexString(true);
 
         #region AsString
 
-        public string AsString()
+        public string GetString()
         {
-            return AsString(Encoding.UTF8);
+            return GetString(Encoding.UTF8);
         }
 
-        public string AsString(Encoding encoding)
+        public string GetString(Encoding encoding)
         {
-            return encoding.SafeEncodingValue().GetString(AsByteArray());
+            return encoding.SafeEncodingValue().GetString(GetByteArray());
         }
 
         #endregion
 
         #region AsHexString
 
-        public string AsHexString() => AsHexString(false);
+        public string GetHexString() => GetHexString(false);
 
-        public string AsHexString(bool uppercase) => BitConverter.IsLittleEndian ? AsLittleEndianHexString(uppercase) : AsBigEndianHexString(uppercase);
+        public string GetHexString(bool uppercase) => BitConverter.IsLittleEndian ? GetLittleEndianHexString(uppercase) : GetBigEndianHexString(uppercase);
 
-        public string AsLittleEndianHexString() => AsLittleEndianHexString(false);
+        public string GetLittleEndianHexString() => GetLittleEndianHexString(false);
 
-        public string AsLittleEndianHexString(bool uppercase)
+        public string GetLittleEndianHexString(bool uppercase)
         {
             var formatString = uppercase ? "X16" : "x16";
             return UHash1.ToString(formatString) +
@@ -156,9 +156,9 @@ namespace Cosmos.Reflection
                    UHash4.ToString(formatString);
         }
 
-        public string AsBigEndianHexString() => AsBigEndianHexString(false);
+        public string GetBigEndianHexString() => GetBigEndianHexString(false);
 
-        public string AsBigEndianHexString(bool uppercase)
+        public string GetBigEndianHexString(bool uppercase)
         {
             var formatString = uppercase ? "X16" : "x16";
             return UHash4.ToString(formatString) +
@@ -171,12 +171,12 @@ namespace Cosmos.Reflection
 
         #region AsBinString
 
-        public string AsBinString()
+        public string GetBinString()
         {
-            return AsBinString(false);
+            return GetBinString(false);
         }
 
-        public string AsBinString(bool complementZero)
+        public string GetBinString(bool complementZero)
         {
             var littleEndian = BitConverter.IsLittleEndian;
             var fragment1 = AsBinStringFragments(UHash1, littleEndian == true);
@@ -208,9 +208,9 @@ namespace Cosmos.Reflection
 
         #region AsBase64Sting
 
-        public string AsBase64String()
+        public string GetBase64String()
         {
-            return BaseConv.ToBase64(AsByteArray());
+            return BaseConv.ToBase64(GetByteArray());
         }
 
         #endregion
@@ -229,7 +229,7 @@ namespace Cosmos.Reflection
             }
         }
 
-        public byte[] AsByteArray()
+        public byte[] GetByteArray()
         {
             CreateByteArray();
             var ret = new byte[256];
@@ -241,9 +241,9 @@ namespace Cosmos.Reflection
 
         #region AsBitArray
 
-        public BitArray AsBitArray()
+        public BitArray GetBitArray()
         {
-            return new(AsByteArray()) {Length = 256};
+            return new(GetByteArray()) {Length = 256};
         }
 
         #endregion
