@@ -12,7 +12,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        internal static string ToString(byte[] bytes)
+        public static string ToString(byte[] bytes)
         {
             var sb = new StringBuilder(bytes.Length * 3);
             for (var i = 0; i < bytes.Length; i++)
@@ -25,7 +25,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="hex"></param>
         /// <returns></returns>
-        internal static byte[] ToBytes(string hex)
+        public static byte[] ToBytes(string hex)
         {
             if (hex.Length == 0)
                 return new byte[] {0};
@@ -51,13 +51,13 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        internal static string ToHexString(this byte[] bytes) => Hex.ToString(bytes);
+        public static string ToHexString(this byte[] bytes) => Hex.ToString(bytes);
 
         /// <summary>
         /// hex string to byte extension
         /// </summary>
         /// <param name="hex"></param>
         /// <returns></returns>
-        internal static byte[] ToBytes(this string hex) => Hex.ToBytes(hex);
+        public static byte[] ToBytes(this string hex) => Hex.ToBytes(hex);
     }
 }
