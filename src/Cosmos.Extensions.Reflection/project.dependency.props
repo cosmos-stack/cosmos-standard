@@ -5,23 +5,23 @@
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
-        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.1" />
+        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.2" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
-        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.1" />
+        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.2" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
-        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.1" />
+        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.2" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
-        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.1" />
+        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.2" />
     </ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
-        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.1" />
+        <PackageReference Include="NMS.DynamicDictionary " Version="1.1.0.2" />
 	</ItemGroup>
 
 </Project>

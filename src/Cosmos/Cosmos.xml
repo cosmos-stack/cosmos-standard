@@ -206,6 +206,44 @@
             <param name="asciiStr"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Conversions.Hex">
+            <summary>
+            Hex Utilities
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Hex.ToString(System.Byte[])">
+            <summary>
+            byte to hex string extension
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Hex.ToBytes(System.String)">
+            <summary>
+            hex string to byte extension
+            </summary>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.HexExtensions">
+            <summary>
+            Hex extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.HexExtensions.ToHexString(System.Byte[])">
+            <summary>
+            byte to hex string extension
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.HexExtensions.ToBytes(System.String)">
+            <summary>
+            hex string to byte extension
+            </summary>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Conversions.ScaleConv">
             <summary>
             Scale convert utilities
