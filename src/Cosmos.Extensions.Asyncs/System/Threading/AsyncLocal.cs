@@ -34,7 +34,7 @@ namespace System.Threading
             {
                 var previousValue = Value;
                 var currentValue = value;
-                var contextChanged = previousValue.Equals(currentValue);
+                var contextChanged = Equals(previousValue, currentValue);
                 CallContext.LogicalSetData(_pinedAsyncLocalName, currentValue);
                 CallValueChangedHandle(previousValue, currentValue, contextChanged);
             }
