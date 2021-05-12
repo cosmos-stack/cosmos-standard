@@ -173,8 +173,8 @@ namespace Cosmos.Reflection
         public string GetBinString(bool complementZero)
         {
             var littleEndian = BitConverter.IsLittleEndian;
-            var fragment1 = AsBinStringFragments(UHash1, littleEndian == true);
-            var fragment2 = AsBinStringFragments(UHash2, littleEndian == false);
+            var fragment1 = GetBinStringFragments(UHash1, littleEndian == true);
+            var fragment2 = GetBinStringFragments(UHash2, littleEndian == false);
 
             var result = littleEndian
                 ? $"{fragment1}{fragment2}"
@@ -186,7 +186,7 @@ namespace Cosmos.Reflection
             return result.PadLeft(64, '0');
         }
 
-        private string AsBinStringFragments(uint hashVal, bool firstFlag)
+        private string GetBinStringFragments(uint hashVal, bool firstFlag)
         {
             var fragment = ScaleConv.HexToBin(hashVal.ToString("x8"));
 

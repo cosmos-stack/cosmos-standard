@@ -221,14 +221,14 @@ namespace Cosmos.Reflection
         public string GetBinString(bool complementZero)
         {
             var littleEndian = BitConverter.IsLittleEndian;
-            var fragment1 = AsBinStringFragments(UHash1, littleEndian == true);
-            var fragment2 = AsBinStringFragments(UHash2, false);
-            var fragment3 = AsBinStringFragments(UHash3, false);
-            var fragment4 = AsBinStringFragments(UHash4, false);
-            var fragment5 = AsBinStringFragments(UHash5, false);
-            var fragment6 = AsBinStringFragments(UHash6, false);
-            var fragment7 = AsBinStringFragments(UHash7, false);
-            var fragment8 = AsBinStringFragments(UHash8, littleEndian == false);
+            var fragment1 = GetBinStringFragments(UHash1, littleEndian == true);
+            var fragment2 = GetBinStringFragments(UHash2, false);
+            var fragment3 = GetBinStringFragments(UHash3, false);
+            var fragment4 = GetBinStringFragments(UHash4, false);
+            var fragment5 = GetBinStringFragments(UHash5, false);
+            var fragment6 = GetBinStringFragments(UHash6, false);
+            var fragment7 = GetBinStringFragments(UHash7, false);
+            var fragment8 = GetBinStringFragments(UHash8, littleEndian == false);
 
             var result = littleEndian
                 ? $"{fragment1}{fragment2}{fragment3}{fragment4}{fragment5}{fragment6}{fragment7}{fragment8}"
@@ -240,7 +240,7 @@ namespace Cosmos.Reflection
             return result.PadLeft(512, '0');
         }
 
-        private string AsBinStringFragments(ulong hashVal, bool firstFlag)
+        private string GetBinStringFragments(ulong hashVal, bool firstFlag)
         {
             var fragment = ScaleConv.HexToBin(hashVal.ToString("x16"));
 

@@ -313,22 +313,22 @@ namespace Cosmos.Reflection
         public string GetBinString(bool complementZero)
         {
             var littleEndian = BitConverter.IsLittleEndian;
-            var fragment1 = AsBinStringFragments(UHash1, littleEndian == true);
-            var fragment2 = AsBinStringFragments(UHash2, false);
-            var fragment3 = AsBinStringFragments(UHash3, false);
-            var fragment4 = AsBinStringFragments(UHash4, false);
-            var fragment5 = AsBinStringFragments(UHash5, false);
-            var fragment6 = AsBinStringFragments(UHash6, false);
-            var fragment7 = AsBinStringFragments(UHash7, false);
-            var fragment8 = AsBinStringFragments(UHash8, false);
-            var fragment9 = AsBinStringFragments(UHash9, false);
-            var fragment10 = AsBinStringFragments(UHash10, false);
-            var fragment11 = AsBinStringFragments(UHash11, false);
-            var fragment12 = AsBinStringFragments(UHash12, false);
-            var fragment13 = AsBinStringFragments(UHash13, false);
-            var fragment14 = AsBinStringFragments(UHash14, false);
-            var fragment15 = AsBinStringFragments(UHash15, false);
-            var fragment16 = AsBinStringFragments(UHash16, littleEndian == false);
+            var fragment1 = GetBinStringFragments(UHash1, littleEndian == true);
+            var fragment2 = GetBinStringFragments(UHash2, false);
+            var fragment3 = GetBinStringFragments(UHash3, false);
+            var fragment4 = GetBinStringFragments(UHash4, false);
+            var fragment5 = GetBinStringFragments(UHash5, false);
+            var fragment6 = GetBinStringFragments(UHash6, false);
+            var fragment7 = GetBinStringFragments(UHash7, false);
+            var fragment8 = GetBinStringFragments(UHash8, false);
+            var fragment9 = GetBinStringFragments(UHash9, false);
+            var fragment10 = GetBinStringFragments(UHash10, false);
+            var fragment11 = GetBinStringFragments(UHash11, false);
+            var fragment12 = GetBinStringFragments(UHash12, false);
+            var fragment13 = GetBinStringFragments(UHash13, false);
+            var fragment14 = GetBinStringFragments(UHash14, false);
+            var fragment15 = GetBinStringFragments(UHash15, false);
+            var fragment16 = GetBinStringFragments(UHash16, littleEndian == false);
 
             var result = littleEndian
                 ? $"{fragment1}{fragment2}{fragment3}{fragment4}{fragment5}{fragment6}{fragment7}{fragment8}{fragment9}{fragment10}{fragment11}{fragment12}{fragment13}{fragment14}{fragment15}{fragment16}"
@@ -340,7 +340,7 @@ namespace Cosmos.Reflection
             return result.PadLeft(1024, '0');
         }
 
-        private string AsBinStringFragments(ulong hashVal, bool firstFlag)
+        private string GetBinStringFragments(ulong hashVal, bool firstFlag)
         {
             var fragment = ScaleConv.HexToBin(hashVal.ToString("x16"));
 
