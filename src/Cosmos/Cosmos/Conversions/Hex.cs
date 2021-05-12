@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Cosmos.Conversions.Helpers;
 
 namespace Cosmos.Conversions
 {
@@ -8,7 +9,7 @@ namespace Cosmos.Conversions
     public static class Hex
     {
         /// <summary>
-        /// byte to hex string extension
+        /// Byte array to hex string extension
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
@@ -21,7 +22,7 @@ namespace Cosmos.Conversions
         }
 
         /// <summary>
-        /// hex string to byte extension
+        /// Hex string to byte extension
         /// </summary>
         /// <param name="hex"></param>
         /// <returns></returns>
@@ -39,6 +40,16 @@ namespace Cosmos.Conversions
 
             return result;
         }
+
+        /// <summary>
+        /// Reverse high and low positions.
+        /// </summary>
+        /// <param name="hex"></param>
+        /// <returns></returns>
+        public static string Reverse(string hex)
+        {
+            return ScaleRevHelper.Reverse(hex, 2);
+        }
     }
 
     /// <summary>
@@ -47,14 +58,14 @@ namespace Cosmos.Conversions
     public static class HexExtensions
     {
         /// <summary>
-        /// byte to hex string extension
+        /// Byte array to hex string extension
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
         public static string ToHexString(this byte[] bytes) => Hex.ToString(bytes);
 
         /// <summary>
-        /// hex string to byte extension
+        /// Hex string to byte extension
         /// </summary>
         /// <param name="hex"></param>
         /// <returns></returns>

@@ -1,11 +1,11 @@
 ﻿using System.Text;
 using Cosmos.Text;
 
-namespace Cosmos.Conversions
+namespace Cosmos.Conversions.Helpers
 {
-    public static class ScaleHelper
+    internal static class ScaleRevHelper
     {
-        private static string Reverse(string val, int bitLength)
+        public static string Reverse(string val, int bitLength)
         {
             if (string.IsNullOrWhiteSpace(val))
                 return val;
@@ -17,9 +17,5 @@ namespace Cosmos.Conversions
                 builder.Append(val.Substring(i, bitLength));
             return builder.ToString();
         }
-
-        public static string ReverseHex(string hexVal) => Reverse(hexVal, 2);
-
-        public static string ReverseBin(string binVal) => Reverse(binVal, 8);
     }
 }

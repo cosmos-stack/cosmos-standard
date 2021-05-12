@@ -123,15 +123,15 @@ namespace CosmosStandardUT.ConvUT
         [Fact]
         public void HexReverseTest()
         {
-            ScaleHelper.ReverseHex("E81AD0E").ShouldBe("0EAD810E");
-            ScaleHelper.ReverseHex("6E81AD0E").ShouldBe("0EAD816E");
+            Hex.Reverse("E81AD0E").ShouldBe("0EAD810E");
+            Hex.Reverse("6E81AD0E").ShouldBe("0EAD816E");
         }
 
         [Fact]
         public void BinReverseTest()
         {
-            ScaleHelper.ReverseBin("1101110100000011010110100001110").ShouldBe("00001110101011011000000101101110");
-            ScaleHelper.ReverseBin("01101110100000011010110100001110").ShouldBe("00001110101011011000000101101110");
+            Bin.Reverse("1101110100000011010110100001110").ShouldBe("00001110101011011000000101101110");
+            Bin.Reverse("01101110100000011010110100001110").ShouldBe("00001110101011011000000101101110");
         }
     }
 }
