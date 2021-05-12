@@ -14,7 +14,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
-        <ProjectReference Include="..\Cosmos.Extensions.Validation.Basic\Cosmos.Extensions.Validation.Basic.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Guard\Cosmos.Extensions.Guard.csproj" />
     </ItemGroup>
 
 </Project>

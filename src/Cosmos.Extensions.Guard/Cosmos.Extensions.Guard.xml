@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Cosmos.Extensions.Validation.Basic</name>
+        <name>Cosmos.Extensions.Guard</name>
     </assembly>
     <members>
         <member name="M:Cosmos.Collections.ArrayJudge.IsIndexInRange(System.Array,System.Int32)">

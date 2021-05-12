@@ -12,25 +12,26 @@ namespace Cosmos.Reflection
             _types = new Type[size];
             Count = size;
         }
-        
+
         public int Count { get; }
-        
-        public Type[] TypeArray {
+
+        public Type[] TypeArray
+        {
             get
             {
-                var array= new Type[Count];
-                Array.Copy(_types,array,Count);
+                var array = new Type[Count];
+                Array.Copy(_types, array, Count);
                 return array;
             }
         }
 
         public IEnumerable<Type> Types => TypeArray;
-        
+
         public Type this[int index]
         {
             get
             {
-                if(index<0||index>=Count)
+                if (index < 0 || index >= Count)
                     throw new ArgumentOutOfRangeException(nameof(index));
                 return _types[index];
             }

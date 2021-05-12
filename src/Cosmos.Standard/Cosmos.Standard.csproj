@@ -16,9 +16,9 @@
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj"/>
         <ProjectReference Include="..\Cosmos.Extensions.DateTime\Cosmos.Extensions.DateTime.csproj"/>
         <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj"/>
+        <ProjectReference Include="..\Cosmos.Extensions.Guard\Cosmos.Extensions.Guard.csproj"/>
         <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj"/>
         <ProjectReference Include="..\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj"/>
-        <ProjectReference Include="..\Cosmos.Extensions.Validation.Basic\Cosmos.Extensions.Validation.Basic.csproj"/>
         <ProjectReference Include="..\Cosmos\Cosmos.csproj"/>
     </ItemGroup>
 

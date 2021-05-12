@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Guard</AssemblyName>
+        <PackageId>Cosmos.Extensions.Guard</PackageId>
+        <Description>Cosmos Guard Extensions Library.</Description>
+    </PropertyGroup>
+
+</Project>
