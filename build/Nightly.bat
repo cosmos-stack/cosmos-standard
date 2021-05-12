@@ -34,7 +34,7 @@ dotnet pack src/Cosmos.Extensions.Collections/Cosmos.Extensions.Collections.cspr
 dotnet pack src/Cosmos.Extensions.Disposables/Cosmos.Extensions.Disposables.csproj           -c Release -o nuget_packages --no-restore
 dotnet pack src/Cosmos.Extensions.Optionals/Cosmos.Extensions.Optionals.csproj               -c Release -o nuget_packages --no-restore
 dotnet pack src/Cosmos.Extensions.Reflection/Cosmos.Extensions.Reflection.csproj             -c Release -o nuget_packages --no-restore
-dotnet pack src/Cosmos.Extensions.Validation.Basic/Cosmos.Extensions.Validation.Basic.csproj -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Guard/Cosmos.Extensions.Guard.csproj                       -c Release -o nuget_packages --no-restore
 
 ::cosmos-standard
 dotnet pack src/Cosmos.Standard/Cosmos.Standard.csproj                                       -c Release -o nuget_packages --no-restore
@@ -47,8 +47,8 @@ echo.
 echo.
 
 ::push nuget packages to server
-for /R "nuget_packages" %%s in (*.nupkg) do ( 	
-    dotnet nuget push "%%s" -s "Beta"  --skip-duplicate
+for /R "nuget_packages" %%s in (*.nupkg) do (
+    dotnet nuget push "%%s" -s "Nightly" --skip-duplicate
 	echo.
 )
 
