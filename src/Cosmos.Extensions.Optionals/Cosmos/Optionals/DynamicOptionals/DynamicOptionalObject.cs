@@ -22,7 +22,7 @@ namespace Cosmos.Optionals.DynamicOptionals
         /// <param name="queueLikeList"></param>
         public DynamicOptionalObject(IDictionary<string, dynamic> dynamicDictionary, IEnumerable<string> queueLikeList)
         {
-            if (dynamicDictionary != null)
+            if (dynamicDictionary is not null)
             {
                 _dynamicDictionary = new Dictionary<string, dynamic>(dynamicDictionary);
                 _queueLikeList = new List<string>(queueLikeList);

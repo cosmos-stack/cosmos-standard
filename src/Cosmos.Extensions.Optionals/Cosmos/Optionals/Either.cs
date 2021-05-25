@@ -11,8 +11,8 @@ namespace Cosmos.Optionals
     /// <typeparam name="TException"></typeparam>
     [Serializable]
     public readonly struct Either<T, TException> : IOptionalImpl<T, TException, Either<T, TException>>,
-                                                   IEquatable<Either<T, TException>>,
-                                                   IComparable<Either<T, TException>>
+        IEquatable<Either<T, TException>>,
+        IComparable<Either<T, TException>>
     {
         private readonly bool _hasValue;
         private readonly T _value;
@@ -586,7 +586,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region Not null
+        #region Not Null
 
         /// <summary>
         /// Not null
@@ -613,7 +613,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region To wrapped object
+        #region To Wrapped Object
 
         /// <summary>
         /// To wrapped optional some

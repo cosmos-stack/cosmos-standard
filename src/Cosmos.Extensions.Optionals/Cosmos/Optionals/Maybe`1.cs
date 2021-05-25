@@ -315,7 +315,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region With exception
+        #region With Exception
 
         /// <summary>
         /// With exception
@@ -491,7 +491,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region Not null
+        #region Not Null
 
         /// <summary>
         /// Not null
@@ -504,7 +504,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region To wrapped optional
+        #region To Wrapped Optional
 
         /// <summary>
         /// To wrapped optional some

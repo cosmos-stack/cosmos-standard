@@ -14,7 +14,7 @@ namespace Cosmos.Optionals
         /// Create the named optional builder
         /// </summary>
         /// <returns></returns>
-        public static NamedOptionalBuilder Create() => new NamedOptionalBuilder();
+        public static NamedOptionalBuilder Create() => new();
 
         /// <inheritdoc />
         public INamedOptionalBuilder<T> May<T>(T value)

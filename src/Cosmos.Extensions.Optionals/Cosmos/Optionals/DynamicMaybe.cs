@@ -134,7 +134,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region To dynamic
+        #region To Dynamic
 
         /// <inheritdoc />
         public dynamic ToDynamicObject() => _dynamicOptionalObject.GetDynamicObject();

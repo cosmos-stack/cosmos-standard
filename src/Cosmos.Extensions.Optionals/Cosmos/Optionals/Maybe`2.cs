@@ -492,7 +492,7 @@ namespace Cosmos.Optionals
 
         #endregion
 
-        #region To wrapped object
+        #region To Wrapped Object
 
         /// <summary>
         /// To wrapped optional some
