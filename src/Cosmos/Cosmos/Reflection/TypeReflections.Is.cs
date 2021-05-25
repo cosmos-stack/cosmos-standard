@@ -74,6 +74,18 @@ namespace Cosmos.Reflection
         {
             return X(member, type => type, type => Types.IsEnumType(type, isOptions));
         }
+        
+        /// <summary>
+        /// Determine whether the given MemberInfo is a struct type.<br />
+        /// 判断给定的 MemberInfo 元信息是否为结构类型。
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="isOptions"></param>
+        /// <returns></returns>
+        public static bool IsStruct(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return X(member, type => type, type => Types.IsStructType(type, isOptions));
+        }
 
         /// <summary>
         /// Determine whether the given type is a collection or array type.<br />

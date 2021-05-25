@@ -252,6 +252,75 @@ namespace Cosmos.Reflection
 
         #endregion
 
+        #region Struct
+
+        /// <summary>
+        /// Is struct type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="isOptions"></param>
+        /// <returns></returns>
+        public static bool IsStructType(Type type, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            bool __check(Type yourType) => yourType.IsValueType && !yourType.IsEnum && !yourType.IsPrimitive;
+            return type is not null
+                && isOptions switch
+                   {
+                       TypeIsOptions.Default => __check(type),
+                       TypeIsOptions.IgnoreNullable => __check(TypeConv.GetNonNullableType(type)),
+                       _ => __check(type)
+                   };
+        }
+
+        /// <summary>
+        /// Is struct type
+        /// </summary>
+        /// <param name="isOptions"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsStructType<T>(TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return IsStructType(typeof(T), isOptions);
+        }
+
+        /// <summary>
+        /// Is struct type
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="isOptions"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsStructType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return value is not null && IsStructType(typeof(T), isOptions);
+        }
+
+        #endregion
+
+        #region Static
+
+        /// <summary>
+        ///  Is static type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsStaticType(Type type)
+        {
+            return type is not null && type.IsAbstract && type.IsSealed;
+        }
+
+        /// <summary>
+        /// Is static type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsStaticType<T>()
+        {
+            return IsStaticType(typeof(T));
+        }
+
+        #endregion
+
         #region Array/Collection
 
         /// <summary>
@@ -349,7 +418,7 @@ namespace Cosmos.Reflection
         {
             return TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options);
         }
-        
+
         /// <summary>
         /// To determine whether the given Attribute is defined.<br />
         /// 判断给定的特性是否定义。
@@ -369,7 +438,7 @@ namespace Cosmos.Reflection
                 TypeIsOptions.IgnoreNullable => LocalFunc(),
                 _ => value is not null && LocalFunc()
             };
-            
+
             bool LocalFunc() => TypeReflections.IsAttributeDefined<TAttribute>(typeof(T), options);
         }
 
@@ -386,13 +455,13 @@ namespace Cosmos.Reflection
         {
             return TypeReflections.IsInterfaceDefined<TInterface>(type, options);
         }
-        
-        public static bool IsInterfaceDefined<T,TInterface>( InterfaceOptions options = InterfaceOptions.Default)
+
+        public static bool IsInterfaceDefined<T, TInterface>(InterfaceOptions options = InterfaceOptions.Default)
         {
             return TypeReflections.IsInterfaceDefined<TInterface>(typeof(T), options);
         }
-        
-        public static bool IsInterfaceDefined<T,TInterface>(T value,  InterfaceOptions options = InterfaceOptions.Default, TypeIsOptions isOptions = TypeIsOptions.Default)
+
+        public static bool IsInterfaceDefined<T, TInterface>(T value, InterfaceOptions options = InterfaceOptions.Default, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return isOptions switch
             {
@@ -400,7 +469,7 @@ namespace Cosmos.Reflection
                 TypeIsOptions.IgnoreNullable => LocalFunc(),
                 _ => value is not null && LocalFunc()
             };
-            
+
             bool LocalFunc() => TypeReflections.IsInterfaceDefined<TInterface>(typeof(T), options);
         }
 

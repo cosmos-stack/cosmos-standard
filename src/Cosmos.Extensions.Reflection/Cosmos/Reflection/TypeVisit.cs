@@ -87,5 +87,33 @@ namespace Cosmos.Reflection
         }
 
         #endregion
+
+        #region IsStructType
+
+        /// <summary>
+        /// Determine whether the given member is a struct type.<br />
+        /// 判断给定的成员是否为结构类型
+        /// </summary>
+        /// <param name="member"></param>
+        /// <param name="isOptions"></param>
+        /// <returns></returns>
+        public static bool IsStructType(this MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return Types.IsStructType(MemberVisitHelper.GetActualType(member), isOptions);
+        }
+
+        /// <summary>
+        /// Determine whether the given parameter is a struct type.<br />
+        /// 判断给定的参数是否为数结构类型
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <param name="isOptions"></param>
+        /// <returns></returns>
+        public static bool IsStructType(this ParameterInfo parameter, TypeIsOptions isOptions = TypeIsOptions.Default)
+        {
+            return Types.IsStructType(MemberVisitHelper.GetActualType(parameter), isOptions);
+        }
+
+        #endregion
     }
 }
