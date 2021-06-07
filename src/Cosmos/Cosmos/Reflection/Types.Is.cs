@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+// ReSharper disable NonConstantEqualityExpressionHasConstantResult
 
 namespace Cosmos.Reflection
 {
@@ -319,6 +323,25 @@ namespace Cosmos.Reflection
             return IsStaticType(typeof(T));
         }
 
+        #endregion
+
+        #region Anonymous
+
+        /// <summary>
+        ///  Is anonymous type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsAnonymousType(Type type)
+        {
+            return type is not null
+                && Attribute.IsDefined(type, typeof(CompilerGeneratedAttribute), false)
+                && type.IsGenericType
+                && type.Name.StartsWith("<>")
+                && type.Name.Contains("AnonymousType")
+                && (type.Attributes & TypeAttributes.NotPublic) == TypeAttributes.NotPublic;
+        }
+        
         #endregion
 
         #region Array/Collection

@@ -125,6 +125,26 @@ namespace Cosmos.Reflection
 
         #endregion
 
+        #region IsAnonymousType
+
+        /// <summary>
+        /// Determine whether the given type is an anonymous type.<br />
+        /// 判断给定的类型是否为匿名类型。
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsAnonymousType(Type type) => Types.IsAnonymousType(type);
+
+        /// <summary>
+        /// Determine whether the given type is an anonymous type.<br />
+        /// 判断给定的类型是否为匿名类型。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsAnonymousType<T>() => Types.IsAnonymousType(typeof(T));
+
+        #endregion
+
         #region IsObjectDerivedFrom
 
         public static bool IsObjectDerivedFrom<TSource>(TSource value, Type parentType, TypeIsOptions isOptions = TypeIsOptions.Default, TypeDerivedOptions derivedOptions = TypeDerivedOptions.Default) =>
