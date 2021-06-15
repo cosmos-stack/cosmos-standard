@@ -5218,6 +5218,15 @@
             <param name="isOptions"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeReflections.IsStruct(System.Reflection.MemberInfo,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given MemberInfo is a struct type.<br />
+            判断给定的 MemberInfo 元信息是否为结构类型。
+            </summary>
+            <param name="member"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeReflections.IsCollection(System.Reflection.MemberInfo)">
             <summary>
             Determine whether the given type is a collection or array type.<br />
@@ -5382,6 +5391,52 @@
             <param name="value"></param>
             <param name="isOptions"></param>
             <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsStructType(System.Type,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Is struct type
+            </summary>
+            <param name="type"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsStructType``1(Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Is struct type
+            </summary>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsStructType``1(``0,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Is struct type
+            </summary>
+            <param name="value"></param>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsStaticType(System.Type)">
+            <summary>
+             Is static type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsStaticType``1">
+            <summary>
+            Is static type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsAnonymousType(System.Type)">
+            <summary>
+             Is anonymous type
+            </summary>
+            <param name="type"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Reflection.Types.IsCollectionType(System.Type)">

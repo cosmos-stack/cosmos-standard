@@ -1983,6 +1983,22 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeJudge.IsAnonymousType(System.Type)">
+            <summary>
+            Determine whether the given type is an anonymous type.<br />
+            判断给定的类型是否为匿名类型。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeJudge.IsAnonymousType``1">
+            <summary>
+            Determine whether the given type is an anonymous type.<br />
+            判断给定的类型是否为匿名类型。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeJudge.IsImplementationOfGenericType(System.Type,System.Type,System.Type@,System.Type[]@)">
             <summary>
             Determine whether the given type can be assigned to the specified generic type.<br />
