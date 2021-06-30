@@ -277,11 +277,45 @@
             <param name="from">被转换的对象</param>
             <returns>类型转换的结果</returns>
         </member>
+        <member name="T:Cosmos.IIndexedTypeConverter`2">
+            <summary>
+            Type Converter Meta Interface with index<br />
+            带索引值的类型转换元接口
+            </summary>
+            <typeparam name="TFrom">自何类型开始转换</typeparam>
+            <typeparam name="TTo">转换至何类型</typeparam>
+        </member>
+        <member name="M:Cosmos.IIndexedTypeConverter`2.To(`0,System.Int32)">
+            <summary>
+            To<br />
+            类型转换至……
+            </summary>
+            <param name="from">被转换的对象</param>
+            <param name="index">索引值</param>
+            <returns>类型转换的结果</returns>
+        </member>
         <member name="T:Cosmos.Serialization.IJsonSerializer">
             <summary>
             Interface of Json serializer<br />
             Json 序列化器接口
             </summary>
+        </member>
+        <member name="T:Cosmos.Serialization.IJsonSerializerConfigureEntry">
+            <summary>
+            An interface of configuration entry for json serializer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.IJsonSerializerConfigureEntry.ConfigureJsonSerializer(Cosmos.Serialization.IJsonSerializer)">
+            <summary>
+            To config / use a json serializer
+            </summary>
+            <param name="serializer"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.IJsonSerializerConfigureEntry.ConfigureJsonSerializer(System.Func{Cosmos.Serialization.IJsonSerializer})">
+            <summary>
+            To config / use a json serializer
+            </summary>
+            <param name="serializerFactory"></param>
         </member>
         <member name="T:Cosmos.Serialization.IMessagePackSerializer">
             <summary>
