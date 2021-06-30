@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace Cosmos.Conversions.Helpers
 {
+    /// <summary>
+    /// Scale convert helper (internal)
+    /// </summary>
     internal static class ScaleConvHelper
     {
         private const int BITS_IN_LONG = 64;

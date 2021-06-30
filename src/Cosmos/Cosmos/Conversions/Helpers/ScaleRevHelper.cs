@@ -3,6 +3,9 @@ using Cosmos.Text;
 
 namespace Cosmos.Conversions.Helpers
 {
+    /// <summary>
+    /// Scale rev helper (internal)
+    /// </summary>
     internal static class ScaleRevHelper
     {
         public static string Reverse(string val, int bitLength)

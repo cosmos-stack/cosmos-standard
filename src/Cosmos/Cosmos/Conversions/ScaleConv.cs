@@ -14,6 +14,13 @@ namespace Cosmos.Conversions
     /// </summary>
     public static class ScaleConv
     {
+        /// <summary>
+        /// X-2-X convert entry.
+        /// </summary>
+        /// <param name="things"></param>
+        /// <param name="baseOfSource"></param>
+        /// <param name="baseOfTarget"></param>
+        /// <returns></returns>
         public static string X2X(string things, int baseOfSource, int baseOfTarget)
         {
             return ScaleConvHelper.ThingsToThings(things, baseOfSource, baseOfTarget);
@@ -159,6 +166,13 @@ namespace Cosmos.Conversions
             return BitConverter.ToString((encoding ?? Encoding.UTF8).GetBytes(letters)).Replace("-", " ");
         }
 
+        /// <summary>
+        /// Convert hexadecimal value to letters. <br />
+        /// 将十六进制值转换为字符
+        /// </summary>
+        /// <param name="hexadecimalThings"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         public static string HexToLetters(string hexadecimalThings, Encoding encoding = null)
         {
             var mc = Regex.Matches(hexadecimalThings, @"(?i)[\da-f]{2}");

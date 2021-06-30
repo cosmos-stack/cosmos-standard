@@ -2,6 +2,9 @@
 
 namespace Cosmos.Conversions
 {
+    /// <summary>
+    /// ASCII Conv Helper (internal)
+    /// </summary>
     internal static class AsciiConvHelper
     {
         public static byte CharToAscii(char @char)
@@ -25,6 +28,9 @@ namespace Cosmos.Conversions
         }
     }
 
+    /// <summary>
+    /// ASCII Conv
+    /// </summary>
     public static class AsciiConv
     {
         /// <summary>

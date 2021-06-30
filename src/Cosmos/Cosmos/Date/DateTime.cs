@@ -3,28 +3,83 @@ using System.Globalization;
 
 namespace Cosmos.Date
 {
+    /// <summary>
+    /// Datetime Output Styles
+    /// </summary>
     public enum DateTimeOutputStyles
     {
+        /// <summary>
+        /// DateTime
+        /// </summary>
         DateTime,
+
+        /// <summary>
+        /// Date
+        /// </summary>
         Date,
+
+        /// <summary>
+        /// Time
+        /// </summary>
         Time,
+
+        /// <summary>
+        /// LongDate
+        /// </summary>
         LongDate,
+
+        /// <summary>
+        /// LongTime
+        /// </summary>
         LongTime,
+
+        /// <summary>
+        /// ShortDate
+        /// </summary>
         ShortDate,
+
+        /// <summary>
+        /// ShortTime
+        /// </summary>
         ShortTime,
+
+        /// <summary>
+        /// Millisecond
+        /// </summary>
         Millisecond,
     }
 
+    /// <summary>
+    /// DateTime Helper (internal)
+    /// </summary>
     internal static class DateTimeHelper
     {
+        /// <summary>
+        /// If this then that...
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="format1"></param>
+        /// <param name="format2"></param>
+        /// <returns></returns>
         public static string Ifttt(bool condition, string format1, string format2)
         {
             return condition.Ifttt(() => format1, () => format2);
         }
     }
 
+    /// <summary>
+    /// DateTime to String extensions
+    /// </summary>
     public static class DateTimeToStringExtensions
     {
+        /// <summary>
+        /// Convert DateTime value to String. <br />
+        /// 将 DateTime 转换为字符串。
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="styles"></param>
+        /// <param name="isRemoveSecond"></param>
+        /// <returns></returns>
         public static string ToString(this DateTime dt, DateTimeOutputStyles styles, bool isRemoveSecond = false)
         {
             return styles switch
@@ -41,12 +96,21 @@ namespace Cosmos.Date
             };
         }
 
+        /// <summary>
+        /// Convert DateTime value to String. <br />
+        /// 将 DateTime 转换为字符串。
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="styles"></param>
+        /// <param name="isRemoveSecond"></param>
+        /// <returns></returns>
         public static string ToString(this DateTime? dt, DateTimeOutputStyles styles, bool isRemoveSecond = false)
         {
             return dt is null ? string.Empty : dt.Value.ToString(styles, isRemoveSecond);
         }
 
         /// <summary>
+        /// Convert DateTime to DateTimeOffset. <br />
         /// 将时间转换为时间点
         /// </summary>
         /// <param name="localDateTime"></param>
@@ -57,6 +121,7 @@ namespace Cosmos.Date
         }
 
         /// <summary>
+        /// Convert DateTime to  DateTimeOffset. <br />
         /// 将时间转换为时间点
         /// </summary>
         /// <param name="localDateTime"></param>
@@ -69,8 +134,9 @@ namespace Cosmos.Date
 
             return TimeZoneInfo.ConvertTime(localDateTime, localTimeZone ?? TimeZoneInfo.Local);
         }
-        
+
         /// <summary>
+        /// Convert DateTimeOffset to DateTime. <br />
         /// 将时间点转换为时间
         /// </summary>
         /// <param name="dateTimeUtc"></param>
@@ -81,6 +147,7 @@ namespace Cosmos.Date
         }
 
         /// <summary>
+        /// Convert DateTimeOffset to DateTime. <br />
         /// 将时间点转换为时间
         /// </summary>
         /// <param name="dateTimeUtc"></param>
@@ -90,6 +157,5 @@ namespace Cosmos.Date
         {
             return TimeZoneInfo.ConvertTime(dateTimeUtc, localTimeZone ?? TimeZoneInfo.Local).DateTime;
         }
-
     }
 }

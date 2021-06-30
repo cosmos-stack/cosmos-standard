@@ -2,6 +2,9 @@
 
 namespace Cosmos.Conversions
 {
+    /// <summary>
+    /// Bin utilities.
+    /// </summary>
     public static class Bin
     {
         /// <summary>
