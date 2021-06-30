@@ -8,10 +8,11 @@ using Cosmos.Collections;
 using System.Text;
 using System.Collections.Concurrent;
 using BTFindTree;
-using Natasha.CSharp;
 using Natasha.Error.Model;
 
 #endif
+
+// ReSharper disable InconsistentNaming
 
 namespace Cosmos.Reflection
 {
