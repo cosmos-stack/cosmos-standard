@@ -47,7 +47,7 @@ namespace Cosmos.Date
 
         private static readonly Func<long, DateTime> FromUnixTimestampFunc = timestamp =>
             (TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1), TimeZoneInfo.Local))
-           .Add(new TimeSpan(long.Parse(timestamp + "0000000")));
+            .Add(new TimeSpan(long.Parse(timestamp + "0000000")));
 
         /// <summary>
         /// Gets a func for unix now.

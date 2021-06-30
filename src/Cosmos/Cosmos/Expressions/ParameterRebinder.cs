@@ -41,8 +41,7 @@ namespace Cosmos.Expressions
         /// <param name="parameterExpression">参数</param>
         protected override Expression VisitParameter(ParameterExpression parameterExpression)
         {
-            ParameterExpression replacement;
-            if (_map.TryGetValue(parameterExpression, out replacement))
+            if (_map.TryGetValue(parameterExpression, out var replacement))
                 parameterExpression = replacement;
             return base.VisitParameter(parameterExpression);
         }

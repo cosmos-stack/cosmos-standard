@@ -9,13 +9,13 @@ namespace Cosmos.Finders
     /// </summary>
     public abstract class BaseFinder<TItem> : IFinder<TItem>
     {
-        private readonly object _lockObj = new object();
+        private readonly object _lockObj = new();
 
         /// <summary>
         /// Cached items. <br />
         /// 已缓存的项目
         /// </summary>
-        protected readonly List<TItem> ItemsCache = new List<TItem>();
+        protected readonly List<TItem> ItemsCache = new();
 
         /// <summary>
         /// Mark whether the search has been completed.<br />

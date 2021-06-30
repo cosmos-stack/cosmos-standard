@@ -47,6 +47,6 @@ namespace Cosmos.Exceptions
         /// <summary>
         /// Gets or sets extra errors
         /// </summary>
-        public Dictionary<string, object> ExtraErrors { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object> ExtraErrors { get; set; } = new();
     }
 }

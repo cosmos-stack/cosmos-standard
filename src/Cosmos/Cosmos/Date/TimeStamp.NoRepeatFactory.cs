@@ -9,7 +9,7 @@ namespace Cosmos.Date
     {
         // ReSharper disable once InconsistentNaming
         private DateTime lastValue = DateTime.MinValue;
-        private readonly object _lockObj = new object();
+        private readonly object _lockObj = new();
 
         /// <summary>
         /// Increment milliseconds.
@@ -32,25 +32,25 @@ namespace Cosmos.Date
         /// Gets TimeStamp object
         /// </summary>
         /// <returns></returns>
-        public TimeStamp GetTimeStampObject() => new TimeStamp(GetTimeStamp());
+        public TimeStamp GetTimeStampObject() => new(GetTimeStamp());
 
         /// <summary>
         /// Gets utc TimeStamp object
         /// </summary>
         /// <returns></returns>
-        public TimeStamp GetUtcTimeStampObject() => new TimeStamp(GetUtcTimeStamp());
+        public TimeStamp GetUtcTimeStampObject() => new(GetUtcTimeStamp());
 
         /// <summary>
         /// Gets unix TimeStamp object
         /// </summary>
         /// <returns></returns>
-        public UnixTimeStamp GetUnixTimeStampObject() => new UnixTimeStamp(GetTimeStamp());
+        public UnixTimeStamp GetUnixTimeStampObject() => new(GetTimeStamp());
 
         /// <summary>
         /// Gets utc unix TimeStamp object
         /// </summary>
         /// <returns></returns>
-        public UnixTimeStamp GetUtcUnixTimeStampObject() => new UnixTimeStamp(GetUtcTimeStamp());
+        public UnixTimeStamp GetUtcUnixTimeStampObject() => new(GetUtcTimeStamp());
 
         private DateTime GetTimeStampCore(DateTime refDt)
         {

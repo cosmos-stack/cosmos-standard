@@ -77,7 +77,7 @@ namespace Cosmos.Dynamic
         public override DynamicMetaObject BindInvokeMember(InvokeMemberBinder binder, DynamicMetaObject[] args)
         {
             var self = Expression;
-            var exposed = (Exposed) Value;
+            var exposed = (Exposed)Value;
 
             var argTypes = new Type[args.Length];
             var argExps = new Expression[args.Length];
@@ -94,9 +94,9 @@ namespace Cosmos.Dynamic
             do
             {
                 method = declaringType.GetMethod(binder.Name, GetBindingFlags(), null, argTypes, null);
-            } while (method == null && (declaringType = declaringType.BaseType) != null);
+            } while (method is null && (declaringType = declaringType.BaseType) is not null);
 
-            if (method == null)
+            if (method is null)
             {
                 throw new MissingMemberException(type.FullName, binder.Name);
             }
@@ -176,7 +176,7 @@ namespace Cosmos.Dynamic
         private MemberExpression GetMemberExpression(Expression self, string memberName)
         {
             MemberExpression memberExpression = null;
-            var type = ((Exposed) Value).SubjectType;
+            var type = ((Exposed)Value).SubjectType;
             var @this = _isStatic
                 ? null
                 : Expression.Convert(Expression.Field(Expression.Convert(self, typeof(Exposed)), "value"), type);
@@ -185,21 +185,21 @@ namespace Cosmos.Dynamic
             do
             {
                 var property = declaringType.GetProperty(memberName, GetBindingFlags());
-                if (property != null)
+                if (property is not null)
                 {
                     memberExpression = Expression.Property(@this, property);
                 }
                 else
                 {
                     var field = declaringType.GetField(memberName, GetBindingFlags());
-                    if (field != null)
+                    if (field is not null)
                     {
                         memberExpression = Expression.Field(@this, field);
                     }
                 }
-            } while (memberExpression == null && (declaringType = declaringType.BaseType) != null);
+            } while (memberExpression is null && (declaringType = declaringType.BaseType) is not null);
 
-            if (memberExpression == null)
+            if (memberExpression is null)
             {
                 throw new MissingMemberException(type.FullName, memberName);
             }
