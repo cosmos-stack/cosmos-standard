@@ -8,7 +8,7 @@ namespace Cosmos.IO
     /// <summary>
     /// Cosmos <see cref="Stream"/> extensions.
     /// </summary>
-    public static class CosmosStreamExtensions
+    public static class StreamExtensions
     {
         #region Seek
 

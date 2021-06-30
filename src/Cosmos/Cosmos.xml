@@ -190,6 +190,16 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Conversions.AsciiConvHelper">
+            <summary>
+            ASCII Conv Helper (internal)
+            </summary>
+        </member>
+        <member name="T:Cosmos.Conversions.AsciiConv">
+            <summary>
+            ASCII Conv
+            </summary>
+        </member>
         <member name="M:Cosmos.Conversions.AsciiConv.BytesToAsciiString(System.Byte[])">
             <summary>
             Convert from bytes to ASCII <see cref="T:System.String"/>.
@@ -206,12 +216,302 @@
             <param name="asciiStr"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Conversions.BaseConv">
+            <summary>
+            BASE Conv
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase32(System.Byte[])">
+            <summary>
+            Convert byte array to base32.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase32(System.String)">
+            <summary>
+            Convert base32 to byte array.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base32.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert base32 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToZBase32(System.Byte[])">
+            <summary>
+            Convert byte array to ZBase32.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromZBase32(System.String)">
+            <summary>
+            Convert ZBase32 to byte array.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToZBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to ZBase32.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromZBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert ZBase32 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase64(System.Byte[])">
+            <summary>
+            Convert byte array to base64.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase64(System.String)">
+            <summary>
+            Convert base64 to byte array.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base64.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert base64 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase91(System.Byte[])">
+            <summary>
+            Convert byte array to base91.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase91(System.String)">
+            <summary>
+            Convert base91 to byte array.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase91String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base91.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase91String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert base91 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase256(System.Byte[])">
+            <summary>
+            Convert byte array to base256.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase256(System.String)">
+            <summary>
+            Convert base256 to byte array.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.ToBase256String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base256.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConv.FromBase256String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert base256 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.BaseConvExtensions">
+            <summary>
+            BASE Conv extensions.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase32String(System.Byte[])">
+            <summary>
+            Convert byte array to base32.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base32.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base32.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToZBase32String(System.Byte[])">
+            <summary>
+            Convert byte array to ZBase32.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToZBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to ZBase32.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromZBase32String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert ZBase32 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase64String(System.Byte[])">
+            <summary>
+            Convert byte array to base64.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base64.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert base64 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase91String(System.Byte[])">
+            <summary>
+            Convert byte array to base91.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase91String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base91.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase91String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert base91 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase256String(System.Byte[])">
+            <summary>
+            Convert byte array to base256.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase256String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to base256.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase256String(System.String,System.Text.Encoding)">
+            <summary>
+            Convert base256 to string.
+            </summary>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Bin">
+            <summary>
+            Bin utilities.
+            </summary>
+        </member>
         <member name="M:Cosmos.Conversions.Bin.Reverse(System.String)">
             <summary>
             Reverse high and low positions.
             </summary>
             <param name="bin"></param>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Helpers.ScaleConvHelper">
+            <summary>
+            Scale convert helper (internal)
+            </summary>
+        </member>
+        <member name="T:Cosmos.Conversions.Helpers.ScaleRevHelper">
+            <summary>
+            Scale rev helper (internal)
+            </summary>
         </member>
         <member name="T:Cosmos.Conversions.Hex">
             <summary>
@@ -262,6 +562,15 @@
             <summary>
             Scale convert utilities
             </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.ScaleConv.X2X(System.String,System.Int32,System.Int32)">
+            <summary>
+            X-2-X convert entry.
+            </summary>
+            <param name="things"></param>
+            <param name="baseOfSource"></param>
+            <param name="baseOfTarget"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Conversions.ScaleConv.BinToDec(System.String)">
             <summary>
@@ -364,6 +673,15 @@
             将字符转换为十六进制值
             </summary>
             <param name="letters"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Conversions.ScaleConv.HexToLetters(System.String,System.Text.Encoding)">
+            <summary>
+            Convert hexadecimal value to letters. <br />
+            将十六进制值转换为字符
+            </summary>
+            <param name="hexadecimalThings"></param>
             <param name="encoding"></param>
             <returns></returns>
         </member>
@@ -486,8 +804,93 @@
             Throw me.
             </summary>
         </member>
+        <member name="T:Cosmos.Date.DateTimeOutputStyles">
+            <summary>
+            Datetime Output Styles
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.DateTime">
+            <summary>
+            DateTime
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.Time">
+            <summary>
+            Time
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.LongDate">
+            <summary>
+            LongDate
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.LongTime">
+            <summary>
+            LongTime
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.ShortDate">
+            <summary>
+            ShortDate
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.ShortTime">
+            <summary>
+            ShortTime
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.DateTimeOutputStyles.Millisecond">
+            <summary>
+            Millisecond
+            </summary>
+        </member>
+        <member name="T:Cosmos.Date.DateTimeHelper">
+            <summary>
+            DateTime Helper (internal)
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeHelper.Ifttt(System.Boolean,System.String,System.String)">
+            <summary>
+            If this then that...
+            </summary>
+            <param name="condition"></param>
+            <param name="format1"></param>
+            <param name="format2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.DateTimeToStringExtensions">
+            <summary>
+            DateTime to String extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToString(System.DateTime,Cosmos.Date.DateTimeOutputStyles,System.Boolean)">
+            <summary>
+            Convert DateTime value to String. <br />
+            将 DateTime 转换为字符串。
+            </summary>
+            <param name="dt"></param>
+            <param name="styles"></param>
+            <param name="isRemoveSecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToString(System.Nullable{System.DateTime},Cosmos.Date.DateTimeOutputStyles,System.Boolean)">
+            <summary>
+            Convert DateTime value to String. <br />
+            将 DateTime 转换为字符串。
+            </summary>
+            <param name="dt"></param>
+            <param name="styles"></param>
+            <param name="isRemoveSecond"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToDateTimeOffset(System.DateTime)">
             <summary>
+            Convert DateTime to DateTimeOffset. <br />
             将时间转换为时间点
             </summary>
             <param name="localDateTime"></param>
@@ -495,6 +898,7 @@
         </member>
         <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
             <summary>
+            Convert DateTime to  DateTimeOffset. <br />
             将时间转换为时间点
             </summary>
             <param name="localDateTime"></param>
@@ -503,6 +907,7 @@
         </member>
         <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToLocalDateTime(System.DateTimeOffset)">
             <summary>
+            Convert DateTimeOffset to DateTime. <br />
             将时间点转换为时间
             </summary>
             <param name="dateTimeUtc"></param>
@@ -510,6 +915,7 @@
         </member>
         <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
             <summary>
+            Convert DateTimeOffset to DateTime. <br />
             将时间点转换为时间
             </summary>
             <param name="dateTimeUtc"></param>
@@ -2871,19 +3277,19 @@
         <member name="M:Cosmos.Exceptions.Success`1.Tap(System.Action{`0},System.Action{System.Exception,System.String})">
             <inheritdoc />
         </member>
-        <member name="T:Cosmos.Expressions.CosmosExpressionExtensions">
+        <member name="T:Cosmos.Expressions.ExpressionExtensions">
             <summary>
             public <see cref="T:System.Linq.Expressions.Expression"/> extensions.
             </summary>
         </member>
-        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo)">
             <summary>
             Create get property expression
             </summary>
             <param name="propertyInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyExpression(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
             <summary>
             Create get property expression
             </summary>
@@ -2893,7 +3299,7 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo)">
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo)">
             <summary>
             Create get property lambda expression
             </summary>
@@ -2902,7 +3308,7 @@
             <typeparam name="TProperty"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Expressions.CosmosExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
+        <member name="M:Cosmos.Expressions.ExpressionExtensions.CreateGetPropertyLambdaExpression``2(System.Reflection.PropertyInfo,System.Linq.Expressions.ParameterExpression)">
             <summary>
             Create get property lambda expression
             </summary>
@@ -3503,12 +3909,12 @@
             Bit Writer
             </summary>
         </member>
-        <member name="T:Cosmos.IO.CosmosStreamExtensions">
+        <member name="T:Cosmos.IO.StreamExtensions">
             <summary>
             Cosmos <see cref="T:System.IO.Stream"/> extensions.
             </summary>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySeek(System.IO.Stream,System.Int64,System.IO.SeekOrigin)">
+        <member name="M:Cosmos.IO.StreamExtensions.TrySeek(System.IO.Stream,System.Int64,System.IO.SeekOrigin)">
             <summary>
             Try seek
             </summary>
@@ -3517,14 +3923,14 @@
             <param name="origin"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.ReadAllBytes(System.IO.Stream)">
+        <member name="M:Cosmos.IO.StreamExtensions.ReadAllBytes(System.IO.Stream)">
             <summary>
             Read all bytes
             </summary>
             <param name="stream"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryRead(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
+        <member name="M:Cosmos.IO.StreamExtensions.TryRead(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
             <summary>
             Try read
             </summary>
@@ -3534,7 +3940,7 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryReadAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:Cosmos.IO.StreamExtensions.TryReadAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Try read async
             </summary>
@@ -3545,14 +3951,14 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryReadByte(System.IO.Stream)">
+        <member name="M:Cosmos.IO.StreamExtensions.TryReadByte(System.IO.Stream)">
             <summary>
             Try read byte
             </summary>
             <param name="stream"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetReadTimeout(System.IO.Stream,System.Int32)">
+        <member name="M:Cosmos.IO.StreamExtensions.TrySetReadTimeout(System.IO.Stream,System.Int32)">
             <summary>
             Try set read timeout
             </summary>
@@ -3560,7 +3966,7 @@
             <param name="milliseconds"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetReadTimeout(System.IO.Stream,System.TimeSpan)">
+        <member name="M:Cosmos.IO.StreamExtensions.TrySetReadTimeout(System.IO.Stream,System.TimeSpan)">
             <summary>
             Try set read timeout
             </summary>
@@ -3568,7 +3974,7 @@
             <param name="timeout"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryWrite(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
+        <member name="M:Cosmos.IO.StreamExtensions.TryWrite(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
             <summary>
             Try write
             </summary>
@@ -3578,7 +3984,7 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryWriteAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:Cosmos.IO.StreamExtensions.TryWriteAsync(System.IO.Stream,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Try write async
             </summary>
@@ -3589,7 +3995,7 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TryWriteByte(System.IO.Stream,System.Byte)">
+        <member name="M:Cosmos.IO.StreamExtensions.TryWriteByte(System.IO.Stream,System.Byte)">
             <summary>
             Try write byte
             </summary>
@@ -3597,7 +4003,7 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.Int32)">
+        <member name="M:Cosmos.IO.StreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.Int32)">
             <summary>
             Try set write timeout
             </summary>
@@ -3605,7 +4011,7 @@
             <param name="milliseconds"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IO.CosmosStreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.TimeSpan)">
+        <member name="M:Cosmos.IO.StreamExtensions.TrySetWriteTimeout(System.IO.Stream,System.TimeSpan)">
             <summary>
             Try set write timeout
             </summary>
@@ -5307,6 +5713,38 @@
         <member name="M:Cosmos.Reflection.Types.IsTupleType``1(``0,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
             <summary>
             Determine whether the given object is a tuple type.<br />
+            判断给定的对象是否为元组类型
+            </summary>
+            <param name="value"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsValueTupleType(System.Type,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given type is a value tuple type.<br />
+            判断给定的类型是否为元组类型
+            </summary>
+            <param name="type"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsValueTupleType``1(Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given type is a value tuple type.<br />
+            判断给定的类型是否为元组类型
+            </summary>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.Types.IsValueTupleType``1(``0,Cosmos.Reflection.TypeOfOptions,Cosmos.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given object is a value tuple type.<br />
             判断给定的对象是否为元组类型
             </summary>
             <param name="value"></param>

@@ -7,7 +7,7 @@ namespace Cosmos.Expressions
     /// <summary>
     /// public <see cref="Expression"/> extensions.
     /// </summary>
-    public static class CosmosExpressionExtensions
+    public static class ExpressionExtensions
     {
         #region Create an expression to get property info
 
