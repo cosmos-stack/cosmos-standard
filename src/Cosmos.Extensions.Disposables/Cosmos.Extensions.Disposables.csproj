@@ -5,11 +5,11 @@
         <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
-    <Import Project="project.props"/>
+    <Import Project="project.props" />
 
-    <Import Project="..\..\common.props"/>
+    <Import Project="..\..\common.props" />
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj"/>
+        <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
     </ItemGroup>
 </Project>
