@@ -562,6 +562,16 @@
             <typeparam name="TSource"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Collections.CollConvExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            To hashset
+            </summary>
+            <param name="source"></param>
+            <param name="comparer"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Collections.CollConvExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
             <summary>
             To HashSet
@@ -857,6 +867,57 @@
             <param name="enumerable">data in memory</param>
             <param name="pageNumber">page number</param>
             <param name="itemCountPerPage">page size</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Colls.OfPageSet``1(System.Collections.Generic.IEnumerable{``0},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Create a page set from the given collection with page size and member count limit.
+            </summary>
+            <param name="enumerable"></param>
+            <param name="pageSize"></param>
+            <param name="limitedMemberCount"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Colls.OfPageSet``1(System.Linq.IQueryable{``0},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Create a page set from the given collection with page size and member count limit.
+            </summary>
+            <param name="queryable"></param>
+            <param name="pageSize"></param>
+            <param name="limitedMemberCount"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Colls.OfPageMember``1(``0,System.Int32,System.Int32@)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.PageMember`1"/>
+            </summary>
+            <param name="memberValue"></param>
+            <param name="offset"></param>
+            <param name="startIndex"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Colls.OfPageMember``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.PageMember`1"/>
+            </summary>
+            <param name="memberColl"></param>
+            <param name="index"></param>
+            <param name="offset"></param>
+            <param name="startIndex"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Colls.OfPageMember``1(Cosmos.Collections.Pagination.IQueryEntryState{``0},System.Int32,System.Int32@)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.PageMember`1"/>
+            </summary>
+            <param name="state"></param>
+            <param name="offset"></param>
+            <param name="startIndex"></param>
+            <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.Colls.RemoveDuplicates``1(System.Collections.Generic.IList{``0})">
@@ -1784,6 +1845,29 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="M:Cosmos.Collections.DictsExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Get value or default
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Collections.DictsExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Get value or default
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Collections.DictsExtensions.GetValueOrDefaultCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0,``1)">
             <summary>
             Get value or default cascading
@@ -1874,6 +1958,686 @@
         </member>
         <member name="M:Cosmos.Collections.EnumerableProxy`1.GetEnumerator">
             <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.EmptyPage`1">
+            <summary>
+            Empty page
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.EmptyPage`1.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.EmptyPage`1"/>
+            </summary>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.EnumerablePage`1">
+            <summary>
+            Enumerable page
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.EnumerablePage`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Enumerable page
+            </summary>
+            <param name="enumerable"></param>
+            <param name="currentPageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="totalMemberCount"></param>
+            <param name="sourceIsFull"></param>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.EnumerablePage`1.Empty">
+            <summary>
+            Get empty page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.Internals.LimitedMembersTypes">
+            <summary>
+            Limited members type
+            </summary>
+        </member>
+        <member name="F:Cosmos.Collections.Pagination.Internals.LimitedMembersTypes.Unlimited">
+            <summary>
+            Unlimited
+            </summary>
+        </member>
+        <member name="F:Cosmos.Collections.Pagination.Internals.LimitedMembersTypes.Customize">
+            <summary>
+            Customize
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.PageableCollectionFactory.GetRealMemberCountFunc">
+            <summary>
+            Get real member count<br />.
+            first parameter(l) means limitedMemberCount<br />,
+            second parameter(c) means count.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.PageableCollectionFactory.GetRealPageCountFunc">
+            <summary>
+            Get real page count<br />.
+            first parameter(m) means real member count, which has been gotten from <see cref="M:Cosmos.Collections.Pagination.Internals.PageableCollectionFactory.GetRealMemberCountFunc"/><br />,
+            second parameter(s) means page size.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.PageableCollectionFactory.CreatePageSet``1(System.Collections.Generic.IEnumerable{``0},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Make enumerable result to EnumerablePage collection
+            </summary>
+            <typeparam name="T">element type of your enumerable result</typeparam>
+            <param name="enumerable">original enumerable result</param>
+            <param name="pageSize">page size</param>
+            <param name="limitedMemberCount">limited member count</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.PageableCollectionFactory.CreatePageSet``1(System.Linq.IQueryable{``0},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Make queryable source to QueryablePage collection
+            </summary>
+            <typeparam name="T">element type of your queryable source</typeparam>
+            <param name="queryable">original queryable result</param>
+            <param name="pageSize">page size</param>
+            <param name="limitedMemberCount">limited member count</param>
+            <returns></returns>
+        </member>
+        <member name="F:Cosmos.Collections.Pagination.Internals.PageableConstants.DEFAULT_PAGE_SIZE">
+            <summary>
+            Default page size
+            </summary>
+        </member>
+        <member name="F:Cosmos.Collections.Pagination.Internals.PageableConstants.MAX_MEMBER_ITEMS_SUPPORT">
+            <summary>
+            Max member items support
+            </summary>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.Internals.PageMemberFactory">
+            <summary>
+            Page member factory
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.PageMemberFactory.Create``1(``0,System.Int32,System.Int32@)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.PageMember`1"/>
+            </summary>
+            <param name="memberValue"></param>
+            <param name="offset"></param>
+            <param name="startIndex"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.PageMemberFactory.Create``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.PageMember`1"/>
+            </summary>
+            <param name="memberColl"></param>
+            <param name="index"></param>
+            <param name="offset"></param>
+            <param name="startIndex"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.PageMemberFactory.Create``1(Cosmos.Collections.Pagination.IQueryEntryState{``0},System.Int32,System.Int32@)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.PageMember`1"/>
+            </summary>
+            <param name="state"></param>
+            <param name="offset"></param>
+            <param name="startIndex"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.Internals.QueryEntryState`1">
+            <summary>
+            Query entry state
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.Internals.QueryEntryState`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            Query entry state
+            </summary>
+            <param name="queryable">Orgin queryable result</param>
+            <param name="skip">skip number</param>
+            <param name="take">take number</param>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.Internals.QueryEntryState`1.AllValues">
+            <summary>
+            Get all value.
+            </summary>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.IPage">
+            <summary>
+            Page interface
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage.TotalPageCount">
+            <summary>
+            Gets total page count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage.TotalMemberCount">
+            <summary>
+            Gets total member count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage.CurrentPageNumber">
+            <summary>
+            Gets current page number
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage.PageSize">
+            <summary>
+            Gets page size
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage.CurrentPageSize">
+            <summary>
+            Gets current page size, may equal to or less than page size.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage.HasPrevious">
+            <summary>
+            Has previous. If this page is the first page, then returns false.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage.HasNext">
+            <summary>
+            Has next. If this page is the last page, then returns false.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.IPage.GetMetadata">
+            <summary>
+            Get metadata of page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.IPageable">
+            <summary>
+            Pageable interface
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPageable.PageSize">
+            <summary>
+            Gets page size
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPageable.MemberCount">
+            <summary>
+            Gets member count
+            </summary>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.IPageable`1">
+            <summary>
+            Pageable interface
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.IPageable`1.GetPage(System.Int32)">
+            <summary>
+            Get page
+            </summary>
+            <param name="pageNumber">Page number</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.IPageMember`1">
+            <summary>
+            Page member wrapper interface
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPageMember`1.Value">
+            <summary>
+            Gets value of current member
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPageMember`1.Offset">
+            <summary>
+            Gets offset of current member
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPageMember`1.ItemNumber">
+            <summary>
+            Gets item number of current member
+            </summary>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.IPage`1">
+            <summary>
+            Page interface
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IPage`1.Item(System.Int32)">
+            <summary>
+            Gets page member indexer
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.IPage`1.ToOriginalItems">
+            <summary>
+            Convert to original items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.IQueryEntryState`1">
+            <summary>
+            Query entry state interface
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.IQueryEntryState`1.AllValues">
+            <summary>
+            Gets all values
+            </summary>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageableEnumerable`1">
+            <summary>
+            EnumerablePage collection
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableEnumerable`1.GetSpecifiedPage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get special page
+            </summary>
+            <param name="currentPageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="realMemberCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageableQueryable`1">
+            <summary>
+            QueryablePage collection
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableQueryable`1.GetSpecifiedPage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get special page
+            </summary>
+            <param name="currentPageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="realMemberCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageableSetBase`1">
+            <summary>
+            Abstract PageableSet base
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Cosmos.Collections.Pagination.PageableSetBase`1._lazyPinedPagesCache">
+            <summary>
+            Lazy pined paged cache.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSetBase`1._limitedType">
+            <summary>
+            Gets limited type
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableSetBase`1.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableSetBase`1.#ctor(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableSetBase`1.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableSetBase`1.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSetBase`1.PageSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSetBase`1.MemberCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSetBase`1.LimitedMemberCount">
+            <summary>
+            Gets limited member count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSetBase`1.PageCount">
+            <summary>
+            Gets page count
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableSetBase`1.GetPage(System.Int32)">
+            <summary>
+            Get specific page from current PaginableSet
+            </summary>
+            <param name="pageNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableSetBase`1.GetSpecifiedPage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get specified page
+            </summary>
+            <param name="currentPageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="realMemberCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageableSettings">
+            <summary>
+            Pageable settings
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSettings.DefaultPageSize">
+            <summary>
+            Gets or sets default page size
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSettings.MaxMemberItems">
+            <summary>
+            Gets or sets max member items
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageableSettingsManager.Settings">
+            <summary>
+            Get pageable settings
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageableSettingsManager.UpdateSettings(Cosmos.Collections.Pagination.PageableSettings)">
+            <summary>
+            Update pageable settings
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageBase`1">
+            <summary>
+            Abstract page base
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Cosmos.Collections.Pagination.PageBase`1._memberList">
+            <summary>
+            Member list
+            </summary>
+        </member>
+        <member name="F:Cosmos.Collections.Pagination.PageBase`1._initializeAction">
+            <summary>
+            Initialize action
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageBase`1.#ctor(System.Boolean)">
+            <summary>
+            Page base
+            </summary>
+            <param name="sourceIsFull"></param>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageBase`1.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.SourceIsFull">
+            <summary>
+            Offset mode
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.TotalPageCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.TotalMemberCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.CurrentPageNumber">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.PageSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.CurrentPageSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.HasPrevious">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.HasNext">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageBase`1.Item(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageBase`1.GetMetadata">
+            <inheritdoc />
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageBase`1.ToOriginalItems">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageExtensions">
+            <summary>
+            Extensions for page
+            </summary>
+            <summary>
+            Extensions for solid page
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.IsFirst(Cosmos.Collections.Pagination.IPage)">
+            <summary>
+            Is current page thr first page?
+            </summary>
+            <param name="page">Page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.IsLast(Cosmos.Collections.Pagination.IPage)">
+            <summary>
+            Is current page the last page?
+            </summary>
+            <param name="page">Page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.FromMemberNumber(Cosmos.Collections.Pagination.IPage)">
+            <summary>
+            The number of the first item of current page.
+            </summary>
+            <param name="page">Page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.ToMemberNumber(Cosmos.Collections.Pagination.IPage)">
+            <summary>
+            The number of the last item of current page.
+            </summary>
+            <param name="page">Page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.AsPageable``1(System.Collections.Generic.IEnumerable{``0},System.Nullable{System.Int32})">
+            <summary>
+            Make original enumerable result to EnumerablePage collection.
+            </summary>
+            <typeparam name="T">element type of your enumerable result</typeparam>
+            <param name="enumerable">original enumerable result</param>
+            <param name="limitedMemberCount">limited member count</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.AsPageable``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Make original enumerable result to EnumerablePage collection.
+            </summary>
+            <typeparam name="T">element type of your enumerable result</typeparam>
+            <param name="enumerable">original enumerable result</param>
+            <param name="pageSize">page size</param>
+            <param name="limitedMemberCount">limited member count</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.GetPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Get specific page from original enumerable result
+            </summary>
+            <typeparam name="T">element type of your enumerable result</typeparam>
+            <param name="enumerable">original enumerable result</param>
+            <param name="pageNumber">page number</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.GetPage``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            Get specific page from original enumerable result
+            </summary>
+            <typeparam name="T">element type of your enumerable result</typeparam>
+            <param name="enumerable">original enumerable result</param>
+            <param name="pageNumber">page number</param>
+            <param name="pageSize">page size</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.AsPageable``1(System.Linq.IQueryable{``0},System.Nullable{System.Int32})">
+            <summary>
+            Make original queryable source to QueryablePage collection.
+            </summary>
+            <typeparam name="T">element type of your queryable source</typeparam>
+            <param name="queryable">original queryable result</param>
+            <param name="limitedMemberCount">limited member count</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.AsPageable``1(System.Linq.IQueryable{``0},System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Make original queryable source to QueryablePage collection.
+            </summary>
+            <typeparam name="T">element type of your queryable source</typeparam>
+            <param name="queryable">original queryable result</param>
+            <param name="pageSize">page size</param>
+            <param name="limitedMemberCount">limited member count</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.GetPage``1(System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            Get specific page from original queryable source
+            </summary>
+            <typeparam name="T">element type of your queryable source</typeparam>
+            <param name="queryable">original queryable result</param>
+            <param name="pageNumber">page number</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.GetPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Get specific page from original queryable source
+            </summary>
+            <typeparam name="T">element type of your queryable source</typeparam>
+            <param name="queryable">original queryable result</param>
+            <param name="pageNumber">page number</param>
+            <param name="pageSize">page size</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.GetPageAsync``1(System.Threading.Tasks.Task{System.Linq.IQueryable{``0}},System.Int32)">
+            <summary>
+            Get specific page from original queryable source
+            </summary>
+            <typeparam name="T">element type of your queryable source</typeparam>
+            <param name="queryableTask"></param>
+            <param name="pageNumber">page number</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageExtensions.GetPageAsync``1(System.Threading.Tasks.Task{System.Linq.IQueryable{``0}},System.Int32,System.Int32)">
+            <summary>
+            Get specific page from original queryable source
+            </summary>
+            <typeparam name="T">element type of your queryable source</typeparam>
+            <param name="queryableTask"></param>
+            <param name="pageNumber">page number</param>
+            <param name="pageSize">page size</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageMember`1">
+            <summary>
+            Page member
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMember`1.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMember`1.Offset">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMember`1.ItemNumber">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.PageMetadata">
+            <summary>
+            Page metadata
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageMetadata.#ctor(Cosmos.Collections.Pagination.IPage)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Collections.Pagination.PageMetadata"/>.
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.TotalPageCount">
+            <summary>
+            Gets total page count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.RealPageCount">
+            <summary>
+            Gets real page count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.TotalMemberCount">
+            <summary>
+            Gets total member count
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.CurrentPageNumber">
+            <summary>
+            Gets current page number
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.PageSize">
+            <summary>
+            Gets page size
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.CurrentPageSize">
+            <summary>
+            Gets current page size
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.HasPrevious">
+            <summary>
+            Has previous. If this page is the first page, then returns false.
+            </summary>
+        </member>
+        <member name="P:Cosmos.Collections.Pagination.PageMetadata.HasNext">
+            <summary>
+            Has next. If this page is the last page, then returns false.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.PageMetadata.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Cosmos.Collections.Pagination.QueryablePage`1">
+            <summary>
+            Queryable page
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.QueryablePage`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Queryable page
+            </summary>
+            <param name="queryable"></param>
+            <param name="currentPageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="totalMemberCount"></param>
+            <param name="sourceIsFull"></param>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.QueryablePage`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Queryable page
+            </summary>
+            <param name="enumerable"></param>
+            <param name="currentPageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="totalMembersCount"></param>
+        </member>
+        <member name="M:Cosmos.Collections.Pagination.QueryablePage`1.Empty">
+            <summary>
+            Get empty page
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.ReadOnlyCollConv.AsList``1(System.Collections.Generic.IReadOnlyList{``0})">
             <summary>

@@ -1,7 +1,0 @@
-<Project>
-
-    <ItemGroup>
-        <PackageReference Include="DotNetCore.Collections.Paginable" Version="3.3.0" />
-    </ItemGroup>
-
-</Project>
