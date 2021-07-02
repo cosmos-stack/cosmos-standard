@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Cosmos.Reflection
 {
-    public static class AssemblyVisit
+    public static partial class AssemblyVisit
     {
         /// <summary>
         /// Get assembly file version.<br />
