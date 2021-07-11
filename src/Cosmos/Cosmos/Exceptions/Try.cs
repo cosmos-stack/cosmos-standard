@@ -7,7 +7,7 @@ namespace Cosmos.Exceptions
     /// <summary>
     /// Try
     /// </summary>
-    public static class Try
+    public static partial class Try
     {
         #region Create
 
