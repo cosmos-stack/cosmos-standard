@@ -5081,6 +5081,9 @@
             <summary>
             Reflection Utilities.
             </summary>
+            <summary>
+            Reflection Utilities.
+            </summary>
         </member>
         <member name="M:Cosmos.Reflection.TypeReflections.IsAttributeDefined``1(System.Reflection.MemberInfo)">
             <summary>
@@ -5503,6 +5506,11 @@
             <param name="parameter">Special member</param>
             <param name="refOptions"></param>
             <returns>Attribute of special field</returns>
+        </member>
+        <member name="F:Cosmos.Reflection.TypeReflections.TypeCacheManager.TypePropertyCache">
+            <summary>
+            TypePropertyCache
+            </summary>
         </member>
         <member name="M:Cosmos.Reflection.TypeReflections.IsImplementationOfGenericType(System.Type,System.Type,System.Type@,System.Type[]@)">
             <summary>

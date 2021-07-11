@@ -1316,6 +1316,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Threading.AsyncLock">
+            <summary>
+            AsyncLock
+            </summary>
+        </member>
         <member name="T:Cosmos.Threading.CosmosSemaphoreSlimExtensions">
             <summary>
             Cosmos SemaphoreSlim extensions
