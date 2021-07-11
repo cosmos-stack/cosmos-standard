@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 
@@ -64,6 +65,108 @@ namespace Cosmos.Reflection
             sb.Append(")");
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Get method by signature
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static MethodInfo GetMethodBySignature(Type type, MethodInfo method)
+        {
+            if (type is null)
+                throw new ArgumentNullException(nameof(type));
+
+            if (method is null)
+                throw new ArgumentNullException(nameof(method));
+
+            var methods = type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                              .Where(x => x.Name.Equals(method.Name))
+                              .ToArray();
+
+            var parameterTypes = method.GetParameters().Select(x => x.ParameterType).ToArray();
+            if (method.ContainsGenericParameters)
+            {
+                foreach (var info in methods)
+                {
+                    var innerParams = info.GetParameters();
+                    if (innerParams.Length != parameterTypes.Length)
+                    {
+                        continue;
+                    }
+
+                    var idx = 0;
+                    foreach (var param in innerParams)
+                    {
+                        if (!param.ParameterType.IsGenericParameter
+                         && !parameterTypes[idx].IsGenericParameter
+                         && param.ParameterType != parameterTypes[idx]
+                        )
+                        {
+                            break;
+                        }
+
+                        idx++;
+                    }
+
+                    if (idx < parameterTypes.Length)
+                    {
+                        continue;
+                    }
+
+                    return info;
+                }
+
+                return null;
+            }
+
+            return type.GetMethod(method.Name, parameterTypes);
+        }
+
+        /// <summary>
+        /// Get BaseMethod
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        public static MethodInfo GetBaseMethod(MethodInfo method)
+        {
+            if (null == method?.DeclaringType?.BaseType)
+                return null;
+
+            return GetMethodBySignature(method.DeclaringType.BaseType, method);
+        }
+
+        /// <summary>
+        /// Determine whether MethodInfo is Visible and Virtual.
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsVisibleAndVirtual(MethodInfo method)
+        {
+            if (method is null)
+                throw new ArgumentNullException(nameof(method));
+
+            if (method.IsStatic || method.IsFinal)
+                return false;
+
+            return method.IsVirtual &&
+                   (method.IsPublic || method.IsFamily || method.IsFamilyOrAssembly);
+        }
+
+        /// <summary>
+        /// Determine whether MethodBase is Visible.
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsVisible(MethodBase method)
+        {
+            if (method is null)
+                throw new ArgumentNullException(nameof(method));
+            return method.IsPublic || method.IsFamily || method.IsFamilyOrAssembly;
+        }
     }
 
     /// <summary>
@@ -116,6 +219,50 @@ namespace Cosmos.Reflection
         public static string GetFullyQualifiedName(this MethodInfo method)
         {
             return TypeVisit.GetFullyQualifiedName(method);
+        }
+
+        /// <summary>
+        /// Get method by signature
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static MethodInfo GetMethodBySignature(this Type type, MethodInfo method)
+        {
+            return TypeVisit.GetMethodBySignature(type, method);
+        }
+
+        /// <summary>
+        /// Get BaseMethod
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        public static MethodInfo GetBaseMethod(this MethodInfo method)
+        {
+            return TypeVisit.GetBaseMethod(method);
+        }
+
+        /// <summary>
+        /// Determine whether MethodInfo is Visible and Virtual.
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsVisibleAndVirtual(this MethodInfo method)
+        {
+            return TypeVisit.IsVisibleAndVirtual(method);
+        }
+
+        /// <summary>
+        /// Determine whether MethodBase is Visible.
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsVisible(this MethodBase method)
+        {
+            return TypeVisit.IsVisible(method);
         }
     }
 }

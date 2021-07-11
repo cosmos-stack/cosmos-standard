@@ -155,7 +155,7 @@ namespace Cosmos.Reflection
         /// <returns></returns>
         public static IEnumerable<PropertyInfo> Exclude<T>(IEnumerable<PropertyInfo> properties, T shape, params Expression<Func<T, object>>[] expressions)
         {
-            return Exclude(properties, shape, (IEnumerable<Expression<Func<T, object>>>) expressions);
+            return Exclude(properties, shape, (IEnumerable<Expression<Func<T, object>>>)expressions);
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace Cosmos.Reflection
         /// <returns></returns>
         public static IEnumerable<PropertyInfo> Exclude<T>(IEnumerable<PropertyInfo> properties, params Expression<Func<T, object>>[] expressions)
         {
-            return Exclude(properties, (IEnumerable<Expression<Func<T, object>>>) expressions);
+            return Exclude(properties, (IEnumerable<Expression<Func<T, object>>>)expressions);
         }
 
         /// <summary>
@@ -207,6 +207,23 @@ namespace Cosmos.Reflection
             ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(TypeVisit.GetProperties(expressions));
 
             return properties.Where(p => !excluded.Contains(p));
+        }
+
+        /// <summary>
+        /// Determine whether PropertyInfo is Visible and Virtual.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsVisibleAndVirtual(PropertyInfo property)
+        {
+            if (property == null)
+            {
+                throw new ArgumentNullException(nameof(property));
+            }
+
+            return (property.CanRead && property.GetMethod.IsVisibleAndVirtual()) ||
+                   (property.CanWrite && property.GetMethod.IsVisibleAndVirtual());
         }
     }
 
@@ -319,6 +336,17 @@ namespace Cosmos.Reflection
         {
             var accessor = property.GetAccessors().FirstOrDefault();
             return accessor is not null && accessor.IsAbstract && !accessor.IsFinal;
+        }
+
+        /// <summary>
+        /// Determine whether PropertyInfo is Visible and Virtual.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static bool IsVisibleAndVirtual(this PropertyInfo property)
+        {
+            return TypeVisit.IsVisibleAndVirtual(property);
         }
     }
 }
