@@ -5,14 +5,14 @@
         <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
-    <Import Project="project.props"/>
+    <Import Project="project.props" />
 
-    <Import Project="..\..\common.props"/>
+    <Import Project="..\..\common.props" />
 
-    <Import Project="project.dependency.props"/>
+    <Import Project="project.dependency.props" />
 
     <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj"/>
+        <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj" />
     </ItemGroup>
 
 </Project>
