@@ -27,15 +27,27 @@ namespace Cosmos.Optionals.Internals
                 4 => NamedMaybeConstants.KEY5,
                 5 => NamedMaybeConstants.KEY6,
                 6 => NamedMaybeConstants.KEY7,
-                7 => throw new ArgumentOutOfRangeException(nameof(number), "Index is must be between 0 and 6"),
-                _ => throw new ArgumentException("Index is must be between 0 and 6")
+                7 => NamedMaybeConstants.KEY8,
+                8 => NamedMaybeConstants.KEY9,
+                9 => NamedMaybeConstants.KEY10,
+                10 => NamedMaybeConstants.KEY11,
+                11 => NamedMaybeConstants.KEY12,
+                12 => NamedMaybeConstants.KEY13,
+                13 => NamedMaybeConstants.KEY14,
+                14 => NamedMaybeConstants.KEY15,
+                15 => NamedMaybeConstants.KEY16,
+                16 => NamedMaybeConstants.KEY17,
+                17 => NamedMaybeConstants.KEY18,
+                18 => NamedMaybeConstants.KEY19,
+                19 => throw new ArgumentOutOfRangeException(nameof(number), "Index is must be between 0 and 18"),
+                _ => throw new ArgumentException("Index is must be between 0 and 18")
             };
         }
 
         public static Dictionary<string, int> CreateIndexCache(int requiredNumber, params string[] keys)
         {
-            if (requiredNumber <= 0 || requiredNumber >= 7)
-                throw new ArgumentOutOfRangeException(nameof(requiredNumber), "Index is must be between 0 and 6");
+            if (requiredNumber <= 0 || requiredNumber >= 20)
+                throw new ArgumentOutOfRangeException(nameof(requiredNumber), "Index is must be between 0 and 18");
             var result = new Dictionary<string, int>();
 
             if (keys is null || !keys.Any())
@@ -47,7 +59,7 @@ namespace Cosmos.Optionals.Internals
             }
             else
             {
-                var limitedMaxValue = keys.Length > 7 ? 7 : keys.Length;
+                var limitedMaxValue = keys.Length > 19 ? 19 : keys.Length;
 
                 for (var i = 0; i < limitedMaxValue; ++i)
                 {
