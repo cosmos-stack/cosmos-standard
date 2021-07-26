@@ -17,7 +17,7 @@ namespace Cosmos.Optionals
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Maybe<T> ToMaybe<T>(this T value) => Optional.Some(value);
+        public static Maybe<T> AsOptionals<T>(this T value) => Optional.Some(value);
 
         /// <summary>
         /// Maybe
@@ -26,7 +26,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
-        public static Either<T, TException> ToMaybe<T, TException>(this T value) => Optional.Some<T, TException>(value);
+        public static Either<T, TException> AsOptionals<T, TException>(this T value) => Optional.Some<T, TException>(value);
 
         #endregion
 
@@ -1045,19 +1045,19 @@ namespace Cosmos.Optionals
             if (source is IList<T> list)
             {
                 if (list.Count > 0)
-                    return list[0].ToMaybe();
+                    return list[0].AsOptionals();
             }
             else if (source is IReadOnlyList<T> readOnlyList)
             {
                 if (readOnlyList.Count > 0)
-                    return readOnlyList[0].ToMaybe();
+                    return readOnlyList[0].AsOptionals();
             }
             else
             {
                 using (var enumerator = source.GetEnumerator())
                 {
                     if (enumerator.MoveNext())
-                        return enumerator.Current.ToMaybe();
+                        return enumerator.Current.AsOptionals();
                 }
             }
 
@@ -1082,7 +1082,7 @@ namespace Cosmos.Optionals
             foreach (var element in source)
             {
                 if (predicate(element))
-                    return element.ToMaybe();
+                    return element.AsOptionals();
             }
 
             return Optional.None<T>();
@@ -1103,13 +1103,13 @@ namespace Cosmos.Optionals
             {
                 var count = list.Count;
                 if (count > 0)
-                    return list[count].ToMaybe();
+                    return list[count].AsOptionals();
             }
             else if (source is IReadOnlyList<T> readOnlyList)
             {
                 var count = readOnlyList.Count;
                 if (count > 0)
-                    return readOnlyList[count].ToMaybe();
+                    return readOnlyList[count].AsOptionals();
             }
             else
             {
@@ -1123,7 +1123,7 @@ namespace Cosmos.Optionals
                             t = enumerator.Current;
                         } while (enumerator.MoveNext());
 
-                        return t.ToMaybe();
+                        return t.AsOptionals();
                     }
                 }
             }
@@ -1152,7 +1152,7 @@ namespace Cosmos.Optionals
                 {
                     var result = list[i];
                     if (predicate(result))
-                        return result.ToMaybe();
+                        return result.AsOptionals();
                 }
             }
             else if (source is IReadOnlyList<T> readOnlyList)
@@ -1161,7 +1161,7 @@ namespace Cosmos.Optionals
                 {
                     var result = readOnlyList[i];
                     if (predicate(result))
-                        return result.ToMaybe();
+                        return result.AsOptionals();
                 }
             }
             else
@@ -1182,7 +1182,7 @@ namespace Cosmos.Optionals
                                 }
                             }
 
-                            return result.ToMaybe();
+                            return result.AsOptionals();
                         }
                     }
                 }
@@ -1208,7 +1208,7 @@ namespace Cosmos.Optionals
                 switch (list.Count)
                 {
                     case 0: return Optional.None<T>();
-                    case 1: return list[0].ToMaybe();
+                    case 1: return list[0].AsOptionals();
                 }
             }
             else if (source is IReadOnlyList<T> readOnlyList)
@@ -1216,7 +1216,7 @@ namespace Cosmos.Optionals
                 switch (readOnlyList.Count)
                 {
                     case 0: return Optional.None<T>();
-                    case 1: return readOnlyList[0].ToMaybe();
+                    case 1: return readOnlyList[0].AsOptionals();
                 }
             }
             else
@@ -1227,7 +1227,7 @@ namespace Cosmos.Optionals
                         return Optional.None<T>();
                     var result = enumerator.Current;
                     if (!enumerator.MoveNext())
-                        return result.ToMaybe();
+                        return result.AsOptionals();
                 }
             }
 
@@ -1262,7 +1262,7 @@ namespace Cosmos.Optionals
                                 return Optional.None<T>();
                         }
 
-                        return result.ToMaybe();
+                        return result.AsOptionals();
                     }
                 }
             }
@@ -1288,14 +1288,14 @@ namespace Cosmos.Optionals
                 {
                     if (index < list.Count)
                     {
-                        return list[index].ToMaybe();
+                        return list[index].AsOptionals();
                     }
                 }
                 else if (source is IReadOnlyList<T> readOnlyList)
                 {
                     if (index < readOnlyList.Count)
                     {
-                        return readOnlyList[index].ToMaybe();
+                        return readOnlyList[index].AsOptionals();
                     }
                 }
                 else
@@ -1306,7 +1306,7 @@ namespace Cosmos.Optionals
                         {
                             if (index == 0)
                             {
-                                return enumerator.Current.ToMaybe();
+                                return enumerator.Current.AsOptionals();
                             }
 
                             index--;
@@ -1341,7 +1341,7 @@ namespace Cosmos.Optionals
                 {
                     if (valueTask is null) throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var value = await valueTask.ConfigureAwait(continueOnCapturedContext: false);
-                    return value.ToMaybe();
+                    return value.AsOptionals();
                 },
                 noneFactory: () => Task.FromResult(Optional.None<TResult>())
             );
@@ -1617,7 +1617,7 @@ namespace Cosmos.Optionals
                 throw new InvalidOperationException($"{nameof(alternativeFactory)} must not return a null task.");
 
             var alternative = await alternativeTask.ConfigureAwait(continueOnCapturedContext: false);
-            return alternative.ToMaybe();
+            return alternative.AsOptionals();
         }
 
         /// <summary>
@@ -1798,7 +1798,7 @@ namespace Cosmos.Optionals
                     if (valueTask is null)
                         throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
                     var value = await valueTask.ConfigureAwait(continueOnCapturedContext: false);
-                    return value.ToMaybe<TResult, TException>();
+                    return value.AsOptionals<TResult, TException>();
                 },
                 noneFactory: exception => Task.FromResult(Optional.None<TResult, TException>(exception))
             );
@@ -2291,7 +2291,7 @@ namespace Cosmos.Optionals
                 throw new InvalidOperationException($"{nameof(alternativeFactory)} must not return a null task.");
 
             var alternative = await alternativeTask.ConfigureAwait(continueOnCapturedContext: false);
-            return alternative.ToMaybe<T, TException>();
+            return alternative.AsOptionals<T, TException>();
         }
 
         /// <summary>

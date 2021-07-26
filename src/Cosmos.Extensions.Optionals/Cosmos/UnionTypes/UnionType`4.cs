@@ -174,6 +174,8 @@ namespace Cosmos.UnionTypes
             throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.");
         }
 
+        internal static UnionType<T0, T1, T2, T3, T4> FromNull() => new(0);
+
         public static UnionType<T0, T1, T2, T3, T4> FromT0(T0 input) => input;
 
         public static UnionType<T0, T1, T2, T3, T4> FromT1(T1 input) => input;
@@ -334,7 +336,7 @@ namespace Cosmos.UnionTypes
             return IsT4();
         }
 
-        public Maybe<T0, T1, T2, T3, T4> ToMaybeValue()
+        public Maybe<T0, T1, T2, T3, T4> AsOptionals()
         {
             return Optional.From(_v0, _v1, _v2, _v3, _v4);
         }

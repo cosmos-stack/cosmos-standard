@@ -65,6 +65,8 @@ namespace Cosmos.UnionTypes
 
             throw new InvalidOperationException("No valid index in such UnionType instance.");
         }
+        
+        internal static UnionType<T0> FromNull() => new(0);
 
         public static UnionType<T0> FromT0(T0 input) => input;
 
@@ -79,7 +81,7 @@ namespace Cosmos.UnionTypes
             };
         }
 
-        public Maybe<T0> ToMaybeValue()
+        public Maybe<T0> AsOptionals()
         {
             return new(AsT0(), true);
         }
