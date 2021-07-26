@@ -1,4 +1,5 @@
 ﻿using System;
+using Cosmos.Optionals;
 
 namespace Cosmos.UnionTypes
 {
@@ -1119,6 +1120,11 @@ namespace Cosmos.UnionTypes
             return IsT13();
         }
 
+        public Maybe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> ToMaybeValue()
+        {
+            return Optional.From(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13);
+        }
+        
         bool Equals(UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> other)
         {
             return _ix == other._ix
