@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cosmos.Optionals.Internals;
+using Cosmos.UnionTypes;
 
 namespace Cosmos.Optionals
 {
@@ -971,6 +972,53 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <returns></returns>
         public None<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19)> ToWrappedNone() => new();
+
+        #endregion
+
+        #region ToUnionType
+
+        public UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19> ToUnionType()
+        {
+            if (_o1.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o1.ValueOr(default(T1)));
+            if (_o2.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o2.ValueOr(default(T2)));
+            if (_o3.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o3.ValueOr(default(T3)));
+            if (_o4.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o4.ValueOr(default(T4)));
+            if (_o5.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o5.ValueOr(default(T5)));
+            if (_o6.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o6.ValueOr(default(T6)));
+            if (_o7.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o7.ValueOr(default(T7)));
+            if (_o8.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o8.ValueOr(default(T8)));
+            if (_o9.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o9.ValueOr(default(T9)));
+            if (_o10.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o10.ValueOr(default(T10)));
+            if (_o11.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o11.ValueOr(default(T11)));
+            if (_o12.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o12.ValueOr(default(T12)));
+            if (_o13.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o13.ValueOr(default(T13)));
+            if (_o14.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o14.ValueOr(default(T14)));
+            if (_o15.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o15.ValueOr(default(T15)));
+            if (_o16.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o16.ValueOr(default(T16)));
+            if (_o17.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o17.ValueOr(default(T17)));
+            if (_o18.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o18.ValueOr(default(T18)));
+            if (_o19.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(_o19.ValueOr(default(T19)));
+            return UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>.FromNull();
+        }
 
         #endregion
 

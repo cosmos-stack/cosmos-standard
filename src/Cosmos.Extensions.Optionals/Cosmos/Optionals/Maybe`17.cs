@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cosmos.Optionals.Internals;
+using Cosmos.UnionTypes;
 
 namespace Cosmos.Optionals
 {
@@ -910,6 +911,81 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <returns></returns>
         public None<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17)> ToWrappedNone() => new();
+
+        #endregion
+
+        #region ToUnionType
+
+        public UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17> ToUnionType()
+        {
+            if (_o1.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o1.ValueOr(default(T1)));
+            if (_o2.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o2.ValueOr(default(T2)));
+            if (_o3.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o3.ValueOr(default(T3)));
+            if (_o4.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o4.ValueOr(default(T4)));
+            if (_o5.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o5.ValueOr(default(T5)));
+            if (_o6.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o6.ValueOr(default(T6)));
+            if (_o7.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o7.ValueOr(default(T7)));
+            if (_o8.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o8.ValueOr(default(T8)));
+            if (_o9.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o9.ValueOr(default(T9)));
+            if (_o10.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o10.ValueOr(default(T10)));
+            if (_o11.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o11.ValueOr(default(T11)));
+            if (_o12.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o12.ValueOr(default(T12)));
+            if (_o13.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o13.ValueOr(default(T13)));
+            if (_o14.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o14.ValueOr(default(T14)));
+            if (_o15.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o15.ValueOr(default(T15)));
+            if (_o16.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o16.ValueOr(default(T16)));
+            if (_o17.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(_o17.ValueOr(default(T17)));
+            return UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>.FromNull();
+        }
+
+        #endregion
+
+        #region Join
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="valueToJoin"></param>
+        /// <typeparam name="T18"></typeparam>
+        /// <returns></returns>
+        public Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> Join<T18>(T18 valueToJoin)
+            => new(_o1, _o2, _o3, _o4, _o5, _o6, _o7, _o8, _o9, _o10, _o11, _o12, _o13, _o14, _o15, _o16, _o17, Optional.From(valueToJoin));
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="valueToJoin"></param>
+        /// <param name="condition"></param>
+        /// <typeparam name="T18"></typeparam>
+        /// <returns></returns>
+        public Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> Join<T18>(T18 valueToJoin, Func<T18, bool> condition)
+            => new(_o1, _o2, _o3, _o4, _o5, _o6, _o7, _o8, _o9, _o10, _o11, _o12, _o13, _o14, _o15, _o16, _o17, Optional.From(valueToJoin, condition));
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="optionalToJoin"></param>
+        /// <typeparam name="T18"></typeparam>
+        /// <returns></returns>
+        public Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> Join<T18>(Maybe<T18> optionalToJoin)
+            => new(_o1, _o2, _o3, _o4, _o5, _o6, _o7, _o8, _o9, _o10, _o11, _o12, _o13, _o14, _o15, _o16, _o17, optionalToJoin);
 
         #endregion
 

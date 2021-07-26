@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cosmos.Optionals.Internals;
+using Cosmos.UnionTypes;
 
 namespace Cosmos.Optionals
 {
@@ -33,7 +34,7 @@ namespace Cosmos.Optionals
         private readonly bool _hasValue;
         private readonly IReadOnlyDictionary<string, int> _optionalIndexCache;
 
-        internal Maybe(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9 , bool hasValue)
+        internal Maybe(T1 value1, T2 value2, T3 value3, T4 value4, T5 value5, T6 value6, T7 value7, T8 value8, T9 value9, bool hasValue)
         {
             _o1 = Optional.From(value1);
             _o2 = Optional.From(value2);
@@ -692,6 +693,65 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <returns></returns>
         public None<(T1, T2, T3, T4, T5, T6, T7, T8, T9)> ToWrappedNone() => new();
+
+        #endregion
+
+        #region ToUnionType
+
+        public UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9> ToUnionType()
+        {
+            if (_o1.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o1.ValueOr(default(T1)));
+            if (_o2.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o2.ValueOr(default(T2)));
+            if (_o3.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o3.ValueOr(default(T3)));
+            if (_o4.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o4.ValueOr(default(T4)));
+            if (_o5.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o5.ValueOr(default(T5)));
+            if (_o6.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o6.ValueOr(default(T6)));
+            if (_o7.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o7.ValueOr(default(T7)));
+            if (_o8.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o8.ValueOr(default(T8)));
+            if (_o9.HasValue)
+                return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9>(_o9.ValueOr(default(T9)));
+            return UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9>.FromNull();
+        }
+
+        #endregion
+
+        #region Join
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="valueToJoin"></param>
+        /// <typeparam name="T10"></typeparam>
+        /// <returns></returns>
+        public Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> Join<T10>(T10 valueToJoin)
+            => new(_o1, _o2, _o3, _o4, _o5, _o6, _o7, _o8, _o9, Optional.From(valueToJoin));
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="valueToJoin"></param>
+        /// <param name="condition"></param>
+        /// <typeparam name="T10"></typeparam>
+        /// <returns></returns>
+        public Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> Join<T10>(T10 valueToJoin, Func<T10, bool> condition)
+            => new(_o1, _o2, _o3, _o4, _o5, _o6, _o7, _o8, _o9, Optional.From(valueToJoin, condition));
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="optionalToJoin"></param>
+        /// <typeparam name="T10"></typeparam>
+        /// <returns></returns>
+        public Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> Join<T10>(Maybe<T10> optionalToJoin)
+            => new(_o1, _o2, _o3, _o4, _o5, _o6, _o7, _o8, _o9, optionalToJoin);
 
         #endregion
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cosmos.Optionals.Internals;
 using Cosmos.Reflection;
+using Cosmos.UnionTypes;
 
 // ReSharper disable InconsistentNaming
 
@@ -13,8 +14,8 @@ namespace Cosmos.Optionals
     /// <typeparam name="T"></typeparam>
     [Serializable]
     public readonly struct Maybe<T> : IOptionalImpl<T, Maybe<T>>,
-                                      IEquatable<Maybe<T>>,
-                                      IComparable<Maybe<T>>
+        IEquatable<Maybe<T>>,
+        IComparable<Maybe<T>>
     {
         private readonly string _key;
         private readonly bool _hasValue;
@@ -520,6 +521,17 @@ namespace Cosmos.Optionals
 
         #endregion
 
+        #region ToUnionType
+
+        public UnionType<T> ToUnionType()
+        {
+            if (HasValue)
+                return UnionType.Of(ValueOr(default(T)));
+            return UnionType<T>.FromNull();
+        }
+
+        #endregion
+
         #region Join
 
         /// <summary>
@@ -528,7 +540,7 @@ namespace Cosmos.Optionals
         /// <param name="valueToJoin"></param>
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
-        public Maybe<T, T2> Join<T2>(T2 valueToJoin) 
+        public Maybe<T, T2> Join<T2>(T2 valueToJoin)
             => new(this, Optional.From(valueToJoin));
 
         /// <summary>
@@ -538,7 +550,7 @@ namespace Cosmos.Optionals
         /// <param name="condition"></param>
         /// <typeparam name="T2"></typeparam>
         /// <returns></returns>
-        public Maybe<T, T2> Join<T2>(T2 valueToJoin, Func<T2, bool> condition) 
+        public Maybe<T, T2> Join<T2>(T2 valueToJoin, Func<T2, bool> condition)
             => new(this, Optional.From(valueToJoin, condition));
 
         /// <summary>

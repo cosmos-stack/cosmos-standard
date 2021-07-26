@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cosmos.Optionals.Internals;
+using Cosmos.UnionTypes;
 
 namespace Cosmos.Optionals
 {
@@ -13,8 +14,8 @@ namespace Cosmos.Optionals
     /// <typeparam name="T4"></typeparam>
     [Serializable]
     public readonly struct Maybe<T1, T2, T3, T4> : IOptionalImpl<(T1, T2, T3, T4), Maybe<T1, T2, T3, T4>>,
-                                                   IEquatable<Maybe<T1, T2, T3, T4>>,
-                                                   IComparable<Maybe<T1, T2, T3, T4>>
+        IEquatable<Maybe<T1, T2, T3, T4>>,
+        IComparable<Maybe<T1, T2, T3, T4>>
     {
         private readonly Maybe<T1> _o1;
         private readonly Maybe<T2> _o2;
@@ -559,6 +560,23 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <returns></returns>
         public None<(T1, T2, T3, T4)> ToWrappedNone() => new();
+
+        #endregion
+
+        #region ToUnionType
+
+        public UnionType<T1, T2, T3, T4> ToUnionType()
+        {
+            if (_o1.HasValue)
+                return UnionType.Of<T1, T2, T3, T4>(_o1.ValueOr(default(T1)));
+            if (_o2.HasValue)
+                return UnionType.Of<T1, T2, T3, T4>(_o2.ValueOr(default(T2)));
+            if (_o3.HasValue)
+                return UnionType.Of<T1, T2, T3, T4>(_o3.ValueOr(default(T3)));
+            if (_o4.HasValue)
+                return UnionType.Of<T1, T2, T3, T4>(_o4.ValueOr(default(T4)));
+            return UnionType<T1, T2, T3, T4>.FromNull();
+        }
 
         #endregion
 
