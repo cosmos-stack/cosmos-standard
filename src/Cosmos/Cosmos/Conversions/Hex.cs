@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
 using Cosmos.Conversions.Helpers;
 
 namespace Cosmos.Conversions
@@ -46,6 +47,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="hex"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Reverse(string hex)
         {
             return ScaleRevHelper.Reverse(hex, 2);
@@ -62,6 +64,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToHexString(this byte[] bytes) => Hex.ToString(bytes);
 
         /// <summary>
@@ -69,6 +72,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="hex"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte[] ToBytes(this string hex) => Hex.ToBytes(hex);
     }
 }

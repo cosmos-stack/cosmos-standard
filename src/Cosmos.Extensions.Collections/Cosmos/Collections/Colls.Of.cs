@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Cosmos.Collections.Pagination;
 using Cosmos.Collections.Pagination.Internals;
 
@@ -18,6 +19,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<T> OfList<T>() => new();
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace Cosmos.Collections
         /// <param name="params"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<T> OfList<T>(params T[] @params) => new(@params);
 
         /// <summary>
@@ -40,7 +43,7 @@ namespace Cosmos.Collections
         {
             var ret = new List<T>();
 
-            if (listParams != null)
+            if (listParams is not null)
             {
                 foreach (var list in listParams)
                 {
@@ -82,6 +85,7 @@ namespace Cosmos.Collections
         /// <param name="pageNumber">page number</param>
         /// <param name="itemCountPerPage">page size</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static QueryablePage<T> OfPage<T>(IQueryable<T> queryable, int pageNumber, int itemCountPerPage)
         {
             return queryable.GetPage(pageNumber, itemCountPerPage) as QueryablePage<T>;
@@ -95,6 +99,7 @@ namespace Cosmos.Collections
         /// <param name="pageNumber">page number</param>
         /// <param name="itemCountPerPage">page size</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static EnumerablePage<T> OfPage<T>(IEnumerable<T> enumerable, int pageNumber, int itemCountPerPage)
         {
             return enumerable.GetPage(pageNumber, itemCountPerPage) as EnumerablePage<T>;
@@ -108,6 +113,7 @@ namespace Cosmos.Collections
         /// <param name="limitedMemberCount"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static PageableEnumerable<T> OfPageSet<T>(IEnumerable<T> enumerable, int? pageSize = null, int? limitedMemberCount = null)
         {
             return PageableCollectionFactory.CreatePageSet(enumerable, pageSize, limitedMemberCount);
@@ -121,6 +127,7 @@ namespace Cosmos.Collections
         /// <param name="limitedMemberCount"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static PageableQueryable<T> OfPageSet<T>(IQueryable<T> queryable, int? pageSize = null, int? limitedMemberCount = null)
         {
             return PageableCollectionFactory.CreatePageSet(queryable, pageSize, limitedMemberCount);
@@ -134,6 +141,7 @@ namespace Cosmos.Collections
         /// <param name="startIndex"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static PageMember<T> OfPageMember<T>(T memberValue, int offset, ref int startIndex)
         {
             return PageMemberFactory.Create(memberValue, offset, ref startIndex);
@@ -148,6 +156,7 @@ namespace Cosmos.Collections
         /// <param name="startIndex"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static PageMember<T> OfPageMember<T>(IEnumerable<T> memberColl, int index, int offset, ref int startIndex)
         {
             return PageMemberFactory.Create(memberColl, index, offset, ref startIndex);
@@ -161,6 +170,7 @@ namespace Cosmos.Collections
         /// <param name="startIndex"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static PageMember<T> OfPageMember<T>(IQueryEntryState<T> state, int offset, ref int startIndex)
         {
             return PageMemberFactory.Create(state, offset, ref startIndex);

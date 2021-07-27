@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Collections
 {
@@ -33,6 +34,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReadOnlyDictionary<TKey, TValue> Empty<TKey, TValue>()
         {
             return EmptyReadOnlyDictionarySingleton<TKey, TValue>.OneInstance;
@@ -78,6 +80,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefault<TKey, TValue>(IReadOnlyDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
         {
             return dictionary is not null &&
@@ -95,6 +98,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefault<TKey, TValue>(IReadOnlyDictionary<TKey, TValue> dictionary, TKey key)
         {
             return dictionary is not null &&
@@ -117,6 +121,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefaultCascading<TKey, TValue>(IEnumerable<IReadOnlyDictionary<TKey, TValue>> dictionaryColl, TKey key, TValue defaultValue)
         {
             if (dictionaryColl is null)
@@ -132,6 +137,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefaultCascading<TKey, TValue>(IEnumerable<IReadOnlyDictionary<TKey, TValue>> dictionaryColl, TKey key)
         {
             return GetValueOrDefaultCascading(dictionaryColl, key, default);

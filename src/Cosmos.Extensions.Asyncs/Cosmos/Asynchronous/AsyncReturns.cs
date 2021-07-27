@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace Cosmos.Asynchronous
         /// <param name="cancellationToken"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Canceled<T>(CancellationToken cancellationToken) => Tasks.FromCanceled<T>(cancellationToken);
 
         /// <summary>
@@ -23,12 +25,14 @@ namespace Cosmos.Asynchronous
         /// <param name="exception"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Canceled<T>(OperationCanceledException exception) => Tasks.FromCanceled<T>(exception);
 
         /// <summary>
         /// Returns Completed Task
         /// </summary>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task CompletedTask() => Tasks.CompletedTask();
 
         /// <summary>
@@ -36,6 +40,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="action"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task Delegate(Action action) => new Task(action);
 
         /// <summary>
@@ -44,6 +49,7 @@ namespace Cosmos.Asynchronous
         /// <param name="func"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Delegate<T>(Func<T> func) => new Task<T>(func);
 
         /// <summary>
@@ -52,6 +58,7 @@ namespace Cosmos.Asynchronous
         /// <param name="taskFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Delegate<T>(Func<Task<T>> taskFunc) => taskFunc?.Invoke();
 
         /// <summary>
@@ -60,6 +67,7 @@ namespace Cosmos.Asynchronous
         /// <param name="exception"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Exception<T>(Exception exception) => Tasks.FromException<T>(exception);
 
         /// <summary>
@@ -68,6 +76,7 @@ namespace Cosmos.Asynchronous
         /// <param name="exceptionFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Exception<T>(Func<Exception> exceptionFunc) => Tasks.FromException<T>(exceptionFunc());
 
         /// <summary>
@@ -75,6 +84,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Default<T>() => Task.FromResult(default(T));
 
         /// <summary>
@@ -83,6 +93,7 @@ namespace Cosmos.Asynchronous
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Value<T>(T value) => Task.FromResult(value);
 
         /// <summary>
@@ -91,6 +102,7 @@ namespace Cosmos.Asynchronous
         /// <param name="valueFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> Value<T>(Func<T> valueFunc) => Value(valueFunc());
 
         /// <summary>
@@ -100,6 +112,7 @@ namespace Cosmos.Asynchronous
         /// <param name="defaultVal"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOr<T>(T value, T defaultVal) => Value(value ?? defaultVal);
 
         /// <summary>
@@ -109,6 +122,7 @@ namespace Cosmos.Asynchronous
         /// <param name="defaultValFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOr<T>(T value, Func<T> defaultValFunc) => value is null ? Value(defaultValFunc) : Value(value);
 
         /// <summary>
@@ -118,6 +132,7 @@ namespace Cosmos.Asynchronous
         /// <param name="defaultVal"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOr<T>(Func<T> valueFunc, T defaultVal) => valueFunc is null ? Value(defaultVal) : Value(valueFunc);
 
         /// <summary>
@@ -127,6 +142,7 @@ namespace Cosmos.Asynchronous
         /// <param name="defaultValFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOr<T>(Func<T> valueFunc, Func<T> defaultValFunc) => valueFunc is null ? Value(defaultValFunc) : Value(valueFunc);
 
         /// <summary>
@@ -135,6 +151,7 @@ namespace Cosmos.Asynchronous
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOrDefault<T>(T value) => Value(value ?? default);
 
         /// <summary>
@@ -143,6 +160,7 @@ namespace Cosmos.Asynchronous
         /// <param name="valueFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOrDefault<T>(Func<T> valueFunc) => valueFunc is null ? Default<T>() : Value(valueFunc);
 
         /// <summary>
@@ -152,6 +170,7 @@ namespace Cosmos.Asynchronous
         /// <param name="exception"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOrException<T>(T value, Exception exception) => value is null ? Exception<T>(exception) : Value(value);
 
         /// <summary>
@@ -161,6 +180,7 @@ namespace Cosmos.Asynchronous
         /// <param name="exceptionFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOrException<T>(T value, Func<Exception> exceptionFunc) => value is null ? Exception<T>(exceptionFunc) : Value(value);
 
         /// <summary>
@@ -170,6 +190,7 @@ namespace Cosmos.Asynchronous
         /// <param name="exceptionFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Task<T> ValueOrException<T>(Func<T> valueFunc, Func<Exception> exceptionFunc) => valueFunc is null ? Exception<T>(exceptionFunc) : Value(valueFunc);
     }
 }

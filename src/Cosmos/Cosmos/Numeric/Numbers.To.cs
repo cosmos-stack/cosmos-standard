@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Numeric
 {
@@ -13,6 +14,7 @@ namespace Cosmos.Numeric
         /// Accurate way to convert float to decimal by converting to string first.  Avoids tolerance issues.<br />
         /// 通过先转换为字符串将浮点数转换为小数的准确方法。 避免公差问题。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal ToDecimal(float value)
         {
             return decimal.Parse(value.ToString(CultureInfo.InvariantCulture));
@@ -36,6 +38,7 @@ namespace Cosmos.Numeric
         /// Accurate way to convert float to double by converting to string first.  Avoids tolerance issues.<br />
         /// 通过首先转换为字符串将 float 转换为 double 的准确方法。 避免公差问题。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(float value)
         {
             var result = ReturnZeroIfFinite(value);
@@ -46,6 +49,7 @@ namespace Cosmos.Numeric
         /// Accurate way to convert possible float to double by converting to string first.  Avoids tolerance issues.<br />
         /// 通过首先转换为字符串来将可能的 float 转换为 double 的准确方法。 避免公差问题。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(float? value)
         {
             return value.HasValue ? ToDouble(value.Value) : double.NaN;
@@ -74,30 +78,35 @@ namespace Cosmos.Numeric
         /// Accurate way to convert float to decimal by converting to string first.  Avoids tolerance issues.<br />
         /// 通过先转换为字符串将浮点数转换为小数的准确方法。 避免公差问题。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal ToDecimal(this float value) => Numbers.ToDecimal(value);
 
         /// <summary>
         /// Accurate way to convert float to double by rounding finite values to a decimal point tolerance level.<br />
         /// 通过将有限值四舍五入到小数点公差级别来将 float 转换为 double 的准确方法。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(this float value, int precision) => Numbers.ToDouble(value, precision);
 
         /// <summary>
         /// Accurate way to convert float to double by converting to string first.  Avoids tolerance issues.<br />
         /// 通过首先转换为字符串将 float 转换为 double 的准确方法。 避免公差问题。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(this float value) => Numbers.ToDouble(value);
 
         /// <summary>
         /// Accurate way to convert possible float to double by converting to string first.  Avoids tolerance issues.<br />
         /// 通过首先转换为字符串来将可能的 float 转换为 double 的准确方法。 避免公差问题。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(this float? value) => Numbers.ToDouble(value);
 
         /// <summary>
         /// Accurate way to convert a possible float to double by rounding finite values to a decimal point tolerance level.<br />
         /// 通过将有限值四舍五入到小数点公差级别，将可能的浮点数转换为双精度值的准确方法。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(this float? value, int precision) => Numbers.ToDouble(value, precision);
     }
 }

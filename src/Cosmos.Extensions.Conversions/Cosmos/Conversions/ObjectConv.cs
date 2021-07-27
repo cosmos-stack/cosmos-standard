@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Conversions
@@ -50,6 +51,7 @@ namespace Cosmos.Conversions
         /// <param name="context"></param>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TTo To<TTo>(object source, CastingContext context = default)
         {
             return XConv.To(source, source?.GetType(), typeof(TTo), context: context).As<TTo>();
@@ -63,6 +65,7 @@ namespace Cosmos.Conversions
         /// <param name="context"></param>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TTo To<TTo>(object source, TTo defaultVal, CastingContext context = default)
         {
             return XConv.To(source, source?.GetType(), typeof(TTo), defaultVal, context).As<TTo>();
@@ -80,6 +83,7 @@ namespace Cosmos.Conversions
         /// <typeparam name="TFrom"></typeparam>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TTo To<TFrom, TTo>(TFrom source, CastingContext context = default)
         {
             return XConv.To<TFrom, TTo>(source, context: context);
@@ -94,6 +98,7 @@ namespace Cosmos.Conversions
         /// <typeparam name="TFrom"></typeparam>
         /// <typeparam name="TTo"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TTo To<TFrom, TTo>(TFrom source, TTo defaultVal, CastingContext context = default)
         {
             return XConv.To(source, defaultVal, context);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Reflection
 {
@@ -20,6 +21,7 @@ namespace Cosmos.Reflection
         /// 根据给定的通用参数返回相应的类型。
         /// </summary>
         /// <typeparam name="T">Special type T</typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type Of<T>(TypeOfOptions options = TypeOfOptions.Owner)
         {
             return options switch

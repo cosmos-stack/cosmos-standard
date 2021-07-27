@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -61,6 +62,7 @@ namespace Cosmos.Date
         /// <param name="format1"></param>
         /// <param name="format2"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Ifttt(bool condition, string format1, string format2)
         {
             return condition ? format1 : format2;
@@ -104,6 +106,7 @@ namespace Cosmos.Date
         /// <param name="styles"></param>
         /// <param name="isRemoveSecond"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToString(this DateTime? dt, DateTimeOutputStyles styles, bool isRemoveSecond = false)
         {
             return dt is null ? string.Empty : dt.Value.ToString(styles, isRemoveSecond);
@@ -115,6 +118,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="localDateTime"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ToDateTimeOffset(this DateTime localDateTime)
         {
             return localDateTime.ToDateTimeOffset(null);
@@ -127,6 +131,7 @@ namespace Cosmos.Date
         /// <param name="localDateTime"></param>
         /// <param name="localTimeZone"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ToDateTimeOffset(this DateTime localDateTime, TimeZoneInfo localTimeZone)
         {
             if (localDateTime.Kind != DateTimeKind.Unspecified)
@@ -141,6 +146,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dateTimeUtc"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime ToLocalDateTime(this DateTimeOffset dateTimeUtc)
         {
             return dateTimeUtc.ToLocalDateTime(null);
@@ -153,6 +159,7 @@ namespace Cosmos.Date
         /// <param name="dateTimeUtc"></param>
         /// <param name="localTimeZone"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime ToLocalDateTime(this DateTimeOffset dateTimeUtc, TimeZoneInfo localTimeZone)
         {
             return TimeZoneInfo.ConvertTime(dateTimeUtc, localTimeZone ?? TimeZoneInfo.Local).DateTime;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Cosmos.Collections;
 
 namespace Cosmos.Optionals
@@ -15,6 +16,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue? GetOptionalValue<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key) where TValue : struct
         {
             if (dictionary is null)
@@ -30,6 +32,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue? GetOptionalValue<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key) where TValue : struct
         {
             return dictionaryColl.TryGetValueCascading(key, out var value) ? value : (TValue?) null;

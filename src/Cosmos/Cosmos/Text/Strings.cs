@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 // ReSharper disable PossibleMultipleEnumeration
@@ -59,6 +60,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForLetters(string text)
         {
             return string.IsNullOrEmpty(text) ? 0 : FilterForLetters(text).Count();
@@ -70,6 +72,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForLettersUpperCase(string text)
         {
             return string.IsNullOrEmpty(text) ? 0 : FilterForLetters(text).Where(char.IsUpper).Count();
@@ -81,6 +84,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForLettersLowerCase(string text)
         {
             return string.IsNullOrEmpty(text) ? 0 : FilterForLetters(text).Where(char.IsLower).Count();
@@ -92,6 +96,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForNumbers(string text)
         {
             return string.IsNullOrEmpty(text) ? 0 : FilterForNumbers(text).Count();
@@ -103,6 +108,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrences(string text, char toCheck)
         {
             return CountOccurrences(text, toCheck.ToString());
@@ -135,6 +141,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrencesIgnoreCase(string text, char toCheck)
         {
             return CountOccurrencesIgnoreCase(text, toCheck.ToString());
@@ -168,6 +175,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrences(string text, char toCheck, IgnoreCase @case)
         {
             return @case switch
@@ -185,6 +193,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrences(string text, string toCheck, IgnoreCase @case)
         {
             return @case switch
@@ -238,6 +247,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForDiffChars(string text, string toCheck, IgnoreCase @case)
         {
             return @case switch
@@ -279,6 +289,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="character"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(string text, char character)
         {
             return text.Any(c => c == character);
@@ -335,6 +346,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="character"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsIgnoreCase(string text, char character)
         {
             return text.Any(c => c == char.ToUpperInvariant(character) || c == char.ToLowerInvariant(character));
@@ -377,6 +389,7 @@ namespace Cosmos.Text
         /// <param name="values"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(string text, string[] values, IgnoreCase @case)
         {
             return @case.X()
@@ -395,6 +408,7 @@ namespace Cosmos.Text
         /// <param name="character"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(string text, char character, IgnoreCase @case)
         {
             return @case.X()
@@ -409,6 +423,7 @@ namespace Cosmos.Text
         /// <param name="characters"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(string text, char[] characters, IgnoreCase @case)
         {
             if (@case.X())
@@ -438,6 +453,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string AvoidNull(string text) => text ?? string.Empty;
 
         /// <summary>
@@ -446,6 +462,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string NullToEmpty(string text) => AvoidNull(text);
 
         /// <summary>
@@ -454,6 +471,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string EmptyToNull(string text) => string.IsNullOrEmpty(text) ? null : text;
 
         #endregion
@@ -466,6 +484,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="predicate"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<char> FilterByChar(string text, Func<char, bool> predicate)
         {
             return text.ToCharArray().Where(predicate);
@@ -477,6 +496,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<char> FilterForNumbersAndLetters(string text)
         {
             return FilterByChar(text, __check);
@@ -493,6 +513,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<char> FilterForNumbers(string text)
         {
             return FilterByChar(text, __check);
@@ -509,6 +530,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<char> FilterForLetters(string text)
         {
             return FilterByChar(text, __check);
@@ -529,6 +551,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetNumbersAndLetters(string text)
         {
             return Merge(FilterForNumbersAndLetters(text));
@@ -540,6 +563,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetNumbers(string text)
         {
             return Merge(FilterForNumbers(text));
@@ -551,6 +575,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetLetters(string text)
         {
             return Merge(FilterForLetters(text));
@@ -566,6 +591,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasNumbers(string text)
         {
             return HasNumbersAtLeast(text, 1);
@@ -578,6 +604,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="minCount"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasNumbersAtLeast(string text, int minCount)
         {
             minCount = minCount <= 0 ? 1 : minCount;
@@ -594,6 +621,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasLetters(string text)
         {
             return HasLettersAtLeast(text, 1);
@@ -606,6 +634,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="minCount"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasLettersAtLeast(string text, int minCount)
         {
             minCount = minCount <= 0 ? 1 : minCount;
@@ -703,6 +732,7 @@ namespace Cosmos.Text
         /// <param name="removeText"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Remove(string text, string removeText, IgnoreCase @case = IgnoreCase.FALSE)
         {
             return @case.X()
@@ -732,6 +762,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveWhiteSpace(string text)
         {
             return RemoveChars(text, ' ');
@@ -742,6 +773,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveDuplicateWhiteSpaces(string text)
         {
             return RemoveDuplicateChar(text, ' ');
@@ -810,6 +842,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="indexOfStartToRemove"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveSince(string text, int indexOfStartToRemove)
         {
             return indexOfStartToRemove <= 0 ? text : text.Substring(0, indexOfStartToRemove);
@@ -850,6 +883,7 @@ namespace Cosmos.Text
         /// <param name="removeFromThis"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveSince(string text, string removeFromThis, IgnoreCase @case)
         {
             return @case switch
@@ -911,6 +945,7 @@ namespace Cosmos.Text
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceIgnoreCase(string text, string oldValue, string newValue)
         {
             return Replace(text, oldValue, newValue, StringComparison.OrdinalIgnoreCase);
@@ -1185,6 +1220,7 @@ namespace Cosmos.Text
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CommonPrefix(string left, string right)
         {
             return CommonPrefix(left, right, out _);
@@ -1217,6 +1253,7 @@ namespace Cosmos.Text
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CommonSuffix(string left, string right)
         {
             return CommonSuffix(left, right, out _);
@@ -1256,6 +1293,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForLetters(this string text)
         {
             return Strings.CountForLetters(text);
@@ -1267,6 +1305,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForLettersUpperCase(this string text)
         {
             return Strings.CountForLettersUpperCase(text);
@@ -1278,6 +1317,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForLettersLowerCase(this string text)
         {
             return Strings.CountForLettersLowerCase(text);
@@ -1289,6 +1329,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForNumbers(this string text)
         {
             return Strings.CountForNumbers(text);
@@ -1300,6 +1341,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrences(this string text, char toCheck)
         {
             return Strings.CountOccurrences(text, toCheck);
@@ -1311,6 +1353,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrences(this string text, string toCheck)
         {
             return Strings.CountOccurrences(text, toCheck);
@@ -1322,6 +1365,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrencesIgnoreCase(this string text, char toCheck)
         {
             return Strings.CountOccurrencesIgnoreCase(text, toCheck);
@@ -1333,6 +1377,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrencesIgnoreCase(this string text, string toCheck)
         {
             return Strings.CountOccurrencesIgnoreCase(text, toCheck);
@@ -1345,6 +1390,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrences(this string text, char toCheck, IgnoreCase @case)
         {
             return Strings.CountOccurrences(text, toCheck, @case);
@@ -1357,6 +1403,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountOccurrences(this string text, string toCheck, IgnoreCase @case)
         {
             return Strings.CountOccurrences(text, toCheck, @case);
@@ -1368,6 +1415,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForDiffChars(this string text, string toCheck)
         {
             return Strings.CountForDiffChars(text, toCheck);
@@ -1379,6 +1427,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountForDiffCharsIgnoreCase(this string text, string toCheck)
         {
             return Strings.CountForDiffCharsIgnoreCase(text, toCheck);
@@ -1395,6 +1444,7 @@ namespace Cosmos.Text
         /// <param name="value"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(this string text, string value, params string[] values)
         {
             return Strings.Contains(text, value, values);
@@ -1406,6 +1456,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="character"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(this string text, char character)
         {
             return Strings.Contains(text, character);
@@ -1418,6 +1469,7 @@ namespace Cosmos.Text
         /// <param name="character"></param>
         /// <param name="characters"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(this string text, char character, params char[] characters)
         {
             return Strings.Contains(text, character, characters);
@@ -1430,6 +1482,7 @@ namespace Cosmos.Text
         /// <param name="value"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsIgnoreCase(this string text, string value, params string[] values)
         {
             return Strings.ContainsIgnoreCase(text, value, values);
@@ -1441,6 +1494,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="character"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsIgnoreCase(this string text, char character)
         {
             return Strings.ContainsIgnoreCase(text, character);
@@ -1453,6 +1507,7 @@ namespace Cosmos.Text
         /// <param name="character"></param>
         /// <param name="characters"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsIgnoreCase(this string text, char character, params char[] characters)
         {
             return Strings.ContainsIgnoreCase(text, character, characters);
@@ -1465,6 +1520,7 @@ namespace Cosmos.Text
         /// <param name="values"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(this string text, string[] values, IgnoreCase @case)
         {
             return Strings.Contains(text, values, @case);
@@ -1477,6 +1533,7 @@ namespace Cosmos.Text
         /// <param name="character"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(this string text, char character, IgnoreCase @case)
         {
             return Strings.Contains(text, character, @case);
@@ -1489,6 +1546,7 @@ namespace Cosmos.Text
         /// <param name="characters"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(this string text, char[] characters, IgnoreCase @case)
         {
             return Strings.Contains(text, characters, @case);
@@ -1504,6 +1562,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="targetText"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool EqualsIgnoreCase(this string text, string targetText) =>
             string.Equals(text, targetText, StringComparison.OrdinalIgnoreCase);
 
@@ -1513,14 +1572,16 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="targetTexts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool EqualsToAnyIgnoreCase(this string text, params string[] targetTexts) =>
-            targetTexts != null &&
+            targetTexts is not null &&
             targetTexts.Any(t => string.Equals(text, t, StringComparison.OrdinalIgnoreCase));
 
         #endregion
 
         #region Filter
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<char> Where(this string text, Func<char, bool> predicate)
         {
             return Strings.FilterByChar(text, predicate);
@@ -1536,7 +1597,8 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool HasNumbers(this string text)
+       [MethodImpl(MethodImplOptions.AggressiveInlining)]
+               public static bool HasNumbers(this string text)
         {
             return Strings.HasNumbers(text);
         }
@@ -1548,6 +1610,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="minCount"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasNumbersAtLeast(this string text, int minCount)
         {
             return Strings.HasNumbersAtLeast(text, minCount);
@@ -1563,6 +1626,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsLetters(this string text)
         {
             return Strings.HasLetters(text);
@@ -1575,6 +1639,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="minCount"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsLettersAtLeast(this string text, int minCount)
         {
             return Strings.HasLettersAtLeast(text, minCount);
@@ -1590,6 +1655,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="length"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Right(this string text, int length)
         {
             return Strings.Right(text, length);
@@ -1601,6 +1667,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="length"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Left(this string text, int length)
         {
             return Strings.Left(text, length);
@@ -1617,6 +1684,7 @@ namespace Cosmos.Text
         /// <param name="removeText"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Remove(this string text, string removeText,IgnoreCase @case = IgnoreCase.FALSE)
         {
             return Strings.Remove(text, removeText, @case);
@@ -1629,6 +1697,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toRemove"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveChars(this string text, params char[] toRemove)
         {
             return Strings.RemoveChars(text, toRemove);
@@ -1640,6 +1709,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveWhiteSpace(this string text)
         {
             return Strings.RemoveWhiteSpace(text);
@@ -1650,6 +1720,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveDuplicateWhiteSpaces(this string text)
         {
             return Strings.RemoveDuplicateWhiteSpaces(text);
@@ -1662,6 +1733,7 @@ namespace Cosmos.Text
         /// <param name="charRemove"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveDuplicateChar(this string text, char charRemove,IgnoreCase @case = IgnoreCase.FALSE)
         {
             return Strings.RemoveDuplicateChar(text, charRemove, @case);
@@ -1673,6 +1745,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="indexOfStartToRemove"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveSince(this string text, int indexOfStartToRemove)
         {
             return Strings.RemoveSince(text, indexOfStartToRemove);
@@ -1684,6 +1757,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="removeFromThis"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveSince(this string text, string removeFromThis)
         {
             return Strings.RemoveSince(text, removeFromThis);
@@ -1695,6 +1769,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="removeFromThis"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveSinceIgnoreCase(this string text, string removeFromThis)
         {
             return Strings.RemoveSinceIgnoreCase(text, removeFromThis);
@@ -1707,6 +1782,7 @@ namespace Cosmos.Text
         /// <param name="removeFromThis"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RemoveSince(this string text, string removeFromThis, IgnoreCase @case)
         {
             return Strings.RemoveSince(text, removeFromThis, @case);
@@ -1723,6 +1799,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="repeatTimes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Repeat(this string text, int repeatTimes)
         {
             return Strings.Repeat(text, repeatTimes);
@@ -1739,6 +1816,7 @@ namespace Cosmos.Text
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceIgnoreCase(this string text, string oldValue, string newValue)
         {
             return Strings.ReplaceIgnoreCase(text, oldValue, newValue);
@@ -1751,6 +1829,7 @@ namespace Cosmos.Text
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceOnlyWholePhrase(this string text, string oldValue, string newValue)
         {
             return Strings.ReplaceOnlyWholePhrase(text, oldValue, newValue);
@@ -1763,6 +1842,7 @@ namespace Cosmos.Text
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceFirstOccurrence(this string text, string oldValue, string newValue)
         {
             return Strings.ReplaceFirstOccurrence(text, oldValue, newValue);
@@ -1775,6 +1855,7 @@ namespace Cosmos.Text
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceLastOccurrence(this string text, string oldValue, string newValue)
         {
             return Strings.ReplaceLastOccurrence(text, oldValue, newValue);
@@ -1787,6 +1868,7 @@ namespace Cosmos.Text
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceOnlyAtEndIgnoreCase(this string text, string oldValue, string newValue)
         {
             return Strings.ReplaceOnlyAtEndIgnoreCase(text, oldValue, newValue);
@@ -1800,6 +1882,7 @@ namespace Cosmos.Text
         /// <param name="newValue"></param>
         /// <param name="comparisionType"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Replace(this string text, string oldValue, string newValue, StringComparison comparisionType)
         {
             return Strings.Replace(text, oldValue, newValue, comparisionType);
@@ -1812,6 +1895,7 @@ namespace Cosmos.Text
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceRecursive(this string text, string oldValue, string newValue)
         {
             return Strings.ReplaceRecursive(text, oldValue, newValue);
@@ -1823,6 +1907,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toReplace"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceCharsWithWhiteSpace(this string text, params char[] toReplace)
         {
             return Strings.ReplaceCharsWithWhiteSpace(text, toReplace);
@@ -1834,6 +1919,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toReplace"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReplaceNumbersWith(this string text, char toReplace)
         {
             return Strings.ReplaceNumbersWith(text, toReplace);
@@ -1851,6 +1937,7 @@ namespace Cosmos.Text
         /// <param name="placeholder"></param>
         /// <param name="shortPlaceholder"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Truncate(this string text, int maxLength, string placeholder = "...", string shortPlaceholder = ".")
         {
             return Strings.Truncate(text, maxLength, placeholder, shortPlaceholder);
@@ -1867,6 +1954,7 @@ namespace Cosmos.Text
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CommonPrefix(this string left, string right)
         {
             return Strings.CommonPrefix(left, right);
@@ -1880,6 +1968,7 @@ namespace Cosmos.Text
         /// <param name="right"></param>
         /// <param name="len"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CommonPrefix(this string left, string right, out int len)
         {
             return Strings.CommonPrefix(left, right, out len);
@@ -1892,6 +1981,7 @@ namespace Cosmos.Text
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CommonSuffix(this string left, string right)
         {
             return Strings.CommonSuffix(left, right);
@@ -1905,6 +1995,7 @@ namespace Cosmos.Text
         /// <param name="right"></param>
         /// <param name="len"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CommonSuffix(this string left, string right, out int len)
         {
             return Strings.CommonSuffix(left, right, out len);
@@ -1923,6 +2014,7 @@ namespace Cosmos.Text
         /// <param name="value"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte[] ToBytes(this string value, Encoding encoding = null)
         {
             return value is null
@@ -1936,6 +2028,7 @@ namespace Cosmos.Text
         /// <param name="bytes"></param>
         /// <param name="encoding"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetString(this byte[] bytes, Encoding encoding = null)
         {
             return bytes is null
@@ -2044,6 +2137,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOfIgnoreCase(this string text, string toCheck)
         {
             return text.IndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
@@ -2056,6 +2150,7 @@ namespace Cosmos.Text
         /// <param name="startIndex"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOfIgnoreCase(this string text, string toCheck, int startIndex)
         {
             return text.IndexOf(toCheck, startIndex, StringComparison.OrdinalIgnoreCase);
@@ -2067,6 +2162,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int LastIndexOfIgnoreCase(this string text, string toCheck)
         {
             return text.LastIndexOf(toCheck, StringComparison.OrdinalIgnoreCase);
@@ -2080,6 +2176,7 @@ namespace Cosmos.Text
         /// <param name="startIndex"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int LastIndexOfIgnoreCase(this string text, string toCheck, int startIndex, int count)
         {
             return text.LastIndexOf(toCheck, startIndex, count, StringComparison.OrdinalIgnoreCase);
@@ -2276,6 +2373,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string TrimInner(this string text)
         {
             return Strings.RemoveWhiteSpace(text);
@@ -2300,6 +2398,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="phrase"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string TrimPhrase(this string text, string phrase)
         {
             return text.TrimPhraseStart(phrase).TrimPhraseEnd(phrase);

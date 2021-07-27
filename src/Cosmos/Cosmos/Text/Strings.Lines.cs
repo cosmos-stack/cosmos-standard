@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Cosmos.Text
@@ -105,6 +106,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountByLines(this string text)
         {
             return Strings.CountByLines(text);
@@ -115,6 +117,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<string> SplitByLines(this string text)
         {
             return Strings.SplitByLines(text);
@@ -127,6 +130,7 @@ namespace Cosmos.Text
         /// <param name="maxLines"></param>
         /// <param name="placeholder"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string TruncateByLines(this string text, int maxLines, string placeholder = "...")
         {
             return Strings.TruncateByLines(text, maxLines, placeholder);

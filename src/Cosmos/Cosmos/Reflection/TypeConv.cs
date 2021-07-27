@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Reflection
 {
@@ -119,6 +120,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type GetNonNullableType<T>()
         {
             return GetNonNullableType(typeof(T));

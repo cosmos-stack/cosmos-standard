@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Reflection
 {
@@ -27,6 +28,7 @@ namespace Cosmos.Reflection
             };
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsObjectDerivedFrom<TSource, TParent>(TSource value, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return IsObjectDerivedFrom(value, typeof(TParent), isOptions);
@@ -56,6 +58,7 @@ namespace Cosmos.Reflection
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsTypeDerivedFrom<TSource, TParent>(TypeDerivedOptions derivedOptions = TypeDerivedOptions.Default)
         {
             return IsTypeDerivedFrom(typeof(TSource), typeof(TParent), derivedOptions);
@@ -75,6 +78,7 @@ namespace Cosmos.Reflection
             return parentType.IsAssignableFrom(sourceType);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsTypeBasedOn<TSource, TParent>()
         {
             return IsTypeBasedOn(typeof(TSource), typeof(TParent));
@@ -157,6 +161,7 @@ namespace Cosmos.Reflection
         /// <param name="parentGenericType">The generic type</param>
         /// <param name="genericArguments"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsImplementationOfGenericType(Type sourceType, Type parentGenericType, out Type[] genericArguments)
         {
             return IsImplementationOfGenericType(sourceType, parentGenericType, out _, out genericArguments);
@@ -170,6 +175,7 @@ namespace Cosmos.Reflection
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TGenericParent"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsImplementationOfGenericType<TSource, TGenericParent>(out Type[] genericArguments)
         {
             return IsImplementationOfGenericType(typeof(TSource), typeof(TGenericParent), out genericArguments);
@@ -186,6 +192,7 @@ namespace Cosmos.Reflection
         /// <param name="sourceType"></param>
         /// <param name="parentGenericType"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type GetRawTypeFromGenericType(Type sourceType, Type parentGenericType)
         {
             return IsImplementationOfGenericType(sourceType, parentGenericType, out var genericType, out _)
@@ -200,6 +207,7 @@ namespace Cosmos.Reflection
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TGenericParent"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type GetRawTypeFromGenericType<TSource, TGenericParent>()
         {
             return GetRawTypeFromGenericType(typeof(TSource), typeof(TGenericParent));
@@ -216,6 +224,7 @@ namespace Cosmos.Reflection
         /// <param name="sourceType"></param>
         /// <param name="parentGenericType"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TypesVal GetRawTypeArgsFromGenericType(Type sourceType, Type parentGenericType)
         {
             return IsImplementationOfGenericType(sourceType, parentGenericType, out _, out var genericArguments)
@@ -230,6 +239,7 @@ namespace Cosmos.Reflection
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TGenericParent"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TypesVal GetRawTypeArgsFromGenericType<TSource, TGenericParent>()
         {
             return GetRawTypeArgsFromGenericType(typeof(TSource), typeof(TGenericParent));
@@ -239,6 +249,7 @@ namespace Cosmos.Reflection
 
         #region GetEnumUnderlyingType
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type GetEnumUnderlyingType(Type type)
         {
             if (type is null)
@@ -250,6 +261,7 @@ namespace Cosmos.Reflection
             return type.GetEnumUnderlyingType();
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type GetEnumUnderlyingType<T>()
         {
             return GetEnumUnderlyingType(typeof(T));
@@ -262,11 +274,13 @@ namespace Cosmos.Reflection
     {
         #region IsDerivedFrom
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDerivedFrom(this Type sourceType, Type parentType, TypeDerivedOptions derivedOptions = TypeDerivedOptions.Default)
         {
             return TypeReflections.IsTypeDerivedFrom(sourceType, parentType, derivedOptions);
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDerivedFrom<TParent>(this Type sourceType, TypeDerivedOptions derivedOptions = TypeDerivedOptions.Default)
         {
             return TypeReflections.IsTypeDerivedFrom(sourceType, typeof(TParent), derivedOptions);
@@ -276,11 +290,13 @@ namespace Cosmos.Reflection
         
         #region IsBasedOn
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBasedOn(this Type sourceType, Type parentType)
         {
             return TypeReflections.IsTypeBasedOn(sourceType, parentType);
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBasedOn<TParent>(this Type sourceType)
         {
             return TypeReflections.IsTypeBasedOn(sourceType, typeof(TParent));
@@ -298,6 +314,7 @@ namespace Cosmos.Reflection
         /// <param name="parentType"></param>
         /// <param name="sourceType"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsGenericAssignableFrom(this Type parentType, Type sourceType)
         {
             return TypeReflections.IsImplementationOfGenericType(sourceType, parentType, out _);
@@ -311,6 +328,7 @@ namespace Cosmos.Reflection
         /// <param name="parentType"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsGenericAssignableFrom<TSource>(this Type parentType)
         {
             return TypeReflections.IsImplementationOfGenericType(typeof(TSource), parentType, out _);
@@ -328,6 +346,7 @@ namespace Cosmos.Reflection
         /// <param name="sourceType">给定类型</param>
         /// <param name="parentType">泛型类型</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsImplementationOfGenericType(this Type sourceType, Type parentType)
         {
             return TypeReflections.IsImplementationOfGenericType(sourceType, parentType, out _);
@@ -341,6 +360,7 @@ namespace Cosmos.Reflection
         /// <param name="sourceType"></param>
         /// <typeparam name="TParent"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsImplementationOfGenericType<TParent>(this Type sourceType)
         {
             return TypeReflections.IsImplementationOfGenericType(sourceType, typeof(TParent), out _);

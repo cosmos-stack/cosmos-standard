@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 // ReSharper disable MemberHidesStaticFromOuterClass
 
@@ -314,32 +315,38 @@ namespace Cosmos.Collections
     {
         #region Add
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> AddRange<T>(this IEnumerable<T> source, IEnumerable<T> collection, int limit)
         {
             return Colls.AddRange(source, collection, limit);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> AddIf<T>(this IEnumerable<T> source, T value, bool flag)
         {
             return Colls.AddIf(source, value, flag);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> AddIf<T>(this IEnumerable<T> source, T value, Func<bool> condition)
         {
             return Colls.AddIf(source, value, condition);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> AddIf<T>(this IEnumerable<T> source, T value, Func<T, bool> condition)
         {
             return Colls.AddIf(source, value, condition);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> AddIfNotExist<T>(this IEnumerable<T> source, T value, Func<T, bool> existFunc = null)
         {
             Func<T, bool> condition = t => !source.Contains(t);
             return Colls.AddIf(source, value, v => existFunc?.Invoke(v) ?? condition(v));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> AddIfNotNull<T>(this IEnumerable<T> source, T value)
         {
             return Colls.AddIf(source, value, v => v is not null);
@@ -349,6 +356,7 @@ namespace Cosmos.Collections
 
         #region Get or Add
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T GetOrAdd<T>(this ICollection<T> source, Func<T, bool> selector, Func<T> factory)
         {
             return Colls.GetOrAdd(source, selector, factory);
@@ -364,6 +372,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> RemoveDuplicates<TSource>(this IList<TSource> source)
         {
             return Colls.RemoveDuplicates(source);
@@ -377,6 +386,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TCheck"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> RemoveDuplicates<TSource, TCheck>(this IList<TSource> source, Func<TSource, TCheck> duplicatePredicate)
         {
             return Colls.RemoveDuplicates(source, duplicatePredicate);
@@ -387,6 +397,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<string> RemoveDuplicatesIgnoreCase(this IList<string> source)
         {
             return Colls.RemoveDuplicatesIgnoreCase(source);
@@ -401,6 +412,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> RemoveIf<T>(this IList<T> source, Func<T, bool> predicate)
         {
             return Colls.RemoveIf(source, predicate);
@@ -419,6 +431,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> Merge<T>(this IEnumerable<T> source, IEnumerable<T> right)
         {
             return Colls.Merge(source, right);
@@ -434,6 +447,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> Merge<T>(this IEnumerable<T> source, IEnumerable<T> right, int limit)
         {
             return Colls.Merge(source, right, limit);

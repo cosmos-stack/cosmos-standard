@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 
 // ReSharper disable MemberHidesStaticFromOuterClass
 
@@ -157,6 +158,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsAtLeast<T>(ICollection<T> source, int count)
         {
             return source?.Count >= count;
@@ -171,6 +173,7 @@ namespace Cosmos.Collections
         /// <param name="condition"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsAtLeast<T>(IEnumerable<T> source, Expression<Func<T, bool>> condition, int count)
         {
             return source?.Where(condition.Compile()).Count() >= count;
@@ -201,6 +204,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<T> Empty<T>() => new();
 
         #endregion
@@ -214,6 +218,7 @@ namespace Cosmos.Collections
         /// <param name="item"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOf<T>(IEnumerable<T> source, T item)
         {
             return IndexOf(source, item, EqualityComparer<T>.Default);
@@ -235,7 +240,7 @@ namespace Cosmos.Collections
             if (equalityComparer is null)
                 throw new ArgumentNullException(nameof(equalityComparer));
 
-            return source.Select((i, index) => new {Item = i, Index = index})
+            return source.Select((i, index) => new { Item = i, Index = index })
                          .FirstOrDefault(p => equalityComparer.Equals(p.Item, item))
                          ?.Index ?? -1;
         }
@@ -271,6 +276,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <param name="source"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> OrderByRandom<TSource>(IEnumerable<TSource> source)
         {
             if (source is null)
@@ -287,6 +293,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void OrderByShuffle<T>(IList<T> items)
         {
             OrderByShuffle(items, 4);
@@ -302,14 +309,12 @@ namespace Cosmos.Collections
         {
             for (var j = 0; j < times; j++)
             {
-                var rnd = new Random((int) (DateTime.Now.Ticks % int.MaxValue) - j);
+                var rnd = new Random((int)(DateTime.Now.Ticks % int.MaxValue) - j);
 
                 for (var i = 0; i < items.Count; i++)
                 {
                     var index = rnd.Next(items.Count - 1);
-                    var temp = items[index];
-                    items[index] = items[i];
-                    items[i] = temp;
+                    (items[index], items[i]) = (items[i], items[index]);
                 }
             }
         }
@@ -320,6 +325,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<T> OrderByShuffleAndNewInstance<T>(IList<T> items)
         {
             return OrderByShuffleAndNewInstance(items, 4);
@@ -342,13 +348,14 @@ namespace Cosmos.Collections
         #endregion
 
         #region Unique Count
-        
+
         /// <summary>
         /// Unique Count
         /// </summary>
         /// <param name="source"></param>
         /// <typeparam name="TObj"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int UniqueCount<TObj>(IEnumerable<TObj> source)
         {
             return UniqueCount(source, val => val);
@@ -390,6 +397,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn<T>(this T item, params T[] items)
         {
             return Colls.BeContainedIn(item, items, EqualityComparer<T>.Default);
@@ -403,6 +411,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn<T>(this T item, IEqualityComparer<T> equalityComparer, params T[] items)
         {
             return Colls.BeContainedIn(item, items, equalityComparer);
@@ -415,6 +424,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn<T>(this T item, IEnumerable<T> items)
         {
             return Colls.BeContainedIn(item, items, EqualityComparer<T>.Default);
@@ -429,6 +439,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn<T>(this T item, IEnumerable<T> items, IEqualityComparer<T> equalityComparer)
         {
             return Colls.BeContainedIn(item, items, equalityComparer);
@@ -443,6 +454,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn<T>(this T item, IEnumerable<T> items, Expression<Func<T, bool>> condition)
         {
             return Colls.BeContainedIn(item, items, condition);
@@ -458,6 +470,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn<T>(this T item, IEnumerable<T> items, Expression<Func<T, bool>> condition, IEqualityComparer<T> equalityComparer)
         {
             return Colls.BeContainedIn(item, items, condition, equalityComparer);
@@ -475,6 +488,7 @@ namespace Cosmos.Collections
         /// <param name="condition"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains<T>(this IEnumerable<T> source, Expression<Func<T, bool>> condition)
         {
             return Colls.Contains(source, condition);
@@ -488,6 +502,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsAtLeast<T>(this ICollection<T> source, int count)
         {
             return Colls.ContainsAtLeast(source, count);
@@ -502,6 +517,7 @@ namespace Cosmos.Collections
         /// <param name="condition"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsAtLeast<T>(this IEnumerable<T> source, Expression<Func<T, bool>> condition, int count)
         {
             return Colls.ContainsAtLeast(source, condition, count);
@@ -515,6 +531,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsAtLeast<T>(this IQueryable<T> source, int count)
         {
             return Colls.ContainsAtLeast(source, count);
@@ -531,6 +548,7 @@ namespace Cosmos.Collections
         /// <param name="item"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOf<T>(this IEnumerable<T> source, T item)
         {
             return Colls.IndexOf(source, item, EqualityComparer<T>.Default);
@@ -545,6 +563,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> equalityComparer)
         {
             return Colls.IndexOf(source, item, equalityComparer);
@@ -561,6 +580,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <param name="source"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> OrderByRandom<TSource>(this IEnumerable<TSource> source)
         {
             return Colls.OrderByRandom(source);
@@ -575,6 +595,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void OrderByShuffle<T>(this IList<T> items)
         {
             Colls.OrderByShuffle(items);
@@ -586,6 +607,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <param name="times"></param>
         /// <typeparam name="T"></typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void OrderByShuffle<T>(this IList<T> items, int times)
         {
             Colls.OrderByShuffle(items, times);
@@ -597,6 +619,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<T> OrderByShuffleAndNewInstance<T>(this IList<T> items)
         {
             return Colls.OrderByShuffleAndNewInstance(items);
@@ -609,21 +632,23 @@ namespace Cosmos.Collections
         /// <param name="times"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<T> OrderByShuffleAndNewInstance<T>(this IList<T> items, int times)
         {
             return Colls.OrderByShuffleAndNewInstance(items, times);
         }
 
         #endregion
-        
+
         #region Unique Count
-        
+
         /// <summary>
         /// Unique Count
         /// </summary>
         /// <param name="source"></param>
         /// <typeparam name="TObj"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int UniqueCount<TObj>(this IEnumerable<TObj> source)
         {
             return Colls.UniqueCount(source);
@@ -637,6 +662,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TObj"></typeparam>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int UniqueCount<TObj, TResult>(this IEnumerable<TObj> source, Func<TObj, TResult> valCalculator)
         {
             return Colls.UniqueCount(source, valCalculator);

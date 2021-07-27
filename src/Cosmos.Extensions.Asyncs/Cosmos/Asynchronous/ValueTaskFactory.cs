@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Cosmos.Asynchronous
@@ -14,7 +15,8 @@ namespace Cosmos.Asynchronous
         /// <param name="result"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static ValueTask<T> FromResult<T>(T result) => new ValueTask<T>(result);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ValueTask<T> FromResult<T>(T result) => new(result);
 
         /// <summary>
         /// From exception
@@ -22,6 +24,7 @@ namespace Cosmos.Asynchronous
         /// <param name="exception"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static ValueTask<T> FromException<T>(Exception exception) => new ValueTask<T>(Tasks.FromException<T>(exception));
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ValueTask<T> FromException<T>(Exception exception) => new(Tasks.FromException<T>(exception));
     }
 }

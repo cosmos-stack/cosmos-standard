@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Reflection
 {
@@ -51,6 +52,7 @@ namespace Cosmos.Reflection
         /// <param name="options"></param>
         /// <typeparam name="TInterface"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInterfaceDefined<TInterface>(Type type, InterfaceOptions options = InterfaceOptions.Default)
         {
             return IsInterfaceDefined(type, typeof(TInterface), options);

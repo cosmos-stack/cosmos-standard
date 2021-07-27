@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Cosmos.Conversions;
 using Cosmos.Conversions.Common;
@@ -24,6 +25,7 @@ namespace Cosmos.Text
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Is(this string text, Type type, Action<object> matchedCallback = null)
         {
             return text.Is(type, CastingContext.DefaultContext, matchedCallback);
@@ -105,6 +107,7 @@ namespace Cosmos.Text
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Is(this string text, Type type, Action<CastingContext> contextAct, Action<object> matchedCallback = null)
         {
             var context = new CastingContext();
@@ -124,6 +127,7 @@ namespace Cosmos.Text
         /// <param name="matchedCallback"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Is<T>(this string text, Action<T> matchedCallback = null)
         {
             return text.Is(typeof(T), ValueConverter.ConvertAct(matchedCallback));
@@ -138,6 +142,7 @@ namespace Cosmos.Text
         /// <param name="context"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Is<T>(this string text, CastingContext context, Action<T> matchedCallback = null)
         {
             return text.Is(typeof(T), context, ValueConverter.ConvertAct(matchedCallback));
@@ -152,6 +157,7 @@ namespace Cosmos.Text
         /// <param name="contextAct"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Is<T>(this string text, Action<CastingContext> contextAct, Action<T> matchedCallback = null)
         {
             return text.Is(typeof(T), contextAct, ValueConverter.ConvertAct(matchedCallback));
@@ -170,6 +176,7 @@ namespace Cosmos.Text
         /// <param name="matchedCallback">If the string is guessed to be empty by the string specifier, perform this operation.</param>
         /// <param name="noneMatchedCallback">If the string is empty, perform this operation.</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullable(this string text, Type type, Action<object> matchedCallback = null, Action noneMatchedCallback = null)
         {
             return text is null && NullableFunc()(noneMatchedCallback) || text.Is(type, matchedCallback);
@@ -185,6 +192,7 @@ namespace Cosmos.Text
         /// <param name="matchedCallback">If the string is guessed to be empty by the string specifier, perform this operation.</param>
         /// <param name="noneMatchedCallback">If the string is empty, perform this operation.</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullable(this string text, Type type, CastingContext context, Action<object> matchedCallback = null, Action noneMatchedCallback = null)
         {
             return text is null && NullableFunc()(noneMatchedCallback) || text.Is(type, context, matchedCallback);
@@ -200,6 +208,7 @@ namespace Cosmos.Text
         /// <param name="matchedCallback">If the string is guessed to be empty by the string specifier, perform this operation.</param>
         /// <param name="noneMatchedCallback">If the string is empty, perform this operation.</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullable(this string text, Type type, Action<CastingContext> contextAct, Action<object> matchedCallback = null, Action noneMatchedCallback = null)
         {
             return text is null && NullableFunc()(noneMatchedCallback) || text.Is(type, contextAct, matchedCallback);
@@ -218,6 +227,7 @@ namespace Cosmos.Text
         /// <param name="noneMatchedCallback">If the string is empty, perform this operation.</param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullable<T>(this string text, Action<T> matchedCallback = null, Action noneMatchedCallback = null)
         {
             return text is null && NullableFunc()(noneMatchedCallback) || text.Is(matchedCallback);
@@ -233,6 +243,7 @@ namespace Cosmos.Text
         /// <param name="noneMatchedCallback">If the string is empty, perform this operation.</param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullable<T>(this string text, CastingContext context, Action<T> matchedCallback = null, Action noneMatchedCallback = null)
         {
             return text is null && NullableFunc()(noneMatchedCallback) || text.Is(context, matchedCallback);
@@ -248,6 +259,7 @@ namespace Cosmos.Text
         /// <param name="noneMatchedCallback">If the string is empty, perform this operation.</param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullable<T>(this string text, Action<CastingContext> contextAct, Action<T> matchedCallback = null, Action noneMatchedCallback = null)
         {
             return text is null && NullableFunc()(noneMatchedCallback) || text.Is(contextAct, matchedCallback);

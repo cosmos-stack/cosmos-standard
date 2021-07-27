@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Cosmos.Collections.Internals;
 
 namespace Cosmos.Collections
@@ -87,6 +88,7 @@ namespace Cosmos.Collections
         /// <param name="params"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IReadOnlyList<T> OfList<T>(params T[] @params)
         {
             return Colls.OfList(@params).AsReadOnly();
@@ -99,6 +101,7 @@ namespace Cosmos.Collections
         /// <param name="listParams"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IReadOnlyList<T> OfList<T>(params IEnumerable<T>[] listParams)
         {
             return Colls.OfList(listParams).AsReadOnly();
@@ -112,6 +115,7 @@ namespace Cosmos.Collections
         /// <param name="listParams"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IReadOnlyList<T> OfList<T>(IEnumerable<T> list, params IEnumerable<T>[] listParams)
         {
             return Colls.OfList(list, listParams).AsReadOnly();
@@ -132,6 +136,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IReadOnlyCollection<T> Append<T>(this IReadOnlyCollection<T> source, T item)
         {
             return ReadOnlyColls.Append(source, item);

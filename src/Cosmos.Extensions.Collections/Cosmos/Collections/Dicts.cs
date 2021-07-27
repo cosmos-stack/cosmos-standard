@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Collections
 {
@@ -353,6 +354,7 @@ namespace Cosmos.Collections
         /// <param name="dict"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TVal"></typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> source, Dictionary<TKey, TVal> dict)
         {
             Dicts.Add(source, dict);
@@ -365,6 +367,7 @@ namespace Cosmos.Collections
         /// <param name="pair"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TVal"></typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> source, KeyValuePair<TKey, TVal> pair)
         {
             source.Add(pair.Key, pair.Value);
@@ -378,6 +381,7 @@ namespace Cosmos.Collections
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
         /// <param name="value"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AddValueOrOverride<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             Dicts.AddValueOrOverride(dictionary, key, value);
@@ -392,6 +396,7 @@ namespace Cosmos.Collections
         /// <param name="updateFunc"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AddValueOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Func<TKey, TValue, TValue> updateFunc)
         {
             Dicts.AddValueOrUpdate(dictionary, key, insertFunc, updateFunc);
@@ -407,6 +412,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AddValueOrDo<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Action<TKey, TValue> doAct)
         {
             Dicts.AddValueOrDo(dictionary, key, insertFunc, doAct);
@@ -421,6 +427,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AddValueIfNotExist<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             Dicts.AddValueIfNotExist(dictionary, key, value);
@@ -440,6 +447,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator)
         {
             return Dicts.GetValueOrDefault(dictionary, key, valueCalculator);
@@ -456,6 +464,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
         {
             return Dicts.GetValueOrDefault(dictionary, key, defaultValue);
@@ -470,6 +479,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
         {
             return Dicts.GetValueOrDefault(dictionary, key);
@@ -490,6 +500,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefaultCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key, TValue defaultValue)
         {
             return Dicts.GetValueOrDefaultCascading(dictionaryColl, key, defaultValue);
@@ -503,6 +514,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrDefaultCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key)
         {
             return Dicts.GetValueOrDefaultCascading(dictionaryColl, key, default);
@@ -518,6 +530,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryGetValueCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key, out TValue value)
         {
             return Dicts.TryGetValueCascading(dictionaryColl, key, out value);
@@ -536,6 +549,7 @@ namespace Cosmos.Collections
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             return Dicts.GetValueOrAdd(dictionary, key, value);
@@ -550,6 +564,7 @@ namespace Cosmos.Collections
         /// <param name="key"></param>
         /// <param name="newValueCreator"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> newValueCreator)
         {
             return Dicts.GetValueOrAdd(dictionary, key, newValueCreator);
@@ -563,6 +578,7 @@ namespace Cosmos.Collections
         /// <param name="dictionary"></param>
         /// <param name="key"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue GetValueOrAddNewInstance<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key) where TValue : new()
         {
             return Dicts.GetValueOrAddNewInstance(dictionary, key);
@@ -580,6 +596,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetValue<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             Dicts.SetValue(dictionary, key, value);

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Collections
 {
@@ -10,6 +11,7 @@ namespace Cosmos.Collections
     /// </summary>
     public static partial class Arrays
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T[] Empty<T>()
         {
 #if NET452
@@ -25,6 +27,7 @@ namespace Cosmos.Collections
         /// <param name="src"></param>
         /// <typeparam name="TElement"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TElement[] ToArraySafety<TElement>(IEnumerable<TElement> src)
         {
             return src as TElement[] ?? src?.ToArray() ?? Empty<TElement>();
@@ -58,6 +61,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch(this Array array, object value)
         {
             return Array.BinarySearch(array, value);
@@ -71,6 +75,7 @@ namespace Cosmos.Collections
         /// <param name="length"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch(this Array array, int index, int length, object value)
         {
             return Array.BinarySearch(array, index, length, value);
@@ -83,6 +88,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch(this Array array, object value, IComparer comparer)
         {
             return Array.BinarySearch(array, value, comparer);
@@ -98,6 +104,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch(this Array array, int index, int length, object value, IComparer comparer)
         {
             return Array.BinarySearch(array, index, length, value, comparer);
@@ -109,6 +116,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Clear(this Array array, int index, int length)
         {
             Array.Clear(array, index, length);
@@ -118,6 +126,7 @@ namespace Cosmos.Collections
         /// Sets all elements in an array to the default value of each element type.
         /// </summary>
         /// <param name="array"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Clear(this Array array)
         {
             Array.Clear(array, 0, array.Length);
@@ -130,6 +139,7 @@ namespace Cosmos.Collections
         /// <param name="me"></param>
         /// <param name="condition"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T[] FindAll<T>(this T[] me, Predicate<T> condition)
         {
             return Array.FindAll(me, condition);
@@ -141,6 +151,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOf(this Array array, object value)
         {
             return Array.IndexOf(array, value);
@@ -155,6 +166,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOf(this Array array, object value, int startIndex)
         {
             return Array.IndexOf(array, value, startIndex);
@@ -170,6 +182,7 @@ namespace Cosmos.Collections
         /// <param name="startIndex"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int IndexOf(this Array array, object value, int startIndex, int count)
         {
             return Array.IndexOf(array, value, startIndex, count);
@@ -182,6 +195,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int LastIndexOf(this Array array, object value)
         {
             return Array.LastIndexOf(array, value);
@@ -196,6 +210,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int LastIndexOf(this Array array, object value, int startIndex)
         {
             return Array.LastIndexOf(array, value, startIndex);
@@ -211,6 +226,7 @@ namespace Cosmos.Collections
         /// <param name="startIndex"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int LastIndexOf(this Array array, object value, int startIndex, int count)
         {
             return Array.LastIndexOf(array, value, startIndex, count);
@@ -220,6 +236,7 @@ namespace Cosmos.Collections
         /// Reverses the sequence of the elements in the entire one-dimensional <see cref="T:System.Array" />.
         /// </summary>
         /// <param name="array"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Reverse(this Array array)
         {
             Array.Reverse(array);
@@ -231,6 +248,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Reverse(this Array array, int index, int length)
         {
             Array.Reverse(array, index, length);
@@ -241,6 +259,7 @@ namespace Cosmos.Collections
         /// the <see cref="T:System.IComparable" /> implementation of each element of the <see cref="T:System.Array" />.
         /// </summary>
         /// <param name="array"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array)
         {
             Array.Sort(array);
@@ -253,6 +272,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="array"></param>
         /// <param name="items"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array, Array items)
         {
             Array.Sort(array, items);
@@ -266,6 +286,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array, int index, int length)
         {
             Array.Sort(array, index, length);
@@ -280,6 +301,7 @@ namespace Cosmos.Collections
         /// <param name="items"></param>
         /// <param name="index"></param>
         /// <param name="length"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array, Array items, int index, int length)
         {
             Array.Sort(array, items, index, length);
@@ -290,6 +312,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="array"></param>
         /// <param name="comparer"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array, IComparer comparer)
         {
             Array.Sort(array, comparer);
@@ -303,6 +326,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="items"></param>
         /// <param name="comparer"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array, Array items, IComparer comparer)
         {
             Array.Sort(array, items, comparer);
@@ -315,6 +339,7 @@ namespace Cosmos.Collections
         /// <param name="index"></param>
         /// <param name="length"></param>
         /// <param name="comparer"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array, int index, int length, IComparer comparer)
         {
             Array.Sort(array, index, length, comparer);
@@ -330,6 +355,7 @@ namespace Cosmos.Collections
         /// <param name="index"></param>
         /// <param name="length"></param>
         /// <param name="comparer"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Sort(this Array array, Array items, int index, int length, IComparer comparer)
         {
             Array.Sort(array, items, index, length, comparer);
@@ -340,6 +366,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ByteLength(this Array array)
         {
             return Buffer.ByteLength(array);
@@ -351,6 +378,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte GetByte(this Array array, int index)
         {
             return Buffer.GetByte(array, index);
@@ -362,6 +390,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <param name="value"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetByte(this Array array, int index, byte value)
         {
             Buffer.SetByte(array, index, value);

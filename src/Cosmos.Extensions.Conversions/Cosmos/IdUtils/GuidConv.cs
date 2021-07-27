@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.IdUtils
@@ -14,6 +15,7 @@ namespace Cosmos.IdUtils
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Guid ToGuid(object obj, Guid defaultVal = default)
         {
             return GuidConvX.ObjToGuid(obj, defaultVal);
@@ -24,6 +26,7 @@ namespace Cosmos.IdUtils
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Guid? ToNullableGuid(object obj)
         {
             return GuidConvX.ObjToNullableGuid(obj);
@@ -35,6 +38,7 @@ namespace Cosmos.IdUtils
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Guid ToGuid(string text, Guid defaultVal = default)
         {
             return GuidConvX.StringToGuid(text, defaultVal);
@@ -45,6 +49,7 @@ namespace Cosmos.IdUtils
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Guid? ToNullableGuid(string text)
         {
             return GuidConvX.StringToNullableGuid(text);

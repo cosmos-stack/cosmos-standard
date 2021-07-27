@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Text
 {
@@ -11,11 +12,13 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool AllCapitals(string input)
         {
             return input.ToCharArray().All(char.IsUpper);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string AppendEndIfNeed(string text, string appendStr, Func<bool> condition)
         {
             if (condition?.Invoke() ?? false)
@@ -59,6 +62,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToCamelCase( string text)
         {
             if (text is null)
@@ -73,6 +77,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountByWords(string text)
         {
             return string.IsNullOrWhiteSpace(text) ? 0 : SplitByWords(text).Count();
@@ -83,6 +88,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<string> SplitByWords(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -132,6 +138,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToCapitalCase(this string text)
         {
             return Strings.ToCapitalCase(text);
@@ -142,6 +149,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToCamelCase(this string text)
         {
             return Strings.ToCamelCase(text);
@@ -152,6 +160,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int CountByWords(this string text)
         {
             return Strings.CountByWords(text);
@@ -162,6 +171,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<string> SplitByWords(this string text)
         {
             return Strings.SplitByWords(text);
@@ -175,6 +185,7 @@ namespace Cosmos.Text
         /// <param name="placeholder"></param>
         /// <param name="extraSpace">额外的空格</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string TruncateByWords(this string text, int maxNumber, string placeholder = "...", bool extraSpace = false)
         {
             return Strings.TruncateByWords(text, maxNumber, placeholder, extraSpace);

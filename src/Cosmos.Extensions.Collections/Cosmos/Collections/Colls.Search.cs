@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Collections
 {
@@ -183,6 +184,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<T>(this IList<T> source, T value)
         {
             return Colls.BinarySearch(source, t => t, value);
@@ -197,6 +199,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<TSource, TValue>(this IList<TSource> source, Func<TSource, TValue> map, TValue value)
         {
             return Colls.BinarySearch(source, map, value, Comparer<TValue>.Default);
@@ -211,6 +214,7 @@ namespace Cosmos.Collections
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<T>(this IList<T> source, int index, int length, T value)
         {
             return Colls.BinarySearch(source, index, length, t => t, value);
@@ -227,6 +231,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<TSource, TValue>(this IList<TSource> source, int index, int length, Func<TSource, TValue> map, TValue value)
         {
             return Colls.BinarySearch(source, index, length, map, value, Comparer<TValue>.Default);
@@ -240,6 +245,7 @@ namespace Cosmos.Collections
         /// <param name="comparer"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<T>(this IList<T> source, T value, IComparer<T> comparer)
         {
             return Colls.BinarySearch(source, 0, source.Count, t => t, value, comparer);
@@ -255,6 +261,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<TSource, TValue>(this IList<TSource> source, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer)
         {
             return Colls.BinarySearch(source, 0, source.Count, map, value, comparer);
@@ -270,6 +277,7 @@ namespace Cosmos.Collections
         /// <param name="comparer"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<T>(this IList<T> source, int index, int length, T value, IComparer<T> comparer)
         {
             return Colls.BinarySearch(source, index, length, t => t, value, comparer);
@@ -290,6 +298,7 @@ namespace Cosmos.Collections
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int BinarySearch<TSource, TValue>(this IList<TSource> source, int index, int length, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer)
         {
             return Colls.BinarySearch(source, index, length, map, value, comparer);

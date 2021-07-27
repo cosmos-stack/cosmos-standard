@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 // ReSharper disable MemberHidesStaticFromOuterClass
@@ -21,6 +22,7 @@ namespace Cosmos.Asynchronous
             /// <param name="exception"></param>
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static ValueTask<T> Exception<T>(Exception exception) => ValueTaskFactory.FromException<T>(exception);
 
             /// <summary>
@@ -28,6 +30,7 @@ namespace Cosmos.Asynchronous
             /// </summary>
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static ValueTask<T> Default<T>() => ValueTasks.Create(default(T));
 
             /// <summary>
@@ -36,6 +39,7 @@ namespace Cosmos.Asynchronous
             /// <param name="result"></param>
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static ValueTask<T> Value<T>(T result) => ValueTasks.Create(result);
         }
     }

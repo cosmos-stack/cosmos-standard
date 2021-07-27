@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Cosmos.Conversions
 {
@@ -7,21 +8,25 @@ namespace Cosmos.Conversions
     /// </summary>
     internal static class AsciiConvHelper
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte CharToAscii(char @char)
         {
             return (byte) @char;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte[] StringToAscii(string @string)
         {
             return Encoding.ASCII.GetBytes(@string);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static char AsciiToChar(byte @byte)
         {
             return (char) @byte;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string AsciiToString(byte[] bytes)
         {
             return Encoding.ASCII.GetString(bytes, 0, bytes.Length);
@@ -39,6 +44,7 @@ namespace Cosmos.Conversions
         /// <example>in: new byte[] {65, 66, 67}; out: ABC</example>
         /// <param name="bytes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string BytesToAsciiString(byte[] bytes)
         {
             return AsciiConvHelper.AsciiToString(bytes);
@@ -50,6 +56,7 @@ namespace Cosmos.Conversions
         /// <example>in: ABC; out: new byte[] {65, 66, 67}</example>
         /// <param name="asciiStr"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte[] AsciiStringToBytes(string asciiStr)
         {
             return AsciiConvHelper.StringToAscii(asciiStr);

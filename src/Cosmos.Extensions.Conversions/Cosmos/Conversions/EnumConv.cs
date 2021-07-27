@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Conversions
@@ -16,6 +17,7 @@ namespace Cosmos.Conversions
         /// <param name="defaultVal"></param>
         /// <typeparam name="TEnum"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TEnum ToEnum<TEnum>(string member, bool ignoreCase = false, TEnum defaultVal = default) where TEnum : struct, Enum
         {
             return EnumConvX.StringToEnum(member, defaultVal, ignoreCase);
@@ -29,6 +31,7 @@ namespace Cosmos.Conversions
         /// <param name="ignoreCase"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static object ToEnum(string member, Type enumType, bool ignoreCase = false, object defaultVal = default)
         {
             return EnumConvX.StringToEnum(member, enumType, defaultVal, ignoreCase);
@@ -41,6 +44,7 @@ namespace Cosmos.Conversions
         /// <param name="defaultVal"></param>
         /// <typeparam name="TEnum"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TEnum ToEnum<TEnum>(object member, TEnum defaultVal = default) where TEnum : struct, Enum
         {
             return EnumConvX.ObjToEnum(member, defaultVal);
@@ -53,6 +57,7 @@ namespace Cosmos.Conversions
         /// <param name="enumType"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static object ToEnum(object member, Type enumType, object defaultVal = default)
         {
             return EnumConvX.ObjToEnum(member, enumType, defaultVal);

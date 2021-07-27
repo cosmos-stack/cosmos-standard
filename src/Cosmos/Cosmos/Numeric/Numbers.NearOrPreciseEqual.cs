@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Numeric
 {
@@ -12,6 +13,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Shortcut for validating a if a floating point value is considered zero (within epsilon tolerance).
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsZeroValue(float value)
         {
             return IsPreciseEqual(value, 0f);
@@ -20,6 +22,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Shortcut for validating a if a double tolerance floating point value is considered zero (within epsilon tolerance).
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsZeroValue(double value)
         {
             return IsPreciseEqual(value, 0d);
@@ -28,6 +31,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Shortcut for validating a if a double tolerance floating point value is considered zero (within provided tolerance).
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearZeroValue(double value, double precision = 0.001)
         {
             return IsNearEqual(value, 0d, precision);
@@ -36,6 +40,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Shortcut for validating a if a floating point value is close enough to another addValue using the given tolerance tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearEqual(float a, float b, float tolerance)
         {
             return a.Equals(b) || float.IsNaN(a) && float.IsNaN(b) || Math.Abs(a - b) < tolerance;
@@ -44,6 +49,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Shortcut for validating a if a double precision floating point value is close enough to another addValue using the given tolerance tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearEqual(double a, double b, double tolerance)
         {
             return a.Equals(b) || double.IsNaN(a) && double.IsNaN(b) || Math.Abs(a - b) < tolerance;
@@ -52,6 +58,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Shortcut for validating a if a decimal addValue is close enough to another addValue using the given tolerance tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearEqual(decimal a, decimal b, decimal tolerance)
         {
             return a.Equals(b) || Math.Abs(a - b) < tolerance;
@@ -75,6 +82,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(double a, double b, bool stringValidate = false)
         {
             return IsNearEqual(a, b, double.Epsilon)
@@ -84,6 +92,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(float a, float b, bool stringValidate = false)
         {
             return IsNearEqual(a, b, float.Epsilon) ||
@@ -93,6 +102,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(double? a, double? b, bool stringValidate = false)
         {
             return !a.HasValue && !b.HasValue || a.HasValue && b.HasValue && IsPreciseEqual(a.Value, b.Value, stringValidate);
@@ -101,6 +111,7 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(float? a, float? b, bool stringValidate = false)
         {
             return !a.HasValue && !b.HasValue || a.HasValue && b.HasValue && IsPreciseEqual(a.Value, b.Value, stringValidate);
@@ -139,56 +150,67 @@ namespace Cosmos.Numeric
         /// <summary>
         /// Shortcut for validating a if a floating point value is considered zero (within epsilon tolerance).
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsZero(this float value) => Numbers.IsNearZeroValue(value);
 
         /// <summary>
         /// Shortcut for validating a if a double tolerance floating point value is considered zero (within epsilon tolerance).
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsZero(this double value) => Numbers.IsNearZeroValue(value);
 
         /// <summary>
         /// Shortcut for validating a if a double tolerance floating point value is considered zero (within provided tolerance).
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearZero(this double value, double precision = 0.001) => Numbers.IsNearZeroValue(value, precision);
 
         /// <summary>
         /// Shortcut for validating a if a floating point value is close enough to another addValue using the given tolerance tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearEqual(this float a, float b, float tolerance) => Numbers.IsNearEqual(a, b, tolerance);
 
         /// <summary>
         /// Shortcut for validating a if a double precision floating point value is close enough to another addValue using the given tolerance tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearEqual(this double a, double b, double tolerance) => Numbers.IsNearEqual(a, b, tolerance);
 
         /// <summary>
         /// Shortcut for validating a if a decimal addValue is close enough to another addValue using the given tolerance tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNearEqual(this decimal a, decimal b, decimal tolerance) => Numbers.IsNearEqual(a, b, tolerance);
 
         /// <summary>
         /// Shortcut for validating a if a decimal addValue is close enough to another addValue using the given tolerance tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsRelativeNearEqual(this double a, double b, uint minDecimalPlaces) => Numbers.IsRelativeNearEqual(a, b, minDecimalPlaces);
 
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(this double a, double b, bool stringValidate = false) => Numbers.IsPreciseEqual(a, b, stringValidate);
 
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(this float a, float b, bool stringValidate = false) => Numbers.IsPreciseEqual(a, b, stringValidate);
 
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(this double? a, double? b, bool stringValidate = false) => Numbers.IsPreciseEqual(a, b, stringValidate);
 
         /// <summary>
         /// Validates if values are equal within epsilon tolerance.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPreciseEqual(this float? a, float? b, bool stringValidate = false) => Numbers.IsPreciseEqual(a, b, stringValidate);
     }
 }

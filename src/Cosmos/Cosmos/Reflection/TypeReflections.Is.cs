@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Reflection
 {
@@ -36,6 +37,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="isOptions"></param>
         /// <param name="member">成员</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBoolean(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return X(member, type => N(type, isOptions), type => type == TypeClass.BooleanClazz);
@@ -47,6 +49,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="isOptions"></param>
         /// <param name="member">成员</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateTime(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return X(member, type => N(type, isOptions), type => type == TypeClass.DateTimeClazz);
@@ -58,6 +61,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="member">成员</param>
         /// <param name="isOptions"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNumeric(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return X(member, type => type, type => Types.IsNumericType(type, isOptions));
@@ -70,6 +74,7 @@ namespace Cosmos.Reflection
         /// <param name="member"></param>
         /// <param name="isOptions"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEnum(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return X(member, type => type, type => Types.IsEnumType(type, isOptions));
@@ -82,6 +87,7 @@ namespace Cosmos.Reflection
         /// <param name="member"></param>
         /// <param name="isOptions"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsStruct(MemberInfo member, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return X(member, type => type, type => Types.IsStructType(type, isOptions));
@@ -93,6 +99,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="member"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsCollection(MemberInfo member)
         {
             return X(member, type => type, Types.IsCollectionType);

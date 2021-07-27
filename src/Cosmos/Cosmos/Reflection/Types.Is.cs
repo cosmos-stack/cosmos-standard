@@ -17,6 +17,7 @@ namespace Cosmos.Reflection
 
     internal static partial class TypeExtensions
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Type GetUnboxedType<T>(this T value) => typeof(T);
     }
 
@@ -93,6 +94,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsTupleType<T>(TypeOfOptions ofOptions = TypeOfOptions.Owner, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return IsTupleType(typeof(T), ofOptions, isOptions);
@@ -107,6 +109,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsTupleType<T>(T value, TypeOfOptions ofOptions = TypeOfOptions.Owner, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             var type = value?.GetUnboxedType();
@@ -172,6 +175,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsValueTupleType<T>(TypeOfOptions ofOptions = TypeOfOptions.Owner, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return IsValueTupleType(typeof(T), ofOptions, isOptions);
@@ -186,6 +190,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsValueTupleType<T>(T value, TypeOfOptions ofOptions = TypeOfOptions.Owner, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             var type = value?.GetUnboxedType();
@@ -231,6 +236,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNumericType<T>(TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return IsNumericType(typeof(T), isOptions);
@@ -244,6 +250,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNumericType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return IsNumericType(value.GetUnboxedType(), isOptions);
@@ -259,6 +266,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullableType(Type type)
         {
             return type is not null
@@ -272,6 +280,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullableType<T>()
         {
             return IsNullableType(typeof(T));
@@ -284,6 +293,7 @@ namespace Cosmos.Reflection
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullableType<T>(T value)
         {
             return IsNullableType(value.GetUnboxedType());
@@ -316,6 +326,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEnumType<T>(TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return IsEnumType(typeof(T), isOptions);
@@ -328,6 +339,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEnumType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return value is not null && IsEnumType(typeof(T), isOptions) && typeof(T).IsEnumDefined(value);
@@ -361,6 +373,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsStructType<T>(TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return IsStructType(typeof(T), isOptions);
@@ -373,6 +386,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsStructType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return value is not null && IsStructType(typeof(T), isOptions);
@@ -387,6 +401,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsStaticType(Type type)
         {
             return type is not null && type.IsAbstract && type.IsSealed;
@@ -397,6 +412,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsStaticType<T>()
         {
             return IsStaticType(typeof(T));
@@ -453,6 +469,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsCollectionType<T>()
         {
             return IsCollectionType(typeof(T));
@@ -466,6 +483,7 @@ namespace Cosmos.Reflection
         /// <param name="isOptions"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsCollectionType<T>(T value, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return isOptions switch
@@ -488,6 +506,7 @@ namespace Cosmos.Reflection
         /// <param name="attributeType"></param>
         /// <param name="options"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined(Type type, Type attributeType, ReflectionOptions options = ReflectionOptions.Default)
         {
             return TypeReflections.IsAttributeDefined(type, attributeType, options);
@@ -501,6 +520,7 @@ namespace Cosmos.Reflection
         /// <param name="options"></param>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined<TAttribute>(Type type, ReflectionOptions options = ReflectionOptions.Default)
             where TAttribute : Attribute
         {
@@ -515,6 +535,7 @@ namespace Cosmos.Reflection
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined<T, TAttribute>(ReflectionOptions options = ReflectionOptions.Default)
             where TAttribute : Attribute
         {
@@ -531,6 +552,7 @@ namespace Cosmos.Reflection
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined<T, TAttribute>(T value, ReflectionOptions options = ReflectionOptions.Default, TypeIsOptions isOptions = TypeIsOptions.Default)
             where TAttribute : Attribute
         {
@@ -548,21 +570,25 @@ namespace Cosmos.Reflection
 
         #region Interface Defined
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInterfaceDefined(Type type, Type interfaceType, InterfaceOptions options = InterfaceOptions.Default)
         {
             return TypeReflections.IsInterfaceDefined(type, interfaceType, options);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInterfaceDefined<TInterface>(Type type, InterfaceOptions options = InterfaceOptions.Default)
         {
             return TypeReflections.IsInterfaceDefined<TInterface>(type, options);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInterfaceDefined<T, TInterface>(InterfaceOptions options = InterfaceOptions.Default)
         {
             return TypeReflections.IsInterfaceDefined<TInterface>(typeof(T), options);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInterfaceDefined<T, TInterface>(T value, InterfaceOptions options = InterfaceOptions.Default, TypeIsOptions isOptions = TypeIsOptions.Default)
         {
             return isOptions switch

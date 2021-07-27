@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Reflection
 {
@@ -14,12 +15,14 @@ namespace Cosmos.Reflection
     {
         #region IsDescriptionDefined
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDescriptionDefined(MemberInfo member, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return member is not null &&
                    (IsAttributeDefined<DescriptionAttribute>(member, refOptions) || IsAttributeDefined<DisplayAttribute>(member, refOptions));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDescriptionDefined(ParameterInfo parameter, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return parameter is not null &&
@@ -50,16 +53,19 @@ namespace Cosmos.Reflection
             return parameter.Name;
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescription(MemberInfo member, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionImpl(member, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescription(ParameterInfo parameter, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionImpl(parameter, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescription<T>(ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionImpl(typeof(T), refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
@@ -116,16 +122,19 @@ namespace Cosmos.Reflection
             return parameter.Name;
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDisplayName(MemberInfo member, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDisplayNameImpl(member, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDisplayName(ParameterInfo parameter, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDisplayNameImpl(parameter, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDisplayName<T>(ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDisplayNameImpl(typeof(T), refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
@@ -176,16 +185,19 @@ namespace Cosmos.Reflection
                 : defaultVal;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescriptionOr(MemberInfo member, string defaultVal, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionOrImpl(member, defaultVal, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescriptionOr(ParameterInfo parameter, string defaultVal, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionOrImpl(parameter, defaultVal, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescriptionOr<T>(string defaultVal, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionOrImpl(typeof(T), defaultVal, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
@@ -242,16 +254,19 @@ namespace Cosmos.Reflection
             return defaultVal;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDisplayNameOr(MemberInfo member, string defaultVal, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDisplayNameOrImpl(member, defaultVal, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDisplayNameOr(ParameterInfo parameter, string defaultVal, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDisplayNameOrImpl(parameter, defaultVal, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDisplayNameOr<T>(string defaultVal, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDisplayNameOrImpl(typeof(T), defaultVal, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
@@ -306,16 +321,19 @@ namespace Cosmos.Reflection
                 : GetDisplayNameImpl(parameter, refOptions, ambOptions);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescriptionOrDisplayName(MemberInfo member, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionOrDisplayNameImpl(member, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescriptionOrDisplayName(ParameterInfo parameter, ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionOrDisplayNameImpl(parameter, refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetDescriptionOrDisplayName<T>(ReflectionOptions refOptions = ReflectionOptions.Default)
         {
             return GetDescriptionOrDisplayNameImpl(typeof(T), refOptions, ReflectionAmbiguousOptions.IgnoreAmbiguous);

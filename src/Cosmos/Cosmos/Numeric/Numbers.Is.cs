@@ -1,4 +1,6 @@
-﻿namespace Cosmos.Numeric
+﻿using System.Runtime.CompilerServices;
+
+namespace Cosmos.Numeric
 {
     /// <summary>
     /// Number Utilities
@@ -12,6 +14,7 @@
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNaN(double value) => double.IsNaN(value);
 
         /// <summary>
@@ -19,6 +22,7 @@
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNaN(float value) => float.IsNaN(value);
 
         #endregion
@@ -45,6 +49,7 @@
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDefault(this double value) => Numbers.IsDefaultValue(value);
     }
 }

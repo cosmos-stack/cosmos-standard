@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.IO.Buffers
 {
@@ -9,18 +10,21 @@ namespace Cosmos.IO.Buffers
     {
         #region Span
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(Span<byte> buffer, short value)
         {
             buffer[0] = (byte) value;
             buffer[1] = (byte) (value >> 8);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(Span<byte> buffer, ushort value)
         {
             buffer[0] = (byte) value;
             buffer[1] = (byte) (value >> 8);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(Span<byte> buffer, int value)
         {
             buffer[0] = (byte) value;
@@ -29,6 +33,7 @@ namespace Cosmos.IO.Buffers
             buffer[3] = (byte) (value >> 24);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(Span<byte> buffer, uint value)
         {
             buffer[0] = (byte) value;
@@ -37,6 +42,7 @@ namespace Cosmos.IO.Buffers
             buffer[3] = (byte) (value >> 24);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(Span<byte> buffer, long value)
         {
             buffer[0] = (byte) value;
@@ -49,6 +55,7 @@ namespace Cosmos.IO.Buffers
             buffer[7] = (byte) (value >> 56);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(Span<byte> buffer, ulong value)
         {
             buffer[0] = (byte) value;
@@ -65,18 +72,21 @@ namespace Cosmos.IO.Buffers
 
         #region Bytes
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(byte[] buffer, int position, short value)
         {
             buffer[position + 0] = (byte) value;
             buffer[position + 1] = (byte) (value >> 8);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(byte[] buffer, int position, ushort value)
         {
             buffer[position + 0] = (byte) value;
             buffer[position + 1] = (byte) (value >> 8);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(byte[] buffer, int position, int value)
         {
             buffer[position + 0] = (byte) value;
@@ -85,6 +95,7 @@ namespace Cosmos.IO.Buffers
             buffer[position + 3] = (byte) (value >> 24);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(byte[] buffer, int position, uint value)
         {
             buffer[position + 0] = (byte) value;
@@ -93,6 +104,7 @@ namespace Cosmos.IO.Buffers
             buffer[position + 3] = (byte) (value >> 24);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(byte[] buffer, int position, long value)
         {
             buffer[position + 0] = (byte) value;
@@ -105,6 +117,7 @@ namespace Cosmos.IO.Buffers
             buffer[position + 7] = (byte) (value >> 56);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Write(byte[] buffer, int position, ulong value)
         {
             buffer[position + 0] = (byte) value;

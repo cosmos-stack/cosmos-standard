@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Cosmos.Collections.Internals;
 
 namespace Cosmos.Collections
@@ -182,6 +183,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> enumerator)
         {
             return CollConv.ToEnumerable(enumerator);
@@ -194,6 +196,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> ToEnumerableAfter<T>(this IEnumerator<T> enumerator)
         {
             return CollConv.ToEnumerableAfter(enumerator);
@@ -210,6 +213,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<KeyValuePair<int, T>> ToIndexedSequence<T>(this IEnumerable<T> source)
         {
             return CollConv.ToIndexedSequence(source);
@@ -226,6 +230,7 @@ namespace Cosmos.Collections
         /// <param name="comparer"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source, Comparison<TSource> comparer)
         {
             return CollConv.ToSortedArray(source, comparer);
@@ -237,6 +242,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TSource[] ToSortedArray<TSource>(this IEnumerable<TSource> source)
             where TSource : IComparable<TSource>
         {
@@ -290,6 +296,7 @@ namespace Cosmos.Collections
         /// <param name="ignoreDup"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source, bool ignoreDup) where T : IComparable<T>
         {
             return ignoreDup
@@ -305,6 +312,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TKey"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HashSet<TKey> ToHashSet<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keyFunc)
             where TKey : IComparable<TKey>
         {
@@ -318,6 +326,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HashSet<T> ToHashSetIgnoringDuplicates<T>(this IEnumerable<T> source) where T : IComparable<T>
         {
             return source.ToHashSet(true);
@@ -335,6 +344,7 @@ namespace Cosmos.Collections
         /// <param name="stringConverter"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<string> ToList<T>(this IEnumerable<T> source, Func<T, string> stringConverter)
         {
             return source.Select(stringConverter).ToList();
@@ -348,6 +358,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IList<T> ToList<T>(this IEnumerable<T> source, Func<T, bool> func)
         {
             if (source is null) throw new ArgumentNullException(nameof(source));

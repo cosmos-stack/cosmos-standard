@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 // ReSharper disable InconsistentNaming
@@ -29,6 +30,7 @@ namespace Cosmos.Asynchronous
         /// <param name="action"></param>
         /// <param name="scheduler"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ActionRunner Create(Action action, TaskScheduler scheduler = null)
         {
             return new ActionRunner(action, scheduler);
@@ -41,6 +43,7 @@ namespace Cosmos.Asynchronous
         /// <param name="scheduler"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ActionRunner Create<T>(Func<T> action, TaskScheduler scheduler = null)
         {
             return new ActionRunner(() => { action(); }, scheduler);

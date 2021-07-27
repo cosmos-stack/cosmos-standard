@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Cosmos.Exceptions;
@@ -19,6 +20,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="task"></param>
         /// <param name="cancellationToken"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ForAsynchronousCalling(Task task, CancellationToken cancellationToken = default)
         {
             if (task is null)
@@ -32,6 +34,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="taskFunc"></param>
         /// <param name="cancellationToken"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ForAsynchronousCalling(Func<Task> taskFunc, CancellationToken cancellationToken = default)
         {
             if (taskFunc is null)
@@ -45,6 +48,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="task"></param>
         /// <param name="cancellationToken"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ForAsynchronousCallingSafety(Task task, CancellationToken cancellationToken = default)
         {
             task?.WaitWithoutException(cancellationToken);
@@ -55,6 +59,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="taskFunc"></param>
         /// <param name="cancellationToken"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ForAsynchronousCallingSafety(Func<Task> taskFunc, CancellationToken cancellationToken = default)
         {
             Try.Create(taskFunc).GetSafeValue()?.WaitWithoutException(cancellationToken);
@@ -65,6 +70,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="task"></param>
         /// <param name="exceptionAction"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ForAsynchronousCallingSafetyAndForget(Task task, Action<Exception> exceptionAction = null)
         {
             task?.SafeFireAndForget(exceptionAction);
@@ -75,6 +81,7 @@ namespace Cosmos.Asynchronous
         /// </summary>
         /// <param name="taskFunc"></param>
         /// <param name="exceptionAction"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ForAsynchronousCallingSafetyAndForget(Func<Task> taskFunc, Action<Exception> exceptionAction = null)
         {
             taskFunc?.Invoke()?.SafeFireAndForget(exceptionAction);
@@ -87,6 +94,7 @@ namespace Cosmos.Asynchronous
         /// <param name="task"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TResult FromAsynchronousCalling<TResult>(Task<TResult> task, CancellationToken cancellationToken = default)
         {
             if (task is null)
@@ -124,6 +132,7 @@ namespace Cosmos.Asynchronous
         /// <param name="task"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TResult FromAsynchronousCallingSafety<TResult>(Task<TResult> task, CancellationToken cancellationToken = default)
         {
             return FromAsynchronousCallingSafety(task, default(TResult), cancellationToken);
@@ -136,6 +145,7 @@ namespace Cosmos.Asynchronous
         /// <param name="taskFunc"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TResult FromAsynchronousCallingSafety<TResult>(Func<Task<TResult>> taskFunc, CancellationToken cancellationToken = default)
         {
             return FromAsynchronousCallingSafety(taskFunc, default(TResult), cancellationToken);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos
 {
@@ -15,6 +16,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="random"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool NextBool(this Random random) =>
             random.Next() % 2 == 1;
 
@@ -41,6 +43,7 @@ namespace Cosmos
         /// <param name="random"></param>
         /// <param name="length"> 字节长度 </param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte[] NextBytes(this Random random, int length)
         {
             var data = new byte[length];
@@ -53,6 +56,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="random"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ushort NextUInt16(this Random random) =>
             BitConverter.ToUInt16(random.NextBytes(2), 0);
 
@@ -61,6 +65,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="random"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static short NextInt16(this Random random) =>
             BitConverter.ToInt16(random.NextBytes(2), 0);
 
@@ -69,6 +74,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="random"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float NextFloat(this Random random) =>
             BitConverter.ToSingle(random.NextBytes(4), 0);
 
@@ -79,14 +85,16 @@ namespace Cosmos
         /// <param name="minValue"> 时间起始 </param>
         /// <param name="maxValue"> 时间截止 </param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextDateTime(this Random random, DateTime minValue, DateTime maxValue) =>
-            new DateTime(minValue.Ticks + (long) ((maxValue.Ticks - minValue.Ticks) * random.NextDouble()));
+            new(minValue.Ticks + (long) ((maxValue.Ticks - minValue.Ticks) * random.NextDouble()));
 
         /// <summary>
         /// 随机返回一个时间
         /// </summary>
         /// <param name="random"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextDateTime(this Random random) =>
             NextDateTime(random, DateTime.MinValue, DateTime.MaxValue);
 
@@ -97,6 +105,7 @@ namespace Cosmos
         /// <param name="values"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T OneOf<T>(this Random @this, params T[] values) =>
             values[@this.Next(values.Length)];
     }

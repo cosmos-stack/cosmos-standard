@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Cosmos.Text
@@ -188,6 +189,7 @@ namespace Cosmos.Text
         /// Reverse
         /// </summary>
         /// <param name="builder"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Reverse(this StringBuilder builder)
         {
             Strings.Reverse(builder);
@@ -198,6 +200,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StringBuilder ReverseAndReturnNewInstance(this StringBuilder builder)
         {
             return Strings.ReverseAndReturnNewInstance(builder);
@@ -208,6 +211,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ReverseAndToString(this StringBuilder builder)
         {
             return Strings.ReverseAndToString(builder);

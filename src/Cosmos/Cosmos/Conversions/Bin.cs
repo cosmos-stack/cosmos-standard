@@ -1,4 +1,5 @@
-﻿using Cosmos.Conversions.Helpers;
+﻿using System.Runtime.CompilerServices;
+using Cosmos.Conversions.Helpers;
 
 namespace Cosmos.Conversions
 {
@@ -12,6 +13,7 @@ namespace Cosmos.Conversions
         /// </summary>
         /// <param name="bin"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Reverse(string bin)
         {
             return ScaleRevHelper.Reverse(bin, 8);

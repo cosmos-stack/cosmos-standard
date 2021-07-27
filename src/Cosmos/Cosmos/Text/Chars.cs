@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Text
 {
@@ -15,6 +16,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn(char @char, params char[] values)
         {
             return Array.IndexOf(values, @char) >= 0;
@@ -42,6 +44,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeNotContainedIn(char @char, params char[] values)
         {
             return Array.IndexOf(values, @char) < 0;
@@ -74,6 +77,7 @@ namespace Cosmos.Text
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(char @char, char min, char max)
         {
             var (xiao, da) = Fix(min, max);
@@ -120,6 +124,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="repeatTimes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Repeat(char @char, int repeatTimes)
         {
             return repeatTimes <= 0 ? string.Empty : new string(@char, repeatTimes);
@@ -138,6 +143,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn(this char @char, params char[] values)
         {
             return Chars.BeContainedIn(@char, values);
@@ -150,6 +156,7 @@ namespace Cosmos.Text
         /// <param name="case"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeContainedIn(this char @char, char[] values, IgnoreCase @case)
         {
             return Chars.BeContainedIn(@char, values, @case);
@@ -161,6 +168,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeNotContainedIn(this char @char, params char[] values)
         {
             return Chars.BeNotContainedIn(@char, values);
@@ -173,6 +181,7 @@ namespace Cosmos.Text
         /// <param name="case"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BeNotContainedIn(this char @char, char[] values, IgnoreCase @case)
         {
             return Chars.BeNotContainedIn(@char, values, @case);
@@ -189,6 +198,7 @@ namespace Cosmos.Text
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(this char @char, char min, char max)
         {
             return Chars.IsBetween(@char, min, max);
@@ -205,6 +215,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="repeatTimes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string Repeat(this char @char, int repeatTimes)
         {
             return Chars.Repeat(@char, repeatTimes);
@@ -222,6 +233,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static char ToLower(this char @char)
         {
             return char.ToLower(@char);
@@ -233,6 +245,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="culture"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static char ToLower(this char @char, CultureInfo culture)
         {
             return char.ToLower(@char, culture);
@@ -243,6 +256,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static char ToLowerInvariant(this char @char)
         {
             return char.ToLowerInvariant(@char);
@@ -253,6 +267,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUpper(this char @char)
         {
             return char.IsUpper(@char);
@@ -264,6 +279,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="culture"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static char ToUpper(this char @char, CultureInfo culture)
         {
             return char.ToUpper(@char, culture);
@@ -274,6 +290,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static char ToUpperInvariant(this char @char)
         {
             return char.ToUpperInvariant(@char);
@@ -290,6 +307,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Equals(this char @char, char toCheck, IgnoreCase @case)
         {
             return @case.X()
@@ -304,6 +322,7 @@ namespace Cosmos.Text
         /// <param name="toCheck"></param>
         /// <param name="case"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Equals(this char? @char, char toCheck, IgnoreCase @case)
         {
             if (@char is null)
@@ -319,6 +338,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool EqualsIgnoreCase(this char @char, char toCheck)
         {
             return char.ToUpper(@char) == char.ToUpper(toCheck);
@@ -330,6 +350,7 @@ namespace Cosmos.Text
         /// <param name="char"></param>
         /// <param name="toCheck"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool EqualsIgnoreCase(this char? @char, char toCheck)
         {
             return @char is not null && EqualsIgnoreCase(@char.Value, toCheck);
@@ -344,6 +365,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWhiteSpace(this char @char)
         {
             return char.IsWhiteSpace(@char);
@@ -354,6 +376,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsControl(this char @char)
         {
             return char.IsControl(@char);
@@ -364,6 +387,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDigit(this char @char)
         {
             return char.IsDigit(@char);
@@ -374,6 +398,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsLetter(this char @char)
         {
             return char.IsLetter(@char);
@@ -384,6 +409,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsLetterOrDigit(this char @char)
         {
             return char.IsLetterOrDigit(@char);
@@ -394,6 +420,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsLower(this char @char)
         {
             return char.IsLower(@char);
@@ -404,6 +431,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNumber(this char @char)
         {
             return char.IsNumber(@char);
@@ -414,6 +442,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsPunctuation(this char @char)
         {
             return char.IsPunctuation(@char);
@@ -424,6 +453,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSeparator(this char @char)
         {
             return char.IsSeparator(@char);
@@ -434,6 +464,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSymbol(this char @char)
         {
             return char.IsSymbol(@char);
@@ -448,6 +479,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSurrogate(this char @char)
         {
             return char.IsSurrogate(@char);
@@ -459,6 +491,7 @@ namespace Cosmos.Text
         /// <param name="highSurrogate"></param>
         /// <param name="lowSurrogate"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSurrogatePair(this char highSurrogate, char lowSurrogate)
         {
             return char.IsSurrogatePair(highSurrogate, lowSurrogate);
@@ -469,6 +502,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsHighSurrogate(this char @char)
         {
             return char.IsHighSurrogate(@char);
@@ -479,6 +513,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsLowSurrogate(this char @char)
         {
             return char.IsLowSurrogate(@char);
@@ -493,6 +528,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double GetNumericValue(this char @char)
         {
             return char.GetNumericValue(@char);
@@ -507,6 +543,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToString(this char @char)
         {
             return char.ToString(@char);
@@ -522,6 +559,7 @@ namespace Cosmos.Text
         /// <param name="highSurrogate"></param>
         /// <param name="lowSurrogate"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ConvertToUtf32(this char highSurrogate, char lowSurrogate)
         {
             return char.ConvertToUtf32(highSurrogate, lowSurrogate);
@@ -536,6 +574,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="char"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static UnicodeCategory GetUnicodeCategory(this char @char)
         {
             return char.GetUnicodeCategory(@char);

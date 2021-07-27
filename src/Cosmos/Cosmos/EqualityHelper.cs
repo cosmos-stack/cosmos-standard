@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 /*
  * Reference to:
@@ -27,7 +28,9 @@ namespace Cosmos
         /// <typeparam name="TV"></typeparam>
         /// <param name="keySelector"></param>
         /// <returns></returns>
-        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector) => new CommonEqualityComparer<TV>(keySelector);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector)
+            => new CommonEqualityComparer<TV>(keySelector);
 
         /// <summary>
         /// Create comparer
@@ -36,7 +39,9 @@ namespace Cosmos
         /// <param name="keySelector"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
-        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector, IEqualityComparer<TV> comparer) => new CommonEqualityComparer<TV>(keySelector, comparer);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEqualityComparer<T> CreateComparer<TV>(Func<T, TV> keySelector, IEqualityComparer<TV> comparer)
+            => new CommonEqualityComparer<TV>(keySelector, comparer);
 
         private class CommonEqualityComparer<TV> : IEqualityComparer<T>
         {

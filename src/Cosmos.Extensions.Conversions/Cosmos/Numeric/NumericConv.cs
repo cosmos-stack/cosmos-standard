@@ -1,4 +1,5 @@
-﻿using Cosmos.Conversions.Common.Core;
+﻿using System.Runtime.CompilerServices;
+using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Numeric
 {
@@ -15,6 +16,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte ToByte(object obj, byte defaultVal = default) => NumConvX.ObjectToByte(obj, defaultVal);
 
         /// <summary>
@@ -23,6 +25,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte ToByte(string text, byte defaultVal = default) => NumConvX.StringToByte(text, defaultVal);
 
         /// <summary>
@@ -30,6 +33,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte? ToNullableByte(object obj) => NumConvX.ObjectToNullableByte(obj);
 
         /// <summary>
@@ -37,6 +41,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static byte? ToNullableByte(string text) => NumConvX.StringToNullableByte(text);
 
         #endregion
@@ -49,6 +54,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static sbyte ToSByte(object obj, sbyte defaultVal = default) => NumConvX.ObjectToSByte(obj, defaultVal);
 
         /// <summary>
@@ -57,6 +63,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static sbyte ToSByte(string text, sbyte defaultVal = default) => NumConvX.StringToSByte(text, defaultVal);
 
         /// <summary>
@@ -64,6 +71,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static sbyte? ToNullableSByte(object obj) => NumConvX.ObjectToNullableSByte(obj);
 
         /// <summary>
@@ -71,6 +79,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static sbyte? ToNullableSByte(string text) => NumConvX.StringToNullableSByte(text);
 
         #endregion
@@ -83,6 +92,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static short ToInt16(object obj, short defaultVal = default) => NumConvX.ObjectToInt16(obj, defaultVal);
 
         /// <summary>
@@ -91,6 +101,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static short ToInt16(string text, short defaultVal = default) => NumConvX.StringToInt16(text, defaultVal);
 
         /// <summary>
@@ -98,6 +109,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static short? ToNullableInt16(object obj) => NumConvX.ObjectToNullableInt16(obj);
 
         /// <summary>
@@ -105,6 +117,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static short? ToNullableInt16(string text) => NumConvX.StringToNullableInt16(text);
 
         #endregion
@@ -117,6 +130,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ushort ToUInt16(object obj, ushort defaultVal = default) => NumConvX.ObjectToUInt16(obj, defaultVal);
 
         /// <summary>
@@ -125,6 +139,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ushort ToUInt16(string text, ushort defaultVal = default) => NumConvX.StringToUInt16(text, defaultVal);
 
         /// <summary>
@@ -132,6 +147,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ushort? ToNullableUInt16(object obj) => NumConvX.ObjectToNullableUInt16(obj);
 
         /// <summary>
@@ -139,6 +155,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ushort? ToNullableUInt16(string text) => NumConvX.StringToNullableUInt16(text);
 
         #endregion
@@ -151,6 +168,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ToInt32(object obj, int defaultVal = default) => NumConvX.ObjectToInt32(obj, defaultVal);
 
         /// <summary>
@@ -159,6 +177,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ToInt32(string text, int defaultVal = default) => NumConvX.StringToInt32(text, defaultVal);
 
         /// <summary>
@@ -166,6 +185,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int? ToNullableInt32(object obj) => NumConvX.ObjectToNullableInt32(obj);
 
         /// <summary>
@@ -173,6 +193,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int? ToNullableInt32(string text) => NumConvX.StringToNullableInt32(text);
 
         #endregion
@@ -185,6 +206,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint ToUInt32(object obj, uint defaultVal = default) => NumConvX.ObjectToUInt32(obj, defaultVal);
 
         /// <summary>
@@ -193,6 +215,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint ToUInt32(string text, uint defaultVal = default) => NumConvX.StringToUInt32(text, defaultVal);
 
         /// <summary>
@@ -200,6 +223,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint? ToNullableUInt32(object obj) => NumConvX.ObjectToNullableUInt32(obj);
 
         /// <summary>
@@ -207,6 +231,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint? ToNullableUInt32(string text) => NumConvX.StringToNullableUInt32(text);
 
         #endregion
@@ -219,6 +244,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long ToInt64(object obj, long defaultVal = default) => NumConvX.ObjectToInt64(obj, defaultVal);
 
         /// <summary>
@@ -227,6 +253,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long ToInt64(string text, long defaultVal = default) => NumConvX.StringToInt64(text, defaultVal);
 
         /// <summary>
@@ -234,6 +261,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long? ToNullableInt64(object obj) => NumConvX.ObjectToNullableInt64(obj);
 
         /// <summary>
@@ -241,6 +269,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long? ToNullableInt64(string text) => NumConvX.StringToNullableInt64(text);
 
         #endregion
@@ -253,6 +282,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong ToUInt64(object obj, ulong defaultVal = default) => NumConvX.ObjectToUInt64(obj, defaultVal);
 
         /// <summary>
@@ -261,6 +291,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong ToUInt64(string text, ulong defaultVal = default) => NumConvX.StringToUInt64(text, defaultVal);
 
         /// <summary>
@@ -268,6 +299,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong? ToNullableUInt64(object obj) => NumConvX.ObjectToNullableUInt64(obj);
 
         /// <summary>
@@ -275,6 +307,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong? ToNullableUInt64(string text) => NumConvX.StringToNullableUInt64(text);
 
         #endregion
@@ -287,6 +320,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float ToFloat(object obj, float defaultVal = 0F) => NumConvX.ObjectToFloat(obj, defaultVal);
 
         /// <summary>
@@ -295,6 +329,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float ToFloat(string text, float defaultVal = 0F) => NumConvX.StringToFloat(text, defaultVal);
 
         /// <summary>
@@ -302,6 +337,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float? ToNullableFloat(object obj) => NumConvX.ObjectToNullableFloat(obj);
 
         /// <summary>
@@ -309,6 +345,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float? ToNullableFloat(string text) => NumConvX.StringToNullableFloat(text);
 
         #endregion
@@ -321,6 +358,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(object obj, double defaultVal = 0D) => NumConvX.ObjectToDouble(obj, defaultVal);
 
         /// <summary>
@@ -329,6 +367,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToDouble(string text, double defaultVal = 0D) => NumConvX.StringToDouble(text, defaultVal);
 
         /// <summary>
@@ -336,6 +375,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double? ToNullableDouble(object obj) => NumConvX.ObjectToNullableDouble(obj);
 
         /// <summary>
@@ -343,6 +383,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double? ToNullableDouble(string text) => NumConvX.StringToNullableDouble(text);
 
         /// <summary>
@@ -352,6 +393,7 @@ namespace Cosmos.Numeric
         /// <param name="digits"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToRoundDouble(object obj, int digits, double defaultVal = 0D) => NumConvX.ObjectToRoundDouble(obj, digits, defaultVal);
 
         /// <summary>
@@ -361,6 +403,7 @@ namespace Cosmos.Numeric
         /// <param name="digits"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ToRoundDouble(string text, int digits, double defaultVal = 0D) => NumConvX.StringToRoundDouble(text, digits, defaultVal);
 
         /// <summary>
@@ -369,6 +412,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double? ToRoundNullableDouble(object obj, int digits) => NumConvX.ObjectToNullableRoundDouble(obj, digits);
 
         /// <summary>
@@ -377,6 +421,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double? ToRoundNullableDouble(string text, int digits) => NumConvX.StringToNullableRoundDouble(text, digits);
 
         #endregion
@@ -389,6 +434,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal ToDecimal(object obj, decimal defaultVal = 0M) => NumConvX.ObjectToDecimal(obj, defaultVal);
 
         /// <summary>
@@ -397,6 +443,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal ToDecimal(string text, decimal defaultVal = 0M) => NumConvX.StringToDecimal(text, defaultVal);
 
         /// <summary>
@@ -404,6 +451,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal? ToNullableDecimal(object obj) => NumConvX.ObjectToNullableDecimal(obj);
 
         /// <summary>
@@ -411,6 +459,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal? ToNullableDecimal(string text) => NumConvX.StringToNullableDecimal(text);
 
         /// <summary>
@@ -420,6 +469,7 @@ namespace Cosmos.Numeric
         /// <param name="digits"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal ToRoundDecimal(object obj, int digits, decimal defaultVal = 0M) => NumConvX.ObjectToRoundDecimal(obj, digits, defaultVal);
 
         /// <summary>
@@ -429,6 +479,7 @@ namespace Cosmos.Numeric
         /// <param name="digits"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal ToRoundDecimal(string text, int digits, decimal defaultVal = 0M) => NumConvX.StringToRoundDecimal(text, digits, defaultVal);
 
         /// <summary>
@@ -437,6 +488,7 @@ namespace Cosmos.Numeric
         /// <param name="obj"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal? ToRoundNullableDecimal(object obj, int digits) => NumConvX.ObjectToNullableRoundDecimal(obj, digits);
 
         /// <summary>
@@ -445,6 +497,7 @@ namespace Cosmos.Numeric
         /// <param name="text"></param>
         /// <param name="digits"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static decimal? ToRoundNullableDecimal(string text, int digits) => NumConvX.StringToNullableRoundDecimal(text, digits);
 
         #endregion

@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace Cosmos.Text
@@ -44,6 +45,7 @@ namespace Cosmos.Text
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetGroupValue(this Match match, string group)
         {
             return Strings.GetGroupValue(match, group);

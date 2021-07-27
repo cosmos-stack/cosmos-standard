@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 // ReSharper disable InconsistentNaming
@@ -47,6 +48,7 @@ namespace Cosmos.Text
         /// <param name="ComparisonText"></param>
         /// <param name="similarityMinimal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double EvaluateSimilarity(string text, string ComparisonText, double similarityMinimal)
         {
             const int diffFound = 0;
@@ -163,6 +165,7 @@ namespace Cosmos.Text
         /// <param name="ComparisonText"></param>
         /// <param name="similarityMinimal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double EvaluateSimilarity(this string text, string ComparisonText, double similarityMinimal)
         {
             return Strings.EvaluateSimilarity(text, ComparisonText, similarityMinimal);
@@ -176,6 +179,7 @@ namespace Cosmos.Text
         /// <param name="similarityMinimal"></param>
         /// <param name="diffFound"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double EvaluateSimilarity(this string text, string ComparisonText, double similarityMinimal, int diffFound)
         {
             return Strings.EvaluateSimilarity(text, ComparisonText, similarityMinimal, diffFound);
@@ -187,6 +191,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="ComparisonText"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StringSimilarityTypes EvaluateSimilarity(this string text, string ComparisonText)
         {
             return Strings.EvaluateSimilarity(text, ComparisonText);

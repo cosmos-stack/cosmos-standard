@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Date
@@ -16,6 +17,7 @@ namespace Cosmos.Date
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime ToDateTime(object obj, DateTime defaultVal = default)
         {
             return DtConvX.ObjectToDateTime(obj, defaultVal);
@@ -26,6 +28,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime? ToNullableDateTime(object obj)
         {
             return DtConvX.ObjectToNullableDateTime(obj);
@@ -37,6 +40,7 @@ namespace Cosmos.Date
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime ToDateTime(string text, DateTime defaultVal = default)
         {
             return DtConvX.StringToDateTime(text, defaultVal);
@@ -47,6 +51,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime? ToNullableDateTime(string text)
         {
             return DtConvX.StringToNullableDateTime(text);
@@ -62,6 +67,7 @@ namespace Cosmos.Date
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ToDateTimeOffset(object obj, DateTimeOffset defaultVal = default)
         {
             return DtConvX.ObjectToDateTimeOffset(obj, defaultVal);
@@ -72,6 +78,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset? ToNullableDateTimeOffset(object obj)
         {
             return DtConvX.ObjectToNullableDateTimeOffset(obj);
@@ -83,6 +90,7 @@ namespace Cosmos.Date
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ToDateTimeOffset(string text, DateTimeOffset defaultVal = default)
         {
             return DtConvX.StringToDateTimeOffset(text, defaultVal);
@@ -93,6 +101,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset? ToNullableDateTimeOffset(string text)
         {
             return DtConvX.StringToNullableDateTimeOffset(text);
@@ -108,6 +117,7 @@ namespace Cosmos.Date
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan ToTimeSpan(object obj, TimeSpan defaultVal = default)
         {
             return DtConvX.ObjectToTimeSpan(obj, defaultVal);
@@ -118,6 +128,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan? ToNullableTimeSpan(object obj)
         {
             return DtConvX.ObjectToNullableTimeSpan(obj);
@@ -129,6 +140,7 @@ namespace Cosmos.Date
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan ToTimeSpan(string text, TimeSpan defaultVal = default)
         {
             return DtConvX.StringToTimeSpan(text, defaultVal);
@@ -139,6 +151,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan? ToNullableTimeSpan(string text)
         {
             return DtConvX.StringToNullableTimeSpan(text);

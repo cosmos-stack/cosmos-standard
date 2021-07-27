@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions;
 using Cosmos.Conversions.Common.Core;
 
@@ -25,7 +26,7 @@ namespace Cosmos.Text
             };
         }
     }
-    
+
     /// <summary>
     /// Object converter
     /// </summary>
@@ -39,6 +40,7 @@ namespace Cosmos.Text
         /// <param name="obj"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToString(object obj, string defaultVal = default)
         {
             return StrConvX.ObjectSafeToString(obj, defaultVal);
@@ -60,6 +62,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CastToString(this object obj)
         {
             return StrConvX.ObjectSafeToString(obj);
@@ -75,6 +78,7 @@ namespace Cosmos.Text
         /// <example>in: new byte[] {65, 66, 67}; out: ABC</example>
         /// <param name="bytes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CastToString(this byte[] bytes)
         {
             return AsciiConv.BytesToAsciiString(bytes);
@@ -89,6 +93,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="chars"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string CastToString(this char[] chars)
         {
             return new(chars);
@@ -105,6 +110,7 @@ namespace Cosmos.Text
         /// <typeparam name="TEnum">枚举类型</typeparam>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TEnum CastToEnum<TEnum>(this string text) where TEnum : struct, Enum
         {
             return EnumConvX.StringToEnum<TEnum>(text);
@@ -118,6 +124,7 @@ namespace Cosmos.Text
         /// <param name="text">     </param>
         /// <param name="ignoreCase"> 是否区分大小写 </param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TEnum CastToEnum<TEnum>(this string text, bool ignoreCase) where TEnum : struct, Enum
         {
             return EnumConvX.StringToEnum<TEnum>(text, ignoreCase);
@@ -131,6 +138,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TEnum CastToEnum<TEnum>(this string text, TEnum defaultVal) where TEnum : struct, Enum
         {
             return EnumConvX.StringToEnum(text, defaultVal);
@@ -145,6 +153,7 @@ namespace Cosmos.Text
         /// <param name="ignoreCase">是否区分大小写</param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TEnum CastToEnum<TEnum>(this string text, bool ignoreCase, TEnum defaultVal) where TEnum : struct, Enum
         {
             return EnumConvX.StringToEnum(text, defaultVal, ignoreCase);
@@ -160,6 +169,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Guid CastToGuid(this string text)
         {
             return GuidConvX.StringToGuid(text);
@@ -172,6 +182,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Guid CastToGuid(this string text, Guid defaultVal)
         {
             return GuidConvX.StringToGuid(text, defaultVal);
@@ -183,6 +194,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Guid? CastToNullableGuid(this string text)
         {
             return GuidConvX.StringToNullableGuid(text);

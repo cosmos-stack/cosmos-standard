@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 using System.Text;
 
@@ -14,6 +15,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="exception"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Exception PrepareForRethrow(Exception exception)
         {
             ExceptionDispatchInfo.Capture(exception).Throw();
@@ -76,6 +78,7 @@ namespace Cosmos.Exceptions
         /// <typeparam name="TException"></typeparam>
         /// <param name="ex"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Exception Unwrap<TException>(this Exception ex)
             where TException : Exception
         {
@@ -88,6 +91,7 @@ namespace Cosmos.Exceptions
         /// </summary>
         /// <param name="ex"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToUnwrappedString(this Exception ex)
         {
             return ex.Unwrap().Message;

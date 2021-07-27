@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using AspectCore.Extensions.Reflection;
 
 // ReSharper disable PossibleMultipleEnumeration
@@ -30,6 +31,7 @@ namespace Cosmos.Reflection
 
     internal static class TypeReflectorHelper
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ICustomAttributeReflectorProvider GetReflector(MemberInfo member)
         {
             if (member is null)
@@ -46,6 +48,7 @@ namespace Cosmos.Reflection
             };
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ICustomAttributeReflectorProvider GetReflector(ParameterInfo parameter)
         {
             return parameter.GetReflector();
@@ -53,6 +56,7 @@ namespace Cosmos.Reflection
 
         private static FieldInfo CustomAttributeReflectorRuntimeTypeHandle = typeof(CustomAttributeReflector).GetField("_tokens", BindingFlags.Instance | BindingFlags.NonPublic);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HashSet<RuntimeTypeHandle> GetRuntimeTypeHandles(CustomAttributeReflector reflector)
         {
             return CustomAttributeReflectorRuntimeTypeHandle.GetValue(reflector) as HashSet<RuntimeTypeHandle>;
@@ -64,11 +68,13 @@ namespace Cosmos.Reflection
     /// </summary>
     public static partial class TypeReflections
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static TRequired AttrRequired<TRequired>(this TRequired value, string message)
         {
             return value ?? throw new ArgumentException(message);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static IEnumerable<TRequired> AttrRequired<TRequired>(this IEnumerable<TRequired> value, string message)
         {
             if (value is null || !value.Any())
@@ -76,6 +82,7 @@ namespace Cosmos.Reflection
             return value;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static TAttribute AttrDisambiguation<TAttribute>(this IEnumerable<TAttribute> value)
         {
             return value.FirstOrDefault();
@@ -90,6 +97,7 @@ namespace Cosmos.Reflection
         /// <param name="member"></param>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined<TAttribute>(MemberInfo member) where TAttribute : Attribute
         {
             return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute));
@@ -103,6 +111,7 @@ namespace Cosmos.Reflection
         /// <param name="options"></param>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined<TAttribute>(MemberInfo member, ReflectionOptions options) where TAttribute : Attribute
         {
             return options switch
@@ -120,6 +129,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter"></param>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
         {
             return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute));
@@ -133,6 +143,7 @@ namespace Cosmos.Reflection
         /// <param name="options"></param>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined<TAttribute>(ParameterInfo parameter, ReflectionOptions options) where TAttribute : Attribute
         {
             return options switch
@@ -150,6 +161,7 @@ namespace Cosmos.Reflection
         /// <param name="member"></param>
         /// <param name="attributeType"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined(MemberInfo member, Type attributeType)
         {
             return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(member), attributeType);
@@ -163,6 +175,7 @@ namespace Cosmos.Reflection
         /// <param name="attributeType"></param>
         /// <param name="options"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined(MemberInfo member, Type attributeType, ReflectionOptions options)
         {
             return options switch
@@ -180,6 +193,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter"></param>
         /// <param name="attributeType"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined(ParameterInfo parameter, Type attributeType)
         {
             return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(parameter), attributeType);
@@ -193,6 +207,7 @@ namespace Cosmos.Reflection
         /// <param name="attributeType"></param>
         /// <param name="options"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAttributeDefined(ParameterInfo parameter, Type attributeType, ReflectionOptions options)
         {
             return options switch
@@ -232,6 +247,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttribute(MemberInfo member, Type attributeType)
         {
             return GetAttributeImpl(TypeReflectorHelper.GetReflector(member), attributeType);
@@ -244,6 +260,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttribute(ParameterInfo parameter, Type attributeType)
         {
             return GetAttributeImpl(TypeReflectorHelper.GetReflector(parameter), attributeType);
@@ -258,6 +275,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <param name="ambOptions"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttribute(MemberInfo member, Type attributeType, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default)
         {
             return refOptions switch
@@ -282,6 +300,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <param name="ambOptions"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttribute(ParameterInfo parameter, Type attributeType, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default)
         {
             return refOptions switch
@@ -304,6 +323,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttribute<TAttribute>(MemberInfo member) where TAttribute : Attribute
         {
             return (TAttribute) GetAttributeImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute));
@@ -316,6 +336,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttribute<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
         {
             return (TAttribute) GetAttributeImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute));
@@ -330,6 +351,7 @@ namespace Cosmos.Reflection
         /// <param name="ambOptions"></param>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttribute<TAttribute>(MemberInfo member, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default) where TAttribute : Attribute
         {
             return refOptions switch
@@ -354,6 +376,7 @@ namespace Cosmos.Reflection
         /// <param name="ambOptions"></param>
         /// <typeparam name="TAttribute"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttribute<TAttribute>(ParameterInfo parameter, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default) where TAttribute : Attribute
         {
             return refOptions switch
@@ -398,6 +421,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributes<TAttribute>(MemberInfo member) where TAttribute : Attribute
         {
             return GetAttributesImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute)).Cast<TAttribute>();
@@ -410,6 +434,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributes<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
         {
             return GetAttributesImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute)).Cast<TAttribute>();
@@ -423,6 +448,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributes<TAttribute>(MemberInfo member, ReflectionOptions refOptions) where TAttribute : Attribute
         {
             return refOptions switch
@@ -441,6 +467,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <typeparam name="TAttribute">Special typeInfo of member</typeparam>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributes<TAttribute>(ParameterInfo parameter, ReflectionOptions refOptions) where TAttribute : Attribute
         {
             return refOptions switch
@@ -458,6 +485,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(MemberInfo member, Type attributeType)
         {
             return GetAttributesImpl(TypeReflectorHelper.GetReflector(member), attributeType);
@@ -470,6 +498,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(ParameterInfo parameter, Type attributeType)
         {
             return GetAttributesImpl(TypeReflectorHelper.GetReflector(parameter), attributeType);
@@ -483,6 +512,7 @@ namespace Cosmos.Reflection
         /// <param name="attributeType"></param>
         /// <param name="refOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(MemberInfo member, Type attributeType, ReflectionOptions refOptions)
         {
             return refOptions switch
@@ -501,6 +531,7 @@ namespace Cosmos.Reflection
         /// <param name="attributeType"></param>
         /// <param name="refOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(ParameterInfo parameter, Type attributeType, ReflectionOptions refOptions)
         {
             return refOptions switch
@@ -549,6 +580,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttributeRequired<TAttribute>(MemberInfo member) where TAttribute : Attribute
         {
             return GetAttribute<TAttribute>(member).AttrRequired($"There is no {typeof(TAttribute)} attribute can be found.");
@@ -561,6 +593,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttributeRequired<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
         {
             return GetAttribute<TAttribute>(parameter).AttrRequired($"There is no {typeof(TAttribute)} attribute can be found.");
@@ -575,6 +608,7 @@ namespace Cosmos.Reflection
         /// <param name="ambOptions"></param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttributeRequired<TAttribute>(MemberInfo member, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default) where TAttribute : Attribute
         {
             var val = ambOptions switch
@@ -596,6 +630,7 @@ namespace Cosmos.Reflection
         /// <param name="ambOptions"></param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TAttribute GetAttributeRequired<TAttribute>(ParameterInfo parameter, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default) where TAttribute : Attribute
         {
             var val = ambOptions switch
@@ -615,6 +650,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttributeRequired(MemberInfo member, Type attributeType)
         {
             return GetAttribute(member, attributeType).AttrRequired($"There is no {attributeType} attribute can be found.");
@@ -627,6 +663,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttributeRequired(ParameterInfo parameter, Type attributeType)
         {
             return GetAttribute(parameter, attributeType).AttrRequired($"There is no {attributeType} attribute can be found.");
@@ -641,6 +678,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <param name="ambOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttributeRequired(MemberInfo member, Type attributeType, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default)
         {
             var val = ambOptions switch
@@ -662,6 +700,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <param name="ambOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Attribute GetAttributeRequired(ParameterInfo parameter, Type attributeType, ReflectionOptions refOptions, ReflectionAmbiguousOptions ambOptions = ReflectionAmbiguousOptions.Default)
         {
             var val = ambOptions switch
@@ -685,6 +724,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributesRequired<TAttribute>(MemberInfo member) where TAttribute : Attribute
         {
             return GetAttributes<TAttribute>(member).AttrRequired($"There is no any {typeof(TAttribute)} attributes can be found.");
@@ -697,6 +737,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributesRequired<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
         {
             return GetAttributes<TAttribute>(parameter).AttrRequired($"There is no any {typeof(TAttribute)} attributes can be found.");
@@ -710,6 +751,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributesRequired<TAttribute>(MemberInfo member, ReflectionOptions refOptions) where TAttribute : Attribute
         {
             return GetAttributes<TAttribute>(member, refOptions).AttrRequired($"There is no any {typeof(TAttribute)} attributes can be found.");
@@ -723,6 +765,7 @@ namespace Cosmos.Reflection
         /// <param name="refOptions"></param>
         /// <typeparam name="TAttribute">Special typeInfo of attribute</typeparam>
         /// <returns>Attribute of special member</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TAttribute> GetAttributesRequired<TAttribute>(ParameterInfo parameter, ReflectionOptions refOptions) where TAttribute : Attribute
         {
             return GetAttributes<TAttribute>(parameter, refOptions).AttrRequired($"There is no any {typeof(TAttribute)} attributes can be found.");
@@ -735,6 +778,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributesRequired(MemberInfo member, Type attributeType)
         {
             return GetAttributes(member, attributeType).AttrRequired($"There is no any {attributeType} attributes can be found.");
@@ -747,6 +791,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <param name="attributeType"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributesRequired(ParameterInfo parameter, Type attributeType)
         {
             return GetAttributes(parameter, attributeType).AttrRequired($"There is no any {attributeType} attributes can be found.");
@@ -760,6 +805,7 @@ namespace Cosmos.Reflection
         /// <param name="attributeType"></param>
         /// <param name="refOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributesRequired(MemberInfo member, Type attributeType, ReflectionOptions refOptions)
         {
             return GetAttributes(member, attributeType, refOptions).AttrRequired($"There is no any {attributeType} attributes can be found.");
@@ -773,6 +819,7 @@ namespace Cosmos.Reflection
         /// <param name="attributeType"></param>
         /// <param name="refOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributesRequired(ParameterInfo parameter, Type attributeType, ReflectionOptions refOptions)
         {
             return GetAttributes(parameter, attributeType, refOptions).AttrRequired($"There is no any {attributeType} attributes can be found.");
@@ -788,6 +835,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="member">Special member</param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(MemberInfo member)
         {
             return GetAttributesImpl(TypeReflectorHelper.GetReflector(member));
@@ -799,6 +847,7 @@ namespace Cosmos.Reflection
         /// </summary>
         /// <param name="parameter">Special member</param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(ParameterInfo parameter)
         {
             return GetAttributesImpl(TypeReflectorHelper.GetReflector(parameter));
@@ -811,6 +860,7 @@ namespace Cosmos.Reflection
         /// <param name="member">Special member</param>
         /// <param name="refOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(MemberInfo member, ReflectionOptions refOptions)
         {
             return refOptions switch
@@ -828,6 +878,7 @@ namespace Cosmos.Reflection
         /// <param name="parameter">Special member</param>
         /// <param name="refOptions"></param>
         /// <returns>Attribute of special field</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Attribute> GetAttributes(ParameterInfo parameter, ReflectionOptions refOptions)
         {
             return refOptions switch

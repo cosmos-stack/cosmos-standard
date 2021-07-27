@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Cosmos.Collections;
 
 namespace Cosmos.Optionals
@@ -16,6 +17,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<T> RemoveRangeSafety<T>(this List<T> source, int index, int count)
         {
             return Colls.RemoveRangeSafety(source, index, count);
@@ -27,6 +29,7 @@ namespace Cosmos.Optionals
         /// <param name="src"></param>
         /// <typeparam name="TElement"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TElement[] ToArraySafety<TElement>(this IEnumerable<TElement> src)
         {
             return Arrays.ToArraySafety(src);
@@ -38,6 +41,7 @@ namespace Cosmos.Optionals
         /// <param name="src"></param>
         /// <typeparam name="TElement"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TElement[] ToArraySafety<TElement>(this Array src)
         {
             return Arrays.ToArraySafety<TElement>(src);

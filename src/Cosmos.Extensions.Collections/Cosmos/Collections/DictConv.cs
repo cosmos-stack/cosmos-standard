@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Cosmos.Collections.Internals;
 
 namespace Cosmos.Collections
@@ -156,6 +157,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TToValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IReadOnlyDictionary<TToKey, TToValue> Cast<TFromKey, TFromValue, TToKey, TToValue>(
             this IReadOnlyDictionary<TFromKey, TFromValue> source)
             where TFromKey : TToKey
@@ -175,6 +177,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this Hashtable hash)
         {
             return DictConv.ToDictionary<TKey, TValue>(hash);
@@ -187,6 +190,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source)
         {
             return DictConv.ToDictionary(source);
@@ -201,6 +205,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source, IEqualityComparer<TKey> equalityComparer)
         {
             return DictConv.ToDictionary(source, equalityComparer);
@@ -217,6 +222,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<Tuple<TKey, TValue>> ToTuple<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
         {
             return DictConv.ToTuple(dictionary);
@@ -233,6 +239,7 @@ namespace Cosmos.Collections
         /// <param name="asc"></param>
         /// <typeparam name="TKey"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(this Dictionary<TKey, int> dictionary, bool asc = true)
         {
             return DictConv.ToSortedArrayByValue(dictionary, asc);
@@ -245,6 +252,7 @@ namespace Cosmos.Collections
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<KeyValuePair<TKey, TValue>> ToSortedArrayByKey<TKey, TValue>(this Dictionary<TKey, TValue> dictionary) where TKey : IComparable<TKey>
         {
             return DictConv.ToSortedArrayByKey(dictionary);

@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace Cosmos.Text
 {
     /// <summary>
@@ -20,6 +22,7 @@ namespace Cosmos.Text
 
     internal static class IgnoreCaseExtensions
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool X(this IgnoreCase ignoreCase)
         {
             return ignoreCase switch
@@ -30,6 +33,7 @@ namespace Cosmos.Text
             };
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IgnoreCase X(this bool b)
         {
             return b switch

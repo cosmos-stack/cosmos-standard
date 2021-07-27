@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,6 +20,7 @@ namespace Cosmos.IO
         /// <param name="offset"></param>
         /// <param name="origin"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long TrySeek(this Stream stream, long offset, SeekOrigin origin)
             => stream.CanSeek ? stream.Seek(offset, origin) : default;
 
@@ -92,6 +94,7 @@ namespace Cosmos.IO
         /// <param name="offset"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int TryRead(this Stream stream, byte[] buffer, int offset, int count)
             => stream.CanRead ? stream.Read(buffer, offset, count) : default;
 
@@ -104,6 +107,7 @@ namespace Cosmos.IO
         /// <param name="count"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static async Task<int> TryReadAsync(this Stream stream, byte[] buffer, int offset, int count, CancellationToken cancellationToken = default)
             => stream.CanRead ? await stream.ReadAsync(buffer, offset, count, cancellationToken) : default;
 
@@ -112,6 +116,7 @@ namespace Cosmos.IO
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int TryReadByte(this Stream stream)
             => stream.CanRead ? stream.ReadByte() : default;
 
@@ -121,6 +126,7 @@ namespace Cosmos.IO
         /// <param name="stream"></param>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TrySetReadTimeout(this Stream stream, int milliseconds)
         {
             if (stream.CanTimeout) stream.ReadTimeout = milliseconds;
@@ -133,6 +139,7 @@ namespace Cosmos.IO
         /// <param name="stream"></param>
         /// <param name="timeout"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TrySetReadTimeout(this Stream stream, TimeSpan timeout)
             => stream.TrySetReadTimeout(timeout.Milliseconds);
 
@@ -148,6 +155,7 @@ namespace Cosmos.IO
         /// <param name="offset"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryWrite(this Stream stream, byte[] buffer, int offset, int count)
         {
             if (stream.CanWrite) stream.Write(buffer, offset, count);
@@ -163,6 +171,7 @@ namespace Cosmos.IO
         /// <param name="count"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static async Task<bool> TryWriteAsync(this Stream stream, byte[] buffer, int offset, int count, CancellationToken cancellationToken = default)
         {
             if (stream.CanWrite) await stream.WriteAsync(buffer, offset, count, cancellationToken);
@@ -175,6 +184,7 @@ namespace Cosmos.IO
         /// <param name="stream"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryWriteByte(this Stream stream, byte value)
         {
             if (stream.CanWrite) stream.WriteByte(value);
@@ -187,6 +197,7 @@ namespace Cosmos.IO
         /// <param name="stream"></param>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TrySetWriteTimeout(this Stream stream, int milliseconds)
         {
             if (stream.CanTimeout) stream.WriteTimeout = milliseconds;
@@ -199,6 +210,7 @@ namespace Cosmos.IO
         /// <param name="stream"></param>
         /// <param name="timeout"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TrySetWriteTimeout(this Stream stream, TimeSpan timeout)
             => stream.TrySetWriteTimeout(timeout.Milliseconds);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Numeric
 {
@@ -188,24 +189,28 @@ namespace Cosmos.Numeric
         /// Shortcut for returning true zero if a double tolerance floating point value is considered zero (within epsilon tolerance).<br />
         /// 如果将双公差浮点值视为零（在ε公差内），则返回真零的快捷方式。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double FixZero(this double x) => Numbers.FixZero(x);
 
         /// <summary>
         /// Returns the number of decimal places before last zero digit.<br />
         /// 返回最后零位之前的小数位数。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int DecimalPlaces(this double x) => Numbers.GetDecimalPlaces(x);
         
         /// <summary>
         /// Ensures addition tolerance by trimming off unexpected imprecision.<br />
         /// 通过消除意外的不准确性来确保附加公差。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double SumAccurate(this double x, double value)=> Numbers.GetSumAccurate(x,value);
 
         /// <summary>
         /// Ensures addition tolerance by trimming off unexpected imprecision.<br />
         /// 通过消除意外的不准确性来确保附加公差。
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ProductAccurate(this double x, double value)=> Numbers.GetProductAccurate(x,value);
 
         /// <summary>
@@ -213,6 +218,7 @@ namespace Cosmos.Numeric
         /// 通过使用整数数学来确保加法公差。
         /// </summary>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double SumUsingIntegers(this double x, double value)=> Numbers.GetSumUsingIntegers(x,value);
     }
 }

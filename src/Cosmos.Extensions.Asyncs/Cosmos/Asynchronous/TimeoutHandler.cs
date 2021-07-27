@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,6 +28,7 @@ namespace Cosmos.Asynchronous
         /// <param name="delay"></param>
         /// <param name="onComplete"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeoutHandler New(int delay, Action<int> onComplete)
         {
             return new TimeoutHandler(delay, onComplete);
@@ -39,6 +41,7 @@ namespace Cosmos.Asynchronous
         /// <param name="timeout"></param>
         /// <param name="onComplete"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool New(int delay, out IDisposable timeout, Action<int> onComplete)
         {
             timeout = New(delay, onComplete);

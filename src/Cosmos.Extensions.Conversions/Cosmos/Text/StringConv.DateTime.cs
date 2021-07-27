@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Text
@@ -16,6 +17,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime CastToDateTime(this string text, DateTime defaultVal = default)
         {
             return DtConvX.StringToDateTime(text, defaultVal);
@@ -26,6 +28,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime? CastToNullableDateTime(this string text)
         {
             return DtConvX.StringToNullableDateTime(text);
@@ -41,6 +44,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset CastToDateTimeOffset(this string text, DateTimeOffset defaultVal = default)
         {
             return DtConvX.StringToDateTimeOffset(text, defaultVal);
@@ -51,6 +55,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset? CastToNullableDateTimeOffset(this string text)
         {
             return DtConvX.StringToNullableDateTimeOffset(text);
@@ -66,6 +71,7 @@ namespace Cosmos.Text
         /// <param name="text"></param>
         /// <param name="defaultVal"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan CastToTimeSpan(this string text, TimeSpan defaultVal = default)
         {
             return DtConvX.StringToTimeSpan(text, defaultVal);
@@ -76,6 +82,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan? CastToNullableTimeSpan(this string text)
         {
             return DtConvX.StringToNullableTimeSpan(text);

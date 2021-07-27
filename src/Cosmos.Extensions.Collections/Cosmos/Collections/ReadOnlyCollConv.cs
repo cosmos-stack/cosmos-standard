@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Cosmos.Collections.Internals;
 
 namespace Cosmos.Collections
@@ -38,6 +39,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReadOnlyCollection<T> AsReadOnly<T>(this IEnumerable<T> src)
         {
             if (src is null)
@@ -56,6 +58,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IList<T> AsList<T>(this IReadOnlyList<T> list)
         {
             return ReadOnlyCollConv.AsList(list);
