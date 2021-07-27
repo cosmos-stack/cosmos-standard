@@ -1,10 +1,5 @@
 ﻿namespace Cosmos
 {
-    public static class BooleanVal
-    {
-        public static BooleanVal<T> Of<T>(bool value, T obj) => BooleanVal<T>.Of(value, obj);
-    }
-    
     /// <summary>
     /// Boolean value wrapper
     /// </summary>
@@ -43,7 +38,7 @@
 
         public static BooleanVal<T> Of(bool value, T obj) => new(value, obj);
     }
-
+    
     public static class BooleanValExtensions
     {
         public static BooleanVal<T> ToBooleanVal<T>(this bool value) => value;

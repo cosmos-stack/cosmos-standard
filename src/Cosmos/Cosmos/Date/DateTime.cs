@@ -63,7 +63,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static string Ifttt(bool condition, string format1, string format2)
         {
-            return condition.Ifttt(() => format1, () => format2);
+            return condition ? format1 : format2;
         }
     }
 
