@@ -1,4 +1,6 @@
-﻿namespace Cosmos
+﻿using System.Runtime.CompilerServices;
+
+namespace Cosmos
 {
     /// <summary>
     /// Boolean value wrapper
@@ -41,10 +43,13 @@
     
     public static class BooleanValExtensions
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static BooleanVal<T> ToBooleanVal<T>(this bool value) => value;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static BooleanVal<T> ToBooleanVal<T>(this bool value, T packagedValue) => new(value, packagedValue);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static BooleanVal<T> ToBooleanVal<T>(this (bool, T) tuple) => tuple;
     }
 }

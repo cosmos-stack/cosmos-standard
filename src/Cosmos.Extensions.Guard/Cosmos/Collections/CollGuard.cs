@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Cosmos.Validation;
 
 namespace Cosmos.Collections
@@ -16,6 +17,7 @@ namespace Cosmos.Collections
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNotNull(IEnumerable argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
@@ -32,6 +34,7 @@ namespace Cosmos.Collections
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNotEmpty(IEnumerable argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
@@ -50,6 +53,7 @@ namespace Cosmos.Collections
         /// <param name="argumentName"></param>
         /// <param name="number"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldContainAtLeast<T>(ICollection<T> argument, int number, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -68,6 +72,7 @@ namespace Cosmos.Collections
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNotNull<TKey, TValue>(KeyValuePair<TKey, TValue> argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
@@ -87,6 +92,7 @@ namespace Cosmos.Collections
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Require(this IEnumerable argument, string argumentName, string message = null)
         {
             CollGuard.ShouldBeNotNull(argument, argumentName, message);
@@ -103,6 +109,7 @@ namespace Cosmos.Collections
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Require<TKey, TValue>(this KeyValuePair<TKey, TValue> argument, string argumentName, string message = null)
         {
             CollGuard.ShouldBeNotNull(argument, argumentName, message);
@@ -119,6 +126,7 @@ namespace Cosmos.Collections
         /// <param name="argumentName"></param>
         /// <param name="number"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireAtLeast<T>(this ICollection<T> argument, int number, string argumentName, string message = null)
         {
             CollGuard.ShouldContainAtLeast(argument, number, argumentName, message);

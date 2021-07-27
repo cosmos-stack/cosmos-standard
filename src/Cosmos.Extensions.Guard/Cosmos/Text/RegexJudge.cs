@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace Cosmos.Text
 {
@@ -16,6 +17,7 @@ namespace Cosmos.Text
         /// <param name="pattern"></param>
         /// <param name="options">regex options, default is RegexOptions.IgnoreCase</param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsMatch(string str, string pattern, RegexOptions options = RegexOptions.IgnoreCase) =>
             Regex.IsMatch(str, pattern, options);
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Cosmos.Optionals
@@ -17,6 +18,7 @@ namespace Cosmos.Optionals
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Maybe<T> AsOptionals<T>(this T value) => Optional.Some(value);
 
         /// <summary>
@@ -26,6 +28,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Either<T, TException> AsOptionals<T, TException>(this T value) => Optional.Some<T, TException>(value);
 
         #endregion
@@ -1027,8 +1030,8 @@ namespace Cosmos.Optionals
             if (source is IReadOnlyDictionary<TKey, T> readOnlyDictionary)
                 return readOnlyDictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type);
             return source
-                .FirstOrNone(pair => EqualityComparer<TKey>.Default.Equals(pair.Key, key))
-                .Map(pair => pair.Value);
+                   .FirstOrNone(pair => EqualityComparer<TKey>.Default.Equals(pair.Key, key))
+                   .Map(pair => pair.Value);
         }
 
         /// <summary>
@@ -2441,6 +2444,5 @@ namespace Cosmos.Optionals
         }
 
         #endregion
-        
     }
 }

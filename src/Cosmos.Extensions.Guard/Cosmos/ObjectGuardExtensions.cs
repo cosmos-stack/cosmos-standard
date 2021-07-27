@@ -1,4 +1,6 @@
-﻿namespace Cosmos
+﻿using System.Runtime.CompilerServices;
+
+namespace Cosmos
 {
     public static class ObjectGuardExtensions
     {
@@ -11,6 +13,7 @@
         /// <param name="argument">对象</param>
         /// <param name="argumentName">参数名</param>
         /// <param name="message">消息</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CheckNull(this object argument, string argumentName, string message = null)
         {
             ObjectGuard.NotNull(argument, argumentName, message);

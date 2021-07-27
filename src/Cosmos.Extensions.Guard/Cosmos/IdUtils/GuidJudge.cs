@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.IdUtils
 {
@@ -10,6 +11,7 @@ namespace Cosmos.IdUtils
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullOrEmpty(Guid? guid)
         {
             return guid is null || guid == Guid.Empty;
@@ -20,6 +22,7 @@ namespace Cosmos.IdUtils
         /// 判断给定的 Guid 是否为 Null 或 Empty。
         /// </summary>
         /// <param name="guid"> 值 </param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullOrEmpty(Guid guid)
         {
             return guid == Guid.Empty;
@@ -33,6 +36,7 @@ namespace Cosmos.IdUtils
         /// 判断给定的可空 Guid 是否为 Null 或 Empty。
         /// </summary>
         /// <param name="guid"> 值 </param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullOrEmpty(this Guid? guid)
         {
             return GuidJudge.IsNullOrEmpty(guid);
@@ -43,6 +47,7 @@ namespace Cosmos.IdUtils
         /// 判断给定的 Guid 是否为 Null 或 Empty。
         /// </summary>
         /// <param name="guid"> 值 </param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullOrEmpty(this Guid guid)
         {
             return GuidJudge.IsNullOrEmpty(guid);

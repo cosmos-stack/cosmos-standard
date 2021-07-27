@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Cosmos.Exceptions;
 
 namespace Cosmos
@@ -16,6 +17,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <param name="action"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void IfTrue(this bool @this, Action action)
         {
             if (@this)
@@ -30,6 +32,7 @@ namespace Cosmos
         /// <param name="this"></param>
         /// <param name="action"></param>
         /// <param name="context"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void IfTrue<T>(this bool @this, Action<T> action, T context)
         {
             if (@this)
@@ -43,6 +46,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <param name="action"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void IfFalse(this bool @this, Action action)
         {
             if (!@this)
@@ -57,6 +61,7 @@ namespace Cosmos
         /// <param name="this"></param>
         /// <param name="action"></param>
         /// <param name="context"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void IfFalse<T>(this bool @this, Action<T> action, T context)
         {
             if (!@this)
@@ -75,6 +80,7 @@ namespace Cosmos
         /// <param name="condition"></param>
         /// <param name="this"></param>
         /// <param name="that"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Ifttt(this bool condition, Action @this, Action that)
         {
             if (condition)
@@ -95,6 +101,7 @@ namespace Cosmos
         /// <param name="this"></param>
         /// <param name="that"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TValue Ifttt<TValue>(this bool condition, Func<TValue> @this, Func<TValue> @that)
         {
             if (condition)
@@ -116,6 +123,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <param name="exception"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void IfTrueThenThrow(this bool @this, Exception exception)
         {
             @this.IfTrue(() => ExceptionHelper.PrepareForRethrow(exception));
@@ -126,6 +134,7 @@ namespace Cosmos
         /// </summary>
         /// <param name="this"></param>
         /// <param name="exception"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void IfFalseThenThrow(this bool @this, Exception exception)
         {
             @this.IfFalse(() => ExceptionHelper.PrepareForRethrow(exception));
@@ -135,6 +144,7 @@ namespace Cosmos
 
         #region If then invoke
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfTrueThenInvoke(this bool @this, Func<bool> func)
         {
             if (@this)
@@ -145,6 +155,7 @@ namespace Cosmos
             return @this;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfTrueThenInvoke<T>(this bool @this, Func<T, bool> func, T context)
         {
             if (@this)
@@ -155,18 +166,21 @@ namespace Cosmos
             return @this;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfTrueThenInvoke(this bool @this, Action action)
         {
             @this.IfTrue(action);
             return @this;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfTrueThenInvoke<T>(this bool @this, Action<T> action, T context)
         {
             @this.IfTrue(action, context);
             return @this;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfFalseThenInvoke(this bool @this, Func<bool> func)
         {
             if (!@this)
@@ -177,6 +191,7 @@ namespace Cosmos
             return @this;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfFalseThenInvoke<T>(this bool @this, Func<T, bool> func, T context)
         {
             if (!@this)
@@ -187,12 +202,14 @@ namespace Cosmos
             return @this;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfFalseThenInvoke(this bool @this, Action action)
         {
             @this.IfFalse(action);
             return @this;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IfFalseThenInvoke<T>(this bool @this, Action<T> action, T context)
         {
             @this.IfFalse(action, context);

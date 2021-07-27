@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Optionals
 {
@@ -13,6 +14,7 @@ namespace Cosmos.Optionals
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Maybe<T> Some<T>(T value)
             => new(value, true);
 
@@ -22,6 +24,7 @@ namespace Cosmos.Optionals
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Maybe<T> Some<T>(T? value) where T : struct
             => value.HasValue ? Some(value.Value) : None<T>();
 
@@ -32,6 +35,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Either<T, TException> Some<T, TException>(T value)
             => new(value, default, true);
 
@@ -43,6 +47,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Either<T, TException> Some<T, TException>(T? value, TException exception) where T : struct
             => value.HasValue ? Some<T, TException>(value.Value) : None<T, TException>(exception);
 
@@ -51,6 +56,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Maybe<T> None<T>()
             => new(default, false);
 
@@ -61,6 +67,7 @@ namespace Cosmos.Optionals
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TException"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Either<T, TException> None<T, TException>(TException exception)
             => new(default, exception, false);
 
@@ -70,6 +77,7 @@ namespace Cosmos.Optionals
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Maybe<T> From<T>(T value)
         {
             return value is null
@@ -100,6 +108,7 @@ namespace Cosmos.Optionals
         /// <param name="nullable"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Maybe<T> From<T>(T? nullable) where T : struct => Some(nullable);
     }
 }

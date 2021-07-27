@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Validation;
 
 namespace Cosmos.Text
@@ -14,6 +15,7 @@ namespace Cosmos.Text
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NotNull(string argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
@@ -30,6 +32,7 @@ namespace Cosmos.Text
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NotEmpty(string argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
@@ -46,6 +49,7 @@ namespace Cosmos.Text
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NotBlank(string argument, string argumentName, string message = null)
         {
             NotEmpty(argument, argumentName, message);
@@ -61,6 +65,7 @@ namespace Cosmos.Text
         /// <param name="length"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NotOutOfLength(string argument, int length, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -77,6 +82,7 @@ namespace Cosmos.Text
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CheckNull(this string argument, string argumentName, string message = null)
         {
             StringGuard.NotNull(argument, argumentName, message);
@@ -88,6 +94,7 @@ namespace Cosmos.Text
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CheckBlank(this string argument, string argumentName, string message = null)
         {
             StringGuard.NotEmpty(argument, argumentName, message);
@@ -100,6 +107,7 @@ namespace Cosmos.Text
         ///  <param name="length"></param>
         ///  <param name="argumentName"></param>
         ///  <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireMaxLength(this string argument, int length, string argumentName, string message = null)
         {
             StringGuard.NotOutOfLength(argument, length, argumentName, message);

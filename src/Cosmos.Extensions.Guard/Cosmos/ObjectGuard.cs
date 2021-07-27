@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Validation;
 
 namespace Cosmos
@@ -14,6 +15,7 @@ namespace Cosmos
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NotNull(object argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(

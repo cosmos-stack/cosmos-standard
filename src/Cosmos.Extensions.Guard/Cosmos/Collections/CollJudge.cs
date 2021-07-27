@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Collections
 {
@@ -14,6 +15,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="coll"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNull(IEnumerable coll)
         {
             return coll is null;
@@ -29,6 +31,7 @@ namespace Cosmos.Collections
         /// </summary>
         /// <param name="coll"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullOrEmpty(IEnumerable coll)
         {
             return coll is null || !coll.Cast<object>().Any();
@@ -41,6 +44,7 @@ namespace Cosmos.Collections
         /// <typeparam name="T"></typeparam>
         /// <param name="coll"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullOrEmpty<T>(IEnumerable<T> coll)
         {
             return coll is null || !coll.Any();
@@ -97,6 +101,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <param name="that"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameCount<T>(this ICollection<T> source, ICollection<T> that)
         {
             return CollJudge.IsSameCount(source, that);
@@ -110,6 +115,7 @@ namespace Cosmos.Collections
         /// <param name="source"></param>
         /// <param name="that"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameCount<T>(this IQueryable<T> source, IQueryable<T> that)
         {
             return CollJudge.IsSameCount(source, that);

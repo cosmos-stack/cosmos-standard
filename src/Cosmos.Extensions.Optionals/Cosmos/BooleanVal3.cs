@@ -178,8 +178,10 @@ namespace Cosmos
 
     public static class BooleanVal3Extensions
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static BooleanVal3 ToBooleanVal3(this bool value) => value;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static BooleanVal3 ToBooleanVal3(this bool? value) => value;
     }
 }

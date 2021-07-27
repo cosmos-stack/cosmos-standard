@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Optionals;
 using Cosmos.Reflection;
 using Cosmos.Validation;
@@ -28,6 +29,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -45,6 +47,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -59,6 +62,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -76,6 +80,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -90,6 +95,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -107,6 +113,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -121,6 +128,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(int argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -138,6 +146,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -154,6 +163,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(int argument, int min, int max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -173,6 +183,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(int? argument, int min, int max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
@@ -187,6 +198,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -204,6 +216,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -218,6 +231,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -235,6 +249,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -249,6 +264,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -266,6 +282,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -280,6 +297,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(long argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -297,6 +315,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -313,6 +332,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(long argument, long min, long max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -332,6 +352,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(long? argument, long min, long max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
@@ -346,6 +367,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -363,6 +385,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -377,6 +400,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -394,6 +418,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -408,6 +433,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -425,6 +451,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -439,6 +466,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(float argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -456,6 +484,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -472,6 +501,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(float argument, float min, float max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -491,6 +521,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(float? argument, float min, float max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
@@ -505,6 +536,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -522,6 +554,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -536,6 +569,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -553,6 +587,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -567,6 +602,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -584,6 +620,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -598,6 +635,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(double argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -615,6 +653,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -631,6 +670,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(double argument, double min, double max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -650,6 +690,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(double? argument, double min, double max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
@@ -664,6 +705,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -680,6 +722,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -694,6 +737,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -711,6 +755,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -725,6 +770,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -742,6 +788,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -756,6 +803,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(decimal argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -773,6 +821,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
@@ -789,6 +838,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(decimal argument, decimal min, decimal max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -808,6 +858,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(decimal? argument, decimal min, decimal max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
@@ -827,6 +878,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this int argument, int min, int max, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
@@ -844,6 +896,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this int? argument, int min, int max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
@@ -858,6 +911,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this int argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
@@ -873,6 +927,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
@@ -887,6 +942,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this int argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message);
@@ -902,6 +958,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message, options);
@@ -916,6 +973,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this int argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
@@ -931,6 +989,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
@@ -945,6 +1004,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this int argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message);
@@ -960,6 +1020,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
@@ -976,6 +1037,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this long argument, long min, long max, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
@@ -993,6 +1055,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this long? argument, long min, long max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
@@ -1007,6 +1070,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this long argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
@@ -1022,6 +1086,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
@@ -1036,6 +1101,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this long argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message);
@@ -1051,6 +1117,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message, options);
@@ -1065,6 +1132,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this long argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
@@ -1080,6 +1148,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
@@ -1094,6 +1163,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this long argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message);
@@ -1109,6 +1179,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
@@ -1125,6 +1196,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this float argument, float min, float max, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
@@ -1142,6 +1214,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this float? argument, float min, float max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
@@ -1156,6 +1229,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this float argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
@@ -1171,6 +1245,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
@@ -1185,6 +1260,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this float argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message);
@@ -1200,6 +1276,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message, options);
@@ -1214,6 +1291,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this float argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
@@ -1229,6 +1307,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
@@ -1243,6 +1322,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this float argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message);
@@ -1258,6 +1338,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
@@ -1274,6 +1355,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this double argument, double min, double max, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
@@ -1291,6 +1373,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this double? argument, double min, double max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
@@ -1305,6 +1388,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this double argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
@@ -1320,6 +1404,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
@@ -1334,6 +1419,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this double argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message);
@@ -1349,6 +1435,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message, options);
@@ -1363,6 +1450,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this double argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
@@ -1378,6 +1466,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
@@ -1392,6 +1481,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this double argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message);
@@ -1407,6 +1497,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message, options);
@@ -1423,6 +1514,7 @@ namespace Cosmos.Numeric
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this decimal argument, decimal min, decimal max, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
@@ -1440,6 +1532,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this decimal? argument, decimal min, decimal max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
@@ -1454,6 +1547,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this decimal argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message);
@@ -1469,6 +1563,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositiveOrZero(argument, argumentName, message, options);
@@ -1483,6 +1578,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this decimal argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message);
@@ -1498,6 +1594,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBePositive(argument, argumentName, message, options);
@@ -1512,6 +1609,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this decimal argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
@@ -1527,6 +1625,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegativeOrZero(argument, argumentName, message, options);
@@ -1541,6 +1640,7 @@ namespace Cosmos.Numeric
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this decimal argument, string argumentName, string message = null)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message);
@@ -1556,6 +1656,7 @@ namespace Cosmos.Numeric
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
         {
             NumericGuard.ShouldBeNegative(argument, argumentName, message, options);

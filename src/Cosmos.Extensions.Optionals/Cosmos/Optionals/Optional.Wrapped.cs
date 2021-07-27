@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Optionals
 {
@@ -19,6 +20,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static Some<T> Some<T>(T some) => new(some);
 
             /// <summary>
@@ -29,6 +31,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="TException"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static Some<T, TException> Some<T, TException>(T some) => new(some);
 
             /// <summary>
@@ -37,6 +40,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static None<T> None<T>() => new();
 
             /// <summary>
@@ -46,6 +50,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="TException"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static None<T, TException> None<T, TException>(TException exception) => new(exception);
 
             /// <summary>
@@ -53,6 +58,7 @@ namespace Cosmos.Optionals
             /// </summary>
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static Some<T> NoneSlim<T>() => new(Optional.None<T>());
 
             /// <summary>
@@ -62,6 +68,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <typeparam name="TException"></typeparam>
             /// <returns></returns>
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static Some<T, TException> NoneSlim<T, TException>(TException exception) => new(Optional.None<T, TException>(exception));
 
             /// <summary>
@@ -71,6 +78,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static IOptional<T> From<T>(T value)
             {
                 return value is null
@@ -103,6 +111,7 @@ namespace Cosmos.Optionals
             /// <typeparam name="T"></typeparam>
             /// <returns></returns>
             // ReSharper disable once MemberHidesStaticFromOuterClass
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static IOptional<T> From<T>(T? nullable) where T : struct
             {
                 return nullable.HasValue

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Optionals;
 using Cosmos.Validation;
 
@@ -40,6 +41,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeValid(DateTime? argument, string argumentName, string message = null)
         {
             ShouldBeValid(argument.SafeValue(), argumentName, message);
@@ -55,6 +57,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeInThePast(DateTime argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -72,6 +75,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeInThePast(DateTime? argument, string argumentName, string message = null)
         {
             ShouldBeInThePast(argument.SafeValue(), argumentName, message);
@@ -87,6 +91,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeInTheFuture(DateTime argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -104,6 +109,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeInTheFuture(DateTime? argument, string argumentName, string message = null)
         {
             ShouldBeInTheFuture(argument.SafeValue(), argumentName, message);
@@ -121,6 +127,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CheckInvalidDate(this DateTime argument, string argumentName, string message = null)
         {
             DateGuard.ShouldBeValid(argument, argumentName, message);
@@ -135,6 +142,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CheckInvalidDate(this DateTime? argument, string argumentName, string message = null)
         {
             DateGuard.ShouldBeValid(argument, argumentName, message);

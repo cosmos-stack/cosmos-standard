@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Optionals;
 using Cosmos.Validation;
 
@@ -16,6 +17,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(TimeSpan argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -33,6 +35,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositive(TimeSpan? argument, string argumentName, string message = null)
         {
             ShouldBePositive(argument.SafeValue(), argumentName, message);
@@ -48,6 +51,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(TimeSpan argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -65,6 +69,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBePositiveOrZero(TimeSpan? argument, string argumentName, string message = null)
         {
             ShouldBePositiveOrZero(argument.SafeValue(), argumentName, message);
@@ -80,6 +85,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(TimeSpan argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -97,6 +103,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegative(TimeSpan? argument, string argumentName, string message = null)
         {
             ShouldBeNegative(argument.SafeValue(), argumentName, message);
@@ -112,6 +119,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(TimeSpan argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -129,6 +137,7 @@ namespace Cosmos.Date
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeNegativeOrZero(TimeSpan? argument, string argumentName, string message = null)
         {
             ShouldBeNegativeOrZero(argument.SafeValue(), argumentName, message);
@@ -146,6 +155,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this TimeSpan argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBePositive(argument, argumentName, message);
@@ -160,6 +170,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositive(this TimeSpan? argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBePositive(argument, argumentName, message);
@@ -174,6 +185,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this TimeSpan argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBePositiveOrZero(argument, argumentName, message);
@@ -188,6 +200,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequirePositiveOrZero(this TimeSpan? argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBePositiveOrZero(argument, argumentName, message);
@@ -202,6 +215,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this TimeSpan argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBeNegative(argument, argumentName, message);
@@ -216,6 +230,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegative(this TimeSpan? argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBeNegative(argument, argumentName, message);
@@ -230,6 +245,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this TimeSpan argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
@@ -244,6 +260,7 @@ namespace Cosmos.Date
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireNegativeOrZero(this TimeSpan? argument, string argumentName, string message = null)
         {
             TimeSpanGuard.ShouldBeNegativeOrZero(argument, argumentName, message);

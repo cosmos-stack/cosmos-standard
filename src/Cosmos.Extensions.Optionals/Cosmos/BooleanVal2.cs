@@ -131,4 +131,13 @@ namespace Cosmos
 
         #endregion
     }
+
+    public static class BooleanVal2Extensions
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static BooleanVal2 ToBooleanVal2(this bool value) => value;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static BooleanVal2 ToBooleanVal2(this bool? value) => value.HasValue ? value.Value : BooleanVal2.FalseVal;
+    }
 }

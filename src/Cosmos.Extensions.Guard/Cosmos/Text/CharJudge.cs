@@ -1,4 +1,6 @@
-﻿namespace Cosmos.Text
+﻿using System.Runtime.CompilerServices;
+
+namespace Cosmos.Text
 {
     public static class CharJudge
     {
@@ -9,6 +11,7 @@
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(char value, char left, char right) => value >= left && value <= right;
     }
 }

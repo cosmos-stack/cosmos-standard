@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Collections
 {
@@ -12,6 +13,7 @@ namespace Cosmos.Collections
         /// <param name="array"></param>
         /// <param name="index"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsIndexInRange(Array array, int index)
         {
             return index >= 0 && index < array.Length;
@@ -28,6 +30,7 @@ namespace Cosmos.Collections
         /// <param name="index"></param>
         /// <param name="dimension"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsIndexInRange(Array array, int index, int dimension)
         {
             if (dimension <= 0) throw new ArgumentOutOfRangeException(nameof(dimension));

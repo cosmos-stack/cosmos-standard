@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Optionals;
 using Cosmos.Validation;
 
@@ -29,6 +30,7 @@ namespace Cosmos.Text
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(char argument, char min, char max, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
@@ -48,6 +50,7 @@ namespace Cosmos.Text
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeWithinRange(char? argument, char min, char max, string argumentName, string message = null, CharMayOptions options = CharMayOptions.Default)
         {
             ShouldBeWithinRange(CharGuardHelper.C(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
@@ -67,6 +70,7 @@ namespace Cosmos.Text
         /// <param name="max"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this char argument, char min, char max, string argumentName, string message = null)
         {
             CharGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
@@ -84,6 +88,7 @@ namespace Cosmos.Text
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
         /// <param name="options"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void RequireWithinRange(this char? argument, char min, char max, string argumentName, string message = null, CharMayOptions options = CharMayOptions.Default)
         {
             CharGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);

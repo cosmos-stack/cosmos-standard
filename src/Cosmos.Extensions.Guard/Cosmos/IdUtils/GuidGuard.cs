@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Optionals;
 using Cosmos.Validation;
 
@@ -15,6 +16,7 @@ namespace Cosmos.IdUtils
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeValid(Guid argument, string argumentName, string message = null)
         {
             ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
@@ -31,6 +33,7 @@ namespace Cosmos.IdUtils
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ShouldBeValid(Guid? argument, string argumentName, string message = null)
         {
             ShouldBeValid(argument.SafeValue(), argumentName, message);
@@ -48,6 +51,7 @@ namespace Cosmos.IdUtils
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CheckNull(this Guid argument, string argumentName, string message = null)
         {
             GuidGuard.ShouldBeValid(argument, argumentName, message);
@@ -62,6 +66,7 @@ namespace Cosmos.IdUtils
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CheckNull(this Guid? argument, string argumentName, string message = null)
         {
             GuidGuard.ShouldBeValid(argument, argumentName, message);
@@ -76,6 +81,7 @@ namespace Cosmos.IdUtils
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Require(this Guid argument, string argumentName, string message = null)
         {
             CheckNull(argument, argumentName, message);
@@ -90,6 +96,7 @@ namespace Cosmos.IdUtils
         /// <param name="argument"></param>
         /// <param name="argumentName"></param>
         /// <param name="message"></param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Require(this Guid? argument, string argumentName, string message = null)
         {
             CheckNull(argument, argumentName, message);

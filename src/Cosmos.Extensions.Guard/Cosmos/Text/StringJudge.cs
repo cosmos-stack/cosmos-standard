@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using Cosmos.Conversions.Determiners;
 using Cosmos.Numeric;
@@ -17,6 +18,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool StartsWithThese(string str, params string[] values) => str.StartsWith(values);
 
         /// <summary>
@@ -26,6 +28,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool StartsWithThese(string str, ICollection<string> values) => str.StartsWith(values);
 
         /// <summary>
@@ -35,6 +38,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool EndsWithThese(string str, params string[] values) => str.EndsWith(values);
 
         /// <summary>
@@ -44,6 +48,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="values"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool EndsWithThese(string str, ICollection<string> values) => str.EndsWith(values);
 
         #endregion
@@ -56,6 +61,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsChineseCharacters(string str)
         {
             return !string.IsNullOrWhiteSpace(str) && RegexJudge.IsMatch(str, "[\u4e00-\u9fa5]+");
@@ -67,6 +73,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool ContainsNumber(string str)
         {
             return !string.IsNullOrWhiteSpace(str) && RegexJudge.IsMatch(str, "[0-9]+");
@@ -86,6 +93,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWebUrl(string str)
         {
             return !string.IsNullOrWhiteSpace(str) && WebUrlExpressionSchema.IsMatch(str);
@@ -99,6 +107,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEmail(string str)
         {
             return !string.IsNullOrWhiteSpace(str) && EemailExpressionSchema.IsMatch(str);
@@ -116,6 +125,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsChar(this string str) => StringCharDeterminer.Is(str);
 
         /// <summary>
@@ -124,6 +134,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBoolean(this string str) => StringBooleanDeterminer.Is(str);
 
         /// <summary>
@@ -132,6 +143,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEncoding(this string str) => StringEncodingDeterminer.Is(str);
         
         /// <summary>
@@ -140,6 +152,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsVersion(this string str) => StringVersionDeterminer.Is(str);
 
         /// <summary>
@@ -148,6 +161,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsIpAddress(this string str) => StringIpAddressDeterminer.Is(str);
 
         #endregion
@@ -160,6 +174,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateTime(this string str) => StringDateTimeDeterminer.Is(str);
 
         /// <summary>
@@ -168,6 +183,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateTimeOffset(this string str) => StringDateTimeOffsetDeterminer.Is(str);
 
         /// <summary>
@@ -176,6 +192,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsTimeSpan(this string str) => StringTimeSpanDeterminer.Is(str);
 
         /// <summary>
@@ -185,6 +202,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="format"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateTimeExact(this string str, string format) => StringDateTimeDeterminer.Exact.Is(str, format);
 
         /// <summary>
@@ -194,6 +212,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="format"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateTimeOffsetExact(this string str, string format) => StringDateTimeOffsetDeterminer.Exact.Is(str, format);
 
         /// <summary>
@@ -203,6 +222,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="format"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsTimeSpanExact(this string str, string format) => StringTimeSpanDeterminer.Exact.Is(str, format);
 
         #endregion
@@ -216,6 +236,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="enumType"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEnum(this string str, Type enumType) => StringEnumDeterminer.Is(str, enumType);
 
         /// <summary>
@@ -225,6 +246,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <typeparam name="TEnum"></typeparam>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEnum<TEnum>(this string str) where TEnum : struct => StringEnumDeterminer<TEnum>.Is(str);
 
         #endregion
@@ -242,6 +264,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsGuid(this string str)
         {
             return StringGuidDeterminer.Is(str) && IsValidGuid(str);
@@ -257,6 +280,7 @@ namespace Cosmos.Text
         /// <param name="str"></param>
         /// <param name="format"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsGuidExact(this string str, string format)
         {
             return StringGuidDeterminer.Exact.Is(str, format);
@@ -272,6 +296,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNumeric(this string @string) => NumericJudge.IsNumeric(@string);
 
         /// <summary>
@@ -280,6 +305,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsByte(this string str) => StringByteDeterminer.Is(str);
 
         /// <summary>
@@ -288,6 +314,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSByte(this string str) => StringSByteDeterminer.Is(str);
 
         /// <summary>
@@ -296,6 +323,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsShort(this string str) => StringShortDeterminer.Is(str);
 
         /// <summary>
@@ -304,6 +332,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInt(this string str) => StringIntDeterminer.Is(str);
 
         /// <summary>
@@ -312,6 +341,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsLong(this string str) => StringLongDeterminer.Is(str);
 
         /// <summary>
@@ -320,6 +350,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUShort(this string str) => StringUShortDeterminer.Is(str);
 
         /// <summary>
@@ -328,6 +359,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUInt(this string str) => StringUIntDeterminer.Is(str);
 
         /// <summary>
@@ -336,6 +368,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsULong(this string str) => StringULongDeterminer.Is(str);
 
         /// <summary>
@@ -344,6 +377,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInt16(this string str) => StringShortDeterminer.Is(str);
 
         /// <summary>
@@ -352,6 +386,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInt32(this string str) => StringIntDeterminer.Is(str);
 
         /// <summary>
@@ -360,6 +395,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInt64(this string str) => StringLongDeterminer.Is(str);
 
         /// <summary>
@@ -368,6 +404,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUInt16(this string str) => StringUShortDeterminer.Is(str);
 
         /// <summary>
@@ -376,6 +413,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUInt32(this string str) => StringUIntDeterminer.Is(str);
 
         /// <summary>
@@ -384,6 +422,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool UsUInt64(this string str) => StringULongDeterminer.Is(str);
 
         /// <summary>
@@ -392,6 +431,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsFloat(this string str) => StringFloatDeterminer.Is(str);
 
         /// <summary>
@@ -400,6 +440,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDouble(this string str) => StringDoubleDeterminer.Is(str);
 
         /// <summary>
@@ -408,6 +449,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDecimal(this string str) => StringDecimalDeterminer.Is(str);
 
         #endregion
@@ -420,6 +462,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWebUrl(this string target) => StringJudge.IsWebUrl(target);
 
         /// <summary>
@@ -428,6 +471,7 @@ namespace Cosmos.Text
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEmail(this string target) => StringJudge.IsEmail(target);
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using Cosmos.Conversions.Determiners;
+﻿using System.Runtime.CompilerServices;
+using Cosmos.Conversions.Determiners;
 
 namespace Cosmos.Numeric
 {
@@ -9,6 +10,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInt16(string str) => StringShortDeterminer.Is(str);
 
         /// <summary>
@@ -16,6 +18,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInt32(string str) => StringIntDeterminer.Is(str);
 
         /// <summary>
@@ -23,6 +26,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInt64(string str) => StringLongDeterminer.Is(str);
 
         /// <summary>
@@ -30,6 +34,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUInt16(string str) => StringUShortDeterminer.Is(str);
 
         /// <summary>
@@ -37,6 +42,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUInt32(string str) => StringUIntDeterminer.Is(str);
 
         /// <summary>
@@ -44,6 +50,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsUInt64(string str) => StringULongDeterminer.Is(str);
 
         /// <summary>
@@ -51,6 +58,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNumeric(string str) => StringDecimalDeterminer.Is(str);
 
         /// <summary>
@@ -60,6 +68,7 @@ namespace Cosmos.Numeric
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(short value, short left, short right) => value >= left && value <= right;
 
         /// <summary>
@@ -69,6 +78,7 @@ namespace Cosmos.Numeric
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(int value, int left, int right) => value >= left && value <= right;
 
         /// <summary>
@@ -78,6 +88,7 @@ namespace Cosmos.Numeric
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(long value, long left, long right) => value >= left && value <= right;
 
         /// <summary>
@@ -87,6 +98,7 @@ namespace Cosmos.Numeric
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(float value, float left, float right) => value >= left && value <= right;
 
         /// <summary>
@@ -96,6 +108,7 @@ namespace Cosmos.Numeric
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(double value, double left, double right) => value >= left && value <= right;
 
         /// <summary>
@@ -105,6 +118,7 @@ namespace Cosmos.Numeric
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBetween(decimal value, decimal left, decimal right) => value >= left && value <= right;
 
         /// <summary>
@@ -112,6 +126,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNaN(double value) => Numbers.IsNaN(value);
 
         /// <summary>
@@ -119,6 +134,7 @@ namespace Cosmos.Numeric
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNaN(float value) => Numbers.IsNaN(value);
     }
 }
