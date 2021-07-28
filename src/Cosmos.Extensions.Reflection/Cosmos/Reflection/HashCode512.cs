@@ -13,7 +13,7 @@ namespace Cosmos.Reflection
 
         public int BitLength => 512;
 
-        [CLSCompliant(false)]
+        
         public HashCode512(ulong hash1, ulong hash2, ulong hash3, ulong hash4, ulong hash5, ulong hash6, ulong hash7, ulong hash8)
         {
             UHash1 = hash1;
@@ -60,21 +60,21 @@ namespace Cosmos.Reflection
 
         public long Hash8 => unchecked((long) UHash8);
 
-        [CLSCompliant(false)] public ulong UHash1 { get; }
+         public ulong UHash1 { get; }
 
-        [CLSCompliant(false)] public ulong UHash2 { get; }
+         public ulong UHash2 { get; }
 
-        [CLSCompliant(false)] public ulong UHash3 { get; }
+         public ulong UHash3 { get; }
 
-        [CLSCompliant(false)] public ulong UHash4 { get; }
+         public ulong UHash4 { get; }
 
-        [CLSCompliant(false)] public ulong UHash5 { get; }
+         public ulong UHash5 { get; }
 
-        [CLSCompliant(false)] public ulong UHash6 { get; }
+         public ulong UHash6 { get; }
 
-        [CLSCompliant(false)] public ulong UHash7 { get; }
+         public ulong UHash7 { get; }
 
-        [CLSCompliant(false)] public ulong UHash8 { get; }
+         public ulong UHash8 { get; }
 
         public static bool TryParse(string s, out HashCode512 result)
         {

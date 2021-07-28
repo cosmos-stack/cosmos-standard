@@ -13,7 +13,7 @@ namespace Cosmos.Reflection
 
         public int BitLength => 256;
 
-        [CLSCompliant(false)]
+        
         public HashCode256(ulong hash1, ulong hash2, ulong hash3, ulong hash4)
         {
             UHash1 = hash1;
@@ -39,13 +39,13 @@ namespace Cosmos.Reflection
 
         public long Hash4 => unchecked((long) UHash4);
 
-        [CLSCompliant(false)] public ulong UHash1 { get; }
+         public ulong UHash1 { get; }
 
-        [CLSCompliant(false)] public ulong UHash2 { get; }
+         public ulong UHash2 { get; }
 
-        [CLSCompliant(false)] public ulong UHash3 { get; }
+         public ulong UHash3 { get; }
 
-        [CLSCompliant(false)] public ulong UHash4 { get; }
+         public ulong UHash4 { get; }
 
         public static bool TryParse(string s, out HashCode256 result)
         {

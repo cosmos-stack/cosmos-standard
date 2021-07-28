@@ -13,7 +13,7 @@ namespace Cosmos.Reflection
 
         public int BitLength => 1024;
 
-        [CLSCompliant(false)]
+
         public HashCode1024(
             ulong hash1, ulong hash2, ulong hash3, ulong hash4, ulong hash5, ulong hash6, ulong hash7, ulong hash8,
             ulong hash9, ulong hash10, ulong hash11, ulong hash12, ulong hash13, ulong hash14, ulong hash15, ulong hash16)
@@ -42,10 +42,10 @@ namespace Cosmos.Reflection
         public HashCode1024(
             long hash1, long hash2, long hash3, long hash4, long hash5, long hash6, long hash7, long hash8,
             long hash9, long hash10, long hash11, long hash12, long hash13, long hash14, long hash15, long hash16) : this(
-            unchecked((ulong) hash1), unchecked((ulong) hash2), unchecked((ulong) hash3), unchecked((ulong) hash4),
-            unchecked((ulong) hash5), unchecked((ulong) hash6), unchecked((ulong) hash7), unchecked((ulong) hash8),
-            unchecked((ulong) hash9), unchecked((ulong) hash10), unchecked((ulong) hash11), unchecked((ulong) hash12),
-            unchecked((ulong) hash13), unchecked((ulong) hash14), unchecked((ulong) hash15), unchecked((ulong) hash16)) { }
+            unchecked((ulong)hash1), unchecked((ulong)hash2), unchecked((ulong)hash3), unchecked((ulong)hash4),
+            unchecked((ulong)hash5), unchecked((ulong)hash6), unchecked((ulong)hash7), unchecked((ulong)hash8),
+            unchecked((ulong)hash9), unchecked((ulong)hash10), unchecked((ulong)hash11), unchecked((ulong)hash12),
+            unchecked((ulong)hash13), unchecked((ulong)hash14), unchecked((ulong)hash15), unchecked((ulong)hash16)) { }
 
         public HashCode1024(HashCode512 hash1, HashCode512 hash2) : this(
             hash1.UHash1, hash1.UHash2, hash1.UHash3, hash1.UHash4, hash1.UHash5, hash1.UHash6, hash1.UHash7, hash1.UHash8,
@@ -69,69 +69,69 @@ namespace Cosmos.Reflection
             hash7.UHash1, hash7.UHash2,
             hash8.UHash1, hash8.UHash2) { }
 
-        public long Hash1 => unchecked((long) UHash1);
+        public long Hash1 => unchecked((long)UHash1);
 
-        public long Hash2 => unchecked((long) UHash2);
+        public long Hash2 => unchecked((long)UHash2);
 
-        public long Hash3 => unchecked((long) UHash3);
+        public long Hash3 => unchecked((long)UHash3);
 
-        public long Hash4 => unchecked((long) UHash4);
+        public long Hash4 => unchecked((long)UHash4);
 
-        public long Hash5 => unchecked((long) UHash5);
+        public long Hash5 => unchecked((long)UHash5);
 
-        public long Hash6 => unchecked((long) UHash6);
+        public long Hash6 => unchecked((long)UHash6);
 
-        public long Hash7 => unchecked((long) UHash7);
+        public long Hash7 => unchecked((long)UHash7);
 
-        public long Hash8 => unchecked((long) UHash8);
+        public long Hash8 => unchecked((long)UHash8);
 
-        public long Hash9 => unchecked((long) UHash9);
+        public long Hash9 => unchecked((long)UHash9);
 
-        public long Hash10 => unchecked((long) UHash10);
+        public long Hash10 => unchecked((long)UHash10);
 
-        public long Hash11 => unchecked((long) UHash11);
+        public long Hash11 => unchecked((long)UHash11);
 
-        public long Hash12 => unchecked((long) UHash12);
+        public long Hash12 => unchecked((long)UHash12);
 
-        public long Hash13 => unchecked((long) UHash13);
+        public long Hash13 => unchecked((long)UHash13);
 
-        public long Hash14 => unchecked((long) UHash14);
+        public long Hash14 => unchecked((long)UHash14);
 
-        public long Hash15 => unchecked((long) UHash15);
+        public long Hash15 => unchecked((long)UHash15);
 
-        public long Hash16 => unchecked((long) UHash16);
+        public long Hash16 => unchecked((long)UHash16);
 
-        [CLSCompliant(false)] public ulong UHash1 { get; }
+        public ulong UHash1 { get; }
 
-        [CLSCompliant(false)] public ulong UHash2 { get; }
+        public ulong UHash2 { get; }
 
-        [CLSCompliant(false)] public ulong UHash3 { get; }
+        public ulong UHash3 { get; }
 
-        [CLSCompliant(false)] public ulong UHash4 { get; }
+        public ulong UHash4 { get; }
 
-        [CLSCompliant(false)] public ulong UHash5 { get; }
+        public ulong UHash5 { get; }
 
-        [CLSCompliant(false)] public ulong UHash6 { get; }
+        public ulong UHash6 { get; }
 
-        [CLSCompliant(false)] public ulong UHash7 { get; }
+        public ulong UHash7 { get; }
 
-        [CLSCompliant(false)] public ulong UHash8 { get; }
+        public ulong UHash8 { get; }
 
-        [CLSCompliant(false)] public ulong UHash9 { get; }
+        public ulong UHash9 { get; }
 
-        [CLSCompliant(false)] public ulong UHash10 { get; }
+        public ulong UHash10 { get; }
 
-        [CLSCompliant(false)] public ulong UHash11 { get; }
+        public ulong UHash11 { get; }
 
-        [CLSCompliant(false)] public ulong UHash12 { get; }
+        public ulong UHash12 { get; }
 
-        [CLSCompliant(false)] public ulong UHash13 { get; }
+        public ulong UHash13 { get; }
 
-        [CLSCompliant(false)] public ulong UHash14 { get; }
+        public ulong UHash14 { get; }
 
-        [CLSCompliant(false)] public ulong UHash15 { get; }
+        public ulong UHash15 { get; }
 
-        [CLSCompliant(false)] public ulong UHash16 { get; }
+        public ulong UHash16 { get; }
 
         public static bool TryParse(string s, out HashCode1024 result)
         {
@@ -389,7 +389,7 @@ namespace Cosmos.Reflection
 
         public BitArray GetBitArray()
         {
-            return new(GetByteArray()) {Length = 1024};
+            return new(GetByteArray()) { Length = 1024 };
         }
 
         #endregion
