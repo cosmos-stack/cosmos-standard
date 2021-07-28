@@ -809,6 +809,38 @@
             <param name="method"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
+            <summary>
+            Get method by signature
+            </summary>
+            <param name="type"></param>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetBaseMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Get BaseMethod
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.IsVisibleAndVirtual(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether MethodInfo is Visible and Virtual.
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.IsVisible(System.Reflection.MethodBase)">
+            <summary>
+            Determine whether MethodBase is Visible.
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetProperties(System.Type,Cosmos.Reflection.PropertyAccessOptions)">
             <summary>
             Get all properties from the given Type.<br />
@@ -876,6 +908,14 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.IsVisibleAndVirtual(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether PropertyInfo is Visible and Virtual.
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetFullName(System.Type)">
             <summary>
             Get unique fully name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
@@ -891,6 +931,28 @@
             </summary>
             <param name="type"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.HasEmptyConstructor(System.Type)">
+            <summary>
+            Determine whether there is a parameterless constructor.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetEmptyConstructor(System.Type)">
+            <summary>
+            Get default constructor without any parameters.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetMatchingConstructor(System.Type,System.Type[])">
+            <summary>
+            Finds a constructor with the matching type parameters.
+            </summary>
+            <param name="type">The type being tested.</param>
+            <param name="constructorParameterTypes">The types of the contractor to find.</param>
+            <returns>The <see cref="T:System.Reflection.ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
         </member>
         <member name="T:Cosmos.Reflection.TypeMetaVisitExtensions">
             <summary>
@@ -1043,6 +1105,38 @@
             <param name="method"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
+            <summary>
+            Get method by signature
+            </summary>
+            <param name="type"></param>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetBaseMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Get BaseMethod
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsVisibleAndVirtual(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether MethodInfo is Visible and Virtual.
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsVisible(System.Reflection.MethodBase)">
+            <summary>
+            Determine whether MethodBase is Visible.
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsVirtual(System.Reflection.PropertyInfo)">
             <summary>
             Determine whether the specified property is a virtual property.<br />
@@ -1054,6 +1148,36 @@
             Determine whether the specified property is an abstract property.<br />
             判断指定属性是否是虚属性。
             </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsVisibleAndVirtual(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether PropertyInfo is Visible and Virtual.
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.HasEmptyConstructor(System.Type)">
+            <summary>
+            Determine whether there is a parameterless constructor.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetEmptyConstructor(System.Type)">
+            <summary>
+            Get default constructor without any parameters.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetMatchingConstructor(System.Type,System.Type[])">
+            <summary>
+            Finds a constructor with the matching type parameters.
+            </summary>
+            <param name="type">The type being tested.</param>
+            <param name="constructorParameterTypes">The types of the contractor to find.</param>
+            <returns>The <see cref="T:System.Reflection.ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
         </member>
         <member name="P:Cosmos.Reflection.ArgumentDescriptionVal`1.Name">
             <summary>

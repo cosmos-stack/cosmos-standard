@@ -4,156 +4,6 @@
         <name>Cosmos</name>
     </assembly>
     <members>
-        <member name="T:Cosmos.BooleanExtensions">
-            <summary>
-            Boolean extensions
-            </summary>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfTrue(System.Boolean,System.Action)">
-            <summary>
-            If true...
-            </summary>
-            <param name="this"></param>
-            <param name="action"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfTrue``1(System.Boolean,System.Action{``0},``0)">
-            <summary>
-            If true...
-            </summary>
-            <param name="this"></param>
-            <param name="action"></param>
-            <param name="context"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfTrue``1(Cosmos.BooleanVal{``0},System.Action{``0})">
-            <summary>
-            If true...
-            </summary>
-            <param name="this"></param>
-            <param name="action"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfFalse(System.Boolean,System.Action)">
-            <summary>
-            If false...
-            </summary>
-            <param name="this"></param>
-            <param name="action"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfFalse``1(System.Boolean,System.Action{``0},``0)">
-            <summary>
-            If false...
-            </summary>
-            <param name="this"></param>
-            <param name="action"></param>
-            <param name="context"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfFalse``1(Cosmos.BooleanVal{``0},System.Action{``0})">
-            <summary>
-            If true...
-            </summary>
-            <param name="this"></param>
-            <param name="action"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.Ifttt(System.Boolean,System.Action,System.Action)">
-            <summary>
-            If this then that...
-            </summary>
-            <param name="condition"></param>
-            <param name="this"></param>
-            <param name="that"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.Ifttt``1(System.Boolean,System.Func{``0},System.Func{``0})">
-            <summary>
-            If this then that...
-            </summary>
-            <typeparam name="TValue"></typeparam>
-            <param name="condition"></param>
-            <param name="this"></param>
-            <param name="that"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.Ifttt``1(Cosmos.BooleanVal{``0},System.Action,System.Action)">
-            <summary>
-            If this then that...
-            </summary>
-            <param name="condition"></param>
-            <param name="this"></param>
-            <param name="that"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.Ifttt``2(Cosmos.BooleanVal{``0},System.Func{``0,``1},System.Func{``0,``1})">
-            <summary>
-            If this then that...
-            </summary>
-            <typeparam name="TValue"></typeparam>
-            <typeparam name="T"></typeparam>
-            <param name="condition"></param>
-            <param name="this"></param>
-            <param name="that"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfTrueThenThrow(System.Boolean,System.Exception)">
-            <summary>
-            If true then throw exception
-            </summary>
-            <param name="this"></param>
-            <param name="exception"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfTrueThenThrow``1(Cosmos.BooleanVal{``0},System.Exception)">
-            <summary>
-            If true then throw exception
-            </summary>
-            <param name="this"></param>
-            <param name="exception"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfTrueThenThrow``1(Cosmos.BooleanVal{``0},System.Func{``0,System.Exception})">
-            <summary>
-            If true then throw exception
-            </summary>
-            <param name="this"></param>
-            <param name="exceptionFunc"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfFalseThenThrow(System.Boolean,System.Exception)">
-            <summary>
-            If false then throw exception
-            </summary>
-            <param name="this"></param>
-            <param name="exception"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfFalseThenThrow``1(Cosmos.BooleanVal{``0},System.Exception)">
-            <summary>
-            If false then throw exception
-            </summary>
-            <param name="this"></param>
-            <param name="exception"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.IfFalseThenThrow``1(Cosmos.BooleanVal{``0},System.Func{``0,System.Exception})">
-            <summary>
-            If false then throw exception
-            </summary>
-            <param name="this"></param>
-            <param name="exceptionFunc"></param>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.ToBinary(System.Boolean)">
-            <summary>
-            Is binary
-            </summary>
-            <param name="this"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.BooleanExtensions.ToString(System.Boolean,System.String,System.String)">
-            <summary>
-            If true then this, else that...
-            </summary>
-            <param name="this"></param>
-            <param name="trueString"></param>
-            <param name="falseString"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.BooleanVal`1">
-            <summary>
-            Boolean value wrapper
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
         <member name="T:Cosmos.ByteExtensions">
             <summary>
             Byte extensions
@@ -1386,6 +1236,406 @@
             <summary>
             Try
             </summary>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="cause"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``2(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1},System.Func{System.Int32,``1},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``3(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``4(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``5(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``6(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``7(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``8(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``9(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``10(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``11(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``12(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``13(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``14(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.Func{System.Int32,``13},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="arg14Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``15(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.Func{System.Int32,``13},System.Func{System.Int32,``14},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="arg14Func"></param>
+            <param name="arg15Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.Try.InvokeRange``16(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.Func{System.Int32,``13},System.Func{System.Int32,``14},System.Func{System.Int32,``15},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="arg14Func"></param>
+            <param name="arg15Func"></param>
+            <param name="arg16Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Exceptions.Try.Create``1(System.Func{``0},System.String)">
             <summary>
@@ -2681,6 +2931,406 @@
             <param name="source"></param>
             <param name="predicate"></param>
             <typeparam name="TSource"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="cause"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``2(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1},System.Func{System.Int32,``1},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``3(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``4(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``5(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``6(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``7(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``8(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``9(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``10(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``11(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``12(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``13(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``14(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.Func{System.Int32,``13},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="arg14Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``15(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.Func{System.Int32,``13},System.Func{System.Int32,``14},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="arg14Func"></param>
+            <param name="arg15Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Exceptions.TryExtensions.ToTryInvokeRange``16(System.Collections.Generic.IEnumerable{``0},System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15},System.Func{System.Int32,``1},System.Func{System.Int32,``2},System.Func{System.Int32,``3},System.Func{System.Int32,``4},System.Func{System.Int32,``5},System.Func{System.Int32,``6},System.Func{System.Int32,``7},System.Func{System.Int32,``8},System.Func{System.Int32,``9},System.Func{System.Int32,``10},System.Func{System.Int32,``11},System.Func{System.Int32,``12},System.Func{System.Int32,``13},System.Func{System.Int32,``14},System.Func{System.Int32,``15},System.String)">
+            <summary>
+            Create a set of instance of <see cref="T:Cosmos.Exceptions.TryAction"/>.
+            </summary>
+            <param name="coll"></param>
+            <param name="invokeAction"></param>
+            <param name="arg2Func"></param>
+            <param name="arg3Func"></param>
+            <param name="arg4Func"></param>
+            <param name="arg5Func"></param>
+            <param name="arg6Func"></param>
+            <param name="arg7Func"></param>
+            <param name="arg8Func"></param>
+            <param name="arg9Func"></param>
+            <param name="arg10Func"></param>
+            <param name="arg11Func"></param>
+            <param name="arg12Func"></param>
+            <param name="arg13Func"></param>
+            <param name="arg14Func"></param>
+            <param name="arg15Func"></param>
+            <param name="arg16Func"></param>
+            <param name="cause"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="T9"></typeparam>
+            <typeparam name="T10"></typeparam>
+            <typeparam name="T11"></typeparam>
+            <typeparam name="T12"></typeparam>
+            <typeparam name="T13"></typeparam>
+            <typeparam name="T14"></typeparam>
+            <typeparam name="T15"></typeparam>
+            <typeparam name="T16"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Exceptions.TryAction">
@@ -8249,66 +8899,6 @@
             <summary>
             Structure String Value
             </summary>
-        </member>
-        <member name="T:Cosmos.ThreeValuedBooleans">
-            <summary>
-            Three value boolean
-            </summary>
-        </member>
-        <member name="P:Cosmos.ThreeValuedBooleans.True">
-            <summary>
-            True
-            </summary>
-        </member>
-        <member name="P:Cosmos.ThreeValuedBooleans.False">
-            <summary>
-            False
-            </summary>
-        </member>
-        <member name="P:Cosmos.ThreeValuedBooleans.Default">
-            <summary>
-            Default
-            </summary>
-        </member>
-        <member name="M:Cosmos.ThreeValuedBooleans.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
-            <summary>
-            And operator
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ThreeValuedBooleans.And(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
-            <summary>
-            And operator
-            </summary>
-            <param name="left"></param>
-            <param name="rights"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ThreeValuedBooleans.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
-            <summary>
-            Or operator
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ThreeValuedBooleans.Or(System.Nullable{System.Boolean},System.Nullable{System.Boolean}[])">
-            <summary>
-            Or operator
-            </summary>
-            <param name="left"></param>
-            <param name="rights"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ThreeValuedBooleans.Same(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
-            <summary>
-            Same operator
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
         </member>
         <member name="T:Cosmos.Verba.Boolean.DefaultBooleanVerba">
             <summary>

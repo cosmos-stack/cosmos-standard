@@ -3043,6 +3043,57 @@
             <param name="t"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.ToRfc822String(System.DateTime,System.Int32)">
+            <summary>
+            Get the RFC822 format from the given <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTime"></param>
+            <param name="expectedIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.ToRfc822ZString(System.DateTime)">
+            <summary>
+            Get the RFC822Z format from the given <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.ToRfc850String(System.DateTime,System.Int32)">
+            <summary>
+            Get the RFC850 format from the given <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTime"></param>
+            <param name="expectedIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.ToRfc1123String(System.DateTime)">
+            <summary>
+            Get the RFC1123 format from the given <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.ToRfc1123ZString(System.DateTime)">
+            <summary>
+            Get the RFC1123 format from the given <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.ToRfc3339String(System.DateTime)">
+            <summary>
+            Get the RFC3339 format from the given <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.ToRfc3339NanoString(System.DateTime)">
+            <summary>
+            Get the RFC3339Nano format from the given <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Date.DateTimeExtensions.BeginningOfDay(System.DateTime)">
             <summary>
             Beginning of day.<br />
@@ -3362,6 +3413,14 @@
             <summary>
             Get the number of days in the specified month.<br />
             获取指定月份中的天数。
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.DaysInYear(System.DateTime)">
+            <summary>
+            Get the number of days in the specified year.<br />
+            获取指定年份中的天数。
             </summary>
             <param name="dt"></param>
             <returns></returns>
@@ -5326,6 +5385,41 @@
             <param name="dateTimeZone"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeZoneExtensions.Z(System.DateTime)">
+            <summary>
+            Will return '+7'
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeZoneExtensions.ZZ(System.DateTime)">
+            <summary>
+            Will return '+07'
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeZoneExtensions.ZZZ(System.DateTime)">
+            <summary>
+            Will return '+07:00'
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeZoneExtensions.ZZZZ(System.DateTime)">
+            <summary>
+            Will return '+0700'
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeZoneExtensions.ZoneAliasSet(System.DateTime)">
+            <summary>
+            Get a set of DateTimeZone alias.
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Date.DayOfWeekCalc">
             <summary>
