@@ -261,7 +261,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <returns></returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int ElapsedMilliseconds(this DateTime dt) => (int) (DateTime.Now - dt).TotalMilliseconds;
+        public static int ElapsedMilliseconds(this DateTime dt) => (int)(DateTime.Now - dt).TotalMilliseconds;
 
         #endregion
 
@@ -652,6 +652,82 @@ namespace Cosmos.Date
         /// <returns></returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static LocalTime ToLocalTime(this DateTime t) => new(t.Hour, t.Minute, t.Second, t.Millisecond);
+
+        #endregion
+
+        #region To (Standards)
+
+        /// <summary>
+        /// Get the RFC822 format from the given <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="expectedIndex"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToRfc822String(this DateTime dateTime, int expectedIndex = 0)
+        {
+            var aliasSet = dateTime.ZoneAliasSet();
+            if (expectedIndex < 0 || expectedIndex >= aliasSet.Length)
+                expectedIndex = 0;
+            var alias = aliasSet[expectedIndex];
+            return $"{dateTime:dd MMM yy HH:mm} {alias}";
+        }
+
+        /// <summary>
+        /// Get the RFC822Z format from the given <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToRfc822ZString(this DateTime dateTime) => $"{dateTime:dd MMM yy HH:mm} {dateTime.ZZZZ()}";
+
+        /// <summary>
+        /// Get the RFC850 format from the given <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="expectedIndex"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToRfc850String(this DateTime dateTime, int expectedIndex = 0)
+        {
+            var aliasSet = dateTime.ZoneAliasSet();
+            if (expectedIndex < 0 || expectedIndex >= aliasSet.Length)
+                expectedIndex = 0;
+            var alias = aliasSet[expectedIndex];
+            return $"{dateTime:dddd, dd-MMM-yyyy HH:mm:ss} {alias}";
+        }
+
+        /// <summary>
+        /// Get the RFC1123 format from the given <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToRfc1123String(this DateTime dateTime) => dateTime.ToString("R");
+
+        /// <summary>
+        /// Get the RFC1123 format from the given <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToRfc1123ZString(this DateTime dateTime) => $"{dateTime:ddd, dd MMM yyyy HH:mm:ss} {dateTime.ZZZZ()}";
+
+        /// <summary>
+        /// Get the RFC3339 format from the given <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToRfc3339String(this DateTime dateTime) => dateTime.ToString("yyyy-MM-ddTHH:mm:ssK");
+
+        /// <summary>
+        /// Get the RFC3339Nano format from the given <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToRfc3339NanoString(this DateTime dateTime) => dateTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffffK");
 
         #endregion
     }
