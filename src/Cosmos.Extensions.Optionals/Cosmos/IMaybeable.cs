@@ -13,7 +13,7 @@ namespace Cosmos
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        Maybe<T> ToMaybe<T>();
+        Maybe<T> AsOptionals<T>();
 
         /// <summary>
         /// Maybe
@@ -21,7 +21,7 @@ namespace Cosmos
         /// <param name="condition"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        Maybe<T> ToMaybe<T>(Func<T, bool> condition);
+        Maybe<T> AsOptionals<T>(Func<T, bool> condition);
 
         /// <summary>
         /// Maybe
@@ -29,7 +29,7 @@ namespace Cosmos
         /// <param name="defaultVal"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        Maybe<T> ToMaybe<T>(T defaultVal);
+        Maybe<T> AsOptionals<T>(T defaultVal);
 
         /// <summary>
         /// Maybe
@@ -38,7 +38,7 @@ namespace Cosmos
         /// <param name="defaultVal"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        Maybe<T> ToMaybe<T>(Func<T, bool> condition, T defaultVal);
+        Maybe<T> AsOptionals<T>(Func<T, bool> condition, T defaultVal);
 
         /// <summary>
         /// Maybe value
