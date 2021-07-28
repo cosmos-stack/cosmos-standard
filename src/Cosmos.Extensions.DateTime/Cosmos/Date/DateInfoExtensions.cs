@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -16,6 +17,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="weeks"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo AddWeeks(this DateInfo d, int weeks) => d.AddDays(weeks * 7);
 
         /// <summary>
@@ -24,6 +26,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="quarters"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo AddQuarters(this DateInfo d, int quarters) => d.AddMonths(quarters * 3);
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToAgo(this DateInfo d) => (DateTime.Now - d).ToAgo();
 
         #endregion
@@ -126,7 +130,7 @@ namespace Cosmos.Date
         /// <returns></returns>
         public static DateInfo Clone(this DateInfo d)
         {
-            if (d == null)
+            if (d is null)
                 throw new ArgumentNullException(nameof(d));
             return new DateInfo(d.DateTimeRef);
         }
@@ -156,6 +160,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="toCompareWith"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBefore(this DateInfo d, DateInfo toCompareWith) => d < toCompareWith;
 
         /// <summary>
@@ -165,6 +170,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="toCompareWith"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAfter(this DateInfo d, DateInfo toCompareWith) => d > toCompareWith;
 
         /// <summary>
@@ -173,6 +179,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInTheFuture(this DateInfo d) => d > DateTime.Now;
 
         /// <summary>
@@ -181,6 +188,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInThePast(this DateInfo d) => d < DateTime.Now;
 
         /// <summary>
@@ -190,6 +198,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameDay(this DateInfo d, DateInfo date) => d.DateTimeRef == date.DateTimeRef;
 
         /// <summary>
@@ -199,6 +208,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameMonth(this DateInfo d, DateInfo date) => d.Month == date.Month && d.Year == date.Year;
 
         /// <summary>
@@ -208,6 +218,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameYear(this DateInfo d, DateInfo date) => d.Year == date.Year;
 
         #endregion
@@ -221,6 +232,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="year"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo SetDate(this DateInfo d, int year)
         {
             d.Year = year;
@@ -235,6 +247,7 @@ namespace Cosmos.Date
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo SetDate(this DateInfo d, int year, int month)
         {
             d.Year = year;
@@ -251,6 +264,7 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo SetDate(this DateInfo d, int year, int month, int day)
         {
             d.Year = year;
@@ -266,6 +280,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="year"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo SetYear(this DateInfo d, int year)
         {
             d.Year = year;
@@ -279,6 +294,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="month"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo SetMonth(this DateInfo d, int month)
         {
             d.Month = month;
@@ -292,6 +308,7 @@ namespace Cosmos.Date
         /// <param name="d"></param>
         /// <param name="day"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo SetDay(this DateInfo d, int day)
         {
             d.Day = day;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -14,6 +15,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Ago(this DateTimeSpan ts) => ts.Before(DateTime.Now);
 
         /// <summary>
@@ -22,6 +24,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Ago(this DateTimeSpan ts, DateTime originalValue) => ts.Before(originalValue);
 
         /// <summary>
@@ -29,6 +32,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset OffsetAgo(this DateTimeSpan ts) => ts.Before(DateTimeOffset.Now);
 
         /// <summary>
@@ -37,6 +41,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset Ago(this DateTimeSpan ts, DateTimeOffset originalValue) => ts.Before(originalValue);
 
         #endregion
@@ -49,6 +54,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Before(this DateTimeSpan ts, DateTime originalValue) => originalValue.AddMonths(-ts.Months).AddYears(-ts.Years).Add(-ts.TimeSpan);
 
         /// <summary>
@@ -57,6 +63,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset Before(this DateTimeSpan ts, DateTimeOffset originalValue) => originalValue.AddMonths(-ts.Months).AddYears(-ts.Years).Add(-ts.TimeSpan);
 
         #endregion
@@ -68,6 +75,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime FromNow(this DateTimeSpan ts) => ts.From(DateTime.Now);
 
         /// <summary>
@@ -76,6 +84,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime From(this DateTimeSpan ts, DateTime originalValue) => originalValue.AddMonths(ts.Months).AddYears(ts.Years).Add(ts.TimeSpan);
 
         /// <summary>
@@ -83,6 +92,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset OffsetFromNow(this DateTimeSpan ts) => ts.From(DateTimeOffset.Now);
 
         /// <summary>
@@ -91,6 +101,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset From(this DateTimeSpan ts, DateTimeOffset originalValue) => originalValue.AddMonths(ts.Months).AddYears(ts.Years).Add(ts.TimeSpan);
 
         #endregion
@@ -102,6 +113,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="years"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Years(this int years) => new() {Years = years};
 
         /// <summary>
@@ -109,6 +121,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="quarters"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Quarters(this int quarters) => new() {Months = quarters * 3};
 
         /// <summary>
@@ -116,6 +129,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="months"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Months(this int months) => new() {Months = months};
 
         /// <summary>
@@ -123,6 +137,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="weeks"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Weeks(this int weeks) => new() {TimeSpan = TimeSpan.FromDays(weeks * 7)};
 
         /// <summary>
@@ -130,6 +145,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="weeks"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Weeks(this double weeks) => new() {TimeSpan = TimeSpan.FromDays(weeks * 7)};
 
         /// <summary>
@@ -137,6 +153,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Days(this int days) => new() {TimeSpan = TimeSpan.FromDays(days)};
 
         /// <summary>
@@ -144,6 +161,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="days"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Days(this double days) => new() {TimeSpan = TimeSpan.FromDays(days)};
 
         /// <summary>
@@ -151,6 +169,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="hours"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Hours(this int hours) => new() {TimeSpan = TimeSpan.FromHours(hours)};
 
         /// <summary>
@@ -158,6 +177,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="hours"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Hours(this double hours) => new() {TimeSpan = TimeSpan.FromHours(hours)};
 
         /// <summary>
@@ -165,6 +185,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="minutes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Minutes(this int minutes) => new() {TimeSpan = TimeSpan.FromMinutes(minutes)};
 
         /// <summary>
@@ -172,6 +193,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="minutes"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Minutes(this double minutes) => new() {TimeSpan = TimeSpan.FromMinutes(minutes)};
 
         /// <summary>
@@ -179,6 +201,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="seconds"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Seconds(this int seconds) => new() {TimeSpan = TimeSpan.FromSeconds(seconds)};
 
         /// <summary>
@@ -186,6 +209,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="seconds"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Seconds(this double seconds) => new() {TimeSpan = TimeSpan.FromSeconds(seconds)};
 
         /// <summary>
@@ -193,6 +217,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Milliseconds(this int milliseconds) => new() {TimeSpan = TimeSpan.FromMilliseconds(milliseconds)};
 
         /// <summary>
@@ -200,6 +225,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Milliseconds(this double milliseconds) => new() {TimeSpan = TimeSpan.FromMilliseconds(milliseconds)};
 
         /// <summary>
@@ -207,6 +233,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ticks"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Ticks(this int ticks) => new() {TimeSpan = TimeSpan.FromTicks(ticks)};
 
         /// <summary>
@@ -214,6 +241,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ticks"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan Ticks(this long ticks) => new() {TimeSpan = TimeSpan.FromTicks(ticks)};
 
         #endregion
@@ -226,6 +254,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Since(this DateTimeSpan ts, DateTime originalValue) => From(ts, originalValue);
 
         /// <summary>
@@ -234,6 +263,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset Since(this DateTimeSpan ts, DateTimeOffset originalValue) => From(ts, originalValue);
 
         #endregion
@@ -245,6 +275,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string ToDisplayString(this DateTimeSpan ts) => ((TimeSpan) ts).ToDisplayString();
 
         #endregion

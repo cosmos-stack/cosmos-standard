@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions;
 
 namespace Cosmos.Date
@@ -16,6 +17,7 @@ namespace Cosmos.Date
         /// 此刻
         /// </summary>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Now() => DateTime.Now;
 
         /// <summary>
@@ -23,6 +25,7 @@ namespace Cosmos.Date
         /// 此刻
         /// </summary>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime UtcNow() => DateTime.UtcNow;
 
         #endregion
@@ -150,11 +153,10 @@ namespace Cosmos.Date
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime CreateLastDayOfMonth(int year, int month)
-        {
-            return Create(year, month, DateTime.DaysInMonth(year, month));
-        }
-        
+            => Create(year, month, DateTime.DaysInMonth(year, month));
+
         /// <summary>
         /// To get the latest weekday for example Monday in a month.<br />
         /// 寻找一个月中的最后一个工作日（如周一）
@@ -196,10 +198,8 @@ namespace Cosmos.Date
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        public static DateTime CreateFirstDayOfMonth(int year, int month)
-        {
-            return Create(year, month, 1);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime CreateFirstDayOfMonth(int year, int month) => Create(year, month, 1);
 
         /// <summary>
         /// To get the first weekday for example Monday in a month.<br />
@@ -209,11 +209,10 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime CreateFirstDayOfMonth(int year, int month, DayOfWeek dayOfWeek)
-        {
-            return DateTimeCalc.OffsetByWeek(year, month, 1, dayOfWeek);
-        }
-        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime CreateFirstDayOfMonth(int year, int month, DayOfWeek dayOfWeek) 
+            => DateTimeCalc.OffsetByWeek(year, month, 1, dayOfWeek);
+
         /// <summary>
         /// To get the first weekday for example Monday in a month.<br />
         /// 寻找一个月中的最后一个日期
@@ -222,10 +221,9 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime CreateFirstDayOfMonth(int year, int month, int dayOfWeek)
-        {
-            return DateTimeCalc.OffsetByWeek(year, month, 1, dayOfWeek);
-        }
+            => DateTimeCalc.OffsetByWeek(year, month, 1, dayOfWeek);
 
         #endregion
 
@@ -240,10 +238,9 @@ namespace Cosmos.Date
         /// <param name="day"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime CreateNextDayByWeek(int year, int month, int day, DayOfWeek dayOfWeek)
-        {
-            return DateTimeCalc.OffsetByWeekAfter(Create(year, month, day), dayOfWeek);
-        }
+            => DateTimeCalc.OffsetByWeekAfter(Create(year, month, day), dayOfWeek);
 
         /// <summary>
         /// Find the next weekday for example Monday from a special date.<br />
@@ -252,10 +249,9 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime CreateNextDayByWeek(DateTime dt, DayOfWeek dayOfWeek)
-        {
-            return DateTimeCalc.OffsetByWeekAfter(dt, dayOfWeek);
-        }
+            => DateTimeCalc.OffsetByWeekAfter(dt, dayOfWeek);
 
         #endregion
 
@@ -270,10 +266,9 @@ namespace Cosmos.Date
         /// <param name="day"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
-        public static DateTime CreatePreviousDayByWeek(int year, int month, int day, DayOfWeek dayOfWeek)
-        {
-            return DateTimeCalc.OffsetByWeekBefore(Create(year, month, day), dayOfWeek);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime CreatePreviousDayByWeek(int year, int month, int day, DayOfWeek dayOfWeek) 
+            => DateTimeCalc.OffsetByWeekBefore(Create(year, month, day), dayOfWeek);
 
         /// <summary>
         /// Find the next weekday for example Monday before a special date.<br />
@@ -282,11 +277,10 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime CreatePreviousDayByWeek(DateTime dt, DayOfWeek dayOfWeek)
-        {
-            return DateTimeCalc.OffsetByWeekBefore(dt, dayOfWeek);
-        }
-        
+            => DateTimeCalc.OffsetByWeekBefore(dt, dayOfWeek);
+
         #endregion
 
         #region Create Day by Week
@@ -300,10 +294,9 @@ namespace Cosmos.Date
         /// <param name="dayOfWeek"></param>
         /// <param name="occurrence"></param>
         /// <returns></returns>
-        public static DateTime CreateByWeek(int year, int month, DayOfWeek dayOfWeek, int occurrence)
-        {
-            return DateTimeCalc.OffsetByWeek(year, month, occurrence, dayOfWeek.CastToInt(0));
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime CreateByWeek(int year, int month, DayOfWeek dayOfWeek, int occurrence) 
+            => DateTimeCalc.OffsetByWeek(year, month, occurrence, dayOfWeek.CastToInt(0));
 
         #endregion
     }

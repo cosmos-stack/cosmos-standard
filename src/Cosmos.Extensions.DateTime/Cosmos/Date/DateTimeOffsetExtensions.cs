@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using NodaTime;
 
 namespace Cosmos.Date
@@ -13,6 +14,7 @@ namespace Cosmos.Date
         /// <param name="dto"></param>
         /// <param name="timeSpan"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset AddDateTimeSpan(this DateTimeOffset dto, DateTimeSpan timeSpan)
         {
             return dto.AddMonths(timeSpan.Months)
@@ -26,6 +28,7 @@ namespace Cosmos.Date
         /// <param name="dto"></param>
         /// <param name="timeSpan"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset SubtractDateTimeSpan(this DateTimeOffset dto, DateTimeSpan timeSpan)
         {
             return dto.AddMonths(-timeSpan.Months)
@@ -61,10 +64,8 @@ namespace Cosmos.Date
         /// <param name="dto"></param>
         /// <param name="days"></param>
         /// <returns></returns>
-        public static DateTimeOffset SubtractBusinessDays(this DateTimeOffset dto, int days)
-        {
-            return AddBusinessDays(dto, -days);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset SubtractBusinessDays(this DateTimeOffset dto, int days) => AddBusinessDays(dto, -days);
 
         #endregion
         
@@ -75,6 +76,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(this DateTimeOffset dto) => dto.Date == DateTime.Today;
 
         /// <summary>
@@ -82,6 +84,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(this DateTimeOffset? dto) => dto.GetValueOrDefault().Date == DateTime.Today;
 
         /// <summary>
@@ -90,10 +93,8 @@ namespace Cosmos.Date
         /// <param name="current"></param>
         /// <param name="toCompareWith"></param>
         /// <returns></returns>
-        public static bool IsBefore(this DateTimeOffset current, DateTimeOffset toCompareWith)
-        {
-            return current < toCompareWith;
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsBefore(this DateTimeOffset current, DateTimeOffset toCompareWith) => current < toCompareWith;
 
         /// <summary>
         /// Is after
@@ -101,30 +102,24 @@ namespace Cosmos.Date
         /// <param name="current"></param>
         /// <param name="toCompareWith"></param>
         /// <returns></returns>
-        public static bool IsAfter(this DateTimeOffset current, DateTimeOffset toCompareWith)
-        {
-            return current > toCompareWith;
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsAfter(this DateTimeOffset current, DateTimeOffset toCompareWith) => current > toCompareWith;
 
         /// <summary>
         /// Is in future
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>
-        public static bool IsInFuture(this DateTimeOffset dateTime)
-        {
-            return dateTime > DateTimeOffset.Now;
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsInFuture(this DateTimeOffset dateTime) => dateTime > DateTimeOffset.Now;
 
         /// <summary>
         /// Is in past
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>
-        public static bool IsInPast(this DateTimeOffset dateTime)
-        {
-            return dateTime < DateTimeOffset.Now;
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsInPast(this DateTimeOffset dateTime) => dateTime < DateTimeOffset.Now;
 
         /// <summary>
         /// Is same day
@@ -132,10 +127,8 @@ namespace Cosmos.Date
         /// <param name="current"></param>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsSameDay(this DateTimeOffset current, DateTimeOffset date)
-        {
-            return current.Date == date.Date;
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsSameDay(this DateTimeOffset current, DateTimeOffset date) => current.Date == date.Date;
 
         /// <summary>
         /// Is same month
@@ -143,10 +136,8 @@ namespace Cosmos.Date
         /// <param name="current"></param>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsSameMonth(this DateTimeOffset current, DateTimeOffset date)
-        {
-            return current.Month == date.Month && current.Year == date.Year;
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsSameMonth(this DateTimeOffset current, DateTimeOffset date) => current.Month == date.Month && current.Year == date.Year;
 
         /// <summary>
         /// Is same year
@@ -154,10 +145,8 @@ namespace Cosmos.Date
         /// <param name="current"></param>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static bool IsSameYear(this DateTimeOffset current, DateTimeOffset date)
-        {
-            return current.Year == date.Year;
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsSameYear(this DateTimeOffset current, DateTimeOffset date) => current.Year == date.Year;
 
         #endregion
 
@@ -235,6 +224,7 @@ namespace Cosmos.Date
         /// <param name="dto"></param>
         /// <param name="dateTimeZone"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ReplaceOffsetFromDateTimeZoneLeniently(this DateTimeOffset dto, DateTimeZone dateTimeZone)
             => dto.DateTime.ApplyDateTimeZoneLeniently(dateTimeZone);
 
@@ -244,6 +234,7 @@ namespace Cosmos.Date
         /// <param name="dto"></param>
         /// <param name="dateTimeZone"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ReplaceOffsetFromDateTimeZoneStrictly(this DateTimeOffset dto, DateTimeZone dateTimeZone)
             => dto.DateTime.ApplyDateTimeZoneStrictly(dateTimeZone);
 

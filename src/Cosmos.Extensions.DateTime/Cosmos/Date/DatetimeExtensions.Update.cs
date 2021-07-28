@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -15,6 +16,7 @@ namespace Cosmos.Date
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime At(this DateTime dt, int hour, int minute, int second) => 
             dt.SetTime(hour, minute, second);
 
@@ -28,6 +30,7 @@ namespace Cosmos.Date
         /// <param name="second"></param>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime At(this DateTime dt, int hour, int minute, int second, int milliseconds) => 
             dt.SetTime(hour, minute, second, milliseconds);
 
@@ -44,6 +47,7 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime On(this DateTime dt, int year, int month, int day) =>
             dt.SetDate(year, month, day);
 
@@ -58,6 +62,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetTime(this DateTime dt, int hour) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -69,6 +74,7 @@ namespace Cosmos.Date
         /// <param name="hour"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetTime(this DateTime dt, int hour, int minute) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, hour, minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -81,6 +87,7 @@ namespace Cosmos.Date
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetTime(this DateTime dt, int hour, int minute, int second) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, hour, minute, second, dt.Millisecond, dt.Kind);
 
@@ -94,6 +101,7 @@ namespace Cosmos.Date
         /// <param name="second"></param>
         /// <param name="millisecond"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetTime(this DateTime dt, int hour, int minute, int second, int millisecond) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, hour, minute, second, millisecond, dt.Kind);
 
@@ -104,6 +112,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetHour(this DateTime dt, int hour) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -114,6 +123,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetMinute(this DateTime dt, int minute) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, dt.Hour, minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -124,6 +134,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="second"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetSecond(this DateTime dt, int second) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, second, dt.Millisecond, dt.Kind);
 
@@ -134,6 +145,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="millisecond"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetMillisecond(this DateTime dt, int millisecond) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, millisecond, dt.Kind);
 
@@ -143,6 +155,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Midnight(this DateTime dt) => dt.BeginningOfDay();
 
         /// <summary>
@@ -151,6 +164,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Noon(this DateTime dt) => dt.SetTime(12, 0, 0, 0);
 
         /// <summary>
@@ -160,6 +174,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="year"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetDate(this DateTime dt, int year) =>
             DateTimeFactory.Create(year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -171,6 +186,7 @@ namespace Cosmos.Date
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetDate(this DateTime dt, int year, int month) =>
             DateTimeFactory.Create(year, month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -183,6 +199,7 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetDate(this DateTime dt, int year, int month, int day) =>
             DateTimeFactory.Create(year, month, day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -193,6 +210,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="year"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetYear(this DateTime dt, int year) =>
             DateTimeFactory.Create(year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -203,6 +221,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="month"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetMonth(this DateTime dt, int month) =>
             DateTimeFactory.Create(dt.Year, month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -213,6 +232,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="day"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetDay(this DateTime dt, int day) =>
             DateTimeFactory.Create(dt.Year, dt.Month, day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, dt.Kind);
 
@@ -222,6 +242,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="kind"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime SetKind(this DateTime dt, DateTimeKind kind) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, kind);
 

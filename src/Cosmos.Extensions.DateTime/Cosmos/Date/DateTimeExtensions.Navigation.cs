@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -30,6 +31,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfDay(this DateTime dt) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, dt.Kind);
 
@@ -40,6 +42,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfDay(this DateTime dt, int timeZoneOffset) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, dt.Kind).AddHours(timeZoneOffset);
 
@@ -49,6 +52,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfWeek(this DateTime dt) => dt.FirstDayOfWeek().BeginningOfDay();
 
         /// <summary>
@@ -58,6 +62,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfWeek(this DateTime dt, int timeZoneOffset) => dt.FirstDayOfWeek().BeginningOfDay(timeZoneOffset);
 
         /// <summary>
@@ -66,6 +71,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfMonth(this DateTime dt) => dt.FirstDayOfMonth().BeginningOfDay();
 
         /// <summary>
@@ -75,6 +81,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfMonth(this DateTime dt, int timeZoneOffset) => dt.FirstDayOfMonth().BeginningOfDay(timeZoneOffset);
 
         /// <summary>
@@ -83,6 +90,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfQuarter(this DateTime dt) => dt.FirstDayOfQuarter().BeginningOfDay();
 
         /// <summary>
@@ -92,6 +100,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfQuarter(this DateTime dt, int timeZoneOffset) => dt.FirstDayOfQuarter().BeginningOfDay(timeZoneOffset);
 
         /// <summary>
@@ -100,6 +109,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfYear(this DateTime dt) => dt.FirstDayOfYear().BeginningOfDay();
 
         /// <summary>
@@ -109,6 +119,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime BeginningOfYear(this DateTime dt, int timeZoneOffset) => dt.FirstDayOfYear().BeginningOfDay(timeZoneOffset);
 
         #endregion
@@ -121,6 +132,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfDay(this DateTime dt) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, 23, 59, 59, 999, dt.Kind);
 
@@ -131,6 +143,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfDay(this DateTime dt, int timeZoneOffset) =>
             DateTimeFactory.Create(dt.Year, dt.Month, dt.Day, 23, 59, 59, 999, dt.Kind).AddHours(timeZoneOffset);
 
@@ -140,6 +153,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfWeek(this DateTime dt) => dt.LastDayOfWeek().EndOfDay();
 
         /// <summary>
@@ -149,6 +163,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfWeek(this DateTime dt, int timeZoneOffset) => dt.LastDayOfWeek().EndOfDay(timeZoneOffset);
 
         /// <summary>
@@ -157,6 +172,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfMonth(this DateTime dt) => dt.LastDayOfMonth().EndOfDay();
 
         /// <summary>
@@ -166,6 +182,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfMonth(this DateTime dt, int timeZoneOffset) => dt.LastDayOfMonth().EndOfDay(timeZoneOffset);
 
         /// <summary>
@@ -174,6 +191,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfQuarter(this DateTime dt) => dt.LastDayOfQuarter().EndOfDay();
 
         /// <summary>
@@ -183,6 +201,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfQuarter(this DateTime dt, int timeZoneOffset) => dt.LastDayOfQuarter().EndOfDay(timeZoneOffset);
 
         /// <summary>
@@ -191,6 +210,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfYear(this DateTime dt) => dt.LastDayOfYear().EndOfDay();
 
         /// <summary>
@@ -200,6 +220,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="timeZoneOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime EndOfYear(this DateTime dt, int timeZoneOffset) => dt.LastDayOfYear().EndOfDay(timeZoneOffset);
 
         #endregion
@@ -213,6 +234,7 @@ namespace Cosmos.Date
         /// <param name="leftDt"></param>
         /// <param name="rightDt">  </param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan GetTimeSpan(this DateTime leftDt, DateTime rightDt) => rightDt - leftDt;
 
         /// <summary>
@@ -221,6 +243,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime FirstDayOfYear(this DateTime dt) => dt.SetDate(dt.Year, 1, 1);
 
         /// <summary>
@@ -272,6 +295,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime FirstDayOfMonth(this DateTime dt) => dt.SetDay(1);
 
         /// <summary>
@@ -295,6 +319,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime FirstDayOfWeek(this DateTime dt) => dt.FirstDayOfWeek(null);
 
         /// <summary>
@@ -320,6 +345,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime LastDayOfYear(this DateTime dt) => dt.SetDate(dt.Year, 12, 31);
 
         /// <summary>
@@ -372,6 +398,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime LastDayOfMonth(this DateTime dt) => dt.SetDay(dt.DaysInMonth());
 
         /// <summary>
@@ -395,6 +422,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime LastDayOfWeek(this DateTime dt) => dt.LastDayOfWeek(null);
 
         /// <summary>
@@ -404,6 +432,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="cultureInfo"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime LastDayOfWeek(this DateTime dt, CultureInfo cultureInfo) => dt.FirstDayOfWeek(cultureInfo).AddDays(6);
 
         /// <summary>
@@ -412,8 +441,16 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int DaysInMonth(this DateTime dt) => DateTime.DaysInMonth(dt.Year, dt.Month);
 
+        /// <summary>
+        /// Get the number of days in the specified year.<br />
+        /// 获取指定年份中的天数。
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int DaysInYear(this DateTime dt) => DateTime.IsLeapYear(dt.Year) ? 366 : 365;
 
         /// <summary>
@@ -422,6 +459,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int QuarterOfMonth(this DateTime dt) => (dt.Month - 1) / 3 + 1;
 
         /// <summary>
@@ -430,6 +468,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="datetime"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetWeekOfYear(this DateTime datetime)
             => GetWeekOfYear(datetime, new DateTimeFormatInfo().CalendarWeekRule, new DateTimeFormatInfo().FirstDayOfWeek);
 
@@ -440,6 +479,7 @@ namespace Cosmos.Date
         /// <param name="datetime"></param>
         /// <param name="weekRule"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetWeekOfYear(this DateTime datetime, CalendarWeekRule weekRule)
             => GetWeekOfYear(datetime, weekRule, new DateTimeFormatInfo().FirstDayOfWeek);
 
@@ -450,6 +490,7 @@ namespace Cosmos.Date
         /// <param name="datetime"></param>
         /// <param name="firstDayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetWeekOfYear(this DateTime datetime, DayOfWeek firstDayOfWeek)
             => GetWeekOfYear(datetime, new DateTimeFormatInfo().CalendarWeekRule, firstDayOfWeek);
 
@@ -461,6 +502,7 @@ namespace Cosmos.Date
         /// <param name="weekRule"></param>
         /// <param name="firstDayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetWeekOfYear(this DateTime datetime, CalendarWeekRule weekRule, DayOfWeek firstDayOfWeek)
             => CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(datetime, weekRule, firstDayOfWeek);
 
@@ -473,6 +515,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextYear(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Year);
 
         /// <summary>
@@ -480,6 +523,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime PreviousYear(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Year);
 
         /// <summary>
@@ -487,6 +531,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextQuarter(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Quarters);
 
         /// <summary>
@@ -494,6 +539,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime PreviousQuarter(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Quarters);
 
         /// <summary>
@@ -501,6 +547,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextMonth(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Month);
 
         /// <summary>
@@ -508,6 +555,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime PreviousMonth(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Month);
 
         /// <summary>
@@ -515,6 +563,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextWeek(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Week);
 
         /// <summary>
@@ -522,6 +571,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime PreviousWeek(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Week);
 
         /// <summary>
@@ -529,6 +579,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextDay(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Day);
 
         /// <summary>
@@ -536,6 +587,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime PreviousDay(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Day);
 
         /// <summary>
@@ -543,6 +595,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Tomorrow(this DateTime dt) => dt.NextDay();
 
         /// <summary>
@@ -550,6 +603,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Yesterday(this DateTime dt) => dt.PreviousDay();
 
         /// <summary>
@@ -558,6 +612,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime NextDayOfWeek(this DateTime dt, DayOfWeek dayOfWeek) => DateTimeCalc.OffsetByDayOfWeek(dt, dayOfWeek, 1);
 
         /// <summary>
@@ -566,6 +621,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime PreviousDayOfWeek(this DateTime dt, DayOfWeek dayOfWeek) => DateTimeCalc.OffsetByDayOfWeek(dt, dayOfWeek, -1);
 
         #endregion

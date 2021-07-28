@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Verba.Time;
 using NodaTime;
 
@@ -19,10 +20,8 @@ namespace Cosmos.Date
         /// <param name="weeks"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime AddWeeks(this DateTime dt, int weeks)
-        {
-            return DateTimeCalc.OffsetByWeeks(dt, weeks);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime AddWeeks(this DateTime dt, int weeks) => DateTimeCalc.OffsetByWeeks(dt, weeks);
 
         /// <summary>
         /// Add quarters. <br />
@@ -32,10 +31,8 @@ namespace Cosmos.Date
         /// <param name="quarters"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime AddQuarters(this DateTime dt, int quarters)
-        {
-            return DateTimeCalc.OffsetByQuarters(dt, quarters);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime AddQuarters(this DateTime dt, int quarters) => DateTimeCalc.OffsetByQuarters(dt, quarters);
 
         /// <summary>
         /// Add duration. <br />
@@ -44,6 +41,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="duration"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime AddDuration(this DateTime dt, Duration duration) => DateTimeCalc.OffsetByDuration(dt, duration);
 
         /// <summary>
@@ -79,6 +77,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="birthday"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ToCalculateAge(this DateTime birthday) => birthday.ToCalculateAge(DateTime.Today);
 
         /// <summary>
@@ -181,10 +180,8 @@ namespace Cosmos.Date
         /// <param name="date">對比的時間</param>
         /// <returns></returns>
         [Obsolete("将会被 Cosmos.I18N 取代")]
-        public static string ToAgo(this DateTime date)
-        {
-            return (DateTime.Now - date).ToAgo();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToAgo(this DateTime date) => (DateTime.Now - date).ToAgo();
 
         #endregion
 
@@ -196,6 +193,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Clone(this DateTime dt) => new(dt.Ticks, dt.Kind);
 
         #endregion
@@ -253,6 +251,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TimeSpan ElapsedTime(this DateTime dt) => DateTime.Now - dt;
 
         /// <summary>
@@ -261,6 +260,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ElapsedMilliseconds(this DateTime dt) => (int) (DateTime.Now - dt).TotalMilliseconds;
 
         #endregion
@@ -291,6 +291,7 @@ namespace Cosmos.Date
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateBetweenWithBoundary(this DateTime dt, DateTime min, DateTime max)
             => dt.IsBetween(min, max.AddDays(+1), false);
 
@@ -324,6 +325,7 @@ namespace Cosmos.Date
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateBetweenWithoutBoundary(this DateTime dt, DateTime min, DateTime max)
             => dt.IsBetween(min, max, false);
 
@@ -333,6 +335,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(this DateTime date) => date.Date == DateTime.Today;
 
         /// <summary>
@@ -341,6 +344,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(this DateTime? date) => date.GetValueOrDefault().Date == DateTime.Today;
 
         /// <summary>
@@ -349,6 +353,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsMorning(this DateTime dt)
         {
             var hour = dt.Hour;
@@ -361,6 +366,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEarlyMorning(this DateTime dt)
         {
             var hour = dt.Hour;
@@ -373,6 +379,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAfternoon(this DateTime dt)
         {
             var hour = dt.Hour;
@@ -385,6 +392,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDusk(this DateTime dt)
         {
             var hour = dt.Hour;
@@ -397,6 +405,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsEvening(this DateTime dt)
         {
             var hour = dt.Hour;
@@ -410,6 +419,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="toCompareWith"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsBefore(this DateTime dt, DateTime toCompareWith) => dt < toCompareWith;
 
         /// <summary>
@@ -419,6 +429,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="toCompareWith"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsAfter(this DateTime dt, DateTime toCompareWith) => dt > toCompareWith;
 
         /// <summary>
@@ -427,6 +438,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInTheFuture(this DateTime dt) => dt > DateTime.Now;
 
         /// <summary>
@@ -435,6 +447,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsInThePast(this DateTime dt) => dt < DateTime.Now;
 
         /// <summary>
@@ -443,6 +456,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekday(this DateTime date) => !date.IsWeekend();
 
         /// <summary>
@@ -451,6 +465,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekday(this DateTime? date) => date.GetValueOrDefault().IsWeekday();
 
         /// <summary>
@@ -459,6 +474,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekend(this DateTime date) => date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday;
 
         /// <summary>
@@ -467,6 +483,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekend(this DateTime? date) => date.GetValueOrDefault().IsWeekend();
 
         /// <summary>
@@ -475,6 +492,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameDay(this DateTime dt, DateTime date) => dt.Date == date.Date;
 
         /// <summary>
@@ -483,6 +501,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameMonth(this DateTime dt, DateTime date) => dt.Month == date.Month;
 
         /// <summary>
@@ -491,6 +510,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsSameYear(this DateTime dt, DateTime date) => dt.Year == date.Year;
 
         /// <summary>
@@ -499,6 +519,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsDateEqual(this DateTime dt, DateTime date) => dt.IsSameDay(date);
 
         /// <summary>
@@ -507,6 +528,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsTimeEqual(this DateTime dt, DateTime date) => dt.TimeOfDay == date.TimeOfDay;
 
         #endregion
@@ -586,10 +608,9 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime ToUtc(this DateTime date)
-        {
-            return new(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, DateTimeKind.Utc);
-        }
+            => new(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, DateTimeKind.Utc);
 
         /// <summary>
         /// Convert <see cref="DateTime"/> to <see cref="DateInfo"/>.<br />
@@ -597,50 +618,40 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static DateInfo ToDateInfo(this DateTime date)
-        {
-            return new(date);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateInfo ToDateInfo(this DateTime date) => new(date);
 
         /// <summary>
         /// Convert <see cref="DateTime"/> to Epoch time span.
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static TimeSpan ToEpochTimeSpan(this DateTime dt)
-        {
-            return dt.Subtract(DateTimeFactory.Create(1970, 1, 1));
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static TimeSpan ToEpochTimeSpan(this DateTime dt) => dt.Subtract(DateTimeFactory.Create(1970, 1, 1));
 
         /// <summary>
         /// Convert <see cref="DateTime"/> to <see cref="LocalDateTime"/>.
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>
-        public static LocalDateTime ToLocalDateTime(this DateTime dateTime)
-        {
-            return LocalDateTime.FromDateTime(dateTime);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static LocalDateTime ToLocalDateTime(this DateTime dateTime) => LocalDateTime.FromDateTime(dateTime);
 
         /// <summary>
         /// Convert <see cref="DateTime"/> to <see cref="LocalDate"/>.
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static LocalDate ToLocalDate(this DateTime date)
-        {
-            return LocalDate.FromDateTime(date);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static LocalDate ToLocalDate(this DateTime date) => LocalDate.FromDateTime(date);
 
         /// <summary>
         /// Convert <see cref="DateTime"/> to <see cref="LocalTime"/>.
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public static LocalTime ToLocalTime(this DateTime t)
-        {
-            return new(t.Hour, t.Minute, t.Second, t.Millisecond);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static LocalTime ToLocalTime(this DateTime t) => new(t.Hour, t.Minute, t.Second, t.Millisecond);
 
         #endregion
     }

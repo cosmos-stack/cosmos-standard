@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -12,10 +13,9 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset BeginningOfDay(this DateTimeOffset dto)
-        {
-            return new DateTimeOffset(dto.Year, dto.Month, dto.Day, 0, 0, 0, dto.Offset);
-        }
+            => new(dto.Year, dto.Month, dto.Day, 0, 0, 0, dto.Offset);
 
         #endregion
 
@@ -26,10 +26,9 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset EndOfDay(this DateTimeOffset dto)
-        {
-            return new DateTimeOffset(dto.Year, dto.Month, dto.Day, 23, 59, 59, 999, dto.Offset);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset EndOfDay(this DateTimeOffset dto) 
+            => new(dto.Year, dto.Month, dto.Day, 23, 59, 59, 999, dto.Offset);
 
         #endregion
 
@@ -40,16 +39,15 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset FirstDayOfYear(this DateTimeOffset dto)
-        {
-            return dto.SetDate(dto.Year, 1, 1);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset FirstDayOfYear(this DateTimeOffset dto) => dto.SetDate(dto.Year, 1, 1);
 
         /// <summary>
         /// First day of quarter
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset FirstDayOfQuarter(this DateTimeOffset dto)
         {
             var currentQuarter = (dto.Month - 1) / 3 + 1;
@@ -61,10 +59,8 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset dto)
-        {
-            return dto.SetDay(1);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset FirstDayOfMonth(this DateTimeOffset dto) => dto.SetDay(1);
 
         /// <summary>
         /// First day of week
@@ -86,10 +82,8 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset LastDayOfYear(this DateTimeOffset dto)
-        {
-            return dto.SetDate(dto.Year, 12, 31);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset LastDayOfYear(this DateTimeOffset dto) => dto.SetDate(dto.Year, 12, 31);
 
         /// <summary>
         /// Last day of quarter
@@ -108,60 +102,48 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset LastDayOfMonth(this DateTimeOffset dto)
-        {
-            return dto.SetDay(DateTime.DaysInMonth(dto.Year, dto.Month));
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset LastDayOfMonth(this DateTimeOffset dto) => dto.SetDay(DateTime.DaysInMonth(dto.Year, dto.Month));
 
         /// <summary>
         /// Last day of week
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset dto)
-        {
-            return dto.FirstDayOfWeek().AddDays(6);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset LastDayOfWeek(this DateTimeOffset dto) => dto.FirstDayOfWeek().AddDays(6);
 
         /// <summary>
         /// Gets week after
         /// </summary>
         /// <param name="start"></param>
         /// <returns></returns>
-        public static DateTimeOffset WeekAfter(this DateTimeOffset start)
-        {
-            return start + 1.Weeks();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset WeekAfter(this DateTimeOffset start) => start + 1.Weeks();
 
         /// <summary>
         /// Gets week before
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset WeekBefore(this DateTimeOffset dto)
-        {
-            return dto - 1.Weeks();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset WeekBefore(this DateTimeOffset dto) => dto - 1.Weeks();
 
         /// <summary>
         /// Midnight
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset Midnight(this DateTimeOffset dto)
-        {
-            return dto.BeginningOfDay();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset Midnight(this DateTimeOffset dto) => dto.BeginningOfDay();
 
         /// <summary>
         /// Noon
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static DateTimeOffset Noon(this DateTimeOffset dto)
-        {
-            return dto.SetTime(12, 0, 0, 0);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset Noon(this DateTimeOffset dto) => dto.SetTime(12, 0, 0, 0);
 
         #endregion
 
@@ -172,6 +154,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset NextYear(this DateTimeOffset dto) => dto.ToLocalDateTime().NextYear();
 
         /// <summary>
@@ -179,6 +162,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset PreviousYear(this DateTimeOffset dto) => dto.ToLocalDateTime().PreviousYear();
 
         /// <summary>
@@ -186,6 +170,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset NextQuarter(this DateTimeOffset dto) => dto.ToLocalDateTime().NextQuarter();
 
         /// <summary>
@@ -193,6 +178,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset PreviousQuarter(this DateTimeOffset dto) => dto.ToLocalDateTime().PreviousQuarter();
 
         /// <summary>
@@ -200,6 +186,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset NextMonth(this DateTimeOffset dto) => dto.ToLocalDateTime().NextMonth();
 
         /// <summary>
@@ -207,6 +194,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset PreviousMonth(this DateTimeOffset dto) => dto.ToLocalDateTime().PreviousMonth();
 
         /// <summary>
@@ -214,6 +202,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset NextWeek(this DateTimeOffset dto) => dto.ToLocalDateTime().NextWeek();
 
         /// <summary>
@@ -221,6 +210,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset PreviousWeek(this DateTimeOffset dto) => dto.ToLocalDateTime().PreviousWeek();
         
         /// <summary>
@@ -228,6 +218,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset NextDay(this DateTimeOffset dto) => dto.ToLocalDateTime().NextDay();
 
         /// <summary>
@@ -235,6 +226,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset PreviousDay(this DateTimeOffset dto) => dto.ToLocalDateTime().PreviousDay();
 
         /// <summary>
@@ -242,6 +234,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset Tomorrow(this DateTimeOffset dto) => dto.NextDay();
 
         /// <summary>
@@ -249,6 +242,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset Yesterday(this DateTimeOffset dto) => dto.PreviousDay();
         
         /// <summary>
@@ -257,6 +251,7 @@ namespace Cosmos.Date
         /// <param name="start"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset NextDayOfWeek(this DateTimeOffset start, DayOfWeek dayOfWeek) => DateTimeCalc.OffsetByDayOfWeek(start.ToLocalDateTime(), dayOfWeek, 1);
 
         /// <summary>
@@ -265,6 +260,7 @@ namespace Cosmos.Date
         /// <param name="start"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset PreviousDayOfWeek(this DateTimeOffset start, DayOfWeek dayOfWeek) => DateTimeCalc.OffsetByDayOfWeek(start.ToLocalDateTime(), dayOfWeek, -1);
 
         #endregion

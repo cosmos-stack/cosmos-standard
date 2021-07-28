@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions;
 
 namespace Cosmos.Date
@@ -14,6 +15,7 @@ namespace Cosmos.Date
         /// <param name="di"></param>
         /// <param name="days"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo OffsetByDays(DateInfo di, int days)
         {
             return di + days.Days();
@@ -32,6 +34,7 @@ namespace Cosmos.Date
         /// <param name="weekAtMonth"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo OffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek)
         {
             return OffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0));
@@ -69,6 +72,7 @@ namespace Cosmos.Date
         /// <param name="dayOfWeek"></param>
         /// <param name="result"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryOffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek, out DateInfo result)
         {
             return TryOffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0), out result);
@@ -111,6 +115,7 @@ namespace Cosmos.Date
         /// <param name="weeks"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo OffsetByWeeks(DateInfo dt, int weeks)
         {
             return dt + weeks.Weeks();
@@ -123,6 +128,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo OffsetByWeekBefore(DateInfo dt, DayOfWeek dayOfWeek)
         {
             var daysSubtract = (int) dayOfWeek - (int) dt.DayOfWeek;
@@ -138,6 +144,7 @@ namespace Cosmos.Date
         /// <param name="dt"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateInfo OffsetByWeekAfter(DateInfo dt, DayOfWeek dayOfWeek)
         {
             var daysNeeded = (int) dayOfWeek - (int) dt.DayOfWeek;

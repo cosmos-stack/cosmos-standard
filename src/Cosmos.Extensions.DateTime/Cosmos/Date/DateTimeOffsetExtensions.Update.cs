@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -13,10 +14,8 @@ namespace Cosmos.Date
         /// <param name="hour"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
-        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute)
-        {
-            return dto.SetTime(hour, minute);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute) => dto.SetTime(hour, minute);
 
         /// <summary>
         /// At
@@ -26,10 +25,8 @@ namespace Cosmos.Date
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second)
-        {
-            return dto.SetTime(hour, minute, second);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second) => dto.SetTime(hour, minute, second);
 
         /// <summary>
         /// At
@@ -40,10 +37,9 @@ namespace Cosmos.Date
         /// <param name="second"></param>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
-        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second, int milliseconds)
-        {
-            return dto.SetTime(hour, minute, second, milliseconds);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset At(this DateTimeOffset dto, int hour, int minute, int second, int milliseconds) 
+            => dto.SetTime(hour, minute, second, milliseconds);
 
         #endregion
 
@@ -58,6 +54,7 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset On(this DateTimeOffset dto, int year, int month, int day) =>
             dto.SetDate(year, month, day);
 
@@ -71,10 +68,9 @@ namespace Cosmos.Date
         /// <param name="originalDate"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, hour, originalDate.Minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour) 
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, hour, originalDate.Minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set time
@@ -83,10 +79,8 @@ namespace Cosmos.Date
         /// <param name="hour"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour, int minute)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
-        }
+        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour, int minute) 
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set time
@@ -96,10 +90,8 @@ namespace Cosmos.Date
         /// <param name="minute"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour, int minute, int second)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, second, originalDate.Millisecond, originalDate.Offset);
-        }
+        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour, int minute, int second) 
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, second, originalDate.Millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set time
@@ -110,10 +102,8 @@ namespace Cosmos.Date
         /// <param name="second"></param>
         /// <param name="millisecond"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour, int minute, int second, int millisecond)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, second, millisecond, originalDate.Offset);
-        }
+        public static DateTimeOffset SetTime(this DateTimeOffset originalDate, int hour, int minute, int second, int millisecond) 
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, hour, minute, second, millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set hour
@@ -121,10 +111,8 @@ namespace Cosmos.Date
         /// <param name="originalDate"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetHour(this DateTimeOffset originalDate, int hour)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, hour, originalDate.Minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
-        }
+        public static DateTimeOffset SetHour(this DateTimeOffset originalDate, int hour) 
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, hour, originalDate.Minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set minute
@@ -132,10 +120,8 @@ namespace Cosmos.Date
         /// <param name="originalDate"></param>
         /// <param name="minute"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetMinute(this DateTimeOffset originalDate, int minute)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
-        }
+        public static DateTimeOffset SetMinute(this DateTimeOffset originalDate, int minute) 
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, minute, originalDate.Second, originalDate.Millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set second
@@ -144,9 +130,7 @@ namespace Cosmos.Date
         /// <param name="second"></param>
         /// <returns></returns>
         public static DateTimeOffset SetSecond(this DateTimeOffset originalDate, int second)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, originalDate.Minute, second, originalDate.Millisecond, originalDate.Offset);
-        }
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, originalDate.Minute, second, originalDate.Millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set millisecond
@@ -155,9 +139,7 @@ namespace Cosmos.Date
         /// <param name="millisecond"></param>
         /// <returns></returns>
         public static DateTimeOffset SetMillisecond(this DateTimeOffset originalDate, int millisecond)
-        {
-            return new(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, originalDate.Minute, originalDate.Second, millisecond, originalDate.Offset);
-        }
+            => new(originalDate.Year, originalDate.Month, originalDate.Day, originalDate.Hour, originalDate.Minute, originalDate.Second, millisecond, originalDate.Offset);
 
         /// <summary>
         /// Set date
@@ -166,9 +148,7 @@ namespace Cosmos.Date
         /// <param name="year"></param>
         /// <returns></returns>
         public static DateTimeOffset SetDate(this DateTimeOffset value, int year)
-        {
-            return new(year, value.Month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
-        }
+            => new(year, value.Month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
 
         /// <summary>
         /// Set date
@@ -177,10 +157,8 @@ namespace Cosmos.Date
         /// <param name="year"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetDate(this DateTimeOffset value, int year, int month)
-        {
-            return new(year, month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
-        }
+        public static DateTimeOffset SetDate(this DateTimeOffset value, int year, int month) 
+            => new(year, month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
 
         /// <summary>
         /// Set date
@@ -190,10 +168,8 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <param name="day"></param>
         /// <returns></returns>
-        public static DateTimeOffset SetDate(this DateTimeOffset value, int year, int month, int day)
-        {
-            return new(year, month, day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
-        }
+        public static DateTimeOffset SetDate(this DateTimeOffset value, int year, int month, int day) 
+            => new(year, month, day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
 
         /// <summary>
         /// Set year
@@ -202,9 +178,7 @@ namespace Cosmos.Date
         /// <param name="year"></param>
         /// <returns></returns>
         public static DateTimeOffset SetYear(this DateTimeOffset value, int year)
-        {
-            return new(year, value.Month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
-        }
+            => new(year, value.Month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
 
         /// <summary>
         /// Set month
@@ -213,9 +187,7 @@ namespace Cosmos.Date
         /// <param name="month"></param>
         /// <returns></returns>
         public static DateTimeOffset SetMonth(this DateTimeOffset value, int month)
-        {
-            return new(value.Year, month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
-        }
+            => new(value.Year, month, value.Day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
 
         /// <summary>
         /// Set day
@@ -224,9 +196,7 @@ namespace Cosmos.Date
         /// <param name="day"></param>
         /// <returns></returns>
         public static DateTimeOffset SetDay(this DateTimeOffset value, int day)
-        {
-            return new(value.Year, value.Month, day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
-        }
+            => new(value.Year, value.Month, day, value.Hour, value.Minute, value.Second, value.Millisecond, value.Offset);
 
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using NodaTime;
 
 namespace Cosmos.Date
@@ -48,6 +49,7 @@ namespace Cosmos.Date
         /// <param name="dateTimeZone"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ApplyDateTimeZoneLeniently(this DateTime dt, DateTimeZone dateTimeZone)
         {
             return DateTimeZones.ApplyDateTimeZoneLeniently(dt, dateTimeZone);
@@ -61,6 +63,7 @@ namespace Cosmos.Date
         /// <param name="dateTimeZone"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset ApplyDateTimeZoneStrictly(this DateTime dt, DateTimeZone dateTimeZone)
         {
             return DateTimeZones.ApplyDateTimeZoneStrictly(dt, dateTimeZone);

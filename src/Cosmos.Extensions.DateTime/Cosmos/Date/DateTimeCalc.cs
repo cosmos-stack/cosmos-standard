@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions;
 using NodaTime;
 
@@ -70,10 +71,8 @@ namespace Cosmos.Date
         /// <param name="seconds"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime OffsetBySeconds(DateTime dt, int seconds)
-        {
-            return dt + seconds.Seconds();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime OffsetBySeconds(DateTime dt, int seconds) => dt + seconds.Seconds();
 
         #endregion
 
@@ -87,10 +86,8 @@ namespace Cosmos.Date
         /// <param name="minutes"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime OffsetByMinutes(DateTime dt, int minutes)
-        {
-            return dt + minutes.Minutes();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime OffsetByMinutes(DateTime dt, int minutes) => dt + minutes.Minutes();
 
         #endregion
 
@@ -104,10 +101,8 @@ namespace Cosmos.Date
         /// <param name="hours"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime OffsetByHours(DateTime dt, int hours)
-        {
-            return dt + hours.Hours();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime OffsetByHours(DateTime dt, int hours) => dt + hours.Hours();
 
         #endregion
 
@@ -121,10 +116,8 @@ namespace Cosmos.Date
         /// <param name="days"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime OffsetByDays(DateTime dt, int days)
-        {
-            return dt + days.Days();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime OffsetByDays(DateTime dt, int days) => dt + days.Days();
 
         #endregion
 
@@ -139,10 +132,9 @@ namespace Cosmos.Date
         /// <param name="weekAtMonth"></param>
         /// <param name="dayOfWeek"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime OffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek)
-        {
-            return OffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0));
-        }
+            => OffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0));
 
         /// <summary>
         /// Create <see cref="DateTime"/> by special year, month and offset info.<br />
@@ -176,10 +168,9 @@ namespace Cosmos.Date
         /// <param name="dayOfWeek"></param>
         /// <param name="result"></param>
         /// <returns></returns>
-        public static bool TryOffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek, out DateTime result)
-        {
-            return TryOffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0), out result);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryOffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek, out DateTime result) 
+            => TryOffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0), out result);
 
         /// <summary>
         /// Create <see cref="DateTime"/> by special year, month and offset info.<br />
@@ -218,10 +209,8 @@ namespace Cosmos.Date
         /// <param name="weeks"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime OffsetByWeeks(DateTime dt, int weeks)
-        {
-            return dt + weeks.Weeks();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime OffsetByWeeks(DateTime dt, int weeks) => dt + weeks.Weeks();
 
         /// <summary>
         /// Find the next weekday for example Monday before a special date.<br />
@@ -346,10 +335,8 @@ namespace Cosmos.Date
         /// <param name="duration"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static DateTime OffsetByDuration(DateTime dt, Duration duration)
-        {
-            return dt + duration.ToTimeSpan();
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime OffsetByDuration(DateTime dt, Duration duration) => dt + duration.ToTimeSpan();
 
         #endregion
     }

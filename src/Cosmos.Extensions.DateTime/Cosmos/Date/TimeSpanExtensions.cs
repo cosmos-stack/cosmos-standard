@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -11,6 +12,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Ago(this TimeSpan ts) => ts.Before(DateTime.Now);
 
         /// <summary>
@@ -19,6 +21,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Ago(this TimeSpan ts, DateTime originalValue) => ts.Before(originalValue);
 
         /// <summary>
@@ -26,6 +29,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="ts"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset OffsetAgo(this TimeSpan ts) => ts.Before(DateTimeOffset.Now);
 
         /// <summary>
@@ -34,6 +38,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset Ago(this TimeSpan ts, DateTimeOffset originalValue) => ts.Before(originalValue);
 
         #endregion
@@ -46,6 +51,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTime Before(this TimeSpan ts, DateTime originalValue) => originalValue - ts;
 
         /// <summary>
@@ -54,6 +60,7 @@ namespace Cosmos.Date
         /// <param name="ts"></param>
         /// <param name="originalValue"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeOffset Before(this TimeSpan ts, DateTimeOffset originalValue) => originalValue - ts;
 
         #endregion
@@ -63,11 +70,13 @@ namespace Cosmos.Date
         /// <summary>
         /// Adds the given <see cref="DateTimeSpan"/> from a <see cref="TimeSpan"/> and returns resulting <see cref="DateTimeSpan"/>.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan AddFluentTimeSpan(this TimeSpan ts, DateTimeSpan fluentTimeSpan) => fluentTimeSpan.Add(ts);
 
         /// <summary>
         /// Subtracts the given <see cref="DateTimeSpan"/> from a <see cref="TimeSpan"/> and returns resulting <see cref="DateTimeSpan"/>.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static DateTimeSpan SubtractFluentTimeSpan(this TimeSpan ts, DateTimeSpan fluentTimeSpan) => DateTimeSpan.SubtractInternal(ts, fluentTimeSpan);
 
         #endregion

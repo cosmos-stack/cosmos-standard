@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Cosmos.Date
 {
@@ -11,6 +12,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(DateTime dt) => dt.IsToday();
 
         /// <summary>
@@ -18,6 +20,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(DateTime? dt) => dt.IsToday();
 
         /// <summary>
@@ -25,6 +28,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dtOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(DateTimeOffset dtOffset) => dtOffset.IsToday();
 
         /// <summary>
@@ -32,6 +36,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dtOffset"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsToday(DateTimeOffset? dtOffset) => dtOffset.IsToday();
 
         #endregion
@@ -43,6 +48,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekend(DateTime dt) => dt.IsWeekend();
 
         /// <summary>
@@ -50,6 +56,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekend(DateTime? dt) => dt.IsWeekend();
 
         #endregion
@@ -61,6 +68,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekday(DateTime dt) => dt.IsWeekday();
 
         /// <summary>
@@ -68,6 +76,7 @@ namespace Cosmos.Date
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsWeekday(DateTime? dt) => dt.IsWeekday();
 
         #endregion

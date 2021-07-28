@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions.StringDeterminers;
 
 namespace Cosmos.Date
@@ -9,21 +10,25 @@ namespace Cosmos.Date
     /// </summary>
     public partial class DateInfo
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParse(string s, out DateInfo result)
         {
             return DateInfoParse.TryParse(s, DateTimeFormatInfo.CurrentInfo, DateTimeStyles.None, out result);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParse(string s, IFormatProvider provider, DateTimeStyles styles, out DateInfo result)
         {
             return DateInfoParse.TryParse(s, DateTimeFormatInfo.GetInstance(provider), styles, out result);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExact(string s, string format, IFormatProvider provider, DateTimeStyles styles, out DateInfo result)
         {
             return DateInfoParse.TryParseExact(s, format, DateTimeFormatInfo.GetInstance(provider), styles, out result);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles styles, out DateInfo result)
         {
             return DateInfoParse.TryParseExactMultiple(s, formats, DateTimeFormatInfo.GetInstance(provider), styles, out result);
@@ -46,16 +51,19 @@ namespace Cosmos.Date
 
     internal static class DateInfoParse
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParse(string s, DateTimeFormatInfo formatInfo, DateTimeStyles styles, out DateInfo result)
         {
             return TryCreateDateInfo(DateTime.TryParse(s, formatInfo, styles, out var time), time, out result);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExact(string s, string format, DateTimeFormatInfo formatInfo, DateTimeStyles styles, out DateInfo result)
         {
             return TryCreateDateInfo(DateTime.TryParseExact(s, format, formatInfo, styles, out var time), time, out result);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExactMultiple(string s, string[] formats, DateTimeFormatInfo formatInfo, DateTimeStyles styles, out DateInfo result)
         {
             return TryCreateDateInfo(DateTime.TryParseExact(s, formats, formatInfo, styles, out var time), time, out result);

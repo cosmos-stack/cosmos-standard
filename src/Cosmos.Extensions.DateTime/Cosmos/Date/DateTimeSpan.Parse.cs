@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using Cosmos.Conversions.StringDeterminers;
 
 namespace Cosmos.Date
@@ -9,21 +10,27 @@ namespace Cosmos.Date
     /// </summary>
     public partial struct DateTimeSpan
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParse(string s, out DateTimeSpan result) => 
             DateTimeSpanParse.TryParse(s, null, out result);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParse(string s, IFormatProvider provider, out DateTimeSpan result) =>
             DateTimeSpanParse.TryParse(s, provider, out result);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExact(string input, string format, IFormatProvider provider, out DateTimeSpan result) => 
             DateTimeSpanParse.TryParseExact(input, format, provider, TimeSpanStyles.None, out result);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExact(string input, string[] formats, IFormatProvider provider, out DateTimeSpan result) => 
             DateTimeSpanParse.TryParseExactMultiple(input, formats, provider, TimeSpanStyles.None, out result);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExact(string input, string format, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result) =>
             DateTimeSpanParse.TryParseExact(input, format, provider, styles, out result);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryParseExact(string input, string[] formats, IFormatProvider provider, TimeSpanStyles styles, out DateTimeSpan result) =>
             DateTimeSpanParse.TryParseExactMultiple(input, formats, provider, styles, out result);
 
