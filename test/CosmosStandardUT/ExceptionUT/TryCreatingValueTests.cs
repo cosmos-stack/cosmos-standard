@@ -451,106 +451,38 @@ namespace CosmosStandardUT.ExceptionUT
         }
 
 
-        Func<int> FailureFunc0 = () =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int> FailureFunc0 = () => throw new ArgumentException();
 
-        Func<int, int> FailureFunc1 = a =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int> FailureFunc1 = a => throw new ArgumentException();
 
-        Func<int, int, int> FailureFunc2 = (a, b) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int> FailureFunc2 = (a, b) => throw new ArgumentException();
 
-        Func<int, int, int, int> FailureFunc3 = (a, b, c) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int> FailureFunc3 = (a, b, c) => throw new ArgumentException();
 
-        Func<int, int, int, int, int> FailureFunc4 = (a, b, c, d) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int> FailureFunc4 = (a, b, c, d) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int> FailureFunc5 = (a, b, c, d, e) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int> FailureFunc5 = (a, b, c, d, e) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int> FailureFunc6 = (a, b, c, d, e, f) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int> FailureFunc6 = (a, b, c, d, e, f) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int> FailureFunc7 = (a, b, c, d, e, f, g) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int> FailureFunc7 = (a, b, c, d, e, f, g) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int> FailureFunc8 = (a, b, c, d, e, f, g, h) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int> FailureFunc8 = (a, b, c, d, e, f, g, h) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int> FailureFunc9 = (a, b, c, d, e, f, g, h, i) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int> FailureFunc9 = (a, b, c, d, e, f, g, h, i) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int, int> FailureFunc10 = (a, b, c, d, e, f, g, h, i, j) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int, int> FailureFunc10 = (a, b, c, d, e, f, g, h, i, j) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc11 = (a, b, c, d, e, f, g, h, i, j, k) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc11 = (a, b, c, d, e, f, g, h, i, j, k) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc12 = (a, b, c, d, e, f, g, h, i, j, k, l) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc12 = (a, b, c, d, e, f, g, h, i, j, k, l) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc13 = (a, b, c, d, e, f, g, h, i, j, k, l, m) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc13 = (a, b, c, d, e, f, g, h, i, j, k, l, m) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc14 = (a, b, c, d, e, f, g, h, i, j, k, l, m, n) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc14 = (a, b, c, d, e, f, g, h, i, j, k, l, m, n) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc15 = (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc15 = (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) => throw new ArgumentException();
 
-        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc16 = (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p) =>
-        {
-            throw new ArgumentException();
-            return 1;
-        };
+        Func<int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int> FailureFunc16 = (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p) => throw new ArgumentException();
     }
 }

@@ -2,7 +2,7 @@ using System;
 using Cosmos.Exceptions;
 using Xunit;
 
-namespace Cosmos.Test.ReflectionTests
+namespace ReflectUT
 {
     public class ExceptionCtorTest
     {

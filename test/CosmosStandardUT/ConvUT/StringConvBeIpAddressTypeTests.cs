@@ -399,6 +399,7 @@ namespace CosmosStandardUT.ConvUT
             text0.IsNullable<IPAddress>().ShouldBeTrue();
             text1.IsNullable<IPAddress>().ShouldBeFalse();
             text2.IsNullable<IPAddress>().ShouldBeFalse();
+            text3.IsNullable<IPAddress>().ShouldBeFalse();
             text4.IsNullable<IPAddress>().ShouldBeFalse();
             text5.IsNullable<IPAddress>().ShouldBeFalse();
             text6.IsNullable<IPAddress>().ShouldBeTrue();
