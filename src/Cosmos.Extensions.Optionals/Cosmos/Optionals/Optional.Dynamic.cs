@@ -11,7 +11,6 @@ namespace Cosmos.Optionals
         /// <summary>
         /// Get an instance of builder, to build a dynamic Maybe.
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IDynamicOptionalBuilder Dynamic => DynamicOptionalBuilder.Create();
     }
 }

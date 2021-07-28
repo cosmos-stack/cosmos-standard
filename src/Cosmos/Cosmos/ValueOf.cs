@@ -15,7 +15,11 @@ namespace Cosmos
 
         private static LambdaExpression CreateLambda<TValue, TThis>(ConstructorInfo ctor) where TThis : ValueOf<TValue, TThis>, new()
         {
+#if NET451 || NET452
+            var argsExp = new Expression[0];
+#else
             var argsExp = Array.Empty<Expression>();
+#endif
             var newExp = Expression.New(ctor, argsExp);
             return Expression.Lambda(typeof(Func<TThis>), newExp);
         }
