@@ -17,8 +17,6 @@ Cosmos Standard includes:
 + [Optionals](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Optionals)
 + [Reflection](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Reflection)
 
-
-
 ## Installation
 
 Install via NuGet (Package Manager):

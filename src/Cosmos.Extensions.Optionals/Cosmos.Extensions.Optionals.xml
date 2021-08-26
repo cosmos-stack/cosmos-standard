@@ -414,14 +414,14 @@
             Interface for Maybe
             </summary>
         </member>
-        <member name="M:Cosmos.IMaybeable.ToMaybe``1">
+        <member name="M:Cosmos.IMaybeable.AsOptionals``1">
             <summary>
             Maybe
             </summary>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IMaybeable.ToMaybe``1(System.Func{``0,System.Boolean})">
+        <member name="M:Cosmos.IMaybeable.AsOptionals``1(System.Func{``0,System.Boolean})">
             <summary>
             Maybe
             </summary>
@@ -429,7 +429,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IMaybeable.ToMaybe``1(``0)">
+        <member name="M:Cosmos.IMaybeable.AsOptionals``1(``0)">
             <summary>
             Maybe
             </summary>
@@ -437,7 +437,7 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.IMaybeable.ToMaybe``1(System.Func{``0,System.Boolean},``0)">
+        <member name="M:Cosmos.IMaybeable.AsOptionals``1(System.Func{``0,System.Boolean},``0)">
             <summary>
             Maybe
             </summary>

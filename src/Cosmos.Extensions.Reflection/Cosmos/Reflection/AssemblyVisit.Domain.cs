@@ -33,7 +33,7 @@ namespace Cosmos.Reflection
 
         public static void RemoveReferences(Assembly assembly)
         {
-            GetDomain(assembly).Remove(assembly);
+            GetDomain(assembly).RemoveReference(assembly);
         }
         
         public static void DisposeDomain(Type type)
