@@ -1,34 +1,34 @@
-# Cosmos Standard Overview
+# CosmosStack Standard Overview
 
-The Cosmos Standard project is one of the member projects of the Cosmosloops Programme. Cosmos Standard provides a minimal set of basic tools for Cosmosloops. With the support of Cosmos Standard, developers can obtain higher development efficiency.
+The Cosmos Standard project is one of the member projects of the Cosmos Stack Programme. Cosmos Standard provides a minimal set of basic tools for Cosmos Stack. With the support of Cosmos Standard, developers can obtain higher development efficiency.
 
 
 
 Cosmos Standard includes:
 
-+ [Abstractions](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Abstractions)
-+ [Core](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos)
-+ [Asyncs](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Asyncs)
-+ [Collections](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Collections)
-+ [Conversions](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Conversions)
-+ [DateTime](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.DateTime)
-+ [Disposables](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Disposables)
-+ [Guard](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Guard)
-+ [Optionals](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Optionals)
-+ [Reflection](https://github.com/cosmos-loops/cosmos-standard/tree/master/src/Cosmos.Reflection)
++ [Abstractions](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Abstractions)
++ [Core](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack)
++ [Asyncs](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Asyncs)
++ [Collections](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Collections)
++ [Conversions](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Conversions)
++ [DateTime](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.DateTime)
++ [Disposables](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Disposables)
++ [Guard](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Guard)
++ [Optionals](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Optionals)
++ [Reflection](https://github.com/cosmos-stack/cosmos-standard/tree/master/src/CosmosStack.Reflection)
 
 ## Installation
 
 Install via NuGet (Package Manager):
 
 ```shell
-Install-Package Cosmos.Standard
+Install-Package CosmosStack.Standard
 ```
 
 or modify the `.csproj` file:
 
 ```xml
-<PackageReference Include="Cosmos.Standard" Version="LATEST_VERSION" />
+<PackageReference Include="CosmosStack.Standard" Version="LATEST_VERSION" />
 ```
 
 Fill in the latest version number in `LATEST_VERSION`.
@@ -56,6 +56,6 @@ People or projects that have made a great contributions to this project:
 
 ## License
 
-Member project of [Cosmosloops Labs.](https://github.com/cosmos-loops).
+Member project of [Cosmos Stack](https://github.com/cosmos-stack).
 
 [Apache License 2.0](/LICENSE)

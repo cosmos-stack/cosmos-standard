@@ -1,4 +1,4 @@
-﻿using Cosmos.Conversions;
+﻿using CosmosStack.Conversions;
 using Xunit;
 
 namespace CosmosStandardUT.ConvUT

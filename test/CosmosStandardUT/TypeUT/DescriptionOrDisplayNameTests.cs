@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using Cosmos.Reflection;
+using CosmosStack.Reflection;
 using CosmosStandardUT.Models;
 using Shouldly;
 using Xunit;

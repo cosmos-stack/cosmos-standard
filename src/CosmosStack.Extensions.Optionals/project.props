@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>CosmosStack.Extensions.Optionals</AssemblyName>
+        <PackageId>CosmosStack.Extensions.Optionals</PackageId>
+        <Description>CosmosStack Optional extension library</Description>
+    </PropertyGroup>
+    
+</Project>

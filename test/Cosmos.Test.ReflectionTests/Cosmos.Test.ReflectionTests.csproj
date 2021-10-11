@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Cosmos.Extensions.Reflection\Cosmos.Extensions.Reflection.csproj" />
+        <ProjectReference Include="..\..\src\CosmosStack.Extensions.Reflection\CosmosStack.Extensions.Reflection.csproj" />
     </ItemGroup>
 
 </Project>

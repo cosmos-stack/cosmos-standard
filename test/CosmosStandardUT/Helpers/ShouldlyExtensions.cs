@@ -1,6 +1,6 @@
 ﻿// ReSharper disable once CheckNamespace
 
-using Cosmos.Numeric;
+using CosmosStack.Numeric;
 
 namespace Shouldly
 {

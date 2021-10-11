@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>CosmosStack.Standard</PackageId>
+        <Description>CosmosStack standard library</Description>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <Import Project="..\..\common.props" />
+
+    <ItemGroup>
+        <ProjectReference Include="..\CosmosStack.Extensions.Asyncs\CosmosStack.Extensions.Asyncs.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.Conversions\CosmosStack.Extensions.Conversions.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.Collections\CosmosStack.Extensions.Collections.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.DateTime\CosmosStack.Extensions.DateTime.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.Disposables\CosmosStack.Extensions.Disposables.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.Enums\CosmosStack.Extensions.Enums.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.Guard\CosmosStack.Extensions.Guard.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.Optionals\CosmosStack.Extensions.Optionals.csproj" />
+        <ProjectReference Include="..\CosmosStack.Extensions.Reflection\CosmosStack.Extensions.Reflection.csproj" />
+        <ProjectReference Include="..\CosmosStack\CosmosStack.csproj" />
+    </ItemGroup>
+
+</Project>

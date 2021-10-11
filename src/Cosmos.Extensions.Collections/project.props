@@ -1,9 +1,0 @@
-<Project>
-
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Extensions.Collections</AssemblyName>
-        <PackageId>Cosmos.Extensions.Collections</PackageId>
-        <Description>Cosmos collections extension library</Description>
-    </PropertyGroup>
-    
-</Project>

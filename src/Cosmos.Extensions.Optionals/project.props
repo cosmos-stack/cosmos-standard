@@ -1,9 +1,0 @@
-<Project>
-
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Extensions.Optionals</AssemblyName>
-        <PackageId>Cosmos.Extensions.Optionals</PackageId>
-        <Description>Cosmos Optional extension library</Description>
-    </PropertyGroup>
-    
-</Project>

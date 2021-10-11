@@ -1,5 +1,5 @@
 ﻿using System;
-using Cosmos.Text;
+using CosmosStack.Text;
 using Shouldly;
 using Xunit;
 

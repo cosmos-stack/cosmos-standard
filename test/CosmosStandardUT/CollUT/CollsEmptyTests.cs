@@ -1,6 +1,8 @@
 ﻿using Cosmos.Collections;
 using Shouldly;
 using Xunit;
+using Colls = CosmosStack.Collections.Colls;
+using ReadOnlyColls = CosmosStack.Collections.ReadOnlyColls;
 
 namespace CosmosStandardUT.CollUT
 {

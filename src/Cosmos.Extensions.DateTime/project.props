@@ -1,9 +1,0 @@
-<Project>
-
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Extensions.DateTime</AssemblyName>
-        <PackageId>Cosmos.Extensions.DateTime</PackageId>
-        <Description>Cosmos Date/Time extension library</Description>
-    </PropertyGroup>
-    
-</Project>

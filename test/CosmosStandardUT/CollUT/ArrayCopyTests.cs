@@ -1,5 +1,7 @@
 ﻿using Cosmos.Collections;
+using CosmosStack.Collections;
 using Xunit;
+using Arrays = CosmosStack.Collections.Arrays;
 
 namespace CosmosStandardUT.CollUT
 {

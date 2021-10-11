@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Cosmos.Conversions;
+using CosmosStack.Conversions;
 using Shouldly;
 using Xunit;
 

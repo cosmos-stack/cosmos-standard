@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cosmos.Collections;
 using Shouldly;
 using Xunit;
+using Arrays = CosmosStack.Collections.Arrays;
 
 namespace CosmosStandardUT.CollUT
 {

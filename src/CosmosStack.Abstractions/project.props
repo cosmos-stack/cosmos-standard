@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>CosmosStack.Abstractions</AssemblyName>
+        <PackageId>CosmosStack.Abstractions</PackageId>
+        <Description>CosmosStack abstractions library</Description>
+    </PropertyGroup>
+    
+</Project>

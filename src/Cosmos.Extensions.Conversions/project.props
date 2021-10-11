@@ -1,9 +1,0 @@
-<Project>
-
-    <PropertyGroup>
-        <AssemblyName>Cosmos.Extensions.Conversions</AssemblyName>
-        <PackageId>Cosmos.Extensions.Conversions</PackageId>
-        <Description>Cosmos Conversions extension library</Description>
-    </PropertyGroup>
-    
-</Project>

@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>CosmosStack.Extensions.DateTime</AssemblyName>
+        <PackageId>CosmosStack.Extensions.DateTime</PackageId>
+        <Description>CosmosStack Date/Time extension library</Description>
+    </PropertyGroup>
+    
+</Project>

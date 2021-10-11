@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Cosmos.Exceptions;
+using CosmosStack.Exceptions;
 using Shouldly;
 using Xunit;
+using Try = CosmosStack.Exceptions.Try;
 
 namespace CosmosStandardUT.ConditionUT
 {

@@ -2,6 +2,7 @@
 using Cosmos.Collections;
 using Shouldly;
 using Xunit;
+using Colls = CosmosStack.Collections.Colls;
 
 namespace CosmosStandardUT.CollUT
 {

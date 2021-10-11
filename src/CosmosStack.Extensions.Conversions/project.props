@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>CosmosStack.Extensions.Conversions</AssemblyName>
+        <PackageId>CosmosStack.Extensions.Conversions</PackageId>
+        <Description>CosmosStack Conversions extension library</Description>
+    </PropertyGroup>
+    
+</Project>

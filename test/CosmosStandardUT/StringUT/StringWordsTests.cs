@@ -1,6 +1,5 @@
 ﻿using System.Linq;
-using Cosmos.Collections;
-using Cosmos.Text;
+using CosmosStack.Text;
 using Shouldly;
 using Xunit;
 

@@ -1,6 +1,7 @@
 using System;
-using Cosmos.Exceptions;
+using CosmosStack.Exceptions;
 using Xunit;
+using Try = CosmosStack.Exceptions.Try;
 
 namespace CosmosStandardUT.ConditionUT
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Cosmos.Reflection;
+using CosmosStack.Reflection;
 using CosmosStandardUT.Models;
 using Shouldly;
 using Xunit;

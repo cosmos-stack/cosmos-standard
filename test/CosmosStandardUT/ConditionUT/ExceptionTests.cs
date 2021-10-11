@@ -1,6 +1,6 @@
 ﻿using System;
-using Cosmos.Exceptions;
-using Cosmos.Validation;
+using CosmosStack.Validation;
+using CosmosStack.Exceptions;
 using Shouldly;
 using Xunit;
 

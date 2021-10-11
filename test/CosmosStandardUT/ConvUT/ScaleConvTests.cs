@@ -1,4 +1,4 @@
-﻿using Cosmos.Conversions;
+﻿using CosmosStack.Conversions;
 using Shouldly;
 using Xunit;
 

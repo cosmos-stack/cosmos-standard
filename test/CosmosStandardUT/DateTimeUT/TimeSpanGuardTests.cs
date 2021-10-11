@@ -1,6 +1,6 @@
 ﻿using System;
-using Cosmos.Date;
-using Cosmos.Validation;
+using CosmosStack.Date;
+using CosmosStack.Validation;
 using Xunit;
 
 namespace CosmosStandardUT.DateTimeUT

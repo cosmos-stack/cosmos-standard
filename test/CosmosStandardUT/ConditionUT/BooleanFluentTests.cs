@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cosmos;
+using CosmosStack;
 using Shouldly;
 using Xunit;
 

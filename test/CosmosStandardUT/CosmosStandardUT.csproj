@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Cosmos.Standard\Cosmos.Standard.csproj" />
+      <ProjectReference Include="..\..\src\CosmosStack.Standard\CosmosStack.Standard.csproj" />
     </ItemGroup>
 
 </Project>

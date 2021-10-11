@@ -1,5 +1,5 @@
 ﻿using System;
-using Cosmos.Date;
+using CosmosStack.Date;
 using Xunit;
 
 namespace CosmosStandardUT.ConvUT

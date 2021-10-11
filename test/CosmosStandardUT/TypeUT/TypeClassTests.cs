@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cosmos.Reflection;
+using CosmosStack.Reflection;
 using Shouldly;
 using Xunit;
 

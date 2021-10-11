@@ -1,0 +1,10 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>CosmosStack</AssemblyName>
+        <PackageId>CosmosStack.Core</PackageId>
+        <Description>CosmosStack base library</Description>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    
+</Project>

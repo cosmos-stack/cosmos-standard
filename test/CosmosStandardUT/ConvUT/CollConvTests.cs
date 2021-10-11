@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cosmos.Collections;
-using Cosmos.Reflection;
+using CosmosStack.Collections;
+using CosmosStack.Reflection;
 using Shouldly;
 using Xunit;
 

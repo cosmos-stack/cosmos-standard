@@ -1,0 +1,9 @@
+<Project>
+
+    <PropertyGroup>
+        <AssemblyName>CosmosStack.Extensions.Disposables</AssemblyName>
+        <PackageId>CosmosStack.Extensions.Disposables</PackageId>
+        <Description>CosmosStack Disposables extension library</Description>
+    </PropertyGroup>
+    
+</Project>

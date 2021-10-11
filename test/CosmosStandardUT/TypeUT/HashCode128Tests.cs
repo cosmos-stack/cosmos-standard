@@ -1,5 +1,5 @@
 ﻿using System;
-using Cosmos.Reflection;
+using CosmosStack.Reflection;
 using Shouldly;
 using Xunit;
 
