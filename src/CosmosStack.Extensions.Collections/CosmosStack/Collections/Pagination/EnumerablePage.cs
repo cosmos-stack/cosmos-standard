@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CosmosStack.Collections.Pagination;
 
-namespace Cosmos.Collections.Pagination
+namespace CosmosStack.Collections.Pagination
 {
     /// <summary>
     /// Enumerable page

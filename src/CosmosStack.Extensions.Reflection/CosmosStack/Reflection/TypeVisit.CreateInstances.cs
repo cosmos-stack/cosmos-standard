@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using AspectCore.Extensions.Reflection;
-using Cosmos.Collections;
 using CosmosStack.Collections;
 
 #if !NETFRAMEWORK

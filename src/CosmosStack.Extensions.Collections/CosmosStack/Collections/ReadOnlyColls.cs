@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Cosmos.Collections;
 using CosmosStack.Collections.Internals;
 
 namespace CosmosStack.Collections

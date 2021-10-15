@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cosmos.Collections.Pagination;
 using CosmosStack.Collections.Pagination.Internals;
 
 // ReSharper disable PossibleMultipleEnumeration

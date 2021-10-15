@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cosmos.Collections.Pagination;
+
 // ReSharper disable InconsistentNaming
 
 namespace CosmosStack.Collections.Pagination

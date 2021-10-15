@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Cosmos.Collections;
-using Arrays = CosmosStack.Collections.Arrays;
-using Colls = CosmosStack.Collections.Colls;
+using CosmosStack.Collections;
 
 namespace CosmosStack.Optionals
 {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Cosmos.Collections.Pagination;
 
 namespace CosmosStack.Collections.Pagination
 {

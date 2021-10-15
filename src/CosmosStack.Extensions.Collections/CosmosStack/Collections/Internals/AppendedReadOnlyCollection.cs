@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Cosmos.Collections;
 
 namespace CosmosStack.Collections.Internals
 {

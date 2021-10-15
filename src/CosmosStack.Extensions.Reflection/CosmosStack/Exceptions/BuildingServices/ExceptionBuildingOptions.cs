@@ -1,7 +1,6 @@
 #if !NET451 &&!NET452
 using System;
 using System.Collections.Generic;
-using Cosmos.Collections;
 using CosmosStack.Collections;
 using CosmosStack.Reflection;
 
