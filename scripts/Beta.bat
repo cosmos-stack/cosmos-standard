@@ -54,4 +54,4 @@ for /R "nuget_packages" %%s in (*.nupkg) do (
 )
 
 ::get back to build folder
-cd build
+cd scripts
