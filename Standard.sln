@@ -61,7 +61,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abstractions", "abstraction
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{9039BEC8-72D5-46BD-B33B-712FE08F9FF0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extensions", "extensions", "{EDED875E-58F5-4762-96D3-2E0F490BF83F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "funtions", "funtions", "{EDED875E-58F5-4762-96D3-2E0F490BF83F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6C8247FF-D723-438C-9EEC-43696F2C4347}"
 ProjectSection(SolutionItems) = preProject
