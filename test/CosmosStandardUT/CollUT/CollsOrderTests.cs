@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Cosmos.Collections;
 using CosmosStack.Collections;
 using Shouldly;
 using Xunit;
-using Colls = CosmosStack.Collections.Colls;
 
 namespace CosmosStandardUT.CollUT
 {

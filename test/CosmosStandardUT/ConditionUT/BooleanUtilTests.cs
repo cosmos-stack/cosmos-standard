@@ -1,5 +1,4 @@
 ﻿using System;
-using Cosmos;
 using CosmosStack;
 using Shouldly;
 using Xunit;

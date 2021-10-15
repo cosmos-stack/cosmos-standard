@@ -1,5 +1,4 @@
 ﻿using System;
-using Cosmos.Collections;
 using CosmosStack.Collections;
 using Shouldly;
 using Xunit;
