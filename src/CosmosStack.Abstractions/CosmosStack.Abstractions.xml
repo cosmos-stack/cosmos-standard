@@ -1,0 +1,646 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CosmosStack.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:CosmosStack.Asynchronous.ICancellable">
+            <summary>
+            Interface for cancellable.<br />
+            可取消接口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Asynchronous.ICancellable.Cancel">
+            <summary>
+            Returns true if cancelled. <br />
+            Returns false if already run or already cancelled or unable to cancel. <br />
+            当取消时返回 true，当已在运行、已取消或无法取消时返回 false。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Conversions.IConversionImpl`2">
+            <summary>
+            Interface for conversion impl.<br />
+            带实现的转换接口。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Conversions.IConversionImpl`2.TryTo(`0,`1@)">
+            <summary>
+            Try to convert.<br />
+            尝试转换。
+            </summary>
+            <param name="from">The object to be converted.</param>
+            <param name="to">Return the converted result.</param>
+            <returns>If the conversion is successful, return true; otherwise, return false.</returns>
+        </member>
+        <member name="T:CosmosStack.Conversions.IConversionTry`2">
+            <summary>
+            Interface for conversion try. <br />
+            带尝试的转换接口。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Conversions.IConversionTry`2.Is(`0,`1@)">
+            <summary>
+            Check if it can be converted. <br />
+            检查是否可被转换。
+            </summary>
+            <param name="from">The object to be converted.</param>
+            <param name="to">Return the converted result.</param>
+            <returns>If it can be converted, return true; otherwise, return false.</returns>
+        </member>
+        <member name="T:CosmosStack.Data.Common.IDbContext">
+            <summary>
+            DbContext Meta Interface. <br />
+            DnContext 元接口。
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Data.Common.IDbSet`1">
+            <summary>
+            DbSet Meta Interface. <br />
+            DbSet 元接口。
+            </summary>
+            <typeparam name="TEntity">指定的实体类型</typeparam>
+        </member>
+        <member name="T:CosmosStack.Disposables.DisposableBase">
+            <summary>
+            A base class for properly implementing the synchronous dispose pattern. <br />
+            Implement OnDispose to handle disposal. <br />
+            同步释放模式的基类，通过实现 OnDispose 来处理。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableBase.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableBase.OnDispose">
+            <summary>
+            When implemented will be called (only once) when being disposed. <br />
+            当释放时调用此方法（且仅一次）。
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Disposables.DisposableStateBase">
+            <summary>
+            Disposable state base. <br />
+            可释放状态基类
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Disposables.DisposableStateBase.DisposalState">
+            <summary>
+            Disposal state
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Disposables.DisposableStateBase.WasDisposed">
+            <summary>
+            Was disposed. <br />
+            标识是否已释放。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableStateBase.AssertIsAlive(System.Boolean)">
+            <summary>
+            Will throw if the object is disposed or has started disposal.
+            </summary>
+            <param name="strict">When true, will also throw if between alive and disposing states.</param>
+            <returns>True if still alive.</returns>
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableStateBase.OnBeforeDispose">
+            <summary>
+            On before dispose
+            </summary>
+        </member>
+        <member name="E:CosmosStack.Disposables.DisposableStateBase.BeforeDispose">
+            <summary>
+            BeforeDispose will be triggered once right before disposal commences. <br />
+            在释放之前触发一次 BeforeDispose。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableStateBase.StartDispose">
+            <summary>
+            Start dispose
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableStateBase.Disposed">
+            <summary>
+            Disposed
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableStateBase.Nullify``1(``0@)">
+            <summary>
+            Nullify
+            </summary>
+            <param name="x"></param>
+            <typeparam name="TNullable"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Disposables.DisposableStateBase.DisposeOf``1(``0@)">
+            <summary>
+            Dispose of
+            </summary>
+            <param name="x"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:CosmosStack.Disposables.DisposableStateBase.ALIVE">
+            <summary>
+            Disposal State: Currently living and available.
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Disposables.DisposableStateBase.DISPOSE_CALLED">
+            <summary>
+            Disposal State: Special case where still accessible, but on it's way to being disposed.
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Disposables.DisposableStateBase.DISPOSING">
+            <summary>
+            Is currently in the process of being disposed.
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Disposables.DisposableStateBase.DISPOSED">
+            <summary>
+            Has completed disposal.
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Disposables.IAsynchronousDisposableAction">
+            <summary>
+            Asynchronous Disposable action<br />
+            异步释放 Action 接口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Disposables.IAsynchronousDisposableAction.InvokeAsync">
+            <summary>
+            Invoke the disposable action async<br />
+            执行异步释放工作
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Disposables.IDisposableAction">
+            <summary>
+            Disposable action<br />
+            同步释放 Action 接口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Disposables.IDisposableAction.Invoke">
+            <summary>
+            Invoke the disposable action<br />
+            执行同步释放工作
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Disposables.IDisposalState">
+            <summary>
+            Interface for disposal state <br />
+            可释放状态接口
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Disposables.IDisposalState.WasDisposed">
+            <summary>
+            Was disposed <br />
+            标识是否已释放。
+            </summary>
+        </member>
+        <member name="T:CosmosStack.IObjectMapper">
+            <summary>
+            Object Mapper Meta Interface<br />
+            对象映射元接口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.IObjectMapper.MapTo(System.Type,System.Type,System.Object)">
+            <summary>
+            Map to<br />
+            映射至……
+            </summary>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+            <param name="source"></param>
+            <returns>映射结果</returns>
+        </member>
+        <member name="M:CosmosStack.IObjectMapper.MapTo(System.Type,System.Type,System.Object,System.Object)">
+            <summary>
+            Map to<br />
+            映射至……
+            </summary>
+            <param name="sourceType"></param>
+            <param name="targetType"></param>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns>映射结果</returns>
+        </member>
+        <member name="T:CosmosStack.IGenericObjectMapper">
+            <summary>
+            Object Generic Mapper Meta Interface<br />
+            对象泛型映射元接口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.IGenericObjectMapper.MapTo``2(``0)">
+            <summary>
+            Map to<br />
+            映射至……
+            </summary>
+            <typeparam name="TFrom">从何种类型开始映射</typeparam>
+            <typeparam name="TTo">映射至何种类型</typeparam>
+            <param name="fromObject">被映射的对象</param>
+            <returns>映射结果</returns>
+        </member>
+        <member name="M:CosmosStack.IGenericObjectMapper.MapTo``2(``0,``1)">
+            <summary>
+            Map to<br />
+            映射至……
+            </summary>
+            <typeparam name="TFrom">从何种类型开始映射</typeparam>
+            <typeparam name="TTo">映射至何种类型</typeparam>
+            <param name="fromObject">被映射的对象</param>
+            <param name="toInstance">映射至的对象</param>
+            <returns>映射结果，将返回 <paramref name="toInstance"/> 实例</returns>
+        </member>
+        <member name="T:CosmosStack.IOperationResult`1">
+            <summary>
+            Opt result<br />
+            操作结果接口
+            </summary>
+            <typeparam name="T">指定的操作结果的类型</typeparam>
+        </member>
+        <member name="P:CosmosStack.IOperationResult`1.Result">
+            <summary>
+            Gets operation result<br />
+            获取操作结果
+            </summary>
+        </member>
+        <member name="T:CosmosStack.ITypeConverter`2">
+            <summary>
+            Type Converter Meta Interface<br />
+            类型转换元接口
+            </summary>
+            <typeparam name="TFrom">自何类型开始转换</typeparam>
+            <typeparam name="TTo">转换至何类型</typeparam>
+        </member>
+        <member name="M:CosmosStack.ITypeConverter`2.To(`0)">
+            <summary>
+            To<br />
+            类型转换至……
+            </summary>
+            <param name="from">被转换的对象</param>
+            <returns>类型转换的结果</returns>
+        </member>
+        <member name="T:CosmosStack.IIndexedTypeConverter`2">
+            <summary>
+            Type Converter Meta Interface with index<br />
+            带索引值的类型转换元接口
+            </summary>
+            <typeparam name="TFrom">自何类型开始转换</typeparam>
+            <typeparam name="TTo">转换至何类型</typeparam>
+        </member>
+        <member name="M:CosmosStack.IIndexedTypeConverter`2.To(`0,System.Int32)">
+            <summary>
+            To<br />
+            类型转换至……
+            </summary>
+            <param name="from">被转换的对象</param>
+            <param name="index">索引值</param>
+            <returns>类型转换的结果</returns>
+        </member>
+        <member name="T:CosmosStack.Serialization.IJsonSerializer">
+            <summary>
+            Interface of Json serializer<br />
+            Json 序列化器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Serialization.IJsonSerializerConfigureEntry">
+            <summary>
+            An interface of configuration entry for json serializer.
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Serialization.IJsonSerializerConfigureEntry.ConfigureJsonSerializer(CosmosStack.Serialization.IJsonSerializer)">
+            <summary>
+            To config / use a json serializer
+            </summary>
+            <param name="serializer"></param>
+        </member>
+        <member name="M:CosmosStack.Serialization.IJsonSerializerConfigureEntry.ConfigureJsonSerializer(System.Func{CosmosStack.Serialization.IJsonSerializer})">
+            <summary>
+            To config / use a json serializer
+            </summary>
+            <param name="serializerFactory"></param>
+        </member>
+        <member name="T:CosmosStack.Serialization.IMessagePackSerializer">
+            <summary>
+            Interface of MessagePack serializer<br />
+            MessagePack 序列化器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Serialization.IObjectSerializer">
+            <summary>
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Serialization.IObjectSerializer`1">
+            <summary>
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
+            </summary>
+            <typeparam name="TSerializedType">指定的目标序列化类型</typeparam>
+        </member>
+        <member name="M:CosmosStack.Serialization.IObjectSerializer`1.Serialize``1(``0)">
+            <summary>
+            Serialize<br />
+            序列化
+            </summary>
+            <typeparam name="T">指定的序列化对象类型</typeparam>
+            <param name="o">被序列化对象</param>
+            <returns>序列化结果</returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.IObjectSerializer`1.Deserialize``1(`0)">
+            <summary>
+            Deserialize<br />
+            反序列化
+            </summary>
+            <typeparam name="T">指定的被序列化对象类型</typeparam>
+            <param name="data">被反序列化对象</param>
+            <returns>反序列化结果</returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.IObjectSerializer`1.Deserialize(`0,System.Type)">
+            <summary>
+            Deserialize<br />
+            反序列化
+            </summary>
+            <param name="data">被反序列化对象</param>
+            <param name="type">指定的被序列化对象类型</param>
+            <returns>反序列化结果</returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.IObjectSerializer`1.SerializeAsync``1(``0)">
+            <summary>
+            Serialize async<br />
+            异步序列化
+            </summary>
+            <typeparam name="T">指定的序列化对象类型</typeparam>
+            <param name="o">被序列化对象</param>
+            <returns>序列化结果</returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.IObjectSerializer`1.DeserializeAsync``1(`0)">
+            <summary>
+            Deserialize async<br />
+            异步反序列化
+            </summary>
+            <typeparam name="T">指定的被序列化对象类型</typeparam>
+            <param name="data">被反序列化对象</param>
+            <returns>反序列化结果</returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.IObjectSerializer`1.DeserializeAsync(`0,System.Type)">
+            <summary>
+            Deserialize async<br />
+            异步反序列化
+            </summary>
+            <param name="data">被反序列化对象</param>
+            <param name="type">指定的被序列化对象类型</param>
+            <returns>反序列化结果</returns>
+        </member>
+        <member name="T:CosmosStack.Serialization.IProtobufSerializer">
+            <summary>
+            Interface of Protobuf serializer<br />
+            Google ProtoBuf 序列化器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Serialization.ISerializer">
+            <summary> 
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Serialization.ISerializer.SerializeToStream``1(``0)">
+            <summary>
+            Serialize<br />
+            序列化
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.ISerializer.DeserializeFromStream``1(System.IO.Stream)">
+            <summary>
+            Deserialize<br />
+            反序列化
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.ISerializer.DeserializeFromStream(System.IO.Stream,System.Type)">
+            <summary>
+            Deserialize<br />
+            反序列化
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.ISerializer.SerializeToStreamAsync``1(``0)">
+            <summary>
+            Serialize async<br />
+            异步序列化
+            </summary>
+            <param name="o"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.ISerializer.DeserializeFromStreamAsync``1(System.IO.Stream)">
+            <summary>
+            Deserialize async<br />
+            异步反序列化
+            </summary>
+            <param name="stream"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Serialization.ISerializer.DeserializeFromStreamAsync(System.IO.Stream,System.Type)">
+            <summary>
+            Deserialize async<br />
+            异步反序列化
+            </summary>
+            <param name="stream"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Serialization.ITomlSerializer">
+            <summary>
+            Interface of Toml serializer<br />
+            Toml 序列化器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Serialization.IXmlSerializer">
+            <summary>
+            Interface of XML serializer<br />
+            XML 序列化器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Serialization.IYamlSerializer">
+            <summary>
+            Interface of Yaml serializer<br />
+            Yaml 序列化器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Serialization.IZeroFormatterSerializer">
+            <summary>
+            Interface of ZeroFormatter serializer<br />
+            ZeroFormatter 序列化器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Validation.Annotations.IEnumVerifiableAnnotation`1">
+            <summary>
+            Use this interface for the enumeration validator to allow the use of custom validation logic in the
+            enumeration component, enumeration enhancement component, or verification component. <br />
+            将该接口用于枚举验证器，以便允许在枚举组件、枚举增强组件或验证组件中使用自定义的验证逻辑。 
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Validation.Annotations.IEnumVerifiableAnnotation`1.Verify(`0)">
+            <summary>
+            Verify that the given value is valid. <br />
+            验证给定的值是否有效。
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Validation.Annotations.IFlagAnnotation">
+            <summary>
+            A verifiable flag annotation <br />
+            具有标志位的可验证注解，注解自身表达含义
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Validation.Annotations.IQuietVerifiableAnnotation">
+            <summary>
+            A Quiet Verify Interface <br />
+            静默验证接口
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Validation.Annotations.IQuietVerifiableAnnotation.ErrorMessage">
+            <summary>
+            Gets or sets message<br />
+            消息
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Validation.Annotations.IQuietVerifiableAnnotation.QuietVerify``1(``0)">
+            <summary>
+            Quiet Verify <br />
+            静默验证
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Validation.Annotations.IQuietVerifiableAnnotation.QuietVerify(System.Type,System.Object)">
+            <summary>
+            Quiet Verify <br />
+            静默验证
+            </summary>
+            <param name="type"></param>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Validation.IVerifiable">
+            <summary>
+            A verifiable interface <br />
+            可验证接口
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Validation.IVerifiable.Name">
+            <summary>
+            Name of this Attribute/Annotation/VerifiableObject <br />
+            名称（一般用于特性、注解或可验证对象）
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Verba.IVerba">
+            <summary>
+            Verba Meta Interface<br />
+            CosmosStack Verba 元接口
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Verba.IVerba.VerbaName">
+            <summary>
+            Gets verba name<br />
+            获取 Verba 名称
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Workflow.IDynamicElement">
+            <summary>
+            Dynamic Element Interface<br />
+            动态元素接口<br />
+            本接口用于 CosmosStack.Walker
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicElement.Id">
+            <summary>
+            Id<br />
+            编号
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Workflow.IDynamicElementDesign">
+            <summary>
+            Dynamic Element Design Interface<br />
+            动态元素设计接口<br />
+            本接口用于 CosmosStack.Walker 与 CosmosStack.Flower
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicElementDesign.Id">
+            <summary>
+            Id<br />
+            编号
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicElementDesign.Name">
+            <summary>
+            Name<br />
+            名称
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicElementDesign.DisplayTitle">
+            <summary>
+            Display Title<br />
+            用于显示的标题
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Workflow.IDynamicForms">
+            <summary>
+            Dynamic Forms Interface<br />
+            动态表单接口<br />
+            本接口用于 CosmosStack.Walker 与 CosmosStack.Flower
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicForms.Design">
+            <summary>
+            Dynamic Forms Design<br />
+            动态表单设计稿
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicForms.Title">
+            <summary>
+            Title<br />
+            动态表单标题
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Workflow.IDynamicFormsDesign">
+            <summary>
+            Dynamic Forms Design Interface<br />
+            动态表单设计稿接口<br />
+            本接口用于 CosmosStack.Walker 和 CosmosStack.Flower
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicFormsDesign.Id">
+            <summary>
+            Id<br />
+            编号
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicFormsDesign.Name">
+            <summary>
+            Name<br />
+            名称
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicFormsDesign.DisplayTitle">
+            <summary>
+            Display Title<br />
+            用于展示的标题
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Workflow.IDynamicFormsDesign.Elements">
+            <summary>
+            Elements<br />
+            元素集合
+            </summary>
+        </member>
+    </members>
+</doc>

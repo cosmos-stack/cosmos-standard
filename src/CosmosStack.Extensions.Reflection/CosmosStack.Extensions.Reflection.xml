@@ -1,0 +1,3160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CosmosStack.Extensions.Reflection</name>
+    </assembly>
+    <members>
+        <member name="T:CosmosStack.BooleanExceptionUtilitiesExtensions">
+            <summary>
+            Boolean extensions for Exception Builder
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager">
+            <summary>
+            Custom Exception Building Manager <br />
+            自定义异常构建管理器
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.Return(System.Type,System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and return exception <br />
+            构建并返回异常
+            </summary>
+            <param name="type"></param>
+            <param name="exceptionParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.Return(System.Type,System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal},CosmosStack.Exceptions.IExceptionBuilder@)">
+            <summary>
+            Build, and return exception <br />
+            构建并返回异常
+            </summary>
+            <param name="type"></param>
+            <param name="exceptionParams"></param>
+            <param name="builder"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.Return``1(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and return exception <br />
+            构建并返回异常
+            </summary>
+            <param name="exceptionParams"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.Return``1(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal},CosmosStack.Exceptions.IExceptionBuilder@)">
+            <summary>
+            Build, and return exception <br />
+            构建并返回异常
+            </summary>
+            <param name="exceptionParams"></param>
+            <param name="builder"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.TryGetBuilder(System.Type,CosmosStack.Exceptions.IExceptionBuilder@)">
+            <summary>
+            Try to create a new instance exception builder <br />
+            尝试创建一个新的异常构建器
+            </summary>
+            <param name="type"></param>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.TryGetBuilder``1(CosmosStack.Exceptions.IExceptionBuilder@)">
+            <summary>
+            Try to create a new instance exception builder <br />
+            尝试创建一个新的异常构建器
+            </summary>
+            <param name="builder"></param>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.Register(System.Type,System.Func{System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal},System.Boolean},System.Func{CosmosStack.Exceptions.IExceptionBuilder})">
+            <summary>
+            To register a way to create a new exception builder. <br />
+            注册一种方式，创建一个新的异常构建器。
+            </summary>
+            <param name="type"></param>
+            <param name="checker"></param>
+            <param name="buildingDelegate"></param>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.Register(System.Type,System.Func{CosmosStack.Exceptions.IExceptionBuilder})">
+            <summary>
+            To register a way to create a new exception builder. <br />
+            注册一种方式，创建一个新的异常构建器。
+            </summary>
+            <param name="type"></param>
+            <param name="buildingDelegate"></param>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.RegisterOrOverride(System.Type,System.Func{System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal},System.Boolean},System.Func{CosmosStack.Exceptions.IExceptionBuilder})">
+            <summary>
+            To register or override a way to create a new exception builder. <br />
+            注册或覆盖一种方式，创建一个新的异常构建器。
+            </summary>
+            <param name="type"></param>
+            <param name="checker"></param>
+            <param name="buildingDelegate"></param>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.CustomExceptionBuildingManager.RegisterOrOverride(System.Type,System.Func{CosmosStack.Exceptions.IExceptionBuilder})">
+            <summary>
+            To register or override a way to create a new exception builder. <br />
+            注册或覆盖一种方式，创建一个新的异常构建器。
+            </summary>
+            <param name="type"></param>
+            <param name="buildingDelegate"></param>
+        </member>
+        <member name="T:CosmosStack.Exceptions.BuildingServices.ExceptionArgConstants">
+            <summary>
+            Exception arg constants <br />
+            用于异常构建的参数常量
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Exceptions.BuildingServices.ExceptionArgConstants.MESSAGE">
+            <summary>
+            Message <br />
+            消息
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Exceptions.BuildingServices.ExceptionArgConstants.PARAM_NAME">
+            <summary>
+            Param Name <br />
+            参数名
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Exceptions.BuildingServices.ExceptionArgConstants.INNER_EXCEPTION">
+            <summary>
+            Inner exception <br />
+            内置异常
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Exceptions.BuildingServices.ExceptionArgConstants.INNER">
+            <summary>
+            Inner exception, usage for InvalidProgramException <br />
+            内置异常，用于 InvalidProgramException
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Exceptions.BuildingServices.ExceptionArgConstants.ACTUAL_VALUE">
+            <summary>
+            Actual value <br />
+            实际值
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Exceptions.BuildingServices.ExceptionArgConstants.ERROR_CODE">
+            <summary>
+            Error code <br />
+            错误码
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions">
+            <summary>
+            Exception building options.<br />
+            异常构建器选项。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions.#ctor(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions"/>.<br />
+            构建一个新的 <see cref="T:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions"/> 实例。
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="P:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions.ExceptionType">
+            <summary>
+            Gets exception type.<br />
+            获取异常类型。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions.AddArg``1(System.String,``0,System.Boolean)">
+            <summary>
+            Add args.<br />
+            添加参数。
+            </summary>
+            <param name="argumentName"></param>
+            <param name="argumentValue"></param>
+            <param name="overrideVal"></param>
+            <typeparam name="TArgVal"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions.AddArg``1(System.String,``0,System.Func{``0,System.Boolean},System.Boolean)">
+            <summary>
+            Add args.<br />
+            添加参数。
+            </summary>
+            <param name="argumentName"></param>
+            <param name="argumentValue"></param>
+            <param name="predicate"></param>
+            <param name="overrideVal"></param>
+            <typeparam name="TArgVal"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions.AddArg(CosmosStack.Reflection.ArgumentDescriptor,System.Boolean)">
+            <summary>
+            Add args.<br />
+            添加参数。
+            </summary>
+            <param name="descriptor"></param>
+            <param name="overrideVal"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Exceptions.ExceptionBuilder">
+            <summary>
+            Exception builder
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.ExceptionBuilder.Create``1">
+            <summary>
+            Create a new builder for of <typeparamref name="TException"/> <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/>.<br />
+            创建一个用于构建 <typeparamref name="TException"/> <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/> 的 builder。
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.ExceptionBuilder.Create(System.Type)">
+            <summary>
+            Create a new builder for the given type of exception for <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder"/>.<br />
+            创建一个用于构建指定异常类型的 builder。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.ExceptionBuilder.Raise``1(System.Boolean,System.String)">
+            <summary>
+            Create an exception and raise.
+            </summary>
+            <typeparam name="TException">Special type T.</typeparam>
+            <param name="assertion">Predicate.</param>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="M:CosmosStack.Exceptions.ExceptionBuilder.Raise``1(System.Boolean,System.String,System.Exception)">
+            <summary>
+            Create an exception and raise.
+            </summary>
+            <typeparam name="TException">Special type T.</typeparam>
+            <param name="assertion">Predicate.</param>
+            <param name="message">Error message.</param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:CosmosStack.Exceptions.ExceptionBuilder.Raise``1(System.Boolean,System.Object[])">
+            <summary>
+            Create an exception and raise.
+            </summary>
+            <typeparam name="TException">Special type TException.</typeparam>
+            <param name="assertion">Predicate.</param>
+            <param name="exceptionParams">Parameters for exception.</param>
+        </member>
+        <member name="M:CosmosStack.Exceptions.ExceptionBuilder.Raise``1(System.Boolean,CosmosStack.Exceptions.ExceptionOptions)">
+            <summary>
+            Create an exception and raise.
+            </summary>
+            <typeparam name="TException">Special type TException.</typeparam>
+            <param name="assertion">Predicate.</param>
+            <param name="options">CosmosStack exception options.</param>
+        </member>
+        <member name="T:CosmosStack.Exceptions.FluentExceptionBuilder">
+            <summary>
+            Exception builder<br />
+            异常构建器。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.#ctor(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/>. <br />
+            创建一个新的 <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/> 实例。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.#ctor(System.Type,System.Action{System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal},CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions})">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/>. <br />
+            创建一个新的 <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/> 实例。
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Exceptions.FluentExceptionBuilder.TargetType">
+            <summary>
+            Target type of exception.<br />
+            目标异常的类型
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.InnerException(System.Exception)">
+            <summary>
+            Sets inner exception.<br />
+            设置内部异常。
+            </summary>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.ParamName(System.String)">
+            <summary>
+            Sets parameter's name.<br />
+            设置参数名称。
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.Message(System.String)">
+            <summary>
+            Sets exception message.<br />
+            设置异常消息。
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.ActualValue(System.Object)">
+            <summary>
+            Sets actual value.<br />
+            设置实际的值。
+            </summary>
+            <param name="actualValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.ErrorCode(System.Int32)">
+            <summary>
+            Sets error code.<br />
+            设置错误代码（Error Code）。
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.Build">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.Build(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.BuildAndThrow">
+            <summary>
+            Build, and throw exception.<br />
+            构建，并抛出异常。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.BuildAndThrow(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and throw exception.<br />
+            构建，并抛出异常。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.BuildAndThrowAsValidationError">
+            <summary>
+            Build, and throw as Validation error.<br />
+            构建，并抛出验证错误。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder.BuildAndThrowAsValidationError(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and throw as Validation error.<br />
+            构建，并抛出验证错误。
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Exceptions.FluentExceptionBuilder.ArgumentsChecker">
+            <summary>
+            To get an argument checker <br />
+            获取参数检查器
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Exceptions.FluentExceptionBuilder`1">
+            <summary>
+            Exception builder<br />
+            异常构建器。
+            </summary>
+            <typeparam name="TException"></typeparam>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/>. <br />
+            创建一个新的 <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/> 实例。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.#ctor(System.Action{System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal},CosmosStack.Exceptions.BuildingServices.ExceptionBuildingOptions})">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/>. <br />
+            创建一个新的 <see cref="T:CosmosStack.Exceptions.FluentExceptionBuilder`1"/> 实例。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.InnerException(System.Exception)">
+            <summary>
+            Sets inner exception.<br />
+            设置内部异常。
+            </summary>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.ParamName(System.String)">
+            <summary>
+            Sets parameter's name.<br />
+            设置参数名称。
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.Message(System.String)">
+            <summary>
+            Sets exception message.<br />
+            设置异常消息。
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.ActualValue(System.Object)">
+            <summary>
+            Sets actual value.<br />
+            设置实际的值。
+            </summary>
+            <param name="actualValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.ErrorCode(System.Int32)">
+            <summary>
+            Sets error code.<br />
+            设置错误代码（Error Code）。
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.Build">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.Build(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.BuildAndThrow">
+            <summary>
+            Build, and throw exception.<br />
+            构建，并抛出异常。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.BuildAndThrow(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and throw exception.<br />
+            构建，并抛出异常。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.BuildAndThrowAsValidationError">
+            <summary>
+            Build, and throw as Validation error.<br />
+            构建，并抛出验证错误。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.FluentExceptionBuilder`1.BuildAndThrowAsValidationError(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and throw as Validation error.<br />
+            构建，并抛出验证错误。
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Exceptions.IExceptionBuilder">
+            <summary>
+            Interface for fluent exception builder.<br />
+            流畅异常构建器接口。
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Exceptions.IExceptionBuilder.TargetType">
+            <summary>
+            Target type of exception.<br />
+            目标异常的类型
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IExceptionBuilder.Build">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IExceptionBuilder.BuildAndThrow">
+            <summary>
+            Build, and throw exception.<br />
+            构建，并抛出异常。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IExceptionBuilder.BuildAndThrowAsValidationError">
+            <summary>
+            Build, and throw as Validation error.<br />
+            构建，并抛出验证错误。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IExceptionBuilder.Build(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IExceptionBuilder.BuildAndThrow(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and throw exception.<br />
+            构建，并抛出异常。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IExceptionBuilder.BuildAndThrowAsValidationError(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build, and throw as Validation error.<br />
+            构建，并抛出验证错误。
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Exceptions.IExceptionBuilder.ArgumentsChecker">
+            <summary>
+            To get an argument checker <br />
+            获取参数检查器
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Exceptions.IFluentExceptionBuilder`1">
+            <summary>
+            Interface for fluent exception builder.<br />
+            流畅异常构建器接口。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder`1.InnerException(System.Exception)">
+            <summary>
+            With inner exception.<br />
+            This value will be used for constructor with param-name 'innerException' and 'inner' (just for <see cref="T:System.InvalidProgramException"/>).<br />
+            设置内部异常。
+            </summary>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder`1.ParamName(System.String)">
+            <summary>
+            With parameter's name.<br />
+            This value will be used for constructor with param-name 'paramName'.<br />
+            设置参数名称。
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder`1.Message(System.String)">
+            <summary>
+            With message.<br />
+            This value will be used for constructor with param-name 'message'.<br />
+            设置异常消息。
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder`1.ActualValue(System.Object)">
+            <summary>
+            Actual value.<br />
+            This value will be used for constructor with param-name 'actualValue'.<br />
+            设置实际的值。
+            </summary>
+            <param name="actualValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder`1.ErrorCode(System.Int32)">
+            <summary>
+            Error code.<br />
+            This value will be used for constructor with param-name 'errorCode'.<br />
+            设置错误代码（Error Code）。
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder`1.Build">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder`1.Build(System.Collections.Generic.Dictionary{System.String,CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Build.<br />
+            构建。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Exceptions.IFluentExceptionBuilder">
+            <summary>
+            Interface for non-generic fluent exception builder.<br />
+            流畅异常构建器接口。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder.InnerException(System.Exception)">
+            <summary>
+            With inner exception.<br />
+            This value will be used for constructor with param-name 'innerException' and 'inner' (just for <see cref="T:System.InvalidProgramException"/>).<br />
+            设置内部异常。
+            </summary>
+            <param name="innerException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder.ParamName(System.String)">
+            <summary>
+            With parameter's name.<br />
+            This value will be used for constructor with param-name 'paramName'.<br />
+            设置参数名称。
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder.Message(System.String)">
+            <summary>
+            With message.<br />
+            This value will be used for constructor with param-name 'message'.<br />
+            设置异常消息。
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder.ActualValue(System.Object)">
+            <summary>
+            Actual value.<br />
+            This value will be used for constructor with param-name 'actualValue'.<br />
+            设置实际的值。
+            </summary>
+            <param name="actualValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Exceptions.IFluentExceptionBuilder.ErrorCode(System.Int32)">
+            <summary>
+            Error code.<br />
+            This value will be used for constructor with param-name 'errorCode'.<br />
+            设置错误代码（Error Code）。
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Finders.BaseAttributeFinder`1">
+            <summary>
+            Attribute type finder <br />
+            特性类型查找器
+            </summary>
+            <typeparam name="TAttributeType"></typeparam>
+        </member>
+        <member name="T:CosmosStack.Finders.BaseTypeFinder`1">
+            <summary>
+            Base type finder <br />
+            类型查找器基类
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Finders.DirectoryAssemblyFinder">
+            <summary>
+            Directory assembly finder <br />
+            目录程序集查找器
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Finders.DirectoryAssemblyFinder.Find(System.Func{System.Reflection.Assembly,System.Boolean},System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Finders.DirectoryAssemblyFinder.FindAll(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:CosmosStack.Finders.IAllAssemblyFinder">
+            <summary>
+            A finder for all Assembly <br />
+            查找所有程序集接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Finders.IAssemblyFinder">
+            <summary>
+            A finder for Assembly <br />
+            程序集查找器接口
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Finders.IMethodInfoFinder">
+            <summary>
+            A finder for MethodInfo <br />
+            MethodInfo 查找器接口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Finders.IMethodInfoFinder.Find(System.Type,System.Func{System.Reflection.MethodInfo,System.Boolean})">
+            <summary>
+            查找指定条件的项
+            </summary>
+            <param name="type">要查找的类型</param>
+            <param name="predicate">筛选条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Finders.IMethodInfoFinder.FindAll(System.Type)">
+            <summary>
+            查找所有项
+            </summary>
+            <param name="type">要查找的类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Finders.ITypeFinder">
+            <summary>
+            A finder for Type <br />
+            类型查找器
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Reflection.AssemblyVisit">
+            <summary>
+            Assembly Visit Utilities <br />
+            程序集访问工具集
+            </summary>
+            <summary>
+            Assembly Visit Utilities <br />
+            程序集访问工具集
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.AssemblyVisit.GetFileVersion(System.Reflection.Assembly)">
+            <summary>
+            Get assembly file version.<br />
+            获取 Assembly 文件的版本
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.AssemblyVisit.GetProductVersion(System.Reflection.Assembly)">
+            <summary>
+            Get assembly product version.<br />
+            获取 Assembly 文件的产品版本 
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:CosmosStack.Reflection.HashCode1024">
+            <summary>
+            HashCode 1024
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.HashCode1024.Zero">
+            <summary>
+            Zero<br />零值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.BitLength">
+            <inheritdoc />
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash1">
+            <summary>
+            Hash 1
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash2">
+            <summary>
+            Hash 2
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash3">
+            <summary>
+            Hash 3
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash4">
+            <summary>
+            Hash 4
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash5">
+            <summary>
+            Hash 5
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash6">
+            <summary>
+            Hash 6
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash7">
+            <summary>
+            Hash 7
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash8">
+            <summary>
+            Hash 8
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash9">
+            <summary>
+            Hash 9
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash10">
+            <summary>
+            Hash 10
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash11">
+            <summary>
+            Hash 11
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash12">
+            <summary>
+            Hash 12
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash13">
+            <summary>
+            Hash 13
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash14">
+            <summary>
+            Hash 14
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash15">
+            <summary>
+            Hash 15
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.Hash16">
+            <summary>
+            Hash 16
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash1">
+            <summary>
+            Hash 1 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash2">
+            <summary>
+            Hash 2 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash3">
+            <summary>
+            Hash 3 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash4">
+            <summary>
+            Hash 4 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash5">
+            <summary>
+            Hash 5 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash6">
+            <summary>
+            Hash 6 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash7">
+            <summary>
+            Hash 7 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash8">
+            <summary>
+            Hash 8 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash9">
+            <summary>
+            Hash 9 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash10">
+            <summary>
+            Hash 10 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash11">
+            <summary>
+            Hash 11 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash12">
+            <summary>
+            Hash 12 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash13">
+            <summary>
+            Hash 13 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash14">
+            <summary>
+            Hash 14 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash15">
+            <summary>
+            Hash 15 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode1024.UHash16">
+            <summary>
+            Hash 16 in UInt64
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.TryParse(System.String,CosmosStack.Reflection.HashCode1024@)">
+            <summary>
+            Try parse strictly<br />
+            尝试转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.TryParseLoosely(System.String,CosmosStack.Reflection.HashCode1024@)">
+            <summary>
+            Try parse loosely<br />
+            尝试转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.Parse(System.String)">
+            <summary>
+            Parse strictly<br />
+            转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.ParseLoosely(System.String)">
+            <summary>
+            Parse loosely <br />
+            转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.Equals(CosmosStack.Reflection.HashCode1024)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetString(System.Text.Encoding)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetLittleEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetLittleEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetBigEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetBigEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetBinString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetBinString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetBase64String">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetByteArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.GetBitArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.ToHashCode64Tuple">
+            <summary>
+            Convert to sixteen <see cref="T:CosmosStack.Reflection.HashCode64"/> in a tuple. <br />
+            在元组中返回十六个 <see cref="T:CosmosStack.Reflection.HashCode64"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.ToHashCode128Tuple">
+            <summary>
+            Convert to eight <see cref="T:CosmosStack.Reflection.HashCode128"/> in a tuple. <br />
+            在元组中返回八个 <see cref="T:CosmosStack.Reflection.HashCode128"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.ToHashCode256Tuple">
+            <summary>
+            Convert to four <see cref="T:CosmosStack.Reflection.HashCode256"/> in a tuple. <br />
+            在元组中返回四个 <see cref="T:CosmosStack.Reflection.HashCode256"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode1024.ToHashCode512Tuple">
+            <summary>
+            Convert to two <see cref="T:CosmosStack.Reflection.HashCode512"/> in a tuple. <br />
+            在元组中返回两个 <see cref="T:CosmosStack.Reflection.HashCode512"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.HashCode128">
+            <summary>
+            HashCode 128
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.HashCode128.Zero">
+            <summary>
+            Zero<br />零值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode128.BitLength">
+            <inheritdoc />
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode128.Hash1">
+            <summary>
+            Hash 1
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode128.Hash2">
+            <summary>
+            Hash 2
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode128.UHash1">
+            <summary>
+            Hash 1 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode128.UHash2">
+            <summary>
+            Hash 2 in UInt64
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.TryParse(System.String,CosmosStack.Reflection.HashCode128@)">
+            <summary>
+            Try parse strictly<br />
+            尝试转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.TryParseLoosely(System.String,CosmosStack.Reflection.HashCode128@)">
+            <summary>
+            Try parse loosely<br />
+            尝试转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.Parse(System.String)">
+            <summary>
+            Parse strictly<br />
+            转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.ParseLoosely(System.String)">
+            <summary>
+            Parse loosely <br />
+            转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.Equals(CosmosStack.Reflection.HashCode128)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetString(System.Text.Encoding)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetLittleEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetLittleEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetBigEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetBigEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetBinString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetBinString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetBase64String">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetByteArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.GetBitArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode128.ToHashCode64Tuple">
+            <summary>
+            Convert to two <see cref="T:CosmosStack.Reflection.HashCode64"/> in a tuple. <br />
+            在元组中返回两个 <see cref="T:CosmosStack.Reflection.HashCode64"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.HashCode256">
+            <summary>
+            HashCode 256
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.HashCode256.Zero">
+            <summary>
+            Zero<br />零值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.BitLength">
+            <inheritdoc />
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.Hash1">
+            <summary>
+            Hash 1
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.Hash2">
+            <summary>
+            Hash 2
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.Hash3">
+            <summary>
+            Hash 3
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.Hash4">
+            <summary>
+            Hash 4
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.UHash1">
+            <summary>
+            Hash 1 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.UHash2">
+            <summary>
+            Hash 2 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.UHash3">
+            <summary>
+            Hash 3 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode256.UHash4">
+            <summary>
+            Hash 4 in UInt64
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.TryParse(System.String,CosmosStack.Reflection.HashCode256@)">
+            <summary>
+            Try parse strictly<br />
+            尝试转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.TryParseLoosely(System.String,CosmosStack.Reflection.HashCode256@)">
+            <summary>
+            Try parse loosely<br />
+            尝试转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.Parse(System.String)">
+            <summary>
+            Parse strictly<br />
+            转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.ParseLoosely(System.String)">
+            <summary>
+            Parse loosely <br />
+            转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.Equals(CosmosStack.Reflection.HashCode256)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetString(System.Text.Encoding)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetLittleEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetLittleEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetBigEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetBigEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetBinString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetBinString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetBase64String">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetByteArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.GetBitArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.ToHashCode128Tuple">
+            <summary>
+            Convert to two <see cref="T:CosmosStack.Reflection.HashCode128"/> in a tuple. <br />
+            在元组中返回两个 <see cref="T:CosmosStack.Reflection.HashCode128"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode256.ToHashCode64Tuple">
+            <summary>
+            Convert to four <see cref="T:CosmosStack.Reflection.HashCode64"/> in a tuple. <br />
+            在元组中返回四个 <see cref="T:CosmosStack.Reflection.HashCode64"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.HashCode32">
+            <summary>
+            HashCode 32
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.HashCode32.Zero">
+            <summary>
+            Zero <br />零值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode32.BitLength">
+            <inheritdoc />
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode32.Hash1">
+            <summary>
+            Hash 1
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode32.Hash2">
+            <summary>
+            Hash 2
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode32.UHash1">
+            <summary>
+            Hash 1 in short
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode32.UHash2">
+            <summary>
+            Hash 2 in short
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.TryParse(System.String,CosmosStack.Reflection.HashCode32@)">
+            <summary>
+            Try parse strictly<br />
+            尝试转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.TryParseLoosely(System.String,CosmosStack.Reflection.HashCode32@)">
+            <summary>
+            Try parse loosely<br />
+            尝试转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.Parse(System.String)">
+            <summary>
+            Parse strictly<br />
+            转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.ParseLoosely(System.String)">
+            <summary>
+            Parse loosely <br />
+            转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.Equals(CosmosStack.Reflection.HashCode32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetString(System.Text.Encoding)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetLittleEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetLittleEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetBigEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetBigEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetBinString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetBinString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetBase64String">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetByteArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode32.GetBitArray">
+            <inheritdoc />
+        </member>
+        <member name="T:CosmosStack.Reflection.HashCode512">
+            <summary>
+            HashCode 512
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.HashCode512.Zero">
+            <summary>
+            Zero<br />零值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.BitLength">
+            <inheritdoc />
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash1">
+            <summary>
+            Hash 1
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash2">
+            <summary>
+            Hash 2
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash3">
+            <summary>
+            Hash 3
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash4">
+            <summary>
+            Hash 4
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash5">
+            <summary>
+            Hash 5
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash6">
+            <summary>
+            Hash 6
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash7">
+            <summary>
+            Hash 7
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.Hash8">
+            <summary>
+            Hash 8
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash1">
+            <summary>
+            Hash 1 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash2">
+            <summary>
+            Hash 2 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash3">
+            <summary>
+            Hash 3 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash4">
+            <summary>
+            Hash 4 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash5">
+            <summary>
+            Hash 5 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash6">
+            <summary>
+            Hash 6 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash7">
+            <summary>
+            Hash 7 in UInt64
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode512.UHash8">
+            <summary>
+            Hash 8 in UInt64
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.TryParse(System.String,CosmosStack.Reflection.HashCode512@)">
+            <summary>
+            Try parse strictly<br />
+            尝试转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.TryParseLoosely(System.String,CosmosStack.Reflection.HashCode512@)">
+            <summary>
+            Try parse loosely<br />
+            尝试转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.Parse(System.String)">
+            <summary>
+            Parse strictly<br />
+            转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.ParseLoosely(System.String)">
+            <summary>
+            Parse loosely <br />
+            转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.Equals(CosmosStack.Reflection.HashCode512)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetString(System.Text.Encoding)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetLittleEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetLittleEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetBigEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetBigEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetBinString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetBinString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetBase64String">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetByteArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.GetBitArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.ToHashCode128Tuple">
+            <summary>
+            Convert to four <see cref="T:CosmosStack.Reflection.HashCode128"/> in a tuple. <br />
+            在元组中返回四个 <see cref="T:CosmosStack.Reflection.HashCode128"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.ToHashCode256Tuple">
+            <summary>
+            Convert to two <see cref="T:CosmosStack.Reflection.HashCode256"/> in a tuple. <br />
+            在元组中返回两个 <see cref="T:CosmosStack.Reflection.HashCode256"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode512.ToHashCode64Tuple">
+            <summary>
+            Convert to eight <see cref="T:CosmosStack.Reflection.HashCode64"/> in a tuple. <br />
+            在元组中返回八个 <see cref="T:CosmosStack.Reflection.HashCode64"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.HashCode64">
+            <summary>
+            HashCode 64
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.HashCode64.Zero">
+            <summary>
+            Zero<br />零值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode64.BitLength">
+            <inheritdoc />
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode64.Hash1">
+            <summary>
+            Hash 1
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode64.Hash2">
+            <summary>
+            Hash 2
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode64.UHash1">
+            <summary>
+            Hash 1 in UInt32
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.HashCode64.UHash2">
+            <summary>
+            Hash2 in UInt32
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.TryParse(System.String,CosmosStack.Reflection.HashCode64@)">
+            <summary>
+            Try parse strictly<br />
+            尝试转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.TryParseLoosely(System.String,CosmosStack.Reflection.HashCode64@)">
+            <summary>
+            Try parse loosely<br />
+            尝试转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.ParseLoosely(System.String)">
+            <summary>
+            Parse loosely <br />
+            转换，宽松模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.Parse(System.String)">
+            <summary>
+            Parse strictly<br />
+            转换，严格模式
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.Equals(CosmosStack.Reflection.HashCode64)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetString(System.Text.Encoding)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetLittleEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetLittleEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetBigEndianHexString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetBigEndianHexString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetBinString">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetBinString(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetBase64String">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetByteArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.GetBitArray">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCode64.ToHashCode32Tuple">
+            <summary>
+            Convert to two <see cref="T:CosmosStack.Reflection.HashCode32"/> in a tuple. <br />
+            在元组中返回两个 <see cref="T:CosmosStack.Reflection.HashCode32"/> 实例。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.HashCodeUtil">
+            <summary>
+            HashCode Utilities <br />
+            HashCode 工具集
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCodeUtil.GetHashCode(System.Func{System.Collections.Generic.IEnumerable{System.Object}})">
+            <summary>
+            Get HashCode
+            </summary>
+            <param name="hashFieldValuesFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.HashCodeUtil.GetHashCode(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Get HashCode
+            </summary>
+            <param name="hashFieldValues"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.IHashCode">
+            <summary>
+            HashCode interface <br />
+            哈希值接口
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.IHashCode.BitLength">
+            <summary>
+            Bit length <br />
+            位宽度
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetString">
+            <summary>
+            Get string <br />
+            获取字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetString(System.Text.Encoding)">
+            <summary>
+            Get string <br />
+            获取字符串
+            </summary>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetHexString">
+            <summary>
+            Get hex string <br />
+            获取十六进制字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetHexString(System.Boolean)">
+            <summary>
+            Get hex string <br />
+            获取十六进制字符串
+            </summary>
+            <param name="uppercase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetLittleEndianHexString">
+            <summary>
+            Get LittleEndian hex string <br />
+            获取 LittleEndian 十六进制字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetLittleEndianHexString(System.Boolean)">
+            <summary>
+            Get LittleEndian hex string <br />
+            获取 LittleEndian 十六进制字符串
+            </summary>
+            <param name="uppercase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetBigEndianHexString">
+            <summary>
+            Get BigEndian hex string <br />
+            获取 BigEndian 十六进制字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetBigEndianHexString(System.Boolean)">
+            <summary>
+            Get BigEndian hex string <br />
+            获取 BigEndian 十六进制字符串
+            </summary>
+            <param name="uppercase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetBinString">
+            <summary>
+            Get bin string <br />
+            获取二进制字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetBinString(System.Boolean)">
+            <summary>
+            Get bin string <br />
+            获取二进制字符串
+            </summary>
+            <param name="complementZero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetBase64String">
+            <summary>
+            Get Base64 string <br />
+            获取 Base64 字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetByteArray">
+            <summary>
+            Get byte array <br />
+            获取字节数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.IHashCode.GetBitArray">
+            <summary>
+            Get BitArray <br />
+            获取压缩数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.InstanceScanner`1">
+            <summary>
+            Instance Scanner<br />
+            实例扫描器
+            </summary>
+            <typeparam name="TClass"></typeparam>
+        </member>
+        <member name="M:CosmosStack.Reflection.InstanceScanner`1.#ctor">
+            <summary>
+            Create a new <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> instance.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> 实例。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.InstanceScanner`1.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> instance.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> 实例。
+            </summary>
+            <param name="scannerName"></param>
+        </member>
+        <member name="M:CosmosStack.Reflection.InstanceScanner`1.#ctor(System.Type)">
+            <summary>
+            Create a new <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> instance.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> 实例。
+            </summary>
+            <param name="baseType"></param>
+        </member>
+        <member name="M:CosmosStack.Reflection.InstanceScanner`1.#ctor(System.String,System.Type)">
+            <summary>
+            Create a new <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> instance.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.InstanceScanner`1"/> 实例。
+            </summary>
+            <param name="scannerName"></param>
+            <param name="baseType"></param>
+        </member>
+        <member name="M:CosmosStack.Reflection.InstanceScanner`1.ScanAndReturnInstances">
+            <summary>
+            Scan, and return instances.<br />
+            扫描，并返回实例集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.LockExtensions">
+            <summary>
+            CosmosStack Lock extensions <br />
+            锁扩展
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.LockExtensions.LockAndRun(System.Object,System.Action)">
+            <summary>
+            Lock the specified resource, and then execute the delegation.<br />
+            对指定的资源进行加锁，然后执行委托。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.LockExtensions.LockAndRun``1(``0,System.Action{``0})">
+            <summary>
+            Lock the specified resource, and then execute the delegation.<br />
+            对指定的资源进行加锁，然后执行委托。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.LockExtensions.LockAndReturn``1(System.Object,System.Func{``0})">
+            <summary>
+            Lock the specified resource, execute the commission and return the result.<br />
+            对指定的资源进行加锁，执行委托并返回结果。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.LockExtensions.LockAndReturn``2(``0,System.Func{``0,``1})">
+            <summary>
+            Lock the specified resource, execute the commission and return the result.<br />
+            对指定的资源进行加锁，执行委托并返回结果。
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Reflection.ObjectRefExtensions">
+            <summary>
+            CosmosStack <see cref="T:System.Object"/> extensions. <br />
+            对象扩展
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.ObjectRefExtensions.GetHashCode``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{System.Object}})">
+            <summary>
+            Get hashcode
+            </summary>
+            <param name="x"></param>
+            <param name="hashFieldValuesFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.TypeScanner">
+            <summary>
+            Type Scanner <br />
+            类型扫描器
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.TypeScanner.ScannedResultCache">
+            <summary>
+            Scanned result cache<br />
+            扫描结果缓存
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.TypeScanner.ScannedResultCached">
+            <summary>
+            Scanned result cached<br />
+            标记是否已缓存扫描结果
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Reflection.TypeScanner"/>.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.TypeScanner"/> 实例。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Reflection.TypeScanner"/>.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.TypeScanner"/> 实例。
+            </summary>
+            <param name="scannerName"></param>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.#ctor(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Reflection.TypeScanner"/>.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.TypeScanner"/> 实例。
+            </summary>
+            <param name="baseType"></param>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.#ctor(System.String,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Reflection.TypeScanner"/>.<br />
+            创建一个新的 <see cref="T:CosmosStack.Reflection.TypeScanner"/> 实例。
+            </summary>
+            <param name="scannerName"></param>
+            <param name="baseType"></param>
+        </member>
+        <member name="P:CosmosStack.Reflection.TypeScanner.BaseType">
+            <summary>
+            Base type <br />
+            被扫描的基础类型
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.Scan">
+            <summary>
+            Scan.<br />
+            执行扫描。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.GetAssemblies">
+            <summary>
+            Get assemblies.<br />
+            获取程序集。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.GetSkipAssembliesNamespaces">
+            <summary>
+            Get skip assemblies' namespaces.<br />
+            获取需跳过的命名空间清单，清单所列的命名空间内的类型将不会被合并入结果（并缓存）。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.GetLimitedAssembliesNamespaces">
+            <summary>
+            Get limited assemblies' namespaces.<br />
+            获取指定命名空间下的类型，未被指定的命名空间内的类型将不会被合并入结果（并缓存）。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.TypeFilter">
+            <summary>
+            Type filter.<br />
+            类型过滤器 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.NeedToIgnore(System.Reflection.Assembly)">
+            <summary>
+            根据 <see cref="M:CosmosStack.Reflection.TypeScanner.GetSkipAssembliesNamespaces"/> 和 <see cref="M:CosmosStack.Reflection.TypeScanner.GetLimitedAssembliesNamespaces"/> 判别扫描所得的程序集是否符合用户期待。
+            如何用户期待的程序集，其类型将进一步交由 <see cref="M:CosmosStack.Reflection.TypeScanner.TypeFilter"/> 进行过滤。
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeScanner.Dispose">
+            <summary>
+            Dispose<br />
+            释放。
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Reflection.TypeVisit">
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance(System.Type,System.Object[])">
+            <summary>
+            Create a new instance <br />
+            创建实例
+            </summary>
+            <param name="type"></param>
+            <param name="args"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance``1(System.Object[])">
+            <summary>
+            Create a new instance <br />
+            创建实例
+            </summary>
+            <param name="args"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance``1(System.Type,System.Object[])">
+            <summary>
+            Create a new instance <br />
+            创建实例
+            </summary>
+            <param name="type"></param>
+            <param name="args"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance``1(System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
+            <summary>
+            Create a new instance <br />
+            创建实例
+            </summary>
+            <param name="arguments"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
+            <summary>
+            Create a new instance <br />
+            创建实例
+            </summary>
+            <param name="type"></param>
+            <param name="arguments"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
+            <summary>
+            Create a new instance <br />
+            创建实例
+            </summary>
+            <param name="type"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:CosmosStack.Reflection.TypeVisit.CtorMatchedResult">
+            <summary>
+            Ctor matched result <br />
+            构造参数命中结构
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
+            <summary>
+            Ctor matched result
+            </summary>
+            <param name="values"></param>
+            <param name="index"></param>
+        </member>
+        <member name="F:CosmosStack.Reflection.TypeVisit.CtorMatchedResult.Values">
+            <summary>
+            Values <br />
+            值
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.TypeVisit.CtorMatchedResult.Index">
+            <summary>
+            Index <br />
+            索引
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetFields(System.Type)">
+            <summary>
+            Get fields <br />
+            获取字段
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetFields``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Get fields <br />
+            获取字段
+            </summary>
+            <param name="fieldSelectors"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetFields``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Get fields <br />
+            获取字段
+            </summary>
+            <param name="fieldSelectors"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetField``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Get field <br />
+            获取字段
+            </summary>
+            <param name="fieldSelector"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TField"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetFullName(System.Reflection.MethodInfo)">
+            <summary>
+            Get full name of method including type name and method name.<br />
+            获取方法的全名，包括类型名和方法名
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetFullyQualifiedName(System.Reflection.MethodInfo)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.MethodInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的完全限定名。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
+            <summary>
+            Get method by signature <br />
+            获取方法签名
+            </summary>
+            <param name="type"></param>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetBaseMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Get BaseMethod <br />
+            获取 BaseMethod
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.IsVisibleAndVirtual(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether MethodInfo is Visible and Virtual. <br />
+            判断方法是可见且为虚方法。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.IsVisible(System.Reflection.MethodBase)">
+            <summary>
+            Determine whether MethodBase is Visible. <br />
+            判断 MethodBase 为可见的
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.DeepCopy``1(``0,CosmosStack.Reflection.DeepCopyOptions)">
+            <summary>
+            Deep clone <br />
+            深克隆
+            </summary>
+            <param name="value"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.DeepCopy``1(``0,CosmosStack.Reflection.DeepCopyContext)">
+            <summary>
+            Deep clone <br />
+            深克隆
+            </summary>
+            <param name="value"></param>
+            <param name="context"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetProperties(System.Type,CosmosStack.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="type"></param>
+            <param name="accessOptions"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetProperties``1(CosmosStack.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="accessOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetProperties``1(CosmosStack.Reflection.PropertyAccessOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="accessOptions"></param>
+            <param name="propertySelectors"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetProperties``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},CosmosStack.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="propertySelectors"></param>
+            <param name="accessOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},CosmosStack.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get property.<br />
+            获得属性。
+            </summary>
+            <param name="propertySelector"></param>
+            <param name="accessOptions"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.IsVisibleAndVirtual(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether PropertyInfo is Visible and Virtual.
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetFullName(System.Type)">
+            <summary>
+            Get unique fully name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的名称。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetFullyQualifiedName(System.Type)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.HasParameterlessConstructor(System.Type)">
+            <summary>
+            Determine whether there is a parameterless constructor. <br />
+            推测当前类型是否存在无参构造函数
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetParameterlessConstructor(System.Type)">
+            <summary>
+            Get default constructor without any parameters. <br />
+            获取当前类型的无参构造函数
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisit.GetMatchingConstructor(System.Type,System.Type[])">
+            <summary>
+            Finds a constructor with the matching type parameters. <br />
+            获取命中参数的构造器
+            </summary>
+            <param name="type">The type being tested.</param>
+            <param name="constructorParameterTypes">The types of the contractor to find.</param>
+            <returns>The <see cref="T:System.Reflection.ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.TypeMetaVisitExtensions">
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsAttributeDefined``1(System.Reflection.MemberInfo,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is defined.<br />
+            判断给定的特性是否定义。
+            </summary>
+            <typeparam name="TAttribute">要检查的特性类型</typeparam>
+            <param name="member">要检查的类型成员</param>
+            <param name="options">反射选项</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsAttributeNotDefined``1(System.Reflection.MemberInfo,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is undefined.<br />
+            判断给定的特性是否未定义。
+            </summary>
+            <typeparam name="TAttribute">要检查的特性类型</typeparam>
+            <param name="member">要检查的类型成员</param>
+            <param name="options">反射选项</param>
+            <returns>是否不存在</returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsAttributeDefined(System.Reflection.MemberInfo,System.Type,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is defined.<br />
+            判断给定的特性是否定义。
+            </summary>
+            <param name="member"></param>
+            <param name="attributeType"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsAttributeNotDefined(System.Reflection.MemberInfo,System.Type,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            To determine whether the given Attribute is undefined.<br />
+            判断给定的特性是否未定义。
+            </summary>
+            <param name="member"></param>
+            <param name="attributeType"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsNumeric(System.Reflection.MemberInfo,CosmosStack.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given member is a numeric type.<br />
+            判断给定的成员是否为数字类型。
+            </summary>
+            <param name="member">要检查的类型</param>
+            <param name="options"></param>
+            <returns>是否是数值类型</returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsNumeric(System.Reflection.ParameterInfo,CosmosStack.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given parameter is a numeric type.<br />
+            判断给定的参数是否为数字类型。
+            </summary>
+            <param name="parameter"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsTupleType(System.Reflection.MemberInfo,CosmosStack.Reflection.TypeOfOptions,CosmosStack.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given member is a tuple type.<br />
+            判断给定的成员是否为元组类型
+            </summary>
+            <param name="member"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsTupleType(System.Reflection.ParameterInfo,CosmosStack.Reflection.TypeOfOptions,CosmosStack.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given parameter is a tuple type.<br />
+            判断给定的参数是否为数元组类型
+            </summary>
+            <param name="parameter"></param>
+            <param name="ofOptions"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsStructType(System.Reflection.MemberInfo,CosmosStack.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given member is a struct type.<br />
+            判断给定的成员是否为结构类型
+            </summary>
+            <param name="member"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsStructType(System.Reflection.ParameterInfo,CosmosStack.Reflection.TypeIsOptions)">
+            <summary>
+            Determine whether the given parameter is a struct type.<br />
+            判断给定的参数是否为数结构类型
+            </summary>
+            <param name="parameter"></param>
+            <param name="isOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsDescriptionDefined(System.Reflection.MemberInfo,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            Indicates whether the description is defined <br />
+            指示描述是否已定义
+            </summary>
+            <param name="member"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetDescription(System.Reflection.MemberInfo,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            Get description <br />
+            获取描述
+            </summary>
+            <param name="member"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetDescription``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}},CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            Get description <br />
+            获取描述
+            </summary>
+            <param name="x"></param>
+            <param name="expression"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetDescriptionOr(System.Reflection.MemberInfo,System.String,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            Get description, or return default <br />
+            获取描述，或返回默认值
+            </summary>
+            <param name="member"></param>
+            <param name="defaultVal"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetDescriptionOr``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String,CosmosStack.Reflection.ReflectionOptions)">
+            <summary>
+            Get description, or return default <br />
+            获取描述，或返回默认值
+            </summary>
+            <param name="x"></param>
+            <param name="expression"></param>
+            <param name="defaultVal"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsAsyncMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether the specified method is an asynchronous method.<br />
+            判断指定的方法是否为异步方法。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsOverridden(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether the specified method is an overriding method.<br />
+            判断指定方法是否是重写方法
+            </summary>
+            <param name="method">要判断的方法信息</param>
+            <returns>是否是重写方法</returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetFullName(System.Reflection.MethodInfo)">
+            <summary>
+            Get full name of method including type name and method name.<br />
+            获取方法的全名，包括类型名和方法名
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetFullyQualifiedName(System.Reflection.MethodInfo)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.MethodInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的完全限定名。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
+            <summary>
+            Get method by signature <br />
+            获取方法签名
+            </summary>
+            <param name="type"></param>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetBaseMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Get BaseMethod <br />
+            获取 BaseMethod
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsVisibleAndVirtual(System.Reflection.MethodInfo)">
+            <summary>
+            Determine whether MethodInfo is Visible and Virtual. <br />
+            判断方法是可见且为虚方法。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsVisible(System.Reflection.MethodBase)">
+            <summary>
+            Determine whether MethodBase is Visible. <br />
+            判断 MethodBase 为可见的
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.DeepCopy``1(``0,CosmosStack.Reflection.DeepCopyOptions)">
+            <summary>
+            Deep clone <br />
+            深克隆
+            </summary>
+            <param name="x"></param>
+            <param name="options"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.DeepCopy``1(``0,CosmosStack.Reflection.DeepCopyContext)">
+            <summary>
+            Deep clone <br />
+            深克隆
+            </summary>
+            <param name="x"></param>
+            <param name="context"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsVirtual(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether the specified property is a virtual property.<br />
+            判断指定属性是否是虚属性。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsAbstract(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether the specified property is an abstract property.<br />
+            判断指定属性是否是虚属性。
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.IsVisibleAndVirtual(System.Reflection.PropertyInfo)">
+            <summary>
+            Determine whether PropertyInfo is Visible and Virtual.
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetFullyQualifiedName(System.Type)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.HasParameterlessConstructor(System.Type)">
+            <summary>
+            Determine whether there is a parameterless constructor. <br />
+            推测当前类型是否存在无参构造函数
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetParameterlessConstructor(System.Type)">
+            <summary>
+            Get default constructor without any parameters. <br />
+            获取当前类型的无参构造函数
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeMetaVisitExtensions.GetMatchingConstructor(System.Type,System.Type[])">
+            <summary>
+            Finds a constructor with the matching type parameters. <br />
+            获取命中参数的构造器
+            </summary>
+            <param name="type">The type being tested.</param>
+            <param name="constructorParameterTypes">The types of the contractor to find.</param>
+            <returns>The <see cref="T:System.Reflection.ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.IArgDescriptionVal">
+            <summary>
+            Argument description value interface <br />
+            参数描述值接口
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.IArgDescriptionVal.Name">
+            <summary>
+            Name <br />
+            名称
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.IArgDescriptionVal.Type">
+            <summary>
+            Type <br />
+            类型
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.IArgDescriptionVal.ToDescriptor">
+            <summary>
+            Descriptor of argument <br />
+            参数描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.ArgumentDescriptionVal`1">
+            <summary>
+            Argument description value <br />
+            参数描述值
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:CosmosStack.Reflection.ArgumentDescriptionVal`1.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:CosmosStack.Reflection.ArgumentDescriptionVal`1.Value">
+            <summary>
+            Argument value <br />
+            参数值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.ArgumentDescriptionVal`1.Type">
+            <inheritdoc />
+        </member>
+        <member name="M:CosmosStack.Reflection.ArgumentDescriptionVal`1.ToDescriptor">
+            <summary>
+            Convert to descriptor <br />
+            转换为描述符
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.ArgumentDescriptor">
+            <summary>
+            Descriptor of argument <br />
+            参数描述
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.ArgumentDescriptor.#ctor(System.String,System.Object,System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:CosmosStack.Reflection.ArgumentDescriptor"/>.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="type"></param>
+        </member>
+        <member name="P:CosmosStack.Reflection.ArgumentDescriptor.Name">
+            <summary>
+            Argument name <br />
+            参数名
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.ArgumentDescriptor.Value">
+            <summary>
+            Argument value <br />
+            参数值
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.ArgumentDescriptor.Type">
+            <summary>
+            Argument type <br />
+            参数类型
+            </summary>
+        </member>
+        <member name="P:CosmosStack.Reflection.ArgumentDescriptor.EmptyArguments">
+            <summary>
+            Empty Args <br />
+            空参数
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Reflection.ArgumentDescriptorExtensions">
+            <summary>
+            Argument descriptor extensions <br />
+            参数描述符扩展
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.ArgumentDescriptorExtensions.ToDescriptors(System.Collections.Generic.IEnumerable{CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Convert to descriptors <br />
+            转换为描述符
+            </summary>
+            <param name="descriptionVals"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.ArgumentDescriptorExtensions.ToDictionary(System.Collections.Generic.IEnumerable{CosmosStack.Reflection.IArgDescriptionVal})">
+            <summary>
+            Convert to dictionary <br />
+            转换为字典
+            </summary>
+            <param name="descriptionVals"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.TypeVisitExtensions">
+            <summary>
+            Type visit extensions <br />
+            类型访问器扩展
+            </summary>
+            <summary>
+            Type visit extensions <br />
+            类型访问器扩展
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.CreateInstance``1(System.Type,System.Object[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="type"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.CreateInstance(System.Type,System.Object[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="arguments"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.CreateInstance``1(System.Type,CosmosStack.Reflection.ArgumentDescriptor,CosmosStack.Reflection.ArgumentDescriptor[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="argument"></param>
+            <param name="arguments"></param>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.CreateInstance(System.Type,CosmosStack.Reflection.ArgumentDescriptor,CosmosStack.Reflection.ArgumentDescriptor[])">
+            <summary>
+            Create an instance of the specified type.<br />
+            创建指定类型的实例。
+            </summary>
+            <param name="type"></param>
+            <param name="argument"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.GetProperty``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}},CosmosStack.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get property.<br />
+            获得属性。
+            </summary>
+            <param name="x"></param>
+            <param name="propertySelector"></param>
+            <param name="accessOptions"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.GetProperties``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="x"></param>
+            <param name="propertySelectors"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.GetProperties``1(``0,CosmosStack.Reflection.PropertyAccessOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="x"></param>
+            <param name="accessOptions"></param>
+            <param name="propertySelectors"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.GetProperties``1(``0,CosmosStack.Reflection.PropertyAccessOptions)">
+            <summary>
+            Get all properties from the given Type.<br />
+            从给定的 Type 中获得所有属性。
+            </summary>
+            <param name="x"></param>
+            <param name="accessOptions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},``0,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="shape"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.TypeVisitExtensions.Exclude``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Exclude all PropertyInfos that meet the given conditions from the PropertyInfo list,
+            and return the remaining PropertyInfo.<br />
+            从 PropertyInfo 列表中排除所有满足给定条件的 PropertyInfo，并返回其余 PropertyInfo。
+            </summary>
+            <param name="properties"></param>
+            <param name="expressions"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:CosmosStack.Reflection.DeepCopyOptions">
+            <summary>
+            Deep clone options <br />
+            深度克隆选项
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.DeepCopyOptions.DeepCopier">
+            <summary>
+            DeepCopier <br />
+            使用 DeepCopier 进行深克隆
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.DeepCopyOptions.ExpressionCopier">
+            <summary>
+            ExpressionCopier <br />
+            使用 ExpressionCopier 进行深克隆
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.ExpressionCopier`1.Copy(`0)">
+            <summary>
+            Deep copy by expression
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CosmosStack.Reflection.DeepCopyContext">
+            <summary>
+            Records details about copied objects.
+            </summary>
+        </member>
+        <member name="M:CosmosStack.Reflection.DeepCopyContext.RecordCopy(System.Object,System.Object)">
+            <summary>
+            Records <paramref name="copy"/> as a copy of <paramref name="original"/>.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="copy">The copy of <paramref name="original"/>.</param>
+        </member>
+        <member name="M:CosmosStack.Reflection.DeepCopyContext.TryGetCopy(System.Object,System.Object@)">
+            <summary>
+            Returns the copy of <paramref name="original"/> if it has been copied or <see langword="null"/> if it has not yet been copied.
+            </summary>
+            <param name="original">The original object.</param>
+            <param name="result">The copied object.</param>
+            <returns>The copy of <paramref name="original"/> or <see langword="null"/> if no copy has been made.</returns>
+        </member>
+        <member name="M:CosmosStack.Reflection.DeepCopyContext.Reset">
+            <summary>
+            Resets this instance so that it can be reused.
+            </summary>
+        </member>
+        <member name="T:CosmosStack.Reflection.PropertyAccessOptions">
+            <summary>
+            Property access options <br />
+            属性访问选项
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.PropertyAccessOptions.Getters">
+            <summary>
+            Getters
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.PropertyAccessOptions.Setters">
+            <summary>
+            Setters
+            </summary>
+        </member>
+        <member name="F:CosmosStack.Reflection.PropertyAccessOptions.Both">
+            <summary>
+            Both
+            </summary>
+        </member>
+        <member name="T:System.Reflection.Emit.SystemModuleBuilderExtensions">
+            <summary>
+            CosmosStack <see cref="T:System.Reflection.Emit.ModuleBuilder"/> extensions.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Emit.SystemModuleBuilderExtensions.DefinePOCO(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.KeyValuePair{System.String,System.Type}[])">
+            <summary>
+            Define POCO
+            </summary>
+            <param name="builder"></param>
+            <param name="name"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.Emit.SystemModuleBuilderExtensions.DefinePOCO(System.Reflection.Emit.ModuleBuilder,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Type}})">
+            <summary>
+            Define POCO
+            </summary>
+            <param name="builder"></param>
+            <param name="name"></param>
+            <param name="properties"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:System.Reflection.Emit.SystemTypeBuilderExtensions">
+            <summary>
+            CosmosStack <see cref="T:System.Reflection.Emit.TypeBuilder"/> extensions.
+            </summary>
+        </member>
+        <member name="F:System.Reflection.Emit.SystemTypeBuilderExtensions.PROPERTY_GET_SET_METHOD_ATTRIBUTES">
+            <summary>
+            Property set and property get methods require a special set of attributes.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.Emit.SystemTypeBuilderExtensions.DefineAutoImplementedProperty(System.Reflection.Emit.TypeBuilder,System.String,System.Type)">
+            <summary>
+            Define auto implemented property
+            </summary>
+            <param name="typeBuilder"></param>
+            <param name="name"></param>
+            <param name="propertyType"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+    </members>
+</doc>
