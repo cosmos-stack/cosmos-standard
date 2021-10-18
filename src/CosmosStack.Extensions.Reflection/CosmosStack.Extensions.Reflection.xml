@@ -700,10 +700,6 @@
             Assembly Visit Utilities <br />
             程序集访问工具集
             </summary>
-            <summary>
-            Assembly Visit Utilities <br />
-            程序集访问工具集
-            </summary>
         </member>
         <member name="M:CosmosStack.Reflection.AssemblyVisit.GetFileVersion(System.Reflection.Assembly)">
             <summary>
@@ -2130,61 +2126,6 @@
             <typeparam name="TInstance"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance``1(System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
-            <summary>
-            Create a new instance <br />
-            创建实例
-            </summary>
-            <param name="arguments"></param>
-            <typeparam name="TInstance"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance``1(System.Type,System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
-            <summary>
-            Create a new instance <br />
-            创建实例
-            </summary>
-            <param name="type"></param>
-            <param name="arguments"></param>
-            <typeparam name="TInstance"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:CosmosStack.Reflection.TypeVisit.CreateInstance(System.Type,System.Collections.Generic.IEnumerable{CosmosStack.Reflection.ArgumentDescriptor})">
-            <summary>
-            Create a new instance <br />
-            创建实例
-            </summary>
-            <param name="type"></param>
-            <param name="arguments"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="T:CosmosStack.Reflection.TypeVisit.CtorMatchedResult">
-            <summary>
-            Ctor matched result <br />
-            构造参数命中结构
-            </summary>
-        </member>
-        <member name="M:CosmosStack.Reflection.TypeVisit.CtorMatchedResult.#ctor(System.Object[],System.Int32)">
-            <summary>
-            Ctor matched result
-            </summary>
-            <param name="values"></param>
-            <param name="index"></param>
-        </member>
-        <member name="F:CosmosStack.Reflection.TypeVisit.CtorMatchedResult.Values">
-            <summary>
-            Values <br />
-            值
-            </summary>
-        </member>
-        <member name="F:CosmosStack.Reflection.TypeVisit.CtorMatchedResult.Index">
-            <summary>
-            Index <br />
-            索引
-            </summary>
         </member>
         <member name="M:CosmosStack.Reflection.TypeVisit.GetFields(System.Type)">
             <summary>
