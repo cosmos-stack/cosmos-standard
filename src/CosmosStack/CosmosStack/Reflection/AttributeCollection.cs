@@ -179,6 +179,28 @@ namespace CosmosStack.Reflection
         /// <returns></returns>
         public static AttributeCollection Of<T>() => Of(typeof(T));
 
+        /// <summary>
+        /// Create an instance of <see cref="AttributeCollection"/> by the given attribute collection.
+        /// 根据给定的特性集合，返回特性集合实例
+        /// </summary>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        public static AttributeCollection OfAttributes(Attribute[] attributes)
+        {
+            return new(attributes);
+        }
+
+        /// <summary>
+        /// Create an instance of <see cref="AttributeCollection"/> by the given attribute collection.
+        /// 根据给定的特性集合，返回特性集合实例
+        /// </summary>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        public static AttributeCollection OfAttributes(IEnumerable<Attribute> attributes)
+        {
+            return new(attributes.ToArray());
+        }
+
         #endregion
     }
 
@@ -195,7 +217,7 @@ namespace CosmosStack.Reflection
         /// <returns></returns>
         public static AttributeCollection JoinToCollection(this IEnumerable<Attribute> attributes)
         {
-            return new AttributeCollection(attributes.ToArray());
+            return AttributeCollection.OfAttributes(attributes);
         }
 
         /// <summary>
@@ -206,7 +228,7 @@ namespace CosmosStack.Reflection
         /// <returns></returns>
         public static AttributeCollection JoinToCollection(this Attribute[] attributes)
         {
-            return new AttributeCollection(attributes);
+            return AttributeCollection.OfAttributes(attributes);
         }
     }
 }
