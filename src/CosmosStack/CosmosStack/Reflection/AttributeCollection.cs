@@ -168,7 +168,7 @@ namespace CosmosStack.Reflection
         {
             if (type is null)
                 throw new ArgumentNullException(nameof(type));
-            return new(type.GetReflector().GetCustomAttributes());
+            return type.GetReflector().GetCustomAttributes().JoinToCollection();
         }
 
         /// <summary>
@@ -180,6 +180,34 @@ namespace CosmosStack.Reflection
         public static AttributeCollection Of<T>() => Of(typeof(T));
 
         #endregion
+    }
+
+    /// <summary>
+    /// Extensions for attribute collection
+    /// </summary>
+    public static class AttributeCollectionExtensions
+    {
+        /// <summary>
+        /// Convert attribute collection into <see cref="AttributeCollection"/>. <br />
+        /// 将特性集合转换为 AttributeCollection
+        /// </summary>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        public static AttributeCollection JoinToCollection(this IEnumerable<Attribute> attributes)
+        {
+            return new AttributeCollection(attributes.ToArray());
+        }
+
+        /// <summary>
+        /// Convert attribute collection into <see cref="AttributeCollection"/>. <br />
+        /// 将特性集合转换为 AttributeCollection
+        /// </summary>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        public static AttributeCollection JoinToCollection(this Attribute[] attributes)
+        {
+            return new AttributeCollection(attributes);
+        }
     }
 }
 

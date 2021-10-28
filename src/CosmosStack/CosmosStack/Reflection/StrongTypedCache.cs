@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace CosmosStack.Reflection
 {
-    internal static class StrongTypedCache<T>
+    public static class StrongTypedCache<T>
     {
         public static readonly ConcurrentDictionary<PropertyInfo, Func<T, object>> PropertyValueGetters = new();
 
