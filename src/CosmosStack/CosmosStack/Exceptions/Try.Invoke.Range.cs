@@ -4,8 +4,14 @@ using System.Linq;
 
 namespace CosmosStack.Exceptions
 {
+    /// <summary>
+    /// Try <br />
+    /// Try 组件
+    /// </summary>
     public static partial class Try
     {
+        #region Range Invoke
+
         /// <summary>
         /// Create a set of instance of <see cref="TryAction"/>. <br />
         /// 调用委托，预备返回一组 <see cref="TryAction"/> 实例。
@@ -590,5 +596,7 @@ namespace CosmosStack.Exceptions
                 index++;
             }
         }
+
+        #endregion
     }
 }
