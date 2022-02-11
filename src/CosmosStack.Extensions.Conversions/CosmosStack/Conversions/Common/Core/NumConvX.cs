@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using CosmosStack.Conversions.Determiners;
 
 namespace CosmosStack.Conversions.Common.Core
 {
-
     internal static class NumConvX
     {
         public static sbyte ObjectToSByte(object obj, sbyte defaultVal = default)
@@ -15,7 +15,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToSByte(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringSByteDeterminer.IS, defaultVal, StringToSByte, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToSByte(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, sbyte>(ref obj),
+                        () => Convert.ToSByte(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -74,7 +77,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToByte(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringByteDeterminer.IS, defaultVal, StringToByte, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToByte(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, byte>(ref obj),
+                        () => Convert.ToByte(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -133,7 +139,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToInt16(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringShortDeterminer.IS, defaultVal, StringToInt16, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToInt16(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, short>(ref obj),
+                        () => Convert.ToInt16(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -192,7 +201,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToUInt16(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringUShortDeterminer.IS, defaultVal, StringToUInt16, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToUInt16(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, ushort>(ref obj),
+                        () => Convert.ToUInt16(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -255,7 +267,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToInt32(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringIntDeterminer.IS, defaultVal, StringToInt32, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToInt32(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, int>(ref obj),
+                        () => Convert.ToInt32(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -320,7 +335,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToUInt32(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringUIntDeterminer.IS, defaultVal, StringToUInt32, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToUInt32(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, uint>(ref obj),
+                        () => Convert.ToUInt32(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -387,7 +405,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToInt64(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringLongDeterminer.IS, defaultVal, StringToInt64, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToInt64(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, long>(ref obj),
+                        () => Convert.ToInt64(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -455,7 +476,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToUInt64(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringULongDeterminer.IS, defaultVal, StringToUInt64, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToUInt64(ObjectToDecimal(obj, defaultVal)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, ulong>(ref obj),
+                        () => Convert.ToUInt64(ObjectToDecimal(obj, defaultVal)),
+                        defaultVal)
             };
         }
 
@@ -576,7 +600,10 @@ namespace CosmosStack.Conversions.Common.Core
                 string str => StringToDouble(str, defaultVal),
                 _ => XConvHelper.D(obj.ToString(), StringDoubleDeterminer.IS, defaultVal, StringToDouble, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToDouble(ObjectToDecimal(obj)), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, double>(ref obj),
+                        () => Convert.ToDouble(ObjectToDecimal(obj)),
+                        defaultVal)
             };
         }
 
@@ -660,11 +687,13 @@ namespace CosmosStack.Conversions.Common.Core
                 uint myself => myself,
                 long myself => myself,
                 ulong myself => myself,
-                float myself => (decimal) myself,
-                double myself => (decimal) myself,
+                float myself => (decimal)myself,
+                double myself => (decimal)myself,
                 decimal myself => myself,
                 string str => StringToDecimal(str, defaultVal),
-                _ => XConvHelper.D(obj.ToString(), StringDecimalDeterminer.IS, defaultVal, StringToDecimal, out var val) ? val : XConvHelper.T(() => Convert.ToDecimal(obj), defaultVal)
+                _ => XConvHelper.D(obj.ToString(), StringDecimalDeterminer.IS, defaultVal, StringToDecimal, out var val)
+                    ? val
+                    : XConvHelper.T(() => Unsafe.As<object, decimal>(ref obj), () => Convert.ToDecimal(obj), defaultVal)
             };
         }
 
@@ -691,8 +720,8 @@ namespace CosmosStack.Conversions.Common.Core
                 uint myself => myself,
                 long myself => myself,
                 ulong myself => myself,
-                float myself => (decimal) myself,
-                double myself => (decimal) myself,
+                float myself => (decimal)myself,
+                double myself => (decimal)myself,
                 decimal myself => myself,
                 string str => StringToNullableDecimal(str),
                 _ => decimal.TryParse(obj.ToString(), out var ret) ? ret : null

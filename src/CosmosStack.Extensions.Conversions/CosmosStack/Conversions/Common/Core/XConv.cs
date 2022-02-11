@@ -1,6 +1,7 @@
 using System;
-using CosmosStack.Conversions.Mappers;
+using CosmosStack.Conversions.ObjectMappingServices;
 using CosmosStack.Exceptions;
+using CosmosStack.ObjectMapping;
 using CosmosStack.Reflection;
 
 // ReSharper disable InconsistentNaming
@@ -12,6 +13,11 @@ namespace CosmosStack.Conversions.Common.Core
         public static T T<T>(Func<T> func, T defaultVal)
         {
             return Try.Create(func).Recover(_ => defaultVal).Value;
+        }
+
+        public static T T<T>(Func<T> func1, Func<T> func2, T defaultVal)
+        {
+            return Try.Create(func1).Recover(_ => func2()).Recover(_ => defaultVal).Value;
         }
 
         public static bool I<T>(Func<T> func)
@@ -135,7 +141,7 @@ namespace CosmosStack.Conversions.Common.Core
             {
                 try
                 {
-                    return DefaultMapper.Instance.MapTo<O, X>(from);
+                    return DefaultObjectMapper.Instance.MapTo<O, X>(from);
                 }
                 catch
                 {
@@ -235,7 +241,7 @@ namespace CosmosStack.Conversions.Common.Core
             {
                 try
                 {
-                    return DefaultMapper.Instance.MapTo(oType, xType, from);
+                    return DefaultObjectMapper.Instance.MapTo(oType, xType, from);
                 }
                 catch
                 {

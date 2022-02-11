@@ -1,5 +1,6 @@
 using System;
-using CosmosStack.Conversions.Mappers;
+using System.Runtime.CompilerServices;
+using CosmosStack.Conversions.ObjectMappingServices;
 using CosmosStack.Reflection;
 
 // ReSharper disable InconsistentNaming
@@ -29,7 +30,7 @@ namespace CosmosStack.Conversions.Common.Core
             {
                 try
                 {
-                    return DefaultMapper.Instance.MapTo<object, X>(fromObj);
+                    return DefaultObjectMapper.Instance.MapTo<object, X>(fromObj);
                 }
                 catch
                 {
@@ -59,7 +60,7 @@ namespace CosmosStack.Conversions.Common.Core
             {
                 try
                 {
-                    return DefaultMapper.Instance.MapTo(oType, xType, fromObj);
+                    return DefaultObjectMapper.Instance.MapTo(oType, xType, fromObj);
                 }
                 catch
                 {

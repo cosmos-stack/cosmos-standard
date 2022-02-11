@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using CosmosStack.Conversions.Determiners;
 
 namespace CosmosStack.Conversions.Common.Core
@@ -14,7 +15,10 @@ namespace CosmosStack.Conversions.Common.Core
                 DateTime d => d,
                 _ => XConvHelper.D(obj.ToString(), StringDateTimeDeterminer.IS, defaultVal, StringToDateTime, out var val)
                     ? val
-                    : XConvHelper.T(() => Convert.ToDateTime(obj), defaultVal)
+                    : XConvHelper.T(
+                        () => Unsafe.As<object, DateTime>(ref obj),
+                        () => Convert.ToDateTime(obj),
+                        defaultVal)
             };
         }
 
