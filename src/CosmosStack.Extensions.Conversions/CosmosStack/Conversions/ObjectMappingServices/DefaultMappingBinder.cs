@@ -1,6 +1,7 @@
 using System;
+using CosmosStack.ObjectMapping;
 
-namespace CosmosStack.Conversions.Mappers
+namespace CosmosStack.Conversions.ObjectMappingServices
 {
     /// <summary>
     /// Default mapping binder

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 // ReSharper disable UnusedMember.Local
 // ReSharper disable InconsistentNaming
 
-namespace CosmosStack.Conversions.Mappers
+namespace CosmosStack.Conversions.ObjectMappingServices
 {
     /// <summary>
     /// Exception during mapping or binding

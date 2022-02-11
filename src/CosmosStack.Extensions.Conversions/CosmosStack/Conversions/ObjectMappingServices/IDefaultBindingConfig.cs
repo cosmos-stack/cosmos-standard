@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace CosmosStack.Conversions.Mappers
+namespace CosmosStack.ObjectMapping
 {
     /// <summary>
     /// Default mapping binding configuration

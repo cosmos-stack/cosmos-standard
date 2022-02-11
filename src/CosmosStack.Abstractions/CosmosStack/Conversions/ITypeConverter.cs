@@ -1,4 +1,4 @@
-﻿namespace CosmosStack
+﻿namespace CosmosStack.Conversions
 {
     /// <summary>
     /// Type Converter Meta Interface<br />

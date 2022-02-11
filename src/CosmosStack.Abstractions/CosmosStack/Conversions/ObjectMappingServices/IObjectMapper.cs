@@ -1,6 +1,6 @@
 using System;
 
-namespace CosmosStack
+namespace CosmosStack.Conversions.ObjectMappingServices
 {
     /// <summary>
     /// Object Mapper Meta Interface<br />
@@ -13,20 +13,20 @@ namespace CosmosStack
         /// 映射至……
         /// </summary>
         /// <param name="sourceType"></param>
-        /// <param name="targetType"></param>
+        /// <param name="destinationType"></param>
         /// <param name="source"></param>
         /// <returns>映射结果</returns>
-        object MapTo(Type sourceType, Type targetType, object source);
+        object MapTo(Type sourceType, Type destinationType, object source);
 
         /// <summary>
         /// Map to<br />
         /// 映射至……
         /// </summary>
         /// <param name="sourceType"></param>
-        /// <param name="targetType"></param>
+        /// <param name="destinationType"></param>
         /// <param name="source"></param>
-        /// <param name="target"></param>
+        /// <param name="destination"></param>
         /// <returns>映射结果</returns>
-        object MapTo(Type sourceType, Type targetType, object source, object target);
+        object MapTo(Type sourceType, Type destinationType, object source, object destination);
     }
 }
