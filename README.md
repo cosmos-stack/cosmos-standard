@@ -2,7 +2,7 @@
 
 The Cosmos Standard project is one of the member projects of the Cosmos Stack Programme. Cosmos Standard provides a minimal set of basic tools for Cosmos Stack. With the support of Cosmos Standard, developers can obtain higher development efficiency.
 
-
+From 2022, only .NET 6 will be supported.
 
 Cosmos Standard includes:
 
