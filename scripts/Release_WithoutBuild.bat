@@ -15,7 +15,7 @@ if not exist nuget_packages (
 
 ::push nuget packages to server
 for /R "nuget_packages" %%s in (*.nupkg) do ( 	
-    dotnet nuget push "%%s" -s "Release"  --skip-duplicate
+    dotnet nuget push "%%s" -s "Release"  --skip-duplicate --no-symbols
 	echo.
 )
 

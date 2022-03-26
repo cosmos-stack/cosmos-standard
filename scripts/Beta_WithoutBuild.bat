@@ -1,7 +1,7 @@
 @echo off
 
 echo =======================================================================
-echo CosmosStack.Standard (Without Build)
+echo Cosmos.Standard (Without Build)
 echo =======================================================================
 
 ::go to parent folder
@@ -15,7 +15,7 @@ if not exist nuget_packages (
 
 ::push nuget packages to server
 for /R "nuget_packages" %%s in (*.nupkg) do ( 	
-    dotnet nuget push "%%s" -s "Beta"  --skip-duplicate
+    dotnet nuget push "%%s" -s "Beta"  --skip-duplicate --no-symbols
 	echo.
 )
 

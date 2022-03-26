@@ -1,7 +1,7 @@
 @echo off
 
 echo =======================================================================
-echo CosmosStack.Standard
+echo Cosmos.Standard
 echo =======================================================================
 
 ::go to parent folder
@@ -23,22 +23,22 @@ echo.
 ::start to package all projects
 
 ::cosmos-core
-dotnet pack src/CosmosStack.Abstractions -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack              -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Abstractions -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Core         -c Release -o nuget_packages --no-restore
 
 ::cosmos-extensions
-dotnet pack src/CosmosStack.Extensions.Asyncs      -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.DateTime    -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.Conversions -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.Collections -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.Disposables -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.Optionals   -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.Reflection  -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.Enums       -c Release -o nuget_packages --no-restore
-dotnet pack src/CosmosStack.Extensions.Guard       -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Asyncs      -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.DateTime    -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Conversions -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Collections -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Disposables -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Optionals   -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Reflection  -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Enums       -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Extensions.Guard       -c Release -o nuget_packages --no-restore
 
 ::cosmos-standard
-dotnet pack src/CosmosStack.Standard -c Release -o nuget_packages --no-restore
+dotnet pack src/Cosmos.Standard -c Release -o nuget_packages --no-restore
 
 for /R "nuget_packages" %%s in (*symbols.nupkg) do (
     del "%%s"
@@ -49,7 +49,7 @@ echo.
 
 ::push nuget packages to server
 for /R "nuget_packages" %%s in (*.nupkg) do (
-    dotnet nuget push "%%s" -s "Nightly" --skip-duplicate
+    dotnet nuget push "%%s" -s "Nightly" --skip-duplicate --no-symbols
 	echo.
 )
 
