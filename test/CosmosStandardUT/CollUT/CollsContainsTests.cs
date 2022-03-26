@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CosmosStack.Collections;
-using Shouldly;
-using Xunit;
+using Cosmos.Collections;
 
 namespace CosmosStandardUT.CollUT
 {

@@ -1,8 +1,6 @@
 ﻿using System.Text;
-using CosmosStack.Text;
+using Cosmos.Text;
 using CosmosStandardUT.Helpers;
-using Shouldly;
-using Xunit;
 
 namespace CosmosStandardUT.StringUT
 {

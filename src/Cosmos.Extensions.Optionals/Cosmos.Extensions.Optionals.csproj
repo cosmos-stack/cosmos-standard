@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Optionals</AssemblyName>
+        <PackageId>CosmosStack.Extensions.Optionals</PackageId>
+        <Description>CosmosStack Optional extension library</Description>
+    </PropertyGroup>
+
+    <Import Project="..\..\common.props" />
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Core\Cosmos.Core.csproj" />
+    </ItemGroup>
+
+</Project>

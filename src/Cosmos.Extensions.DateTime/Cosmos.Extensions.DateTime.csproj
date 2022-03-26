@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.DateTime</AssemblyName>
+        <PackageId>CosmosStack.Extensions.DateTime</PackageId>
+        <Description>CosmosStack Date/Time extension library</Description>
+    </PropertyGroup>
+
+    <Import Project="..\..\common.props" />
+
+    <ItemGroup>
+        <PackageReference Include="NodaTime" Version="3.0.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
+    </ItemGroup>
+
+</Project>

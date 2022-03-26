@@ -1,9 +1,0 @@
-<Project>
-
-    <PropertyGroup>
-        <AssemblyName>CosmosStack.Extensions.Asyncs</AssemblyName>
-        <PackageId>CosmosStack.Extensions.Asyncs</PackageId>
-        <Description>CosmosStack synchronous and asynchronous extension library</Description>
-    </PropertyGroup>
-    
-</Project>

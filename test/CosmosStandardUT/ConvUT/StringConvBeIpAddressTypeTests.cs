@@ -1,6 +1,6 @@
 ﻿using System.Net;
-using CosmosStack.Conversions;
-using CosmosStack.Text;
+using Cosmos.Conversions;
+using Cosmos.Text;
 using Shouldly;
 using Xunit;
 

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using CosmosStack.Collections;
-using Shouldly;
-using Xunit;
+﻿using System.Collections.Generic;
+using Cosmos.Collections;
 
 namespace CosmosStandardUT.CollUT
 {

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using CosmosStack.Optionals;
-using Shouldly;
-using Xunit;
+using Cosmos.Optionals;
 
 namespace CosmosStandardUT.OptionalsUT
 {

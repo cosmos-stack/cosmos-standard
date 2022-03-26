@@ -1,7 +1,7 @@
 ﻿using System;
-using CosmosStack.Conversions;
-using CosmosStack.Date;
-using CosmosStack.Text;
+using Cosmos.Conversions;
+using Cosmos.Date;
+using Cosmos.Text;
 using Shouldly;
 using Xunit;
 

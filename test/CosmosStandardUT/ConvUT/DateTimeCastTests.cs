@@ -1,6 +1,6 @@
 using System;
-using CosmosStack.Date;
-using CosmosStack.Text;
+using Cosmos.Date;
+using Cosmos.Text;
 using Shouldly;
 using Xunit;
 

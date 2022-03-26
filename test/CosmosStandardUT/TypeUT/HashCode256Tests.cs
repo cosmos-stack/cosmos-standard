@@ -1,7 +1,4 @@
-﻿using System;
-using CosmosStack.Reflection;
-using Shouldly;
-using Xunit;
+﻿using Cosmos.Reflection;
 
 namespace CosmosStandardUT.TypeUT
 {

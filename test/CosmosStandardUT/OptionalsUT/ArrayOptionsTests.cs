@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using CosmosStack.Optionals;
-using Shouldly;
-using Xunit;
+﻿using System.Collections.Generic;
+using Cosmos.Optionals;
 
 namespace CosmosStandardUT.OptionalsUT
 {

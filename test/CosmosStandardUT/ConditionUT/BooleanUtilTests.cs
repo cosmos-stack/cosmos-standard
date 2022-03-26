@@ -1,9 +1,4 @@
-﻿using System;
-using CosmosStack;
-using Shouldly;
-using Xunit;
-
-namespace CosmosStandardUT.ConditionUT
+﻿namespace CosmosStandardUT.ConditionUT
 {
     [Trait("ConditionUT", "BooleanUtil")]
     public class BooleanUtilTests

@@ -1,7 +1,4 @@
-﻿using System;
-using Shouldly;
-using Xunit;
-using Try = CosmosStack.Exceptions.Try;
+﻿using Cosmos.Exceptions;
 
 namespace CosmosStandardUT.ExceptionUT
 {

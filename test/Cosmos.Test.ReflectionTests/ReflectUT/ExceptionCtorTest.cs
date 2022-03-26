@@ -1,5 +1,5 @@
 using System;
-using CosmosStack.Exceptions;
+using Cosmos.Exceptions;
 using Xunit;
 
 namespace ReflectUT

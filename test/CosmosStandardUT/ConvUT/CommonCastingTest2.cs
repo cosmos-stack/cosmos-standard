@@ -1,8 +1,6 @@
 using System.Text;
-using CosmosStack.Conversions;
+using Cosmos.Conversions;
 using CosmosStandardUT.Models;
-using Shouldly;
-using Xunit;
 
 namespace CosmosStandardUT.ConvUT
 {

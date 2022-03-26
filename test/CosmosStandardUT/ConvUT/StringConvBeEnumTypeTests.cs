@@ -1,5 +1,5 @@
-﻿using CosmosStack.Conversions;
-using CosmosStack.Text;
+﻿using Cosmos.Conversions;
+using Cosmos.Text;
 using CosmosStandardUT.Models;
 using Shouldly;
 using Xunit;

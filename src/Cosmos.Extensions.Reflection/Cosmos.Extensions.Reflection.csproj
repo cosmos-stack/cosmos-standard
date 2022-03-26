@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Reflection</AssemblyName>
+        <PackageId>CosmosStack.Extensions.Reflection</PackageId>
+        <Description>CosmosStack reflection extension library</Description>
+    </PropertyGroup>
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NMS.DynamicDictionary " Version="2.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Guard\Cosmos.Extensions.Guard.csproj" />
+    </ItemGroup>
+
+</Project>

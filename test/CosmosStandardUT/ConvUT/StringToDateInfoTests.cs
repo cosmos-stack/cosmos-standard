@@ -1,8 +1,5 @@
-﻿using System;
-using CosmosStack.Date;
-using CosmosStack.Text;
-using Shouldly;
-using Xunit;
+﻿using Cosmos.Date;
+using Cosmos.Text;
 
 namespace CosmosStandardUT.ConvUT
 {

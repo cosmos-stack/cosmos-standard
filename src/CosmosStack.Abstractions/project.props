@@ -1,9 +1,0 @@
-<Project>
-
-    <PropertyGroup>
-        <AssemblyName>CosmosStack.Abstractions</AssemblyName>
-        <PackageId>CosmosStack.Abstractions</PackageId>
-        <Description>CosmosStack Abstractions and Contracts library</Description>
-    </PropertyGroup>
-
-</Project>

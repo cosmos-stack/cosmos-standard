@@ -1,7 +1,5 @@
-﻿using System;
-using CosmosStack.Date;
-using CosmosStack.Validation;
-using Xunit;
+﻿using Cosmos.Date;
+using Cosmos.Validation;
 
 namespace CosmosStandardUT.DateTimeUT
 {

@@ -1,6 +1,5 @@
 ﻿using System.Text;
-using CosmosStack.Conversions;
-using Xunit;
+using Cosmos.Conversions;
 
 namespace CosmosStandardUT.StringUT
 {

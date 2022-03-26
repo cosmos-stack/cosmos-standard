@@ -1,6 +1,5 @@
-﻿using CosmosStack.Numeric;
-using CosmosStack.Validation;
-using Xunit;
+﻿using Cosmos.Numeric;
+using Cosmos.Validation;
 
 namespace CosmosStandardUT.NumericUT
 {

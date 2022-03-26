@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using CosmosStack;
-using Shouldly;
-using Xunit;
+﻿using System.Collections.Generic;
 
 namespace CosmosStandardUT.ConditionUT
 {

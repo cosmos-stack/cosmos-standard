@@ -1,8 +1,5 @@
-﻿using System;
-using CosmosStack.Validation;
-using CosmosStack.Exceptions;
-using Shouldly;
-using Xunit;
+﻿using Cosmos.Validation;
+using Cosmos.Exceptions;
 
 namespace CosmosStandardUT.ConditionUT
 {

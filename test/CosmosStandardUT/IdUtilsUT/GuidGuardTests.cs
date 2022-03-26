@@ -1,7 +1,5 @@
-﻿using System;
-using CosmosStack.IdUtils;
-using CosmosStack.Validation;
-using Xunit;
+﻿using Cosmos.IdUtils;
+using Cosmos.Validation;
 
 namespace CosmosStandardUT.IdUtilsUT
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using CosmosStack.IdUtils;
-using Shouldly;
-using Xunit;
+﻿using Cosmos.IdUtils;
 
 namespace CosmosStandardUT.IdUtilsUT
 {

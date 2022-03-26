@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CosmosStack.Collections;
-using CosmosStack.Text;
-using Shouldly;
-using Xunit;
+using Cosmos.Text;
 
 namespace CosmosStandardUT.StringUT
 {

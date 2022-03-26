@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>Cosmos.Extensions.Collections</AssemblyName>
+        <PackageId>CosmosStack.Extensions.Collections</PackageId>
+        <Description>CosmosStack collections extension library</Description>
+    </PropertyGroup>
+
+    <Import Project="..\..\common.props" />
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Core\Cosmos.Core.csproj" />
+    </ItemGroup>
+
+</Project>

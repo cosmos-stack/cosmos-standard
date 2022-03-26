@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using CosmosStack.Text;
+using Cosmos.Text;
 using Shouldly;
 using Xunit;
 
@@ -64,7 +64,7 @@ namespace CosmosStandardUT.ConvUT
             var str1 = StringConv.ToString(one);
             var str2 = StringConv.ToString(two);
 
-            str1.ShouldBe("CosmosStack.Test.Conversions.ObjectConversionTest+One");
+            str1.ShouldBe("Cosmos.Core.Test.Conversions.ObjectConversionTest+One");
             str2.ShouldBe("i'm two!");
         }
     }

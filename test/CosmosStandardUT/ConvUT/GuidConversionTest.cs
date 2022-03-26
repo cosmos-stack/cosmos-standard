@@ -1,5 +1,5 @@
 ﻿using System;
-using CosmosStack.IdUtils;
+using Cosmos.IdUtils;
 using Xunit;
 
 namespace CosmosStandardUT.ConvUT

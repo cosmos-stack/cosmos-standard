@@ -1,9 +1,0 @@
-<Project>
-
-    <PropertyGroup>
-        <AssemblyName>CosmosStack.Extensions.Enums</AssemblyName>
-        <PackageId>CosmosStack.Extensions.Enums</PackageId>
-        <Description>CosmosStack Enum extension library</Description>
-    </PropertyGroup>
-
-</Project>

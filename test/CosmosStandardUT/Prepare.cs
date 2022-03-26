@@ -4,9 +4,7 @@
     {
         protected Prepare()
         {
-#if !NETFRAMEWORK
-            NatashaInitializer.InitializeAndPreheating();
-#endif
+            NatashaInitializer.Preheating();
         }
     }
 }
