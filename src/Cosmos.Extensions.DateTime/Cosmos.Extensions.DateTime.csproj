@@ -14,7 +14,7 @@
     <Import Project="..\..\common.props" />
 
     <ItemGroup>
-        <PackageReference Include="NodaTime" Version="3.0.10" />
+        <PackageReference Include="NodaTime" Version="3.1.0" />
     </ItemGroup>
 
     <ItemGroup>
