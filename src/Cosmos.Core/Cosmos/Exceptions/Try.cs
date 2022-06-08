@@ -31,7 +31,12 @@ public static partial class Try
 
     private static void NotNull<T>(T t, string nameOfParams)
     {
+#if NET6_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(t, nameOfParams);
+#else
+        if (t is null)
+            throw new ArgumentNullException(nameOfParams);
+#endif
     }
 
     private static void TaskGuard(Task task, string nameOfParams)

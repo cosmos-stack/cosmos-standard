@@ -546,7 +546,16 @@ public abstract class Try<T>
     /// </summary>
     /// <typeparam name="TException"></typeparam>
     /// <returns></returns>
-    public TException ExceptionAs<TException>() where TException : Exception => Exception.InnerException as TException;
+    public TException ExceptionAs<TException>() where TException : Exception
+    {
+        Exception ex = Exception;
+        while (ex is not null && ex is not TException)
+        {
+            ex = ex.InnerException;
+        }
+
+        return ex as TException;
+    }
 
     /// <summary>
     /// Recover
@@ -633,7 +642,12 @@ public abstract class Try<T>
 
     private static Task<TResult> FromException<TResult>(Exception exception)
     {
+#if NET6_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(exception, nameof(exception));
+#else
+        if (exception is null)
+            throw new ArgumentNullException(nameof(exception));
+#endif
         return Task.FromException<TResult>(exception);
     }
 }

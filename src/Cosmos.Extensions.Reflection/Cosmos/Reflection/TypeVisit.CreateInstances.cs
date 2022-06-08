@@ -480,11 +480,11 @@ if(arg == default || arg.Count() == 0)
 }}
 
 int[] index = new int[{_ctors.Length}];
-object[][] values = new object[{_ctors.Length}][];
+System.Object[][] values = new System.Object[{_ctors.Length}][];
 
 for(var jack = 0; jack < {_ctors.Length}; ++jack)
 {{
-    values[jack] = new object[{maxParametersCount}];
+    values[jack] = new System.Object[{maxParametersCount}];
 }}
 
 foreach(var item in arg)
@@ -522,6 +522,7 @@ for(var king = 0; king < index.Length; ++king)
 }}
 return new {resultFullQualifiedName}(values[maxIndex], maxIndex);
 ");
+            //NDelegate.RandomDomain(x=>x.).UnsafeFunc<IEnumerable<ArgumentDescriptor>, TypeVisit.CtorMatchedResult>(script.ToString());
             GetIndex = NDelegate.RandomDomain().UnsafeFunc<IEnumerable<ArgumentDescriptor>, TypeVisit.CtorMatchedResult>(script.ToString());
         }
 

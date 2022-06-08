@@ -67,25 +67,26 @@ namespace CosmosStandardUT.TypeUT
             Exception e = new ArgumentNullException();
             object f = null;
 
+            // null 将会被过滤
             var types = Types.Of(new object[] {a, b, c, d, e, f}).ToList();
 
-            types.Count.ShouldBe(6);
+            types.Count.ShouldBe(5);
             types[0].ShouldBe(typeof(int));
             types[1].ShouldBe(typeof(long));
             types[2].ShouldBe(typeof(string));
             types[3].ShouldBe(typeof(DateTime));
             types[4].ShouldBe(typeof(ArgumentNullException));
-            types[5].ShouldBeNull();
+            //types[5].ShouldBeNull();
 
             types = Types.Of(new object[] {a, b, c, d, e, f}, TypeOfOptions.Underlying).ToList();
 
-            types.Count.ShouldBe(6);
+            types.Count.ShouldBe(5);
             types[0].ShouldBe(typeof(int));
             types[1].ShouldBe(typeof(long));
             types[2].ShouldBe(typeof(string));
             types[3].ShouldBe(typeof(DateTime));
             types[4].ShouldBe(typeof(ArgumentNullException));
-            types[5].ShouldBeNull();
+            //types[5].ShouldBeNull();
         }
 
         [Fact(DisplayName = "Multi ValueType with null test")]
@@ -101,31 +102,32 @@ namespace CosmosStandardUT.TypeUT
             Int32Enum? h = null;
             Int64Enum? i = Int64Enum.C;
 
+            // null 将会被过滤
             var types = Types.Of(new object[] {a, b, c, d, e, f, g, h, i}).ToList();
 
-            types.Count.ShouldBe(9);
+            types.Count.ShouldBe(7);
             types[0].ShouldBe(typeof(int));
             types[1].ShouldBe(typeof(long));
             types[2].ShouldBe(typeof(string));
             types[3].ShouldBe(typeof(DateTime));
             types[4].ShouldBe(typeof(ArgumentNullException));
-            types[5].ShouldBeNull();
-            types[6].ShouldBe(typeof(Int16Enum));
-            types[7].ShouldBeNull();
-            types[8].ShouldBe(typeof(Int64Enum));
+            //types[5].ShouldBeNull();
+            types[5].ShouldBe(typeof(Int16Enum));
+            //types[7].ShouldBeNull();
+            types[6].ShouldBe(typeof(Int64Enum));
 
             types = Types.Of(new object[] {a, b, c, d, e, f, g, h, i}, TypeOfOptions.Underlying).ToList();
 
-            types.Count.ShouldBe(9);
+            types.Count.ShouldBe(7);
             types[0].ShouldBe(typeof(int));
             types[1].ShouldBe(typeof(long));
             types[2].ShouldBe(typeof(string));
             types[3].ShouldBe(typeof(DateTime));
             types[4].ShouldBe(typeof(ArgumentNullException));
-            types[5].ShouldBeNull();
-            types[6].ShouldBe(typeof(Int16Enum));
-            types[7].ShouldBeNull();
-            types[8].ShouldBe(typeof(Int64Enum));
+            //types[5].ShouldBeNull();
+            types[5].ShouldBe(typeof(Int16Enum));
+            //types[7].ShouldBeNull();
+            types[6].ShouldBe(typeof(Int64Enum));
         }
 
         [Fact(DisplayName = "Multi GenericType test")]
