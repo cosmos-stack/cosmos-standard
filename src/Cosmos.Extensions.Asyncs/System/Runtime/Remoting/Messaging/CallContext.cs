@@ -1,3 +1,5 @@
+#if !NETFRAMEWORK
+
 using System.Collections.Concurrent;
 
 namespace System.Runtime.Remoting.Messaging;
@@ -35,3 +37,5 @@ public static class CallContext
     public static object GetData(string name) =>
         State.TryGetValue(name, out var data) ? data.Value : null;
 }
+
+#endif

@@ -173,6 +173,34 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7> : IUnionType, IUnionType<T0
             : throw new InvalidOperationException($"Cannot return as T7 as result is T{_ix}");
     }
 
+#if NETFRAMEWORK
+    /// <inheritdoc />
+    public Type TypeOfT0 => typeof(T0);
+
+    /// <inheritdoc />
+    public Type TypeOfT1 => typeof(T1);
+
+    /// <inheritdoc />
+    public Type TypeOfT2 => typeof(T2);
+
+    /// <inheritdoc />
+    public Type TypeOfT3 => typeof(T3);
+
+    /// <inheritdoc />
+    public Type TypeOfT4 => typeof(T4);
+
+    /// <inheritdoc />
+    public Type TypeOfT5 => typeof(T5);
+
+    /// <inheritdoc />
+    public Type TypeOfT6 => typeof(T6);
+
+    /// <inheritdoc />
+    public Type TypeOfT7 => typeof(T7);
+
+    public int Count() => 8;
+#endif
+
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2, Action<T3> f3, Action<T4> f4, Action<T5> f5, Action<T6> f6, Action<T7> f7)
     {
         if (_ix is 0 && f0 is not null)

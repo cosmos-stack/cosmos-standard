@@ -21,7 +21,15 @@ public class DynamicOptionalBuilder : IDynamicOptionalBuilder
 
     private DynamicOptionalBuilder(DynamicOptionalObject dynamicOptionalObject)
     {
+#if NETFRAMEWORK || NETSTANDARD2_0
+            _dynamicDictionary = new Dictionary<string, dynamic>();
+            foreach (var pair in dynamicOptionalObject)
+            {
+                _dynamicDictionary.Add(pair.Key, pair.Value);
+            }
+#else
         _dynamicDictionary = new Dictionary<string, dynamic>(dynamicOptionalObject.InternalDynamicDictionary);
+#endif
         _queueLikeList = new List<string>(dynamicOptionalObject.InternalQueueLikeList);
     }
 

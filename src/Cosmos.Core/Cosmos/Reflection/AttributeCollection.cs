@@ -10,9 +10,12 @@ namespace Cosmos.Reflection;
 public sealed class AttributeCollection : IList<Attribute>, IReadOnlyList<Attribute>
 {
     #region Empty
-
+#if NET452
+    private static Attribute[] _emptyCache = new Attribute[0];
+    internal static readonly AttributeCollection Empty = new(_emptyCache);
+#else
     internal static readonly AttributeCollection Empty = new(Array.Empty<Attribute>());
-
+#endif
     #endregion
 
     private readonly Attribute[] _attributes;

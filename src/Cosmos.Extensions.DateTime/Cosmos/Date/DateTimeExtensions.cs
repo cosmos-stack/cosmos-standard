@@ -650,6 +650,7 @@ public static partial class DateTimeExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static DateInfo ToDateInfo(this DateTime date) => new(date);
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// Convert <see cref="DateTime"/> to <see cref="DateOnly"/>.<br />
     /// 将 <see cref="DateTime"/> 转换为 <see cref="DateOnly"/>。
@@ -658,6 +659,7 @@ public static partial class DateTimeExtensions
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static DateOnly ToDateOnly(this DateTime date) => DateOnly.FromDateTime(date);
+#endif
 
     /// <summary>
     /// Convert <see cref="DateTime"/> to Epoch time span.

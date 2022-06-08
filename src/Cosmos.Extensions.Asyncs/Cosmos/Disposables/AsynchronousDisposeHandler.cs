@@ -41,5 +41,9 @@ public class AsynchronousDisposeHandler : AsynchronousDisposableBase
     /// On dispose async
     /// </summary>
     /// <returns></returns>
+#if NET5_0_OR_GREATER
     protected override ValueTask OnDisposeAsync() => Nullify(ref _action)?.Invoke()?? ValueTask.CompletedTask;
+#else
+    protected override ValueTask OnDisposeAsync() => Nullify(ref _action).Invoke();
+#endif
 }

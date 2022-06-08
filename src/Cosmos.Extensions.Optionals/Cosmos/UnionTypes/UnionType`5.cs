@@ -112,6 +112,28 @@ public struct UnionType<T0, T1, T2, T3, T4, T5> : IUnionType, IUnionType<T0, T1,
         throw new InvalidOperationException($"Cannot return as T5 as result is T{_ix}");
     }
 
+#if NETFRAMEWORK
+    /// <inheritdoc />
+    public Type TypeOfT0 => typeof(T0);
+
+    /// <inheritdoc />
+    public Type TypeOfT1 => typeof(T1);
+
+    /// <inheritdoc />
+    public Type TypeOfT2 => typeof(T2);
+
+    /// <inheritdoc />
+    public Type TypeOfT3 => typeof(T3);
+
+    /// <inheritdoc />
+    public Type TypeOfT4 => typeof(T4);
+
+    /// <inheritdoc />
+    public Type TypeOfT5 => typeof(T5);
+
+    public int Count() => 6;
+#endif
+
     public static implicit operator UnionType<T0, T1, T2, T3, T4, T5>(T0 t) => new(0, v0: t);
 
     public static implicit operator UnionType<T0, T1, T2, T3, T4, T5>(T1 t) => new(0, v1: t);

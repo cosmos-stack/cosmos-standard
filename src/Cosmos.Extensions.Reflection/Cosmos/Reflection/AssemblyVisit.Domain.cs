@@ -1,4 +1,6 @@
-﻿using System.Runtime.Loader;
+﻿#if !NETFRAMEWORK
+
+using System.Runtime.Loader;
 
 namespace Cosmos.Reflection;
 
@@ -35,3 +37,5 @@ public static partial class AssemblyVisit
         GetDomain(assembly).Dispose();
     }
 }
+
+#endif

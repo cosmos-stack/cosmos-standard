@@ -26,18 +26,35 @@ public interface IUnionType
 /// <typeparam name="T0"></typeparam>
 public interface IUnionType<out T0> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 1;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
     /// </summary>
     public Type TypeOfT0 => typeof(T0);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -62,13 +79,35 @@ public interface IUnionType<out T0> : IUnionType
 /// <typeparam name="T1"></typeparam>
 public interface IUnionType<out T0, out T1> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 2;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -80,6 +119,7 @@ public interface IUnionType<out T0, out T1> : IUnionType
     /// 类型 2
     /// </summary>
     public Type TypeOfT1 => typeof(T1);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -119,13 +159,41 @@ public interface IUnionType<out T0, out T1> : IUnionType
 /// <typeparam name="T2"></typeparam>
 public interface IUnionType<out T0, out T1, out T2> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 3;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -143,6 +211,7 @@ public interface IUnionType<out T0, out T1, out T2> : IUnionType
     /// 类型 3
     /// </summary>
     public Type TypeOfT2 => typeof(T2);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -197,13 +266,47 @@ public interface IUnionType<out T0, out T1, out T2> : IUnionType
 /// <typeparam name="T3"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 4;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -227,6 +330,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3> : IUnionType
     /// 类型 4
     /// </summary>
     public Type TypeOfT3 => typeof(T3);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -296,13 +400,53 @@ public interface IUnionType<out T0, out T1, out T2, out T3> : IUnionType
 /// <typeparam name="T4"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 5;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -332,6 +476,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4> : IUnionType
     /// 类型 5
     /// </summary>
     public Type TypeOfT4 => typeof(T4);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -416,13 +561,59 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4> : IUnionType
 /// <typeparam name="T5"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 6;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -458,6 +649,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5> : IU
     /// 类型 6
     /// </summary>
     public Type TypeOfT5 => typeof(T5);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -557,13 +749,65 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5> : IU
 /// <typeparam name="T6"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 7;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -605,6 +849,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 7
     /// </summary>
     public Type TypeOfT6 => typeof(T6);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -719,13 +964,71 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T7"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 8;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -773,6 +1076,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 8
     /// </summary>
     public Type TypeOfT7 => typeof(T7);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -902,13 +1206,77 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T8"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 9;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -962,6 +1330,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 9
     /// </summary>
     public Type TypeOfT8 => typeof(T8);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -1106,13 +1475,83 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T9"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 10;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -1172,6 +1611,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 10
     /// </summary>
     public Type TypeOfT9 => typeof(T9);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -1331,13 +1771,89 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T10"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 11;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -1403,6 +1919,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 11
     /// </summary>
     public Type TypeOfT10 => typeof(T10);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -1577,13 +2094,95 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T11"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 12;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -1655,6 +2254,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 12
     /// </summary>
     public Type TypeOfT11 => typeof(T11);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -1844,13 +2444,101 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T12"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11, out T12> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 13;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+
+    /// <summary>
+    /// Type 13 <br />
+    /// 类型 13
+    /// </summary>
+    Type TypeOfT12 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -1928,6 +2616,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 13
     /// </summary>
     public Type TypeOfT12 => typeof(T12);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -2132,13 +2821,107 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T13"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11, out T12, out T13> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 14;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+
+    /// <summary>
+    /// Type 13 <br />
+    /// 类型 13
+    /// </summary>
+    Type TypeOfT12 { get; }
+
+    /// <summary>
+    /// Type 14 <br />
+    /// 类型 14
+    /// </summary>
+    Type TypeOfT13 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -2222,6 +3005,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 14
     /// </summary>
     public Type TypeOfT13 => typeof(T13);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -2441,13 +3225,113 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T14"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11, out T12, out T13, out T14> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 15;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+
+    /// <summary>
+    /// Type 13 <br />
+    /// 类型 13
+    /// </summary>
+    Type TypeOfT12 { get; }
+
+    /// <summary>
+    /// Type 14 <br />
+    /// 类型 14
+    /// </summary>
+    Type TypeOfT13 { get; }
+
+    /// <summary>
+    /// Type 15 <br />
+    /// 类型 15
+    /// </summary>
+    Type TypeOfT14 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -2537,6 +3421,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 15
     /// </summary>
     public Type TypeOfT14 => typeof(T14);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -2771,13 +3656,119 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T15"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11, out T12, out T13, out T14, out T15> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 16;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+
+    /// <summary>
+    /// Type 13 <br />
+    /// 类型 13
+    /// </summary>
+    Type TypeOfT12 { get; }
+
+    /// <summary>
+    /// Type 14 <br />
+    /// 类型 14
+    /// </summary>
+    Type TypeOfT13 { get; }
+
+    /// <summary>
+    /// Type 15 <br />
+    /// 类型 15
+    /// </summary>
+    Type TypeOfT14 { get; }
+
+    /// <summary>
+    /// Type 16 <br />
+    /// 类型 16
+    /// </summary>
+    Type TypeOfT15 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -2873,6 +3864,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 16
     /// </summary>
     public Type TypeOfT15 => typeof(T15);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -3122,13 +4114,125 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T16"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11, out T12, out T13, out T14, out T15, out T16> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 17;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+
+    /// <summary>
+    /// Type 13 <br />
+    /// 类型 13
+    /// </summary>
+    Type TypeOfT12 { get; }
+
+    /// <summary>
+    /// Type 14 <br />
+    /// 类型 14
+    /// </summary>
+    Type TypeOfT13 { get; }
+
+    /// <summary>
+    /// Type 15 <br />
+    /// 类型 15
+    /// </summary>
+    Type TypeOfT14 { get; }
+
+    /// <summary>
+    /// Type 16 <br />
+    /// 类型 16
+    /// </summary>
+    Type TypeOfT15 { get; }
+
+    /// <summary>
+    /// Type 17 <br />
+    /// 类型 17
+    /// </summary>
+    Type TypeOfT16 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -3230,6 +4334,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 17
     /// </summary>
     public Type TypeOfT16 => typeof(T16);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -3494,13 +4599,131 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T17"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11, out T12, out T13, out T14, out T15, out T16, out T17> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 18;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+
+    /// <summary>
+    /// Type 13 <br />
+    /// 类型 13
+    /// </summary>
+    Type TypeOfT12 { get; }
+
+    /// <summary>
+    /// Type 14 <br />
+    /// 类型 14
+    /// </summary>
+    Type TypeOfT13 { get; }
+
+    /// <summary>
+    /// Type 15 <br />
+    /// 类型 15
+    /// </summary>
+    Type TypeOfT14 { get; }
+
+    /// <summary>
+    /// Type 16 <br />
+    /// 类型 16
+    /// </summary>
+    Type TypeOfT15 { get; }
+
+    /// <summary>
+    /// Type 17 <br />
+    /// 类型 17
+    /// </summary>
+    Type TypeOfT16 { get; }
+
+    /// <summary>
+    /// Type 18 <br />
+    /// 类型 18
+    /// </summary>
+    Type TypeOfT17 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -3608,6 +4831,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 18
     /// </summary>
     public Type TypeOfT17 => typeof(T17);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />
@@ -3887,13 +5111,137 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
 /// <typeparam name="T18"></typeparam>
 public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out T6, out T7, out T8, out T9, out T10, out T11, out T12, out T13, out T14, out T15, out T16, out T17, out T18> : IUnionType
 {
+#if NETFRAMEWORK
+    /// <summary>
+    /// Count <br />
+    /// 联合类型所包含的类型种类数
+    /// </summary>
+    /// <returns></returns>
+    int Count();
+#else
     /// <summary>
     /// Count <br />
     /// 联合类型所包含的类型种类数
     /// </summary>
     /// <returns></returns>
     public int Count() => 19;
+#endif
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Type 1 <br />
+    /// 类型 1
+    /// </summary>
+    Type TypeOfT0 { get; }
+
+    /// <summary>
+    /// Type 2 <br />
+    /// 类型 2
+    /// </summary>
+    Type TypeOfT1 { get; }
+
+    /// <summary>
+    /// Type 3 <br />
+    /// 类型 3
+    /// </summary>
+    Type TypeOfT2 { get; }
+
+    /// <summary>
+    /// Type 4 <br />
+    /// 类型 4
+    /// </summary>
+    Type TypeOfT3 { get; }
+
+    /// <summary>
+    /// Type 5 <br />
+    /// 类型 5
+    /// </summary>
+    Type TypeOfT4 { get; }
+
+    /// <summary>
+    /// Type 6 <br />
+    /// 类型 6
+    /// </summary>
+    Type TypeOfT5 { get; }
+
+    /// <summary>
+    /// Type 7 <br />
+    /// 类型 7
+    /// </summary>
+    Type TypeOfT6 { get; }
+
+    /// <summary>
+    /// Type 8 <br />
+    /// 类型 8
+    /// </summary>
+    Type TypeOfT7 { get; }
+
+    /// <summary>
+    /// Type 9 <br />
+    /// 类型 9
+    /// </summary>
+    Type TypeOfT8 { get; }
+
+    /// <summary>
+    /// Type 10 <br />
+    /// 类型 10
+    /// </summary>
+    Type TypeOfT9 { get; }
+
+    /// <summary>
+    /// Type 11 <br />
+    /// 类型 11
+    /// </summary>
+    Type TypeOfT10 { get; }
+
+    /// <summary>
+    /// Type 12 <br />
+    /// 类型 12
+    /// </summary>
+    Type TypeOfT11 { get; }
+
+    /// <summary>
+    /// Type 13 <br />
+    /// 类型 13
+    /// </summary>
+    Type TypeOfT12 { get; }
+
+    /// <summary>
+    /// Type 14 <br />
+    /// 类型 14
+    /// </summary>
+    Type TypeOfT13 { get; }
+
+    /// <summary>
+    /// Type 15 <br />
+    /// 类型 15
+    /// </summary>
+    Type TypeOfT14 { get; }
+
+    /// <summary>
+    /// Type 16 <br />
+    /// 类型 16
+    /// </summary>
+    Type TypeOfT15 { get; }
+
+    /// <summary>
+    /// Type 17 <br />
+    /// 类型 17
+    /// </summary>
+    Type TypeOfT16 { get; }
+
+    /// <summary>
+    /// Type 18 <br />
+    /// 类型 18
+    /// </summary>
+    Type TypeOfT17 { get; }
+
+    /// <summary>
+    /// Type 19 <br />
+    /// 类型 19
+    /// </summary>
+    Type TypeOfT18 { get; }
+#else
     /// <summary>
     /// Type 1 <br />
     /// 类型 1
@@ -4007,6 +5355,7 @@ public interface IUnionType<out T0, out T1, out T2, out T3, out T4, out T5, out 
     /// 类型 19
     /// </summary>
     public Type TypeOfT18 => typeof(T18);
+#endif
 
     /// <summary>
     /// Mark whether the actual type of the Union Type is type 1 <br />

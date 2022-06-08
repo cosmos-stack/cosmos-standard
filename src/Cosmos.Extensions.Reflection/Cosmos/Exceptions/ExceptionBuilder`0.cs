@@ -1,5 +1,11 @@
-﻿using Cosmos.Validation;
+﻿#if !NET451 && !NET452
+
+using Cosmos.Validation;
 using Cosmos.Exceptions.BuildingServices;
+
+#if NETFRAMEWORK
+using System.Linq;
+#endif
 
 // ReSharper disable InconsistentNaming
 
@@ -147,7 +153,11 @@ internal class FluentExceptionBuilder : IFluentExceptionBuilder, IParamsCheckabl
             if (exceptionParams is not null)
                 _additionalOps?.Invoke(exceptionParams, options);
 
+#if !NETFRAMEWORK
             CachedException = TypeVisit.CreateInstance(options.ExceptionType, options.ArgumentDescriptors);
+#else
+            CachedException = TypeVisit.CreateInstance(options.ExceptionType, options.ArgumentDescriptors.ToArray());
+#endif
         }
     }
 
@@ -239,3 +249,5 @@ internal class FluentExceptionBuilder : IFluentExceptionBuilder, IParamsCheckabl
         ArgumentsChecker = checker;
     }
 }
+
+#endif

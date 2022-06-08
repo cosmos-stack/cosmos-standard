@@ -1,4 +1,4 @@
-﻿using Cosmos.Date.DateUtils;
+﻿#if NET6_0_OR_GREATER
 using Cosmos.Verba.Time;
 using NodaTime;
 
@@ -368,3 +368,4 @@ public static class DateOnlyExtensions
 
     #endregion
 }
+#endif

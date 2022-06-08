@@ -1,4 +1,8 @@
-﻿namespace Cosmos.Conversions.Helpers;
+﻿#if NETFRAMEWORK
+using System.Linq;
+#endif
+
+namespace Cosmos.Conversions.Helpers;
 
 /// <summary>
 /// Scale convert helper (internal)
@@ -18,7 +22,11 @@ internal static class ScaleConvHelper
         if (string.IsNullOrWhiteSpace(things))
             return 0L;
 
-        var currentDigits = DIGITS.AsSpan().Slice(0, baseOfSource);
+        var currentDigits = DIGITS.AsSpan().Slice(0, baseOfSource)
+#if NETFRAMEWORK || NETSTANDARD
+            .ToArray()
+#endif
+            ;
 
         var val = 0L;
         things = things.Trim().ToUpperInvariant();

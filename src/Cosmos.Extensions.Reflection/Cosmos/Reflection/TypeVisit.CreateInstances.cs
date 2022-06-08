@@ -1,8 +1,12 @@
 ﻿using AspectCore.Extensions.Reflection;
 using Cosmos.Collections;
+
+#if !NETFRAMEWORK
 using System.Text;
 using System.Collections.Concurrent;
 using BTFindTree;
+
+#endif
 
 // ReSharper disable InconsistentNaming
 

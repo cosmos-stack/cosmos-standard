@@ -207,6 +207,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9> : IUnionType, IUnio
             : throw new InvalidOperationException($"Cannot return as T9 as result is T{_ix}");
     }
 
+#if NETFRAMEWORK
     /// <inheritdoc />
     public Type TypeOfT0 => typeof(T0);
 
@@ -236,6 +237,9 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9> : IUnionType, IUnio
 
     /// <inheritdoc />
     public Type TypeOfT9 => typeof(T9);
+
+    public int Count() => 10;
+#endif
 
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2, Action<T3> f3, Action<T4> f4, Action<T5> f5, Action<T6> f6, Action<T7> f7, Action<T8> f8, Action<T9> f9)
     {

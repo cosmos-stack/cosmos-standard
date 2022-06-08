@@ -34,7 +34,12 @@ public static class FileHelper
         if (!File.Exists(targetFilePath))
             return Array.Empty<byte>();
 
+#if NETSTANDARD2_1 || NETCOREAPP3_0_OR_GREATER
         await using var fs = new FileStream(targetFilePath, FileMode.Open, FileAccess.Read);
+#else
+        using var fs = new FileStream(targetFilePath, FileMode.Open, FileAccess.Read);
+#endif
+
         var buffer = new byte[fs.Length];
         _ = await fs.ReadAsync(buffer, 0, buffer.Length);
         return buffer;
@@ -74,7 +79,13 @@ public static class FileHelper
         if (!appendMode && File.Exists(targetFilePath))
             File.Create(targetFilePath);
         var fileMode = appendMode ? FileMode.Append : FileMode.Open;
+
+#if NETSTANDARD2_1 || NETCOREAPP3_0_OR_GREATER
         await using var fs = new FileStream(targetFilePath, fileMode, FileAccess.Write);
+#else
+        using var fs = new FileStream(targetFilePath, fileMode, FileAccess.Write);
+#endif
+
         return await fs.TryWriteAsync(byteArray, 0, byteArray.Length);
     }
 }

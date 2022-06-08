@@ -42,10 +42,10 @@ public static class SystemModuleBuilderExtensions
         ISet<string> propertyNames = new HashSet<string>(StringComparer.Ordinal);
 
 #if NETFRAMEWORK || NETSTANDARD2_0
-            foreach (var property in properties)
-            {
-                var propertyName = property.Key;
-                var type = property.Value;
+        foreach (var property in properties)
+        {
+            var propertyName = property.Key;
+            var type = property.Value;
 #else
         foreach (var (propertyName, type) in properties)
         {

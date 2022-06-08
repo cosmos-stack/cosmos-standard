@@ -98,7 +98,7 @@ public static class DictConv
     public static IEnumerable<Tuple<TKey, TValue>> ToTuple<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
     {
 #if NETFRAMEWORK || NETSTANDARD2_0
-            return dictionary.Select(pair => Tuple.Create(pair.Key, pair.Value));
+        return dictionary.Select(pair => Tuple.Create(pair.Key, pair.Value));
 #else
         foreach (var (key, value) in dictionary)
         {

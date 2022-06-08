@@ -71,11 +71,15 @@ public class UnionOf<T0, T1> : IUnionType, IUnionType<T0, T1>
             : throw new InvalidOperationException($"Cannot return as T1 as result is T{_ix}");
     }
 
+#if NETFRAMEWORK
     /// <inheritdoc />
     public Type TypeOfT0 => typeof(T0);
 
     /// <inheritdoc />
     public Type TypeOfT1 => typeof(T1);
+
+    public int Count() => 2;
+#endif
 
     public void Switch(Action<T0> f0, Action<T1> f1)
     {

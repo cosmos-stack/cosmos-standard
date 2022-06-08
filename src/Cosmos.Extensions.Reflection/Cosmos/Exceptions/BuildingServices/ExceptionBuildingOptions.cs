@@ -1,4 +1,10 @@
+#if !NET451 && !NET452
+
 using Cosmos.Collections;
+
+#if NETFRAMEWORK
+using System.Linq;
+#endif
 
 namespace Cosmos.Exceptions.BuildingServices;
 
@@ -98,7 +104,11 @@ public class ExceptionBuildingOptions
     /// </summary>
     public Type ExceptionType { get; }
 
+#if !NETFRAMEWORK
     internal IEnumerable<ArgumentDescriptor> ArgumentDescriptors => _items.Values;
+#else
+    internal IEnumerable<object> ArgumentDescriptors => _items.Values.Select(x => x.Value);
+#endif
 
     /// <summary>
     /// Add args.<br />
@@ -157,3 +167,5 @@ public class ExceptionBuildingOptions
         return this;
     }
 }
+
+#endif

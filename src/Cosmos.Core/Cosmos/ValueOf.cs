@@ -10,9 +10,17 @@ internal static class ValueOfHelper
     private static ConstructorInfo GetDefaultConstructor<TVal, TMe>() where TMe : ValueOf<TVal, TMe>, new()
         => typeof(TMe).GetTypeInfo().DeclaredConstructors.First();
 
+#if NET451 || NET452
+    private static Expression[] _emptyExpressions = new Expression[0];
+#endif
+
     private static LambdaExpression CreateLambda<TValue, TThis>(ConstructorInfo ctor) where TThis : ValueOf<TValue, TThis>, new()
     {
+#if NET451 || NET452
+        var argsExp = _emptyExpressions;
+#else
         var argsExp = Array.Empty<Expression>();
+#endif
         var newExp = Expression.New(ctor, argsExp);
         return Expression.Lambda(typeof(Func<TThis>), newExp);
     }

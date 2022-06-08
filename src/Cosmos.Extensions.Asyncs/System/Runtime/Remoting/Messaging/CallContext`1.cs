@@ -6,14 +6,14 @@ namespace System.Runtime.Remoting.Messaging;
  * void SetData(string name, T value)
  *     for nfx:
  *         CallContext.LogicalSetData(name, new ObjectHandle(value));
- *     for core:
+ *     for core and 5.0+:
  *         CallContext.SetData(name, value);
  *
  * T GetData(string name)
  *     for nfx:
  *         var value = (CallContext.LogicalGetData(name) as ObjectHandle)?.Unwrap();
  *         return value is T t ? t : default;
- *     for core:
+ *     for core and 5.0+:
  *         var value = CallContext.GetData(name);
  *         return value is T t ? t : default;
  *
@@ -32,7 +32,11 @@ public static class CallContext<T>
     /// <param name="value"></param>
     public static void SetData(string name, T value)
     {
+#if NETFRAMEWORK
+        CallContext.LogicalSetData(name, new ObjectHandle(value));
+#else
         CallContext.SetData(name, value);
+#endif
     }
 
     /// <summary>
@@ -42,8 +46,11 @@ public static class CallContext<T>
     /// <returns></returns>
     public static T GetData(string name)
     {
+#if NETFRAMEWORK
+        var value = (CallContext.LogicalGetData(name) as ObjectHandle)?.Unwrap();
+#else
         var value = CallContext.GetData(name);
-
+#endif
         return value is T t ? t : default;
     }
 }

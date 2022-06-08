@@ -42,10 +42,12 @@ public class InfinitePastInfo : DateInfo
     /// <returns></returns>
     public override DateTime ToDateTime() => DateTime.MinValue;
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// Convert <see cref="InfinitePastInfo"/> to <see cref="DateOnly"/><br />
     /// 将 <see cref="InfinitePastInfo"/> 转换为 <see cref="DateOnly"/>。
     /// </summary>
     /// <returns></returns>
     public override DateOnly ToDateOnly() => DateOnly.MinValue;
+#endif
 }

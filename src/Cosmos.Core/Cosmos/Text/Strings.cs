@@ -335,7 +335,7 @@ public static partial class Strings
     public static bool ContainsIgnoreCase(string text, string value, params string[] values)
     {
 #if NETFRAMEWORK || NETSTANDARD2_0
-            return YieldReturnStrings().Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase));
+        return YieldReturnStrings().Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase));
 #else
         return YieldReturnStrings().Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
 #endif
@@ -373,12 +373,12 @@ public static partial class Strings
     public static bool ContainsIgnoreCase(string text, char character, params char[] characters)
     {
 #if NETFRAMEWORK || NETSTANDARD2_0
-            foreach (var val in YieldReturnCharacters())
-                for (var i = 0; i < text.Length; i++)
-                    if (text[i].EqualsIgnoreCase(val))
-                        return true;
+        foreach (var val in YieldReturnCharacters())
+            for (var i = 0; i < text.Length; i++)
+                if (text[i].EqualsIgnoreCase(val))
+                    return true;
 
-            return false;
+        return false;
 #else
         return YieldReturnCharacters().Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
 #endif
@@ -406,7 +406,7 @@ public static partial class Strings
     {
         return @case.X()
 #if NETFRAMEWORK || NETSTANDARD2_0
-                ? values.Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase))
+            ? values.Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase))
 #else
             ? values.Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase))
 #endif
@@ -443,12 +443,12 @@ public static partial class Strings
         if (@case.X())
         {
 #if NETFRAMEWORK || NETSTANDARD2_0
-                foreach (var val in characters)
-                    for (var i = 0; i < text.Length; i++)
-                        if (text[i].EqualsIgnoreCase(val))
-                            return true;
+            foreach (var val in characters)
+                for (var i = 0; i < text.Length; i++)
+                    if (text[i].EqualsIgnoreCase(val))
+                        return true;
 
-                return false;
+            return false;
 #else
             return characters.Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
 #endif

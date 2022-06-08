@@ -92,12 +92,14 @@ public partial class DateInfo
     /// <returns></returns>
     public virtual DateTime ToDateTime() => _internalDateTime.Clone();
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// Convert to <see cref="DateOnly"/><br />
     /// 转换为 <see cref="DateOnly"/>
     /// </summary>
     /// <returns></returns>
     public virtual DateOnly ToDateOnly() => DateOnly.FromDateTime(_internalDateTime);
+#endif
 
     /// <summary>
     /// Convert to <see cref="LocalDate"/>. <br />
@@ -199,6 +201,7 @@ public partial class DateInfo
         return new(dt);
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// Convert <see cref="DateOnly"/> to <see cref="DateInfo"/><br />
     /// 将 <see cref="DateOnly"/> 转换为 <see cref="DateInfo"/>。
@@ -218,6 +221,7 @@ public partial class DateInfo
     {
         return FromDateOnly(dt);
     }
+#endif
 
     /// <summary>
     /// +
@@ -283,6 +287,7 @@ public partial class DateInfo
         return d.Day > dt.Day;
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// &gt;
     /// </summary>
@@ -303,6 +308,7 @@ public partial class DateInfo
             return false;
         return d.Day > dt.Day;
     }
+#endif
 
     /// <summary>
     /// &lt;
@@ -346,6 +352,7 @@ public partial class DateInfo
         return d.Day < dt.Day;
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// &lt;
     /// </summary>
@@ -366,6 +373,7 @@ public partial class DateInfo
             return false;
         return d.Day < dt.Day;
     }
+#endif
 
     /// <summary>
     /// &gt;=
@@ -393,6 +401,7 @@ public partial class DateInfo
         return !(d < dt);
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// &gt;=
     /// </summary>
@@ -405,6 +414,7 @@ public partial class DateInfo
             return false;
         return !(d < dt);
     }
+#endif
 
     /// <summary>
     /// &lt;=
@@ -432,6 +442,7 @@ public partial class DateInfo
         return !(d > dt);
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// &lt;=
     /// </summary>
@@ -444,6 +455,7 @@ public partial class DateInfo
             return false;
         return !(d > dt);
     }
+#endif
 
     /// <summary>
     /// ==
@@ -476,6 +488,7 @@ public partial class DateInfo
         return d.Year == dt.Year && d.Month == dt.Month && d.Day == dt.Day;
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// ==
     /// </summary>
@@ -488,6 +501,7 @@ public partial class DateInfo
             return false;
         return d.Year == dt.Year && d.Month == dt.Month && d.Day == dt.Day;
     }
+#endif
 
     /// <summary>
     /// !=
@@ -515,6 +529,7 @@ public partial class DateInfo
         return !(d == dt);
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// !=
     /// </summary>
@@ -527,6 +542,7 @@ public partial class DateInfo
             return false;
         return !(d == dt);
     }
+#endif
 
     /// <summary>
     /// Equals<br />
@@ -613,6 +629,7 @@ public partial class DateInfo
         return new(dt);
     }
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// Create a new instance of <see cref="DateInfo"/> from a <see cref="DateOnly"/> object. <br />
     /// 从一个 <see cref="DateOnly"/> 对象中创建一个 <see cref="DateInfo"/> 实例
@@ -623,4 +640,5 @@ public partial class DateInfo
     {
         return new(date.Year, date.Month, date.Day);
     }
+#endif
 }

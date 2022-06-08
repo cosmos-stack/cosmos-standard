@@ -146,7 +146,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     public bool IsT11() => _ix == 11;
 
     /// <inheritdoc />
-    public T0  AsT0()
+    public T0 AsT0()
     {
         return _ix == 0
             ? _v0
@@ -154,7 +154,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T1  AsT1()
+    public T1 AsT1()
     {
         return _ix == 1
             ? _v1
@@ -162,7 +162,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T2  AsT2()
+    public T2 AsT2()
     {
         return _ix == 2
             ? _v2
@@ -170,7 +170,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T3  AsT3()
+    public T3 AsT3()
     {
         return _ix == 3
             ? _v3
@@ -178,7 +178,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T4  AsT4()
+    public T4 AsT4()
     {
         return _ix == 4
             ? _v4
@@ -186,7 +186,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T5  AsT5()
+    public T5 AsT5()
     {
         return _ix == 5
             ? _v5
@@ -194,7 +194,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T6  AsT6()
+    public T6 AsT6()
     {
         return _ix == 6
             ? _v6
@@ -202,7 +202,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T7  AsT7()
+    public T7 AsT7()
     {
         return _ix == 7
             ? _v7
@@ -210,7 +210,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T8  AsT8()
+    public T8 AsT8()
     {
         return _ix == 8
             ? _v8
@@ -218,7 +218,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T9  AsT9()
+    public T9 AsT9()
     {
         return _ix == 9
             ? _v9
@@ -226,7 +226,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T10  AsT10()
+    public T10 AsT10()
     {
         return _ix == 10
             ? _v10
@@ -234,12 +234,52 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUnionT
     }
 
     /// <inheritdoc />
-    public T11  AsT11()
+    public T11 AsT11()
     {
         return _ix == 11
             ? _v11
             : throw new InvalidOperationException($"Cannot return as T11 as result is T{_ix}");
     }
+
+#if NETFRAMEWORK
+    /// <inheritdoc />
+    public Type TypeOfT0 => typeof(T0);
+
+    /// <inheritdoc />
+    public Type TypeOfT1 => typeof(T1);
+
+    /// <inheritdoc />
+    public Type TypeOfT2 => typeof(T2);
+
+    /// <inheritdoc />
+    public Type TypeOfT3 => typeof(T3);
+
+    /// <inheritdoc />
+    public Type TypeOfT4 => typeof(T4);
+
+    /// <inheritdoc />
+    public Type TypeOfT5 => typeof(T5);
+
+    /// <inheritdoc />
+    public Type TypeOfT6 => typeof(T6);
+
+    /// <inheritdoc />
+    public Type TypeOfT7 => typeof(T7);
+
+    /// <inheritdoc />
+    public Type TypeOfT8 => typeof(T8);
+
+    /// <inheritdoc />
+    public Type TypeOfT9 => typeof(T9);
+
+    /// <inheritdoc />
+    public Type TypeOfT10 => typeof(T10);
+
+    /// <inheritdoc />
+    public Type TypeOfT11 => typeof(T11);
+
+    public int Count() => 12;
+#endif
 
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2, Action<T3> f3, Action<T4> f4, Action<T5> f5, Action<T6> f6, Action<T7> f7, Action<T8> f8, Action<T9> f9,
         Action<T10> f10, Action<T11> f11)

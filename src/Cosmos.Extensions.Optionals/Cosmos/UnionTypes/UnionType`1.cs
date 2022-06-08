@@ -56,6 +56,16 @@ public struct UnionType<T0, T1> : IUnionType, IUnionType<T0, T1>
         throw new InvalidOperationException($"Cannot return as T1 as result is T{_ix}");
     }
 
+#if NETFRAMEWORK
+    /// <inheritdoc />
+    public Type TypeOfT0 => typeof(T0);
+
+    /// <inheritdoc />
+    public Type TypeOfT1 => typeof(T1);
+
+    public int Count() => 2;
+#endif
+
     public static implicit operator UnionType<T0, T1>(T0 t) => new(0, v0: t);
 
     public static implicit operator UnionType<T0, T1>(T1 t) => new(0, v1: t);

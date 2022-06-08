@@ -1,4 +1,6 @@
-﻿using Cosmos.Exceptions;
+﻿#if !NET451 && !NET452
+
+using Cosmos.Exceptions;
 
 namespace Cosmos;
 
@@ -47,3 +49,5 @@ public static class BooleanExceptionUtilitiesExtensions
         @this.IfFalse(_ => ExceptionBuilder.Create<TException>().BuildAndThrow(exceptionParams));
     }
 }
+
+#endif

@@ -122,6 +122,25 @@ public class UnionOf<T0, T1, T2, T3, T4> : IUnionType, IUnionType<T0, T1, T2, T3
             : throw new InvalidOperationException($"Cannot return as T4 as result is T{_ix}");
     }
 
+#if NETFRAMEWORK
+    /// <inheritdoc />
+    public Type TypeOfT0 => typeof(T0);
+
+    /// <inheritdoc />
+    public Type TypeOfT1 => typeof(T1);
+
+    /// <inheritdoc />
+    public Type TypeOfT2 => typeof(T2);
+
+    /// <inheritdoc />
+    public Type TypeOfT3 => typeof(T3);
+
+    /// <inheritdoc />
+    public Type TypeOfT4 => typeof(T4);
+
+    public int Count() => 5;
+#endif
+
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2, Action<T3> f3, Action<T4> f4)
     {
         if (_ix is 0 && f0 is not null)

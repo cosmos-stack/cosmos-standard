@@ -1,3 +1,5 @@
+#if !NET451 && !NET452
+
 using Cosmos.Validation;
 using Cosmos.Exceptions.BuildingServices;
 
@@ -172,3 +174,5 @@ internal class FluentExceptionBuilder<TException> : FluentExceptionBuilder, IFlu
         }
     }
 }
+
+#endif

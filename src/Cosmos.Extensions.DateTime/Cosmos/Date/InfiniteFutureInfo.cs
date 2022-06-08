@@ -42,10 +42,12 @@ public class InfiniteFutureInfo : DateInfo
     /// <returns></returns>
     public override DateTime ToDateTime() => DateTime.MaxValue;
 
+#if NET6_0_OR_GREATER
     /// <summary>
     /// Convert <see cref="InfiniteFutureInfo"/> to <see cref="DateOnly"/><br />
     /// 将 <see cref="InfiniteFutureInfo"/> 转换为 <see cref="DateOnly"/>。
     /// </summary>
     /// <returns></returns>
     public override DateOnly ToDateOnly() => DateOnly.MaxValue;
+#endif
 }
