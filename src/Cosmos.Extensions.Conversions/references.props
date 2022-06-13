@@ -1,0 +1,8 @@
+﻿<Project>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj" />
+        <ProjectReference Include="..\Cosmos.Extensions.Enums\Cosmos.Extensions.Enums.csproj" />
+    </ItemGroup>
+
+</Project>

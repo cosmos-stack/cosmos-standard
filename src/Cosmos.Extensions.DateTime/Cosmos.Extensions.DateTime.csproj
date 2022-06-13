@@ -13,12 +13,8 @@
 
     <Import Project="..\..\common.props" />
 
-    <ItemGroup>
-        <PackageReference Include="NodaTime" Version="3.1.0" />
-    </ItemGroup>
+    <Import Project="dependency.props" />
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
-    </ItemGroup>
+    <Import Project="references.props" />
 
 </Project>

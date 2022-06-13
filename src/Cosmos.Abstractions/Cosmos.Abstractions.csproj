@@ -13,4 +13,6 @@
 
     <Import Project="..\..\common.props" />
 
+    <Import Project="dependency.props" />
+
 </Project>

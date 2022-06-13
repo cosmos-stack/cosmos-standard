@@ -13,9 +13,6 @@
 
     <Import Project="..\..\common.props" />
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Core\Cosmos.Core.csproj" />
-        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
-    </ItemGroup>
+    <Import Project="references.props" />
 
 </Project>

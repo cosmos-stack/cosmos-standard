@@ -1,0 +1,39 @@
+﻿<Project>
+
+    <PropertyGroup>
+        <AsyncEx-RefVersion>5.1.2</AsyncEx-RefVersion>
+        <AsyncEx-RefVersion-nfx452>4.0.1</AsyncEx-RefVersion-nfx452>
+    </PropertyGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+        <PackageReference Include="Nito.AsyncEx" Version="$(AsyncEx-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+        <PackageReference Include="Nito.AsyncEx" Version="$(AsyncEx-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+        <PackageReference Include="Nito.AsyncEx" Version="$(AsyncEx-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+        <PackageReference Include="Nito.AsyncEx" Version="$(AsyncEx-RefVersion)" />
+        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+        <PackageReference Include="Nito.AsyncEx" Version="$(AsyncEx-RefVersion)" />
+        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+        <PackageReference Include="Nito.AsyncEx" Version="$(AsyncEx-RefVersion)" />
+        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+        <PackageReference Include="Nito.AsyncEx" Version="$(AsyncEx-RefVersion-nfx452)" />
+    </ItemGroup>
+
+</Project>

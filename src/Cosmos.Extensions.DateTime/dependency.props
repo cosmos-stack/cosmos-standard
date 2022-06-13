@@ -1,0 +1,36 @@
+﻿<Project>
+
+    <PropertyGroup>
+        <NodaTime-RefVersion>3.1.0</NodaTime-RefVersion>
+        <NodaTime-RefVersion-nfx452>2.4.8</NodaTime-RefVersion-nfx452>
+    </PropertyGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+        <PackageReference Include="NodaTime" Version="$(NodaTime-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+        <PackageReference Include="NodaTime" Version="$(NodaTime-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+        <PackageReference Include="NodaTime" Version="$(NodaTime-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+        <PackageReference Include="NodaTime" Version="$(NodaTime-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+        <PackageReference Include="NodaTime" Version="$(NodaTime-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+        <PackageReference Include="NodaTime" Version="$(NodaTime-RefVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+        <PackageReference Include="NodaTime" Version="$(NodaTime-RefVersion-nfx452)" />
+    </ItemGroup>
+
+</Project>

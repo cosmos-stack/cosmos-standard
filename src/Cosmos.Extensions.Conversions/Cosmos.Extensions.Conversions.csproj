@@ -13,13 +13,8 @@
 
     <Import Project="..\..\common.props" />
 
-    <ItemGroup>
-        <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
-    </ItemGroup>
+    <Import Project="dependency.props" />
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions.Optionals\Cosmos.Extensions.Optionals.csproj" />
-        <ProjectReference Include="..\Cosmos.Extensions.Enums\Cosmos.Extensions.Enums.csproj" />
-    </ItemGroup>
+    <Import Project="references.props" />
 
 </Project>

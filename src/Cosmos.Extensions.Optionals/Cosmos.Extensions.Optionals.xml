@@ -20093,9 +20093,6 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`1.AsT0">
             <inheritdoc />
         </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`1.TypeOfT0">
-            <inheritdoc />
-        </member>
         <member name="T:Cosmos.UnionTypes.UnionOf`2">
             <summary>
             Union Of <br />
@@ -20120,12 +20117,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`2.AsT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`2.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`2.TypeOfT1">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`2.TryPickT0(`0@,`1@)">
@@ -23429,36 +23420,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`10.AsT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT9">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`10.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9}@)">

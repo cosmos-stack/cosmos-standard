@@ -13,12 +13,8 @@
 
     <Import Project="..\..\common.props" />
 
-    <ItemGroup>
-        <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
-    </ItemGroup>
+    <Import Project="dependency.props" />
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Core\Cosmos.Core.csproj" />
-    </ItemGroup>
+    <Import Project="references.props" />
 
 </Project>

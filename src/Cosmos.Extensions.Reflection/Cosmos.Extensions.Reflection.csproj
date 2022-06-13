@@ -17,14 +17,8 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="NMS.DynamicDictionary " Version="2.4.2" />
-    </ItemGroup>
+    <Import Project="dependency.props" />
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cosmos.Extensions.Conversions\Cosmos.Extensions.Conversions.csproj" />
-        <ProjectReference Include="..\Cosmos.Extensions.Disposables\Cosmos.Extensions.Disposables.csproj" />
-        <ProjectReference Include="..\Cosmos.Extensions.Guard\Cosmos.Extensions.Guard.csproj" />
-    </ItemGroup>
+    <Import Project="references.props" />
 
 </Project>

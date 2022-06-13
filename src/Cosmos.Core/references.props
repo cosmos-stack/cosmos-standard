@@ -1,0 +1,7 @@
+﻿<Project>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Abstractions\Cosmos.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
