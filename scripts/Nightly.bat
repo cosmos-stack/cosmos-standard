@@ -49,8 +49,9 @@ echo.
 
 ::push nuget packages to server
 for /R "nuget_packages" %%s in (*.nupkg) do (
-    dotnet nuget push "%%s" -s "Nightly" --skip-duplicate --no-symbols
-	echo.
+::    dotnet nuget push "%%s" -s "Nightly" --skip-duplicate --no-symbols
+    dotnet nuget push "%%s" -s "Nightly" --skip-duplicate
+    echo.
 )
 
 ::get back to build folder

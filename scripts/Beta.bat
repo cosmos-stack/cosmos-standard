@@ -48,9 +48,10 @@ echo.
 echo.
 
 ::push nuget packages to server
-for /R "nuget_packages" %%s in (*.nupkg) do ( 	
-    dotnet nuget push "%%s" -s "Beta"  --skip-duplicate --no-symbols
-	echo.
+for /R "nuget_packages" %%s in (*.nupkg) do (
+::    dotnet nuget push "%%s" -s "Beta"  --skip-duplicate --no-symbols
+    dotnet nuget push "%%s" -s "Beta"  --skip-duplicate
+    echo.
 )
 
 ::get back to build folder
