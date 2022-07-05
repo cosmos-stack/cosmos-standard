@@ -1,12 +1,19 @@
 <Project>
-	<PropertyGroup Label="Package">
-		<Product>Cosmos.Core.Standard</Product>
-		<Authors>AlexLEWIS;Cosmos.Core</Authors>
-		<RepositoryUrl>https://github.com/cosmos-stack/cosmos-standard</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageProjectUrl>https://github.com/cosmos-stack/cosmos-standard</PackageProjectUrl>
-		<PackageIcon>icon.png</PackageIcon>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageTags>Cosmos.Core;Standard;Common;Framework</PackageTags>
-	</PropertyGroup>
+
+    <PropertyGroup Label="Package">
+        <Product>Cosmos.Core.Standard</Product>
+        <Authors>AlexLEWIS;Cosmos.Core</Authors>
+        <RepositoryUrl>https://github.com/cosmos-stack/cosmos-standard</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://github.com/cosmos-stack/cosmos-standard</PackageProjectUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageTags>Cosmos.Core;Standard;Common;Framework</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
 </Project>
