@@ -107,7 +107,7 @@ internal class Base32 : BaseXCore
         unchecked
         {
             if (string.IsNullOrEmpty(data))
-                return Array.Empty<byte>();
+                return InternalArray.ForEmpty<byte>();
 
             int additionalBytes = 0, diff, tempLen;
 

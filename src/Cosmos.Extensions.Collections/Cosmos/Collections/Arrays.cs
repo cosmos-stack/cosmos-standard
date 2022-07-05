@@ -5,13 +5,6 @@
 /// </summary>
 public static partial class Arrays
 {
-#if NET452
-    private static class Cache<T>
-    {
-        public static readonly T[] Empty = new T[0];
-    }
-#endif
-
     /// <summary>
     /// Gets empty array <br />
     /// 获取空数组
@@ -19,14 +12,7 @@ public static partial class Arrays
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static T[] Empty<T>()
-    {
-#if NET452
-        return Cache<T>.Empty;
-#else
-        return Array.Empty<T>();
-#endif
-    }
+    public static T[] Empty<T>() => InternalArray.ForEmpty<T>();
 
     /// <summary>
     /// To safe array <br />

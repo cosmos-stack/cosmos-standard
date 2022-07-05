@@ -15,7 +15,7 @@ public static class FileHelper
     public static byte[] Read(string targetFilePath)
     {
         if (!File.Exists(targetFilePath))
-            return Array.Empty<byte>();
+            return InternalArray.ForEmpty<byte>();
 
         using var fs = new FileStream(targetFilePath, FileMode.Open, FileAccess.Read);
         var buffer = new byte[fs.Length];
@@ -32,7 +32,7 @@ public static class FileHelper
     public static async Task<byte[]> ReadAsync(string targetFilePath)
     {
         if (!File.Exists(targetFilePath))
-            return Array.Empty<byte>();
+            return InternalArray.ForEmpty<byte>();
 
 #if NETSTANDARD2_1 || NETCOREAPP3_0_OR_GREATER
         await using var fs = new FileStream(targetFilePath, FileMode.Open, FileAccess.Read);

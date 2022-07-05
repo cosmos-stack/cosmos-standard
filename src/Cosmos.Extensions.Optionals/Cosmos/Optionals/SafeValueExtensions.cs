@@ -281,7 +281,7 @@ namespace Cosmos.Optionals
         /// <param name="query"></param>
         /// <returns></returns>
         public static IQueryable SafeQueryableValue(this IQueryable query) =>
-            CollectionHelper.IsNullOrEmpty(query) ? Array.Empty<object>().AsQueryable() : query!;
+            CollectionHelper.IsNullOrEmpty(query) ? InternalArray.ForEmpty<object>().AsQueryable() : query!;
 
         /// <summary>
         /// Return a safe <see cref="IQueryable{T}"/> value.<br />
@@ -290,7 +290,7 @@ namespace Cosmos.Optionals
         /// <param name="enumerable"></param>
         /// <returns></returns>
         public static IQueryable SafeQueryableValue(this IEnumerable enumerable) =>
-            enumerable?.AsQueryable().SafeQueryableValue() ?? Array.Empty<object>().AsQueryable();
+            enumerable?.AsQueryable().SafeQueryableValue() ?? InternalArray.ForEmpty<object>().AsQueryable();
 
         #endregion
 
