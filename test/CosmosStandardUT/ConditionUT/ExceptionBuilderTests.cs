@@ -4,15 +4,18 @@ using Cosmos.Exceptions;
 namespace CosmosStandardUT.ConditionUT
 {
     [Trait("ConditionUT", "ExceptionBuilder")]
-    public class ExceptionBuilderTests: Prepare
+    public class ExceptionBuilderTests
+#if !NETFRAMEWORK
+        : Prepare
+#endif
     {
         [Fact(DisplayName = "Raise exception with message test")]
         public void RaiseExceptionWithMessageTest()
         {
             Assert.Throws<ArgumentException>(() => ExceptionBuilder.Raise<ArgumentException>(false));
             Assert.Throws<ArgumentException>(() => ExceptionBuilder.Raise<ArgumentException>(false));
-            Assert.Throws<ArgumentNullException>(() => ExceptionBuilder.Raise<ArgumentException>(false,string.Empty));
-            Assert.Throws<ArgumentNullException>(() => ExceptionBuilder.Raise<ArgumentException>(false, (string) null));
+            Assert.Throws<ArgumentNullException>(() => ExceptionBuilder.Raise<ArgumentException>(false, string.Empty));
+            Assert.Throws<ArgumentNullException>(() => ExceptionBuilder.Raise<ArgumentException>(false, (string)null));
             Assert.Throws<ArgumentException>(() => ExceptionBuilder.Raise<ArgumentException>(false, "something is wrong"));
         }
 
@@ -35,7 +38,7 @@ namespace CosmosStandardUT.ConditionUT
                 Flag = "TEST_ERR"
             };
 
-            Assert.Throws<ArgumentNullException>(() => ExceptionBuilder.Raise<ValidationException>(false, (ExceptionOptions) null));
+            Assert.Throws<ArgumentNullException>(() => ExceptionBuilder.Raise<ValidationException>(false, (ExceptionOptions)null));
             Assert.Throws<ValidationException>(() => ExceptionBuilder.Raise<ValidationException>(false, options));
         }
 
@@ -44,8 +47,8 @@ namespace CosmosStandardUT.ConditionUT
         public void CommonCreateExceptionTest()
         {
             var ex0 = ExceptionBuilder.Create(typeof(ArgumentNullException))
-                                     .ParamName("nice")
-                                     .Build();
+                                      .ParamName("nice")
+                                      .Build();
 
             ex0.ShouldNotBeNull();
             (ex0 is ArgumentNullException).ShouldBeTrue();
@@ -57,7 +60,7 @@ namespace CosmosStandardUT.ConditionUT
             var ex0 = ExceptionBuilder.Create<ArgumentNullException>()
                                       .ParamName("nice")
                                       .Build();
-            
+
             ex0.ShouldNotBeNull();
         }
 

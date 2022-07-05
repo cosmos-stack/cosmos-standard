@@ -20093,6 +20093,9 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`1.AsT0">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`1.TypeOfT0">
+            <inheritdoc />
+        </member>
         <member name="T:Cosmos.UnionTypes.UnionOf`2">
             <summary>
             Union Of <br />
@@ -20117,6 +20120,12 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`2.AsT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`2.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`2.TypeOfT1">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`2.TryPickT0(`0@,`1@)">
@@ -20226,6 +20235,39 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`11.AsT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT10">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`11.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10}@)">
@@ -20432,6 +20474,42 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`12.AsT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT11">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`12.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11}@)">
@@ -20655,6 +20733,45 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`13.AsT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT12">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`13.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12}@)">
@@ -20895,6 +21012,48 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`14.AsT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT13">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`14.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13}@)">
@@ -21152,6 +21311,51 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`15.AsT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT14">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`15.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14}@)">
@@ -21426,6 +21630,54 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`16.AsT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT15">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`16.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15}@)">
@@ -21717,6 +21969,57 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`17.AsT16">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT16">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`17.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15,`16}@)">
@@ -22025,6 +22328,60 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`18.AsT17">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT16">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT17">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`18.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15,`16,`17}@)">
@@ -22352,6 +22709,63 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`19.AsT18">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT16">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT17">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT18">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`19.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15,`16,`17,`18}@)">
             <summary>
             Try to get the value of the first type <br />
@@ -22575,6 +22989,15 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`3.AsT2">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`3.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`3.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`3.TypeOfT2">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`3.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2}@)">
             <summary>
             Try to get the value of the first type <br />
@@ -22643,6 +23066,18 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`4.AsT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT3">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`4.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3}@)">
@@ -22730,6 +23165,21 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`5.AsT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT4">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`5.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4}@)">
@@ -22834,6 +23284,24 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`6.AsT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT5">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`6.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5}@)">
@@ -22955,6 +23423,27 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`7.AsT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT6">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`7.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6}@)">
@@ -23093,6 +23582,30 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`8.AsT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT7">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`8.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7}@)">
@@ -23248,6 +23761,33 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`9.AsT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT8">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`9.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8}@)">
@@ -23422,6 +23962,36 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`10.AsT9">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT9">
+            <inheritdoc />
+        </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`10.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9}@)">
             <summary>
             Try to get the value of the first type <br />
@@ -23534,6 +24104,9 @@
         <member name="M:Cosmos.UnionTypes.UnionType`1.AsT0">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`1.TypeOfT0">
+            <inheritdoc />
+        </member>
         <member name="P:Cosmos.UnionTypes.UnionType`2.Value">
             <inheritdoc />
         </member>
@@ -23550,6 +24123,12 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`2.AsT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`2.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`2.TypeOfT1">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`11.Value">
@@ -23622,6 +24201,39 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`11.AsT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT10">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`12.Value">
@@ -23700,6 +24312,42 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`12.AsT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT11">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`13.Value">
@@ -23784,6 +24432,45 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`13.AsT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT12">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`14.Value">
@@ -23874,6 +24561,48 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`14.AsT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT13">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`15.Value">
@@ -23970,6 +24699,51 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`15.AsT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT14">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`16.Value">
@@ -24072,6 +24846,54 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`16.AsT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT15">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`17.Value">
@@ -24180,6 +25002,57 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`17.AsT16">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT16">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`18.Value">
@@ -24294,6 +25167,60 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`18.AsT17">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT16">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT17">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`19.Index">
@@ -24413,6 +25340,63 @@
         <member name="M:Cosmos.UnionTypes.UnionType`19.AsT18">
             <inheritdoc />
         </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT10">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT11">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT12">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT13">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT14">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT15">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT16">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT17">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT18">
+            <inheritdoc />
+        </member>
         <member name="P:Cosmos.UnionTypes.UnionType`3.Value">
             <inheritdoc />
         </member>
@@ -24435,6 +25419,15 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`3.AsT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`3.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`3.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`3.TypeOfT2">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`4.Value">
@@ -24465,6 +25458,18 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`4.AsT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT3">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`5.Value">
@@ -24501,6 +25506,21 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`5.AsT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT4">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`6.Value">
@@ -24543,6 +25563,24 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`6.AsT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT5">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`7.Value">
@@ -24591,6 +25629,27 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`7.AsT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT6">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`8.Value">
@@ -24645,6 +25704,30 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`8.AsT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT7">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`9.Value">
@@ -24705,6 +25788,33 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`9.AsT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT8">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`10.Value">
@@ -24771,6 +25881,36 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`10.AsT9">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT0">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT1">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT2">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT3">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT4">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT5">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT6">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT7">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT8">
+            <inheritdoc />
+        </member>
+        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT9">
             <inheritdoc />
         </member>
     </members>

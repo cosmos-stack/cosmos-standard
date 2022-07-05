@@ -1418,13 +1418,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateInfo.ToDateOnly">
-            <summary>
-            Convert to <see cref="T:System.DateOnly"/><br />
-            转换为 <see cref="T:System.DateOnly"/>
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateInfo.ToLocalDate">
             <summary>
             Convert to <see cref="T:NodaTime.LocalDate"/>. <br />
@@ -1491,20 +1484,6 @@
             </summary>
             <param name="dt"></param>
         </member>
-        <member name="M:Cosmos.Date.DateInfo.op_Implicit(Cosmos.Date.DateInfo)~System.DateOnly">
-            <summary>
-            Convert <see cref="T:System.DateOnly"/> to <see cref="T:Cosmos.Date.DateInfo"/><br />
-            将 <see cref="T:System.DateOnly"/> 转换为 <see cref="T:Cosmos.Date.DateInfo"/>。
-            </summary>
-            <param name="di"></param>
-        </member>
-        <member name="M:Cosmos.Date.DateInfo.op_Implicit(System.DateOnly)~Cosmos.Date.DateInfo">
-            <summary>
-            Convert <see cref="T:Cosmos.Date.DateInfo"/> to <see cref="T:System.DateOnly"/><br />
-            将 <see cref="T:Cosmos.Date.DateInfo"/> 转换为 <see cref="T:System.DateOnly"/>。
-            </summary>
-            <param name="dt"></param>
-        </member>
         <member name="M:Cosmos.Date.DateInfo.op_Addition(Cosmos.Date.DateInfo,System.TimeSpan)">
             <summary>
             +
@@ -1537,14 +1516,6 @@
             <param name="dt"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateInfo.op_GreaterThan(Cosmos.Date.DateInfo,System.DateOnly)">
-            <summary>
-            &gt;
-            </summary>
-            <param name="d"></param>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateInfo.op_LessThan(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
             <summary>
             &lt;
@@ -1554,14 +1525,6 @@
             <returns></returns>
         </member>
         <member name="M:Cosmos.Date.DateInfo.op_LessThan(Cosmos.Date.DateInfo,System.DateTime)">
-            <summary>
-            &lt;
-            </summary>
-            <param name="d"></param>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateInfo.op_LessThan(Cosmos.Date.DateInfo,System.DateOnly)">
             <summary>
             &lt;
             </summary>
@@ -1585,14 +1548,6 @@
             <param name="dt"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateInfo.op_GreaterThanOrEqual(Cosmos.Date.DateInfo,System.DateOnly)">
-            <summary>
-            &gt;=
-            </summary>
-            <param name="d"></param>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateInfo.op_LessThanOrEqual(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
             <summary>
             &lt;=
@@ -1602,14 +1557,6 @@
             <returns></returns>
         </member>
         <member name="M:Cosmos.Date.DateInfo.op_LessThanOrEqual(Cosmos.Date.DateInfo,System.DateTime)">
-            <summary>
-            &lt;=
-            </summary>
-            <param name="d"></param>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateInfo.op_LessThanOrEqual(Cosmos.Date.DateInfo,System.DateOnly)">
             <summary>
             &lt;=
             </summary>
@@ -1633,14 +1580,6 @@
             <param name="dt"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateInfo.op_Equality(Cosmos.Date.DateInfo,System.DateOnly)">
-            <summary>
-            ==
-            </summary>
-            <param name="d"></param>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateInfo.op_Inequality(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo)">
             <summary>
             !=
@@ -1650,14 +1589,6 @@
             <returns></returns>
         </member>
         <member name="M:Cosmos.Date.DateInfo.op_Inequality(Cosmos.Date.DateInfo,System.DateTime)">
-            <summary>
-            !=
-            </summary>
-            <param name="d"></param>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateInfo.op_Inequality(Cosmos.Date.DateInfo,System.DateOnly)">
             <summary>
             !=
             </summary>
@@ -1698,14 +1629,6 @@
             从一个 <see cref="T:System.DateTime"/> 对象中创建一个 <see cref="T:Cosmos.Date.DateInfo"/> 实例
             </summary>
             <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateInfo.FromDateOnly(System.DateOnly)">
-            <summary>
-            Create a new instance of <see cref="T:Cosmos.Date.DateInfo"/> from a <see cref="T:System.DateOnly"/> object. <br />
-            从一个 <see cref="T:System.DateOnly"/> 对象中创建一个 <see cref="T:Cosmos.Date.DateInfo"/> 实例
-            </summary>
-            <param name="date"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Date.DateInfo.TryParse(System.String,Cosmos.Date.DateInfo@)">
@@ -2552,276 +2475,6 @@
             <param name="dt"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.AddWeeks(System.DateOnly,System.Int32)">
-            <summary>
-            Add weeks. <br />
-            添加一个星期。
-            </summary>
-            <param name="dt"></param>
-            <param name="weeks"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.AddQuarters(System.DateOnly,System.Int32)">
-            <summary>
-            Add quarters. <br />
-            添加一个季度。
-            </summary>
-            <param name="dt"></param>
-            <param name="quarters"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.AddDuration(System.DateOnly,NodaTime.Duration)">
-            <summary>
-            Add duration. <br />
-            添加一段持续的时间
-            </summary>
-            <param name="dt"></param>
-            <param name="duration"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.AddBusinessDays(System.DateOnly,System.Int32)">
-            <summary>
-            Add business days. <br />
-            添加指定个数量的工作日
-            </summary>
-            <param name="dt"></param>
-            <param name="days"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.ToCalculateAge(System.DateOnly)">
-            <summary>
-            Calculate the current age based on the given birthday time. <br />
-            根据给定的生日时间计算当前的年纪。
-            </summary>
-            <param name="birthday"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.ToCalculateAge(System.DateOnly,System.DateOnly)">
-            <summary>
-            Calculate the age relative to another time based on a given birthday time. <br />
-            根据生日和参照时间，计算当时年纪
-            </summary>
-            <param name="birthday">     </param>
-            <param name="referenceDate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.ToAgo(System.DateOnly)">
-            <summary>
-            Format time interval <br />
-            格式化时间间隔
-            </summary>
-            <param name="date">對比的時間</param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.GetMonthDiff(System.DateOnly,System.DateOnly)">
-            <summary>
-            Calculate the number of months between two dates.<br />
-            计算两个时间之间相差的月份数。
-            </summary>
-            <param name="dt1"></param>
-            <param name="dt2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.GetTotalMonthDiff(System.DateOnly,System.DateOnly)">
-            <summary>
-            Calculate the exact number of months between two dates.<br />
-            计算两个日期之间相差的确切月份数。
-            </summary>
-            <param name="dt1"></param>
-            <param name="dt2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.ElapsedTime(System.DateOnly)">
-            <summary>
-            Elapsed Time<br />
-            计算此刻与指定时间之间的时间差
-            </summary>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.ElapsedMilliseconds(System.DateOnly)">
-            <summary>
-            Elapsed Time<br />
-            计算此刻与指定时间之间的时间差（毫秒）
-            </summary>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsBetween(System.DateOnly,System.DateOnly,System.DateOnly,System.Boolean)">
-            <summary>
-            Is current date between <paramref name="from"/> and <paramref to="to"/>.<br />
-            判断当前日期是否在 from 和 to 之间
-            </summary>
-            <param name="dt"></param>
-            <param name="from"></param>
-            <param name="to"></param>
-            <param name="includeBoundary"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsDateBetweenWithBoundary(System.DateOnly,System.DateOnly,System.DateOnly)">
-            <summary>
-            Is current date between <paramref name="min"/> and <paramref name="max"/> with boundary.<br />
-            判断当前日期是否在 min 和 max 之间，闭包区间。
-            </summary>
-            <param name="dt"></param>
-            <param name="min"></param>
-            <param name="max"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsDateBetweenWithBoundary(System.DateOnly,System.Nullable{System.DateOnly},System.Nullable{System.DateOnly})">
-            <summary>
-            Is current date between <paramref name="min"/> and <paramref name="max"/> with boundary.<br />
-            判断当前日期是否在 min 和 max 之间，闭包区间。
-            </summary>
-            <param name="dt"></param>
-            <param name="min"></param>
-            <param name="max"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsDateBetweenWithoutBoundary(System.DateOnly,System.DateOnly,System.DateOnly)">
-            <summary>
-            Is current date between <paramref name="min"/> and <paramref name="max"/> without boundary.<br />
-            判断当前日期是否在 min 和 max 之间，开区间。
-            </summary>
-            <param name="dt"></param>
-            <param name="min"></param>
-            <param name="max"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsToday(System.DateOnly)">
-            <summary>
-            Determine whether the given time is today. <br />
-            判断给定时间是否是今天。
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsToday(System.Nullable{System.DateOnly})">
-            <summary>
-            Determine whether the given time is today. <br />
-            判断给定时间是否是今天。
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsBefore(System.DateOnly,System.DateOnly)">
-            <summary>
-            Determine whether the specified time is in the past relative to the specified time. <br />
-            判断指定时间是否相对给定时间的过去。
-            </summary>
-            <param name="dt"></param>
-            <param name="toCompareWith"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsAfter(System.DateOnly,System.DateOnly)">
-            <summary>
-            Determine whether the specified time is in the future relative to the specified time. <br />
-            判断指定时间是否相对给定时间的未来。
-            </summary>
-            <param name="dt"></param>
-            <param name="toCompareWith"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsInTheFuture(System.DateOnly)">
-            <summary>
-            Determine whether the specified time is in the future relative to the specified time. <br />
-            判断指定时间是否相对给定时间的未来。
-            </summary>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsInThePast(System.DateOnly)">
-            <summary>
-            Determine whether the specified time is in the past relative to the specified time. <br />
-            判断指定时间是否相对给定时间的过去。
-            </summary>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsWeekday(System.DateOnly)">
-            <summary>
-            Is Weekday <br />
-            判断是否为工作日
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsWeekday(System.Nullable{System.DateOnly})">
-            <summary>
-            Is Weekday <br />
-            判断是否为工作日
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsWeekend(System.DateOnly)">
-            <summary>
-            Is Weekday <br />
-            判断是否为周末
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsWeekend(System.Nullable{System.DateOnly})">
-            <summary>
-            Is Weekday <br />
-            判断是否为周末
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsSameDay(System.DateOnly,System.DateOnly,Cosmos.Date.DateDiffStrictOptions)">
-            <summary>
-            Is same day
-            </summary>
-            <param name="dt"></param>
-            <param name="date"></param>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsSameMonth(System.DateOnly,System.DateOnly,Cosmos.Date.DateDiffStrictOptions)">
-            <summary>
-            Is same month
-            </summary>
-            <param name="dt"></param>
-            <param name="date"></param>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsSameYear(System.DateOnly,System.DateOnly)">
-            <summary>
-            Is same year
-            </summary>
-            <param name="dt"></param>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.IsDateEqual(System.DateOnly,System.DateOnly)">
-            <summary>
-            Is date equal...
-            </summary>
-            <param name="dt"></param>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.ToDateInfo(System.DateOnly)">
-            <summary>
-            Convert <see cref="T:System.DateOnly"/> to <see cref="T:Cosmos.Date.DateInfo"/>.<br />
-            将 <see cref="T:System.DateOnly"/> 转换为 <see cref="T:Cosmos.Date.DateInfo"/>。
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateOnlyExtensions.ToDateTime(System.DateOnly)">
-            <summary>
-            Convert <see cref="T:System.DateOnly"/> to <see cref="T:System.DateTime"/>.<br />
-            将 <see cref="T:System.DateOnly"/> 转换为 <see cref="T:System.DateTime"/>。
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Date.DateTimeExtensions">
             <summary>
             DateTime Extensions <br />
@@ -3175,14 +2828,6 @@
             <summary>
             Convert <see cref="T:System.DateTime"/> to <see cref="T:Cosmos.Date.DateInfo"/>.<br />
             将 <see cref="T:System.DateTime"/> 转换为 <see cref="T:Cosmos.Date.DateInfo"/>。
-            </summary>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToDateOnly(System.DateTime)">
-            <summary>
-            Convert <see cref="T:System.DateTime"/> to <see cref="T:System.DateOnly"/>.<br />
-            将 <see cref="T:System.DateTime"/> 转换为 <see cref="T:System.DateOnly"/>。
             </summary>
             <param name="date"></param>
             <returns></returns>
@@ -6265,13 +5910,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.InfiniteFutureInfo.ToDateOnly">
-            <summary>
-            Convert <see cref="T:Cosmos.Date.InfiniteFutureInfo"/> to <see cref="T:System.DateOnly"/><br />
-            将 <see cref="T:Cosmos.Date.InfiniteFutureInfo"/> 转换为 <see cref="T:System.DateOnly"/>。
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Date.InfinitePastInfo">
             <summary>
             Infinite Past Info<br />
@@ -6306,13 +5944,6 @@
             <summary>
             Convert <see cref="T:Cosmos.Date.InfinitePastInfo"/> to <see cref="T:System.DateTime"/><br />
             将 <see cref="T:Cosmos.Date.InfinitePastInfo"/> 转换为 <see cref="T:System.DateTime"/>。
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.InfinitePastInfo.ToDateOnly">
-            <summary>
-            Convert <see cref="T:Cosmos.Date.InfinitePastInfo"/> to <see cref="T:System.DateOnly"/><br />
-            将 <see cref="T:Cosmos.Date.InfinitePastInfo"/> 转换为 <see cref="T:System.DateOnly"/>。
             </summary>
             <returns></returns>
         </member>

@@ -4,12 +4,13 @@
         <Aspect-RefVersion>2.3.0-preview-168916583</Aspect-RefVersion>
         <Aspect-RefVersion-nfx452>2.0.0</Aspect-RefVersion-nfx452>
         <Humanizer-RefVersion>2.14.1</Humanizer-RefVersion>
+        <Immutable-RefVersion>6.0.0</Immutable-RefVersion>
+        <Immutable-RefVersion-nfx452>5.0.0</Immutable-RefVersion-nfx452>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
         <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
-        <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
         <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
     </ItemGroup>
 
@@ -21,37 +22,44 @@
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="$(Aspect-RefVersion)" />
+        <PackageReference Include="System.Collections.Immutable" Version="$(Immutable-RefVersion)" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="$(Aspect-RefVersion)" />
+        <PackageReference Include="System.Collections.Immutable" Version="$(Immutable-RefVersion)" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="$(Aspect-RefVersion)" />
+        <PackageReference Include="System.Collections.Immutable" Version="$(Immutable-RefVersion)" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="$(Aspect-RefVersion)" />
+        <PackageReference Include="System.Collections.Immutable" Version="$(Immutable-RefVersion)" />
         <PackageReference Include="System.Memory" Version="4.5.4" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="$(Aspect-RefVersion)" />
+        <PackageReference Include="System.Collections.Immutable" Version="$(Immutable-RefVersion)" />
         <PackageReference Include="System.Memory" Version="4.5.4" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="$(Aspect-RefVersion)" />
+        <PackageReference Include="System.Collections.Immutable" Version="$(Immutable-RefVersion)" />
         <PackageReference Include="System.Memory" Version="4.5.4" />
         <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
         <PackageReference Include="AspectCore.Extensions.Reflection" Version="$(Aspect-RefVersion-nfx452)" />
+        <PackageReference Include="System.Collections.Immutable" Version="$(Immutable-RefVersion-nfx452)" />
         <PackageReference Include="System.Memory" Version="4.5.4" />
-        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
         <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     </ItemGroup>
 
 </Project>

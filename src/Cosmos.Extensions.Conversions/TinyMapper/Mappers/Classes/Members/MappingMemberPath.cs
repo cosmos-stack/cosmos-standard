@@ -8,13 +8,17 @@ namespace TinyMapper.Mappers.Classes.Members;
 internal sealed class MappingMemberPath
 {
     public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target)
+#if NETFRAMEWORK
+        : this(source, target, new TypePairInfo(source[source.Count - 1].GetMemberType(), target[target.Count - 1].GetMemberType())) { }
+#else
         : this(source, target, new TypePairInfo(source[^1].GetMemberType(), target[^1].GetMemberType())) { }
+#endif
 
     public MappingMemberPath(MemberInfo source, MemberInfo target)
-        : this(new List<MemberInfo> {source}, new List<MemberInfo> {target}, new TypePairInfo(source.GetMemberType(), target.GetMemberType())) { }
+        : this(new List<MemberInfo> { source }, new List<MemberInfo> { target }, new TypePairInfo(source.GetMemberType(), target.GetMemberType())) { }
 
     public MappingMemberPath(MemberInfo source, MemberInfo target, TypePairInfo typePair)
-        : this(new List<MemberInfo> {source}, new List<MemberInfo> {target}, typePair) { }
+        : this(new List<MemberInfo> { source }, new List<MemberInfo> { target }, typePair) { }
 
     public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target, TypePairInfo typePair)
     {
