@@ -7,7 +7,10 @@ namespace Cosmos.Disposables;
 /// 异步非阻塞单一可释放对象
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public abstract class AsynchronousSingleNonblockingDisposableObject<T> : IDisposable, IAsyncDisposable
+public abstract class AsynchronousSingleNonblockingDisposableObject<T> : IDisposable
+#if !NET452
+  , IAsyncDisposable
+#endif
 {
     private readonly AsynchronousDisposableActionField<T> _context;
 

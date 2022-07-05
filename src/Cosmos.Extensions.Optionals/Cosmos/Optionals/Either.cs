@@ -31,6 +31,10 @@ public readonly struct Either<T, TException> : IOptionalImpl<T, TException, Eith
     /// <inheritdoc />
     public bool HasValue => _hasValue;
 
+#if NETFRAMEWORK
+    public bool HasNoValue => !HasValue;
+#endif
+
     /// <inheritdoc />
     public T Value => _value;
 

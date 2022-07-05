@@ -1,7 +1,5 @@
 ﻿using Cosmos.Reflection;
 using CosmosStandardUT.Models;
-using Shouldly;
-using Xunit;
 
 #if !NETFRAMEWORK
 using System.Collections.Generic;
@@ -10,7 +8,10 @@ using System.Collections.Generic;
 namespace CosmosStandardUT.TypeUT
 {
     [Trait("TypeUT", "TypeVisit.CreateInstance")]
-    public class CreateInterfaceTests : Prepare
+    public class CreateInterfaceTests
+#if !NETFRAMEWORK
+        : Prepare
+#endif
     {
         [Fact(DisplayName = "Direct type create instance without any params test")]
         public void DirectTypeCreateInstanceWithoutParamsTest()

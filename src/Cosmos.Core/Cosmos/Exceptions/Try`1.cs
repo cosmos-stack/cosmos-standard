@@ -648,6 +648,12 @@ public abstract class Try<T>
         if (exception is null)
             throw new ArgumentNullException(nameof(exception));
 #endif
+#if NET451 || NET452
+        var tcs = new TaskCompletionSource<TResult>();
+        tcs.TrySetException(exception);
+        return tcs.Task;
+#else
         return Task.FromException<TResult>(exception);
+#endif
     }
 }

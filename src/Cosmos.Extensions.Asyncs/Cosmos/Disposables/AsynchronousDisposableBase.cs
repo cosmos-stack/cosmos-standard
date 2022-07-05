@@ -5,7 +5,10 @@ namespace Cosmos.Disposables;
 /// Only implementing OnDisposeAsync is enough to properly handle disposal. <br />
 /// 用于正确实现 IAsyncDisposable 但也允许同步使用 IDispose 的基类。 仅实现 OnDisposeAsync 就足以正确处理处置。
 /// </summary>
-public abstract class AsynchronousDisposableBase : DisposableStateBase, IAsyncDisposable
+public abstract class AsynchronousDisposableBase : DisposableStateBase
+#if !NET452
+  , IAsyncDisposable
+#endif
 {
     /// <summary>
     /// Without overriding OnDispose, OnDisposeAsync will be called no matter what depending on how the object is disposed.<br />

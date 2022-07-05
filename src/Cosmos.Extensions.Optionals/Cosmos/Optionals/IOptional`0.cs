@@ -18,9 +18,17 @@ public interface IOptional
     /// </summary>
     bool HasValue { get; }
 
+#if NETFRAMEWORK
+    /// <summary>
+    /// Has no value <br />
+    /// 标志是否不存在值
+    /// </summary>
+    bool HasNoValue { get; }
+#else
     /// <summary>
     /// Has no value <br />
     /// 标志是否不存在值
     /// </summary>
     public bool HasNoValue => !HasValue;
+#endif
 }

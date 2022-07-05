@@ -1,4 +1,5 @@
-﻿namespace CosmosStandardUT
+﻿#if !NETFRAMEWORK
+namespace CosmosStandardUT
 {
     public abstract class Prepare
     {
@@ -8,3 +9,4 @@
         }
     }
 }
+#endif
