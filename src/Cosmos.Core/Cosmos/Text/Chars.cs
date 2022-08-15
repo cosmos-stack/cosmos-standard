@@ -107,7 +107,7 @@ public static class Chars
         var first = reverseRequired ? toCharacter : @char;
         var last = reverseRequired ? @char : toCharacter;
 
-        var result = Enumerable.Range(first, last - first + 1).Select(charCode => (char) charCode);
+        var result = Enumerable.Range(first, last - first + 1).Select(charCode => (char)charCode);
 
         if (reverseRequired)
         {
@@ -153,10 +153,7 @@ public static class CharsExtensions
     /// <param name="values"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool BeContainedIn(this char @char, params char[] values)
-    {
-        return Chars.BeContainedIn(@char, values);
-    }
+    public static bool BeContainedIn(this char @char, params char[] values) => Chars.BeContainedIn(@char, values);
 
     /// <summary>
     /// Determine whether the character is included in the given character set. <br />
@@ -167,10 +164,7 @@ public static class CharsExtensions
     /// <param name="values"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool BeContainedIn(this char @char, char[] values, IgnoreCase @case)
-    {
-        return Chars.BeContainedIn(@char, values, @case);
-    }
+    public static bool BeContainedIn(this char @char, char[] values, IgnoreCase @case) => Chars.BeContainedIn(@char, values, @case);
 
     /// <summary>
     /// Determine whether the character is not included in the given character set. <br />
@@ -180,10 +174,7 @@ public static class CharsExtensions
     /// <param name="values"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool BeNotContainedIn(this char @char, params char[] values)
-    {
-        return Chars.BeNotContainedIn(@char, values);
-    }
+    public static bool BeNotContainedIn(this char @char, params char[] values) => Chars.BeNotContainedIn(@char, values);
 
     /// <summary>
     /// Determine whether the character is not included in the given character set. <br />
@@ -194,10 +185,7 @@ public static class CharsExtensions
     /// <param name="values"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool BeNotContainedIn(this char @char, char[] values, IgnoreCase @case)
-    {
-        return Chars.BeNotContainedIn(@char, values, @case);
-    }
+    public static bool BeNotContainedIn(this char @char, char[] values, IgnoreCase @case) => Chars.BeNotContainedIn(@char, values, @case);
 
     #endregion
 
@@ -212,10 +200,7 @@ public static class CharsExtensions
     /// <param name="max"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsBetween(this char @char, char min, char max)
-    {
-        return Chars.IsBetween(@char, min, max);
-    }
+    public static bool IsBetween(this char @char, char min, char max) => Chars.IsBetween(@char, min, max);
 
     #endregion
 
@@ -229,10 +214,7 @@ public static class CharsExtensions
     /// <param name="repeatTimes"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string Repeat(this char @char, int repeatTimes)
-    {
-        return Chars.Repeat(@char, repeatTimes);
-    }
+    public static string Repeat(this char @char, int repeatTimes) => Chars.Repeat(@char, repeatTimes);
 
     #endregion
 }
@@ -252,10 +234,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static char ToLower(this char @char)
-    {
-        return char.ToLower(@char);
-    }
+    public static char ToLower(this char @char) => char.ToLower(@char);
 
     /// <summary>
     /// To Lower <br />
@@ -265,10 +244,7 @@ public static class CharsShortcutExtensions
     /// <param name="culture"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static char ToLower(this char @char, CultureInfo culture)
-    {
-        return char.ToLower(@char, culture);
-    }
+    public static char ToLower(this char @char, CultureInfo culture) => char.ToLower(@char, culture);
 
     /// <summary>
     /// To Lower invariant <br />
@@ -277,10 +253,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static char ToLowerInvariant(this char @char)
-    {
-        return char.ToLowerInvariant(@char);
-    }
+    public static char ToLowerInvariant(this char @char) => char.ToLowerInvariant(@char);
 
     /// <summary>
     /// Is Upper <br />
@@ -289,10 +262,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsUpper(this char @char)
-    {
-        return char.IsUpper(@char);
-    }
+    public static bool IsUpper(this char @char) => char.IsUpper(@char);
 
     /// <summary>
     /// To Upper <br />
@@ -302,10 +272,7 @@ public static class CharsShortcutExtensions
     /// <param name="culture"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static char ToUpper(this char @char, CultureInfo culture)
-    {
-        return char.ToUpper(@char, culture);
-    }
+    public static char ToUpper(this char @char, CultureInfo culture) => char.ToUpper(@char, culture);
 
     /// <summary>
     /// To Upper invariant <br />
@@ -314,10 +281,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static char ToUpperInvariant(this char @char)
-    {
-        return char.ToUpperInvariant(@char);
-    }
+    public static char ToUpperInvariant(this char @char) => char.ToUpperInvariant(@char);
 
     #endregion
 
@@ -332,12 +296,10 @@ public static class CharsShortcutExtensions
     /// <param name="case"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool Equals(this char @char, char toCheck, IgnoreCase @case)
-    {
-        return @case.X()
+    public static bool Equals(this char @char, char toCheck, IgnoreCase @case) =>
+        @case.X()
             ? EqualsIgnoreCase(@char, toCheck)
             : @char == toCheck;
-    }
 
     /// <summary>
     /// Equals <br />
@@ -365,10 +327,7 @@ public static class CharsShortcutExtensions
     /// <param name="toCheck"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool EqualsIgnoreCase(this char @char, char toCheck)
-    {
-        return char.ToUpper(@char) == char.ToUpper(toCheck);
-    }
+    public static bool EqualsIgnoreCase(this char @char, char toCheck) => char.ToUpper(@char) == char.ToUpper(toCheck);
 
     /// <summary>
     /// Equals ignore case <br />
@@ -378,10 +337,7 @@ public static class CharsShortcutExtensions
     /// <param name="toCheck"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool EqualsIgnoreCase(this char? @char, char toCheck)
-    {
-        return @char is not null && EqualsIgnoreCase(@char.Value, toCheck);
-    }
+    public static bool EqualsIgnoreCase(this char? @char, char toCheck) => @char is not null && EqualsIgnoreCase(@char.Value, toCheck);
 
     #endregion
 
@@ -394,10 +350,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsWhiteSpace(this char @char)
-    {
-        return char.IsWhiteSpace(@char);
-    }
+    public static bool IsWhiteSpace(this char @char) => char.IsWhiteSpace(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a control character. <br />
@@ -406,10 +359,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsControl(this char @char)
-    {
-        return char.IsControl(@char);
-    }
+    public static bool IsControl(this char @char) => char.IsControl(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a decimal digit. <br />
@@ -418,10 +368,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsDigit(this char @char)
-    {
-        return char.IsDigit(@char);
-    }
+    public static bool IsDigit(this char @char) => char.IsDigit(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a Unicode letter. <br />
@@ -430,10 +377,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsLetter(this char @char)
-    {
-        return char.IsLetter(@char);
-    }
+    public static bool IsLetter(this char @char) => char.IsLetter(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a letter or a decimal digit. <br />
@@ -442,10 +386,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsLetterOrDigit(this char @char)
-    {
-        return char.IsLetterOrDigit(@char);
-    }
+    public static bool IsLetterOrDigit(this char @char) => char.IsLetterOrDigit(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a lowercase letter. <br />
@@ -454,10 +395,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsLower(this char @char)
-    {
-        return char.IsLower(@char);
-    }
+    public static bool IsLower(this char @char) => char.IsLower(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a number. <br />
@@ -466,10 +404,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsNumber(this char @char)
-    {
-        return char.IsNumber(@char);
-    }
+    public static bool IsNumber(this char @char) => char.IsNumber(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a punctuation mark. <br />
@@ -478,10 +413,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsPunctuation(this char @char)
-    {
-        return char.IsPunctuation(@char);
-    }
+    public static bool IsPunctuation(this char @char) => char.IsPunctuation(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a separator character. <br />
@@ -490,10 +422,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsSeparator(this char @char)
-    {
-        return char.IsSeparator(@char);
-    }
+    public static bool IsSeparator(this char @char) => char.IsSeparator(@char);
 
     /// <summary>
     /// Indicates whether the specified Unicode character is categorized as a symbol character. <br />
@@ -502,10 +431,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsSymbol(this char @char)
-    {
-        return char.IsSymbol(@char);
-    }
+    public static bool IsSymbol(this char @char) => char.IsSymbol(@char);
 
     #endregion
 
@@ -518,10 +444,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsSurrogate(this char @char)
-    {
-        return char.IsSurrogate(@char);
-    }
+    public static bool IsSurrogate(this char @char) => char.IsSurrogate(@char);
 
     /// <summary>
     /// Indicates whether the two specified Char objects form a surrogate pair. <br />
@@ -531,10 +454,7 @@ public static class CharsShortcutExtensions
     /// <param name="lowSurrogate"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsSurrogatePair(this char highSurrogate, char lowSurrogate)
-    {
-        return char.IsSurrogatePair(highSurrogate, lowSurrogate);
-    }
+    public static bool IsSurrogatePair(this char highSurrogate, char lowSurrogate) => char.IsSurrogatePair(highSurrogate, lowSurrogate);
 
     /// <summary>
     /// Indicates whether the specified Char object is a high surrogate. <br />
@@ -543,10 +463,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsHighSurrogate(this char @char)
-    {
-        return char.IsHighSurrogate(@char);
-    }
+    public static bool IsHighSurrogate(this char @char) => char.IsHighSurrogate(@char);
 
     /// <summary>
     /// Indicates whether the specified Char object is a low surrogate. <br />
@@ -555,10 +472,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsLowSurrogate(this char @char)
-    {
-        return char.IsLowSurrogate(@char);
-    }
+    public static bool IsLowSurrogate(this char @char) => char.IsLowSurrogate(@char);
 
     #endregion
 
@@ -571,10 +485,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static double GetNumericValue(this char @char)
-    {
-        return char.GetNumericValue(@char);
-    }
+    public static double GetNumericValue(this char @char) => char.GetNumericValue(@char);
 
     #endregion
 
@@ -587,10 +498,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string ToString(this char @char)
-    {
-        return char.ToString(@char);
-    }
+    public static string ToString(this char @char) => char.ToString(@char);
 
     #endregion
 
@@ -604,10 +512,7 @@ public static class CharsShortcutExtensions
     /// <param name="lowSurrogate"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static int ConvertToUtf32(this char highSurrogate, char lowSurrogate)
-    {
-        return char.ConvertToUtf32(highSurrogate, lowSurrogate);
-    }
+    public static int ConvertToUtf32(this char highSurrogate, char lowSurrogate) => char.ConvertToUtf32(highSurrogate, lowSurrogate);
 
     #endregion
 
@@ -620,10 +525,7 @@ public static class CharsShortcutExtensions
     /// <param name="char"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static UnicodeCategory GetUnicodeCategory(this char @char)
-    {
-        return char.GetUnicodeCategory(@char);
-    }
+    public static UnicodeCategory GetUnicodeCategory(this char @char) => char.GetUnicodeCategory(@char);
 
     #endregion
 }

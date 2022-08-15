@@ -146,11 +146,11 @@ internal class Base32 : BaseXCore
                 x7 = InvAlphabet[data[srcInd++]];
                 x8 = InvAlphabet[data[srcInd++]];
 
-                result[i] = (byte) ((x1 << 3) | ((x2 >> 2) & 0x07));
-                result[i + 1] = (byte) ((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
-                result[i + 2] = (byte) ((x4 << 4) | ((x5 >> 1) & 0xF));
-                result[i + 3] = (byte) ((x5 << 7) | ((x6 << 2) & 0x7C) | ((x7 >> 3) & 0x03));
-                result[i + 4] = (byte) ((x7 << 5) | (x8 & 0x1F));
+                result[i] = (byte)((x1 << 3) | ((x2 >> 2) & 0x07));
+                result[i + 1] = (byte)((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
+                result[i + 2] = (byte)((x4 << 4) | ((x5 >> 1) & 0xF));
+                result[i + 3] = (byte)((x5 << 7) | ((x6 << 2) & 0x7C) | ((x7 >> 3) & 0x03));
+                result[i + 4] = (byte)((x7 << 5) | (x8 & 0x1F));
             }
 
             switch (tailLength)
@@ -158,7 +158,7 @@ internal class Base32 : BaseXCore
                 case 4:
                     x1 = InvAlphabet[data[srcInd++]];
                     x2 = InvAlphabet[data[srcInd++]];
-                    result[i] = (byte) ((x1 << 3) | ((x2 >> 2) & 0x07));
+                    result[i] = (byte)((x1 << 3) | ((x2 >> 2) & 0x07));
                     break;
                 case 3:
                     x1 = InvAlphabet[data[srcInd++]];
@@ -166,8 +166,8 @@ internal class Base32 : BaseXCore
                     x3 = InvAlphabet[data[srcInd++]];
                     x4 = InvAlphabet[data[srcInd++]];
 
-                    result[i] = (byte) ((x1 << 3) | ((x2 >> 2) & 0x07));
-                    result[i + 1] = (byte) ((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
+                    result[i] = (byte)((x1 << 3) | ((x2 >> 2) & 0x07));
+                    result[i + 1] = (byte)((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
                     break;
                 case 2:
                     x1 = InvAlphabet[data[srcInd++]];
@@ -176,9 +176,9 @@ internal class Base32 : BaseXCore
                     x4 = InvAlphabet[data[srcInd++]];
                     x5 = InvAlphabet[data[srcInd++]];
 
-                    result[i] = (byte) ((x1 << 3) | ((x2 >> 2) & 0x07));
-                    result[i + 1] = (byte) ((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
-                    result[i + 2] = (byte) ((x4 << 4) | ((x5 >> 1) & 0xF));
+                    result[i] = (byte)((x1 << 3) | ((x2 >> 2) & 0x07));
+                    result[i + 1] = (byte)((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
+                    result[i + 2] = (byte)((x4 << 4) | ((x5 >> 1) & 0xF));
                     break;
                 case 1:
                     x1 = InvAlphabet[data[srcInd++]];
@@ -189,10 +189,10 @@ internal class Base32 : BaseXCore
                     x6 = InvAlphabet[data[srcInd++]];
                     x7 = InvAlphabet[data[srcInd++]];
 
-                    result[i] = (byte) ((x1 << 3) | ((x2 >> 2) & 0x07));
-                    result[i + 1] = (byte) ((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
-                    result[i + 2] = (byte) ((x4 << 4) | ((x5 >> 1) & 0xF));
-                    result[i + 3] = (byte) ((x5 << 7) | ((x6 << 2) & 0x7C) | ((x7 >> 3) & 0x03));
+                    result[i] = (byte)((x1 << 3) | ((x2 >> 2) & 0x07));
+                    result[i + 1] = (byte)((x2 << 6) | ((x3 << 1) & 0x3E) | ((x4 >> 4) & 0x01));
+                    result[i + 2] = (byte)((x4 << 4) | ((x5 >> 1) & 0xF));
+                    result[i + 3] = (byte)((x5 << 7) | ((x6 << 2) & 0x7C) | ((x7 >> 3) & 0x03));
                     break;
             }
 

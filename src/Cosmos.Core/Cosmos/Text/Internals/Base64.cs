@@ -115,7 +115,7 @@ internal class Base64 : BaseXCore
                     dstInd = ind * 3;
                     x1 = InvAlphabet[data[srcInd]];
                     x2 = InvAlphabet[data[srcInd + 1]];
-                    result[dstInd] = (byte) ((x1 << 2) | ((x2 >> 4) & 0x3));
+                    result[dstInd] = (byte)((x1 << 2) | ((x2 >> 4) & 0x3));
                     break;
                 case 1:
                     ind = length4;
@@ -124,8 +124,8 @@ internal class Base64 : BaseXCore
                     x1 = InvAlphabet[data[srcInd]];
                     x2 = InvAlphabet[data[srcInd + 1]];
                     x3 = InvAlphabet[data[srcInd + 2]];
-                    result[dstInd] = (byte) ((x1 << 2) | ((x2 >> 4) & 0x3));
-                    result[dstInd + 1] = (byte) ((x2 << 4) | ((x3 >> 2) & 0xF));
+                    result[dstInd] = (byte)((x1 << 2) | ((x2 >> 4) & 0x3));
+                    result[dstInd + 1] = (byte)((x2 << 4) | ((x3 >> 2) & 0xF));
                     break;
             }
 
@@ -165,9 +165,9 @@ internal class Base64 : BaseXCore
                 var x3 = InvAlphabet[src[srcInd + 2]];
                 var x4 = InvAlphabet[src[srcInd + 3]];
 
-                dst[dstInd] = (byte) ((x1 << 2) | ((x2 >> 4) & 0x3));
-                dst[dstInd + 1] = (byte) ((x2 << 4) | ((x3 >> 2) & 0xF));
-                dst[dstInd + 2] = (byte) ((x3 << 6) | (x4 & 0x3F));
+                dst[dstInd] = (byte)((x1 << 2) | ((x2 >> 4) & 0x3));
+                dst[dstInd + 1] = (byte)((x2 << 4) | ((x3 >> 2) & 0xF));
+                dst[dstInd + 2] = (byte)((x3 << 6) | (x4 & 0x3F));
             }
         }
     }

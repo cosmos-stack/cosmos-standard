@@ -23,11 +23,11 @@ internal class BaseX : BaseXCore
 
     public BaseX(string alphabet, uint blockMaxBitsCount = 32,
         Encoding encoding = null, bool reverseOrder = false, bool parallel = false)
-        : base((uint) alphabet.Length, alphabet, '\0', encoding, parallel)
+        : base((uint)alphabet.Length, alphabet, '\0', encoding, parallel)
     {
         BlockMaxBitsCount = blockMaxBitsCount;
         BlockBitsCount = GetOptimalBitsCount(CharsCount, out var charsCountInBits, blockMaxBitsCount);
-        BlockCharsCount = (int) charsCountInBits;
+        BlockCharsCount = (int)charsCountInBits;
         _powN = new ulong[BlockCharsCount];
         ulong pow = 1;
         for (var i = 0; i < BlockCharsCount - 1; i++)
@@ -157,7 +157,7 @@ internal class BaseX : BaseXCore
         int xLength = Math.Min(bitsCount, 8 - currentBitInBytePos);
         if (xLength != 0)
         {
-            result = ((ulong) data[currentBytePos] << 56 + currentBitInBytePos) >> 64 - xLength << bitsCount - xLength;
+            result = ((ulong)data[currentBytePos] << 56 + currentBitInBytePos) >> 64 - xLength << bitsCount - xLength;
 
             currentBytePos += Math.DivRem(currentBitInBytePos + xLength, 8, out currentBitInBytePos);
 
@@ -168,7 +168,7 @@ internal class BaseX : BaseXCore
             while (x2Length > 0)
             {
                 xLength += x2Length;
-                result |= (ulong) data[currentBytePos] >> 8 - x2Length << bitsCount - xLength;
+                result |= (ulong)data[currentBytePos] >> 8 - x2Length << bitsCount - xLength;
 
                 currentBytePos += Math.DivRem(currentBitInBytePos + x2Length, 8, out currentBitInBytePos);
 
@@ -190,7 +190,7 @@ internal class BaseX : BaseXCore
             int xLength = Math.Min(bitsCount, 8 - currentBitInBytePos);
             if (xLength != 0)
             {
-                byte x1 = (byte) (value << 64 - bitsCount >> 56 + currentBitInBytePos);
+                byte x1 = (byte)(value << 64 - bitsCount >> 56 + currentBitInBytePos);
                 data[currentBytePos] |= x1;
 
                 currentBytePos += Math.DivRem(currentBitInBytePos + xLength, 8, out currentBitInBytePos);
@@ -202,7 +202,7 @@ internal class BaseX : BaseXCore
                 while (x2Length > 0)
                 {
                     xLength += x2Length;
-                    byte x2 = (byte) (value >> bitsCount - xLength << 8 - x2Length);
+                    byte x2 = (byte)(value >> bitsCount - xLength << 8 - x2Length);
                     data[currentBytePos] |= x2;
 
                     currentBytePos += Math.DivRem(currentBitInBytePos + x2Length, 8, out currentBitInBytePos);
@@ -223,7 +223,7 @@ internal class BaseX : BaseXCore
             ulong quotient = result / CharsCount;
             ulong remainder = result - quotient * CharsCount;
             result = quotient;
-            chars[ind + (!ReverseOrder ? i : count - 1 - i)] = Alphabet[(int) remainder];
+            chars[ind + (!ReverseOrder ? i : count - 1 - i)] = Alphabet[(int)remainder];
         }
     }
 
@@ -231,7 +231,7 @@ internal class BaseX : BaseXCore
     {
         ulong result = 0;
         for (int i = 0; i < count; i++)
-            result += (ulong) InvAlphabet[data[ind + (!ReverseOrder ? i : count - 1 - i)]] * _powN[BlockCharsCount - 1 - i];
+            result += (ulong)InvAlphabet[data[ind + (!ReverseOrder ? i : count - 1 - i)]] * _powN[BlockCharsCount - 1 - i];
         return result;
     }
 }
