@@ -24,19 +24,19 @@ public readonly struct Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, 
     IEquatable<Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>>,
     IComparable<Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>>
 {
-    private readonly Maybe<T1> _o1;
-    private readonly Maybe<T2> _o2;
-    private readonly Maybe<T3> _o3;
-    private readonly Maybe<T4> _o4;
-    private readonly Maybe<T5> _o5;
-    private readonly Maybe<T6> _o6;
-    private readonly Maybe<T7> _o7;
-    private readonly Maybe<T8> _o8;
-    private readonly Maybe<T9> _o9;
-    private readonly Maybe<T10> _o10;
-    private readonly Maybe<T11> _o11;
-    private readonly Maybe<T12> _o12;
-    private readonly Maybe<T13> _o13;
+    internal readonly Maybe<T1> _o1;
+    internal readonly Maybe<T2> _o2;
+    internal readonly Maybe<T3> _o3;
+    internal readonly Maybe<T4> _o4;
+    internal readonly Maybe<T5> _o5;
+    internal readonly Maybe<T6> _o6;
+    internal readonly Maybe<T7> _o7;
+    internal readonly Maybe<T8> _o8;
+    internal readonly Maybe<T9> _o9;
+    internal readonly Maybe<T10> _o10;
+    internal readonly Maybe<T11> _o11;
+    internal readonly Maybe<T12> _o12;
+    internal readonly Maybe<T13> _o13;
     private readonly bool _hasValue;
     private readonly IReadOnlyDictionary<string, int> _optionalIndexCache;
 
@@ -844,46 +844,6 @@ public readonly struct Maybe<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, 
     /// </summary>
     /// <returns></returns>
     public None<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13)> ToWrappedNone() => new();
-
-    #endregion
-
-    #region ToUnionType
-
-    /// <summary>
-    /// To Union Type <br />
-    /// 转换为联合类型
-    /// </summary>
-    /// <returns></returns>
-    public UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> ToUnionType()
-    {
-        if (_o1.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o1.ValueOr(default(T1)));
-        if (_o2.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o2.ValueOr(default(T2)));
-        if (_o3.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o3.ValueOr(default(T3)));
-        if (_o4.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o4.ValueOr(default(T4)));
-        if (_o5.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o5.ValueOr(default(T5)));
-        if (_o6.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o6.ValueOr(default(T6)));
-        if (_o7.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o7.ValueOr(default(T7)));
-        if (_o8.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o8.ValueOr(default(T8)));
-        if (_o9.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o9.ValueOr(default(T9)));
-        if (_o10.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o10.ValueOr(default(T10)));
-        if (_o11.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o11.ValueOr(default(T11)));
-        if (_o12.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o12.ValueOr(default(T12)));
-        if (_o13.HasValue)
-            return UnionType.Of<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_o13.ValueOr(default(T13)));
-        return UnionType<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>.FromNull();
-    }
 
     #endregion
 

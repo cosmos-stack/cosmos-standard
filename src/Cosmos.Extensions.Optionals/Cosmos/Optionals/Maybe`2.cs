@@ -13,8 +13,8 @@ public readonly struct Maybe<T1, T2> : IOptionalImpl<(T1, T2), Maybe<T1, T2>>,
     IEquatable<Maybe<T1, T2>>,
     IComparable<Maybe<T1, T2>>
 {
-    private readonly Maybe<T1> _o1;
-    private readonly Maybe<T2> _o2;
+    internal readonly Maybe<T1> _o1;
+    internal readonly Maybe<T2> _o2;
     private readonly bool _hasValue;
     private readonly IReadOnlyDictionary<string, int> _optionalIndexCache;
 
@@ -525,24 +525,6 @@ public readonly struct Maybe<T1, T2> : IOptionalImpl<(T1, T2), Maybe<T1, T2>>,
     /// </summary>
     /// <returns></returns>
     public None<(T1, T2)> ToWrappedNone() => new();
-
-    #endregion
-
-    #region ToUnionType
-
-    /// <summary>
-    /// To Union Type <br />
-    /// 转换为联合类型
-    /// </summary>
-    /// <returns></returns>
-    public UnionType<T1, T2> ToUnionType()
-    {
-        if (_o1.HasValue)
-            return UnionType.Of<T1, T2>(_o1.ValueOr(default(T1)));
-        if (_o2.HasValue)
-            return UnionType.Of<T1, T2>(_o2.ValueOr(default(T2)));
-        return UnionType<T1, T2>.FromNull();
-    }
 
     #endregion
 

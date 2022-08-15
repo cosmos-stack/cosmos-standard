@@ -565,22 +565,6 @@ public readonly struct Maybe<T> : IOptionalImpl<T, Maybe<T>>,
 
     #endregion
 
-    #region ToUnionType
-
-    /// <summary>
-    /// To Union Type <br />
-    /// 转换为联合类型
-    /// </summary>
-    /// <returns></returns>
-    public UnionType<T> ToUnionType()
-    {
-        if (HasValue)
-            return UnionType.Of(ValueOr(default(T)));
-        return UnionType<T>.FromNull();
-    }
-
-    #endregion
-
     #region Join
 
     /// <summary>

@@ -7193,13 +7193,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.Maybe`1.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Optionals.Maybe`1.Join``1(``0)">
             <summary>
             Join <br />
@@ -7606,13 +7599,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`10.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -8023,13 +8009,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`11.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -8455,13 +8434,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`12.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -8902,13 +8874,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`13.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -9364,13 +9329,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`14.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -9841,13 +9799,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`15.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -10333,13 +10284,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`16.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -10840,13 +10784,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`17.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -11362,13 +11299,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`18.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -11902,13 +11832,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Optionals.Maybe`19.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
-            </summary>
-            <returns></returns>
-        </member>
         <member name="P:Cosmos.Optionals.Maybe`19.Nothing">
             <summary>
             Nothing <br />
@@ -12153,13 +12076,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`2.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -12450,13 +12366,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`3.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -12762,13 +12671,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`4.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -13089,13 +12991,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`5.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -13431,13 +13326,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`6.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -13788,13 +13676,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`7.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -14160,13 +14041,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`8.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -14547,13 +14421,6 @@
             <summary>
             To wrapped optional none <br />
             封装为 MayBe 组件 None
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.Maybe`9.ToUnionType">
-            <summary>
-            To Union Type <br />
-            转换为联合类型
             </summary>
             <returns></returns>
         </member>
@@ -17080,588 +16947,24 @@
             <summary>
             Extensions for optional
             </summary>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.AsOptionals``1(``0)">
             <summary>
-            Maybe
+            Extensions for optional
             </summary>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.AsOptionals``2(``0)">
             <summary>
-            Maybe
+            Extensions for optional
             </summary>
-            <param name="value"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``1(``0,Cosmos.Optionals.OptionalType)">
             <summary>
-            To some
+            Extensions for optional
             </summary>
-            <param name="value"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``1(``0,System.Func{``0,System.Boolean},Cosmos.Optionals.OptionalType)">
             <summary>
-            To some
+            Extensions for optional
             </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,Cosmos.Optionals.OptionalType)">
             <summary>
-            To some
+            Extensions for optional
             </summary>
-            <param name="value"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,System.Func{``0,System.Boolean},``1,Cosmos.Optionals.OptionalType)">
             <summary>
-            To some
+            Extensions for optional
             </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="exception"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,System.Func{``0,System.Boolean},System.Func{``1},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To some
-            </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="exceptionFactory"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,System.Func{``0,System.Boolean},System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To some
-            </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="exceptionFactory"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``1(``0,Cosmos.Optionals.OptionalType)">
-            <summary>
-            To some not null
-            </summary>
-            <param name="value"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``2(``0,``1,Cosmos.Optionals.OptionalType)">
-            <summary>
-            To some not null
-            </summary>
-            <param name="value"></param>
-            <param name="exception"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``2(``0,System.Func{``1},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To some not null
-            </summary>
-            <param name="value"></param>
-            <param name="exceptionFactory"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``2(``0,System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To some not null
-            </summary>
-            <param name="value"></param>
-            <param name="exceptionFactory"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``1(``0,Cosmos.Optionals.OptionalType)">
-            <summary>
-            To none
-            </summary>
-            <param name="value"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,``1,Cosmos.Optionals.OptionalType)">
-            <summary>
-            To none
-            </summary>
-            <param name="value"></param>
-            <param name="exception"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``1(``0,System.Func{``0,System.Boolean},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To none
-            </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,System.Func{``0,System.Boolean},``1,Cosmos.Optionals.OptionalType)">
-            <summary>
-            To none
-            </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="exception"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,System.Func{``0,System.Boolean},System.Func{``1},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To none
-            </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="exceptionFactory"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,System.Func{``0,System.Boolean},System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To none
-            </summary>
-            <param name="value"></param>
-            <param name="predicate"></param>
-            <param name="exceptionFactory"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToOptional``1(System.Nullable{``0},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To optional
-            </summary>
-            <param name="value"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToOptional``2(System.Nullable{``0},``1,Cosmos.Optionals.OptionalType)">
-            <summary>
-            To optional
-            </summary>
-            <param name="value"></param>
-            <param name="exception"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToOptional``2(System.Nullable{``0},System.Func{``1},Cosmos.Optionals.OptionalType)">
-            <summary>
-            To optional
-            </summary>
-            <param name="value"></param>
-            <param name="exceptionFactory"></param>
-            <param name="type"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrException``2(Cosmos.Optionals.Optional{``0,``0,``1})">
-            <summary>
-            Value or exception
-            </summary>
-            <param name="optional"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TImpl"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrThrow``2(Cosmos.Optionals.IOptional{``0},``1)">
-            <summary>
-            Value or throw
-            </summary>
-            <param name="optional"></param>
-            <param name="exception"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrThrow``2(Cosmos.Optionals.IOptional{``0,``1})">
-            <summary>
-            Value or throw
-            </summary>
-            <param name="optional"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Flatten``2(Cosmos.Optionals.IOptionalImpl{Cosmos.Optionals.Maybe{``0},``1})">
-            <summary>
-            Flatten
-            </summary>
-            <param name="optional"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TImpl"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Flatten``3(Cosmos.Optionals.IOptionalImpl{Cosmos.Optionals.Either{``0,``1},``1,``2})">
-            <summary>
-            Flatten
-            </summary>
-            <param name="optional"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <typeparam name="TImpl"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.IsOptionalType(System.Type)">
-            <summary>
-            Is optional type
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToNullable``1(Cosmos.Optionals.Maybe{``0})">
-            <summary>
-            Convert <see cref="T:Cosmos.Optionals.Maybe`1"/> to nullable version of <typeparamref name="T"/><br />
-            将指定的 <see cref="T:Cosmos.Optionals.Maybe`1"/> 转换为可空版本。
-            </summary>
-            <param name="option"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrDefault``1(Cosmos.Optionals.Maybe{``0})">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then returns the default value.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则返回默认值。
-            </summary>
-            <param name="option"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0})">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/>.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则抛出一个 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
-            </summary>
-            <param name="option"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToNullable``2(Cosmos.Optionals.Either{``0,``1})">
-            <summary>
-            Convert <see cref="T:Cosmos.Optionals.Either`2"/> to nullable version of <typeparamref name="T"/><br />
-            将指定的 <see cref="T:Cosmos.Optionals.Either`2"/> 转换为可空版本。
-            </summary>
-            <param name="option"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrDefault``2(Cosmos.Optionals.Either{``0,``1})">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then returns the default value.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则返回默认值。
-            </summary>
-            <param name="option"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1})">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/>.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则抛出一个 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
-            </summary>
-            <param name="option"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0},System.String)">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
-            </summary>
-            <param name="option"></param>
-            <param name="errorMessage"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0},System.Func{System.String})">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
-            </summary>
-            <param name="option"></param>
-            <param name="errorMessageFactory"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1},System.String)">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
-            </summary>
-            <param name="option"></param>
-            <param name="errorMessage"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1},System.Func{``1,System.String})">
-            <summary>
-            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
-            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
-            </summary>
-            <param name="option"></param>
-            <param name="errorMessageFactory"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.NoneIfEmpty(System.String)">
-            <summary>
-            None if empty
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.NoneIfWhitespace(System.String)">
-            <summary>
-            None if whitespace
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.TryParse``1(System.String,System.Boolean)">
-            <summary>
-            Try parse
-            </summary>
-            <param name="value"></param>
-            <param name="ignoreCase"></param>
-            <typeparam name="TEnum"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,``1})">
-            <summary>
-            Select
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,Cosmos.Optionals.Maybe{``1}})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(Cosmos.Optionals.Maybe{``0},System.Func{``0,Cosmos.Optionals.Maybe{``1}},System.Func{``0,``1,``2})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="collectionSelector"></param>
-            <param name="resultSelector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TCollection"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Where``1(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Boolean})">
-            <summary>
-            Where
-            </summary>
-            <param name="source"></param>
-            <param name="predicate"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,``2})">
-            <summary>
-            Select
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,Cosmos.Optionals.Either{``2,``1}})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``4(Cosmos.Optionals.Either{``0,``1},System.Func{``0,Cosmos.Optionals.Either{``2,``1}},System.Func{``0,``2,``3})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="collectionSelector"></param>
-            <param name="resultSelector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <typeparam name="TCollection"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,``1})">
-            <summary>
-            Select
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}},System.Func{``0,``1,``2})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="collectionSelector"></param>
-            <param name="resultSelector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TCollection"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Where``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Boolean})">
-            <summary>
-            Where
-            </summary>
-            <param name="source"></param>
-            <param name="predicate"></param>
-            <typeparam name="TSource"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,``2})">
-            <summary>
-            Select
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="selector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``4(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}},System.Func{``0,``2,``3})">
-            <summary>
-            Select many
-            </summary>
-            <param name="source"></param>
-            <param name="collectionSelector"></param>
-            <param name="resultSelector"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <typeparam name="TCollection"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Optionals.OptionalsExtensions.MapValues``1(System.Collections.Generic.IEnumerable{Cosmos.Optionals.Maybe{``0}})">
             <summary>
@@ -17776,255 +17079,6 @@
             </summary>
             <param name="source"></param>
             <param name="index"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.MapAsync``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
-            <summary>
-            May async
-            </summary>
-            <param name="option"></param>
-            <param name="mapping"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.MapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,``1},System.Boolean)">
-            <summary>
-            Map async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="mapping"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.MapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{``1}},System.Boolean)">
-            <summary>
-            Map async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="mapping"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}})">
-            <summary>
-            Flat map async
-            </summary>
-            <param name="option"></param>
-            <param name="mapping"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,Cosmos.Optionals.Maybe{``1}},System.Boolean)">
-            <summary>
-            Flat map async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="mapping"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}},System.Boolean)">
-            <summary>
-            Flat map async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="mapping"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``3(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``1,``2}}})">
-            <summary>
-            Flat map async
-            </summary>
-            <param name="option"></param>
-            <param name="mapping"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,Cosmos.Optionals.Either{``1,``2}},System.Boolean)">
-            <summary>
-            Flat map async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="mapping"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``1,``2}}},System.Boolean)">
-            <summary>
-            Flat map async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="mapping"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TResult"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FilterAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}})">
-            <summary>
-            Filter async
-            </summary>
-            <param name="option"></param>
-            <param name="predicate"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FilterAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Boolean},System.Boolean)">
-            <summary>
-            Filter async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="predicate"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FilterAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},System.Boolean)">
-            <summary>
-            Filter async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="predicate"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.NotNullAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}})">
-            <summary>
-            Not null async
-            </summary>
-            <param name="optionTask"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.OrAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{System.Threading.Tasks.Task{``0}})">
-            <summary>
-            Or async
-            </summary>
-            <param name="option"></param>
-            <param name="alternativeFactory"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.OrAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0},System.Boolean)">
-            <summary>
-            Or async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="alternativeFactory"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.OrAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{System.Threading.Tasks.Task{``0}},System.Boolean)">
-            <summary>
-            Or async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="alternativeFactory"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ElseAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}}})">
-            <summary>
-            Else async
-            </summary>
-            <param name="option"></param>
-            <param name="alternativeOptionFactory"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ElseAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{Cosmos.Optionals.Maybe{``0}},System.Boolean)">
-            <summary>
-            Else async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="alternativeOptionFactory"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.ElseAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}}},System.Boolean)">
-            <summary>
-            Else async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="alternativeOptionFactory"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.WithExceptionAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},``1)">
-            <summary>
-            With exception async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="exception"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.WithExceptionAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``1},System.Boolean)">
-            <summary>
-            With exception async
-            </summary>
-            <param name="optionTask"></param>
-            <param name="exceptionFactory"></param>
-            <param name="executeOnCapturedContext"></param>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TException"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlattenAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{Cosmos.Optionals.Maybe{``0}}})">
-            <summary>
-            Flatten async
-            </summary>
-            <param name="optionTask"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
@@ -18410,6 +17464,970 @@
             <typeparam name="TException"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.MapAsync``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            May async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.MapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            Map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.MapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{``1}},System.Boolean)">
+            <summary>
+            Map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}})">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,Cosmos.Optionals.Maybe{``1}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``3(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``1,``2}}})">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="option"></param>
+            <param name="mapping"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,Cosmos.Optionals.Either{``1,``2}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlatMapAsync``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``1,``2}}},System.Boolean)">
+            <summary>
+            Flat map async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="mapping"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FilterAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Filter async
+            </summary>
+            <param name="option"></param>
+            <param name="predicate"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FilterAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Boolean},System.Boolean)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FilterAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},System.Boolean)">
+            <summary>
+            Filter async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="predicate"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.NotNullAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}})">
+            <summary>
+            Not null async
+            </summary>
+            <param name="optionTask"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.OrAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Or async
+            </summary>
+            <param name="option"></param>
+            <param name="alternativeFactory"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.OrAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0},System.Boolean)">
+            <summary>
+            Or async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.OrAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{System.Threading.Tasks.Task{``0}},System.Boolean)">
+            <summary>
+            Or async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ElseAsync``1(Cosmos.Optionals.Maybe{``0},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}}})">
+            <summary>
+            Else async
+            </summary>
+            <param name="option"></param>
+            <param name="alternativeOptionFactory"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ElseAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{Cosmos.Optionals.Maybe{``0}},System.Boolean)">
+            <summary>
+            Else async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeOptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ElseAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}}},System.Boolean)">
+            <summary>
+            Else async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="alternativeOptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.WithExceptionAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},``1)">
+            <summary>
+            With exception async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.WithExceptionAsync``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``1},System.Boolean)">
+            <summary>
+            With exception async
+            </summary>
+            <param name="optionTask"></param>
+            <param name="exceptionFactory"></param>
+            <param name="executeOnCapturedContext"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.FlattenAsync``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{Cosmos.Optionals.Maybe{``0}}})">
+            <summary>
+            Flatten async
+            </summary>
+            <param name="optionTask"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.AsOptionals``1(``0)">
+            <summary>
+            Maybe
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.AsOptionals``2(``0)">
+            <summary>
+            Maybe
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``1(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``1(``0,System.Func{``0,System.Boolean},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,System.Func{``0,System.Boolean},``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,System.Func{``0,System.Boolean},System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Some``2(``0,System.Func{``0,System.Boolean},System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``1(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``2(``0,``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``2(``0,System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SomeNotNull``2(``0,System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To some not null
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``1(``0,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``1(``0,System.Func{``0,System.Boolean},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,System.Func{``0,System.Boolean},``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,System.Func{``0,System.Boolean},System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.None``2(``0,System.Func{``0,System.Boolean},System.Func{``0,``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To none
+            </summary>
+            <param name="value"></param>
+            <param name="predicate"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrException``2(Cosmos.Optionals.Optional{``0,``0,``1})">
+            <summary>
+            Value or exception
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrThrow``2(Cosmos.Optionals.IOptional{``0},``1)">
+            <summary>
+            Value or throw
+            </summary>
+            <param name="optional"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrThrow``2(Cosmos.Optionals.IOptional{``0,``1})">
+            <summary>
+            Value or throw
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Flatten``2(Cosmos.Optionals.IOptionalImpl{Cosmos.Optionals.Maybe{``0},``1})">
+            <summary>
+            Flatten
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Flatten``3(Cosmos.Optionals.IOptionalImpl{Cosmos.Optionals.Either{``0,``1},``1,``2})">
+            <summary>
+            Flatten
+            </summary>
+            <param name="optional"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TImpl"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.IsOptionalType(System.Type)">
+            <summary>
+            Is optional type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToNullable``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Convert <see cref="T:Cosmos.Optionals.Maybe`1"/> to nullable version of <typeparamref name="T"/><br />
+            将指定的 <see cref="T:Cosmos.Optionals.Maybe`1"/> 转换为可空版本。
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrDefault``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then returns the default value.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则返回默认值。
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/>.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则抛出一个 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToNullable``2(Cosmos.Optionals.Either{``0,``1})">
+            <summary>
+            Convert <see cref="T:Cosmos.Optionals.Either`2"/> to nullable version of <typeparamref name="T"/><br />
+            将指定的 <see cref="T:Cosmos.Optionals.Either`2"/> 转换为可空版本。
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrDefault``2(Cosmos.Optionals.Either{``0,``1})">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then returns the default value.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则返回默认值。
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1})">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/>.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则抛出一个 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
+            </summary>
+            <param name="option"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0},System.String)">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessage"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``1(Cosmos.Optionals.Maybe{``0},System.Func{System.String})">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Maybe`1"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Maybe`1"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessageFactory"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1},System.String)">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessage"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ValueOrFailure``2(Cosmos.Optionals.Either{``0,``1},System.Func{``1,System.String})">
+            <summary>
+            Return the value of the given <see cref="T:Cosmos.Optionals.Either`2"/>, if null then raise an <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> with the given error message.<br />
+            返回给定 <see cref="T:Cosmos.Optionals.Either`2"/> 的值，如果不存在该值则抛出一个使用给定异常信息的 <see cref="T:Cosmos.Optionals.OptionalValueMissingException"/> 异常。
+            </summary>
+            <param name="option"></param>
+            <param name="errorMessageFactory"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:Cosmos.Optionals.OptionalValueMissingException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.NoneIfEmpty(System.String)">
+            <summary>
+            None if empty
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.NoneIfWhitespace(System.String)">
+            <summary>
+            None if whitespace
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.TryParse``1(System.String,System.Boolean)">
+            <summary>
+            Try parse
+            </summary>
+            <param name="value"></param>
+            <param name="ignoreCase"></param>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,``1})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``2(Cosmos.Optionals.Maybe{``0},System.Func{``0,Cosmos.Optionals.Maybe{``1}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(Cosmos.Optionals.Maybe{``0},System.Func{``0,Cosmos.Optionals.Maybe{``1}},System.Func{``0,``1,``2})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Where``1(Cosmos.Optionals.Maybe{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Where
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,``2})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(Cosmos.Optionals.Either{``0,``1},System.Func{``0,Cosmos.Optionals.Either{``2,``1}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``4(Cosmos.Optionals.Either{``0,``1},System.Func{``0,Cosmos.Optionals.Either{``2,``1}},System.Func{``0,``2,``3})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,``1})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``2(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``1}}},System.Func{``0,``1,``2})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Where``1(System.Threading.Tasks.Task{Cosmos.Optionals.Maybe{``0}},System.Func{``0,System.Boolean})">
+            <summary>
+            Where
+            </summary>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <typeparam name="TSource"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.Select``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,``2})">
+            <summary>
+            Select
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``3(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.SelectMany``4(System.Threading.Tasks.Task{Cosmos.Optionals.Either{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{Cosmos.Optionals.Either{``2,``1}}},System.Func{``0,``2,``3})">
+            <summary>
+            Select many
+            </summary>
+            <param name="source"></param>
+            <param name="collectionSelector"></param>
+            <param name="resultSelector"></param>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <typeparam name="TCollection"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToOptional``1(System.Nullable{``0},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To optional
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToOptional``2(System.Nullable{``0},``1,Cosmos.Optionals.OptionalType)">
+            <summary>
+            To optional
+            </summary>
+            <param name="value"></param>
+            <param name="exception"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToOptional``2(System.Nullable{``0},System.Func{``1},Cosmos.Optionals.OptionalType)">
+            <summary>
+            To optional
+            </summary>
+            <param name="value"></param>
+            <param name="exceptionFactory"></param>
+            <param name="type"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TException"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``1(Cosmos.Optionals.Maybe{``0})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``2(Cosmos.Optionals.Maybe{``0,``1})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``3(Cosmos.Optionals.Maybe{``0,``1,``2})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``4(Cosmos.Optionals.Maybe{``0,``1,``2,``3})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``5(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``6(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``7(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``8(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``9(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``10(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``11(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``12(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``13(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``14(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``15(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``16(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``17(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``18(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16,``17})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Optionals.OptionalsExtensions.ToUnionType``19(Cosmos.Optionals.Maybe{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10,``11,``12,``13,``14,``15,``16,``17,``18})">
+            <summary>
+            To Union Type <br />
+            转换为联合类型
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Optionals.OptionalType">
             <summary>
@@ -20093,9 +20111,6 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`1.AsT0">
             <inheritdoc />
         </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`1.TypeOfT0">
-            <inheritdoc />
-        </member>
         <member name="T:Cosmos.UnionTypes.UnionOf`2">
             <summary>
             Union Of <br />
@@ -20120,12 +20135,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`2.AsT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`2.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`2.TypeOfT1">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`2.TryPickT0(`0@,`1@)">
@@ -20235,39 +20244,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`11.AsT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`11.TypeOfT10">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`11.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10}@)">
@@ -20474,42 +20450,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`12.AsT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`12.TypeOfT11">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`12.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11}@)">
@@ -20733,45 +20673,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`13.AsT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`13.TypeOfT12">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`13.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12}@)">
@@ -21012,48 +20913,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`14.AsT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`14.TypeOfT13">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`14.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13}@)">
@@ -21311,51 +21170,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`15.AsT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`15.TypeOfT14">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`15.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14}@)">
@@ -21630,54 +21444,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`16.AsT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`16.TypeOfT15">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`16.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15}@)">
@@ -21969,57 +21735,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`17.AsT16">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`17.TypeOfT16">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`17.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15,`16}@)">
@@ -22328,60 +22043,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`18.AsT17">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT16">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`18.TypeOfT17">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`18.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15,`16,`17}@)">
@@ -22709,63 +22370,6 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`19.AsT18">
             <inheritdoc />
         </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT16">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT17">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`19.TypeOfT18">
-            <inheritdoc />
-        </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`19.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15,`16,`17,`18}@)">
             <summary>
             Try to get the value of the first type <br />
@@ -22989,15 +22593,6 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`3.AsT2">
             <inheritdoc />
         </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`3.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`3.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`3.TypeOfT2">
-            <inheritdoc />
-        </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`3.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2}@)">
             <summary>
             Try to get the value of the first type <br />
@@ -23066,18 +22661,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`4.AsT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`4.TypeOfT3">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`4.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3}@)">
@@ -23165,21 +22748,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`5.AsT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`5.TypeOfT4">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`5.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4}@)">
@@ -23284,24 +22852,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`6.AsT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`6.TypeOfT5">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`6.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5}@)">
@@ -23423,27 +22973,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`7.AsT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`7.TypeOfT6">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`7.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6}@)">
@@ -23582,30 +23111,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`8.AsT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`8.TypeOfT7">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`8.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7}@)">
@@ -23761,33 +23266,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`9.AsT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`9.TypeOfT8">
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`9.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8}@)">
@@ -23962,36 +23440,6 @@
         <member name="M:Cosmos.UnionTypes.UnionOf`10.AsT9">
             <inheritdoc />
         </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionOf`10.TypeOfT9">
-            <inheritdoc />
-        </member>
         <member name="M:Cosmos.UnionTypes.UnionOf`10.TryPickT0(`0@,Cosmos.UnionTypes.UnionType{`1,`2,`3,`4,`5,`6,`7,`8,`9}@)">
             <summary>
             Try to get the value of the first type <br />
@@ -24104,9 +23552,6 @@
         <member name="M:Cosmos.UnionTypes.UnionType`1.AsT0">
             <inheritdoc />
         </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`1.TypeOfT0">
-            <inheritdoc />
-        </member>
         <member name="P:Cosmos.UnionTypes.UnionType`2.Value">
             <inheritdoc />
         </member>
@@ -24123,12 +23568,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`2.AsT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`2.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`2.TypeOfT1">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`11.Value">
@@ -24201,39 +23640,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`11.AsT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`11.TypeOfT10">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`12.Value">
@@ -24312,42 +23718,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`12.AsT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`12.TypeOfT11">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`13.Value">
@@ -24432,45 +23802,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`13.AsT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`13.TypeOfT12">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`14.Value">
@@ -24561,48 +23892,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`14.AsT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`14.TypeOfT13">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`15.Value">
@@ -24699,51 +23988,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`15.AsT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`15.TypeOfT14">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`16.Value">
@@ -24846,54 +24090,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`16.AsT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`16.TypeOfT15">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`17.Value">
@@ -25002,57 +24198,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`17.AsT16">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`17.TypeOfT16">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`18.Value">
@@ -25167,60 +24312,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`18.AsT17">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT16">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`18.TypeOfT17">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`19.Index">
@@ -25340,63 +24431,6 @@
         <member name="M:Cosmos.UnionTypes.UnionType`19.AsT18">
             <inheritdoc />
         </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT10">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT11">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT12">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT13">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT14">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT15">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT16">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT17">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`19.TypeOfT18">
-            <inheritdoc />
-        </member>
         <member name="P:Cosmos.UnionTypes.UnionType`3.Value">
             <inheritdoc />
         </member>
@@ -25419,15 +24453,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`3.AsT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`3.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`3.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`3.TypeOfT2">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`4.Value">
@@ -25458,18 +24483,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`4.AsT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`4.TypeOfT3">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`5.Value">
@@ -25506,21 +24519,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`5.AsT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`5.TypeOfT4">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`6.Value">
@@ -25563,24 +24561,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`6.AsT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`6.TypeOfT5">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`7.Value">
@@ -25629,27 +24609,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`7.AsT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`7.TypeOfT6">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`8.Value">
@@ -25704,30 +24663,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`8.AsT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`8.TypeOfT7">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`9.Value">
@@ -25788,33 +24723,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`9.AsT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`9.TypeOfT8">
             <inheritdoc />
         </member>
         <member name="P:Cosmos.UnionTypes.UnionType`10.Value">
@@ -25881,36 +24789,6 @@
             <inheritdoc />
         </member>
         <member name="M:Cosmos.UnionTypes.UnionType`10.AsT9">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT0">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT1">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT2">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT3">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT4">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT5">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT6">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT7">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT8">
-            <inheritdoc />
-        </member>
-        <member name="P:Cosmos.UnionTypes.UnionType`10.TypeOfT9">
             <inheritdoc />
         </member>
     </members>
