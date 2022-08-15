@@ -15,17 +15,17 @@ public static class ReadOnlyDictConv
     /// 转换为只读字典
     /// </summary>
     /// <param name="src"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IReadOnlyDictionary<TKey, TValue> ToDictionary<TKey, TValue>(
-        IEnumerable<KeyValuePair<TKey, TValue>> src)
+    public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
+        IEnumerable<KeyValuePair<K, V>> src)
     {
         if (src is null)
             throw new ArgumentNullException(nameof(src));
 
-        return new ReadOnlyDictionary<TKey, TValue>(src.ToDictionary(p => p.Key, p => p.Value, EqualityComparer<TKey>.Default));
+        return new ReadOnlyDictionary<K, V>(src.ToDictionary(p => p.Key, p => p.Value, EqualityComparer<K>.Default));
     }
 
     /// <summary>
@@ -34,19 +34,19 @@ public static class ReadOnlyDictConv
     /// </summary>
     /// <param name="src"></param>
     /// <param name="comparer"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IReadOnlyDictionary<TKey, TValue> ToDictionary<TKey, TValue>(
-        IEnumerable<KeyValuePair<TKey, TValue>> src, IEqualityComparer<TKey> comparer)
+    public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
+        IEnumerable<KeyValuePair<K, V>> src, IEqualityComparer<K> comparer)
     {
         if (src is null)
             throw new ArgumentNullException(nameof(src));
         if (comparer is null)
             throw new ArgumentNullException(nameof(comparer));
 
-        return new ReadOnlyDictionary<TKey, TValue>(src.ToDictionary(p => p.Key, p => p.Value, comparer));
+        return new ReadOnlyDictionary<K, V>(src.ToDictionary(p => p.Key, p => p.Value, comparer));
     }
 
     /// <summary>
@@ -55,19 +55,19 @@ public static class ReadOnlyDictConv
     /// </summary>
     /// <param name="source"></param>
     /// <param name="keySelector"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IReadOnlyDictionary<TKey, TValue> ToDictionary<TKey, TValue>(
-        IEnumerable<TValue> source, Func<TValue, TKey> keySelector)
+    public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
+        IEnumerable<V> source, Func<V, K> keySelector)
     {
         if (source is null)
             throw new ArgumentNullException(nameof(source));
         if (keySelector is null)
             throw new ArgumentNullException(nameof(keySelector));
 
-        return ReadOnlyDictsHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector));
+        return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector));
     }
 
     /// <summary>
@@ -77,12 +77,12 @@ public static class ReadOnlyDictConv
     /// <param name="source"></param>
     /// <param name="keySelector"></param>
     /// <param name="comparer"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IReadOnlyDictionary<TKey, TValue> ToDictionary<TKey, TValue>(
-        IEnumerable<TValue> source, Func<TValue, TKey> keySelector, IEqualityComparer<TKey> comparer)
+    public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
+        IEnumerable<V> source, Func<V, K> keySelector, IEqualityComparer<K> comparer)
     {
         if (source is null)
             throw new ArgumentNullException(nameof(source));
@@ -91,7 +91,7 @@ public static class ReadOnlyDictConv
         if (comparer is null)
             throw new ArgumentNullException(nameof(comparer));
 
-        return ReadOnlyDictsHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, comparer));
+        return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, comparer));
     }
 
     /// <summary>
@@ -103,12 +103,12 @@ public static class ReadOnlyDictConv
     /// <param name="elementSelector"></param>
     /// <param name="comparer"></param>
     /// <typeparam name="TSource"></typeparam>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IReadOnlyDictionary<TKey, TValue> ToDictionary<TSource, TKey, TValue>(
-        IEnumerable<TSource> source, Func<TSource, TKey> keySelector, Func<TSource, TValue> elementSelector, IEqualityComparer<TKey> comparer)
+    public static IReadOnlyDictionary<K, V> ToDictionary<TSource, K, V>(
+        IEnumerable<TSource> source, Func<TSource, K> keySelector, Func<TSource, V> elementSelector, IEqualityComparer<K> comparer)
     {
         if (source is null)
             throw new ArgumentNullException(nameof(source));
@@ -119,7 +119,7 @@ public static class ReadOnlyDictConv
         if (comparer is null)
             throw new ArgumentNullException(nameof(comparer));
 
-        return ReadOnlyDictsHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, elementSelector, comparer));
+        return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, elementSelector, comparer));
     }
 
     /// <summary>
@@ -130,12 +130,12 @@ public static class ReadOnlyDictConv
     /// <param name="keySelector"></param>
     /// <param name="elementSelector"></param>
     /// <typeparam name="TSource"></typeparam>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IReadOnlyDictionary<TKey, TValue> ToDictionary<TSource, TKey, TValue>(
-        IEnumerable<TSource> source, Func<TSource, TKey> keySelector, Func<TSource, TValue> elementSelector)
+    public static IReadOnlyDictionary<K, V> ToDictionary<TSource, K, V>(
+        IEnumerable<TSource> source, Func<TSource, K> keySelector, Func<TSource, V> elementSelector)
     {
         if (source is null)
             throw new ArgumentNullException(nameof(source));
@@ -144,7 +144,7 @@ public static class ReadOnlyDictConv
         if (elementSelector is null)
             throw new ArgumentNullException(nameof(elementSelector));
 
-        return ReadOnlyDictsHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, elementSelector));
+        return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, elementSelector));
     }
 
     #endregion
@@ -163,13 +163,13 @@ public static class ReadOnlyDictConvExtensions
     /// 转换为只读字典
     /// </summary>
     /// <param name="src"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
-        this IEnumerable<KeyValuePair<TKey, TValue>> src)
+    public static IReadOnlyDictionary<K, V> AsReadOnlyDictionary<K, V>(
+        this IEnumerable<KeyValuePair<K, V>> src)
     {
         return ReadOnlyDictConv.ToDictionary(src);
     }
@@ -180,13 +180,13 @@ public static class ReadOnlyDictConvExtensions
     /// </summary>
     /// <param name="src"></param>
     /// <param name="comparer"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
-        this IEnumerable<KeyValuePair<TKey, TValue>> src, IEqualityComparer<TKey> comparer)
+    public static IReadOnlyDictionary<K, V> AsReadOnlyDictionary<K, V>(
+        this IEnumerable<KeyValuePair<K, V>> src, IEqualityComparer<K> comparer)
     {
         return ReadOnlyDictConv.ToDictionary(src, comparer);
     }
@@ -197,13 +197,13 @@ public static class ReadOnlyDictConvExtensions
     /// </summary>
     /// <param name="src"></param>
     /// <param name="keySelector"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
-        this IEnumerable<TValue> src, Func<TValue, TKey> keySelector)
+    public static IReadOnlyDictionary<K, V> AsReadOnlyDictionary<K, V>(
+        this IEnumerable<V> src, Func<V, K> keySelector)
     {
         return ReadOnlyDictConv.ToDictionary(src, keySelector);
     }
@@ -215,13 +215,13 @@ public static class ReadOnlyDictConvExtensions
     /// <param name="src"></param>
     /// <param name="keySelector"></param>
     /// <param name="comparer"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TKey, TValue>(
-        this IEnumerable<TValue> src, Func<TValue, TKey> keySelector, IEqualityComparer<TKey> comparer)
+    public static IReadOnlyDictionary<K, V> AsReadOnlyDictionary<K, V>(
+        this IEnumerable<V> src, Func<V, K> keySelector, IEqualityComparer<K> comparer)
     {
         return ReadOnlyDictConv.ToDictionary(src, keySelector, comparer);
     }
@@ -235,13 +235,13 @@ public static class ReadOnlyDictConvExtensions
     /// <param name="elementSelector"></param>
     /// <param name="comparer"></param>
     /// <typeparam name="TSource"></typeparam>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TSource, TKey, TValue>(
-        this IEnumerable<TSource> src, Func<TSource, TKey> keySelector, Func<TSource, TValue> elementSelector, IEqualityComparer<TKey> comparer)
+    public static IReadOnlyDictionary<K, V> AsReadOnlyDictionary<TSource, K, V>(
+        this IEnumerable<TSource> src, Func<TSource, K> keySelector, Func<TSource, V> elementSelector, IEqualityComparer<K> comparer)
     {
         return ReadOnlyDictConv.ToDictionary(src, keySelector, elementSelector, comparer);
     }
@@ -254,13 +254,13 @@ public static class ReadOnlyDictConvExtensions
     /// <param name="keySelector"></param>
     /// <param name="elementSelector"></param>
     /// <typeparam name="TSource"></typeparam>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary<TSource, TKey, TValue>(
-        this IEnumerable<TSource> src, Func<TSource, TKey> keySelector, Func<TSource, TValue> elementSelector)
+    public static IReadOnlyDictionary<K, V> AsReadOnlyDictionary<TSource, K, V>(
+        this IEnumerable<TSource> src, Func<TSource, K> keySelector, Func<TSource, V> elementSelector)
     {
         return ReadOnlyDictConv.ToDictionary(src, keySelector, elementSelector);
     }

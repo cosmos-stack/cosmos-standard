@@ -17,17 +17,25 @@ public readonly struct StructuredStringVal : IEnumerable<StructuredStringVal>
         _children = new List<StructuredStringVal>();
     }
 
+    #region Value
+
     /// <summary>
     /// Gets value <br />
     /// 获得值
     /// </summary>
     public string Value { get; }
 
+    #endregion
+
+    #region Children
+
     /// <summary>
     /// Get the next level of structured string value <br />
     /// 获得下一级结构化字符串值
     /// </summary>
     public IReadOnlyList<StructuredStringVal> Children => _children.AsReadOnly();
+
+    #endregion
 
     #region Append Child
 
@@ -121,9 +129,13 @@ public readonly struct StructuredStringVal : IEnumerable<StructuredStringVal>
 
     #endregion
 
+    #region GetEnumerator
+
     public IEnumerator<StructuredStringVal> GetEnumerator() => _children.GetEnumerator();
 
     IEnumerator IEnumerable.GetEnumerator() => _children.GetEnumerator();
+
+    #endregion
 
     #region ToString
 

@@ -14,12 +14,12 @@ public static class OptionalDictsExtensions
     /// </summary>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue? GetOptionalValue<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key) where TValue : struct
+    public static V? GetOptionalValue<K, V>(this IDictionary<K, V> dictionary, K key) where V : struct
     {
         if (dictionary is null)
             throw new ArgumentNullException(nameof(dictionary));
@@ -32,11 +32,11 @@ public static class OptionalDictsExtensions
     /// </summary>
     /// <param name="dictionaryColl"></param>
     /// <param name="key"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue? GetOptionalValue<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key) where TValue : struct
+    public static V? GetOptionalValue<K, V>(this IEnumerable<IDictionary<K, V>> dictionaryColl, K key) where V : struct
     {
         return dictionaryColl.TryGetValueCascading(key, out var value) ? value : null;
     }
