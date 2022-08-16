@@ -6,18 +6,43 @@
 /// </summary>
 public static class Dicts
 {
+    #region Empty
+
+    /// <summary>
+    /// Create an empty dictionary instance of the specified type K and V. <br />
+    /// 创建一个指定键值对 K-V 的空字典实例。
+    /// </summary>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Dictionary<K, V> Empty<K, V>() => Empty<Dictionary<K, V>, K, V>();
+
+    /// <summary>
+    /// Create an empty dictionary instance of the specified type K and V. <br />
+    /// 创建一个指定键值对 K-V 的空字典实例。
+    /// </summary>
+    /// <typeparam name="D"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static D Empty<D, K, V>() where D : IDictionary<K, V>, new() => InternalDictionary.ForEmpty<D, K, V>();
+
+    #endregion
+
     #region Add
 
     /// <summary>
     /// Add or override <br />
     /// 添加或覆盖
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    public static void AddValueOrOverride<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    public static void AddValueOrOverride<K, V>(Dictionary<K, V> dictionary, K key, V value)
     {
         dictionary[key] = value;
     }
@@ -30,9 +55,9 @@ public static class Dicts
     /// <param name="key"></param>
     /// <param name="insertFunc"></param>
     /// <param name="updateFunc"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
-    public static void AddValueOrUpdate<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Func<TKey, TValue, TValue> updateFunc)
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    public static void AddValueOrUpdate<K, V>(Dictionary<K, V> dictionary, K key, Func<K, V> insertFunc, Func<K, V, V> updateFunc)
     {
         if (insertFunc is null)
             throw new ArgumentNullException(nameof(insertFunc));
@@ -55,10 +80,10 @@ public static class Dicts
     /// <param name="key"></param>
     /// <param name="insertFunc"></param>
     /// <param name="doAct"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <exception cref="ArgumentNullException"></exception>
-    public static void AddValueOrDo<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Action<TKey, TValue> doAct)
+    public static void AddValueOrDo<K, V>(Dictionary<K, V> dictionary, K key, Func<K, V> insertFunc, Action<K, V> doAct)
     {
         if (insertFunc is null)
             throw new ArgumentNullException(nameof(insertFunc));
@@ -83,10 +108,10 @@ public static class Dicts
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <exception cref="ArgumentNullException"></exception>
-    public static void AddValueIfNotExist<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    public static void AddValueIfNotExist<K, V>(Dictionary<K, V> dictionary, K key, V value)
     {
         if (dictionary.ContainsKey(key)) return;
         dictionary[key] = value;
@@ -98,9 +123,9 @@ public static class Dicts
     /// </summary>
     /// <param name="source"></param>
     /// <param name="dict"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TVal"></typeparam>
-    public static void Add<TKey, TVal>(Dictionary<TKey, TVal> source, Dictionary<TKey, TVal> dict)
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    public static void Add<K, V>(Dictionary<K, V> source, Dictionary<K, V> dict)
     {
         foreach (var pair in dict)
             source.Add(pair.Key, pair.Value);
@@ -117,11 +142,11 @@ public static class Dicts
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="valueCalculator"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static TValue GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator)
+    public static V GetValueOrDefault<K, V>(IDictionary<K, V> dictionary, K key, Func<K, V> valueCalculator)
     {
         if (dictionary is not null && dictionary.TryGetValue(key, out var value))
             return value;
@@ -139,11 +164,11 @@ public static class Dicts
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="defaultValue"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static TValue GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
+    public static V GetValueOrDefault<K, V>(IDictionary<K, V> dictionary, K key, V defaultValue)
     {
         return dictionary is not null &&
                dictionary.TryGetValue(key, out var value)
@@ -157,11 +182,11 @@ public static class Dicts
     /// </summary>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static TValue GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue> dictionary, TKey key)
+    public static V GetValueOrDefault<K, V>(IDictionary<K, V> dictionary, K key)
     {
         return dictionary is not null &&
                dictionary.TryGetValue(key, out var value)
@@ -180,11 +205,11 @@ public static class Dicts
     /// <param name="dictionaryColl"></param>
     /// <param name="key"></param>
     /// <param name="defaultValue"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static TValue GetValueOrDefaultCascading<TKey, TValue>(IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key, TValue defaultValue)
+    public static V GetValueOrDefaultCascading<K, V>(IEnumerable<IDictionary<K, V>> dictionaryColl, K key, V defaultValue)
     {
         if (dictionaryColl is null)
             throw new ArgumentNullException(nameof(dictionaryColl));
@@ -197,10 +222,10 @@ public static class Dicts
     /// </summary>
     /// <param name="dictionaryColl"></param>
     /// <param name="key"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
-    public static TValue GetValueOrDefaultCascading<TKey, TValue>(IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key)
+    public static V GetValueOrDefaultCascading<K, V>(IEnumerable<IDictionary<K, V>> dictionaryColl, K key)
     {
         return GetValueOrDefaultCascading(dictionaryColl, key, default);
     }
@@ -212,11 +237,11 @@ public static class Dicts
     /// <param name="dictionaryColl"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static bool TryGetValueCascading<TKey, TValue>(IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key, out TValue value)
+    public static bool TryGetValueCascading<K, V>(IEnumerable<IDictionary<K, V>> dictionaryColl, K key, out V value)
     {
         if (dictionaryColl is null)
             throw new ArgumentNullException(nameof(dictionaryColl));
@@ -235,13 +260,13 @@ public static class Dicts
     /// Get or add <br />
     /// 获取或添加
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
     /// <returns></returns>
-    public static TValue GetValueOrAdd<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    public static V GetValueOrAdd<K, V>(Dictionary<K, V> dictionary, K key, V value)
     {
         if (dictionary.TryGetValue(key, out var res))
             return res;
@@ -253,13 +278,13 @@ public static class Dicts
     /// Get or add <br />
     /// 获取或添加
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="newValueCreator"></param>
     /// <returns></returns>
-    public static TValue GetValueOrAdd<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> newValueCreator)
+    public static V GetValueOrAdd<K, V>(Dictionary<K, V> dictionary, K key, Func<K, V> newValueCreator)
     {
         if (newValueCreator is null)
             throw new ArgumentNullException(nameof(newValueCreator));
@@ -274,14 +299,14 @@ public static class Dicts
     /// Get or add new default instance <br />
     /// 获取或添加一个默认新实例
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public static TValue GetValueOrAddNewInstance<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key) where TValue : new()
+    public static V GetValueOrAddNewInstance<K, V>(Dictionary<K, V> dictionary, K key) where V : new()
     {
-        return GetValueOrAdd(dictionary, key, _ => new TValue());
+        return GetValueOrAdd(dictionary, key, _ => new V());
     }
 
     #endregion
@@ -295,10 +320,10 @@ public static class Dicts
     /// <param name="list"></param>
     /// <param name="keyFunc"></param>
     /// <typeparam name="TItem"></typeparam>
-    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="K"></typeparam>
     /// <returns></returns>
-    public static Dictionary<TKey, List<TItem>> GroupByAsDictionary<TItem, TKey>(
-        IEnumerable<TItem> list, Func<TItem, TKey> keyFunc)
+    public static Dictionary<K, List<TItem>> GroupByAsDictionary<TItem, K>(
+        IEnumerable<TItem> list, Func<TItem, K> keyFunc)
     {
         return GroupByAsDictionary(list, keyFunc, x => x);
     }
@@ -311,13 +336,13 @@ public static class Dicts
     /// <param name="keyFunc"></param>
     /// <param name="valueFunc"></param>
     /// <typeparam name="TItem"></typeparam>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
-    public static Dictionary<TKey, List<TValue>> GroupByAsDictionary<TItem, TKey, TValue>(
-        IEnumerable<TItem> list, Func<TItem, TKey> keyFunc, Func<TItem, TValue> valueFunc)
+    public static Dictionary<K, List<V>> GroupByAsDictionary<TItem, K, V>(
+        IEnumerable<TItem> list, Func<TItem, K> keyFunc, Func<TItem, V> valueFunc)
     {
-        var res = new Dictionary<TKey, List<TValue>>();
+        var res = new Dictionary<K, List<V>>();
 
         foreach (var item in list)
         {
@@ -326,7 +351,7 @@ public static class Dicts
 
             if (!res.TryGetValue(key, out var valuesList))
             {
-                valuesList = new List<TValue>();
+                valuesList = new List<V>();
                 res.Add(key, valuesList);
             }
 
@@ -347,15 +372,49 @@ public static class Dicts
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
-    public static void SetValue<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    public static void SetValue<K, V>(Dictionary<K, V> dictionary, K key, V value)
     {
         if (dictionary.ContainsKey(key))
             dictionary[key] = value;
         else
             dictionary.Add(key, value);
     }
+
+    #endregion
+}
+
+/// <summary>
+/// Dictionary Utilities <br />
+/// 字典工具
+/// </summary>
+/// <typeparam name="K"></typeparam>
+/// <typeparam name="V"></typeparam>
+public static class Dicts<K, V>
+{
+    #region Empty
+
+    /// <summary>
+    /// Create an empty dictionary instance of the specified type K and V. <br />
+    /// 创建一个指定键值对 K-V 的空字典实例。
+    /// </summary>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Dictionary<K, V> Empty() => Empty<Dictionary<K, V>>();
+
+    /// <summary>
+    /// Create an empty dictionary instance of the specified type K and V. <br />
+    /// 创建一个指定键值对 K-V 的空字典实例。
+    /// </summary>
+    /// <typeparam name="D"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static D Empty<D>() where D : IDictionary<K, V>, new() => InternalDictionary.ForEmpty<D, K, V>();
 
     #endregion
 }
@@ -374,10 +433,10 @@ public static class DictsExtensions
     /// </summary>
     /// <param name="source"></param>
     /// <param name="dict"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TVal"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> source, Dictionary<TKey, TVal> dict)
+    public static void Add<K, V>(this Dictionary<K, V> source, Dictionary<K, V> dict)
     {
         Dicts.Add(source, dict);
     }
@@ -388,10 +447,10 @@ public static class DictsExtensions
     /// </summary>
     /// <param name="source"></param>
     /// <param name="pair"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TVal"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Add<TKey, TVal>(this Dictionary<TKey, TVal> source, KeyValuePair<TKey, TVal> pair)
+    public static void Add<K, V>(this Dictionary<K, V> source, KeyValuePair<K, V> pair)
     {
         source.Add(pair.Key, pair.Value);
     }
@@ -400,13 +459,13 @@ public static class DictsExtensions
     /// Add or override <br />
     /// 添加或覆盖
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void AddValueOrOverride<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    public static void AddValueOrOverride<K, V>(this Dictionary<K, V> dictionary, K key, V value)
     {
         Dicts.AddValueOrOverride(dictionary, key, value);
     }
@@ -419,10 +478,10 @@ public static class DictsExtensions
     /// <param name="key"></param>
     /// <param name="insertFunc"></param>
     /// <param name="updateFunc"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void AddValueOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Func<TKey, TValue, TValue> updateFunc)
+    public static void AddValueOrUpdate<K, V>(this Dictionary<K, V> dictionary, K key, Func<K, V> insertFunc, Func<K, V, V> updateFunc)
     {
         Dicts.AddValueOrUpdate(dictionary, key, insertFunc, updateFunc);
     }
@@ -435,11 +494,11 @@ public static class DictsExtensions
     /// <param name="key"></param>
     /// <param name="insertFunc"></param>
     /// <param name="doAct"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void AddValueOrDo<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> insertFunc, Action<TKey, TValue> doAct)
+    public static void AddValueOrDo<K, V>(this Dictionary<K, V> dictionary, K key, Func<K, V> insertFunc, Action<K, V> doAct)
     {
         Dicts.AddValueOrDo(dictionary, key, insertFunc, doAct);
     }
@@ -451,11 +510,11 @@ public static class DictsExtensions
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void AddValueIfNotExist<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    public static void AddValueIfNotExist<K, V>(this Dictionary<K, V> dictionary, K key, V value)
     {
         Dicts.AddValueIfNotExist(dictionary, key, value);
     }
@@ -471,49 +530,49 @@ public static class DictsExtensions
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="valueCalculator"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> valueCalculator)
+    public static V GetValueOrDefault<K, V>(this IDictionary<K, V> dictionary, K key, Func<K, V> valueCalculator)
     {
         return Dicts.GetValueOrDefault(dictionary, key, valueCalculator);
     }
 
 #if NETFRAMEWORK || NETSTANDARD2_0
-        /// <summary>
-        /// Get value or default <br />
-        /// 获取值或默认值
-        /// </summary>
-        /// <param name="dictionary"></param>
-        /// <param name="key"></param>
-        /// <param name="defaultValue"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
-        {
-            return Dicts.GetValueOrDefault(dictionary, key, defaultValue);
-        }
+    /// <summary>
+    /// Get value or default <br />
+    /// 获取值或默认值
+    /// </summary>
+    /// <param name="dictionary"></param>
+    /// <param name="key"></param>
+    /// <param name="defaultValue"></param>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static V GetValueOrDefault<K, V>(this IDictionary<K, V> dictionary, K key, V defaultValue)
+    {
+        return Dicts.GetValueOrDefault(dictionary, key, defaultValue);
+    }
 
-        /// <summary>
-        /// Get value or default <br />
-        /// 获取值或默认值
-        /// </summary>
-        /// <param name="dictionary"></param>
-        /// <param name="key"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
-        {
-            return Dicts.GetValueOrDefault(dictionary, key);
-        }
+    /// <summary>
+    /// Get value or default <br />
+    /// 获取值或默认值
+    /// </summary>
+    /// <param name="dictionary"></param>
+    /// <param name="key"></param>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static V GetValueOrDefault<K, V>(this IDictionary<K, V> dictionary, K key)
+    {
+        return Dicts.GetValueOrDefault(dictionary, key);
+    }
 #endif
 
     #endregion
@@ -527,12 +586,12 @@ public static class DictsExtensions
     /// <param name="dictionaryColl"></param>
     /// <param name="key"></param>
     /// <param name="defaultValue"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue GetValueOrDefaultCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key, TValue defaultValue)
+    public static V GetValueOrDefaultCascading<K, V>(this IEnumerable<IDictionary<K, V>> dictionaryColl, K key, V defaultValue)
     {
         return Dicts.GetValueOrDefaultCascading(dictionaryColl, key, defaultValue);
     }
@@ -543,11 +602,11 @@ public static class DictsExtensions
     /// </summary>
     /// <param name="dictionaryColl"></param>
     /// <param name="key"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue GetValueOrDefaultCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key)
+    public static V GetValueOrDefaultCascading<K, V>(this IEnumerable<IDictionary<K, V>> dictionaryColl, K key)
     {
         return Dicts.GetValueOrDefaultCascading(dictionaryColl, key, default);
     }
@@ -559,12 +618,12 @@ public static class DictsExtensions
     /// <param name="dictionaryColl"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool TryGetValueCascading<TKey, TValue>(this IEnumerable<IDictionary<TKey, TValue>> dictionaryColl, TKey key, out TValue value)
+    public static bool TryGetValueCascading<K, V>(this IEnumerable<IDictionary<K, V>> dictionaryColl, K key, out V value)
     {
         return Dicts.TryGetValueCascading(dictionaryColl, key, out value);
     }
@@ -577,14 +636,14 @@ public static class DictsExtensions
     /// Get or add <br />
     /// 获取或添加
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue GetValueOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    public static V GetValueOrAdd<K, V>(this Dictionary<K, V> dictionary, K key, V value)
     {
         return Dicts.GetValueOrAdd(dictionary, key, value);
     }
@@ -593,14 +652,14 @@ public static class DictsExtensions
     /// Get or add <br />
     /// 获取或添加
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="newValueCreator"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue GetValueOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> newValueCreator)
+    public static V GetValueOrAdd<K, V>(this Dictionary<K, V> dictionary, K key, Func<K, V> newValueCreator)
     {
         return Dicts.GetValueOrAdd(dictionary, key, newValueCreator);
     }
@@ -609,13 +668,13 @@ public static class DictsExtensions
     /// Get or add new default instance <br />
     /// 获取或添加一个新的默认实例
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue GetValueOrAddNewInstance<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key) where TValue : new()
+    public static V GetValueOrAddNewInstance<K, V>(this Dictionary<K, V> dictionary, K key) where V : new()
     {
         return Dicts.GetValueOrAddNewInstance(dictionary, key);
     }
@@ -631,10 +690,10 @@ public static class DictsExtensions
     /// <param name="dictionary"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void SetValue<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+    public static void SetValue<K, V>(this Dictionary<K, V> dictionary, K key, V value)
     {
         Dicts.SetValue(dictionary, key, value);
     }
