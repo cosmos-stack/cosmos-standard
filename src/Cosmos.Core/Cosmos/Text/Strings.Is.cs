@@ -13,7 +13,7 @@ public static partial class Strings
     /// <param name="text"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsUpper( string text)
+    public static bool IsUpper(string text)
     {
         return FilterForLetters(text).All(char.IsUpper);
     }
@@ -25,7 +25,7 @@ public static partial class Strings
     /// <param name="text"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool IsLower( string text)
+    public static bool IsLower(string text)
     {
         return FilterForLetters(text).All(char.IsLower);
     }
@@ -68,8 +68,6 @@ public static partial class StringsExtensions
 /// </summary>
 public static partial class StringsShortcutExtensions
 {
-    #region Is
-
     /// <summary>
     /// Check whether the string is null or system.string.empty string <br />
     /// 检查字符串是 null 还是 System.String.Empty 字符串
@@ -117,6 +115,4 @@ public static partial class StringsShortcutExtensions
     {
         return !text.IsNullOrWhiteSpace();
     }
-
-    #endregion
 }

@@ -317,18 +317,7 @@ namespace CosmosStandardUT.StringUT
             Strings.IsLower("a A").ShouldBeFalse();
             Strings.IsLower("A a").ShouldBeFalse();
         }
-
-        [Fact(DisplayName = "Truncate test")]
-        public void TruncateTest()
-        {
-            Strings.Truncate("Nietooo", 8).ShouldBe("Nietooo");
-            Strings.Truncate("Nietooo", 7).ShouldBe("Nietooo");
-            Strings.Truncate("Nietooo", 6).ShouldBe("Nie...");
-            Strings.Truncate("Nietooo", 5).ShouldBe("Ni...");
-            Strings.Truncate("Nietooo", 4).ShouldBe("N...");
-            Strings.Truncate("Nietooo", 3).ShouldBe("Ni.");
-        }
-
+        
         [Fact(DisplayName = "String left or right test")]
         public void LeftAndRightTest()
         {
