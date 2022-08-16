@@ -6,48 +6,6 @@
 /// </summary>
 public static class DateTimeSpanExtensions
 {
-    #region Ago
-
-    /// <summary>
-    /// Ago <br />
-    /// 在多久之前
-    /// </summary>
-    /// <param name="ts"></param>
-    /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime Ago(this DateTimeSpan ts) => ts.Before(DateTime.Now);
-
-    /// <summary>
-    /// Ago <br />
-    /// 在多久之前
-    /// </summary>
-    /// <param name="ts"></param>
-    /// <param name="originalValue"></param>
-    /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime Ago(this DateTimeSpan ts, DateTime originalValue) => ts.Before(originalValue);
-
-    /// <summary>
-    /// DateTimeOffset Ago <br />
-    /// 在多久之前
-    /// </summary>
-    /// <param name="ts"></param>
-    /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTimeOffset OffsetAgo(this DateTimeSpan ts) => ts.Before(DateTimeOffset.Now);
-
-    /// <summary>
-    /// DateTimeOffset Ago <br />
-    /// 在多久之前
-    /// </summary>
-    /// <param name="ts"></param>
-    /// <param name="originalValue"></param>
-    /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTimeOffset Ago(this DateTimeSpan ts, DateTimeOffset originalValue) => ts.Before(originalValue);
-
-    #endregion
-
     #region Before
 
     /// <summary>

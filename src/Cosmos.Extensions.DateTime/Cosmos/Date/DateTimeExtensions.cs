@@ -1,11 +1,7 @@
 ﻿using Cosmos.Date.DateUtils;
-using Cosmos.Verba.Time;
 using NodaTime;
 
 namespace Cosmos.Date;
-
-// ReSharper disable once IdentifierTypo
-using VERBA = GlobalTimeVerbaManager;
 
 public enum DateDiffStrictOptions
 {
@@ -75,124 +71,6 @@ public static partial class DateTimeExtensions
 
         return dt;
     }
-
-    #endregion
-
-    #region Age & Birthday
-
-    /// <summary>
-    /// Calculate the current age based on the given birthday time. <br />
-    /// 根据给定的生日时间计算当前的年纪。
-    /// </summary>
-    /// <param name="birthday"></param>
-    /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static int ToCalculateAge(this DateTime birthday) => birthday.ToCalculateAge(DateTime.Today);
-
-    /// <summary>
-    /// Calculate the age relative to another time based on a given birthday time. <br />
-    /// 根据生日和参照时间，计算当时年纪
-    /// </summary>
-    /// <param name="birthday">     </param>
-    /// <param name="referenceDate"></param>
-    /// <returns></returns>
-    public static int ToCalculateAge(this DateTime birthday, DateTime referenceDate)
-    {
-        var years = referenceDate.Year - birthday.Year;
-        if (referenceDate.Month < birthday.Month || (referenceDate.Month == birthday.Month && referenceDate.Day < birthday.Day))
-            --years;
-        return years;
-    }
-
-    #endregion
-
-    #region Ago
-
-    /// <summary>
-    /// Format time interval <br />
-    /// 格式化时间间隔
-    /// </summary>
-    /// <param name="timeSpan">时间间隔</param>
-    [Obsolete("将会被 Cosmos.Core.I18N 取代")]
-    public static string ToAgo(this TimeSpan timeSpan)
-    {
-        if (timeSpan < TimeSpan.Zero)
-        {
-            return VERBA.Future; //未来
-        }
-
-        if (timeSpan < TimeVerbaConstant.OneMinute)
-        {
-            return VERBA.Now; //现在
-        }
-
-        if (timeSpan < TimeVerbaConstant.TwoMinutes)
-        {
-            return $"1 {VERBA.Minutes}{VERBA.SpaceString}{VERBA.Ago}"; //1 分钟前
-        }
-
-        if (timeSpan < TimeVerbaConstant.OneHour)
-        {
-            return $"{timeSpan.Minutes} {VERBA.Minutes}{VERBA.ComplexString}{VERBA.SpaceString}{VERBA.Ago}"; //n 分钟前
-        }
-
-        if (timeSpan < TimeVerbaConstant.TwoHours)
-        {
-            return $"1 {VERBA.Hours}{VERBA.SpaceString}{VERBA.Ago}"; //1 小时前
-        }
-
-        if (timeSpan < TimeVerbaConstant.OneDay)
-        {
-            return $"{timeSpan.Hours} {VERBA.Hours}{VERBA.ComplexString}{VERBA.SpaceString}{VERBA.Ago}"; //n 小时前
-        }
-
-        if (timeSpan < TimeVerbaConstant.TwoDays)
-        {
-            return VERBA.Yesterday; //昨天
-        }
-
-        if (timeSpan < TimeVerbaConstant.OneWeek)
-        {
-            return $"{timeSpan.Days} {VERBA.Days}{VERBA.ComplexString}{VERBA.SpaceString}{VERBA.Ago}"; //n 天前
-        }
-
-        if (timeSpan < TimeVerbaConstant.TwoWeeks)
-        {
-            return $"1 {VERBA.Weeks}{VERBA.SpaceString}{VERBA.Ago}"; //1 周前
-        }
-
-        if (timeSpan < TimeVerbaConstant.OneMonth)
-        {
-            return $"{timeSpan.Days / 7} {VERBA.Weeks}{VERBA.ComplexString}{VERBA.SpaceString}{VERBA.Ago}"; //n 周前
-        }
-
-        if (timeSpan < TimeVerbaConstant.TwoMonths)
-        {
-            return $"1 {VERBA.Months}{VERBA.SpaceString}{VERBA.Ago}"; //1 月前
-        }
-
-        if (timeSpan < TimeVerbaConstant.OneYear)
-        {
-            return $"{timeSpan.Days / 31} {VERBA.Months}{VERBA.ComplexString}{VERBA.SpaceString}{VERBA.Ago}"; //n 月前
-        }
-
-        if (timeSpan < TimeVerbaConstant.TwoYears)
-        {
-            return $"1 {VERBA.Year}{VERBA.SpaceString}{VERBA.Ago}"; //1 年前
-        }
-
-        return $"{timeSpan.Days / 365} {VERBA.Year}{VERBA.ComplexString}{VERBA.SpaceString}{VERBA.Ago}"; //n 年前
-    }
-
-    /// <summary>
-    /// Format time interval <br />
-    /// 格式化时间间隔
-    /// </summary>
-    /// <param name="date">對比的時間</param>
-    /// <returns></returns>
-    [Obsolete("将会被 Cosmos.Core.I18N 取代")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string ToAgo(this DateTime date) => (DateTime.Now - date).ToAgo();
 
     #endregion
 

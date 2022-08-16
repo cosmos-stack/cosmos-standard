@@ -52,19 +52,6 @@ public static partial class DateInfoExtensions
 
     #endregion
 
-    #region Ago
-
-    /// <summary>
-    /// To ago.<br />
-    /// 转换为 Ago
-    /// </summary>
-    /// <param name="d"></param>
-    /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string ToAgo(this DateInfo d) => (DateTime.Now - d).ToAgo();
-
-    #endregion
-
     #region Between
 
     /// <summary>

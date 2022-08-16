@@ -1,11 +1,7 @@
 ﻿#if NET6_0_OR_GREATER
-using Cosmos.Verba.Time;
 using NodaTime;
 
 namespace Cosmos.Date;
-
-// ReSharper disable once IdentifierTypo
-using VERBA = GlobalTimeVerbaManager;
 
 public static class DateOnlyExtensions
 {
@@ -51,43 +47,6 @@ public static class DateOnlyExtensions
     /// <param name="days"></param>
     /// <returns></returns>
     public static DateOnly AddBusinessDays(this DateOnly dt, int days) => dt.ToDateTime().AddBusinessDays(days).ToDateOnly();
-
-    #endregion
-
-    #region Age & Birthday
-
-    /// <summary>
-    /// Calculate the current age based on the given birthday time. <br />
-    /// 根据给定的生日时间计算当前的年纪。
-    /// </summary>
-    /// <param name="birthday"></param>
-    /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static int ToCalculateAge(this DateOnly birthday) => birthday.ToDateTime().ToCalculateAge();
-
-    /// <summary>
-    /// Calculate the age relative to another time based on a given birthday time. <br />
-    /// 根据生日和参照时间，计算当时年纪
-    /// </summary>
-    /// <param name="birthday">     </param>
-    /// <param name="referenceDate"></param>
-    /// <returns></returns>
-    public static int ToCalculateAge(this DateOnly birthday, DateOnly referenceDate)
-        => birthday.ToDateTime().ToCalculateAge(referenceDate.ToDateTime());
-
-    #endregion
-
-    #region Ago
-
-    /// <summary>
-    /// Format time interval <br />
-    /// 格式化时间间隔
-    /// </summary>
-    /// <param name="date">對比的時間</param>
-    /// <returns></returns>
-    [Obsolete("将会被 Cosmos.Core.I18N 取代")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string ToAgo(this DateOnly date) => (DateTime.Now - date.ToDateTime()).ToAgo();
 
     #endregion
 
