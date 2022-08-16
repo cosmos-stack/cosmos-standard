@@ -11,6 +11,10 @@
         <Description>CosmosStack Date/Time extension library</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Cosmos\Date\Air" />
+    </ItemGroup>
+
     <Import Project="..\..\common.props" />
 
     <Import Project="dependency.props" />

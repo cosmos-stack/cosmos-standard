@@ -702,26 +702,6 @@
             <typeparam name="TSource"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Collections.CollConvExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            To hashset <br />
-            转换为 <see cref="T:System.Collections.Generic.HashSet`1"/>
-            </summary>
-            <param name="source"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Collections.CollConvExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
-            <summary>
-            To hashset <br />
-            转换为 <see cref="T:System.Collections.Generic.HashSet`1"/>
-            </summary>
-            <param name="source"></param>
-            <param name="comparer"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
         <member name="M:Cosmos.Collections.CollConvExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
             <summary>
             To HashSet <br />
@@ -1847,8 +1827,8 @@
             转换为字典
             </summary>
             <param name="hash"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConv.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
@@ -1857,8 +1837,8 @@
             转换为字典
             </summary>
             <param name="source"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConv.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
@@ -1868,8 +1848,8 @@
             </summary>
             <param name="source"></param>
             <param name="equalityComparer"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -1879,8 +1859,8 @@
             转换为元组
             </summary>
             <param name="dictionary"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConv.ToSortedArrayByValue``1(System.Collections.Generic.Dictionary{``0,System.Int32},System.Boolean)">
@@ -1890,7 +1870,7 @@
             </summary>
             <param name="dictionary"></param>
             <param name="asc"></param>
-            <typeparam name="TKey"></typeparam>
+            <typeparam name="K"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConv.ToSortedArrayByKey``2(System.Collections.Generic.Dictionary{``0,``1})">
@@ -1899,8 +1879,8 @@
             转换为有序集合
             </summary>
             <param name="dictionary"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Collections.DictConvExtensions">
@@ -1928,8 +1908,8 @@
             转换为字典
             </summary>
             <param name="hash"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConvExtensions.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
@@ -1938,8 +1918,8 @@
             转换为字典
             </summary>
             <param name="source"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConvExtensions.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
@@ -1949,8 +1929,8 @@
             </summary>
             <param name="source"></param>
             <param name="equalityComparer"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -1960,8 +1940,8 @@
             转换为元组
             </summary>
             <param name="dictionary"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConvExtensions.ToSortedArrayByValue``1(System.Collections.Generic.Dictionary{``0,System.Int32},System.Boolean)">
@@ -1971,7 +1951,7 @@
             </summary>
             <param name="dictionary"></param>
             <param name="asc"></param>
-            <typeparam name="TKey"></typeparam>
+            <typeparam name="K"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictConvExtensions.ToSortedArrayByKey``2(System.Collections.Generic.Dictionary{``0,``1})">
@@ -1980,8 +1960,8 @@
             转换为有序集合
             </summary>
             <param name="dictionary"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Collections.Dicts">
@@ -1990,13 +1970,32 @@
             字典工具
             </summary>
         </member>
+        <member name="M:Cosmos.Collections.Dicts.Empty``2">
+            <summary>
+            Create an empty dictionary instance of the specified type K and V. <br />
+            创建一个指定键值对 K-V 的空字典实例。
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Dicts.Empty``3">
+            <summary>
+            Create an empty dictionary instance of the specified type K and V. <br />
+            创建一个指定键值对 K-V 的空字典实例。
+            </summary>
+            <typeparam name="D"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Collections.Dicts.AddValueOrOverride``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
             <summary>
             Add or override <br />
             添加或覆盖
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
@@ -2010,8 +2009,8 @@
             <param name="key"></param>
             <param name="insertFunc"></param>
             <param name="updateFunc"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
         </member>
         <member name="M:Cosmos.Collections.Dicts.AddValueOrDo``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1},System.Action{``0,``1})">
             <summary>
@@ -2022,8 +2021,8 @@
             <param name="key"></param>
             <param name="insertFunc"></param>
             <param name="doAct"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Collections.Dicts.AddValueIfNotExist``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
@@ -2034,8 +2033,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Collections.Dicts.Add``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.Dictionary{``0,``1})">
@@ -2045,8 +2044,8 @@
             </summary>
             <param name="source"></param>
             <param name="dict"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TVal"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
         </member>
         <member name="M:Cosmos.Collections.Dicts.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``0,``1})">
             <summary>
@@ -2056,8 +2055,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="valueCalculator"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2069,8 +2068,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2081,8 +2080,8 @@
             </summary>
             <param name="dictionary"></param>
             <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2094,8 +2093,8 @@
             <param name="dictionaryColl"></param>
             <param name="key"></param>
             <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2106,8 +2105,8 @@
             </summary>
             <param name="dictionaryColl"></param>
             <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.Dicts.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0,``1@)">
@@ -2118,8 +2117,8 @@
             <param name="dictionaryColl"></param>
             <param name="key"></param>
             <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2128,8 +2127,8 @@
             Get or add <br />
             获取或添加
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
@@ -2140,8 +2139,8 @@
             Get or add <br />
             获取或添加
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="newValueCreator"></param>
@@ -2152,8 +2151,8 @@
             Get or add new default instance <br />
             获取或添加一个默认新实例
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <returns></returns>
@@ -2166,7 +2165,7 @@
             <param name="list"></param>
             <param name="keyFunc"></param>
             <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
+            <typeparam name="K"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.Dicts.GroupByAsDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
@@ -2178,8 +2177,8 @@
             <param name="keyFunc"></param>
             <param name="valueFunc"></param>
             <typeparam name="TItem"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.Dicts.SetValue``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
@@ -2190,8 +2189,35 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+        </member>
+        <member name="T:Cosmos.Collections.Dicts`2">
+            <summary>
+            Dictionary Utilities <br />
+            字典工具
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+        </member>
+        <member name="M:Cosmos.Collections.Dicts`2.Empty">
+            <summary>
+            Create an empty dictionary instance of the specified type K and V. <br />
+            创建一个指定键值对 K-V 的空字典实例。
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Dicts`2.Empty``1">
+            <summary>
+            Create an empty dictionary instance of the specified type K and V. <br />
+            创建一个指定键值对 K-V 的空字典实例。
+            </summary>
+            <typeparam name="D"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Collections.DictsExtensions">
             <summary>
@@ -2206,8 +2232,8 @@
             </summary>
             <param name="source"></param>
             <param name="dict"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TVal"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
         </member>
         <member name="M:Cosmos.Collections.DictsExtensions.Add``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.KeyValuePair{``0,``1})">
             <summary>
@@ -2216,16 +2242,16 @@
             </summary>
             <param name="source"></param>
             <param name="pair"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TVal"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
         </member>
         <member name="M:Cosmos.Collections.DictsExtensions.AddValueOrOverride``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
             <summary>
             Add or override <br />
             添加或覆盖
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
@@ -2239,8 +2265,8 @@
             <param name="key"></param>
             <param name="insertFunc"></param>
             <param name="updateFunc"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
         </member>
         <member name="M:Cosmos.Collections.DictsExtensions.AddValueOrDo``2(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``0,``1},System.Action{``0,``1})">
             <summary>
@@ -2251,8 +2277,8 @@
             <param name="key"></param>
             <param name="insertFunc"></param>
             <param name="doAct"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Collections.DictsExtensions.AddValueIfNotExist``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
@@ -2263,8 +2289,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Collections.DictsExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``0,``1})">
@@ -2275,33 +2301,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="valueCalculator"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Collections.DictsExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
-            <summary>
-            Get value or default <br />
-            获取值或默认值
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Cosmos.Collections.DictsExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
-            <summary>
-            Get value or default <br />
-            获取值或默认值
-            </summary>
-            <param name="dictionary"></param>
-            <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2313,8 +2314,8 @@
             <param name="dictionaryColl"></param>
             <param name="key"></param>
             <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2325,8 +2326,8 @@
             </summary>
             <param name="dictionaryColl"></param>
             <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.DictsExtensions.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{``0,``1}},``0,``1@)">
@@ -2337,8 +2338,8 @@
             <param name="dictionaryColl"></param>
             <param name="key"></param>
             <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -2347,8 +2348,8 @@
             Get or add <br />
             获取或添加
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
@@ -2359,8 +2360,8 @@
             Get or add <br />
             获取或添加
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="newValueCreator"></param>
@@ -2371,8 +2372,8 @@
             Get or add new default instance <br />
             获取或添加一个新的默认实例
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <param name="dictionary"></param>
             <param name="key"></param>
             <returns></returns>
@@ -2385,8 +2386,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
         </member>
         <member name="T:Cosmos.Collections.EnumerableProxy`1">
             <summary>
@@ -3401,8 +3402,8 @@
             转换为只读字典
             </summary>
             <param name="src"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3413,8 +3414,8 @@
             </summary>
             <param name="src"></param>
             <param name="comparer"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3425,8 +3426,8 @@
             </summary>
             <param name="source"></param>
             <param name="keySelector"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3438,8 +3439,8 @@
             <param name="source"></param>
             <param name="keySelector"></param>
             <param name="comparer"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3453,8 +3454,8 @@
             <param name="elementSelector"></param>
             <param name="comparer"></param>
             <typeparam name="TSource"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3467,8 +3468,8 @@
             <param name="keySelector"></param>
             <param name="elementSelector"></param>
             <typeparam name="TSource"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3484,8 +3485,8 @@
             转换为只读字典
             </summary>
             <param name="src"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3496,8 +3497,8 @@
             </summary>
             <param name="src"></param>
             <param name="comparer"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3508,8 +3509,8 @@
             </summary>
             <param name="src"></param>
             <param name="keySelector"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3521,8 +3522,8 @@
             <param name="src"></param>
             <param name="keySelector"></param>
             <param name="comparer"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3536,8 +3537,8 @@
             <param name="elementSelector"></param>
             <param name="comparer"></param>
             <typeparam name="TSource"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3550,18 +3551,18 @@
             <param name="keySelector"></param>
             <param name="elementSelector"></param>
             <typeparam name="TSource"></typeparam>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.Collections.ReadOnlyDictsHelper.WrapInReadOnlyDictionary``2(System.Collections.Generic.IDictionary{``0,``1})">
+        <member name="M:Cosmos.Collections.ReadOnlyDictHelper.WrapInReadOnlyDictionary``2(System.Collections.Generic.IDictionary{``0,``1})">
             <summary>
             Wrap in readonly dictionary
             </summary>
             <param name="dictionary"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3576,8 +3577,8 @@
             Gets empty readonly dictionary <br />
             获得一个空的只读字典
             </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.ReadOnlyDicts.GetValueOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0,System.Func{``0,``1})">
@@ -3588,8 +3589,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="valueCalculator"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3601,8 +3602,8 @@
             <param name="dictionary"></param>
             <param name="key"></param>
             <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3613,8 +3614,8 @@
             </summary>
             <param name="dictionary"></param>
             <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3626,8 +3627,8 @@
             <param name="dictionaryColl"></param>
             <param name="key"></param>
             <param name="defaultValue"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3638,8 +3639,8 @@
             </summary>
             <param name="dictionaryColl"></param>
             <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Collections.ReadOnlyDicts.TryGetValueCascading``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{``0,``1}},``0,``1@)">
@@ -3650,8 +3651,8 @@
             <param name="dictionaryColl"></param>
             <param name="key"></param>
             <param name="value"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3704,8 +3705,8 @@
             </summary>
             <param name="dictionary"></param>
             <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
@@ -3716,8 +3717,8 @@
             </summary>
             <param name="dictionaryColl"></param>
             <param name="key"></param>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
             <returns></returns>
         </member>
     </members>

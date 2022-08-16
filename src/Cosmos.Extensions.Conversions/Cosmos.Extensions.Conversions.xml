@@ -3409,7 +3409,7 @@
             <param name="defaultVal"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringConvExtensions.CastToEnum``1(System.String,System.Boolean,``0)">
+        <member name="M:Cosmos.Text.StringConvExtensions.CastToEnum``1(System.String,``0,System.Boolean)">
             <summary>
             Convert the given string to an enumerated type. <br />
             将给定的字符串转换为枚举类型。

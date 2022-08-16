@@ -9849,6 +9849,14 @@
             <param name="fromCache">是否来自缓存</param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.IdUtils.StringIdentifierHelper.ToCapitalCase(System.String)">
+            <summary>
+            To capital case <br />
+            将所有单词转换为首字符大写的词
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.IdUtils.StringIdentifiers">
             <summary>
             Identifier tool in string format <br />
@@ -10344,6 +10352,10 @@
             Number Utilities <br />
             数值工具
             </summary>
+            <summary>
+            Number Utilities <br />
+            数值工具
+            </summary>
         </member>
         <member name="M:Cosmos.Numeric.Numbers.GetRangeBetween(System.Int32,System.Int32)">
             <summary>
@@ -10522,7 +10534,373 @@
             通过将有限值四舍五入到小数点公差级别，将可能的浮点数转换为双精度值的准确方法。
             </summary>
         </member>
+        <member name="T:Cosmos.Numeric.Numbers.ToNumber">
+            <summary>
+            Number to Number Utility <br />
+            数值快速计算工具
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Tens(System.Int32)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Tens(System.UInt32)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Tens(System.Int64)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Tens(System.UInt64)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Tens(System.Double)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Hundreds(System.Int32)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Hundreds(System.UInt32)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Hundreds(System.Int64)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Hundreds(System.UInt64)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Hundreds(System.Double)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Thousands(System.Int32)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Thousands(System.UInt32)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Thousands(System.Int64)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Thousands(System.UInt64)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Thousands(System.Double)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Millions(System.Int32)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Millions(System.UInt32)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Millions(System.Int64)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Millions(System.UInt64)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Millions(System.Double)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Billions(System.Int32)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Billions(System.UInt32)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Billions(System.Int64)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Billions(System.UInt64)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToNumber.Billions(System.Double)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Numeric.Numbers.ToSelfNumber">
+            <summary>
+            Number to Number Utility <br />
+            数值快速计算工具
+            </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Tens(System.Int32@)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Tens(System.UInt32@)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Tens(System.Int64@)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Tens(System.UInt64@)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Tens(System.Double@)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Hundreds(System.Int32@)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Hundreds(System.UInt32@)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Hundreds(System.Int64@)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Hundreds(System.UInt64@)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Hundreds(System.Double@)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Thousands(System.Int32@)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Thousands(System.UInt32@)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Thousands(System.Int64@)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Thousands(System.UInt64@)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Thousands(System.Double@)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Millions(System.Int32@)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Millions(System.UInt32@)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Millions(System.Int64@)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Millions(System.UInt64@)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Millions(System.Double@)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Billions(System.Int32@)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Billions(System.UInt32@)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Billions(System.Int64@)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Billions(System.UInt64@)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.Numbers.ToSelfNumber.Billions(System.Double@)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Numeric.NumberExtensions">
+            <summary>
+            Extensions for number utilities <br />
+            数值工具扩展
+            </summary>
             <summary>
             Extensions for number utilities <br />
             数值工具扩展
@@ -10674,6 +11052,181 @@
             Accurate way to convert a possible float to double by rounding finite values to a decimal point tolerance level.<br />
             通过将有限值四舍五入到小数点公差级别，将可能的浮点数转换为双精度值的准确方法。
             </summary>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Tens(System.Int32)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Tens(System.UInt32)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Tens(System.Int64)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Tens(System.UInt64)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Tens(System.Double)">
+            <summary>
+            5.Tens() => 50
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Hundreds(System.Int32)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Hundreds(System.UInt32)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Hundreds(System.Int64)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Hundreds(System.UInt64)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Hundreds(System.Double)">
+            <summary>
+            4.Hundreds() => 400
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Thousands(System.Int32)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Thousands(System.UInt32)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Thousands(System.Int64)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Thousands(System.UInt64)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Thousands(System.Double)">
+            <summary>
+            3.Thousands() => 3000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Millions(System.Int32)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Millions(System.UInt32)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Millions(System.Int64)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Millions(System.UInt64)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Millions(System.Double)">
+            <summary>
+            2.Millions() => 2000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Billions(System.Int32)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Billions(System.UInt32)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Billions(System.Int64)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Billions(System.UInt64)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Billions(System.Double)">
+            <summary>
+            1.Billions() => 1000000000
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Numeric.NumericConstants">
             <summary>
@@ -13803,6 +14356,98 @@
             String Utils<br />
             字符串工具
             </summary>
+            <summary>
+            String Utils<br />
+            字符串工具
+            </summary>
+        </member>
+        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.String,System.String[])">
+            <summary>
+            Contains <br />
+            在字符串中是否包含任意一个给定的子字符串
+            </summary>
+            <param name="text"></param>
+            <param name="value"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char)">
+            <summary>
+            Contains <br />
+            在字符串中是否包含给定的字符
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char,System.Char[])">
+            <summary>
+            Contains <br />
+            在字符串中是否包含任意一个给定的字符
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <param name="characters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.ContainsIgnoreCase(System.String,System.String,System.String[])">
+            <summary>
+            Contains ignore case <br />
+            在字符串中是否包含任意一个给定的子字符串，忽略大小写
+            </summary>
+            <param name="text"></param>
+            <param name="value"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.ContainsIgnoreCase(System.String,System.Char)">
+            <summary>
+            Contains ignore case <br />
+            在字符串中是否包含给定的字符，忽略大小写
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.ContainsIgnoreCase(System.String,System.Char,System.Char[])">
+            <summary>
+            Contains ignore case <br />
+            在字符串中是否包含任意一个给定的子字符串，忽略大小写
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <param name="characters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.String[],Cosmos.Text.IgnoreCase)">
+            <summary>
+            Contains with ignore case options <br />
+            在字符串中是否包含任意一个给定的子字符串，根据给定的 IgnoreCase 选项
+            </summary>
+            <param name="text"></param>
+            <param name="values"></param>
+            <param name="case"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char,Cosmos.Text.IgnoreCase)">
+            <summary>
+            Contains with ignore case options <br />
+            在字符串中是否包含给定的字符，根据给定的 IgnoreCase 选项
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <param name="case"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char[],Cosmos.Text.IgnoreCase)">
+            <summary>
+            Contains with ignore case options <br />
+            在字符串中是否包含任意一个给定的字符，根据给定的 IgnoreCase 选项
+            </summary>
+            <param name="text"></param>
+            <param name="characters"></param>
+            <param name="case"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Text.Strings.CountForLetters(System.String)">
             <summary>
@@ -13920,94 +14565,6 @@
             <param name="case"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.String,System.String[])">
-            <summary>
-            Contains <br />
-            在字符串中是否包含任意一个给定的子字符串
-            </summary>
-            <param name="text"></param>
-            <param name="value"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char)">
-            <summary>
-            Contains <br />
-            在字符串中是否包含给定的字符
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char,System.Char[])">
-            <summary>
-            Contains <br />
-            在字符串中是否包含任意一个给定的字符
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <param name="characters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.ContainsIgnoreCase(System.String,System.String,System.String[])">
-            <summary>
-            Contains ignore case <br />
-            在字符串中是否包含任意一个给定的子字符串，忽略大小写
-            </summary>
-            <param name="text"></param>
-            <param name="value"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.ContainsIgnoreCase(System.String,System.Char)">
-            <summary>
-            Contains ignore case <br />
-            在字符串中是否包含给定的字符，忽略大小写
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.ContainsIgnoreCase(System.String,System.Char,System.Char[])">
-            <summary>
-            Contains ignore case <br />
-            在字符串中是否包含任意一个给定的子字符串，忽略大小写
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <param name="characters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.String[],Cosmos.Text.IgnoreCase)">
-            <summary>
-            Contains with ignore case options <br />
-            在字符串中是否包含任意一个给定的子字符串，根据给定的 IgnoreCase 选项
-            </summary>
-            <param name="text"></param>
-            <param name="values"></param>
-            <param name="case"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char,Cosmos.Text.IgnoreCase)">
-            <summary>
-            Contains with ignore case options <br />
-            在字符串中是否包含给定的字符，根据给定的 IgnoreCase 选项
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <param name="case"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.Contains(System.String,System.Char[],Cosmos.Text.IgnoreCase)">
-            <summary>
-            Contains with ignore case options <br />
-            在字符串中是否包含任意一个给定的字符，根据给定的 IgnoreCase 选项
-            </summary>
-            <param name="text"></param>
-            <param name="characters"></param>
-            <param name="case"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Text.Strings.AvoidNull(System.String)">
             <summary>
             Avoid null, so convert null to empty.<br />
@@ -14087,40 +14644,6 @@
             只获取字母。
             </summary>
             <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.HasNumbers(System.String)">
-            <summary>
-            Returns whether it contains digit.<br />
-            返回是否包含数字。
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.HasNumbersAtLeast(System.String,System.Int32)">
-            <summary>
-            Contain at least the specified number of digit.<br />
-            至少包含指定数量的数字。
-            </summary>
-            <param name="text"></param>
-            <param name="minCount"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.HasLetters(System.String)">
-            <summary>
-            Returns whether it contains letters.<br />
-            返回是否包含字母。
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.HasLettersAtLeast(System.String,System.Int32)">
-            <summary>
-            Contain at least the specified number of letters.<br />
-            至少包含指定数量的字母。
-            </summary>
-            <param name="text"></param>
-            <param name="minCount"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Text.Strings.Right(System.String,System.Int32)">
@@ -14269,6 +14792,105 @@
             <param name="repeatTimes"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Text.Strings.CommonPrefix(System.String,System.String)">
+            <summary>
+            Returns the common prefix.<br />
+            从左到右，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.CommonPrefix(System.String,System.String,System.Int32@)">
+            <summary>
+            Returns the common prefix.<br />
+            从左到右，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.CommonSuffix(System.String,System.String)">
+            <summary>
+            Returns the common suffix.<br />
+            从右到左，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.CommonSuffix(System.String,System.String,System.Int32@)">
+            <summary>
+            Returns the common suffix.<br />
+            从右到左，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.HasNumbers(System.String)">
+            <summary>
+            Returns whether it contains digit.<br />
+            返回是否包含数字。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.HasNumbersAtLeast(System.String,System.Int32)">
+            <summary>
+            Contain at least the specified number of digit.<br />
+            至少包含指定数量的数字。
+            </summary>
+            <param name="text"></param>
+            <param name="minCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.HasLetters(System.String)">
+            <summary>
+            Returns whether it contains letters.<br />
+            返回是否包含字母。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.HasLettersAtLeast(System.String,System.Int32)">
+            <summary>
+            Contain at least the specified number of letters.<br />
+            至少包含指定数量的字母。
+            </summary>
+            <param name="text"></param>
+            <param name="minCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.IsUpper(System.String)">
+            <summary>
+            Is upper <br />
+            判断是否为大写
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.IsLower(System.String)">
+            <summary>
+            Is lower <br />
+            判断是否为小写
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
+            <summary>
+            Gets the captured substring from the input string. <br />
+            从输入字符串中获取捕获的子字符串。
+            </summary>
+            <param name="match"></param>
+            <param name="group"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
         <member name="M:Cosmos.Text.Strings.ReplaceIgnoreCase(System.String,System.String,System.String)">
             <summary>
             Replace ignore case <br />
@@ -14358,144 +14980,6 @@
             <param name="toReplace"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.Strings.Truncate(System.String,System.Int32,System.String,System.String)">
-            <summary>
-            Truncate <br />
-            截短，并用给定的字符串结尾
-            </summary>
-            <param name="text"></param>
-            <param name="maxLength"></param>
-            <param name="placeholder"></param>
-            <param name="shortPlaceholder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.CommonPrefix(System.String,System.String)">
-            <summary>
-            Returns the common prefix.<br />
-            从左到右，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.CommonPrefix(System.String,System.String,System.Int32@)">
-            <summary>
-            Returns the common prefix.<br />
-            从左到右，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <param name="len"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.CommonSuffix(System.String,System.String)">
-            <summary>
-            Returns the common suffix.<br />
-            从右到左，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.CommonSuffix(System.String,System.String,System.Int32@)">
-            <summary>
-            Returns the common suffix.<br />
-            从右到左，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <param name="len"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.IsUpper(System.String)">
-            <summary>
-            Is upper <br />
-            判断是否为大写
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.IsLower(System.String)">
-            <summary>
-            Is lower <br />
-            判断是否为小写
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="F:Cosmos.Text.Strings.NEWLINE">
-            <summary>
-            New line <br />
-            换行符
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.Strings.CountByLines(System.String)">
-            <summary>
-            Count by lines <br />
-            计算行数
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.SplitByLines(System.String)">
-            <summary>
-            Split by lines <br />
-            将多行文本分割为单行文本集合
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.TruncateByLines(System.String,System.Int32,System.String)">
-            <summary>
-            Truncate by lines <br />
-            将多行文本分割为单行文本集合，并截取其中的一部分，其余部分用指定的占位符代替
-            </summary>
-            <param name="text"></param>
-            <param name="maxLines"></param>
-            <param name="placeholder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
-            <summary>
-            Gets the captured substring from the input string. <br />
-            从输入字符串中获取捕获的子字符串。
-            </summary>
-            <param name="match"></param>
-            <param name="group"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Text.Strings.EvaluateSimilarity(System.String,System.String,System.Double)">
-            <summary>
-            Evaluate string similarity and return quantitative results. <br />
-            评估字符串相似度并返回定量结果。
-            </summary>
-            <param name="text"></param>
-            <param name="ComparisonText"></param>
-            <param name="similarityMinimal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.EvaluateSimilarity(System.String,System.String,System.Double,System.Int32)">
-            <summary>
-            Evaluate string similarity and return quantitative results. <br />
-            评估字符串相似度并返回定量结果。
-            </summary>
-            <param name="text"></param>
-            <param name="ComparisonText"></param>
-            <param name="similarityMinimal"></param>
-            <param name="diffFound"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.EvaluateSimilarity(System.String,System.String)">
-            <summary>
-            Evaluate string similarity and return qualitative results. <br />
-            评估字符串相似度并返回定量结果。
-            </summary>
-            <param name="text"></param>
-            <param name="ComparisonText"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Text.Strings.Reverse(System.Text.StringBuilder)">
             <summary>
             Reverse <br />
@@ -14519,50 +15003,15 @@
             <param name="builder"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.Strings.ToCapitalCase(System.String)">
-            <summary>
-            To capital case <br />
-            将所有单词转换为首字符大写的词
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.ToCamelCase(System.String)">
-            <summary>
-            To camel case <br />
-            转换为 CamelCase 风格的值
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.CountByWords(System.String)">
-            <summary>
-            Count by words <br />
-            单词数统计
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.SplitByWords(System.String)">
-            <summary>
-            Split by words <br />
-            根据单词进行切割
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.Strings.TruncateByWords(System.String,System.Int32,System.String,System.Boolean)">
-            <summary>
-            Truncate By Words <br />
-            根据单词进行切割并截取，使用给定的占位符结尾
-            </summary>
-            <param name="text"></param>
-            <param name="maxNumber"></param>
-            <param name="placeholder"></param>
-            <param name="extraSpace">额外的空格</param>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Text.StringsExtensions">
+            <summary>
+            String extensions <br />
+            字符串扩展
+            </summary>
+            <summary>
+            String extensions <br />
+            字符串扩展
+            </summary>
             <summary>
             String extensions <br />
             字符串扩展
@@ -14572,11 +15021,7 @@
             字符串扩展
             </summary>
             <summary>
-            Strings extensions <br />
-            字符串扩展
-            </summary>
-            <summary>
-            String Extensions <br />
+            String extensions <br />
             字符串扩展
             </summary>
             <summary>
@@ -14587,6 +15032,94 @@
             String extensions <br />
             字符串扩展
             </summary>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.String,System.String[])">
+            <summary>
+            Contains <br />
+            在字符串中是否包含任意一个给定的子字符串
+            </summary>
+            <param name="text"></param>
+            <param name="value"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char)">
+            <summary>
+            Contains <br />
+            在字符串中是否包含给定的字符
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char,System.Char[])">
+            <summary>
+            Contains <br />
+            在字符串中是否包含任意一个给定的字符
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <param name="characters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.ContainsIgnoreCase(System.String,System.String,System.String[])">
+            <summary>
+            Contains ignore case <br />
+            在字符串中是否包含任意一个给定的子字符串，忽略大小写
+            </summary>
+            <param name="text"></param>
+            <param name="value"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.ContainsIgnoreCase(System.String,System.Char)">
+            <summary>
+            Contains ignore case <br />
+            在字符串中是否包含给定的字符，忽略大小写
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.ContainsIgnoreCase(System.String,System.Char,System.Char[])">
+            <summary>
+            Contains ignore case <br />
+            在字符串中是否包含任意一个给定的子字符串，忽略大小写
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <param name="characters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.String[],Cosmos.Text.IgnoreCase)">
+            <summary>
+            Contains with ignore case options <br />
+            在字符串中是否包含任意一个给定的子字符串，根据给定的 IgnoreCase 选项
+            </summary>
+            <param name="text"></param>
+            <param name="values"></param>
+            <param name="case"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char,Cosmos.Text.IgnoreCase)">
+            <summary>
+            Contains with ignore case options <br />
+            在字符串中是否包含给定的字符，根据给定的 IgnoreCase 选项
+            </summary>
+            <param name="text"></param>
+            <param name="character"></param>
+            <param name="case"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char[],Cosmos.Text.IgnoreCase)">
+            <summary>
+            Contains with ignore case options <br />
+            在字符串中是否包含任意一个给定的字符，根据给定的 IgnoreCase 选项
+            </summary>
+            <param name="text"></param>
+            <param name="characters"></param>
+            <param name="case"></param>
+            <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringsExtensions.CountForLetters(System.String)">
             <summary>
@@ -14694,94 +15227,6 @@
             <param name="toCheck"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.String,System.String[])">
-            <summary>
-            Contains <br />
-            在字符串中是否包含任意一个给定的子字符串
-            </summary>
-            <param name="text"></param>
-            <param name="value"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char)">
-            <summary>
-            Contains <br />
-            在字符串中是否包含给定的字符
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char,System.Char[])">
-            <summary>
-            Contains <br />
-            在字符串中是否包含任意一个给定的字符
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <param name="characters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.ContainsIgnoreCase(System.String,System.String,System.String[])">
-            <summary>
-            Contains ignore case <br />
-            在字符串中是否包含任意一个给定的子字符串，忽略大小写
-            </summary>
-            <param name="text"></param>
-            <param name="value"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.ContainsIgnoreCase(System.String,System.Char)">
-            <summary>
-            Contains ignore case <br />
-            在字符串中是否包含给定的字符，忽略大小写
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.ContainsIgnoreCase(System.String,System.Char,System.Char[])">
-            <summary>
-            Contains ignore case <br />
-            在字符串中是否包含任意一个给定的子字符串，忽略大小写
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <param name="characters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.String[],Cosmos.Text.IgnoreCase)">
-            <summary>
-            Contains with ignore case options <br />
-            在字符串中是否包含任意一个给定的子字符串，根据给定的 IgnoreCase 选项
-            </summary>
-            <param name="text"></param>
-            <param name="values"></param>
-            <param name="case"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char,Cosmos.Text.IgnoreCase)">
-            <summary>
-            Contains with ignore case options <br />
-            在字符串中是否包含给定的字符，根据给定的 IgnoreCase 选项
-            </summary>
-            <param name="text"></param>
-            <param name="character"></param>
-            <param name="case"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.Contains(System.String,System.Char[],Cosmos.Text.IgnoreCase)">
-            <summary>
-            Contains with ignore case options <br />
-            在字符串中是否包含任意一个给定的字符，根据给定的 IgnoreCase 选项
-            </summary>
-            <param name="text"></param>
-            <param name="characters"></param>
-            <param name="case"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Text.StringsExtensions.EqualsIgnoreCase(System.String,System.String)">
             <summary>
             Equals ignore case <br />
@@ -14807,40 +15252,6 @@
             </summary>
             <param name="text"></param>
             <param name="predicate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.HasNumbers(System.String)">
-            <summary>
-            Returns whether it contains digit.<br />
-            返回是否包含数字。
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.HasNumbersAtLeast(System.String,System.Int32)">
-            <summary>
-            Contain at least the specified number of digit.<br />
-            至少包含指定数量的数字。
-            </summary>
-            <param name="text"></param>
-            <param name="minCount"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.ContainsLetters(System.String)">
-            <summary>
-            Returns whether it contains letters.<br />
-            返回是否包含字母。
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.ContainsLettersAtLeast(System.String,System.Int32)">
-            <summary>
-            Contain at least the specified number of letters.<br />
-            至少包含指定数量的字母。
-            </summary>
-            <param name="text"></param>
-            <param name="minCount"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringsExtensions.Right(System.String,System.Int32)">
@@ -14952,6 +15363,105 @@
             <param name="repeatTimes"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Text.StringsExtensions.CommonPrefix(System.String,System.String)">
+            <summary>
+            Returns the common prefix.<br />
+            从左到右，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.CommonPrefix(System.String,System.String,System.Int32@)">
+            <summary>
+            Returns the common prefix.<br />
+            从左到右，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.CommonSuffix(System.String,System.String)">
+            <summary>
+            Returns the common suffix.<br />
+            从右到左，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.CommonSuffix(System.String,System.String,System.Int32@)">
+            <summary>
+            Returns the common suffix.<br />
+            从右到左，返回共有的字符，直至遇到第一个不同的字符。
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.HasNumbers(System.String)">
+            <summary>
+            Returns whether it contains digit.<br />
+            返回是否包含数字。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.HasNumbersAtLeast(System.String,System.Int32)">
+            <summary>
+            Contain at least the specified number of digit.<br />
+            至少包含指定数量的数字。
+            </summary>
+            <param name="text"></param>
+            <param name="minCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.ContainsLetters(System.String)">
+            <summary>
+            Returns whether it contains letters.<br />
+            返回是否包含字母。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.ContainsLettersAtLeast(System.String,System.Int32)">
+            <summary>
+            Contain at least the specified number of letters.<br />
+            至少包含指定数量的字母。
+            </summary>
+            <param name="text"></param>
+            <param name="minCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.IsUpper(System.String)">
+            <summary>
+            Is upper <br />
+            判断是否为大写
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.IsLower(System.String)">
+            <summary>
+            Is lower <br />
+            判断是否为小写
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
+            <summary>
+            Gets the captured substring from the input string. <br />
+            从输入字符串中获取捕获的子字符串。
+            </summary>
+            <param name="match"></param>
+            <param name="group"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
         <member name="M:Cosmos.Text.StringsExtensions.ReplaceIgnoreCase(System.String,System.String,System.String)">
             <summary>
             Replace ignore case <br />
@@ -15039,138 +15549,6 @@
             </summary>
             <param name="text"></param>
             <param name="toReplace"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.Truncate(System.String,System.Int32,System.String,System.String)">
-            <summary>
-            Truncate <br />
-            截短，并用给定的字符串结尾
-            </summary>
-            <param name="text"></param>
-            <param name="maxLength"></param>
-            <param name="placeholder"></param>
-            <param name="shortPlaceholder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.CommonPrefix(System.String,System.String)">
-            <summary>
-            Returns the common prefix.<br />
-            从左到右，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.CommonPrefix(System.String,System.String,System.Int32@)">
-            <summary>
-            Returns the common prefix.<br />
-            从左到右，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <param name="len"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.CommonSuffix(System.String,System.String)">
-            <summary>
-            Returns the common suffix.<br />
-            从右到左，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.CommonSuffix(System.String,System.String,System.Int32@)">
-            <summary>
-            Returns the common suffix.<br />
-            从右到左，返回共有的字符，直至遇到第一个不同的字符。
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <param name="len"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.IsUpper(System.String)">
-            <summary>
-            Is upper <br />
-            判断是否为大写
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.IsLower(System.String)">
-            <summary>
-            Is lower <br />
-            判断是否为小写
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.CountByLines(System.String)">
-            <summary>
-            Line count <br />
-            计算行数
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.SplitByLines(System.String)">
-            <summary>
-            To lines <br />
-            将多行文本分割为单行文本集合
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.TruncateByLines(System.String,System.Int32,System.String)">
-            <summary>
-            Truncate by lines <br />
-            将多行文本分割为单行文本集合，并截取其中的一部分，其余部分用指定的占位符代替
-            </summary>
-            <param name="text"></param>
-            <param name="maxLines"></param>
-            <param name="placeholder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
-            <summary>
-            Gets the captured substring from the input string. <br />
-            从输入字符串中获取捕获的子字符串。
-            </summary>
-            <param name="match"></param>
-            <param name="group"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.EvaluateSimilarity(System.String,System.String,System.Double)">
-            <summary>
-            Evaluate string similarity and return quantitative results. <br />
-            评估字符串相似度并返回定量结果。
-            </summary>
-            <param name="text"></param>
-            <param name="ComparisonText"></param>
-            <param name="similarityMinimal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.EvaluateSimilarity(System.String,System.String,System.Double,System.Int32)">
-            <summary>
-            Evaluate string similarity and return quantitative results. <br />
-            评估字符串相似度并返回定量结果。
-            </summary>
-            <param name="text"></param>
-            <param name="ComparisonText"></param>
-            <param name="similarityMinimal"></param>
-            <param name="diffFound"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.EvaluateSimilarity(System.String,System.String)">
-            <summary>
-            Evaluate string similarity and return qualitative results. <br />
-            评估字符串相似度并返回定量结果。
-            </summary>
-            <param name="text"></param>
-            <param name="ComparisonText"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringsExtensions.AppendAll``1(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{``0},System.String)">
@@ -15292,50 +15670,11 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringsExtensions.ToCapitalCase(System.String)">
-            <summary>
-            To capital case <br />
-            将所有单词转换为首字符大写的词
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.ToCamelCase(System.String)">
-            <summary>
-            To camel case <br />
-            转换为 CamelCase 风格的值
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.CountByWords(System.String)">
-            <summary>
-            Count by words <br />
-            单词数统计
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.SplitByWords(System.String)">
-            <summary>
-            Split by words <br />
-            根据单词进行切割
-            </summary>
-            <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsExtensions.TruncateByWords(System.String,System.Int32,System.String,System.Boolean)">
-            <summary>
-            Truncate By Words <br />
-            根据单词进行切割并截取，使用给定的占位符结尾
-            </summary>
-            <param name="text"></param>
-            <param name="maxNumber"></param>
-            <param name="placeholder"></param>
-            <param name="extraSpace">额外的空格</param>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Text.StringsShortcutExtensions">
+            <summary>
+            String shortcut extensions <br />
+            字符串捷径扩展
+            </summary>
             <summary>
             String shortcut extensions <br />
             字符串捷径扩展
@@ -15344,24 +15683,6 @@
             String Shortcut Extensions <br />
             字符串捷径扩展
             </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringsShortcutExtensions.ToBytes(System.String,System.Text.Encoding)">
-            <summary>
-            Convert string to byte array <br />
-            将字符串换换为字节数组
-            </summary>
-            <param name="value"></param>
-            <param name="encoding"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsShortcutExtensions.GetString(System.Byte[],System.Text.Encoding)">
-            <summary>
-            Convert byte array to string <br />
-            将字节数组换换位字符串
-            </summary>
-            <param name="bytes"></param>
-            <param name="encoding"></param>
-            <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringsShortcutExtensions.EndsWith(System.String,System.String[])">
             <summary>
@@ -15410,6 +15731,73 @@
             </summary>
             <param name="text"></param>
             <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWith(System.String,System.String[])">
+            <summary>
+            Start withs <br />
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="text"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWith(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Start withs <br />
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="text"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWithIgnoreCase(System.String,System.String)">
+            <summary>
+            Starts with ignore case <br />
+            确定此字符串实例的开头是否与指定的字符串匹配，忽略大小写。
+            </summary>
+            <param name="text"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWithIgnoreCase(System.String,System.String[])">
+            <summary>
+            Starts with any ignore case <br />
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="text"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWithIgnoreCase(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Starts with any ignore case <br />
+            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配，忽略大小写。
+            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
+            </summary>
+            <param name="text"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsShortcutExtensions.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            Convert string to byte array <br />
+            将字符串换换为字节数组
+            </summary>
+            <param name="value"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsShortcutExtensions.GetString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Convert byte array to string <br />
+            将字节数组换换位字符串
+            </summary>
+            <param name="bytes"></param>
+            <param name="encoding"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringsShortcutExtensions.IndexOfIgnoreCase(System.String,System.String)">
@@ -15468,55 +15856,6 @@
             <param name="text"></param>
             <param name="toCheck"></param>
             <param name="startIndex"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWith(System.String,System.String[])">
-            <summary>
-            Start withs <br />
-            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="text"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWith(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Start withs <br />
-            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="text"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWithIgnoreCase(System.String,System.String)">
-            <summary>
-            Starts with ignore case <br />
-            确定此字符串实例的开头是否与指定的字符串匹配，忽略大小写。
-            </summary>
-            <param name="text"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWithIgnoreCase(System.String,System.String[])">
-            <summary>
-            Starts with any ignore case <br />
-            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="text"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Text.StringsShortcutExtensions.StartsWithIgnoreCase(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Starts with any ignore case <br />
-            确定此字符串实例的开头是否与指定的字符串数组中的某一个成员匹配，忽略大小写。
-            <para>只要有一个匹配，则返回 True，不然则返回 False</para>
-            </summary>
-            <param name="text"></param>
-            <param name="values"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringsShortcutExtensions.SubstringSince(System.String,System.String)">
@@ -15609,39 +15948,6 @@
             检查字符串不是 null、空或由空白字符串组成
             </summary>
             <param name="text"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Text.StringSimilarityTypes">
-            <summary>
-            Type Similarity <br />
-            字符串相似度类型
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.StringSimilarityTypes.Any">
-            <summary>
-            Any
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.StringSimilarityTypes.Same">
-            <summary>
-            Same
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.StringSimilarityTypes.MayorLong">
-            <summary>
-            Mayor long
-            </summary>
-        </member>
-        <member name="F:Cosmos.Text.StringSimilarityTypes.MinorLong">
-            <summary>
-            Minor long
-            </summary>
-        </member>
-        <member name="M:Cosmos.Text.StringWordHelper.AllCapitals(System.String)">
-            <summary>
-            To all capitals
-            </summary>
-            <param name="input"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Text.StructuredStringVal">
@@ -15844,6 +16150,53 @@
             <summary>Returns a string that represents the current object.</summary>
             <returns>A string that represents the current object.</returns>
         </member>
+        <member name="T:Cosmos.Verba.Boolean.InternalBooleanValueManager">
+            <summary>
+            Global boolean verba manager <br />
+            全局布尔值 Verba 管理器
+            </summary>
+        </member>
+        <member name="M:Cosmos.Verba.Boolean.InternalBooleanValueManager.AddBooleanVerba(Cosmos.Verba.Boolean.IBooleanVerba)">
+            <summary>
+            Add boolean verba into <see cref="T:Cosmos.Verba.Boolean.InternalBooleanValueManager"/> <br />
+            向 全局布尔值 Verba 管理器中添加一个新的布尔值
+            </summary>
+            <param name="verba"></param>
+        </member>
+        <member name="M:Cosmos.Verba.Boolean.InternalBooleanValueManager.Determining(System.String)">
+            <summary>
+            To determine the alas value is true, false or null. <br />
+            根据给定的值判断为 True、False 还是空。
+            </summary>
+            <param name="verbaAlias"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Verba.Boolean.InternalBooleanValueManager.Determining(System.String,System.Boolean)">
+            <summary>
+            To determine the alas value is true, false or default value you have given. <br />
+            根据给定的值判断为 True、False 还是给定的默认值。
+            </summary>
+            <param name="verbaAlias"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Verba.Boolean.InternalBooleanValueManager.TryDetermining(System.String,System.Boolean@)">
+            <summary>
+            Try to determine the alas value is true, false or default value you have given. <br />
+            尝试根据给定的值判断为 True、False 还是给定的默认值。
+            </summary>
+            <param name="verbaAlias"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Verba.Boolean.InternalBooleanValueManager.MayBeDetermined(System.String)">
+            <summary>
+            Determine whether the given value can be inferred. <br />
+            判断给定的值是否可被推断。
+            </summary>
+            <param name="verbaAlias"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Verba.Boolean.DefaultBooleanVerba">
             <summary>
             Default global boolean verba <br />
@@ -15873,53 +16226,6 @@
             False alias list <br />
             False 的别名列表
             </summary>
-        </member>
-        <member name="T:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager">
-            <summary>
-            Global boolean verba manager <br />
-            全局布尔值 Verba 管理器
-            </summary>
-        </member>
-        <member name="M:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager.AddBooleanVerba(Cosmos.Verba.Boolean.IBooleanVerba)">
-            <summary>
-            Add boolean verba into <see cref="T:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager"/> <br />
-            向 全局布尔值 Verba 管理器中添加一个新的布尔值
-            </summary>
-            <param name="verba"></param>
-        </member>
-        <member name="M:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager.Determining(System.String)">
-            <summary>
-            To determine the alas value is true, false or null. <br />
-            根据给定的值判断为 True、False 还是空。
-            </summary>
-            <param name="verbaAlias"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager.Determining(System.String,System.Boolean)">
-            <summary>
-            To determine the alas value is true, false or default value you have given. <br />
-            根据给定的值判断为 True、False 还是给定的默认值。
-            </summary>
-            <param name="verbaAlias"></param>
-            <param name="defaultVal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager.TryDetermining(System.String,System.Boolean@)">
-            <summary>
-            Try to determine the alas value is true, false or default value you have given. <br />
-            尝试根据给定的值判断为 True、False 还是给定的默认值。
-            </summary>
-            <param name="verbaAlias"></param>
-            <param name="result"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Verba.Boolean.GlobalBooleanVerbaManager.MayBeDetermined(System.String)">
-            <summary>
-            Determine whether the given value can be inferred. <br />
-            判断给定的值是否可被推断。
-            </summary>
-            <param name="verbaAlias"></param>
-            <returns></returns>
         </member>
         <member name="T:Cosmos.Verba.Boolean.IBooleanVerba">
             <summary>
