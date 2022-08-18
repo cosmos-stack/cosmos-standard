@@ -65,8 +65,22 @@ public static partial class TypeVisit
     }
 
     /// <summary>
+    /// Get BaseMethod <br />
+    /// 获取 BaseMethod
+    /// </summary>
+    /// <param name="method"></param>
+    /// <returns></returns>
+    public static MethodInfo GetBaseMethod(MethodInfo method)
+    {
+        if (null == method?.DeclaringType?.BaseType)
+            return null;
+
+        return GetMethodBySignature(method.DeclaringType.BaseType, method);
+    }
+
+    /// <summary>
     /// Get method by signature <br />
-    /// 获取方法签名
+    /// 根据方法签名获取方法
     /// </summary>
     /// <param name="type"></param>
     /// <param name="method"></param>
@@ -124,17 +138,33 @@ public static partial class TypeVisit
     }
 
     /// <summary>
-    /// Get BaseMethod <br />
-    /// 获取 BaseMethod
+    /// Get method by signature <br />
+    /// 根据方法签名获取方法
     /// </summary>
-    /// <param name="method"></param>
+    /// <param name="typeInfo"></param>
+    /// <param name="signature"></param>
     /// <returns></returns>
-    public static MethodInfo GetBaseMethod(MethodInfo method)
+    /// <exception cref="ArgumentNullException"></exception>
+    public static MethodInfo GetMethodBySignature(TypeInfo typeInfo, MethodSignature signature)
     {
-        if (null == method?.DeclaringType?.BaseType)
-            return null;
+        if (typeInfo is null)
+            throw new ArgumentNullException(nameof(typeInfo));
+        return typeInfo.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static).FirstOrDefault(m => new MethodSignature(m) == signature);
+    }
 
-        return GetMethodBySignature(method.DeclaringType.BaseType, method);
+    /// <summary>
+    /// Get declared method by signature <br />
+    /// 根据方法签名获取声明的方法
+    /// </summary>
+    /// <param name="typeInfo"></param>
+    /// <param name="signature"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static MethodInfo GetDeclaredMethodBySignature(TypeInfo typeInfo, MethodSignature signature)
+    {
+        if (typeInfo is null)
+            throw new ArgumentNullException(nameof(typeInfo));
+        return typeInfo.DeclaredMethods.FirstOrDefault(m => new MethodSignature(m) == signature);
     }
 
     /// <summary>
@@ -225,6 +255,17 @@ public static partial class TypeMetaVisitExtensions
     }
 
     /// <summary>
+    /// Get BaseMethod <br />
+    /// 获取 BaseMethod
+    /// </summary>
+    /// <param name="method"></param>
+    /// <returns></returns>
+    public static MethodInfo GetBaseMethod(this MethodInfo method)
+    {
+        return TypeVisit.GetBaseMethod(method);
+    }
+
+    /// <summary>
     /// Get method by signature <br />
     /// 获取方法签名
     /// </summary>
@@ -238,14 +279,29 @@ public static partial class TypeMetaVisitExtensions
     }
 
     /// <summary>
-    /// Get BaseMethod <br />
-    /// 获取 BaseMethod
+    /// Get method by signature <br />
+    /// 根据方法签名获取方法
     /// </summary>
-    /// <param name="method"></param>
+    /// <param name="typeInfo"></param>
+    /// <param name="signature"></param>
     /// <returns></returns>
-    public static MethodInfo GetBaseMethod(this MethodInfo method)
+    /// <exception cref="ArgumentNullException"></exception>
+    public static MethodInfo GetMethodBySignature(this TypeInfo typeInfo, MethodSignature signature)
     {
-        return TypeVisit.GetBaseMethod(method);
+        return TypeVisit.GetMethodBySignature(typeInfo, signature);
+    }
+
+    /// <summary>
+    /// Get declared method by signature <br />
+    /// 根据方法签名获取声明的方法
+    /// </summary>
+    /// <param name="typeInfo"></param>
+    /// <param name="signature"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static MethodInfo GetDeclaredMethodBySignature(this TypeInfo typeInfo, MethodSignature signature)
+    {
+        return TypeVisit.GetDeclaredMethodBySignature(typeInfo, signature);
     }
 
     /// <summary>

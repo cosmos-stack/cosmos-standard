@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Cosmos.Reflection;
+﻿namespace Cosmos.Reflection;
 
 /// <summary>
 /// Reflection Utilities. <br />
@@ -129,4 +127,52 @@ public static partial class TypeReflections
     {
         return X(member, type => type, Types.IsCollectionType);
     }
+
+    public static bool IsVisible(TypeInfo typeInfo)
+    {
+        if (typeInfo is null)
+            throw new ArgumentNullException(nameof(typeInfo));
+
+        if (typeInfo.IsNested)
+        {
+            if (!typeInfo.DeclaringType.GetTypeInfo().IsVisible())
+            {
+                return false;
+            }
+
+            if (!typeInfo.IsVisible || !typeInfo.IsNestedPublic)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (!typeInfo.IsVisible || !typeInfo.IsPublic)
+            {
+                return false;
+            }
+        }
+
+        if (typeInfo.IsGenericType && !typeInfo.IsGenericTypeDefinition)
+        {
+            foreach (var argument in typeInfo.GenericTypeArguments)
+            {
+                if (!argument.GetTypeInfo().IsVisible())
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+}
+
+/// <summary>
+/// Reflection Utilities. <br />
+/// 反射工具
+/// </summary>
+public static partial class TypeReflectionsExtensions
+{
+    public static bool IsVisible(this TypeInfo typeInfo) => TypeReflections.IsVisible(typeInfo);
 }

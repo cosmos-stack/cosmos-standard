@@ -21,9 +21,7 @@ public static partial class TypeMetaVisitExtensions
     /// <param name="options">反射选项</param>
     /// <returns>是否存在</returns>
     public static bool IsAttributeDefined<TAttribute>(this MemberInfo member, ReflectionOptions options = ReflectionOptions.Default) where TAttribute : Attribute
-    {
-        return TypeReflections.IsAttributeDefined<TAttribute>(member, options);
-    }
+        => TypeReflections.IsAttributeDefined<TAttribute>(member, options);
 
     /// <summary>
     /// To determine whether the given Attribute is undefined.<br />
@@ -34,9 +32,7 @@ public static partial class TypeMetaVisitExtensions
     /// <param name="options">反射选项</param>
     /// <returns>是否不存在</returns>
     public static bool IsAttributeNotDefined<TAttribute>(this MemberInfo member, ReflectionOptions options = ReflectionOptions.Default) where TAttribute : Attribute
-    {
-        return !TypeReflections.IsAttributeDefined<TAttribute>(member, options);
-    }
+        => !TypeReflections.IsAttributeDefined<TAttribute>(member, options);
 
     /// <summary>
     /// To determine whether the given Attribute is defined.<br />
@@ -47,9 +43,7 @@ public static partial class TypeMetaVisitExtensions
     /// <param name="options"></param>
     /// <returns></returns>
     public static bool IsAttributeDefined(this MemberInfo member, Type attributeType, ReflectionOptions options = ReflectionOptions.Default)
-    {
-        return TypeReflections.IsAttributeDefined(member, attributeType, options);
-    }
+        => TypeReflections.IsAttributeDefined(member, attributeType, options);
 
     /// <summary>
     /// To determine whether the given Attribute is undefined.<br />
@@ -60,7 +54,5 @@ public static partial class TypeMetaVisitExtensions
     /// <param name="options"></param>
     /// <returns></returns>
     public static bool IsAttributeNotDefined(this MemberInfo member, Type attributeType, ReflectionOptions options = ReflectionOptions.Default)
-    {
-        return !TypeReflections.IsAttributeDefined(member, attributeType, options);
-    }
+        => !TypeReflections.IsAttributeDefined(member, attributeType, options);
 }

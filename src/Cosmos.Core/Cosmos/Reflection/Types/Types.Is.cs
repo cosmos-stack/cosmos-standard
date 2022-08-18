@@ -15,7 +15,7 @@ public enum TypeIsOptions
     IgnoreNullable = 1
 }
 
-internal static class TypeExtensions
+internal static class InternalTypeUtilitiesExtensions
 {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Type GetUnboxedType<T>(this T value) => typeof(T);
