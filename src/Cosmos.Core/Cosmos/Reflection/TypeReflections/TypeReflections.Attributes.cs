@@ -1,5 +1,4 @@
-using System.Reflection;
-using AspectCore.Extensions.Reflection;
+using Cosmos.Reflection.Reflectors;
 
 // ReSharper disable PossibleMultipleEnumeration
 
@@ -49,15 +48,6 @@ internal static class TypeReflectorHelper
     {
         return parameter.GetReflector();
     }
-
-    private static FieldInfo CustomAttributeReflectorRuntimeTypeHandle = typeof(CustomAttributeReflector).GetField("_tokens", BindingFlags.Instance | BindingFlags.NonPublic);
-
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static HashSet<RuntimeTypeHandle> GetRuntimeTypeHandles(CustomAttributeReflector reflector)
-    {
-        return CustomAttributeReflectorRuntimeTypeHandle.GetValue(reflector) as HashSet<RuntimeTypeHandle>;
-    }
 }
 
 /// <summary>
@@ -102,7 +92,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsAttributeDefined<TAttribute>(MemberInfo member) where TAttribute : Attribute
     {
-        return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute));
+        return TypeReflectorHelper.GetReflector(member).IsAttributeDefined<TAttribute>();
     }
 
     /// <summary>
@@ -118,7 +108,7 @@ public static partial class TypeReflections
     {
         return options switch
         {
-            ReflectionOptions.Default => IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute)),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(member).IsAttributeDefined<TAttribute>(),
             ReflectionOptions.Inherit => member.GetCustomAttributes<TAttribute>(true).Any(),
             _ => member.GetCustomAttributes<TAttribute>().Any()
         };
@@ -134,7 +124,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsAttributeDefined<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
     {
-        return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute));
+        return TypeReflectorHelper.GetReflector(parameter).IsAttributeDefined<TAttribute>();
     }
 
     /// <summary>
@@ -151,7 +141,7 @@ public static partial class TypeReflections
         return options switch
         {
             ReflectionOptions.Default => parameter.GetCustomAttributes<TAttribute>().Any(),
-            ReflectionOptions.Inherit => IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute)),
+            ReflectionOptions.Inherit => TypeReflectorHelper.GetReflector(parameter).IsAttributeDefined<TAttribute>(),
             _ => parameter.GetCustomAttributes<TAttribute>().Any()
         };
     }
@@ -166,7 +156,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsAttributeDefined(MemberInfo member, Type attributeType)
     {
-        return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(member), attributeType);
+        return TypeReflectorHelper.GetReflector(member).IsAttributeDefined(attributeType);
     }
 
     /// <summary>
@@ -182,7 +172,7 @@ public static partial class TypeReflections
     {
         return options switch
         {
-            ReflectionOptions.Default => IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(member), attributeType),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(member).IsAttributeDefined(attributeType),
             ReflectionOptions.Inherit => member.GetCustomAttributes(attributeType, true).Any(),
             _ => member.GetCustomAttributes(attributeType).Any()
         };
@@ -198,7 +188,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsAttributeDefined(ParameterInfo parameter, Type attributeType)
     {
-        return IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(parameter), attributeType);
+        return TypeReflectorHelper.GetReflector(parameter).IsAttributeDefined(attributeType);
     }
 
     /// <summary>
@@ -214,28 +204,10 @@ public static partial class TypeReflections
     {
         return options switch
         {
-            ReflectionOptions.Default => IsAttributeDefinedImpl(TypeReflectorHelper.GetReflector(parameter), attributeType),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(parameter).IsAttributeDefined(attributeType),
             ReflectionOptions.Inherit => parameter.GetCustomAttributes(attributeType, true).Any(),
             _ => parameter.GetCustomAttributes(attributeType).Any()
         };
-    }
-
-    private static bool IsAttributeDefinedImpl(ICustomAttributeReflectorProvider customAttributeReflectorProvider, Type attributeType)
-    {
-        if (attributeType is null) throw new ArgumentNullException(nameof(attributeType));
-        var attributeReflectors = customAttributeReflectorProvider != null
-            ? customAttributeReflectorProvider.CustomAttributeReflectors
-            : throw new ArgumentNullException(nameof(customAttributeReflectorProvider));
-        var length = attributeReflectors.Length;
-        if (length == 0) return false;
-        var typeHandle = attributeType.TypeHandle;
-        for (var i = 0; i < length; i++)
-        {
-            if (TypeReflectorHelper.GetRuntimeTypeHandles(attributeReflectors[i]).Contains(typeHandle))
-                return true;
-        }
-
-        return false;
     }
 
     #endregion
@@ -252,7 +224,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Attribute GetAttribute(MemberInfo member, Type attributeType)
     {
-        return GetAttributeImpl(TypeReflectorHelper.GetReflector(member), attributeType);
+        return TypeReflectorHelper.GetReflector(member).GetAttribute(attributeType);
     }
 
     /// <summary>
@@ -265,7 +237,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Attribute GetAttribute(ParameterInfo parameter, Type attributeType)
     {
-        return GetAttributeImpl(TypeReflectorHelper.GetReflector(parameter), attributeType);
+        return TypeReflectorHelper.GetReflector(parameter).GetAttribute(attributeType);
     }
 
     /// <summary>
@@ -282,7 +254,7 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => GetAttributeImpl(TypeReflectorHelper.GetReflector(member), attributeType),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(member).GetAttribute(attributeType),
             ReflectionOptions.Inherit => ambOptions switch
             {
                 ReflectionAmbiguousOptions.Default => member.GetCustomAttribute(attributeType, true),
@@ -307,7 +279,7 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => GetAttributeImpl(TypeReflectorHelper.GetReflector(parameter), attributeType),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(parameter).GetAttribute(attributeType),
             ReflectionOptions.Inherit => ambOptions switch
             {
                 ReflectionAmbiguousOptions.Default => parameter.GetCustomAttribute(attributeType, true),
@@ -328,7 +300,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TAttribute GetAttribute<TAttribute>(MemberInfo member) where TAttribute : Attribute
     {
-        return (TAttribute)GetAttributeImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute));
+        return TypeReflectorHelper.GetReflector(member).GetAttribute<TAttribute>();
     }
 
     /// <summary>
@@ -341,7 +313,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TAttribute GetAttribute<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
     {
-        return (TAttribute)GetAttributeImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute));
+        return TypeReflectorHelper.GetReflector(parameter).GetAttribute<TAttribute>();
     }
 
     /// <summary>
@@ -358,7 +330,7 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => (TAttribute)GetAttributeImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute)),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(member).GetAttribute<TAttribute>(),
             ReflectionOptions.Inherit => ambOptions switch
             {
                 ReflectionAmbiguousOptions.Default => member.GetCustomAttribute<TAttribute>(true),
@@ -383,7 +355,7 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => (TAttribute)GetAttributeImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute)),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(parameter).GetAttribute<TAttribute>(),
             ReflectionOptions.Inherit => ambOptions switch
             {
                 ReflectionAmbiguousOptions.Default => parameter.GetCustomAttribute<TAttribute>(true),
@@ -392,24 +364,6 @@ public static partial class TypeReflections
             },
             _ => parameter.GetCustomAttribute<TAttribute>()
         };
-    }
-
-    private static Attribute GetAttributeImpl(ICustomAttributeReflectorProvider customAttributeReflectorProvider, Type attributeType)
-    {
-        if (attributeType is null) throw new ArgumentNullException(nameof(attributeType));
-        var attributeReflectors = customAttributeReflectorProvider != null
-            ? customAttributeReflectorProvider.CustomAttributeReflectors
-            : throw new ArgumentNullException(nameof(customAttributeReflectorProvider));
-        var length = attributeReflectors.Length;
-        if (length == 0) return default;
-        var typeHandle = attributeType.TypeHandle;
-        for (var i = 0; i < length; i++)
-        {
-            if (TypeReflectorHelper.GetRuntimeTypeHandles(attributeReflectors[i]).Contains(typeHandle))
-                return attributeReflectors[i].Invoke();
-        }
-
-        return default;
     }
 
     #endregion
@@ -426,7 +380,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<TAttribute> GetAttributes<TAttribute>(MemberInfo member) where TAttribute : Attribute
     {
-        return GetAttributesImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute)).Cast<TAttribute>();
+        return TypeReflectorHelper.GetReflector(member).GetAttributes<TAttribute>();
     }
 
     /// <summary>
@@ -439,7 +393,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<TAttribute> GetAttributes<TAttribute>(ParameterInfo parameter) where TAttribute : Attribute
     {
-        return GetAttributesImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute)).Cast<TAttribute>();
+        return TypeReflectorHelper.GetReflector(parameter).GetAttributes<TAttribute>();
     }
 
     /// <summary>
@@ -455,7 +409,7 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => GetAttributesImpl(TypeReflectorHelper.GetReflector(member), typeof(TAttribute)).Cast<TAttribute>(),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(member).GetAttributes<TAttribute>(),
             ReflectionOptions.Inherit => member.GetCustomAttributes<TAttribute>(true),
             _ => member.GetCustomAttributes<TAttribute>()
         };
@@ -474,7 +428,7 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => GetAttributesImpl(TypeReflectorHelper.GetReflector(parameter), typeof(TAttribute)).Cast<TAttribute>(),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(parameter).GetAttributes<TAttribute>(),
             ReflectionOptions.Inherit => parameter.GetCustomAttributes<TAttribute>(true),
             _ => parameter.GetCustomAttributes<TAttribute>()
         };
@@ -490,7 +444,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<Attribute> GetAttributes(MemberInfo member, Type attributeType)
     {
-        return GetAttributesImpl(TypeReflectorHelper.GetReflector(member), attributeType);
+        return TypeReflectorHelper.GetReflector(member).GetAttributes(attributeType);
     }
 
     /// <summary>
@@ -503,7 +457,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<Attribute> GetAttributes(ParameterInfo parameter, Type attributeType)
     {
-        return GetAttributesImpl(TypeReflectorHelper.GetReflector(parameter), attributeType);
+        return TypeReflectorHelper.GetReflector(parameter).GetAttributes(attributeType);
     }
 
     /// <summary>
@@ -519,7 +473,7 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => GetAttributesImpl(TypeReflectorHelper.GetReflector(member), attributeType),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(member).GetAttributes(attributeType),
             ReflectionOptions.Inherit => member.GetCustomAttributes(attributeType, true) as Attribute[],
             _ => member.GetCustomAttributes(attributeType)
         };
@@ -538,37 +492,10 @@ public static partial class TypeReflections
     {
         return refOptions switch
         {
-            ReflectionOptions.Default => GetAttributesImpl(TypeReflectorHelper.GetReflector(parameter), attributeType),
+            ReflectionOptions.Default => TypeReflectorHelper.GetReflector(parameter).GetAttributes(attributeType),
             ReflectionOptions.Inherit => parameter.GetCustomAttributes(attributeType, true) as Attribute[],
             _ => parameter.GetCustomAttributes(attributeType)
         };
-    }
-
-    private static IEnumerable<Attribute> GetAttributesImpl(ICustomAttributeReflectorProvider customAttributeReflectorProvider, Type attributeType)
-    {
-        if (attributeType is null) throw new ArgumentNullException(nameof(attributeType));
-        var attributeReflectors = customAttributeReflectorProvider != null
-            ? customAttributeReflectorProvider.CustomAttributeReflectors
-            : throw new ArgumentNullException(nameof(customAttributeReflectorProvider));
-        var length = attributeReflectors.Length;
-        if (length == 0)
-            return Enumerable.Empty<Attribute>();
-        var typeHandle = attributeType.TypeHandle;
-        var holder = new Attribute[length];
-        var counter = 0;
-        for (var i = 0; i < length; i++)
-        {
-            var attributeReflector = attributeReflectors[i];
-            if (TypeReflectorHelper.GetRuntimeTypeHandles(attributeReflector).Contains(typeHandle))
-                holder[counter++] = attributeReflector.Invoke();
-        }
-
-        if (length == counter)
-            return holder;
-
-        var result = new Attribute[counter];
-        Array.Copy(holder, result, counter);
-        return result;
     }
 
     #endregion
