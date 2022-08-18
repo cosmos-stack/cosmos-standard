@@ -32,7 +32,7 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
 
     protected override string ScopeName => "CollectionMappers";
 
-    protected override Mapper BuildCore(TypePairInfo typePair)
+    protected override Mapper BuildCore(TypePairOf typePair)
     {
         Type parentType = typeof(CollectionMapper<,>).MakeGenericType(typePair.Source, typePair.Target);
         TypeBuilder typeBuilder = _assembly.DefineType(GetMapperFullName(), parentType);
@@ -64,37 +64,37 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
         return rootMapper;
     }
 
-    protected override Mapper BuildCore(TypePairInfo parentTypePair, MappingMember mappingMember)
+    protected override Mapper BuildCore(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         return BuildCore(mappingMember.TypePair);
     }
 
-    protected override bool IsSupportedCore(TypePairInfo typePair)
+    protected override bool IsSupportedCore(TypePairOf typePair)
     {
         return typePair.IsEnumerableTypes;
     }
 
-    private static bool IsDictionaryToDictionary(TypePairInfo typePair)
+    private static bool IsDictionaryToDictionary(TypePairOf typePair)
     {
         return typePair.Source.IsDictionaryOf() && typePair.Target.IsDictionaryOf();
     }
 
-    private static bool IsIEnumerableToArray(TypePairInfo typePair)
+    private static bool IsIEnumerableToArray(TypePairOf typePair)
     {
         return typePair.Source.IsIEnumerable() && typePair.Target.IsArray;
     }
 
-    private static bool IsIEnumerableToList(TypePairInfo typePair)
+    private static bool IsIEnumerableToList(TypePairOf typePair)
     {
         return typePair.Source.IsIEnumerable() && typePair.Target.IsListOf();
     }
 
-    private bool IsEnumerableToEnumerable(TypePairInfo typePair)
+    private bool IsEnumerableToEnumerable(TypePairOf typePair)
     {
         return typePair.Source.IsIEnumerable() && typePair.Target.IsIEnumerable();
     }
 
-    private MapperCacheItem CreateMapperCacheItem(TypePairInfo typePair)
+    private MapperCacheItem CreateMapperCacheItem(TypePairOf typePair)
     {
         var mapperCacheItemOption = _mapperCache.Get(typePair);
         if (mapperCacheItemOption.HasValue)
@@ -108,7 +108,7 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
         return mapperCacheItem;
     }
 
-    private void EmitConvertItem(TypeBuilder typeBuilder, TypePairInfo typePair, string methodName = ConvertItemMethod)
+    private void EmitConvertItem(TypeBuilder typeBuilder, TypePairOf typePair, string methodName = ConvertItemMethod)
     {
         MapperCacheItem mapperCacheItem = CreateMapperCacheItem(typePair);
 
@@ -122,7 +122,7 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
         EmitReturn.Return(callMapMethod).Emit(new CodeGenerator(methodBuilder.GetILGenerator()));
     }
 
-    private void EmitDictionaryToDictionary(Type parentType, TypeBuilder typeBuilder, TypePairInfo typePair)
+    private void EmitDictionaryToDictionary(Type parentType, TypeBuilder typeBuilder, TypePairOf typePair)
     {
         EmitDictionaryToTarget(parentType, typeBuilder, typePair, DictionaryToDictionaryMethod, DictionaryToDictionaryTemplateMethod);
     }
@@ -130,7 +130,7 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
     private void EmitDictionaryToTarget(
         Type parentType,
         TypeBuilder typeBuilder,
-        TypePairInfo typePair,
+        TypePairOf typePair,
         string methodName,
         string templateMethodName)
     {
@@ -139,8 +139,8 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
         KeyValuePair<Type, Type> sourceTypes = typePair.Source.GetDictionaryItemTypes();
         KeyValuePair<Type, Type> targetTypes = typePair.Target.GetDictionaryItemTypes();
 
-        EmitConvertItem(typeBuilder, new TypePairInfo(sourceTypes.Key, targetTypes.Key), ConvertItemKeyMethod);
-        EmitConvertItem(typeBuilder, new TypePairInfo(sourceTypes.Value, targetTypes.Value));
+        EmitConvertItem(typeBuilder, new TypePairOf(sourceTypes.Key, targetTypes.Key), ConvertItemKeyMethod);
+        EmitConvertItem(typeBuilder, new TypePairOf(sourceTypes.Value, targetTypes.Value));
 
         var arguments = new[] {sourceTypes.Key, sourceTypes.Value, targetTypes.Key, targetTypes.Value};
         MethodInfo methodTemplate = parentType.GetGenericMethod(templateMethodName, arguments);
@@ -149,14 +149,14 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
         EmitReturn.Return(returnValue).Emit(new CodeGenerator(methodBuilder.GetILGenerator()));
     }
 
-    private void EmitEnumerableToArray(Type parentType, TypeBuilder typeBuilder, TypePairInfo typePair)
+    private void EmitEnumerableToArray(Type parentType, TypeBuilder typeBuilder, TypePairOf typePair)
     {
         var collectionItemTypePair = GetCollectionItemTypePair(typePair);
 
         EmitEnumerableToTarget(parentType, typeBuilder, typePair, collectionItemTypePair, EnumerableToArrayMethod, EnumerableToArrayTemplateMethod);
     }
 
-    private void EmitEnumerableToList(Type parentType, TypeBuilder typeBuilder, TypePairInfo typePair)
+    private void EmitEnumerableToList(Type parentType, TypeBuilder typeBuilder, TypePairOf typePair)
     {
         var collectionItemTypePair = GetCollectionItemTypePair(typePair);
         var templateMethod = collectionItemTypePair.IsDeepCloneable ? EnumerableOfDeepCloneableToListTemplateMethod : EnumerableToListTemplateMethod;
@@ -164,7 +164,7 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
         EmitEnumerableToTarget(parentType, typeBuilder, typePair, collectionItemTypePair, EnumerableToListMethod, templateMethod);
     }
 
-    private void EmitEnumerableToEnumerable(Type parentType, TypeBuilder typeBuilder, TypePairInfo typePair)
+    private void EmitEnumerableToEnumerable(Type parentType, TypeBuilder typeBuilder, TypePairOf typePair)
     {
         var collectionItemTypePair = GetCollectionItemTypePair(typePair);
         var templateMethod = collectionItemTypePair.IsDeepCloneable ? EnumerableOfDeepCloneableToListTemplateMethod : EnumerableToListTemplateMethod;
@@ -172,19 +172,19 @@ internal sealed class CollectionMapperBuilder : MapperBuilder
         EmitEnumerableToTarget(parentType, typeBuilder, typePair, collectionItemTypePair, EnumerableToListMethod, templateMethod);
     }
 
-    private static TypePairInfo GetCollectionItemTypePair(TypePairInfo typePair)
+    private static TypePairOf GetCollectionItemTypePair(TypePairOf typePair)
     {
         Type sourceItemType = typePair.Source.GetCollectionItemType();
         Type targetItemType = typePair.Target.GetCollectionItemType();
 
-        return new TypePairInfo(sourceItemType, targetItemType);
+        return new TypePairOf(sourceItemType, targetItemType);
     }
 
     private void EmitEnumerableToTarget(
         Type parentType,
         TypeBuilder typeBuilder,
-        TypePairInfo typePair,
-        TypePairInfo collectionItemTypePair,
+        TypePairOf typePair,
+        TypePairOf collectionItemTypePair,
         string methodName,
         string templateMethodName)
     {

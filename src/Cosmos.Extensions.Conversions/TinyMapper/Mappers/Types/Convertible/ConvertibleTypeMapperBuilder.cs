@@ -17,23 +17,23 @@ internal sealed class ConvertibleTypeMapperBuilder : MapperBuilder
 
     protected override string ScopeName => "ConvertibleTypeMappers";
 
-    protected override Mapper BuildCore(TypePairInfo typePair)
+    protected override Mapper BuildCore(TypePairOf typePair)
     {
         var converter = GetConverter(typePair);
         return new ConvertibleTypeMapper(converter);
     }
 
-    protected override Mapper BuildCore(TypePairInfo parentTypePair, MappingMember mappingMember)
+    protected override Mapper BuildCore(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         return BuildCore(mappingMember.TypePair);
     }
 
-    protected override bool IsSupportedCore(TypePairInfo typePair)
+    protected override bool IsSupportedCore(TypePairOf typePair)
     {
         return IsSupportedType(typePair.Source) || typePair.HasTypeConverter();
     }
 
-    private static Option<Func<object, object>> ConvertEnum(TypePairInfo pair)
+    private static Option<Func<object, object>> ConvertEnum(TypePairOf pair)
     {
         Func<object, object> result;
         if (pair.IsEnumTypes)
@@ -66,7 +66,7 @@ internal sealed class ConvertibleTypeMapperBuilder : MapperBuilder
         return Option<Func<object, object>>.Empty;
     }
 
-    private static Func<object, object> GetConverter(TypePairInfo pair)
+    private static Func<object, object> GetConverter(TypePairOf pair)
     {
         if (pair.IsDeepCloneable)
         {
@@ -93,12 +93,12 @@ internal sealed class ConvertibleTypeMapperBuilder : MapperBuilder
 
         if (pair.IsNullableToNotNullable)
         {
-            return GetConverter(new TypePairInfo(Nullable.GetUnderlyingType(pair.Source), pair.Target));
+            return GetConverter(new TypePairOf(Nullable.GetUnderlyingType(pair.Source), pair.Target));
         }
 
         if (CosmosTypes.IsNullableType(pair.Target))
         {
-            return GetConverter(new TypePairInfo(pair.Source, Nullable.GetUnderlyingType(pair.Target)));
+            return GetConverter(new TypePairOf(pair.Source, Nullable.GetUnderlyingType(pair.Target)));
         }
 
         return null;

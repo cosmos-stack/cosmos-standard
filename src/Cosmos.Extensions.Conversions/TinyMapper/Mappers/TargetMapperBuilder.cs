@@ -16,7 +16,7 @@ internal sealed class TargetMapperBuilder : IMapperBuilderConfig
 {
     public static readonly Func<string, string, bool> DefaultNameMatching = (source, target) => string.Equals(source, target, StringComparison.Ordinal);
 
-    private readonly Dictionary<TypePairInfo, BindingConfig> _bindingConfigs = new();
+    private readonly Dictionary<TypePairOf, BindingConfig> _bindingConfigs = new();
     private readonly ClassMapperBuilder _classMapperBuilder;
     private readonly CollectionMapperBuilder _collectionMapperBuilder;
     private readonly ConvertibleTypeMapperBuilder _convertibleTypeMapperBuilder;
@@ -39,13 +39,13 @@ internal sealed class TargetMapperBuilder : IMapperBuilderConfig
 
     public IDynamicAssembly Assembly { get; }
 
-    public Option<BindingConfig> GetBindingConfig(TypePairInfo typePair)
+    public Option<BindingConfig> GetBindingConfig(TypePairOf typePair)
     {
         var result = _bindingConfigs.GetValue(typePair);
         return result;
     }
 
-    public MapperBuilder GetMapperBuilder(TypePairInfo parentTypePair, MappingMember mappingMember)
+    public MapperBuilder GetMapperBuilder(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         if (_customTypeMapperBuilder.IsSupported(parentTypePair, mappingMember))
         {
@@ -55,7 +55,7 @@ internal sealed class TargetMapperBuilder : IMapperBuilderConfig
         return GetTypeMapperBuilder(mappingMember.TypePair);
     }
 
-    public MapperBuilder GetMapperBuilder(TypePairInfo typePair)
+    public MapperBuilder GetMapperBuilder(TypePairOf typePair)
     {
         return GetTypeMapperBuilder(typePair);
     }
@@ -65,20 +65,20 @@ internal sealed class TargetMapperBuilder : IMapperBuilderConfig
         NameMatching = nameMatching;
     }
 
-    public Mapper Build(TypePairInfo typePair, BindingConfig bindingConfig)
+    public Mapper Build(TypePairOf typePair, BindingConfig bindingConfig)
     {
         _bindingConfigs[typePair] = bindingConfig;
         return Build(typePair);
     }
 
-    public Mapper Build(TypePairInfo typePair)
+    public Mapper Build(TypePairOf typePair)
     {
         var mapperBuilder = GetTypeMapperBuilder(typePair);
         var mapper = mapperBuilder.Build(typePair);
         return mapper;
     }
 
-    private MapperBuilder GetTypeMapperBuilder(TypePairInfo typePair)
+    private MapperBuilder GetTypeMapperBuilder(TypePairOf typePair)
     {
         if (_convertibleTypeMapperBuilder.IsSupported(typePair))
         {

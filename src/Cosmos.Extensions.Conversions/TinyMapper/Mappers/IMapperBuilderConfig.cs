@@ -10,7 +10,7 @@ internal interface IMapperBuilderConfig
 {
     IDynamicAssembly Assembly { get; }
     Func<string, string, bool> NameMatching { get; }
-    Option<BindingConfig> GetBindingConfig(TypePairInfo typePair);
-    MapperBuilder GetMapperBuilder(TypePairInfo typePair);
-    MapperBuilder GetMapperBuilder(TypePairInfo parentTypePair, MappingMember mappingMember);
+    Option<BindingConfig> GetBindingConfig(TypePairOf typePair);
+    MapperBuilder GetMapperBuilder(TypePairOf typePair);
+    MapperBuilder GetMapperBuilder(TypePairOf parentTypePair, MappingMember mappingMember);
 }

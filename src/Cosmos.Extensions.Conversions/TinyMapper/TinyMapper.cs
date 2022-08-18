@@ -17,7 +17,7 @@ namespace TinyMapper;
 internal static class TinyMapper
 {
     // ReSharper disable once InconsistentNaming
-    private static readonly Dictionary<TypePairInfo, Mapper> _mappers = new();
+    private static readonly Dictionary<TypePairOf, Mapper> _mappers = new();
 
     // ReSharper disable once InconsistentNaming
     private static readonly TargetMapperBuilder _targetMapperBuilder;
@@ -42,7 +42,7 @@ internal static class TinyMapper
     /// <remarks>The method is thread safe.</remarks>
     public static void Bind<TSource, TTarget>()
     {
-        var typePair = TypePairInfo.Create<TSource, TTarget>();
+        var typePair = TypePairOf.Create<TSource, TTarget>();
         lock (_mappersLock)
         {
             _mappers[typePair] = _targetMapperBuilder.Build(typePair);
@@ -61,7 +61,7 @@ internal static class TinyMapper
             throw new ArgumentNullException(nameof(sourceType));
         if (targetType is null)
             throw new ArgumentNullException(nameof(targetType));
-        var typePair = TypePairInfo.Create(sourceType, targetType);
+        var typePair = TypePairOf.Create(sourceType, targetType);
         lock (_mappersLock)
         {
             _mappers[typePair] = _targetMapperBuilder.Build(typePair);
@@ -77,7 +77,7 @@ internal static class TinyMapper
     /// <remarks>The method is thread safe.</remarks>
     public static void Bind<TSource, TTarget>(Action<IDefaultBindingConfig<TSource, TTarget>> config)
     {
-        var typePair = TypePairInfo.Create<TSource, TTarget>();
+        var typePair = TypePairOf.Create<TSource, TTarget>();
 
         var bindingConfig = new DefaultBindingConfigOf<TSource, TTarget>();
         config(bindingConfig);
@@ -97,7 +97,7 @@ internal static class TinyMapper
     /// <remarks>The method is thread safe.</remarks>
     public static bool BindingExists<TSource, TTarget>()
     {
-        var typePair = TypePairInfo.Create<TSource, TTarget>();
+        var typePair = TypePairOf.Create<TSource, TTarget>();
         lock (_mappersLock)
         {
             return _mappers.ContainsKey(typePair);
@@ -113,7 +113,7 @@ internal static class TinyMapper
     /// <remarks>The method is thread safe.</remarks>
     public static bool BindingExists(Type sourceType, Type targetType)
     {
-        var typePair = TypePairInfo.Create(sourceType, targetType);
+        var typePair = TypePairOf.Create(sourceType, targetType);
         lock (_mappersLock)
         {
             return _mappers.ContainsKey(typePair);
@@ -131,7 +131,7 @@ internal static class TinyMapper
     /// <returns>Mapped object.</returns>
     public static TTarget Map<TSource, TTarget>(TSource source, TTarget target = default)
     {
-        var typePair = TypePairInfo.Create<TSource, TTarget>();
+        var typePair = TypePairOf.Create<TSource, TTarget>();
 
         var mapper = GetMapper(typePair);
         var result = (TTarget) mapper.Map(source, target);
@@ -150,7 +150,7 @@ internal static class TinyMapper
     /// <returns>Mapped object.</returns>
     public static object Map(Type sourceType, Type targetType, object source, object target = null)
     {
-        var typePair = TypePairInfo.Create(sourceType, targetType);
+        var typePair = TypePairOf.Create(sourceType, targetType);
 
         var mapper = GetMapper(typePair);
         var result = mapper.Map(source, target);
@@ -181,7 +181,7 @@ internal static class TinyMapper
             throw Error.ArgumentNull("Source cannot be null. Use TinyMapper.Map<TSource, TTarget> method instead.");
         }
 
-        var typePair = TypePairInfo.Create(source.GetType(), typeof(TTarget));
+        var typePair = TypePairOf.Create(source.GetType(), typeof(TTarget));
 
         var mapper = GetMapper(typePair);
         var result = (TTarget) mapper.Map(source);
@@ -190,7 +190,7 @@ internal static class TinyMapper
     }
 
     [SuppressMessage("ReSharper", "All")]
-    private static Mapper GetMapper(TypePairInfo typePair)
+    private static Mapper GetMapper(TypePairOf typePair)
     {
         Mapper mapper;
 

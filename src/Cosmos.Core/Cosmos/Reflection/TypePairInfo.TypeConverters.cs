@@ -3,29 +3,32 @@ using System.ComponentModel;
 
 namespace Cosmos.Reflection;
 
-internal static class TypeConvertersManager
+public partial struct TypePairOf
 {
-    private static readonly ConcurrentDictionary<TypePairInfo, bool> TypeConvertersCache = new();
-
-    public static bool HasTypeConverter(TypePairInfo typePair)
+    internal static class TypeConvertersManager
     {
-        return TypeConvertersCache.GetOrAdd(typePair, tp => HasTypeConverterImpl(tp.Source, tp.Target));
-    }
+        private static readonly ConcurrentDictionary<TypePairOf, bool> TypeConvertersCache = new();
 
-    private static bool HasTypeConverterImpl(Type s, Type t)
-    {
-        var fromConverter = TypeDescriptor.GetConverter(s);
-        if (fromConverter.CanConvertTo(t))
+        public static bool HasTypeConverter(TypePairOf typePair)
         {
-            return true;
+            return TypeConvertersCache.GetOrAdd(typePair, tp => HasTypeConverterImpl(tp.Source, tp.Target));
         }
 
-        var toConverter = TypeDescriptor.GetConverter(t);
-        if (toConverter.CanConvertFrom(s))
+        private static bool HasTypeConverterImpl(Type s, Type t)
         {
-            return true;
-        }
+            var fromConverter = TypeDescriptor.GetConverter(s);
+            if (fromConverter.CanConvertTo(t))
+            {
+                return true;
+            }
 
-        return false;
+            var toConverter = TypeDescriptor.GetConverter(t);
+            if (toConverter.CanConvertFrom(s))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

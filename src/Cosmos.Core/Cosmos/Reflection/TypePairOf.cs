@@ -1,8 +1,8 @@
 ﻿namespace Cosmos.Reflection;
 
-public struct TypePairInfo : IEquatable<TypePairInfo>
+public partial struct TypePairOf : IEquatable<TypePairOf>
 {
-    public TypePairInfo(Type source, Type target) : this()
+    public TypePairOf(Type source, Type target) : this()
     {
         Target = target;
         Source = source;
@@ -31,7 +31,7 @@ public struct TypePairInfo : IEquatable<TypePairInfo>
 
             if (IsNullableTypes)
             {
-                var nullablePair = new TypePairInfo(Nullable.GetUnderlyingType(Source), Nullable.GetUnderlyingType(Target));
+                var nullablePair = new TypePairOf(Nullable.GetUnderlyingType(Source), Nullable.GetUnderlyingType(Target));
                 return nullablePair.IsDeepCloneable;
             }
 
@@ -56,14 +56,14 @@ public struct TypePairInfo : IEquatable<TypePairInfo>
 
     private bool IsValueTypes => Types.IsValueType(Source) && Types.IsValueType(Target);
 
-    public static TypePairInfo Create(Type source, Type target)
+    public static TypePairOf Create(Type source, Type target)
     {
-        return new TypePairInfo(source, target);
+        return new TypePairOf(source, target);
     }
 
-    public static TypePairInfo Create<TSource, TTarget>()
+    public static TypePairOf Create<TSource, TTarget>()
     {
-        return new TypePairInfo(typeof(TSource), typeof(TTarget));
+        return new TypePairOf(typeof(TSource), typeof(TTarget));
     }
 
     public override bool Equals(object obj)
@@ -73,7 +73,7 @@ public struct TypePairInfo : IEquatable<TypePairInfo>
             return false;
         }
 
-        return obj is TypePairInfo && Equals((TypePairInfo)obj);
+        return obj is TypePairOf && Equals((TypePairOf)obj);
     }
 
     public override int GetHashCode()
@@ -89,7 +89,7 @@ public struct TypePairInfo : IEquatable<TypePairInfo>
         return TypeConvertersManager.HasTypeConverter(this);
     }
 
-    public bool Equals(TypePairInfo other)
+    public bool Equals(TypePairOf other)
     {
         return Source == other.Source && Target == other.Target;
     }

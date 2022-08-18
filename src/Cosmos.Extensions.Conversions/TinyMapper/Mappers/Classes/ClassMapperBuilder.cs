@@ -28,7 +28,7 @@ internal sealed class ClassMapperBuilder : MapperBuilder
 
     protected override string ScopeName => "ClassMappers";
 
-    protected override Mapper BuildCore(TypePairInfo typePair)
+    protected override Mapper BuildCore(TypePairOf typePair)
     {
         var parentType = typeof(ClassMapper<,>).MakeGenericType(typePair.Source, typePair.Target);
         var typeBuilder = _assembly.DefineType(GetMapperFullName(), parentType);
@@ -79,12 +79,12 @@ internal sealed class ClassMapperBuilder : MapperBuilder
         }
     }
 
-    protected override Mapper BuildCore(TypePairInfo parentTypePair, MappingMember mappingMember)
+    protected override Mapper BuildCore(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         return BuildCore(mappingMember.TypePair);
     }
 
-    protected override bool IsSupportedCore(TypePairInfo typePair)
+    protected override bool IsSupportedCore(TypePairOf typePair)
     {
         return true;
     }
@@ -111,7 +111,7 @@ internal sealed class ClassMapperBuilder : MapperBuilder
         return EmitBox.Box(EmitLocal.Load(builder));
     }
 
-    private Option<MapperCache> EmitMapClass(TypePairInfo typePair, TypeBuilder typeBuilder)
+    private Option<MapperCache> EmitMapClass(TypePairOf typePair, TypeBuilder typeBuilder)
     {
         var methodBuilder = typeBuilder.DefineMethod(MapClassMethod,
             OVERRIDE_PROTECTED,
@@ -129,7 +129,7 @@ internal sealed class ClassMapperBuilder : MapperBuilder
         return emitterDescription.MapperCache;
     }
 
-    private MemberEmitterDescription EmitMappingMembers(TypePairInfo typePair)
+    private MemberEmitterDescription EmitMappingMembers(TypePairOf typePair)
     {
         var members = _mappingMemberBuilder.Build(typePair);
         var result = _memberMapper.Build(typePair, members);

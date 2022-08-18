@@ -10,7 +10,7 @@ internal sealed class CustomTypeMapperBuilder : MapperBuilder
 
     protected override string ScopeName => "CustomTypeMapper";
 
-    public bool IsSupported(TypePairInfo parentTypePair, MappingMember mappingMember)
+    public bool IsSupported(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         var bindingConfig = _config.GetBindingConfig(parentTypePair);
         if (bindingConfig.HasNoValue)
@@ -21,19 +21,19 @@ internal sealed class CustomTypeMapperBuilder : MapperBuilder
         return bindingConfig.Value.HasCustomTypeConverter(mappingMember.Target.Name);
     }
 
-    protected override Mapper BuildCore(TypePairInfo typePair)
+    protected override Mapper BuildCore(TypePairOf typePair)
     {
         throw new NotSupportedException();
     }
 
-    protected override Mapper BuildCore(TypePairInfo parentTypePair, MappingMember mappingMember)
+    protected override Mapper BuildCore(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         var bindingConfig = _config.GetBindingConfig(parentTypePair);
         var converter = bindingConfig.Value.GetCustomTypeConverter(mappingMember.Target.Name).Value;
         return new CustomTypeMapper(converter);
     }
 
-    protected override bool IsSupportedCore(TypePairInfo typePair)
+    protected override bool IsSupportedCore(TypePairOf typePair)
     {
         throw new NotSupportedException();
     }

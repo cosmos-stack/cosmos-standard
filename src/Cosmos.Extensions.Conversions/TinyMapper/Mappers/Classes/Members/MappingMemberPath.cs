@@ -9,18 +9,18 @@ internal sealed class MappingMemberPath
 {
     public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target)
 #if NETFRAMEWORK
-        : this(source, target, new TypePairInfo(source[source.Count - 1].GetMemberType(), target[target.Count - 1].GetMemberType())) { }
+        : this(source, target, new TypePairOf(source[source.Count - 1].GetMemberType(), target[target.Count - 1].GetMemberType())) { }
 #else
-        : this(source, target, new TypePairInfo(source[^1].GetMemberType(), target[^1].GetMemberType())) { }
+        : this(source, target, new TypePairOf(source[^1].GetMemberType(), target[^1].GetMemberType())) { }
 #endif
 
     public MappingMemberPath(MemberInfo source, MemberInfo target)
-        : this(new List<MemberInfo> { source }, new List<MemberInfo> { target }, new TypePairInfo(source.GetMemberType(), target.GetMemberType())) { }
+        : this(new List<MemberInfo> { source }, new List<MemberInfo> { target }, new TypePairOf(source.GetMemberType(), target.GetMemberType())) { }
 
-    public MappingMemberPath(MemberInfo source, MemberInfo target, TypePairInfo typePair)
+    public MappingMemberPath(MemberInfo source, MemberInfo target, TypePairOf typePair)
         : this(new List<MemberInfo> { source }, new List<MemberInfo> { target }, typePair) { }
 
-    public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target, TypePairInfo typePair)
+    public MappingMemberPath(List<MemberInfo> source, List<MemberInfo> target, TypePairOf typePair)
     {
         Source = source;
         OneLevelSource = source.Count == 1;
@@ -28,14 +28,14 @@ internal sealed class MappingMemberPath
         Target = target;
         TypePair = typePair;
         Tail = new MappingMember(source[source.Count - 1], target[target.Count - 1], typePair);
-        Head = new MappingMember(source[0], target[0], new TypePairInfo(source[0].GetMemberType(), target[0].GetMemberType()));
+        Head = new MappingMember(source[0], target[0], new TypePairOf(source[0].GetMemberType(), target[0].GetMemberType()));
     }
 
     public bool OneLevelSource { get; }
     public bool OneLevelTarget { get; }
     public List<MemberInfo> Source { get; }
     public List<MemberInfo> Target { get; }
-    public TypePairInfo TypePair { get; }
+    public TypePairOf TypePair { get; }
     public MappingMember Tail { get; }
     public MappingMember Head { get; }
 }

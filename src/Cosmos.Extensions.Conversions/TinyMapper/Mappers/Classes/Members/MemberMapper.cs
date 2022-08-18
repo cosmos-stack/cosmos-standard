@@ -18,7 +18,7 @@ internal sealed class MemberMapper
         _config = config;
     }
 
-    public MemberEmitterDescription Build(TypePairInfo parentTypePair, List<MappingMemberPath> members)
+    public MemberEmitterDescription Build(TypePairOf parentTypePair, List<MappingMemberPath> members)
     {
         var emitComposite = new EmitComposite();
         foreach (var path in members)
@@ -52,7 +52,7 @@ internal sealed class MemberMapper
         return result;
     }
 
-    private IEmitter Build(TypePairInfo parentTypePair, MappingMemberPath memberPath)
+    private IEmitter Build(TypePairOf parentTypePair, MappingMemberPath memberPath)
     {
         if (memberPath.OneLevelTarget)
         {
@@ -82,7 +82,7 @@ internal sealed class MemberMapper
         }
     }
 
-    private IEmitterType ConvertMember(TypePairInfo parentTypePair, MappingMember member, IEmitterType sourceMemeber, IEmitterType targetMember)
+    private IEmitterType ConvertMember(TypePairOf parentTypePair, MappingMember member, IEmitterType sourceMemeber, IEmitterType targetMember)
     {
         //            if (member.TypePair.IsDeepCloneable && _config.GetBindingConfig(parentTypePair).HasNoValue)
         if (member.TypePair.IsDeepCloneable)
@@ -96,7 +96,7 @@ internal sealed class MemberMapper
         return result;
     }
 
-    private MapperCacheItem CreateMapperCacheItem(TypePairInfo parentTypePair, MappingMember mappingMember)
+    private MapperCacheItem CreateMapperCacheItem(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         var mapperCacheItemOption = _mapperCache.Get(mappingMember.TypePair);
         if (mapperCacheItemOption.HasValue)

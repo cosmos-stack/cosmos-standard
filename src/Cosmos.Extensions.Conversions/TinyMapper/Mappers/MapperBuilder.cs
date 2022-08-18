@@ -26,25 +26,25 @@ internal abstract class MapperBuilder
 
     protected abstract string ScopeName { get; }
 
-    public Mapper Build(TypePairInfo typePair)
+    public Mapper Build(TypePairOf typePair)
     {
         return BuildCore(typePair);
     }
 
-    public Mapper Build(TypePairInfo parentTypePair, MappingMember mappingMember)
+    public Mapper Build(TypePairOf parentTypePair, MappingMember mappingMember)
     {
         return BuildCore(parentTypePair, mappingMember);
     }
 
-    public bool IsSupported(TypePairInfo typePair)
+    public bool IsSupported(TypePairOf typePair)
     {
         return IsSupportedCore(typePair);
     }
 
-    protected abstract Mapper BuildCore(TypePairInfo typePair);
-    protected abstract Mapper BuildCore(TypePairInfo parentTypePair, MappingMember mappingMember);
+    protected abstract Mapper BuildCore(TypePairOf typePair);
+    protected abstract Mapper BuildCore(TypePairOf parentTypePair, MappingMember mappingMember);
 
-    protected MapperBuilder GetMapperBuilder(TypePairInfo typePair)
+    protected MapperBuilder GetMapperBuilder(TypePairOf typePair)
     {
         return _config.GetMapperBuilder(typePair);
     }
@@ -55,5 +55,5 @@ internal abstract class MapperBuilder
         return $"{AssemblyName}.{ScopeName}.Mapper{random}";
     }
 
-    protected abstract bool IsSupportedCore(TypePairInfo typePair);
+    protected abstract bool IsSupportedCore(TypePairOf typePair);
 }

@@ -6,7 +6,7 @@ namespace TinyMapper.Mappers.Caches;
 
 internal sealed class MapperCache
 {
-    private readonly Dictionary<TypePairInfo, MapperCacheItem> _cache = new();
+    private readonly Dictionary<TypePairOf, MapperCacheItem> _cache = new();
 
     public bool IsEmpty => _cache.Count == 0;
 
@@ -17,7 +17,7 @@ internal sealed class MapperCache
 
     public List<MapperCacheItem> MapperCacheItems => _cache.Values.ToList();
 
-    public MapperCacheItem AddStub(TypePairInfo key)
+    public MapperCacheItem AddStub(TypePairOf key)
     {
         if (_cache.ContainsKey(key))
         {
@@ -29,12 +29,12 @@ internal sealed class MapperCache
         return mapperCacheItem;
     }
 
-    public void ReplaceStub(TypePairInfo key, Mapper mapper)
+    public void ReplaceStub(TypePairOf key, Mapper mapper)
     {
         _cache[key].Mapper = mapper;
     }
 
-    public MapperCacheItem Add(TypePairInfo key, Mapper mapper)
+    public MapperCacheItem Add(TypePairOf key, Mapper mapper)
     {
         if (_cache.TryGetValue(key, out var result))
         {
@@ -50,7 +50,7 @@ internal sealed class MapperCache
         return result;
     }
 
-    public Option<MapperCacheItem> Get(TypePairInfo key)
+    public Option<MapperCacheItem> Get(TypePairOf key)
     {
         if (_cache.TryGetValue(key, out var result))
         {

@@ -15,7 +15,7 @@ internal sealed class MappingMemberBuilder
         _config = config;
     }
 
-    public List<MappingMemberPath> Build(TypePairInfo typePair)
+    public List<MappingMemberPath> Build(TypePairOf typePair)
     {
         return ParseMappingTypes(typePair);
     }
@@ -77,7 +77,7 @@ internal sealed class MappingMemberBuilder
 
     private List<string> GetTargetName(
         Option<BindingConfig> bindingConfig,
-        TypePairInfo typePair,
+        TypePairOf typePair,
         MemberInfo sourceMember,
         Dictionary<string, string> targetBindings)
     {
@@ -113,7 +113,7 @@ internal sealed class MappingMemberBuilder
         return targetName.Value;
     }
 
-    private Dictionary<string, string> GetTest(TypePairInfo typePair, List<MemberInfo> targetMembers)
+    private Dictionary<string, string> GetTest(TypePairOf typePair, List<MemberInfo> targetMembers)
     {
         var result = new Dictionary<string, string>();
         foreach (MemberInfo member in targetMembers)
@@ -133,7 +133,7 @@ internal sealed class MappingMemberBuilder
         return result;
     }
 
-    private bool IsIgnore(Option<BindingConfig> bindingConfig, TypePairInfo typePair, MemberInfo sourceMember)
+    private bool IsIgnore(Option<BindingConfig> bindingConfig, TypePairOf typePair, MemberInfo sourceMember)
     {
         var ignores = sourceMember.GetAttributes<IgnoreAttribute>();
         if (ignores.Any(x => x.TargetType.IsNull()))
@@ -163,7 +163,7 @@ internal sealed class MappingMemberBuilder
         return result;
     }
 
-    private List<MappingMemberPath> ParseMappingTypes(TypePairInfo typePair)
+    private List<MappingMemberPath> ParseMappingTypes(TypePairOf typePair)
     {
         var result = new List<MappingMemberPath>();
 
@@ -195,7 +195,7 @@ internal sealed class MappingMemberBuilder
                 var concreteBindingType = bindingConfig.Map(x => x.GetBindType(targetName));
                 if (concreteBindingType.HasValue)
                 {
-                    var mappingTypePair = new TypePairInfo(sourceMember.GetMemberType(), concreteBindingType.Value);
+                    var mappingTypePair = new TypePairOf(sourceMember.GetMemberType(), concreteBindingType.Value);
                     result.Add(new MappingMemberPath(sourceMember, targetMember, mappingTypePair));
                 }
                 else
@@ -210,7 +210,7 @@ internal sealed class MappingMemberBuilder
         return result;
     }
 
-    private List<MappingMemberPath> GetBindMappingMemberPath(TypePairInfo typePair, Option<BindingConfig> bindingConfig, MemberInfo sourceMember)
+    private List<MappingMemberPath> GetBindMappingMemberPath(TypePairOf typePair, Option<BindingConfig> bindingConfig, MemberInfo sourceMember)
     {
         var result = new List<MappingMemberPath>();
 

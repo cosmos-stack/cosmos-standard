@@ -6,7 +6,7 @@ namespace TinyMapper.Mappers.Classes.Members;
 
 internal sealed class MappingMember
 {
-    public MappingMember(MemberInfo source, MemberInfo target, TypePairInfo typePair)
+    public MappingMember(MemberInfo source, MemberInfo target, TypePairOf typePair)
     {
         Source = source;
         Target = target;
@@ -15,5 +15,5 @@ internal sealed class MappingMember
 
     public MemberInfo Source { get; }
     public MemberInfo Target { get; }
-    public TypePairInfo TypePair { get; }
+    public TypePairOf TypePair { get; }
 }
