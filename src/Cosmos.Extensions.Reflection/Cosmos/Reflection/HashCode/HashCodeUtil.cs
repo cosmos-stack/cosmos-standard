@@ -483,3 +483,16 @@ public static class HashCodeUtil
         }
     }
 }
+
+public static class HashCodeExtensions
+{
+    /// <summary>
+    /// Get hashcode
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="hashFieldValuesFunc"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static int GetHashCode<T>(this T x, Func<T, IEnumerable<object>> hashFieldValuesFunc)
+        => HashCodeUtil.InternalCalculator.GetHashCodeImpl(hashFieldValuesFunc(x));
+}
