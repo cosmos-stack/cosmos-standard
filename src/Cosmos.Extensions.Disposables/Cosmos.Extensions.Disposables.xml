@@ -567,6 +567,195 @@
             Facile Disposable Objects
             </summary>
         </member>
+        <member name="P:Cosmos.Disposables.DisposableScope.RaiseExceptionIfNoScope">
+            <summary>
+            Raise an exception when call UseDisposableScope, no DisposableScope is found in context, default is true. <br />
+            当调用 UseDisposableScope 时，发现上下文中没有找到 DisposableScope 时，是否抛出异常，默认为 true。
+            </summary>
+        </member>
+        <member name="P:Cosmos.Disposables.DisposableScope.Option">
+            <summary>
+            Current <see cref="T:Cosmos.Disposables.DisposableScope"/> Option. <br />
+            当前的 <see cref="T:Cosmos.Disposables.DisposableScope"/> 选项。
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:Cosmos.Disposables.DisposableScopeExtensions">
+            <summary>
+            DisposableScope extensions
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from an <see cref="T:System.Collections.Generic.IEnumerable`1"/> according to specified 
+            key selector and element selector functions, as well as a comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``3(System.ReadOnlySpan{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a <see cref="T:System.ReadOnlySpan`1"/> according to specified 
+            key selector and element selector functions, as well as a comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``3(System.Span{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a <see cref="T:System.Span`1"/> according to specified 
+            key selector and element selector functions, as well as a comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``3(System.ReadOnlyMemory{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a <see cref="T:System.ReadOnlyMemory`1"/> according to specified 
+            key selector and element selector functions, as well as a comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``3(System.Memory{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a <see cref="T:System.Memory`1"/> according to specified 
+            key selector and element selector functions, as well as a comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from an <see cref="T:System.Collections.Generic.IEnumerable`1"/> according to specified 
+            key selector and comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.ReadOnlySpan{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from an <see cref="T:System.ReadOnlySpan`1"/> according to specified 
+            key selector and comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.Span{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from an <see cref="T:System.Span`1"/> according to specified 
+            key selector and comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.ReadOnlyMemory{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from an <see cref="T:System.ReadOnlyMemory`1"/> according to specified 
+            key selector and comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.Memory{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from an <see cref="T:System.Memory`1"/> according to specified 
+            key selector and comparer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.Collections.Generic.IEnumerable{System.ValueTuple{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a sequence of key/value tuples.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a sequence of KeyValuePair values.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.Collections.Generic.IEnumerable{System.Tuple{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a sequence of key/value tuples.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.ReadOnlySpan{System.ValueTuple{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a span of key/value tuples.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledDictionaryScope``2(System.Span{System.ValueTuple{``0,``1}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Creates a <see cref="T:Collections.Pooled.PooledDictionary`2"/> from a span of key/value tuples.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledStackScope``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Creates an instance of PooledStack from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledStackScope``1(``0[])">
+            <summary>
+            Creates an instance of PooledStack from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledStackScope``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Creates an instance of PooledStack from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledStackScope``1(System.Span{``0})">
+            <summary>
+            Creates an instance of PooledStack from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledStackScope``1(System.ReadOnlyMemory{``0})">
+            <summary>
+            Creates an instance of PooledStack from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledStackScope``1(System.Memory{``0})">
+            <summary>
+            Creates an instance of PooledStack from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledQueueScope``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Creates an instance of PooledQueue from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledQueueScope``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Creates an instance of PooledQueue from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledQueueScope``1(System.Span{``0})">
+            <summary>
+            Creates an instance of PooledQueue from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledQueueScope``1(System.ReadOnlyMemory{``0})">
+            <summary>
+            Creates an instance of PooledQueue from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledQueueScope``1(System.Memory{``0})">
+            <summary>
+            Creates an instance of PooledQueue from the given items.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Disposables.DisposableScopeExtensions.ToPooledQueueScope``1(``0[])">
+            <summary>
+            Creates an instance of PooledQueue from the given items.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.DisposableScopeOption.Required">
+            <summary>
+            A DisposeScope is required by the scope.
+            It uses an ambient DisposeScope if one already exists.
+            Otherwise, it creates a new DisposeScope before entering the scope.
+            This is the default value. <br />
+            在作用域中需要一个 DisposeScope。
+            如果 DisposeScope 已经存在，则继续使用上下文中的 DisposeScope。
+            如果不存在，则在进入作用域之前创建一个新的 DisposeScope。
+            这是默认值。
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.DisposableScopeOption.RequiresNew">
+            <summary>
+            A new DisposeScope is always created for the scope. <br />
+            总是创建一个新的 DisposeScope 用于作用域。
+            </summary>
+        </member>
+        <member name="F:Cosmos.Disposables.DisposableScopeOption.Suppress">
+            <summary>
+            The ambient DisposeScope context is suppressed when creating the scope.
+            All operations within the scope are done without an ambient DisposeScope context. <br />
+            创建作用域时，禁用上下文中的 DisposeScope。
+            所有在作用域中的操作都不会使用上下文中的 DisposeScope。
+            </summary>
+        </member>
         <member name="T:Cosmos.Disposables.DisposeHandler">
             <summary>
             Dispose handler <br />

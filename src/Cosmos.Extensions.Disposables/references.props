@@ -1,6 +1,7 @@
 ﻿<Project>
 
     <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Extensions.Asyncs\Cosmos.Extensions.Asyncs.csproj" />
         <ProjectReference Include="..\Cosmos.Extensions.Collections\Cosmos.Extensions.Collections.csproj" />
     </ItemGroup>
 
