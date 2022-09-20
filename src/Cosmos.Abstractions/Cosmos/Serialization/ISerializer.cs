@@ -7,22 +7,31 @@ namespace Cosmos.Serialization;
 public interface ISerializer
 {
     /// <summary>
-    /// Serialize<br />
+    /// Serialize to stream.<br />
     /// 序列化
     /// </summary>
-    /// <param name="o"></param>
-    /// <typeparam name="T"></typeparam>
+    /// <param name="value"></param>
+    /// <typeparam name="TValue"></typeparam>
     /// <returns></returns>
-    Stream SerializeToStream<T>(T o);
+    MemoryStream ToStream<TValue>(TValue value);
+
+    /// <summary>
+    ///Serialize to stream.<br />
+    /// 序列化
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    MemoryStream ToStream(Type type, object value);
 
     /// <summary>
     /// Deserialize<br />
     /// 反序列化
     /// </summary>
     /// <param name="stream"></param>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TValue"></typeparam>
     /// <returns></returns>
-    T DeserializeFromStream<T>(Stream stream);
+    TValue FromStream<TValue>(Stream stream);
 
     /// <summary>
     /// Deserialize<br />
@@ -31,32 +40,5 @@ public interface ISerializer
     /// <param name="stream"></param>
     /// <param name="type"></param>
     /// <returns></returns>
-    object DeserializeFromStream(Stream stream, Type type);
-
-    /// <summary>
-    /// Serialize async<br />
-    /// 异步序列化
-    /// </summary>
-    /// <param name="o"></param>
-    /// <typeparam name="T"></typeparam>
-    /// <returns></returns>
-    Task<Stream> SerializeToStreamAsync<T>(T o);
-
-    /// <summary>
-    /// Deserialize async<br />
-    /// 异步反序列化
-    /// </summary>
-    /// <param name="stream"></param>
-    /// <typeparam name="T"></typeparam>
-    /// <returns></returns>
-    Task<T> DeserializeFromStreamAsync<T>(Stream stream);
-
-    /// <summary>
-    /// Deserialize async<br />
-    /// 异步反序列化
-    /// </summary>
-    /// <param name="stream"></param>
-    /// <param name="type"></param>
-    /// <returns></returns>
-    Task<object> DeserializeFromStreamAsync(Stream stream, Type type);
+    object FromStream(Type type, Stream stream);
 }

@@ -1,0 +1,24 @@
+﻿namespace Cosmos.Serialization;
+
+public interface IStreamSerializerAsync : ISerializerAsync
+{
+    /// <summary>
+    /// Serialize the value and pack to the stream.
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="stream"></param>
+    /// <param name="cancellationToken"></param>
+    /// <typeparam name="TValue"></typeparam>
+    /// <returns></returns>
+    Task PackAsync<TValue>(TValue value, Stream stream, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Serialize the value and pack to the stream.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="value"></param>
+    /// <param name="stream"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task PackAsync(Type type, object value, Stream stream, CancellationToken cancellationToken = default);
+}
