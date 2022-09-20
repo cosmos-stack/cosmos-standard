@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using AspectCore.Extensions.Reflection;
+using Cosmos.Reflection.Reflectors;
 
 namespace Cosmos.Reflection;
 
@@ -161,7 +161,7 @@ public sealed class AttributeCollection : IList<Attribute>, IReadOnlyList<Attrib
     {
         if (type is null)
             throw new ArgumentNullException(nameof(type));
-        return type.GetReflector().GetCustomAttributes().JoinToCollection();
+        return type.GetReflector().GetAttributes().JoinToCollection();
     }
 
     /// <summary>
