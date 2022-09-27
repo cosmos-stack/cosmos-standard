@@ -48,11 +48,25 @@ internal static class DateTimeCalcHelper
 /// </summary>
 public static class DateTimeCalc
 {
+    #region Offset by Milliseconds
+    /// <summary>
+    /// Add milliseconds. <br />
+    /// 毫秒偏移量。
+    /// </summary>
+    /// <param name="dt"></param>
+    /// <param name="milliseconds"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static DateTime OffsetByMilliseconds(DateTime dt, int milliseconds) => dt + milliseconds.Milliseconds();
+
+    #endregion
+
     #region Offset by Seconds
 
     /// <summary>
     /// Add seconds. <br />
-    /// 添加一个季度。
+    /// 秒数偏移量。
     /// </summary>
     /// <param name="dt"></param>
     /// <param name="seconds"></param>
@@ -67,7 +81,7 @@ public static class DateTimeCalc
 
     /// <summary>
     /// Add minutes. <br />
-    /// 添加一个季度。
+    /// 分钟数偏移量。
     /// </summary>
     /// <param name="dt"></param>
     /// <param name="minutes"></param>
@@ -82,7 +96,7 @@ public static class DateTimeCalc
 
     /// <summary>
     /// Add hours. <br />
-    /// 添加一个季度。
+    /// 小时数偏移量。
     /// </summary>
     /// <param name="dt"></param>
     /// <param name="hours"></param>
@@ -97,7 +111,7 @@ public static class DateTimeCalc
 
     /// <summary>
     /// Add days. <br />
-    /// 添加一个季度。
+    /// 天数偏移量。
     /// </summary>
     /// <param name="dt"></param>
     /// <param name="days"></param>
@@ -238,7 +252,7 @@ public static class DateTimeCalc
         var z = weekOffset > 0 ? 1 : -1;
         var offset = DayOfWeekCalc.DaysBetween(dt.DayOfWeek, dayOfWeek);
         offset = offset == 0 ? 7 : offset;
-        return dt.OffsetBy(offset * z * weekOffset, DateTimeOffsetStyles.Day);
+        return dt.OffsetBy(offset * z * weekOffset, DateOffsetStyles.Day);
     }
 
     #endregion

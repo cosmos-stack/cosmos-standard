@@ -17,9 +17,7 @@ public partial class DateInfo
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool TryParse(string s, out DateInfo result)
-    {
-        return DateInfoParse.TryParse(s, DateTimeFormatInfo.CurrentInfo, DateTimeStyles.None, out result);
-    }
+        => DateInfoParse.TryParse(s, DateTimeFormatInfo.CurrentInfo, DateTimeStyles.None, out result);
 
     /// <summary>
     /// Try convert string to <see cref="DateInfo"/> <br />
@@ -32,9 +30,7 @@ public partial class DateInfo
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool TryParse(string s, IFormatProvider provider, DateTimeStyles styles, out DateInfo result)
-    {
-        return DateInfoParse.TryParse(s, DateTimeFormatInfo.GetInstance(provider), styles, out result);
-    }
+        => DateInfoParse.TryParse(s, DateTimeFormatInfo.GetInstance(provider), styles, out result);
 
     /// <summary>
     /// Try convert string to <see cref="DateInfo"/> <br />
@@ -48,9 +44,7 @@ public partial class DateInfo
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool TryParseExact(string s, string format, IFormatProvider provider, DateTimeStyles styles, out DateInfo result)
-    {
-        return DateInfoParse.TryParseExact(s, format, DateTimeFormatInfo.GetInstance(provider), styles, out result);
-    }
+        => DateInfoParse.TryParseExact(s, format, DateTimeFormatInfo.GetInstance(provider), styles, out result);
 
     /// <summary>
     /// Try convert string to <see cref="DateInfo"/> <br />
@@ -64,9 +58,7 @@ public partial class DateInfo
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool TryParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles styles, out DateInfo result)
-    {
-        return DateInfoParse.TryParseExactMultiple(s, formats, DateTimeFormatInfo.GetInstance(provider), styles, out result);
-    }
+        => DateInfoParse.TryParseExactMultiple(s, formats, DateTimeFormatInfo.GetInstance(provider), styles, out result);
 
     private static Func<object, bool> StringConvBeHandler => o =>
     {

@@ -1,7 +1,7 @@
 ﻿<Project>
 
     <PropertyGroup>
-        <NodaTime-RefVersion>3.1.1</NodaTime-RefVersion>
+        <NodaTime-RefVersion>3.1.2</NodaTime-RefVersion>
         <NodaTime-RefVersion-nfx452>2.4.8</NodaTime-RefVersion-nfx452>
     </PropertyGroup>
 

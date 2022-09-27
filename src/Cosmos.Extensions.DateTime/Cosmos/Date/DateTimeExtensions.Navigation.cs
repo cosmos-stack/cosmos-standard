@@ -18,16 +18,36 @@ public static partial class DateTimeExtensions
     /// <param name="offsetVal"></param>
     /// <param name="styles"></param>
     /// <returns></returns>
-    public static DateTime OffsetBy(this DateTime dt, int offsetVal, DateTimeOffsetStyles styles)
+    public static DateTime OffsetBy(this DateTime dt, int offsetVal, DateOffsetStyles styles)
     {
         return styles switch
         {
-            DateTimeOffsetStyles.Day => DateTimeCalc.OffsetByDays(dt, offsetVal),
-            DateTimeOffsetStyles.Week => DateTimeCalc.OffsetByWeeks(dt, offsetVal),
-            DateTimeOffsetStyles.Month => DateTimeCalc.OffsetByMonths(dt, offsetVal, DateTimeOffsetOptions.Relatively),
-            DateTimeOffsetStyles.Quarters => DateTimeCalc.OffsetByQuarters(dt, offsetVal, DateTimeOffsetOptions.Relatively),
-            DateTimeOffsetStyles.Year => DateTimeCalc.OffsetByYears(dt, offsetVal, DateTimeOffsetOptions.Relatively),
+            DateOffsetStyles.Day => DateTimeCalc.OffsetByDays(dt, offsetVal),
+            DateOffsetStyles.Week => DateTimeCalc.OffsetByWeeks(dt, offsetVal),
+            DateOffsetStyles.Month => DateTimeCalc.OffsetByMonths(dt, offsetVal, DateTimeOffsetOptions.Relatively),
+            DateOffsetStyles.Quarters => DateTimeCalc.OffsetByQuarters(dt, offsetVal, DateTimeOffsetOptions.Relatively),
+            DateOffsetStyles.Year => DateTimeCalc.OffsetByYears(dt, offsetVal, DateTimeOffsetOptions.Relatively),
             _ => DateTimeCalc.OffsetByDays(dt, offsetVal)
+        };
+    }
+
+    /// <summary>
+    /// DateTime Offset <br />
+    /// 时间偏移
+    /// </summary>
+    /// <param name="dt"></param>
+    /// <param name="offsetVal"></param>
+    /// <param name="styles"></param>
+    /// <returns></returns>
+    public static DateTime OffsetBy(this DateTime dt, int offsetVal, TimeOffsetStyles styles)
+    {
+        return styles switch
+        {
+            TimeOffsetStyles.Millisecond => DateTimeCalc.OffsetByMilliseconds(dt, offsetVal),
+            TimeOffsetStyles.Second => DateTimeCalc.OffsetBySeconds(dt, offsetVal),
+            TimeOffsetStyles.Minute => DateTimeCalc.OffsetByMinutes(dt, offsetVal),
+            TimeOffsetStyles.Hour => DateTimeCalc.OffsetByHours(dt, offsetVal),
+            _ => DateTimeCalc.OffsetBySeconds(dt, offsetVal)
         };
     }
 
@@ -527,7 +547,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime NextYear(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Year);
+    public static DateTime NextYear(this DateTime dt) => dt.OffsetBy(1, DateOffsetStyles.Year);
 
     /// <summary>
     /// Previous Year <br />
@@ -536,7 +556,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime PreviousYear(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Year);
+    public static DateTime PreviousYear(this DateTime dt) => dt.OffsetBy(-1, DateOffsetStyles.Year);
 
     /// <summary>
     /// Gets next quarter <br />
@@ -545,7 +565,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime NextQuarter(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Quarters);
+    public static DateTime NextQuarter(this DateTime dt) => dt.OffsetBy(1, DateOffsetStyles.Quarters);
 
     /// <summary>
     /// Gets previous quarter <br />
@@ -554,7 +574,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime PreviousQuarter(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Quarters);
+    public static DateTime PreviousQuarter(this DateTime dt) => dt.OffsetBy(-1, DateOffsetStyles.Quarters);
 
     /// <summary>
     /// Gets next month <br />
@@ -563,7 +583,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime NextMonth(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Month);
+    public static DateTime NextMonth(this DateTime dt) => dt.OffsetBy(1, DateOffsetStyles.Month);
 
     /// <summary>
     /// Gets previous month <br />
@@ -572,7 +592,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime PreviousMonth(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Month);
+    public static DateTime PreviousMonth(this DateTime dt) => dt.OffsetBy(-1, DateOffsetStyles.Month);
 
     /// <summary>
     /// Next week <br />
@@ -581,7 +601,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime NextWeek(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Week);
+    public static DateTime NextWeek(this DateTime dt) => dt.OffsetBy(1, DateOffsetStyles.Week);
 
     /// <summary>
     /// Previous week <br />
@@ -590,7 +610,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime PreviousWeek(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Week);
+    public static DateTime PreviousWeek(this DateTime dt) => dt.OffsetBy(-1, DateOffsetStyles.Week);
 
     /// <summary>
     /// Next day <br />
@@ -599,7 +619,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime NextDay(this DateTime dt) => dt.OffsetBy(1, DateTimeOffsetStyles.Day);
+    public static DateTime NextDay(this DateTime dt) => dt.OffsetBy(1, DateOffsetStyles.Day);
 
     /// <summary>
     /// Previous Day <br />
@@ -608,7 +628,7 @@ public static partial class DateTimeExtensions
     /// <param name="dt"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static DateTime PreviousDay(this DateTime dt) => dt.OffsetBy(-1, DateTimeOffsetStyles.Day);
+    public static DateTime PreviousDay(this DateTime dt) => dt.OffsetBy(-1, DateOffsetStyles.Day);
 
     /// <summary>
     /// Tomorrow <br />

@@ -160,7 +160,7 @@ public static class DateInfoCalc
         var z = weekOffset > 0 ? 1 : -1;
         var offset = DayOfWeekCalc.DaysBetween(d.DayOfWeek, dayOfWeek);
         offset = offset == 0 ? 7 : offset;
-        return d.OffsetBy(offset * z * weekOffset, DateTimeOffsetStyles.Day);
+        return d.OffsetBy(offset * z * weekOffset, DateOffsetStyles.Day);
     }
 
     #endregion

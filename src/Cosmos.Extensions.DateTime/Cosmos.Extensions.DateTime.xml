@@ -1711,14 +1711,6 @@
             <param name="days"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateInfoExtensions.ToAgo(Cosmos.Date.DateInfo)">
-            <summary>
-            To ago.<br />
-            转换为 Ago
-            </summary>
-            <param name="d"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateInfoExtensions.IsBetween(Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,Cosmos.Date.DateInfo,System.Boolean)">
             <summary>
             Is current date between <paramref name="from"/> and <paramref name="to"/>.<br />
@@ -1885,7 +1877,7 @@
             <param name="day"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateInfoExtensions.OffsetBy(Cosmos.Date.DateInfo,System.Int32,Cosmos.Date.DateTimeOffsetStyles)">
+        <member name="M:Cosmos.Date.DateInfoExtensions.OffsetBy(Cosmos.Date.DateInfo,System.Int32,Cosmos.Date.DateOffsetStyles)">
             <summary>
             Date Offset <br />
             日期偏移
@@ -2527,38 +2519,6 @@
             <param name="days"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToCalculateAge(System.DateTime)">
-            <summary>
-            Calculate the current age based on the given birthday time. <br />
-            根据给定的生日时间计算当前的年纪。
-            </summary>
-            <param name="birthday"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToCalculateAge(System.DateTime,System.DateTime)">
-            <summary>
-            Calculate the age relative to another time based on a given birthday time. <br />
-            根据生日和参照时间，计算当时年纪
-            </summary>
-            <param name="birthday">     </param>
-            <param name="referenceDate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToAgo(System.TimeSpan)">
-            <summary>
-            Format time interval <br />
-            格式化时间间隔
-            </summary>
-            <param name="timeSpan">时间间隔</param>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.ToAgo(System.DateTime)">
-            <summary>
-            Format time interval <br />
-            格式化时间间隔
-            </summary>
-            <param name="date">對比的時間</param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateTimeExtensions.Clone(System.DateTime)">
             <summary>
             Clone<br />
@@ -2911,10 +2871,20 @@
             <param name="dateTime"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.OffsetBy(System.DateTime,System.Int32,Cosmos.Date.DateTimeOffsetStyles)">
+        <member name="M:Cosmos.Date.DateTimeExtensions.OffsetBy(System.DateTime,System.Int32,Cosmos.Date.DateOffsetStyles)">
             <summary>
             DateTime Offset <br />
             日期偏移
+            </summary>
+            <param name="dt"></param>
+            <param name="offsetVal"></param>
+            <param name="styles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.OffsetBy(System.DateTime,System.Int32,Cosmos.Date.TimeOffsetStyles)">
+            <summary>
+            DateTime Offset <br />
+            时间偏移
             </summary>
             <param name="dt"></param>
             <param name="offsetVal"></param>
@@ -3410,17 +3380,6 @@
             <param name="dayOfWeek"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Date.DateTimeExtensions.At(System.DateTime,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            At, to set hour, minute and second.<br />
-            时间，修改它的时分秒。
-            </summary>
-            <param name="dt"></param>
-            <param name="hour"></param>
-            <param name="minute"></param>
-            <param name="second"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateTimeExtensions.At(System.DateTime,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             At, to set hour, minute, second and milliseconds.<br />
@@ -3430,7 +3389,7 @@
             <param name="hour"></param>
             <param name="minute"></param>
             <param name="second"></param>
-            <param name="milliseconds"></param>
+            <param name="millisecond"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Date.DateTimeExtensions.On(System.DateTime,System.Int32,System.Int32,System.Int32)">
@@ -3442,6 +3401,15 @@
             <param name="year"></param>
             <param name="month"></param>
             <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeExtensions.In(System.DateTime,System.Int32)">
+            <summary>
+            Returns a new instance of DateTime based on the provided date where the year is set to the provided year <br />
+            返回一个新的实例，根据给定的年份，将年份设置为给定的年份。
+            </summary>
+            <param name="date"></param>
+            <param name="year"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Date.DateTimeExtensions.SetTime(System.DateTime,System.Int32)">
@@ -4365,40 +4333,70 @@
             相对偏移
             </summary>
         </member>
-        <member name="T:Cosmos.Date.DateTimeOffsetStyles">
+        <member name="T:Cosmos.Date.DateOffsetStyles">
             <summary>
-            DateTime Offset Styles <br />
-            日期时间偏移风格
+            Date Offset Styles <br />
+            日期偏移风格
             </summary>
         </member>
-        <member name="F:Cosmos.Date.DateTimeOffsetStyles.Week">
+        <member name="F:Cosmos.Date.DateOffsetStyles.Week">
             <summary>
             Week <br />
             周
             </summary>
         </member>
-        <member name="F:Cosmos.Date.DateTimeOffsetStyles.Year">
+        <member name="F:Cosmos.Date.DateOffsetStyles.Year">
             <summary>
             Year <br />
             年
             </summary>
         </member>
-        <member name="F:Cosmos.Date.DateTimeOffsetStyles.Quarters">
+        <member name="F:Cosmos.Date.DateOffsetStyles.Quarters">
             <summary>
             Quarters <br />
             季
             </summary>
         </member>
-        <member name="F:Cosmos.Date.DateTimeOffsetStyles.Month">
+        <member name="F:Cosmos.Date.DateOffsetStyles.Month">
             <summary>
             Month <br />
             月份
             </summary>
         </member>
-        <member name="F:Cosmos.Date.DateTimeOffsetStyles.Day">
+        <member name="F:Cosmos.Date.DateOffsetStyles.Day">
             <summary>
             Day <br />
             天
+            </summary>
+        </member>
+        <member name="T:Cosmos.Date.TimeOffsetStyles">
+            <summary>
+            Time Offset Styles <br />
+            时间偏移风格
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.TimeOffsetStyles.Millisecond">
+            <summary>
+            Millisecond <br />
+            毫秒
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.TimeOffsetStyles.Second">
+            <summary>
+            Second <br />
+            秒钟
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.TimeOffsetStyles.Minute">
+            <summary>
+            Minute <br />
+            分钟
+            </summary>
+        </member>
+        <member name="F:Cosmos.Date.TimeOffsetStyles.Hour">
+            <summary>
+            Hour <br />
+            小时
             </summary>
         </member>
         <member name="T:Cosmos.Date.DateTimeOutOfRangeException">
@@ -5179,40 +5177,6 @@
             DateTimeSpan 扩展
             </summary>
         </member>
-        <member name="M:Cosmos.Date.DateTimeSpanExtensions.Ago(Cosmos.Date.DateTimeSpan)">
-            <summary>
-            Ago <br />
-            在多久之前
-            </summary>
-            <param name="ts"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeSpanExtensions.Ago(Cosmos.Date.DateTimeSpan,System.DateTime)">
-            <summary>
-            Ago <br />
-            在多久之前
-            </summary>
-            <param name="ts"></param>
-            <param name="originalValue"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeSpanExtensions.OffsetAgo(Cosmos.Date.DateTimeSpan)">
-            <summary>
-            DateTimeOffset Ago <br />
-            在多久之前
-            </summary>
-            <param name="ts"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeSpanExtensions.Ago(Cosmos.Date.DateTimeSpan,System.DateTimeOffset)">
-            <summary>
-            DateTimeOffset Ago <br />
-            在多久之前
-            </summary>
-            <param name="ts"></param>
-            <param name="originalValue"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.DateTimeSpanExtensions.Before(Cosmos.Date.DateTimeSpan,System.DateTime)">
             <summary>
             Before <br />
@@ -5672,10 +5636,20 @@
             时间日期计算器
             </summary>
         </member>
+        <member name="M:Cosmos.Date.DateUtils.DateTimeCalc.OffsetByMilliseconds(System.DateTime,System.Int32)">
+            <summary>
+            Add milliseconds. <br />
+            毫秒偏移量。
+            </summary>
+            <param name="dt"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Cosmos.Date.DateUtils.DateTimeCalc.OffsetBySeconds(System.DateTime,System.Int32)">
             <summary>
             Add seconds. <br />
-            添加一个季度。
+            秒数偏移量。
             </summary>
             <param name="dt"></param>
             <param name="seconds"></param>
@@ -5685,7 +5659,7 @@
         <member name="M:Cosmos.Date.DateUtils.DateTimeCalc.OffsetByMinutes(System.DateTime,System.Int32)">
             <summary>
             Add minutes. <br />
-            添加一个季度。
+            分钟数偏移量。
             </summary>
             <param name="dt"></param>
             <param name="minutes"></param>
@@ -5695,7 +5669,7 @@
         <member name="M:Cosmos.Date.DateUtils.DateTimeCalc.OffsetByHours(System.DateTime,System.Int32)">
             <summary>
             Add hours. <br />
-            添加一个季度。
+            小时数偏移量。
             </summary>
             <param name="dt"></param>
             <param name="hours"></param>
@@ -5705,7 +5679,7 @@
         <member name="M:Cosmos.Date.DateUtils.DateTimeCalc.OffsetByDays(System.DateTime,System.Int32)">
             <summary>
             Add days. <br />
-            添加一个季度。
+            天数偏移量。
             </summary>
             <param name="dt"></param>
             <param name="days"></param>
@@ -6810,40 +6784,6 @@
             Time Span 扩展
             </summary>
         </member>
-        <member name="M:Cosmos.Date.TimeSpanExtensions.Ago(System.TimeSpan)">
-            <summary>
-            Ago <br />
-            在……之前
-            </summary>
-            <param name="ts"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.TimeSpanExtensions.Ago(System.TimeSpan,System.DateTime)">
-            <summary>
-            Ago <br />
-            在……之前
-            </summary>
-            <param name="ts"></param>
-            <param name="originalValue"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.TimeSpanExtensions.OffsetAgo(System.TimeSpan)">
-            <summary>
-            DateTimeOffset Ago <br />
-            在……之前
-            </summary>
-            <param name="ts"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.TimeSpanExtensions.Ago(System.TimeSpan,System.DateTimeOffset)">
-            <summary>
-            DateTimeOffset Ago <br />
-            在……之前
-            </summary>
-            <param name="ts"></param>
-            <param name="originalValue"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Date.TimeSpanExtensions.Before(System.TimeSpan,System.DateTime)">
             <summary>
             Before <br />
@@ -6982,778 +6922,6 @@
             </summary>
             <param name="str"></param>
             <returns></returns>
-        </member>
-        <member name="T:Cosmos.Verba.Time.DefaultEnglishTimeVerba">
-            <summary>
-            Default English time verba <br />
-            默认的英语时间言词
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.DefaultEnglishTimeVerba.USEnglish">
-            <summary>
-            USA English <br />
-            美国
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Instance">
-            <summary>
-            Get an english time verba instance <br />
-            获取一个英语时间言词实例
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.VerbaName">
-            <summary>
-            Verba name <br />
-            言词名
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.LanguageKeys">
-            <summary>
-            Language Keys <br />
-            语言键集合
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Now">
-            <summary>
-            Now <br />
-            现在
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.JustNow">
-            <summary>
-            Just now <br />
-            刚刚
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Future">
-            <summary>
-            Future <br />
-            未来
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Yesterday">
-            <summary>
-            Yesterday <br />
-            昨天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Milliseconds">
-            <summary>
-            Milliseconds <br />
-            毫秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Seconds">
-            <summary>
-            Seconds <br />
-            秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Minutes">
-            <summary>
-            Minutes <br />
-            分钟
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Hours">
-            <summary>
-            Hours <br />
-            小时
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Days">
-            <summary>
-            Days <br />
-            天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Weeks">
-            <summary>
-            Weeks <br />
-            周
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Weekends">
-            <summary>
-            Weekends <br />
-            周末
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Weekdays">
-            <summary>
-            Weekdays <br />
-            工作日
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Months">
-            <summary>
-            Months <br />
-            月
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Season">
-            <summary>
-            Season <br />
-            季
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Year">
-            <summary>
-            Year <br />
-            年
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.Ago">
-            <summary>
-            Ago <br />
-            在……之前
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.ComplexString">
-            <summary>
-            ComplexString <br />
-            复数后缀
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultEnglishTimeVerba.SpaceString">
-            <summary>
-            SpaceString <br />
-            分隔符
-            </summary>
-        </member>
-        <member name="T:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba">
-            <summary>
-            Default Simplified Chinese time verba <br />
-            默认的简体中文时间言词
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.SimplifiedChinese">
-            <summary>
-            Simplified Chinese
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Instance">
-            <summary>
-            Get a simplified chinese time verba instance <br />
-            获取一个简体中文时间言词实例
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.VerbaName">
-            <summary>
-            Verba name <br />
-            言词名
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.LanguageKeys">
-            <summary>
-            Language Keys <br />
-            语言键集合
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Now">
-            <summary>
-            Now <br />
-            此刻
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.JustNow">
-            <summary>
-            JustNow <br />
-            刚刚
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Future">
-            <summary>
-            Future <br />
-            未来
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Yesterday">
-            <summary>
-            Yesterday <br />
-            昨天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Milliseconds">
-            <summary>
-            Milliseconds <br />
-            毫秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Seconds">
-            <summary>
-            Seconds <br />
-            秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Minutes">
-            <summary>
-            Minutes <br />
-            分钟
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Hours">
-            <summary>
-            Hours <br />
-            小时
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Days">
-            <summary>
-            Days <br />
-            天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Weeks">
-            <summary>
-            Weeks <br />
-            周
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Weekends">
-            <summary>
-            Weekends <br />
-            周末
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Weekdays">
-            <summary>
-            Weekdays <br />
-            工作日
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Months">
-            <summary>
-            Months <br />
-            月
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Season">
-            <summary>
-            Season <br />
-            季
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Year">
-            <summary>
-            Year <br />
-            年
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.Ago">
-            <summary>
-            Ago <br />
-            在……之前
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.ComplexString">
-            <summary>
-            ComplexString <br />
-            复数后缀
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultSimplifiedChineseTimeVerba.SpaceString">
-            <summary>
-            SpaceString <br />
-            分隔符
-            </summary>
-        </member>
-        <member name="T:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba">
-            <summary>
-            Default Traditional Chines time verba <br />
-            默认的繁体中文时间言词
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.TaiwanTraditionalChinese">
-            <summary>
-            China Taiwan Traditional Chinese <br />
-            中国台湾省繁体中文
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.HongKongTraditionalChinese">
-            <summary>
-            China HongKong Traditional Chinese <br />
-            中国香港特别行政区繁体中文
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Instance">
-            <summary>
-            Get a traditional chinese time verba instance <br />
-            获取一个繁体中文时间言词实例
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.VerbaName">
-            <summary>
-            Verba name <br />
-            言词名
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.LanguageKeys">
-            <summary>
-            Language Keys <br />
-            语言键集合
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Now">
-            <summary>
-            Now <br />
-            现在
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.JustNow">
-            <summary>
-            Just Now <br />
-            刚刚
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Future">
-            <summary>
-            Future <br />
-            未来
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Yesterday">
-            <summary>
-            Yesterday <br />
-            昨天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Milliseconds">
-            <summary>
-            Milliseconds <br />
-            毫秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Seconds">
-            <summary>
-            Seconds <br />
-            秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Minutes">
-            <summary>
-            Minutes <br />
-            分钟
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Hours">
-            <summary>
-            Hours <br />
-            小时
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Days">
-            <summary>
-            Days <br />
-            天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Weeks">
-            <summary>
-            Weeks <br />
-            周
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Weekends">
-            <summary>
-            Weekends <br />
-            周末
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Weekdays">
-            <summary>
-            Weekdays <br />
-            工作日
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Months">
-            <summary>
-            Months <br />
-            月
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Season">
-            <summary>
-            Season <br />
-            季
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Year">
-            <summary>
-            Year
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.Ago">
-            <summary>
-            Ago <br />
-            在……之前
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.ComplexString">
-            <summary>
-            ComplexString <br />
-            复数后缀
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.DefaultTraditionalChineseTimeVerba.SpaceString">
-            <summary>
-            SpaceString <br />
-            分隔符
-            </summary>
-        </member>
-        <member name="T:Cosmos.Verba.Time.GlobalTimeVerbaManager">
-            <summary>
-            Global time verba manager <br />
-            全局时间 Verba 管理器
-            </summary>
-        </member>
-        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.AddTimeVerba(Cosmos.Verba.Time.ITimeVerba)">
-            <summary>
-            Add time verba into <see cref="T:Cosmos.Verba.Time.GlobalTimeVerbaManager"/> <br />
-            向全局时间管理器内添加新的时间 Verba
-            </summary>
-            <param name="verba"></param>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.DefaultLanguageKey">
-            <summary>
-            Gets or sets default language key. <br />
-            获取或设置一个默认语言的键
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.CurrentLanguageKey">
-            <summary>
-            Gets current language key. <br />
-            获取当前语言的键
-            </summary>
-        </member>
-        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.GetVerba">
-            <summary>
-            Get <see cref="T:Cosmos.Verba.Time.ITimeVerba"/> from manager <br />
-            从管理器中获取时间 Verba
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.GetVerba(System.String)">
-            <summary>
-            Get <see cref="T:Cosmos.Verba.Time.ITimeVerba"/> from manager <br />
-            从管理器中获取时间 Verba
-            </summary>
-            <param name="languageKey"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.FromVerba(System.Func{Cosmos.Verba.Time.ITimeVerba,System.String})">
-            <summary>
-            Get value from <see cref="T:Cosmos.Verba.Time.ITimeVerba"/> <br />
-            从时间 Verba 中获得值
-            </summary>
-            <param name="verbaFunc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Verba.Time.GlobalTimeVerbaManager.FromVerba(System.String,System.Func{Cosmos.Verba.Time.ITimeVerba,System.String})">
-            <summary>
-            Get value from <see cref="T:Cosmos.Verba.Time.ITimeVerba"/> <br />
-            从时间 Verba 中获得值
-            </summary>
-            <param name="languageKey"></param>
-            <param name="verbaFunc"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Now">
-            <summary>
-            Now <br />
-            现在言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Yesterday">
-            <summary>
-            Yesterday <br />
-            昨天言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Future">
-            <summary>
-            Future <br />
-            未来言词
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.GlobalTimeVerbaManager.Milliseconds">
-            <summary>
-            Milliseconds <br />
-            毫秒言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Seconds">
-            <summary>
-            Seconds <br />
-            秒钟言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Minutes">
-            <summary>
-            Minutes <br />
-            分钟言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Hours">
-            <summary>
-            Hours <br />
-            小时言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Days">
-            <summary>
-            Days <br />
-            日言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Weeks">
-            <summary>
-            Weeks <br />
-            周言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Weekends">
-            <summary>
-            Weekends <br />
-            周末言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Weekdays">
-            <summary>
-            Weekdays <br />
-            工作日言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Months">
-            <summary>
-            Months <br />
-            月份言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Season">
-            <summary>
-            Season <br />
-            季节言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Year">
-            <summary>
-            Year <br />
-            年言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.Ago">
-            <summary>
-            Ago <br />
-            之前言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.ComplexString">
-            <summary>
-            ComplexString <br />
-            单词复数言词
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.GlobalTimeVerbaManager.SpaceString">
-            <summary>
-            SpaceString <br />
-            单词间隔言词
-            </summary>
-        </member>
-        <member name="T:Cosmos.Verba.Time.ITimeVerba">
-            <summary>
-            Interface for time verba
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.LanguageKeys">
-            <summary>
-            Language Keys
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Now">
-            <summary>
-            Now <br />
-            现在
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.JustNow">
-            <summary>
-            Just Now <br />
-            刚刚
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Future">
-            <summary>
-            Future <br />
-            未来
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Yesterday">
-            <summary>
-            Yesterday <br />
-            昨天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Milliseconds">
-            <summary>
-            Milliseconds <br />
-            毫秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Seconds">
-            <summary>
-            Seconds <br />
-            秒
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Minutes">
-            <summary>
-            Minutes <br />
-            分钟
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Hours">
-            <summary>
-            Hours <br />
-            小时
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Days">
-            <summary>
-            Days <br />
-            天
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Weeks">
-            <summary>
-            Weeks <br />
-            周
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Weekends">
-            <summary>
-            Weekends <br />
-            周末
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Weekdays">
-            <summary>
-            Weekdays <br />
-            工作日
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Months">
-            <summary>
-            Months <br />
-            月
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Season">
-            <summary>
-            Season <br />
-            季
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Year">
-            <summary>
-            Year <br />
-            年
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.Ago">
-            <summary>
-            Ago <br />
-            前
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.ComplexString">
-            <summary>
-            ComplexString <br />
-            复数后缀
-            </summary>
-        </member>
-        <member name="P:Cosmos.Verba.Time.ITimeVerba.SpaceString">
-            <summary>
-            SpaceString <br />
-            单词之间的空格符
-            </summary>
-        </member>
-        <member name="T:Cosmos.Verba.Time.TimeVerbaConstant">
-            <summary>
-            TIme verba constant
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneMinute">
-            <summary>
-            One minute <br />
-            一分钟
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoMinutes">
-            <summary>
-            Tow minutes <br />
-            两分钟
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneHour">
-            <summary>
-            One hour <br />
-            一小时
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoHours">
-            <summary>
-            Two hours <br />
-            两小时
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneDay">
-            <summary>
-            One day <br />
-            一天
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoDays">
-            <summary>
-            Two days <br />
-            两天
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneWeek">
-            <summary>
-            One week <br />
-            一周
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoWeeks">
-            <summary>
-            Two weeks <br />
-            两周
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneMonth">
-            <summary>
-            One month <br />
-            一月
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoMonths">
-            <summary>
-            Two months <br />
-            两月
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.OneYear">
-            <summary>
-            One year <br />
-            一年
-            </summary>
-        </member>
-        <member name="F:Cosmos.Verba.Time.TimeVerbaConstant.TwoYears">
-            <summary>
-            Two years <br />
-            两年
-            </summary>
         </member>
         <member name="T:NodaTime.NodaDurationExtensions">
             <summary>

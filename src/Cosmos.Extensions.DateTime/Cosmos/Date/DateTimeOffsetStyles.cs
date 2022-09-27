@@ -1,10 +1,10 @@
 ﻿namespace Cosmos.Date;
 
 /// <summary>
-/// DateTime Offset Styles <br />
-/// 日期时间偏移风格
+/// Date Offset Styles <br />
+/// 日期偏移风格
 /// </summary>
-public enum DateTimeOffsetStyles
+public enum DateOffsetStyles
 {
     /// <summary>
     /// Week <br />
@@ -35,4 +35,35 @@ public enum DateTimeOffsetStyles
     /// 天
     /// </summary>
     Day
+}
+
+/// <summary>
+/// Time Offset Styles <br />
+/// 时间偏移风格
+/// </summary>
+public enum TimeOffsetStyles
+{
+    /// <summary>
+    /// Millisecond <br />
+    /// 毫秒
+    /// </summary>
+    Millisecond,
+
+    /// <summary>
+    /// Second <br />
+    /// 秒钟
+    /// </summary>
+    Second,
+
+    /// <summary>
+    /// Minute <br />
+    /// 分钟
+    /// </summary>
+    Minute,
+
+    /// <summary>
+    /// Hour <br />
+    /// 小时
+    /// </summary>
+    Hour
 }
