@@ -31,15 +31,16 @@ public static class StreamCastingExtensions
     /// 将 <see cref="Stream"/> 异步地转换为 <see cref="byte"/> 数组。
     /// </summary>
     /// <param name="stream"></param>
+    /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public static async Task<byte[]> CastToBytesAsync(this Stream stream)
+    public static async Task<byte[]> CastToBytesAsync(this Stream stream, CancellationToken cancellationToken = default)
     {
         var bytes = new byte[stream.Length];
 
         if (stream.Position > 0 && stream.CanSeek)
             stream.Seek(0, SeekOrigin.Begin);
 
-        _ = await stream.ReadAsync(bytes, 0, bytes.Length);
+        _ = await stream.ReadAsync(bytes, 0, bytes.Length, cancellationToken);
 
         if (stream.CanSeek)
             stream.Seek(0, SeekOrigin.Begin);

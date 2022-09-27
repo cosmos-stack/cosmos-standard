@@ -1,24 +1,23 @@
 ﻿using Cosmos.Conversions;
 
-namespace CosmosStandardUT.ConvUT
+namespace CosmosStandardUT.ConvUT;
+
+[Trait("ConvUT", "Ascii")]
+public class AsciiConvTests
 {
-    [Trait("ConvUT", "Ascii")]
-    public class AsciiConvTests
+    [Fact(DisplayName = "Bytes-2-AsciiString test")]
+    public void BytesAndAsciiStringTest()
     {
-        [Fact(DisplayName = "Bytes-2-AsciiString test")]
-        public void BytesAndAsciiStringTest()
-        {
-            var bytes = new byte[] {65, 66, 67};
-            var asciiString = AsciiConv.BytesToAsciiString(bytes);
+        var bytes = new byte[] {65, 66, 67};
+        var asciiString = AsciiConv.BytesToAsciiString(bytes);
 
-            asciiString.ShouldBe("ABC");
+        asciiString.ShouldBe("ABC");
 
-            var byteArray = AsciiConv.AsciiStringToBytes(asciiString);
+        var byteArray = AsciiConv.AsciiStringToBytes(asciiString);
 
-            byteArray.Length.ShouldBe(3);
-            byteArray[0].ShouldBe((byte) 65);
-            byteArray[1].ShouldBe((byte) 66);
-            byteArray[2].ShouldBe((byte) 67);
-        }
+        byteArray.Length.ShouldBe(3);
+        byteArray[0].ShouldBe((byte) 65);
+        byteArray[1].ShouldBe((byte) 66);
+        byteArray[2].ShouldBe((byte) 67);
     }
 }

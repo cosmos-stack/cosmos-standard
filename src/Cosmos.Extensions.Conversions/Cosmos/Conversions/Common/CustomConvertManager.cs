@@ -1,4 +1,7 @@
-﻿namespace Cosmos.Conversions.Common;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Cosmos.Conversions.Common;
 
 public static class CustomConvertManager
 {

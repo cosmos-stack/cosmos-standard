@@ -3,28 +3,6 @@ using Cosmos.Conversions.Common.Core;
 
 namespace Cosmos.Text;
 
-internal static class IgnoreCaseExtensions
-{
-    public static bool X(this IgnoreCase ignoreCase)
-    {
-        return ignoreCase switch
-        {
-            IgnoreCase.TRUE => true,
-            IgnoreCase.FALSE => false,
-            _ => false
-        };
-    }
-
-    public static IgnoreCase X(this bool b)
-    {
-        return b switch
-        {
-            true => IgnoreCase.TRUE,
-            false => IgnoreCase.FALSE
-        };
-    }
-}
-
 /// <summary>
 /// Object converter <br />
 /// 对象转换器
@@ -157,7 +135,7 @@ public static partial class StringConvExtensions
     /// <param name="defaultVal"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TEnum CastToEnum<TEnum>(this string text, bool ignoreCase, TEnum defaultVal) where TEnum : struct, Enum
+    public static TEnum CastToEnum<TEnum>(this string text, TEnum defaultVal, bool ignoreCase) where TEnum : struct, Enum
     {
         return EnumConvX.StringToEnum(text, defaultVal, ignoreCase);
     }

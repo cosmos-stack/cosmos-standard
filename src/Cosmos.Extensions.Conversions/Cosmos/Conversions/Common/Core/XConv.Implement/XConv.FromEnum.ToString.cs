@@ -1,9 +1,9 @@
 using System.ComponentModel;
+#if !NETCOREAPP3_1
 using System.ComponentModel.DataAnnotations;
+#endif
 
 // ReSharper disable InconsistentNaming
-// ReSharper disable once CheckNamespace
-
 namespace Cosmos.Conversions.Common.Core;
 
 internal static partial class XConv
@@ -22,11 +22,13 @@ internal static partial class XConv
             {
                 attributeName = attributes.Get<DisplayNameAttribute>()?.DisplayName ?? string.Empty;
             }
-            else if (attributes.Has<DisplayAttribute>())
+#if !NETCOREAPP3_1
+            else if (attributes.Has<System.ComponentModel.DataAnnotations.DisplayAttribute>())
             {
                 var attribute = attributes.Get<DisplayAttribute>();
                 attributeName = attribute?.GetDescription() ?? attribute?.GetName();
             }
+#endif
         }
 
         if (string.IsNullOrWhiteSpace(attributeName))

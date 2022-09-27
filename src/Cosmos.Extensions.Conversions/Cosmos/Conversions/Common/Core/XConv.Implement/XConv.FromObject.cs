@@ -2,7 +2,6 @@ using Cosmos.Conversions.ObjectMappingServices;
 using Cosmos.Reflection;
 
 // ReSharper disable InconsistentNaming
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Conversions.Common.Core;
 
 internal static partial class XConv

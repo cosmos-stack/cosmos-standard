@@ -22,7 +22,7 @@ public static class StringBooleanDeterminer
             return false;
 
         return bool.TryParse(text, out var boolean)
-                   .Or(() => GlobalBooleanVerbaManager.MayBeDetermined(text))
+                   .Or(() => InternalBooleanValueManager.MayBeDetermined(text))
                    .IfFalseThenInvoke(ValueDeterminer.IsXxxAgain<bool>, text)
                    .IfTrueThenInvoke(matchedCallback, boolean);
     }
@@ -56,7 +56,7 @@ public static class StringBooleanDeterminer
             return defaultVal;
         return bool.TryParse(text, out var boolean)
             ? boolean
-            : GlobalBooleanVerbaManager.TryDetermining(text, out boolean)
+            : InternalBooleanValueManager.TryDetermining(text, out boolean)
                 ? boolean
                 : ValueConverter.ToXxxAgain(text, defaultVal);
     }

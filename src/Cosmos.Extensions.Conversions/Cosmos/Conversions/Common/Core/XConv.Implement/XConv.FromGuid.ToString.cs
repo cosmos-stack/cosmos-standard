@@ -1,6 +1,5 @@
 // ReSharper disable UnusedMember.Local
 // ReSharper disable InconsistentNaming
-// ReSharper disable once CheckNamespace
 namespace Cosmos.Conversions.Common.Core;
 
 internal static partial class XConv

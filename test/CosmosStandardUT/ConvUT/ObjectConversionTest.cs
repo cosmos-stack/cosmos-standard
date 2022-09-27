@@ -4,68 +4,67 @@ using Cosmos.Text;
 using Shouldly;
 using Xunit;
 
-namespace CosmosStandardUT.ConvUT
+namespace CosmosStandardUT.ConvUT;
+
+public class ObjectConversionTest
 {
-    public class ObjectConversionTest
+    class One { }
+
+    class Two
     {
-        class One { }
-
-        class Two
+        public override string ToString()
         {
-            public override string ToString()
-            {
-                return "i'm two!";
-            }
+            return "i'm two!";
         }
+    }
 
-        [Fact]
-        public void NullObjectTest()
-        {
-            var str = StringConv.ToString((object) null);
+    [Fact]
+    public void NullObjectTest()
+    {
+        var str = StringConv.ToString((object) null);
 
-            str.ShouldBeEmpty();
-        }
+        str.ShouldBeEmpty();
+    }
 
-        [Fact]
-        public void ValueTypeTest()
-        {
-            var str1 = StringConv.ToString(1);
-            var str2 = StringConv.ToString(1.1D);
+    [Fact]
+    public void ValueTypeTest()
+    {
+        var str1 = StringConv.ToString(1);
+        var str2 = StringConv.ToString(1.1D);
 
-            str1.ShouldBe("1");
-            str2.ShouldBe("1.1");
-        }
+        str1.ShouldBe("1");
+        str2.ShouldBe("1.1");
+    }
 
-        [Fact]
-        public void DatetimeTest()
-        {
-            var dt = new DateTime(2017, 10, 1, 10, 10, 12, 933);
-            var str = StringConv.ToString(dt);
-            var expectedStr = dt.ToString(CultureInfo.CurrentCulture);
+    [Fact]
+    public void DatetimeTest()
+    {
+        var dt = new DateTime(2017, 10, 1, 10, 10, 12, 933);
+        var str = StringConv.ToString(dt);
+        var expectedStr = dt.ToString(CultureInfo.CurrentCulture);
 
-            str.ShouldBe(expectedStr);
-        }
+        str.ShouldBe(expectedStr);
+    }
 
-        [Fact]
-        public void GuidTest()
-        {
-            var guid = new Guid();
-            var str1 = guid.ToString();
-            var str2 = StringConv.ToString(guid);
+    [Fact]
+    public void GuidTest()
+    {
+        var guid = new Guid();
+        var str1 = guid.ToString();
+        var str2 = StringConv.ToString(guid);
 
-            str1.ShouldBe(str2);
-        }
+        str1.ShouldBe(str2);
+    }
 
-        [Fact]
-        public void ObjectTest()
-        {
-            var one = new One();
-            var two = new Two();
-            var str1 = StringConv.ToString(one);
-            var str2 = StringConv.ToString(two);
+    [Fact]
+    public void ObjectTest()
+    {
+        var one = new One();
+        var two = new Two();
+        var str1 = StringConv.ToString(one);
+        var str2 = StringConv.ToString(two);
 
-            str1.ShouldBe("Cosmos.Core.Test.Conversions.ObjectConversionTest+One");
-            str2.ShouldBe("i'm two!");
-        }
+        str1.ShouldBe("Cosmos.Core.Test.Conversions.ObjectConversionTest+One");
+        str2.ShouldBe("i'm two!");
     }
 }
