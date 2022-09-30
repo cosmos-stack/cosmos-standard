@@ -6,7 +6,7 @@ namespace Cosmos.Verba.Boolean;
 /// Global boolean verba manager <br />
 /// 全局布尔值 Verba 管理器
 /// </summary>
-public static class GlobalBooleanVerbaManager
+internal static class InternalBooleanValueManager
 {
     private static readonly ConcurrentDictionary<string, IBooleanVerba> m_booleanVerbaDict;
 
@@ -17,7 +17,7 @@ public static class GlobalBooleanVerbaManager
     private static readonly List<string> m_trueVerbaCache;
     private static readonly List<string> m_falseVerbaCache;
 
-    static GlobalBooleanVerbaManager()
+    static InternalBooleanValueManager()
     {
         m_booleanVerbaDict = new ConcurrentDictionary<string, IBooleanVerba>();
 
@@ -32,7 +32,7 @@ public static class GlobalBooleanVerbaManager
     }
 
     /// <summary>
-    /// Add boolean verba into <see cref="GlobalBooleanVerbaManager"/> <br />
+    /// Add boolean verba into <see cref="InternalBooleanValueManager"/> <br />
     /// 向 全局布尔值 Verba 管理器中添加一个新的布尔值
     /// </summary>
     /// <param name="verba"></param>

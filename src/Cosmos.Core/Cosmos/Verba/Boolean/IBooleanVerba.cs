@@ -10,11 +10,11 @@ public interface IBooleanVerba : IVerba
     /// True alias list <br />
     /// True 别名列表
     /// </summary>
-    IList<string> TrueVerbaList { get; }
+    List<string> TrueVerbaList { get; }
 
     /// <summary>
     /// False alias list <br />
     /// False 别名列表
     /// </summary>
-    IList<string> FalseVerbaList { get; }
+    List<string> FalseVerbaList { get; }
 }

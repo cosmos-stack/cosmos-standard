@@ -4,11 +4,11 @@
 /// Default global boolean verba <br />
 /// 默认的全局布尔值 Verba 器
 /// </summary>
-public class DefaultBooleanVerba : IBooleanVerba
+internal class DefaultBooleanVerba : IBooleanVerba
 {
     static DefaultBooleanVerba()
     {
-        Instance = new DefaultBooleanVerba();
+        Instance = new();
     }
 
     /// <summary>
@@ -29,11 +29,11 @@ public class DefaultBooleanVerba : IBooleanVerba
     /// True alias list <br />
     /// True 的别名列表
     /// </summary>
-    public IList<string> TrueVerbaList { get; } = new List<string> { "1", "yes", "yep", "ok" };
+    public List<string> TrueVerbaList { get; } = new() { "1", "yes", "yep", "ok" };
 
     /// <summary>
     /// False alias list <br />
     /// False 的别名列表
     /// </summary>
-    public IList<string> FalseVerbaList { get; } = new List<string> { "0", "no", "nope" };
+    public List<string> FalseVerbaList { get; } = new() { "0", "no", "nope" };
 }
