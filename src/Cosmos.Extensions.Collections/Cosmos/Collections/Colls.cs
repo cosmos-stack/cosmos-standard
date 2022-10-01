@@ -1,5 +1,9 @@
 using System.Linq.Expressions;
 
+#if !NET452
+using Collections.Pooled;
+#endif
+
 // ReSharper disable MemberHidesStaticFromOuterClass
 
 namespace Cosmos.Collections;
@@ -9,7 +13,7 @@ namespace Cosmos.Collections;
 /// </summary>
 internal static class LinqCollsHelper
 {
-    public static IEnumerable<T> EnumerableTakeLast<T>(IEnumerable<T> source, int count)
+    public static IEnumerable<T> EnumerableTakeLast<T>(IEnumerable<T> source, ref int count)
     {
         var window = new Queue<T>(count);
 
@@ -23,7 +27,7 @@ internal static class LinqCollsHelper
         return window;
     }
 
-    public static IEnumerable<T> CollectionTakeLast<T>(ICollection<T> source, int count)
+    public static IEnumerable<T> CollectionTakeLast<T>(ICollection<T> source, ref int count)
     {
         count = Math.Min(source.Count, count);
 
@@ -36,7 +40,7 @@ internal static class LinqCollsHelper
         return source.Skip(source.Count - count);
     }
 
-    public static IEnumerable<T> ReadOnlyCollectionTakeLast<T>(IReadOnlyCollection<T> source, int count)
+    public static IEnumerable<T> ReadOnlyCollectionTakeLast<T>(IReadOnlyCollection<T> source, ref int count)
     {
         count = Math.Min(source.Count, count);
 
@@ -210,6 +214,39 @@ public static partial class Colls
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static List<T> Empty<T>() => Arrays.Empty<T>().ToList();
+
+#if !NET452
+
+    /// <summary>
+    /// Create an empty pooled list instance of the specified type T. <br />
+    /// 创建一个指定类型 T 的空 PooledList 实例。
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static PooledList<T> PooledEmpty<T>() => new();
+
+    /// <summary>
+    /// Create an empty pooled list instance of the specified type T. <br />
+    /// 创建一个指定类型 T 的空 PooledList 实例。
+    /// </summary>
+    /// <param name="capacity"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static PooledList<T> PooledEmpty<T>(int capacity) => new(capacity);
+
+    /// <summary>
+    /// Create an empty pooled list instance of the specified type T. <br />
+    /// 创建一个指定类型 T 的空 PooledList 实例。
+    /// </summary>
+    /// <param name="mode"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static PooledList<T> PooledEmpty<T>(ClearMode mode) => new(mode);
+
+#endif
 
     #endregion
 

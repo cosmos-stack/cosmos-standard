@@ -879,6 +879,32 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Collections.Colls.PooledEmpty``1">
+            <summary>
+            Create an empty pooled list instance of the specified type T. <br />
+            创建一个指定类型 T 的空 PooledList 实例。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Colls.PooledEmpty``1(System.Int32)">
+            <summary>
+            Create an empty pooled list instance of the specified type T. <br />
+            创建一个指定类型 T 的空 PooledList 实例。
+            </summary>
+            <param name="capacity"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Collections.Colls.PooledEmpty``1(Collections.Pooled.ClearMode)">
+            <summary>
+            Create an empty pooled list instance of the specified type T. <br />
+            创建一个指定类型 T 的空 PooledList 实例。
+            </summary>
+            <param name="mode"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Collections.Colls.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)">
             <summary>
             Index of <br />

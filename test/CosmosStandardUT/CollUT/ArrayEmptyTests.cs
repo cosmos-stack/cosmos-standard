@@ -1,17 +1,16 @@
 ﻿using Cosmos.Collections;
 
-namespace CosmosStandardUT.CollUT
+namespace CosmosStandardUT.CollUT;
+
+[Trait("CollUT", "ArrayUT.Empty")]
+public class ArrayEmptyTests
 {
-    [Trait("CollUT", "ArrayUT.Empty")]
-    public class ArrayEmptyTests
+    [Fact(DisplayName = "Arrays.Empty test")]
+    public void EmptyArrayTest()
     {
-        [Fact(DisplayName = "Arrays.Empty test")]
-        public void EmptyArrayTest()
-        {
-            var array = Arrays.Empty<string>();
+        var array = Arrays.Empty<string>();
             
-            array.ShouldNotBeNull();
-            array.ShouldBeEmpty();
-        }
+        array.ShouldNotBeNull();
+        array.ShouldBeEmpty();
     }
 }

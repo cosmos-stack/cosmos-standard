@@ -40,14 +40,14 @@ public static class DictConv
     /// 转换为字典
     /// </summary>
     /// <param name="hash"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
-    public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(Hashtable hash)
+    public static Dictionary<K, V> ToDictionary<K, V>(Hashtable hash)
     {
-        var dictionary = new Dictionary<TKey, TValue>(hash.Count);
+        var dictionary = new Dictionary<K, V>(hash.Count);
         foreach (var item in hash.Keys)
-            dictionary.Add((TKey) item, (TValue) hash[item]);
+            dictionary.Add((K) item, (V) hash[item]);
         return dictionary;
     }
 
@@ -56,12 +56,12 @@ public static class DictConv
     /// 转换为字典
     /// </summary>
     /// <param name="source"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
-    public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> source)
+    public static IDictionary<K, V> ToDictionary<K, V>(IEnumerable<KeyValuePair<K, V>> source)
     {
-        return ToDictionary(source, EqualityComparer<TKey>.Default);
+        return ToDictionary(source, EqualityComparer<K>.Default);
     }
 
     /// <summary>
@@ -70,11 +70,11 @@ public static class DictConv
     /// </summary>
     /// <param name="source"></param>
     /// <param name="equalityComparer"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> source, IEqualityComparer<TKey> equalityComparer)
+    public static IDictionary<K, V> ToDictionary<K, V>(IEnumerable<KeyValuePair<K, V>> source, IEqualityComparer<K> equalityComparer)
     {
         if (source is null)
             throw new ArgumentNullException(nameof(source));
@@ -92,10 +92,10 @@ public static class DictConv
     /// 转换为元组
     /// </summary>
     /// <param name="dictionary"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
-    public static IEnumerable<Tuple<TKey, TValue>> ToTuple<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
+    public static IEnumerable<Tuple<K, V>> ToTuple<K, V>(IDictionary<K, V> dictionary)
     {
 #if NETFRAMEWORK || NETSTANDARD2_0
         return dictionary.Select(pair => Tuple.Create(pair.Key, pair.Value));
@@ -117,9 +117,9 @@ public static class DictConv
     /// </summary>
     /// <param name="dictionary"></param>
     /// <param name="asc"></param>
-    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="K"></typeparam>
     /// <returns></returns>
-    public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(Dictionary<TKey, int> dictionary, bool asc = true)
+    public static List<KeyValuePair<K, int>> ToSortedArrayByValue<K>(Dictionary<K, int> dictionary, bool asc = true)
     {
         var val = dictionary.ToList();
         var i = asc ? 1 : -1;
@@ -134,10 +134,10 @@ public static class DictConv
     /// 转换为有序集合
     /// </summary>
     /// <param name="dictionary"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
-    public static List<KeyValuePair<TKey, TValue>> ToSortedArrayByKey<TKey, TValue>(Dictionary<TKey, TValue> dictionary) where TKey : IComparable<TKey>
+    public static List<KeyValuePair<K, V>> ToSortedArrayByKey<K, V>(Dictionary<K, V> dictionary) where K : IComparable<K>
     {
         var val = dictionary.ToList();
 
@@ -186,13 +186,13 @@ public static class DictConvExtensions
     /// 转换为字典
     /// </summary>
     /// <param name="hash"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this Hashtable hash)
+    public static Dictionary<K, V> ToDictionary<K, V>(this Hashtable hash)
     {
-        return DictConv.ToDictionary<TKey, TValue>(hash);
+        return DictConv.ToDictionary<K, V>(hash);
     }
 
     /// <summary>
@@ -200,11 +200,11 @@ public static class DictConvExtensions
     /// 转换为字典
     /// </summary>
     /// <param name="source"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source)
+    public static IDictionary<K, V> ToDictionary<K, V>(this IEnumerable<KeyValuePair<K, V>> source)
     {
         return DictConv.ToDictionary(source);
     }
@@ -215,12 +215,12 @@ public static class DictConvExtensions
     /// </summary>
     /// <param name="source"></param>
     /// <param name="equalityComparer"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source, IEqualityComparer<TKey> equalityComparer)
+    public static IDictionary<K, V> ToDictionary<K, V>(this IEnumerable<KeyValuePair<K, V>> source, IEqualityComparer<K> equalityComparer)
     {
         return DictConv.ToDictionary(source, equalityComparer);
     }
@@ -234,11 +234,11 @@ public static class DictConvExtensions
     /// 转换为元组
     /// </summary>
     /// <param name="dictionary"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static IEnumerable<Tuple<TKey, TValue>> ToTuple<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
+    public static IEnumerable<Tuple<K, V>> ToTuple<K, V>(this IDictionary<K, V> dictionary)
     {
         return DictConv.ToTuple(dictionary);
     }
@@ -253,10 +253,10 @@ public static class DictConvExtensions
     /// </summary>
     /// <param name="dictionary"></param>
     /// <param name="asc"></param>
-    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="K"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static List<KeyValuePair<TKey, int>> ToSortedArrayByValue<TKey>(this Dictionary<TKey, int> dictionary, bool asc = true)
+    public static List<KeyValuePair<K, int>> ToSortedArrayByValue<K>(this Dictionary<K, int> dictionary, bool asc = true)
     {
         return DictConv.ToSortedArrayByValue(dictionary, asc);
     }
@@ -266,11 +266,11 @@ public static class DictConvExtensions
     /// 转换为有序集合
     /// </summary>
     /// <param name="dictionary"></param>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="V"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static List<KeyValuePair<TKey, TValue>> ToSortedArrayByKey<TKey, TValue>(this Dictionary<TKey, TValue> dictionary) where TKey : IComparable<TKey>
+    public static List<KeyValuePair<K, V>> ToSortedArrayByKey<K, V>(this Dictionary<K, V> dictionary) where K : IComparable<K>
     {
         return DictConv.ToSortedArrayByKey(dictionary);
     }

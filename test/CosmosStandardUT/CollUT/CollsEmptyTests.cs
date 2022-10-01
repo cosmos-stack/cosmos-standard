@@ -1,26 +1,25 @@
 ﻿using Cosmos.Collections;
 
-namespace CosmosStandardUT.CollUT
+namespace CosmosStandardUT.CollUT;
+
+[Trait("CollUT", "ListUT.Empty")]
+public class CollsEmptyTests
 {
-    [Trait("CollUT", "ListUT.Empty")]
-    public class CollsEmptyTests
+    [Fact(DisplayName = "Colls.Empty test")]
+    public void EmptyArrayTest()
     {
-        [Fact(DisplayName = "Colls.Empty test")]
-        public void EmptyArrayTest()
-        {
-            var array = Colls.Empty<string>();
+        var array = Colls.Empty<string>();
 
-            array.ShouldNotBeNull();
-            array.ShouldBeEmpty();
-        }
+        array.ShouldNotBeNull();
+        array.ShouldBeEmpty();
+    }
         
-        [Fact(DisplayName = "ReadOnlyColls.Empty test")]
-        public void ReadOnlyEmptyArrayTest()
-        {
-            var array = ReadOnlyColls.Empty<string>();
+    [Fact(DisplayName = "ReadOnlyColls.Empty test")]
+    public void ReadOnlyEmptyArrayTest()
+    {
+        var array = ReadOnlyColls.Empty<string>();
 
-            array.ShouldNotBeNull();
-            array.ShouldBeEmpty();
-        }
+        array.ShouldNotBeNull();
+        array.ShouldBeEmpty();
     }
 }
