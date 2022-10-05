@@ -13,6 +13,8 @@
 
     <Import Project="..\..\common.props" />
 
+    <Import Project="../../asset/props/sourcelink.env.props"/>
+
     <Import Project="dependency.props" />
 
 </Project>

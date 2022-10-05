@@ -1,12 +1,14 @@
 // ReSharper disable InconsistentNaming
 
+using Cosmos.Disposables;
+
 namespace Cosmos.Asynchronous;
 
 /// <summary>
 /// Action runner <br />
 /// 委托执行器
 /// </summary>
-public class ActionRunner : ICancellable
+public class ActionRunner : DisposableBase, ICancellable
 {
     /// <summary>
     /// Create a new instance of <see cref="ActionRunner"/>
@@ -104,9 +106,8 @@ public class ActionRunner : ICancellable
     {
         return Cancel(false);
     }
-
-    /// <inheritdoc />
-    public void Dispose()
+    
+    protected override void OnDispose()
     {
         Cancel();
         _action = null;

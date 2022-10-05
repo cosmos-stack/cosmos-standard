@@ -10356,6 +10356,10 @@
             Number Utilities <br />
             数值工具
             </summary>
+            <summary>
+            Number Utilities <br />
+            数值工具
+            </summary>
         </member>
         <member name="M:Cosmos.Numeric.Numbers.GetRangeBetween(System.Int32,System.Int32)">
             <summary>
@@ -10896,7 +10900,19 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Numeric.Numbers.Tupleize(System.Int32)">
+            <summary>
+            Converts integer to named tuple (e.g. 'single', 'double' etc.). <br />
+            将数值转换为具名元组
+            </summary>
+            <param name="input">Integer</param>
+            <returns>Named tuple</returns>
+        </member>
         <member name="T:Cosmos.Numeric.NumberExtensions">
+            <summary>
+            Extensions for number utilities <br />
+            数值工具扩展
+            </summary>
             <summary>
             Extensions for number utilities <br />
             数值工具扩展
@@ -11227,6 +11243,14 @@
             </summary>
             <param name="input"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Numeric.NumberExtensions.Tupleize(System.Int32)">
+            <summary>
+            Converts integer to named tuple (e.g. 'single', 'double' etc.). <br />
+            将数值转换为具名元组
+            </summary>
+            <param name="input">Integer</param>
+            <returns>Named tuple</returns>
         </member>
         <member name="T:Cosmos.Numeric.NumericConstants">
             <summary>
@@ -11747,6 +11771,21 @@
             <param name="attributes"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Reflection.MethodSignature">
+            <summary>
+            Method signature
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.Reflectors.Internals.ReflectorFindUtils.FindMember``2(``0[],System.String)">
+            <summary>
+            find member using binary search
+            </summary>
+            <typeparam name="TReflector"></typeparam>
+            <typeparam name="TMemberInfo"></typeparam>
+            <param name="reflectors">pre order by name</param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Reflection.TypeClass">
             <summary>
             Type clazz
@@ -12121,6 +12160,13 @@
             </summary>
             <summary>
             Reflection Utilities.
+            </summary>
+            <summary>
+            Reflection Utilities.
+            </summary>
+            <summary>
+            Reflection Utilities. <br />
+            反射工具
             </summary>
             <summary>
             Reflection Utilities. <br />
@@ -12614,7 +12660,6 @@
             返回成员的描述信息。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12628,7 +12673,6 @@
             返回成员的描述信息。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12642,7 +12686,6 @@
             返回成员的描述信息。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12656,7 +12699,6 @@
             返回成员的描述信息。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12671,7 +12713,6 @@
             返回成员的描述信息。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12686,7 +12727,6 @@
             返回成员的描述信息。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DescriptionAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12701,7 +12741,6 @@
             返回成员的名称。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DisplayNameAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12715,7 +12754,6 @@
             返回成员的名称。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DisplayNameAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12729,7 +12767,6 @@
             返回成员的名称。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DisplayNameAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12743,7 +12780,6 @@
             返回成员的名称。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DisplayNameAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12758,7 +12794,6 @@
             返回成员的名称。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DisplayNameAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -12773,7 +12808,6 @@
             返回成员的名称。将按照以下顺序进行寻找：
             <para>
             - <see cref="T:System.ComponentModel.DisplayNameAttribute"/> <br />
-            - <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> <br />
             - Name
             </para>
             </summary>
@@ -13033,6 +13067,24 @@
             <param name="member"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Reflection.TypeReflectionsExtensions">
+            <summary>
+            Reflection Utilities. <br />
+            反射工具
+            </summary>
+            <summary>
+            Reflection Utilities. <br />
+            反射工具
+            </summary>
+            <summary>
+            Reflection Utilities. <br />
+            反射工具
+            </summary>
+            <summary>
+            Reflection Utilities. <br />
+            反射工具
+            </summary>
+        </member>
         <member name="T:Cosmos.Reflection.TypeDerivedOptions">
             <summary>
             Type derivation options <br />
@@ -13153,11 +13205,57 @@
             忽略泛型参数
             </summary>
         </member>
-        <member name="T:Cosmos.Reflection.TypeIsOptions">
+        <member name="T:Cosmos.Reflection.TypesVal">
             <summary>
-            Options to choose from when guessing the type <br />
-            对类型进行推测时可供选择的选项
+            The type collection value <br />
+            类型集合值
             </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.TypesVal.Count">
+            <summary>
+            Calculate the total number of types in the type collection value. <br />
+            计算类型集合值中的类型总数。
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.TypesVal.TypeArray">
+            <summary>
+            Get all types <br />
+            从类型集合值中获取所有类型
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.TypesVal.Types">
+            <summary>
+            Get all types <br />
+            从类型集合值中获取所有类型
+            </summary>
+        </member>
+        <member name="P:Cosmos.Reflection.TypesVal.Item(System.Int32)">
+            <summary>
+            Get type by index
+            </summary>
+            <param name="index"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypesVal.Create(System.Type[])">
+            <summary>
+            According to the given type array, construct a type collection value <br />
+            根据给定的类型数组，构建一个类型集合值
+            </summary>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cosmos.Reflection.TypesVal.Empty">
+            <summary>
+            Get empty type collection value <br />
+            获取空的类型集合值
+            </summary>
+        </member>
+        <member name="M:Cosmos.Reflection.TypesVal.IsEmpty">
+            <summary>
+            Whether the tag is empty type collection value <br />
+            标记是否为空的类型集合值
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Reflection.Types">
             <summary>
@@ -13794,63 +13892,17 @@
             <param name="options"></param>
             <returns></returns>
         </member>
+        <member name="T:Cosmos.Reflection.TypeIsOptions">
+            <summary>
+            Options to choose from when guessing the type <br />
+            对类型进行推测时可供选择的选项
+            </summary>
+        </member>
         <member name="T:Cosmos.Reflection.TypeOfOptions">
             <summary>
             Options to choose when recognizing the type <br />
             对类型进行识别时可供选择的选项
             </summary>
-        </member>
-        <member name="T:Cosmos.Reflection.TypesVal">
-            <summary>
-            The type collection value <br />
-            类型集合值
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypesVal.Count">
-            <summary>
-            Calculate the total number of types in the type collection value. <br />
-            计算类型集合值中的类型总数。
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypesVal.TypeArray">
-            <summary>
-            Get all types <br />
-            从类型集合值中获取所有类型
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypesVal.Types">
-            <summary>
-            Get all types <br />
-            从类型集合值中获取所有类型
-            </summary>
-        </member>
-        <member name="P:Cosmos.Reflection.TypesVal.Item(System.Int32)">
-            <summary>
-            Get type by index
-            </summary>
-            <param name="index"></param>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <member name="M:Cosmos.Reflection.TypesVal.Create(System.Type[])">
-            <summary>
-            According to the given type array, construct a type collection value <br />
-            根据给定的类型数组，构建一个类型集合值
-            </summary>
-            <param name="types"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Cosmos.Reflection.TypesVal.Empty">
-            <summary>
-            Get empty type collection value <br />
-            获取空的类型集合值
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.TypesVal.IsEmpty">
-            <summary>
-            Whether the tag is empty type collection value <br />
-            标记是否为空的类型集合值
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:Cosmos.Singleton">
             <summary>
@@ -14622,6 +14674,23 @@
             <param name="text"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Text.Strings.FormatWith(System.String,System.Object[])">
+            <summary>
+            Extension method to format string with passed arguments. Current thread's current culture is used
+            </summary>
+            <param name="format">string format</param>
+            <param name="args">arguments</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.Strings.FormatWith(System.String,System.IFormatProvider,System.Object[])">
+            <summary>
+            Extension method to format string with passed arguments using specified format provider (i.e. CultureInfo)
+            </summary>
+            <param name="format">string format</param>
+            <param name="provider">An object that supplies culture-specific formatting information</param>
+            <param name="args">arguments</param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Text.Strings.GetNumbersAndLetters(System.String)">
             <summary>
             Get only letters and numbers.<br />
@@ -15252,6 +15321,23 @@
             </summary>
             <param name="text"></param>
             <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.FormatWith(System.String,System.Object[])">
+            <summary>
+            Extension method to format string with passed arguments. Current thread's current culture is used
+            </summary>
+            <param name="format">string format</param>
+            <param name="args">arguments</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Text.StringsExtensions.FormatWith(System.String,System.IFormatProvider,System.Object[])">
+            <summary>
+            Extension method to format string with passed arguments using specified format provider (i.e. CultureInfo)
+            </summary>
+            <param name="format">string format</param>
+            <param name="provider">An object that supplies culture-specific formatting information</param>
+            <param name="args">arguments</param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringsExtensions.Right(System.String,System.Int32)">
@@ -16273,6 +16359,11 @@
             <summary>Initializes an instance of the <see cref="T:System.ArgumentInvalidException"></see> class with a specified error message and the name of the parameter that causes this exception.</summary>
             <param name="paramName">The name of the parameter that caused the exception.</param>
             <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="T:System.Reflection.Emit.IndexedLocalBuilder">
+            <summary>
+            Indexed local builder
+            </summary>
         </member>
         <member name="T:System.Runtime.IOSPlatformProvider">
             <summary>
