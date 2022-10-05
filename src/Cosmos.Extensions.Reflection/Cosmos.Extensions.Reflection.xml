@@ -1771,6 +1771,15 @@
             <param name="hashFieldValues"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.HashCodeExtensions.GetHashCode``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{System.Object}})">
+            <summary>
+            Get hashcode
+            </summary>
+            <param name="x"></param>
+            <param name="hashFieldValuesFunc"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Reflection.IHashCode">
             <summary>
             HashCode interface <br />
@@ -1951,21 +1960,6 @@
             对指定的资源进行加锁，执行委托并返回结果。
             </summary>
         </member>
-        <member name="T:Cosmos.Reflection.ObjectRefExtensions">
-            <summary>
-            Cosmos.Core <see cref="T:System.Object"/> extensions. <br />
-            对象扩展
-            </summary>
-        </member>
-        <member name="M:Cosmos.Reflection.ObjectRefExtensions.GetHashCode``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{System.Object}})">
-            <summary>
-            Get hashcode
-            </summary>
-            <param name="x"></param>
-            <param name="hashFieldValuesFunc"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
         <member name="T:Cosmos.Reflection.TypeScanner">
             <summary>
             Type Scanner <br />
@@ -2068,6 +2062,14 @@
             </summary>
         </member>
         <member name="T:Cosmos.Reflection.TypeVisit">
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
             <summary>
             Type visit, an advanced TypeReflections utility. <br />
             类型访问器，一个高级的 TypeReflections 工具。
@@ -2242,16 +2244,6 @@
             <param name="method"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Reflection.TypeVisit.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
-            <summary>
-            Get method by signature <br />
-            获取方法签名
-            </summary>
-            <param name="type"></param>
-            <param name="method"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
         <member name="M:Cosmos.Reflection.TypeVisit.GetBaseMethod(System.Reflection.MethodInfo)">
             <summary>
             Get BaseMethod <br />
@@ -2259,6 +2251,36 @@
             </summary>
             <param name="method"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
+            <summary>
+            Get method by signature <br />
+            根据方法签名获取方法
+            </summary>
+            <param name="type"></param>
+            <param name="method"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetMethodBySignature(System.Reflection.TypeInfo,Cosmos.Reflection.MethodSignature)">
+            <summary>
+            Get method by signature <br />
+            根据方法签名获取方法
+            </summary>
+            <param name="typeInfo"></param>
+            <param name="signature"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetDeclaredMethodBySignature(System.Reflection.TypeInfo,Cosmos.Reflection.MethodSignature)">
+            <summary>
+            Get declared method by signature <br />
+            根据方法签名获取声明的方法
+            </summary>
+            <param name="typeInfo"></param>
+            <param name="signature"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Reflection.TypeVisit.IsVisibleAndVirtual(System.Reflection.MethodInfo)">
             <summary>
@@ -2477,6 +2499,10 @@
             Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
             类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
             </summary>
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
         </member>
         <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsAttributeDefined``1(System.Reflection.MemberInfo,Cosmos.Reflection.ReflectionOptions)">
             <summary>
@@ -2657,6 +2683,14 @@
             <param name="method"></param>
             <returns></returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetBaseMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Get BaseMethod <br />
+            获取 BaseMethod
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
             <summary>
             Get method by signature <br />
@@ -2667,13 +2701,25 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetBaseMethod(System.Reflection.MethodInfo)">
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetMethodBySignature(System.Reflection.TypeInfo,Cosmos.Reflection.MethodSignature)">
             <summary>
-            Get BaseMethod <br />
-            获取 BaseMethod
+            Get method by signature <br />
+            根据方法签名获取方法
             </summary>
-            <param name="method"></param>
+            <param name="typeInfo"></param>
+            <param name="signature"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetDeclaredMethodBySignature(System.Reflection.TypeInfo,Cosmos.Reflection.MethodSignature)">
+            <summary>
+            Get declared method by signature <br />
+            根据方法签名获取声明的方法
+            </summary>
+            <param name="typeInfo"></param>
+            <param name="signature"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.IsVisibleAndVirtual(System.Reflection.MethodInfo)">
             <summary>
@@ -2879,6 +2925,10 @@
             <returns></returns>
         </member>
         <member name="T:Cosmos.Reflection.TypeVisitExtensions">
+            <summary>
+            Type visit extensions <br />
+            类型访问器扩展
+            </summary>
             <summary>
             Type visit extensions <br />
             类型访问器扩展

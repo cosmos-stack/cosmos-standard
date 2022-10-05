@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
-using AspectCore.Extensions.Reflection;
 using Cosmos.Exceptions;
 using Cosmos.Reflection;
+using Cosmos.Reflection.Reflectors;
 
 namespace Cosmos.Validation;
 
