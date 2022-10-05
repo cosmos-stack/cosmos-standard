@@ -1,10 +1,9 @@
-﻿namespace CosmosStandardUT.Helpers
+﻿namespace CosmosStandardUT.Helpers;
+
+internal  static class ArrayCreator
 {
-    internal  static class ArrayCreator
+    public static T[] Of<T>(params T[] ts)
     {
-        public static T[] Of<T>(params T[] ts)
-        {
-            return ts;
-        }
+        return ts;
     }
 }

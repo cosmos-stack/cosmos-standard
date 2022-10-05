@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace CosmosStandardUT.Models
+namespace CosmosStandardUT.Models;
+
+public class ChildTupleType : Tuple<int, int>
 {
-    public class ChildTupleType : Tuple<int, int>
-    {
-        public ChildTupleType(int item1, int item2) : base(item1, item2) { }
-    }
+    public ChildTupleType(int item1, int item2) : base(item1, item2) { }
 }

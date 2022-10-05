@@ -1,11 +1,10 @@
-﻿namespace CosmosStandardUT.Models
-{
-    public class NormalInterfaceClass<T> : IModelOne, IModelTwo, IModelThree<T> { }
+﻿namespace CosmosStandardUT.Models;
 
-    public interface IModelOne { }
+public class NormalInterfaceClass<T> : IModelOne, IModelTwo, IModelThree<T> { }
 
-    public interface IModelTwo { }
+public interface IModelOne { }
 
-    public interface IModelThree<T> { }
-    public interface IModelFour { }
-}
+public interface IModelTwo { }
+
+public interface IModelThree<T> { }
+public interface IModelFour { }

@@ -1,37 +1,36 @@
-﻿namespace CosmosStandardUT.Models
-{
-    public class BaseLevelOne { }
+﻿namespace CosmosStandardUT.Models;
 
-    public abstract class AbstractLevelOne : IInterfaceZero { }
+public class BaseLevelOne { }
 
-    public class BaseLevelTwo : BaseLevelOne { }
+public abstract class AbstractLevelOne : IInterfaceZero { }
 
-    public class BaseLevelThree<T> { }
+public class BaseLevelTwo : BaseLevelOne { }
 
-    public class BaseLevelFour<T1, T2> : BaseLevelThree<T1> { }
+public class BaseLevelThree<T> { }
 
-    public interface IInterfaceZero { }
+public class BaseLevelFour<T1, T2> : BaseLevelThree<T1> { }
 
-    public interface IInterfaceOne { }
+public interface IInterfaceZero { }
 
-    public interface IInterfaceTwo : IInterfaceOne { }
+public interface IInterfaceOne { }
 
-    public interface IInterfaceThree<T> { }
+public interface IInterfaceTwo : IInterfaceOne { }
 
-    public interface IInterfaceFour<T1, T2> : IInterfaceThree<T1>, IInterfaceTwo { }
+public interface IInterfaceThree<T> { }
 
-    public class EntryClassOne : AbstractLevelOne, IInterfaceTwo { }
+public interface IInterfaceFour<T1, T2> : IInterfaceThree<T1>, IInterfaceTwo { }
 
-    public class EntryClassTwo : BaseLevelTwo, IInterfaceFour<int, string> { }
+public class EntryClassOne : AbstractLevelOne, IInterfaceTwo { }
 
-    public class EntryClassThree : BaseLevelFour<long, long> { }
+public class EntryClassTwo : BaseLevelTwo, IInterfaceFour<int, string> { }
+
+public class EntryClassThree : BaseLevelFour<long, long> { }
     
-    // entry1 --> abstract1 --> interface0
-    //        --> interface2 --> interface1
+// entry1 --> abstract1 --> interface0
+//        --> interface2 --> interface1
     
-    // entry2 --> base2 --> base1
-    //        --> interface4[int,string] --> interface3[int]
-    //                                   --> interface2 --> interface1
+// entry2 --> base2 --> base1
+//        --> interface4[int,string] --> interface3[int]
+//                                   --> interface2 --> interface1
     
-    // entry3 --> base4[long,long]-->base3[long]
-}
+// entry3 --> base4[long,long]-->base3[long]
