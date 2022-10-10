@@ -11,7 +11,7 @@ namespace Cosmos.Reflection;
 /// <summary>
 /// Method signature
 /// </summary>
-public struct MethodSignature
+public readonly struct MethodSignature
 {
     private static readonly ConcurrentDictionary<PairOf<MethodBase, string>, int> Signatures = new();
 
@@ -19,7 +19,11 @@ public struct MethodSignature
 
     public int Value => _signature;
 
-    public string Name { get; set; }
+#if NET5_0_OR_GREATER
+    public string Name { get; init; }
+#else
+    public string Name { get; }
+#endif
 
     public MethodSignature(MethodBase method) : this(method, method?.Name) { }
 
