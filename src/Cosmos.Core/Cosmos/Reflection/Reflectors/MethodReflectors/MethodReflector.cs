@@ -14,7 +14,7 @@ public partial class MethodReflector : MemberReflector<MethodInfo>, IParameterRe
     {
         _displayName = GetDisplayName(reflectionInfo);
         _invoker = CreateInvoker();
-        _parameterReflectors = reflectionInfo.GetParameters().Select(x => ParameterReflector.Create(x)).ToArray();
+        _parameterReflectors = reflectionInfo.GetParameters().Select(ParameterReflector.Create).ToArray();
     }
 
     protected virtual Func<object, object[], object> CreateInvoker()

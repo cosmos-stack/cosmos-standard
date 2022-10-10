@@ -29,9 +29,9 @@ public partial class ParameterReflector : ICustomAttributeReflectorProvider
 
     public string Name => _reflectionInfo.Name;
 
-    public bool HasDeflautValue { get; }
+    public bool HasDefaultValue { get; }
 
-    public object DefalutValue { get; }
+    public object DefaultValue { get; }
 
     public int Position { get; }
 
@@ -41,10 +41,10 @@ public partial class ParameterReflector : ICustomAttributeReflectorProvider
     {
         _reflectionInfo = reflectionInfo ?? throw new ArgumentNullException(nameof(reflectionInfo));
         _customAttributeReflectors = _reflectionInfo.CustomAttributes.Select(data => CustomAttributeReflector.Create(data)).ToArray();
-        HasDeflautValue = ParameterReflectorHelper.HasDefaultValueByAttributes(reflectionInfo);
+        HasDefaultValue = ParameterReflectorHelper.HasDefaultValueByAttributes(reflectionInfo);
 
-        if (HasDeflautValue)
-            DefalutValue = ParameterReflectorHelper.GetDefaultValueSafely(reflectionInfo);
+        if (HasDefaultValue)
+            DefaultValue = ParameterReflectorHelper.GetDefaultValueSafely(reflectionInfo);
 
         Position = reflectionInfo.Position;
         ParameterType = reflectionInfo.ParameterType;

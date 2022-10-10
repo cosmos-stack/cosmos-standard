@@ -18,7 +18,7 @@ public partial class MethodReflector
             name += arguments[0].GetReflector().DisplayName;
             for (var i = 1; i < arguments.Length; i++)
             {
-                name += ("," + arguments[i].GetReflector().DisplayName);
+                name += "," + arguments[i].GetReflector().DisplayName;
             }
 
             name += ">";
@@ -35,7 +35,7 @@ public partial class MethodReflector
         name += parameterTypes[0].GetReflector().DisplayName;
         for (var i = 1; i < parameterTypes.Length; i++)
         {
-            name += ("," + parameterTypes[i].GetReflector().DisplayName);
+            name += "," + parameterTypes[i].GetReflector().DisplayName;
         }
 
         name += ")";

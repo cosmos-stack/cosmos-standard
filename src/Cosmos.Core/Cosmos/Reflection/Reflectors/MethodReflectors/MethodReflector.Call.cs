@@ -3,7 +3,7 @@ using Cosmos.Reflection.Reflectors.Internals;
 
 namespace Cosmos.Reflection.Reflectors;
 
-public partial class MethodReflector : MemberReflector<MethodInfo>
+public partial class MethodReflector
 {
     private class CallMethodReflector : MethodReflector
     {

@@ -13,7 +13,7 @@ public partial class ConstructorReflector : MemberReflector<ConstructorInfo>, IP
     private ConstructorReflector(ConstructorInfo constructorInfo) : base(constructorInfo)
     {
         _invoker = CreateInvoker();
-        _parameterReflectors = constructorInfo.GetParameters().Select(x => ParameterReflector.Create(x)).ToArray();
+        _parameterReflectors = constructorInfo.GetParameters().Select(ParameterReflector.Create).ToArray();
     }
 
     protected virtual Func<object[], object> CreateInvoker()
@@ -89,10 +89,7 @@ public partial class ConstructorReflector : MemberReflector<ConstructorInfo>, IP
     public virtual object Invoke(params object[] args)
     {
         if (args == null)
-        {
             throw new ArgumentNullException(nameof(args));
-        }
-
         return _invoker(args);
     }
 }

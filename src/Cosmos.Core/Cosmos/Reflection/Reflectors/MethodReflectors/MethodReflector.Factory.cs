@@ -1,6 +1,4 @@
-﻿using Cosmos.Reflection.Reflectors.Internals;
-
-namespace Cosmos.Reflection.Reflectors;
+﻿namespace Cosmos.Reflection.Reflectors;
 
 public partial class MethodReflector
 {

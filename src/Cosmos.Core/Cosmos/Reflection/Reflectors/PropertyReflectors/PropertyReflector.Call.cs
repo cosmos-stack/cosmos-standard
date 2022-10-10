@@ -10,7 +10,7 @@ public partial class PropertyReflector
 
         protected override Func<object, object> CreateGetter()
         {
-            var dynamicMethod = new DynamicMethod($"getter-{Guid.NewGuid()}", typeof(object), new Type[] { typeof(object) }, _reflectionInfo.Module, true);
+            var dynamicMethod = new DynamicMethod($"getter-{Guid.NewGuid()}", typeof(object), new[] { typeof(object) }, _reflectionInfo.Module, true);
             var ilGen = dynamicMethod.GetILGenerator();
             ilGen.EmitLoadArg(0);
             ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType);
@@ -30,7 +30,7 @@ public partial class PropertyReflector
 
         protected override Action<object, object> CreateSetter()
         {
-            var dynamicMethod = new DynamicMethod($"setter-{Guid.NewGuid()}", typeof(void), new Type[] { typeof(object), typeof(object) }, _reflectionInfo.Module, true);
+            var dynamicMethod = new DynamicMethod($"setter-{Guid.NewGuid()}", typeof(void), new[] { typeof(object), typeof(object) }, _reflectionInfo.Module, true);
             var ilGen = dynamicMethod.GetILGenerator();
             ilGen.EmitLoadArg(0);
             ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType);

@@ -4,15 +4,13 @@ namespace Cosmos.Reflection.Reflectors;
 
 public partial class PropertyReflector : MemberReflector<PropertyInfo>
 {
-    protected readonly bool _canRead;
-    protected readonly bool _canWrite;
     protected readonly Func<object, object> _getter;
     protected readonly Action<object, object> _setter;
 
     private PropertyReflector(PropertyInfo reflectionInfo) : base(reflectionInfo)
     {
-        _getter = reflectionInfo.CanRead ? CreateGetter() : ins => throw new InvalidOperationException($"Property {_reflectionInfo.Name} does not define get accessor.");
-        _setter = reflectionInfo.CanWrite ? CreateSetter() : (ins, val) => { throw new InvalidOperationException($"Property {_reflectionInfo.Name} does not define get accessor."); };
+        _getter = reflectionInfo.CanRead ? CreateGetter() : _ => throw new InvalidOperationException($"Property {_reflectionInfo.Name} does not define get accessor.");
+        _setter = reflectionInfo.CanWrite ? CreateSetter() : (_, _) => throw new InvalidOperationException($"Property {_reflectionInfo.Name} does not define get accessor.");
     }
 
     protected virtual Func<object, object> CreateGetter()
