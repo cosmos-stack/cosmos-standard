@@ -1,4 +1,5 @@
 ﻿using Cosmos.Collections;
+using Cosmos.Dynamic;
 using Cosmos.Reflection.Reflectors;
 
 #if !NETFRAMEWORK
@@ -321,6 +322,20 @@ public static partial class TypeVisit
         public readonly int Index;
     }
 #endif
+
+    #endregion
+
+    #region Create Instance for Dynamic Type
+
+    public static object CreateInstance(IDictionary<string, object> values)
+    {
+        var properties = values.ToDictionary(_ => _.Key, _ => _.Value.GetType());
+        var dynamicType = TypeFactory.CreateType(properties);
+        var @object = (DynamicBase)Activator.CreateInstance(dynamicType)!;
+        foreach (var item in values)
+            @object.SetPropertyValue(item.Key, item.Value);
+        return @object;
+    }
 
     #endregion
 }

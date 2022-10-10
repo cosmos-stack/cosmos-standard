@@ -100,5 +100,4 @@ public static class SystemTypeBuilderExtensions
         // Return the method builder.
         return methodBuilder;
     }
-
 }
