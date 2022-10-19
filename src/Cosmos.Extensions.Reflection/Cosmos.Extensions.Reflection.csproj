@@ -17,6 +17,10 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Cosmos\Queries\Internals" />
+    </ItemGroup>
+
     <Import Project="dependency.props" />
 
     <Import Project="references.props" />

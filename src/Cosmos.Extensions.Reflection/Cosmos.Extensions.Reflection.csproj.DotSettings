@@ -11,4 +11,5 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=cosmos_005Creflection_005Creflectors_005Cparameterreflectors/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=cosmos_005Creflection_005Creflectors_005Cpropertyreflectors/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=cosmos_005Creflection_005Creflectors_005Ctypereflectors/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=cosmos_005Creflection_005Ctypefactory/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=cosmos_005Creflection_005Ctypevisit/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
