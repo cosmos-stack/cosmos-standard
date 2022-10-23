@@ -1,10 +1,12 @@
-﻿namespace Cosmos.Date;
+﻿using Cosmos.Date;
+
+namespace Cosmos;
 
 /// <summary>
-/// TimeSpan Guard <br />
-/// TimeSpan 守护
+/// TimeSpan Guard Extensions <br />
+/// TimeSpan 守护扩展
 /// </summary>
-public static class TimeSpanGuard
+public static class TimeSpanGuardExtensions
 {
     /// <summary>
     /// Check whether the time span is positive. <br />
@@ -15,13 +17,14 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(TimeSpan argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequirePositive(this TimeSpan argument, string argumentName, string message = null)
+#else
+    public static void RequirePositive(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
-            argument > TimeSpan.Zero,
-            argumentName, argument, message ?? $"The given TimeSpan ({nameof(argument)}) should be positive.");
+        TimeSpanGuard.ShouldBePositive(argument, argumentName, message);
     }
 
     /// <summary>
@@ -33,11 +36,14 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(TimeSpan? argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequirePositive(this TimeSpan? argument, string argumentName, string message = null)
+#else
+    public static void RequirePositive(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ShouldBePositive(argument.SafeValue(), argumentName, message);
+        TimeSpanGuard.ShouldBePositive(argument, argumentName, message);
     }
 
     /// <summary>
@@ -49,13 +55,14 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(TimeSpan argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequirePositiveOrZero(this TimeSpan argument, string argumentName, string message = null)
+#else
+    public static void RequirePositiveOrZero(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
-            argument >= TimeSpan.Zero,
-            argumentName, argument, message ?? $"The given TimeSpan ({nameof(argument)}) should be positive or zero.");
+        TimeSpanGuard.ShouldBePositiveOrZero(argument, argumentName, message);
     }
 
     /// <summary>
@@ -67,11 +74,14 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(TimeSpan? argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequirePositiveOrZero(this TimeSpan? argument, string argumentName, string message = null)
+#else
+    public static void RequirePositiveOrZero(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ShouldBePositiveOrZero(argument.SafeValue(), argumentName, message);
+        TimeSpanGuard.ShouldBePositiveOrZero(argument, argumentName, message);
     }
 
     /// <summary>
@@ -83,13 +93,14 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(TimeSpan argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequireNegative(this TimeSpan argument, string argumentName, string message = null)
+#else
+    public static void RequireNegative(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
-            argument < TimeSpan.Zero,
-            argumentName, argument, message ?? $"The given TimeSpan ({nameof(argument)}) should be negative.");
+        TimeSpanGuard.ShouldBeNegative(argument, argumentName, message);
     }
 
     /// <summary>
@@ -101,11 +112,14 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(TimeSpan? argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequireNegative(this TimeSpan? argument, string argumentName, string message = null)
+#else
+    public static void RequireNegative(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ShouldBeNegative(argument.SafeValue(), argumentName, message);
+        TimeSpanGuard.ShouldBeNegative(argument, argumentName, message);
     }
 
     /// <summary>
@@ -117,13 +131,14 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(TimeSpan argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequireNegativeOrZero(this TimeSpan argument, string argumentName, string message = null)
+#else
+    public static void RequireNegativeOrZero(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
-            argument <= TimeSpan.Zero,
-            argumentName, argument, message ?? $"The given TimeSpan ({nameof(argument)}) should be negative or zero.");
+        TimeSpanGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
     }
 
     /// <summary>
@@ -135,10 +150,13 @@ public static class TimeSpanGuard
     /// <param name="argument"></param>
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(TimeSpan? argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequireNegativeOrZero(this TimeSpan? argument, string argumentName, string message = null)
+#else
+    public static void RequireNegativeOrZero(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ShouldBeNegativeOrZero(argument.SafeValue(), argumentName, message);
+        TimeSpanGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
     }
 }

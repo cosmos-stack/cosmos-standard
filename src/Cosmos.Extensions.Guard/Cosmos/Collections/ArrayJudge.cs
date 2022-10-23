@@ -38,9 +38,3 @@ public static class ArrayJudge
         return index >= array.GetLowerBound(dimension) && index <= array.GetUpperBound(dimension);
     }
 }
-
-/// <summary>
-/// Array Judgement Extensions<br />
-/// 数组检查器扩展
-/// </summary>
-public static class ArrayJudgeExtensions { }

@@ -1,10 +1,12 @@
-﻿namespace Cosmos.IdUtils;
+﻿using Cosmos.IdUtils;
+
+namespace Cosmos;
 
 /// <summary>
-/// Guid Guard <br />
-/// GUID 守护
+/// Guid Guard Extensions <br />
+/// GUID 守护扩展
 /// </summary>
-public static class GuidGuard
+public static class GuidGuardExtensions
 {
     /// <summary>
     /// Check if Guid is empty or null. <br />
@@ -16,11 +18,13 @@ public static class GuidGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeValid(Guid argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void Require(this Guid argument, string argumentName, string message = null)
+#else
+    public static void Require(this Guid argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
-            !argument.IsNullOrEmpty(),
-            argumentName, message ?? $"{nameof(argument)} can not be null or empty.");
+        GuidGuard.ShouldBeValid(argument, argumentName, message);
     }
 
     /// <summary>
@@ -33,8 +37,12 @@ public static class GuidGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeValid(Guid? argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void Require(this Guid? argument, string argumentName, string message = null)
+#else
+    public static void Require(this Guid? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ShouldBeValid(argument.SafeValue(), argumentName, message);
+        GuidGuard.ShouldBeValid(argument, argumentName, message);
     }
 }

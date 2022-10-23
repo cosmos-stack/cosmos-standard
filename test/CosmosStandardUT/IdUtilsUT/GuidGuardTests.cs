@@ -32,8 +32,8 @@ public class GuidGuardTests
         Guid? guid1 = Guid.Empty;
         Guid? guid2 = null;
 
-        Assert.Throws<ValidationException>(() => guid1.CheckNull( nameof(guid1)));
-        Assert.Throws<ValidationException>(() => guid2.CheckNull( nameof(guid2)));
+        Assert.Throws<ValidationException>(() => guid1.Require( nameof(guid1)));
+        Assert.Throws<ValidationException>(() => guid2.Require( nameof(guid2)));
             
         Assert.Throws<ValidationException>(() => guid1.Require( nameof(guid1)));
         Assert.Throws<ValidationException>(() => guid2.Require( nameof(guid2)));
@@ -45,8 +45,8 @@ public class GuidGuardTests
         Guid guid1 = Guid.Empty;
         Guid guid2 = default;
 
-        Assert.Throws<ValidationException>(() => guid1.CheckNull( nameof(guid1)));
-        Assert.Throws<ValidationException>(() => guid2.CheckNull( nameof(guid2)));
+        Assert.Throws<ValidationException>(() => guid1.Require( nameof(guid1)));
+        Assert.Throws<ValidationException>(() => guid2.Require( nameof(guid2)));
             
         Assert.Throws<ValidationException>(() => guid1.Require( nameof(guid1)));
         Assert.Throws<ValidationException>(() => guid2.Require( nameof(guid2)));

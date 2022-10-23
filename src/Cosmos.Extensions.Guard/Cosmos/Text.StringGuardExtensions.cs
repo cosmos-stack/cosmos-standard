@@ -1,10 +1,12 @@
-﻿namespace Cosmos.Text;
+﻿using Cosmos.Text;
+
+namespace Cosmos;
 
 /// <summary>
-/// String Guard <br />
-/// 字符串守护
+/// String Guard Extensions <br />
+/// 字符串守护扩展
 /// </summary>
-public static class StringGuard
+public static class StringGuardExtensions
 {
     /// <summary>
     /// Check if the string is null, empty or blank. <br />
@@ -16,11 +18,13 @@ public static class StringGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotNull(string argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void Require(this string argument, string argumentName, string message = null)
+#else
+    public static void Require(this string argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
-            !string.IsNullOrWhiteSpace(argument),
-            argumentName, message ?? $"{nameof(argument)} can not be null or white space.");
+        StringGuard.NotNull(argument, argumentName, message);
     }
 
     /// <summary>
@@ -33,11 +37,13 @@ public static class StringGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotEmpty(string argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequireNotBlank(this string argument, string argumentName, string message = null)
+#else
+    public static void RequireNotBlank(this string argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
-            !string.IsNullOrEmpty((argument ?? string.Empty).Trim()),
-            argumentName, message ?? $"{nameof(argument)} can not be blank.");
+        StringGuard.NotEmpty(argument, argumentName, message);
     }
 
     /// <summary>
@@ -50,26 +56,32 @@ public static class StringGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotBlank(string argument, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequireNotEmpty(this string argument, string argumentName, string message = null)
+#else
+    public static void RequireNotEmpty(this string argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        NotEmpty(argument, argumentName, message);
+        StringGuard.NotEmpty(argument, argumentName, message);
     }
 
-    /// <summary>
+    ///  <summary>
     /// Check whether the string exceeds the specified length.
     /// If the string exceeds the specified length, an exception is thrown.
     /// 检查字符串是否超过指定长度。
     /// 如果字符串超过指定长度，则抛出异常。
-    /// </summary>
-    /// <param name="argument"></param>
-    /// <param name="length"></param>
-    /// <param name="argumentName"></param>
-    /// <param name="message"></param>
+    ///  </summary>
+    ///  <param name="argument"></param>
+    ///  <param name="length"></param>
+    ///  <param name="argumentName"></param>
+    ///  <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotOutOfLength(string argument, int length, string argumentName, string message = null)
+#if NETFRAMEWORK
+    public static void RequireMaxLength(this string argument, int length, string argumentName, string message = null)
+#else
+    public static void RequireMaxLength(this string argument, int length, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
+#endif
     {
-        ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
-            argument.Trim().Length <= length,
-            argumentName, argument.Trim().Length, message ?? $"{nameof(argument)}'s length can not be greater than {length}.");
+        StringGuard.NotOutOfLength(argument, length, argumentName, message);
     }
 }
