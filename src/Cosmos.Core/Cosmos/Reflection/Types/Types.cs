@@ -5,7 +5,7 @@ public static partial class Types
     public static object GetDefaultValue(TypeInfo typeInfo)
     {
         if (typeInfo is null)
-            throw new ArgumentNullException(nameof(typeInfo));
+            return null;
 
         if (typeInfo.AsType() == typeof(void))
             return null;
@@ -55,7 +55,7 @@ public static partial class Types
     }
 }
 
-public static partial class TypeExtensions
+public static class TypeExtensions
 {
     public static object GetDefaultValue(this TypeInfo typeInfo) => Types.GetDefaultValue(typeInfo);
 

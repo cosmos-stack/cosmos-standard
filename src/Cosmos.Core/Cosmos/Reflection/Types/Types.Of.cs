@@ -521,15 +521,12 @@ public static partial class Types
     /// <returns></returns>
     public static Type[] Of(object[] objects, TypeOfOptions options = TypeOfOptions.Owner)
     {
-        if (objects is null)
-            return null;
-
         var nativeTypes = GetNativeTypeArray(objects);
 
         return options switch
         {
             TypeOfOptions.Owner => nativeTypes,
-            TypeOfOptions.Underlying => filterAndConvert(nativeTypes.Select(TypeConv.GetNonNullableType)),
+            TypeOfOptions.Underlying => nativeTypes.Select(TypeConv.GetNonNullableType).ToArray(),
             _ => nativeTypes
         };
 
@@ -538,16 +535,10 @@ public static partial class Types
             // After the int? type is boxed, and then use GetType(), Nullable<int> will not be obtained.
             // More info
             //    https://github.com/dotnet/runtime/pull/42837
-
             //return objectCollection.Select(obj => obj?.GetType());
-            if (objectCollection.Contains(null))
-                return filterAndConvert(objectCollection.Select(obj => obj?.GetType()));
-            return Type.GetTypeArray(objectCollection);
-        }
-
-        Type[] filterAndConvert(IEnumerable<Type> ntVal)
-        {
-            return ntVal.Where(x => x != null).Select(x => x!).ToArray();
+            return objectCollection.Contains(null)
+                ? objectCollection.Select(obj => obj.GetType()).ToArray()
+                : Type.GetTypeArray(objectCollection);
         }
     }
 }

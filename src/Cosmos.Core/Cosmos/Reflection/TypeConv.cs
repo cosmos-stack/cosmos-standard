@@ -17,7 +17,7 @@ public static class TypeConv
     public static Type GetNonNullableType(Type type)
     {
         if (type is null)
-            return null;
+            return default;
 
         if (type.IsArray)
             return GetNonNullableType(type.GetElementType())?.MakeArrayType();
@@ -39,7 +39,7 @@ public static class TypeConv
             if (IsCollectionImplementation(type, out var argumentType, out var dictionaryType))
             {
                 var baseType = type.GetGenericTypeDefinition();
-                return baseType.MakeGenericType(argumentType!);
+                return baseType.MakeGenericType(argumentType);
             }
 
             if (dictionaryType)
@@ -120,6 +120,6 @@ public static class TypeConv
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Type GetNonNullableType<T>()
     {
-        return GetNonNullableType(typeof(T))!;
+        return GetNonNullableType(typeof(T));
     }
 }

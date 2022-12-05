@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Cosmos.Expressions.Internals;
+﻿using Cosmos.Expressions.Internals;
 
 namespace Cosmos.Expressions;
 
@@ -110,11 +109,7 @@ public class ExpressionParseException : CosmosException
         if (token.Index - 7 >= 0)
             builder.AppendLine(input?.Substring(token.Index - 7, 7));
         else
-#if NETFRAMEWORK
-            builder.AppendLine(input?.Substring(0, token.Index) ?? "");
-#else
             builder.AppendLine(input?[..token.Index] ?? "");
-#endif
         builder.AppendLine($"`{input?.Substring(token.Index, token.Length)}`");
         return builder.ToString();
     }

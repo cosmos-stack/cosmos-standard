@@ -26,7 +26,6 @@
 
 using System.Dynamic;
 using System.Linq.Expressions;
-using System.Reflection;
 
 namespace Cosmos.Dynamic;
 
@@ -76,7 +75,7 @@ internal sealed class MetaObject : DynamicMetaObject
     public override DynamicMetaObject BindInvokeMember(InvokeMemberBinder binder, DynamicMetaObject[] args)
     {
         var self = Expression;
-        var exposed = (Exposed)Value;
+        var exposed = (Exposed)Value!;
 
         var argTypes = new Type[args.Length];
         var argExps = new Expression[args.Length];
@@ -177,7 +176,7 @@ internal sealed class MetaObject : DynamicMetaObject
     {
         MemberExpression memberExpression = null;
         // ReSharper disable once PossibleNullReferenceException
-        var type = ((Exposed)Value).SubjectType;
+        var type = ((Exposed)Value!).SubjectType;
         var @this = _isStatic
             ? null
             : Expression.Convert(Expression.Field(Expression.Convert(self, typeof(Exposed)), "value"), type);

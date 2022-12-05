@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Cosmos.Reflection.Reflectors;
 
 namespace Cosmos.Reflection;
 
@@ -10,12 +9,14 @@ namespace Cosmos.Reflection;
 public sealed class AttributeCollection : IList<Attribute>, IReadOnlyList<Attribute>
 {
     #region Empty
+
 #if NET452
     private static Attribute[] _emptyCache = new Attribute[0];
     internal static readonly AttributeCollection Empty = new(_emptyCache);
 #else
     internal static readonly AttributeCollection Empty = new(Array.Empty<Attribute>());
 #endif
+
     #endregion
 
     private readonly Attribute[] _attributes;
@@ -77,8 +78,7 @@ public sealed class AttributeCollection : IList<Attribute>, IReadOnlyList<Attrib
     /// <exception cref="ArgumentNullException"></exception>
     public Attribute Get(Type typeOfAttribute)
     {
-        if (typeOfAttribute is null)
-            throw new ArgumentNullException(nameof(typeOfAttribute));
+        ArgumentNullException.ThrowIfNull(typeOfAttribute);
         return _attributes.FirstOrDefault(typeOfAttribute.IsInstanceOfType);
     }
 
@@ -108,8 +108,7 @@ public sealed class AttributeCollection : IList<Attribute>, IReadOnlyList<Attrib
     /// <exception cref="ArgumentNullException"></exception>
     public IEnumerable<Attribute> GetAll(Type typeOfAttribute)
     {
-        if (typeOfAttribute is null)
-            throw new ArgumentNullException(nameof(typeOfAttribute));
+        ArgumentNullException.ThrowIfNull(typeOfAttribute);
 
         foreach (var attribute in _attributes)
         {

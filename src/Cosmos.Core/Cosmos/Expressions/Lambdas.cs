@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using System.Reflection;
 using Cosmos.Queries;
 
 namespace Cosmos.Expressions;
@@ -55,7 +54,7 @@ public static class Lambdas
         if (memberExpression is null)
             return string.Empty;
         var result = memberExpression.ToString();
-        return result.Substring(result.IndexOf(".", StringComparison.Ordinal) + 1);
+        return result[(result.IndexOf(".", StringComparison.Ordinal) + 1)..];
     }
 
     #endregion
@@ -72,7 +71,7 @@ public static class Lambdas
         var result = new List<string>();
         if (expression is null)
             return result;
-        if (!(expression.Body is NewArrayExpression arrayExpression))
+        if (expression.Body is not NewArrayExpression arrayExpression)
             return result;
         foreach (var each in arrayExpression.Expressions)
             AddName(result, each);
@@ -145,13 +144,8 @@ public static class Lambdas
             return null;
         var field = expression.Member as FieldInfo;
         if (field != null)
-        {
-            var constValue = GetConstantExpressionValue(expression.Expression);
-            return field.GetValue(constValue);
-        }
-
-        var property = expression.Member as PropertyInfo;
-        if (property is null)
+            return field.GetValue(GetConstantExpressionValue(expression.Expression));
+        if (expression.Member is not PropertyInfo property)
             return null;
         if (expression.Expression is null)
             return property.GetValue(null);
@@ -164,8 +158,8 @@ public static class Lambdas
     /// </summary>
     private static object GetConstantExpressionValue(Expression expression)
     {
-        var constantExpression = (ConstantExpression)expression;
-        return constantExpression.Value;
+        var constantExpression = expression as ConstantExpression;
+        return constantExpression?.Value;
     }
 
     #endregion
@@ -215,10 +209,12 @@ public static class Lambdas
     /// 范例2：t => t.Name == "A" &amp;&amp; t.Age =1 ，结果2。</param>
     public static int GetConditionCount(LambdaExpression expression)
     {
-        if (expression is null)
-            return 0;
-        var result = expression.ToString().Replace("AndAlso", "|").Replace("OrElse", "|");
-        return result.Split('|').Count();
+        if (expression is null) return 0;
+        return expression.ToString()
+                         .Replace("AndAlso", "|")
+                         .Replace("OrElse", "|")
+                         .Split('|')
+                         .Length;
     }
 
     #endregion
@@ -289,9 +285,9 @@ public static class Lambdas
     /// <param name="value">值</param>
     public static ConstantExpression Constant(Expression expression, object value)
     {
-        if (!(expression is MemberExpression memberExpression))
-            return Expression.Constant(value);
-        return Expression.Constant(value, memberExpression.Type);
+        return expression is not MemberExpression memberExpression
+            ? Expression.Constant(value)
+            : Expression.Constant(value, memberExpression.Type);
     }
 
     #endregion

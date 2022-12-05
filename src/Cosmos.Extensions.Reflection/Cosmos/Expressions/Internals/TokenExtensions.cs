@@ -97,13 +97,15 @@ internal static class TokenExtensions
         var type = @enum.GetType();
         var name = Enum.GetName(type, @enum);
 
+        if(string.IsNullOrEmpty(name))
+            throw new ArgumentOutOfRangeException(nameof(@enum), @enum,"The value of the Enum is not a valid value for the type.");
+
         return type.GetField(name)?.GetCustomAttribute<DescriptionAttribute>(false)?.Description ?? name;
     }
 
     public static IEnumerable<IEnumerable<T>> Split<T>(this IEnumerable<T> source, Func<T, bool> separatorSelector)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source), $"Parameter '{nameof(source)}' cannot be null.");
+        ArgumentNullException.ThrowIfNull(source);
 
         if (separatorSelector is null)
             throw new ArgumentNullException(nameof(separatorSelector),

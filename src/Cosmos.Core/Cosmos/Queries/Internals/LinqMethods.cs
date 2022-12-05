@@ -7,9 +7,9 @@
 
 internal static class LinqMethods
 {
-    static readonly Func<MethodInfo, bool> _predicateHas2Parameters = _ => _.GetParameters()[1].ToString().Contains("Func`2");
+    private static readonly Func<MethodInfo, bool> _predicateHas2Parameters = _ => _.GetParameters()[1].ToString().Contains("Func`2");
 
-    static MethodInfo GetMethod(string name, int parameterCount = 0, Func<MethodInfo, bool> predicate = null)
+    private static MethodInfo GetMethod(string name, int parameterCount = 0, Func<MethodInfo, bool> predicate = null)
     {
         return typeof(Queryable)
                .GetTypeInfo()

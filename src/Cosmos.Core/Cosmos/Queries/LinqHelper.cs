@@ -94,9 +94,10 @@ public static class LinqHelper
     /// <returns></returns>
     public static object ExecuteMaxMin(IQueryable source, MethodInfo method, LambdaExpression lambda = null)
     {
-        method = method.GetGenericArguments().Length == 2
-            ? method.MakeGenericMethod(source.ElementType, lambda?.ReturnType)
-            : method.MakeGenericMethod(source.ElementType);
+        var twoParams = method.GetGenericArguments().Length == 2 && lambda is not null
+            ? new[] { source.ElementType, lambda.ReturnType }
+            : new[] { source.ElementType };
+        method = method.MakeGenericMethod(twoParams);
         var expression = lambda is null
             ? Expression.Call(method, source.Expression)
             : Expression.Call(method, source.Expression, lambda);

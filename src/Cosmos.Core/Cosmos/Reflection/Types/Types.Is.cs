@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Reflection;
 
 // ReSharper disable NonConstantEqualityExpressionHasConstantResult
 
@@ -460,7 +459,7 @@ public static partial class Types
             && isOptions switch
                {
                    TypeIsOptions.Default => __check(type),
-                   TypeIsOptions.IgnoreNullable => __check(TypeConv.GetNonNullableType(type)),
+                   TypeIsOptions.IgnoreNullable => __check(TypeConv.GetNonNullableType(type)!),
                    _ => __check(type)
                };
     }

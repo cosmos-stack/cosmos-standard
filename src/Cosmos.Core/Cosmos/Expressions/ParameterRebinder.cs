@@ -20,7 +20,7 @@ public class ParameterRebinder : ExpressionVisitor
     /// <param name="map">参数字典</param>
     public ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map)
     {
-        _map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
+        _map = map ?? new();
     }
 
     /// <summary>

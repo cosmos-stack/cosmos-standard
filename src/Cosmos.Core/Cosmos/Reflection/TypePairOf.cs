@@ -31,7 +31,7 @@ public partial struct TypePairOf : IEquatable<TypePairOf>
 
             if (IsNullableTypes)
             {
-                var nullablePair = new TypePairOf(Nullable.GetUnderlyingType(Source), Nullable.GetUnderlyingType(Target));
+                var nullablePair = new TypePairOf(Nullable.GetUnderlyingType(Source)!, Nullable.GetUnderlyingType(Target)!);
                 return nullablePair.IsDeepCloneable;
             }
 
@@ -66,7 +66,7 @@ public partial struct TypePairOf : IEquatable<TypePairOf>
         return new TypePairOf(typeof(TSource), typeof(TTarget));
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (ReferenceEquals(null, obj))
         {

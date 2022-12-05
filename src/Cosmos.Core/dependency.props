@@ -1,43 +1,10 @@
 ﻿<Project>
 
-    <PropertyGroup>
-        <Immutable-RefVersion>6.0.0</Immutable-RefVersion>
-    </PropertyGroup>
-
     <ItemGroup>
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
         <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0"/>
-        <PackageReference Include="System.Collections.Immutable">
-            <Version Condition=" '$(TargetFramework)' == 'net6.0' ">$(Immutable-RefVersion)</Version>
-            <Version Condition=" '$(TargetFramework)' == 'net5.0' ">$(Immutable-RefVersion)</Version>
-            <Version Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">$(Immutable-RefVersion)</Version>
-            <Version Condition=" '$(TargetFramework)' == 'net48' ">$(Immutable-RefVersion)</Version>
-            <Version Condition=" '$(TargetFramework)' == 'net472' ">$(Immutable-RefVersion)</Version>
-            <Version Condition=" '$(TargetFramework)' == 'net462' ">$(Immutable-RefVersion)</Version>
-            <Version Condition=" '$(TargetFramework)' == 'net452' ">5.0.0</Version>
-        </PackageReference>
+        <PackageReference Include="System.Collections.Immutable" Version="7.0.0"/>
         <PackageReference Include="System.Linq.Queryable" Version="4.3.0"/>
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
-        <PackageReference Include="System.Web.Http.Common" Version="4.0.20126.16343"/>
-        <PackageReference Include="System.Memory" Version="4.5.5"/>
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
-        <PackageReference Include="System.Memory" Version="4.5.5"/>
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
-        <PackageReference Include="System.Memory" Version="4.5.5"/>
-        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0"/>
-        <PackageReference Include="System.ValueTuple" Version="4.5.0"/>
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
-        <PackageReference Include="System.Memory" Version="4.5.5"/>
-        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0"/>
-        <PackageReference Include="System.ValueTuple" Version="4.5.0"/>
     </ItemGroup>
 
 </Project>

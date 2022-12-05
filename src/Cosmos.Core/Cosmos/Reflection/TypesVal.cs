@@ -63,7 +63,7 @@ public class TypesVal
     /// <returns></returns>
     public static TypesVal Create(params Type[] types)
     {
-        if (types is null || types is { Length: <= 0 })
+        if (types is null or { Length: <= 0 })
             return Empty;
         var val = new TypesVal(types.Length);
         Array.Copy(types, val._types, val.Count);

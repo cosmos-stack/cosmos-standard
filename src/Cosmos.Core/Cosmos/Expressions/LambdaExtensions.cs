@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
-using System.Reflection;
 using Cosmos.Queries;
 
 namespace Cosmos.Expressions;
+
 //A copy of https://github.com/dotnetcore/Util/blob/HEAD/src/Util/Extensions.Lambda.cs
 //Author: 何镇汐
 
@@ -318,9 +318,9 @@ public static class LambdaExtensions
     {
         if (values == null || values.Length == 0)
             // ReSharper disable once AssignNullToNotNullAttribute
-            return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName));
+            return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName)!);
         // ReSharper disable once AssignNullToNotNullAttribute
-        return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName),
+        return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName)!,
             values.Select(Expression.Constant));
     }
 
@@ -333,13 +333,13 @@ public static class LambdaExtensions
     /// <param name="values">参数值列表</param>
     public static Expression Call(this Expression instance, string methodName, Type[] paramTypes, params object[] values)
     {
-        if (instance == null) throw new ArgumentNullException(nameof(instance));
+        ArgumentNullException.ThrowIfNull(instance);
         if (values == null || values.Length == 0)
             // ReSharper disable once AssignNullToNotNullAttribute
-            return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName, paramTypes));
+            return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName, paramTypes)!);
 
         // ReSharper disable once AssignNullToNotNullAttribute
-        return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName, paramTypes),
+        return Expression.Call(instance, instance.Type.GetTypeInfo().GetMethod(methodName, paramTypes)!,
             values.Select(Expression.Constant));
     }
 
@@ -360,6 +360,7 @@ public static class LambdaExtensions
         var map = first.Parameters.Select((f, i) => new { f, s = second.Parameters[i] })
                        .ToDictionary(p => p.s, p => p.f);
         var secondBody = ParameterRebinder.ReplaceParameters(map, second.Body);
+        ArgumentNullException.ThrowIfNull(secondBody);
         return Expression.Lambda<T>(merge(first.Body, secondBody), first.Parameters);
     }
 

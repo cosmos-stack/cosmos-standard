@@ -19,18 +19,13 @@ public readonly struct MethodSignature
 
     public int Value => _signature;
 
-#if NET5_0_OR_GREATER
     public string Name { get; init; }
-#else
-    public string Name { get; }
-#endif
 
-    public MethodSignature(MethodBase method) : this(method, method?.Name) { }
+    public MethodSignature(MethodBase method) : this(method, method.Name) { }
 
     public MethodSignature(MethodBase method, string name)
     {
-        if (method == null)
-            throw new ArgumentNullException(nameof(method));
+        ArgumentNullException.ThrowIfNull(method);
         Name = name;
         _signature = Signatures.GetOrAdd(PairOf.New(method, name), GetSignatureCode);
     }
@@ -60,7 +55,7 @@ public readonly struct MethodSignature
     private static int GetSignatureCode(PairOf<MethodBase, string> pair)
     {
         var method = pair.Item1;
-        var name = pair.Item2 ?? method.Name;
+        var name = string.IsNullOrWhiteSpace(pair.Item2) ? method.Name : pair.Item2;
         unchecked
         {
             var signatureCode = name.GetHashCode();

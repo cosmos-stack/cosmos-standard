@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using System.Reflection;
 
 namespace Cosmos.Expressions;
 
@@ -12,8 +11,7 @@ public static class ExpressionExtensions
 
     private static ParameterExpression CreateParameterExpression(this Type type)
     {
-        if (type is null)
-            throw new ArgumentNullException(nameof(type));
+        ArgumentNullException.ThrowIfNull(type);
         return Expression.Parameter(type, "o");
     }
 
@@ -24,8 +22,8 @@ public static class ExpressionExtensions
     /// <returns></returns>
     public static MemberExpression CreateGetPropertyExpression(this PropertyInfo propertyInfo)
     {
-        if (propertyInfo == null) throw new ArgumentNullException(nameof(propertyInfo));
-        if (propertyInfo.DeclaringType == null) throw new ArgumentNullException(nameof(propertyInfo.DeclaringType));
+        ArgumentNullException.ThrowIfNull(propertyInfo);
+        ArgumentNullException.ThrowIfNull(propertyInfo.DeclaringType);
         return propertyInfo.CreateGetPropertyExpression(propertyInfo.DeclaringType.CreateParameterExpression());
     }
 
@@ -39,10 +37,8 @@ public static class ExpressionExtensions
     /// <exception cref="InvalidOperationException"></exception>
     public static MemberExpression CreateGetPropertyExpression(this PropertyInfo propertyInfo, ParameterExpression parameterExpression)
     {
-        if (propertyInfo is null)
-            throw new ArgumentNullException(nameof(propertyInfo));
-        if (parameterExpression is null)
-            throw new ArgumentNullException(nameof(parameterExpression));
+        ArgumentNullException.ThrowIfNull(propertyInfo);
+        ArgumentNullException.ThrowIfNull(parameterExpression);
 
         if (!propertyInfo.DeclaringType!.GetTypeInfo().IsAssignableFrom(parameterExpression.Type.GetTypeInfo()))
             throw new InvalidOperationException(
@@ -61,7 +57,9 @@ public static class ExpressionExtensions
     /// <typeparam name="TProperty"></typeparam>
     /// <returns></returns>
     public static Expression<Func<T, TProperty>> CreateGetPropertyLambdaExpression<T, TProperty>(this PropertyInfo propertyInfo)
-        => propertyInfo.CreateGetPropertyLambdaExpression<T, TProperty>(typeof(T).CreateParameterExpression());
+    {
+        return propertyInfo.CreateGetPropertyLambdaExpression<T, TProperty>(typeof(T).CreateParameterExpression());
+    }
 
     /// <summary>
     /// Create get property lambda expression
@@ -74,10 +72,8 @@ public static class ExpressionExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Expression<Func<T, TProperty>> CreateGetPropertyLambdaExpression<T, TProperty>(this PropertyInfo propertyInfo, ParameterExpression parameterExpression)
     {
-        if (propertyInfo is null)
-            throw new ArgumentNullException(nameof(propertyInfo));
-        if (parameterExpression is null)
-            throw new ArgumentNullException(nameof(parameterExpression));
+        ArgumentNullException.ThrowIfNull(propertyInfo);
+        ArgumentNullException.ThrowIfNull(parameterExpression);
 
         var propertyExpression = propertyInfo.CreateGetPropertyExpression(parameterExpression);
 
@@ -88,7 +84,7 @@ public static class ExpressionExtensions
             expression = Expression.Convert(expression, type);
 
         // ReSharper disable once AssignNullToNotNullAttribute
-        return Expression.Lambda<Func<T, TProperty>>(expression, propertyExpression.Expression as ParameterExpression);
+        return Expression.Lambda<Func<T, TProperty>>(expression, (propertyExpression.Expression as ParameterExpression)!);
     }
 
     #endregion
@@ -106,8 +102,10 @@ public static class ExpressionExtensions
         var rightVisitor = new ReplaceExpressionVisitor(expr2.Parameters[0], parameter);
         var right = rightVisitor.Visit(expr2.Body);
 
-        return Expression.Lambda<Func<T, bool>>(
-            Expression.OrElse(left, right), parameter);
+        ArgumentNullException.ThrowIfNull(left);
+        ArgumentNullException.ThrowIfNull(right);
+
+        return Expression.Lambda<Func<T, bool>>(Expression.OrElse(left, right), parameter);
     }
 
     public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
@@ -119,16 +117,15 @@ public static class ExpressionExtensions
         var rightVisitor = new ReplaceExpressionVisitor(expr2.Parameters[0], parameter);
         var right = rightVisitor.Visit(expr2.Body);
 
-        return Expression.Lambda<Func<T, bool>>(
-            Expression.AndAlso(left, right), parameter);
+        ArgumentNullException.ThrowIfNull(left);
+        ArgumentNullException.ThrowIfNull(right);
+
+        return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(left, right), parameter);
     }
 
     public static Expression<Func<T, bool>> AndIf<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2, bool condition)
     {
-        if (!condition)
-        {
-            return expr1;
-        }
+        if (!condition) return expr1;
 
         var parameter = Expression.Parameter(typeof(T));
 
@@ -137,8 +134,10 @@ public static class ExpressionExtensions
         var rightVisitor = new ReplaceExpressionVisitor(expr2.Parameters[0], parameter);
         var right = rightVisitor.Visit(expr2.Body);
 
-        return Expression.Lambda<Func<T, bool>>(
-            Expression.AndAlso(left, right), parameter);
+        ArgumentNullException.ThrowIfNull(left);
+        ArgumentNullException.ThrowIfNull(right);
+
+        return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(left, right), parameter);
     }
 
     private sealed class ReplaceExpressionVisitor : ExpressionVisitor
@@ -154,10 +153,7 @@ public static class ExpressionExtensions
 
         public override Expression Visit(Expression node)
         {
-            if (node == _oldValue)
-                return _newValue;
-
-            return base.Visit(node)!;
+            return node == _oldValue ? _newValue : base.Visit(node)!;
         }
     }
 
