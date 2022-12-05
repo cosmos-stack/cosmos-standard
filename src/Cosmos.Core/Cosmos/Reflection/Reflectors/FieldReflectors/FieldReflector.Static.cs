@@ -2,6 +2,7 @@
 
 namespace Cosmos.Reflection.Reflectors;
 
+// ReSharper disable once RedundantExtendsListEntry
 public partial class FieldReflector : MemberReflector<FieldInfo>
 {
     private class StaticFieldReflector : FieldReflector
@@ -29,12 +30,12 @@ public partial class FieldReflector : MemberReflector<FieldInfo>
             return (Action<object, object>)dynamicMethod.CreateDelegate(typeof(Action<object, object>));
         }
 
-        public override object GetValue(object instance) => _getter(null);
+        public override object GetValue(object instance) => _getter(null!);
 
-        public override void SetValue(object instance, object value) => _setter(null, value);
+        public override void SetValue(object instance, object value) => _setter(null!, value);
 
-        public override object GetStaticValue() => _getter(null);
+        public override object GetStaticValue() => _getter(null!);
 
-        public override void SetStaticValue(object value) => _setter(null, value);
+        public override void SetStaticValue(object value) => _setter(null!, value);
     }
 }

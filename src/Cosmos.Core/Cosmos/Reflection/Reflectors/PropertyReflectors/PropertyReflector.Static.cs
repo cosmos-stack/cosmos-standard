@@ -12,7 +12,7 @@ public partial class PropertyReflector
         {
             var dynamicMethod = new DynamicMethod($"getter-{Guid.NewGuid()}", typeof(object), new[] { typeof(object) }, _reflectionInfo.Module, true);
             var ilGen = dynamicMethod.GetILGenerator();
-            ilGen.Emit(OpCodes.Call, _reflectionInfo.GetMethod);
+            ilGen.Emit(OpCodes.Call, _reflectionInfo.GetMethod!);
             if (_reflectionInfo.PropertyType.GetTypeInfo().IsValueType)
                 ilGen.EmitConvertToObject(_reflectionInfo.PropertyType);
             ilGen.Emit(OpCodes.Ret);
@@ -25,7 +25,7 @@ public partial class PropertyReflector
             var ilGen = dynamicMethod.GetILGenerator();
             ilGen.EmitLoadArg(1);
             ilGen.EmitConvertFromObject(_reflectionInfo.PropertyType);
-            ilGen.Emit(OpCodes.Call, _reflectionInfo.SetMethod);
+            ilGen.Emit(OpCodes.Call, _reflectionInfo.SetMethod!);
             ilGen.Emit(OpCodes.Ret);
             return (Action<object, object>)dynamicMethod.CreateDelegate(typeof(Action<object, object>));
         }

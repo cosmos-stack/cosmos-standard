@@ -9,8 +9,7 @@ public static partial class TypeReflections
     {
         internal static MethodInfo GetMethod<T>(Expression<T> expression)
         {
-            if (expression is null)
-                throw new ArgumentNullException(nameof(expression));
+            ArgumentNullException.ThrowIfNull(expression);
             if (expression.Body is not MethodCallExpression methodCallExpression)
                 throw new InvalidCastException("Cannot be converted to MethodCallExpression");
             return methodCallExpression.Method;
@@ -18,8 +17,7 @@ public static partial class TypeReflections
 
         internal static MethodInfo GetMethod<T>(string name)
         {
-            if (name is null)
-                throw new ArgumentNullException(nameof(name));
+            ArgumentNullException.ThrowIfNull(name);
             return typeof(T).GetTypeInfo().GetMethod(name);
         }
     }
@@ -112,7 +110,7 @@ public static partial class TypeReflectionsExtensions
 
     #endregion
 
-    #region Reflectr
+    #region Refactor
 
     public static FieldInfo GetFieldInfo(this FieldReflector reflector) => reflector?.GetMemberInfo();
 

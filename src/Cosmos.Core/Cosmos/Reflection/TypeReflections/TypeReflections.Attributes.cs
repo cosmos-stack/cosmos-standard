@@ -29,8 +29,7 @@ internal static class TypeReflectorHelper
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ICustomAttributeReflectorProvider GetReflector(MemberInfo member)
     {
-        if (member is null)
-            throw new ArgumentNullException(nameof(member));
+        ArgumentNullException.ThrowIfNull(member);
         return member switch
         {
             TypeInfo typeInfo => typeInfo.GetReflector(),
@@ -737,7 +736,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<Attribute> GetAttributesRequired(MemberInfo member, Type attributeType, ReflectionOptions refOptions)
     {
-        return GetAttributes(member, attributeType, refOptions).AttrRequired($"There is no any {attributeType} attributes can be found.");
+        return GetAttributes(member, attributeType, refOptions)?.AttrRequired($"There is no any {attributeType} attributes can be found.");
     }
 
     /// <summary>
@@ -751,7 +750,7 @@ public static partial class TypeReflections
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<Attribute> GetAttributesRequired(ParameterInfo parameter, Type attributeType, ReflectionOptions refOptions)
     {
-        return GetAttributes(parameter, attributeType, refOptions).AttrRequired($"There is no any {attributeType} attributes can be found.");
+        return GetAttributes(parameter, attributeType, refOptions)?.AttrRequired($"There is no any {attributeType} attributes can be found.");
     }
 
     #endregion

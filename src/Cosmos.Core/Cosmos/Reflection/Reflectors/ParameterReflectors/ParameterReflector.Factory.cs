@@ -4,8 +4,7 @@ public partial class ParameterReflector
 {
     internal static ParameterReflector Create(ParameterInfo parameterInfo)
     {
-        if (parameterInfo is null)
-            throw new ArgumentNullException(nameof(parameterInfo));
+        ArgumentNullException.ThrowIfNull(parameterInfo);
         return TypeReflections.ReflectorCacheUtils<ParameterInfo, ParameterReflector>.GetOrAdd(parameterInfo, info => new ParameterReflector(info));
     }
 }

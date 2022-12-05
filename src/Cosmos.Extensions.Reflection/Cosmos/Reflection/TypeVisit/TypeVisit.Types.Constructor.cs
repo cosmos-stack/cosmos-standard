@@ -14,8 +14,7 @@ public static partial class TypeVisit
     /// <returns></returns>
     public static bool HasParameterlessConstructor(Type type)
     {
-        if (type is null)
-            throw new ArgumentNullException(nameof(type));
+        ArgumentNullException.ThrowIfNull(type);
 
         var ctor = type.GetConstructors().OrderBy(c => c.IsPublic ? 0 : (c.IsPrivate ? 2 : 1))
                        .ThenBy(c => c.GetParameters().Length)

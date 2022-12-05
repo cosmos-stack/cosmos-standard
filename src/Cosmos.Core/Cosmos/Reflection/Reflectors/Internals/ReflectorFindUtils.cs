@@ -15,8 +15,7 @@ internal static class ReflectorFindUtils
         where TReflector : MemberReflector<TMemberInfo>
         where TMemberInfo : MemberInfo
     {
-        if (name is null)
-            throw new ArgumentNullException(nameof(name));
+        ArgumentNullException.ThrowIfNull(name);
 
         var length = reflectors.Length;
         if (length == 0)
@@ -48,6 +47,7 @@ internal static class ReflectorFindUtils
             {
                 first = middle + 1;
             }
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             else if (compareResult > 0)
             {
                 length = middle - 1;

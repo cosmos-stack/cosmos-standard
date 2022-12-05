@@ -2,6 +2,7 @@
 
 namespace Cosmos.Reflection.Reflectors;
 
+// ReSharper disable once RedundantExtendsListEntry
 public partial class FieldReflector : MemberReflector<FieldInfo>
 {
     private class EnumFieldReflector : FieldReflector
@@ -27,11 +28,11 @@ public partial class FieldReflector : MemberReflector<FieldInfo>
             return (Action<object, object>)dynamicMethod.CreateDelegate(typeof(Action<object, object>));
         }
 
-        public override object GetValue(object instance) => _getter(null);
+        public override object GetValue(object instance) => _getter(null!);
 
         public override void SetValue(object instance, object value) => throw new FieldAccessException("Cannot set a constant field");
 
-        public override object GetStaticValue() => _getter(null);
+        public override object GetStaticValue() => _getter(null!);
 
         public override void SetStaticValue(object value) => throw new FieldAccessException("Cannot set a constant field");
     }

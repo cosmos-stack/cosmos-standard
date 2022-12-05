@@ -6,7 +6,7 @@ public partial class MethodReflector
     {
         public OpenGenericMethodReflector(MethodInfo reflectionInfo) : base(reflectionInfo) { }
 
-        protected override Func<object, object[], object> CreateInvoker() => null;
+        protected override Func<object, object[], object> CreateInvoker() => null!;
 
         public override object Invoke(object instance, params object[] parameters)
             => throw new InvalidOperationException("Late bound operations cannot be performed on types or methods for which ContainsGenericParameters is true.");

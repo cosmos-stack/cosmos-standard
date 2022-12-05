@@ -7,14 +7,14 @@ namespace Cosmos.Reflection;
 /// </summary>
 public static partial class TypeReflections
 {
-    internal static class ReflectorCacheUtils<TMemberInfo, TReflector>
+    internal static class ReflectorCacheUtils<TMemberInfo, TReflector> where TMemberInfo : notnull
     {
         private static readonly ConcurrentDictionary<TMemberInfo, TReflector> Dictionary = new();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal static TReflector GetOrAdd(TMemberInfo key, Func<TMemberInfo, TReflector> factory)
         {
-            return Dictionary.GetOrAdd(key, k => factory(k));
+            return Dictionary.GetOrAdd(key, factory);
         }
     }
 }

@@ -10,13 +10,11 @@ public static partial class TypeReflections { }
 /// </summary>
 public static partial class TypeReflectionsExtensions
 {
-    private static readonly Attribute[] empty = InternalArray.ForEmpty<Attribute>();
+    private static readonly Attribute[] empty = Array.Empty<Attribute>();
 
     public static Attribute[] GetAttributes(this ICustomAttributeReflectorProvider customAttributeReflectorProvider)
     {
-        if (customAttributeReflectorProvider is null)
-            throw new ArgumentNullException(nameof(customAttributeReflectorProvider));
-
+        ArgumentNullException.ThrowIfNull(customAttributeReflectorProvider);
         var customAttributeReflectors = customAttributeReflectorProvider.CustomAttributeReflectors;
         var customAttributeLength = customAttributeReflectors.Length;
 
@@ -34,7 +32,7 @@ public static partial class TypeReflectionsExtensions
 
     public static Attribute[] GetAttributes(this ICustomAttributeReflectorProvider customAttributeReflectorProvider, Type attributeType)
     {
-        if (attributeType is null) throw new ArgumentNullException(nameof(attributeType));
+        ArgumentNullException.ThrowIfNull(attributeType);
         var attributeReflectors = customAttributeReflectorProvider != null
             ? customAttributeReflectorProvider.CustomAttributeReflectors
             : throw new ArgumentNullException(nameof(customAttributeReflectorProvider));
@@ -60,13 +58,11 @@ public static partial class TypeReflectionsExtensions
 
     public static TAttribute[] GetAttributes<TAttribute>(this ICustomAttributeReflectorProvider customAttributeReflectorProvider) where TAttribute : Attribute
     {
-        if (customAttributeReflectorProvider is null)
-            throw new ArgumentNullException(nameof(customAttributeReflectorProvider));
-
+        ArgumentNullException.ThrowIfNull(customAttributeReflectorProvider);
         var customAttributeReflectors = customAttributeReflectorProvider.CustomAttributeReflectors;
         var customAttributeLength = customAttributeReflectors.Length;
         if (customAttributeLength == 0)
-            return InternalArray.ForEmpty<TAttribute>();
+            return Array.Empty<TAttribute>();
 
         var checkedAttrs = new TAttribute[customAttributeLength];
         var @checked = 0;
@@ -88,8 +84,7 @@ public static partial class TypeReflectionsExtensions
 
     public static Attribute GetAttribute(this ICustomAttributeReflectorProvider customAttributeReflectorProvider, Type attributeType)
     {
-        if (attributeType is null)
-            throw new ArgumentNullException(nameof(attributeType));
+        ArgumentNullException.ThrowIfNull(attributeType);
         var attributeReflectors = customAttributeReflectorProvider != null
             ? customAttributeReflectorProvider.CustomAttributeReflectors
             : throw new ArgumentNullException(nameof(customAttributeReflectorProvider));
@@ -107,12 +102,12 @@ public static partial class TypeReflectionsExtensions
 
     public static TAttribute GetAttribute<TAttribute>(this ICustomAttributeReflectorProvider customAttributeReflectorProvider) where TAttribute : Attribute
     {
-        return (TAttribute)GetAttribute(customAttributeReflectorProvider, typeof(TAttribute));
+        return GetAttribute(customAttributeReflectorProvider, typeof(TAttribute)) as TAttribute;
     }
 
     public static bool IsAttributeDefined(this ICustomAttributeReflectorProvider customAttributeReflectorProvider, Type attributeType)
     {
-        if (attributeType is null) throw new ArgumentNullException(nameof(attributeType));
+        ArgumentNullException.ThrowIfNull(attributeType);
         var attributeReflectors = customAttributeReflectorProvider != null
             ? customAttributeReflectorProvider.CustomAttributeReflectors
             : throw new ArgumentNullException(nameof(customAttributeReflectorProvider));

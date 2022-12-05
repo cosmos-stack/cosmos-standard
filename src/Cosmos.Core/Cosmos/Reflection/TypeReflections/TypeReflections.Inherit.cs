@@ -40,7 +40,7 @@ public static partial class TypeReflections
     /// <exception cref="ArgumentNullException"></exception>
     public static bool IsObjectDerivedFrom<TSource>(TSource value, Type parentType, TypeIsOptions isOptions = TypeIsOptions.Default, TypeDerivedOptions derivedOptions = TypeDerivedOptions.Default)
     {
-        if (parentType is null) throw new ArgumentNullException(nameof(parentType));
+        ArgumentNullException.ThrowIfNull(parentType);
         return isOptions switch
         {
             TypeIsOptions.Default => value is not null && IsTypeDerivedFrom(typeof(TSource), parentType, derivedOptions),
@@ -79,8 +79,8 @@ public static partial class TypeReflections
     /// <exception cref="ArgumentNullException"></exception>
     public static bool IsTypeDerivedFrom(Type sourceType, Type parentType, TypeDerivedOptions derivedOptions = TypeDerivedOptions.Default)
     {
-        if (sourceType is null) throw new ArgumentNullException(nameof(sourceType));
-        if (parentType is null) throw new ArgumentNullException(nameof(parentType));
+        ArgumentNullException.ThrowIfNull(sourceType);
+        ArgumentNullException.ThrowIfNull(parentType);
 
         return sourceType.IsClass
             && AbstractPredicate()
@@ -125,8 +125,8 @@ public static partial class TypeReflections
     /// <exception cref="ArgumentNullException"></exception>
     public static bool IsTypeBasedOn(Type sourceType, Type parentType)
     {
-        if (sourceType is null) throw new ArgumentNullException(nameof(sourceType));
-        if (parentType is null) throw new ArgumentNullException(nameof(parentType));
+        ArgumentNullException.ThrowIfNull(sourceType);
+        ArgumentNullException.ThrowIfNull(parentType);
 
         if (parentType.IsGenericTypeDefinition)
             return IsImplementationOfGenericType(sourceType, parentType, out _);
@@ -161,11 +161,8 @@ public static partial class TypeReflections
     /// <returns></returns>
     public static bool IsImplementationOfGenericType(Type sourceType, Type parentGenericType, out Type genericType, out Type[] genericArguments)
     {
-        if (sourceType is null)
-            throw new ArgumentNullException(nameof(sourceType));
-
-        if (parentGenericType is null)
-            throw new ArgumentNullException(nameof(parentGenericType));
+        ArgumentNullException.ThrowIfNull(sourceType);
+        ArgumentNullException.ThrowIfNull(parentGenericType);
 
         genericArguments = null;
         genericType = null;

@@ -30,7 +30,7 @@ public partial class CustomAttributeReflector
         {
             if (constructorParameter.ArgumentType.IsArray)
             {
-                ilGen.EmitArray(((IEnumerable<CustomAttributeTypedArgument>)constructorParameter.Value).Select(x => x.Value).ToArray(),
+                ilGen.EmitArray(((IEnumerable<CustomAttributeTypedArgument>)constructorParameter.Value!).Select(x => x.Value).ToArray(),
                     constructorParameter.ArgumentType.GetTypeInfo().UnWrapArrayType());
             }
             else
@@ -52,7 +52,7 @@ public partial class CustomAttributeReflector
             ilGen.Emit(OpCodes.Ldloc, attributeLocal);
             if (namedArgument.TypedValue.ArgumentType.IsArray)
             {
-                ilGen.EmitArray(((IEnumerable<CustomAttributeTypedArgument>)namedArgument.TypedValue.Value).Select(x => x.Value).ToArray(),
+                ilGen.EmitArray(((IEnumerable<CustomAttributeTypedArgument>)namedArgument.TypedValue.Value!).Select(x => x.Value).ToArray(),
                     namedArgument.TypedValue.ArgumentType.GetTypeInfo().UnWrapArrayType());
             }
             else
@@ -62,13 +62,13 @@ public partial class CustomAttributeReflector
 
             if (namedArgument.IsField)
             {
-                var field = attributeTypeInfo.GetField(namedArgument.MemberName);
+                var field = attributeTypeInfo.GetField(namedArgument.MemberName)!;
                 ilGen.Emit(OpCodes.Stfld, field);
             }
             else
             {
-                var property = attributeTypeInfo.GetProperty(namedArgument.MemberName);
-                ilGen.Emit(OpCodes.Callvirt, property.SetMethod);
+                var property = attributeTypeInfo.GetProperty(namedArgument.MemberName)!;
+                ilGen.Emit(OpCodes.Callvirt, property.SetMethod!);
             }
         }
 
@@ -82,7 +82,7 @@ public partial class CustomAttributeReflector
         var tokenSet = new HashSet<RuntimeTypeHandle>();
         for (var attr = attributeType; attr != typeof(object); attr = attr.GetTypeInfo().BaseType)
         {
-            tokenSet.Add(attr.TypeHandle);
+            tokenSet.Add(attr!.TypeHandle);
         }
 
         return tokenSet;

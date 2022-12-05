@@ -130,12 +130,11 @@ public static partial class TypeReflections
 
     public static bool IsVisible(TypeInfo typeInfo)
     {
-        if (typeInfo is null)
-            throw new ArgumentNullException(nameof(typeInfo));
+        ArgumentNullException.ThrowIfNull(typeInfo);
 
         if (typeInfo.IsNested)
         {
-            if (!typeInfo.DeclaringType.GetTypeInfo().IsVisible())
+            if (!typeInfo.DeclaringType!.GetTypeInfo().IsVisible())
             {
                 return false;
             }

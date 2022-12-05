@@ -15,8 +15,7 @@ public static class DynamicQueryableExtensions
 
     public static bool All(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -29,8 +28,7 @@ public static class DynamicQueryableExtensions
 
     public static bool Any(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -43,8 +41,7 @@ public static class DynamicQueryableExtensions
 
     public static object Average(this IQueryable source, string selector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (selector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(selector));
         var selectorLambda = ExpressionParser.ParseLambda(source.ElementType, selector, variables);
@@ -57,8 +54,7 @@ public static class DynamicQueryableExtensions
 
     public static int Count(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -71,8 +67,7 @@ public static class DynamicQueryableExtensions
 
     public static object First(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -85,8 +80,7 @@ public static class DynamicQueryableExtensions
 
     public static object FirstOrDefault(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -99,8 +93,7 @@ public static class DynamicQueryableExtensions
 
     public static IQueryable GroupBy(this IQueryable source, string keySelector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (keySelector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(keySelector));
         var keySelectorLambda = ExpressionParser.ParseLambda(source.ElementType, keySelector, variables);
@@ -113,8 +106,7 @@ public static class DynamicQueryableExtensions
 
     public static object Last(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -127,8 +119,7 @@ public static class DynamicQueryableExtensions
 
     public static object LastOrDefault(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -141,8 +132,7 @@ public static class DynamicQueryableExtensions
 
     public static object Max(this IQueryable source, string selector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (selector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(selector));
         var selectorLambda = ExpressionParser.ParseLambda(source.ElementType, selector, variables);
@@ -155,8 +145,7 @@ public static class DynamicQueryableExtensions
 
     public static object Min(this IQueryable source, string selector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (selector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(selector));
         var selectorLambda = ExpressionParser.ParseLambda(source.ElementType, selector, variables);
@@ -169,8 +158,7 @@ public static class DynamicQueryableExtensions
 
     public static IOrderedQueryable OrderBy(this IQueryable source, string keySelector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (keySelector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(keySelector));
         var keySelectorLambda = ExpressionParser.ParseLambda(source.ElementType, keySelector, variables);
@@ -183,8 +171,7 @@ public static class DynamicQueryableExtensions
 
     public static IOrderedQueryable OrderByDescending(this IQueryable source, string keySelector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (keySelector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(keySelector));
         var keySelectorLambda = ExpressionParser.ParseLambda(source.ElementType, keySelector, variables);
@@ -197,8 +184,7 @@ public static class DynamicQueryableExtensions
 
     public static IQueryable Select(this IQueryable source, string selector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (selector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(selector));
         var selectorLambda = ExpressionParser.ParseLambda(source.ElementType, selector, variables);
@@ -211,8 +197,7 @@ public static class DynamicQueryableExtensions
 
     public static object Single(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -225,8 +210,7 @@ public static class DynamicQueryableExtensions
 
     public static object SingleOrDefault(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -239,8 +223,7 @@ public static class DynamicQueryableExtensions
 
     public static IQueryable SkipWhile(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -253,8 +236,7 @@ public static class DynamicQueryableExtensions
 
     public static object Sum(this IQueryable source, string selector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (selector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(selector));
         var selectorLambda = ExpressionParser.ParseLambda(source.ElementType, selector, variables);
@@ -267,8 +249,7 @@ public static class DynamicQueryableExtensions
 
     public static IQueryable TakeWhile(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);
@@ -281,8 +262,7 @@ public static class DynamicQueryableExtensions
 
     public static IOrderedQueryable ThenBy(this IOrderedQueryable source, string keySelector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (keySelector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(keySelector));
         var keySelectorLambda = ExpressionParser.ParseLambda(source.ElementType, keySelector, variables);
@@ -295,8 +275,7 @@ public static class DynamicQueryableExtensions
 
     public static IOrderedQueryable ThenByDescending(this IOrderedQueryable source, string selector, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (selector.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(selector));
         var keySelectorLambda = ExpressionParser.ParseLambda(source.ElementType, selector, variables);
@@ -309,8 +288,7 @@ public static class DynamicQueryableExtensions
 
     public static IQueryable Where(this IQueryable source, string predicate, IDictionary<string, dynamic> variables = null)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (predicate.IsNotNullNorWhiteSpace())
             throw new ArgumentNullException(nameof(predicate));
         var predicateLambda = ExpressionParser.ParseLambda(source.ElementType, predicate, variables);

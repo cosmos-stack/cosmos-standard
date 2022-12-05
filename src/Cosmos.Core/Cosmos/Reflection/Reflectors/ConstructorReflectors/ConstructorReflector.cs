@@ -1,5 +1,6 @@
 ﻿using System.Reflection.Emit;
 using Cosmos.Reflection.Reflectors.Internals;
+// ReSharper disable VirtualMemberCallInConstructor
 
 namespace Cosmos.Reflection.Reflectors;
 
@@ -52,7 +53,7 @@ public partial class ConstructorReflector : MemberReflector<ConstructorInfo>, IP
             ilGen.Emit(OpCodes.Ldelem_Ref);
             if (parameterTypes[i].IsByRef)
             {
-                var defType = parameterTypes[i].GetElementType();
+                var defType = parameterTypes[i].GetElementType()!;
                 var indexedLocal = new IndexedLocalBuilder(ilGen.DeclareLocal(defType), i);
                 indexedLocals[index++] = indexedLocal;
                 ilGen.EmitConvertFromObject(defType);
@@ -79,8 +80,8 @@ public partial class ConstructorReflector : MemberReflector<ConstructorInfo>, IP
 
         Func<object[], object> CreateDelegate()
         {
-            if (_reflectionInfo.DeclaringType.GetTypeInfo().IsValueType)
-                ilGen.EmitConvertToObject(_reflectionInfo.DeclaringType);
+            if (_reflectionInfo.DeclaringType!.GetTypeInfo().IsValueType)
+                ilGen.EmitConvertToObject(_reflectionInfo.DeclaringType!);
             ilGen.Emit(OpCodes.Ret);
             return (Func<object[], object>)dynamicMethod.CreateDelegate(typeof(Func<object[], object>));
         }
@@ -88,8 +89,7 @@ public partial class ConstructorReflector : MemberReflector<ConstructorInfo>, IP
 
     public virtual object Invoke(params object[] args)
     {
-        if (args == null)
-            throw new ArgumentNullException(nameof(args));
+        ArgumentNullException.ThrowIfNull(args);
         return _invoker(args);
     }
 }

@@ -14,36 +14,31 @@ public static partial class TypeReflections
 
     public static bool IsTask(TypeInfo typeInfo)
     {
-        if (typeInfo is null)
-            throw new ArgumentNullException(nameof(typeInfo));
+        ArgumentNullException.ThrowIfNull(typeInfo);
         return typeInfo.AsType() == typeof(Task);
     }
 
     public static bool IsTaskWithResult(TypeInfo typeInfo)
     {
-        if (typeInfo is null)
-            throw new ArgumentNullException(nameof(typeInfo));
+        ArgumentNullException.ThrowIfNull(typeInfo);
         return isTaskOfTCache.GetOrAdd(typeInfo, Info => Info.IsGenericType && typeof(Task).GetTypeInfo().IsAssignableFrom(Info));
     }
 
     public static bool IsTaskWithVoidTaskResult(TypeInfo typeInfo)
     {
-        if (typeInfo is null)
-            throw new ArgumentNullException(nameof(typeInfo));
-        return typeInfo.GenericTypeArguments?.Length > 0 && typeInfo.GenericTypeArguments[0] == voidTaskResultType;
+        ArgumentNullException.ThrowIfNull(typeInfo);
+        return typeInfo.GenericTypeArguments.Length > 0 && typeInfo.GenericTypeArguments[0] == voidTaskResultType;
     }
 
     public static bool IsValueTask(TypeInfo typeInfo)
     {
-        if (typeInfo is null)
-            throw new ArgumentNullException(nameof(typeInfo));
+        ArgumentNullException.ThrowIfNull(typeInfo);
         return typeInfo.AsType() == typeof(ValueTask);
     }
 
     public static bool IsValueTaskWithResult(TypeInfo typeInfo)
     {
-        if (typeInfo is null)
-            throw new ArgumentNullException(nameof(typeInfo));
+        ArgumentNullException.ThrowIfNull(typeInfo);
         return isValueTaskOfTCache.GetOrAdd(typeInfo, Info => Info.IsGenericType && Info.GetGenericTypeDefinition() == typeof(ValueTask<>));
     }
 }

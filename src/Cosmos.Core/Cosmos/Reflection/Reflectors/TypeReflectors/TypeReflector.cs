@@ -40,7 +40,7 @@ public partial class TypeReflector : MemberReflector<TypeInfo>
 
         if (!typeInfo.IsNested)
             return name;
-        return $"{GetDisplayName(typeInfo.DeclaringType.GetTypeInfo())}.{name}";
+        return $"{GetDisplayName(typeInfo.DeclaringType!.GetTypeInfo())}.{name}";
     }
 
     private static string GetFullDisplayName(TypeInfo typeInfo)
@@ -57,7 +57,7 @@ public partial class TypeReflector : MemberReflector<TypeInfo>
         }
         else
         {
-            name = $"{GetFullDisplayName(typeInfo.DeclaringType.GetTypeInfo())}.{name}";
+            name = $"{GetFullDisplayName(typeInfo.DeclaringType!.GetTypeInfo())}.{name}";
         }
 
         if (typeInfo.IsGenericType)

@@ -12,14 +12,15 @@ public partial class MethodReflector
         protected override Func<object, object[], object> CreateInvoker()
         {
             var dynamicMethod = new DynamicMethod($"invoker_{_displayName}", typeof(object), new[] { typeof(object), typeof(object[]) }, _reflectionInfo.Module, true);
+            var declaringType = _reflectionInfo.DeclaringType!;
             var ilGen = dynamicMethod.GetILGenerator();
             var parameterTypes = _reflectionInfo.GetParameterTypes();
 
             ilGen.EmitLoadArg(0);
-            ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType);
-            if (_reflectionInfo.DeclaringType.GetTypeInfo().IsValueType)
+            ilGen.EmitConvertFromObject(declaringType);
+            if (declaringType.GetTypeInfo().IsValueType)
             {
-                var local = ilGen.DeclareLocal(_reflectionInfo.DeclaringType);
+                var local = ilGen.DeclareLocal(declaringType);
                 ilGen.Emit(OpCodes.Stloc, local);
                 ilGen.Emit(OpCodes.Ldloca, local);
             }
@@ -52,7 +53,7 @@ public partial class MethodReflector
                 ilGen.Emit(OpCodes.Ldelem_Ref);
                 if (parameterTypes[i].IsByRef)
                 {
-                    var defType = parameterTypes[i].GetElementType();
+                    var defType = parameterTypes[i].GetElementType()!;
                     var indexedLocal = new IndexedLocalBuilder(ilGen.DeclareLocal(defType), i);
                     indexedLocals[index++] = indexedLocal;
                     ilGen.EmitConvertFromObject(defType);
@@ -77,7 +78,7 @@ public partial class MethodReflector
                 }
             });
 
-            Func<object, object[], object> CreateDelegate(Action callback = null)
+            Func<object, object[], object> CreateDelegate(Action? callback = null)
             {
                 ilGen.EmitCall(OpCodes.Call, _reflectionInfo, null);
                 callback?.Invoke();

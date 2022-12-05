@@ -20,7 +20,7 @@ public static partial class TypeVisit
 
         return dictionary.GetOrAdd(method, m =>
         {
-            foreach (var property in m.DeclaringType.GetTypeInfo().GetProperties())
+            foreach (var property in m.DeclaringType!.GetTypeInfo().GetProperties())
             {
                 if (property.CanRead && property.GetMethod == m)
                 {

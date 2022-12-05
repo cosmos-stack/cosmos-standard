@@ -1,7 +1,10 @@
 ﻿using System.Reflection.Emit;
 
+// ReSharper disable VirtualMemberCallInConstructor
+
 namespace Cosmos.Reflection.Reflectors;
 
+// ReSharper disable once RedundantExtendsListEntry
 public partial class FieldReflector : MemberReflector<FieldInfo>
 {
     protected readonly Func<object, object> _getter;
@@ -18,7 +21,7 @@ public partial class FieldReflector : MemberReflector<FieldInfo>
         var dynamicMethod = new DynamicMethod($"getter-{Guid.NewGuid()}", typeof(object), new[] { typeof(object) }, _reflectionInfo.Module, true);
         var ilGen = dynamicMethod.GetILGenerator();
         ilGen.EmitLoadArg(0);
-        ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType);
+        ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType!);
         ilGen.Emit(OpCodes.Ldfld, _reflectionInfo);
         ilGen.EmitConvertToObject(_reflectionInfo.FieldType);
         ilGen.Emit(OpCodes.Ret);
@@ -30,7 +33,7 @@ public partial class FieldReflector : MemberReflector<FieldInfo>
         var dynamicMethod = new DynamicMethod($"setter-{Guid.NewGuid()}", typeof(void), new[] { typeof(object), typeof(object) }, _reflectionInfo.Module, true);
         var ilGen = dynamicMethod.GetILGenerator();
         ilGen.EmitLoadArg(0);
-        ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType);
+        ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType!);
         ilGen.EmitLoadArg(1);
         ilGen.EmitConvertFromObject(_reflectionInfo.FieldType);
         ilGen.Emit(OpCodes.Stfld, _reflectionInfo);
@@ -40,15 +43,13 @@ public partial class FieldReflector : MemberReflector<FieldInfo>
 
     public virtual object GetValue(object instance)
     {
-        if (instance is null)
-            throw new ArgumentNullException(nameof(instance));
+        ArgumentNullException.ThrowIfNull(instance);
         return _getter(instance);
     }
 
     public virtual void SetValue(object instance, object value)
     {
-        if (instance is null)
-            throw new ArgumentNullException(nameof(instance));
+        ArgumentNullException.ThrowIfNull(instance);
         _setter(instance, value);
     }
 

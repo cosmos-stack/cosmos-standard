@@ -4,8 +4,7 @@ public partial class MethodReflector
 {
     internal static MethodReflector Create(MethodInfo reflectionInfo, CallOptions callOption)
     {
-        if (reflectionInfo is null)
-            throw new ArgumentNullException(nameof(reflectionInfo));
+        ArgumentNullException.ThrowIfNull(reflectionInfo);
         return TypeReflections.ReflectorCacheUtils<PairOf<MethodInfo, CallOptions>, MethodReflector>.GetOrAdd(new PairOf<MethodInfo, CallOptions>(reflectionInfo, callOption), CreateInternal);
 
         MethodReflector CreateInternal(PairOf<MethodInfo, CallOptions> item)
@@ -17,7 +16,7 @@ public partial class MethodReflector
             if (methodInfo.IsStatic)
                 return new StaticMethodReflector(methodInfo);
 
-            if (methodInfo.DeclaringType.GetTypeInfo().IsValueType || callOption == CallOptions.Call)
+            if (methodInfo.DeclaringType!.GetTypeInfo().IsValueType || callOption == CallOptions.Call)
                 return new CallMethodReflector(methodInfo);
 
             return new MethodReflector(methodInfo);

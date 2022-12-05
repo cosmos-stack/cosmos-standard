@@ -1,15 +1,14 @@
-﻿
-namespace Cosmos.Reflection.Reflectors.Internals;
+﻿namespace Cosmos.Reflection.Reflectors.Internals;
 
 internal static class TypeInfoUtils
 {
     internal static bool AreEquivalent(TypeInfo t1, TypeInfo t2)
         => t1 == t2 || t1.IsEquivalentTo(t2.AsType());
 
-    internal static bool IsNullableType(this TypeInfo type)
+    internal static bool IsNullableType(TypeInfo type)
         => type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
 
-    internal static Type GetNonNullableType(this TypeInfo type)
+    internal static Type GetNonNullableType(TypeInfo type)
         => IsNullableType(type) ? type.GetGenericArguments()[0] : type.AsType();
 
     internal static bool IsLegalExplicitVariantDelegateConversion(TypeInfo source, TypeInfo dest)
@@ -26,7 +25,7 @@ internal static class TypeInfoUtils
         var sourceArguments = source.GetGenericArguments();
         var destArguments = dest.GetGenericArguments();
 
-        for (int iParam = 0; iParam < genericParameters.Length; ++iParam)
+        for (var iParam = 0; iParam < genericParameters.Length; ++iParam)
         {
             var sourceArgument = sourceArguments[iParam].GetTypeInfo();
             var destArgument = destArguments[iParam].GetTypeInfo();
@@ -68,7 +67,7 @@ internal static class TypeInfoUtils
     private static bool IsInvariant(TypeInfo t)
         => 0 == (t.GenericParameterAttributes & GenericParameterAttributes.VarianceMask);
 
-    private static bool IsCovariant(this TypeInfo t)
+    private static bool IsCovariant(TypeInfo t)
         => 0 != (t.GenericParameterAttributes & GenericParameterAttributes.Covariant);
 
     internal static bool HasReferenceConversion(TypeInfo source, TypeInfo dest)
@@ -118,7 +117,7 @@ internal static class TypeInfoUtils
     private static bool IsContravariant(TypeInfo t)
         => 0 != (t.GenericParameterAttributes & GenericParameterAttributes.Contravariant);
 
-    internal static bool IsConvertible(this TypeInfo typeInfo)
+    internal static bool IsConvertible(TypeInfo typeInfo)
     {
         var type = GetNonNullableType(typeInfo);
         if (typeInfo.IsEnum)

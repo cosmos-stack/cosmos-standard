@@ -13,7 +13,7 @@ internal static partial class TypeFactory
     {
         var properties = values.ToDictionary(_ => _.Key, _ => _.Value.GetType());
         var type = CreateType(properties);
-        var @object = (DynamicBase)Activator.CreateInstance(type);
+        var @object = (DynamicBase)Activator.CreateInstance(type)!;
         foreach (var item in values)
         {
             @object.SetPropertyValue(item.Key, item.Value);

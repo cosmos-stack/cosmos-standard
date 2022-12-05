@@ -41,7 +41,7 @@ public partial class MethodReflector
                 ilGen.Emit(OpCodes.Ldelem_Ref);
                 if (parameterTypes[i].IsByRef)
                 {
-                    var defType = parameterTypes[i].GetElementType();
+                    var defType = parameterTypes[i].GetElementType()!;
                     var indexedLocal = new IndexedLocalBuilder(ilGen.DeclareLocal(defType), i);
                     indexedLocals[index++] = indexedLocal;
                     ilGen.EmitConvertFromObject(defType);
@@ -66,7 +66,7 @@ public partial class MethodReflector
                 }
             });
 
-            Func<object, object[], object> CreateDelegate(Action callback = null)
+            Func<object, object[], object> CreateDelegate(Action? callback = null)
             {
                 ilGen.EmitCall(OpCodes.Call, _reflectionInfo, null);
                 callback?.Invoke();
@@ -79,8 +79,8 @@ public partial class MethodReflector
             }
         }
 
-        public override object Invoke(object instance, params object[] parameters) => _invoker(null, parameters);
+        public override object Invoke(object instance, params object[] parameters) => _invoker(null!, parameters);
 
-        public override object StaticInvoke(params object[] parameters) => _invoker(null, parameters);
+        public override object StaticInvoke(params object[] parameters) => _invoker(null!, parameters);
     }
 }

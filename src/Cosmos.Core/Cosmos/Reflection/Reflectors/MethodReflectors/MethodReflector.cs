@@ -1,6 +1,8 @@
 ﻿using System.Reflection.Emit;
 using Cosmos.Reflection.Reflectors.Internals;
 
+// ReSharper disable VirtualMemberCallInConstructor
+
 namespace Cosmos.Reflection.Reflectors;
 
 public partial class MethodReflector : MemberReflector<MethodInfo>, IParameterReflectorProvider
@@ -24,7 +26,7 @@ public partial class MethodReflector : MemberReflector<MethodInfo>, IParameterRe
         var parameterTypes = _reflectionInfo.GetParameterTypes();
 
         ilGen.EmitLoadArg(0);
-        ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType);
+        ilGen.EmitConvertFromObject(_reflectionInfo.DeclaringType!);
 
         if (parameterTypes.Length == 0)
             return CreateDelegate();
@@ -52,7 +54,7 @@ public partial class MethodReflector : MemberReflector<MethodInfo>, IParameterRe
             ilGen.Emit(OpCodes.Ldelem_Ref);
             if (parameterTypes[i].IsByRef)
             {
-                var defType = parameterTypes[i].GetElementType();
+                var defType = parameterTypes[i].GetElementType()!;
                 var indexedLocal = new IndexedLocalBuilder(ilGen.DeclareLocal(defType), i);
                 indexedLocals[index++] = indexedLocal;
                 ilGen.EmitConvertFromObject(defType);
@@ -77,7 +79,7 @@ public partial class MethodReflector : MemberReflector<MethodInfo>, IParameterRe
             }
         });
 
-        Func<object, object[], object> CreateDelegate(Action callback = null)
+        Func<object, object[], object> CreateDelegate(Action? callback = null)
         {
             ilGen.EmitCall(OpCodes.Callvirt, _reflectionInfo, null);
             callback?.Invoke();

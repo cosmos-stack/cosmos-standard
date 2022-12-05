@@ -27,8 +27,7 @@ public static partial class AssemblyVisit
 
     private static FileVersionInfo V(Assembly assembly)
     {
-        if (assembly is null)
-            throw new ArgumentNullException(nameof(assembly));
+        ArgumentNullException.ThrowIfNull(assembly);
         return FileVersionInfo.GetVersionInfo(assembly.Location);
     }
 }

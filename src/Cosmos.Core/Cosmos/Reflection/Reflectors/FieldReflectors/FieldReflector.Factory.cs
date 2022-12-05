@@ -4,17 +4,16 @@ public partial class FieldReflector
 {
     internal static FieldReflector Create(FieldInfo reflectionInfo)
     {
-        if (reflectionInfo is null)
-            throw new ArgumentNullException(nameof(reflectionInfo));
+        ArgumentNullException.ThrowIfNull(reflectionInfo);
 
         return TypeReflections.ReflectorCacheUtils<FieldInfo, FieldReflector>.GetOrAdd(reflectionInfo, CreateInternal);
 
         FieldReflector CreateInternal(FieldInfo field)
         {
-            if (field.DeclaringType.GetTypeInfo().ContainsGenericParameters)
+            if (field.DeclaringType!.GetTypeInfo().ContainsGenericParameters)
                 return new OpenGenericFieldReflector(field);
 
-            if (field.DeclaringType.IsEnum)
+            if (field.DeclaringType!.IsEnum)
                 return new EnumFieldReflector(field);
 
             if (field.IsStatic)

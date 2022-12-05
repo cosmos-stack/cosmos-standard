@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using Cosmos.Collections;
 
 namespace Cosmos.Reflection;
 
@@ -17,7 +16,7 @@ public static partial class TypeVisit
     /// <returns></returns>
     public static string GetFullName(Type type)
     {
-        if (type is null) throw new ArgumentNullException(nameof(type));
+        ArgumentNullException.ThrowIfNull(type);
         return type.FullName;
     }
 
@@ -29,7 +28,7 @@ public static partial class TypeVisit
     /// <returns></returns>
     public static string GetFullyQualifiedName(Type type)
     {
-        if (type is null) throw new ArgumentNullException(nameof(type));
+        ArgumentNullException.ThrowIfNull(type);
         var sb = new StringBuilder();
         if (type.IsGenericType)
         {
@@ -75,7 +74,7 @@ public static partial class TypeMetaVisitExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static string GetFullyQualifiedName(this Type type)
     {
-        if (type is null) throw new ArgumentNullException(nameof(type));
+        ArgumentNullException.ThrowIfNull(type);
         return TypeVisit.GetFullyQualifiedName(type);
     }
 }

@@ -83,9 +83,7 @@ public static partial class TypeVisit
     /// <exception cref="InvalidOperationException"></exception>
     public static IEnumerable<PropertyInfo> GetProperties(Type type, PropertyAccessOptions accessOptions)
     {
-        if (type is null)
-            throw new ArgumentNullException(nameof(type));
-
+        ArgumentNullException.ThrowIfNull(type);
         return accessOptions switch
         {
             PropertyAccessOptions.Getters => PropertyReflectionHelper.GetPropertiesWithPublicInstanceGetters(type),
@@ -131,8 +129,7 @@ public static partial class TypeVisit
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<PropertyInfo> GetProperties<T>(IEnumerable<Expression<Func<T, object>>> propertySelectors, PropertyAccessOptions accessOptions = PropertyAccessOptions.Both)
     {
-        if (propertySelectors is null)
-            throw new ArgumentNullException(nameof(propertySelectors));
+        ArgumentNullException.ThrowIfNull(propertySelectors);
         return propertySelectors.Select(p => GetProperty(p, accessOptions));
     }
 
@@ -149,8 +146,7 @@ public static partial class TypeVisit
     /// <exception cref="ArgumentException"></exception>
     public static PropertyInfo GetProperty<T, TProperty>(Expression<Func<T, TProperty>> propertySelector, PropertyAccessOptions accessOptions = PropertyAccessOptions.Both)
     {
-        if (propertySelector is null)
-            throw new ArgumentNullException(nameof(propertySelector));
+        ArgumentNullException.ThrowIfNull(propertySelector);
 
         var member = propertySelector.Body as MemberExpression;
 
@@ -225,11 +221,8 @@ public static partial class TypeVisit
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<PropertyInfo> Exclude<T>(IEnumerable<PropertyInfo> properties, IEnumerable<Expression<Func<T, object>>> expressions)
     {
-        if (properties is null)
-            throw new ArgumentNullException(nameof(properties));
-        if (expressions is null)
-            throw new ArgumentNullException(nameof(expressions));
-
+        ArgumentNullException.ThrowIfNull(properties);
+        ArgumentNullException.ThrowIfNull(expressions);
         ISet<PropertyInfo> excluded = new HashSet<PropertyInfo>(GetProperties(expressions));
 
         return properties.Where(p => !excluded.Contains(p));
@@ -243,11 +236,7 @@ public static partial class TypeVisit
     /// <exception cref="ArgumentNullException"></exception>
     public static bool IsVisibleAndVirtual(PropertyInfo property)
     {
-        if (property == null)
-        {
-            throw new ArgumentNullException(nameof(property));
-        }
-
+        ArgumentNullException.ThrowIfNull(property);
         return (property.CanRead && property.GetMethod.IsVisibleAndVirtual()) ||
                (property.CanWrite && property.GetMethod.IsVisibleAndVirtual());
     }
@@ -272,8 +261,8 @@ public static partial class TypeVisitExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static PropertyInfo GetProperty<T, TProperty>(this T x, Expression<Func<T, TProperty>> propertySelector, PropertyAccessOptions accessOptions = PropertyAccessOptions.Both)
     {
-        if (x is null) throw new ArgumentNullException(nameof(x));
-        if (propertySelector is null) throw new ArgumentNullException(nameof(propertySelector));
+        ArgumentNullException.ThrowIfNull(x);
+        ArgumentNullException.ThrowIfNull(propertySelector);
         return TypeVisit.GetProperty(propertySelector, accessOptions);
     }
 
@@ -288,7 +277,7 @@ public static partial class TypeVisitExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<PropertyInfo> GetProperties<T>(this T x, params Expression<Func<T, object>>[] propertySelectors)
     {
-        if (x is null) throw new ArgumentNullException(nameof(x));
+        ArgumentNullException.ThrowIfNull(x);
         return TypeVisit.GetProperties(PropertyAccessOptions.Both, propertySelectors);
     }
 
@@ -304,7 +293,7 @@ public static partial class TypeVisitExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<PropertyInfo> GetProperties<T>(this T x, PropertyAccessOptions accessOptions, params Expression<Func<T, object>>[] propertySelectors)
     {
-        if (x is null) throw new ArgumentNullException(nameof(x));
+        ArgumentNullException.ThrowIfNull(x);
         return TypeVisit.GetProperties(accessOptions, propertySelectors);
     }
 
