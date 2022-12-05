@@ -11,6 +11,10 @@
         <Description>CosmosStack Enum extension library</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Cosmos.Extensions.Enums.xml" />
+    </ItemGroup>
+
     <Import Project="..\..\common.props" />
 
     <Import Project="dependency.props" />

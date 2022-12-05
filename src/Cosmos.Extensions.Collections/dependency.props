@@ -1,31 +1,7 @@
 ﻿<Project>
 
-    <PropertyGroup>
-        <PooledColl-RefVersion>1.0.82</PooledColl-RefVersion>
-    </PropertyGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
-        <PackageReference Include="Collections.Pooled" Version="$(PooledColl-RefVersion)" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
-        <PackageReference Include="Collections.Pooled" Version="$(PooledColl-RefVersion)" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
-        <PackageReference Include="Collections.Pooled" Version="$(PooledColl-RefVersion)" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
-        <PackageReference Include="Collections.Pooled" Version="$(PooledColl-RefVersion)" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
-        <PackageReference Include="Collections.Pooled" Version="$(PooledColl-RefVersion)" />
-    </ItemGroup>
-
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
-        <PackageReference Include="Collections.Pooled" Version="$(PooledColl-RefVersion)" />
+    <ItemGroup>
+        <PackageReference Include="Collections.Pooled" Version="1.0.82" />
     </ItemGroup>
 
 </Project>

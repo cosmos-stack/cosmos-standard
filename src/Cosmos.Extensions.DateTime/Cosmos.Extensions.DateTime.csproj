@@ -12,7 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Cosmos\Date\Air" />
+      <None Remove="Cosmos.Extensions.DateTime.xml" />
     </ItemGroup>
 
     <Import Project="..\..\common.props" />

@@ -11,10 +11,12 @@
         <Description>CosmosStack Abstractions and Contracts library</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Cosmos.Abstractions.xml" />
+    </ItemGroup>
+
     <Import Project="..\..\common.props" />
 
-    <Import Project="../../asset/props/sourcelink.env.props"/>
-
-    <Import Project="dependency.props" />
+    <Import Project="../../asset/props/sourcelink.env.props" />
 
 </Project>

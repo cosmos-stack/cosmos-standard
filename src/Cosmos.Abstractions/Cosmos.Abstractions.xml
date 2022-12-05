@@ -294,11 +294,81 @@
             获取操作结果
             </summary>
         </member>
+        <member name="T:Cosmos.Serialization.IBssomSerializer">
+            <summary>
+            Interface of Bssom serializer<br />
+            Bssom 序列化器接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.IBytesSerializer.FromBytes``1(System.Byte[])">
+            <summary>
+            If the bytes is null or empty will return the default value of T.
+            </summary>
+            <param name="bytes"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IBytesSerializer.FromBytes(System.Type,System.Byte[])">
+            <summary>
+            If the bytes is null or empty will return the default value of the type.
+            </summary>
+            <param name="type"></param>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IBytesSerializer.ToBytes``1(``0)">
+            <summary>
+            Serialize to bytes.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IBytesSerializer.ToBytes(System.Type,System.Object)">
+            <summary>
+            Serialize to bytes.
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Serialization.IJsonSerializer">
             <summary>
             Interface of Json serializer<br />
             Json 序列化器接口
             </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.IJsonSerializer.FromJson``1(System.String)">
+            <summary>
+            If the json is null or white space will return the default value of T.
+            </summary>
+            <param name="json"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IJsonSerializer.FromJson(System.Type,System.String)">
+            <summary>
+            If the string is null or white space will return the default value of the type.
+            </summary>
+            <param name="type"></param>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IJsonSerializer.ToJson``1(``0)">
+            <summary>
+            Serialize to json.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IJsonSerializer.ToJson(System.Type,System.Object)">
+            <summary>
+            Serialize to json.
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Serialization.IJsonSerializerConfigureEntry">
             <summary>
@@ -317,6 +387,12 @@
             </summary>
             <param name="serializerFactory"></param>
         </member>
+        <member name="T:Cosmos.Serialization.IMessagePackSerializer">
+            <summary>
+            Interface of MessagePack serializer<br />
+            MessagePack 序列化器接口
+            </summary>
+        </member>
         <member name="T:Cosmos.Serialization.IObjectSerializer">
             <summary>
             Object Serializer Meta Interface<br />
@@ -328,15 +404,15 @@
             Object Serializer Meta Interface<br />
             对象序列化器元接口
             </summary>
-            <typeparam name="TSerializedType">指定的目标序列化类型</typeparam>
+            <typeparam name="TData">指定的目标序列化类型</typeparam>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.Serialize``1(``0)">
             <summary>
             Serialize<br />
             序列化
             </summary>
-            <typeparam name="T">指定的序列化对象类型</typeparam>
-            <param name="o">被序列化对象</param>
+            <typeparam name="TValue">指定的序列化对象类型</typeparam>
+            <param name="value">被序列化对象</param>
             <returns>序列化结果</returns>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.Deserialize``1(`0)">
@@ -344,11 +420,11 @@
             Deserialize<br />
             反序列化
             </summary>
-            <typeparam name="T">指定的被序列化对象类型</typeparam>
+            <typeparam name="TValue">指定的被序列化对象类型</typeparam>
             <param name="data">被反序列化对象</param>
             <returns>反序列化结果</returns>
         </member>
-        <member name="M:Cosmos.Serialization.IObjectSerializer`1.Deserialize(`0,System.Type)">
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.Deserialize(System.Type,`0)">
             <summary>
             Deserialize<br />
             反序列化
@@ -362,8 +438,8 @@
             Serialize async<br />
             异步序列化
             </summary>
-            <typeparam name="T">指定的序列化对象类型</typeparam>
-            <param name="o">被序列化对象</param>
+            <typeparam name="TValue">指定的序列化对象类型</typeparam>
+            <param name="value">被序列化对象</param>
             <returns>序列化结果</returns>
         </member>
         <member name="M:Cosmos.Serialization.IObjectSerializer`1.DeserializeAsync``1(`0)">
@@ -371,11 +447,11 @@
             Deserialize async<br />
             异步反序列化
             </summary>
-            <typeparam name="T">指定的被序列化对象类型</typeparam>
+            <typeparam name="TValue">指定的被序列化对象类型</typeparam>
             <param name="data">被反序列化对象</param>
             <returns>反序列化结果</returns>
         </member>
-        <member name="M:Cosmos.Serialization.IObjectSerializer`1.DeserializeAsync(`0,System.Type)">
+        <member name="M:Cosmos.Serialization.IObjectSerializer`1.DeserializeAsync(System.Type,`0)">
             <summary>
             Deserialize async<br />
             异步反序列化
@@ -384,31 +460,46 @@
             <param name="type">指定的被序列化对象类型</param>
             <returns>反序列化结果</returns>
         </member>
+        <member name="T:Cosmos.Serialization.IProtobufSerializer">
+            <summary>
+            Interface of Protobuf serializer<br />
+            Google ProtoBuf 序列化器接口
+            </summary>
+        </member>
         <member name="T:Cosmos.Serialization.ISerializer">
             <summary>
             Object Serializer Meta Interface<br />
             对象序列化器元接口
             </summary>
         </member>
-        <member name="M:Cosmos.Serialization.ISerializer.SerializeToStream``1(``0)">
+        <member name="M:Cosmos.Serialization.ISerializer.ToStream``1(``0)">
             <summary>
-            Serialize<br />
+            Serialize to stream.<br />
             序列化
             </summary>
-            <param name="o"></param>
-            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStream``1(System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.ISerializer.ToStream(System.Type,System.Object)">
+             <summary>
+            Serialize to stream.<br />
+             序列化
+             </summary>
+             <param name="type"></param>
+             <param name="value"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializer.FromStream``1(System.IO.Stream)">
             <summary>
             Deserialize<br />
             反序列化
             </summary>
             <param name="stream"></param>
-            <typeparam name="T"></typeparam>
+            <typeparam name="TValue"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStream(System.IO.Stream,System.Type)">
+        <member name="M:Cosmos.Serialization.ISerializer.FromStream(System.Type,System.IO.Stream)">
             <summary>
             Deserialize<br />
             反序列化
@@ -417,32 +508,158 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.ISerializer.SerializeToStreamAsync``1(``0)">
+        <member name="T:Cosmos.Serialization.ISerializerAsync">
+            <summary>
+            Object Serializer Meta Interface<br />
+            对象序列化器元接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializerAsync.ToStreamAsync``1(``0,System.Threading.CancellationToken)">
             <summary>
             Serialize async<br />
             异步序列化
             </summary>
-            <param name="o"></param>
-            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TValue"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStreamAsync``1(System.IO.Stream)">
+        <member name="M:Cosmos.Serialization.ISerializerAsync.ToStreamAsync(System.Type,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Serialize async<br />
+            异步序列化
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ISerializerAsync.FromStreamAsync``1(System.IO.Stream,System.Threading.CancellationToken)">
             <summary>
             Deserialize async<br />
             异步反序列化
             </summary>
             <param name="stream"></param>
+            <param name="cancellationToken"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Serialization.ISerializer.DeserializeFromStreamAsync(System.IO.Stream,System.Type)">
+        <member name="M:Cosmos.Serialization.ISerializerAsync.FromStreamAsync(System.Type,System.IO.Stream,System.Threading.CancellationToken)">
             <summary>
             Deserialize async<br />
             异步反序列化
             </summary>
             <param name="stream"></param>
             <param name="type"></param>
+            <param name="cancellationToken"></param>
             <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IStreamSerializerAsync.PackAsync``1(``0,System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Serialize the value and pack to the stream.
+            </summary>
+            <param name="value"></param>
+            <param name="stream"></param>
+            <param name="cancellationToken"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IStreamSerializerAsync.PackAsync(System.Type,System.Object,System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Serialize the value and pack to the stream.
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <param name="stream"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ITextSerializer.FromText``1(System.String)">
+            <summary>
+            If the text is null or white space will return the default value of T.
+            </summary>
+            <param name="text"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ITextSerializer.FromText(System.Type,System.String)">
+            <summary>
+            If the string is null or white space will return the default value of the type.
+            </summary>
+            <param name="type"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ITextSerializer.ToText``1(``0)">
+            <summary>
+            Serialize to text.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ITextSerializer.ToText(System.Type,System.Object)">
+            <summary>
+            Serialize to text.
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.ITomlSerializer">
+            <summary>
+            Interface of Toml serializer<br />
+            Toml 序列化器接口
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.ITomlSerializer.FromToml``1(System.String)">
+            <summary>
+            If the toml is null or white space will return the default value of T.
+            </summary>
+            <param name="toml"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ITomlSerializer.FromToml(System.Type,System.String)">
+            <summary>
+            If the string is null or white space will return the default value of the type.
+            </summary>
+            <param name="type"></param>
+            <param name="toml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ITomlSerializer.ToToml``1(``0)">
+            <summary>
+            Serialize to toml.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.ITomlSerializer.ToToml(System.Type,System.Object)">
+            <summary>
+            Serialize to toml.
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.ITomlSerializerConfigureEntry">
+            <summary>
+            An interface of configuration entry for toml serializer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.ITomlSerializerConfigureEntry.ConfigureTomlSerializer(Cosmos.Serialization.ITomlSerializer)">
+            <summary>
+            To config / use a toml serializer
+            </summary>
+            <param name="serializer"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.ITomlSerializerConfigureEntry.ConfigureTomlSerializer(System.Func{Cosmos.Serialization.ITomlSerializer})">
+            <summary>
+            To config / use a toml serializer
+            </summary>
+            <param name="serializerFactory"></param>
         </member>
         <member name="T:Cosmos.Serialization.IXmlSerializer">
             <summary>
@@ -450,31 +667,111 @@
             XML 序列化器接口
             </summary>
         </member>
-        <member name="T:Cosmos.Serialization.Variousness.IMessagePackSerializer">
+        <member name="M:Cosmos.Serialization.IXmlSerializer.FromXml``1(System.String)">
             <summary>
-            Interface of MessagePack serializer<br />
-            MessagePack 序列化器接口
+            If the xml is null or white space will return the default value of T.
+            </summary>
+            <param name="xml"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IXmlSerializer.FromXml(System.Type,System.String)">
+            <summary>
+            If the string is null or white space will return the default value of the type.
+            </summary>
+            <param name="type"></param>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IXmlSerializer.ToXml``1(``0)">
+            <summary>
+            Serialize to xml.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IXmlSerializer.ToXml(System.Type,System.Object)">
+            <summary>
+            Serialize to xml.
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.IXmlSerializerConfigureEntry">
+            <summary>
+            An interface of configuration entry for xml serializer.
             </summary>
         </member>
-        <member name="T:Cosmos.Serialization.Variousness.IProtobufSerializer">
+        <member name="M:Cosmos.Serialization.IXmlSerializerConfigureEntry.ConfigureXmlSerializer(Cosmos.Serialization.IXmlSerializer)">
             <summary>
-            Interface of Protobuf serializer<br />
-            Google ProtoBuf 序列化器接口
+            To config / use a xml serializer
             </summary>
+            <param name="serializer"></param>
         </member>
-        <member name="T:Cosmos.Serialization.Variousness.ITomlSerializer">
+        <member name="M:Cosmos.Serialization.IXmlSerializerConfigureEntry.ConfigureXmlSerializer(System.Func{Cosmos.Serialization.IXmlSerializer})">
             <summary>
-            Interface of Toml serializer<br />
-            Toml 序列化器接口
+            To config / use a xml serializer
             </summary>
+            <param name="serializerFactory"></param>
         </member>
-        <member name="T:Cosmos.Serialization.Variousness.IYamlSerializer">
+        <member name="T:Cosmos.Serialization.IYamlSerializer">
             <summary>
             Interface of Yaml serializer<br />
             Yaml 序列化器接口
             </summary>
         </member>
-        <member name="T:Cosmos.Serialization.Variousness.IZeroFormatterSerializer">
+        <member name="M:Cosmos.Serialization.IYamlSerializer.FromYaml``1(System.String)">
+            <summary>
+            If the yaml is null or white space will return the default value of T.
+            </summary>
+            <param name="yaml"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IYamlSerializer.FromYaml(System.Type,System.String)">
+            <summary>
+            If the string is null or white space will return the default value of the type.
+            </summary>
+            <param name="type"></param>
+            <param name="yaml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IYamlSerializer.ToYaml``1(``0)">
+            <summary>
+            Serialize to yaml.
+            </summary>
+            <param name="value"></param>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Serialization.IYamlSerializer.ToYaml(System.Type,System.Object)">
+            <summary>
+            Serialize to yaml.
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Serialization.IYamlSerializerConfigureEntry">
+            <summary>
+            An interface of configuration entry for yaml serializer.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Serialization.IYamlSerializerConfigureEntry.ConfigureYamlSerializer(Cosmos.Serialization.IYamlSerializer)">
+            <summary>
+            To config / use a yaml serializer
+            </summary>
+            <param name="serializer"></param>
+        </member>
+        <member name="M:Cosmos.Serialization.IYamlSerializerConfigureEntry.ConfigureYamlSerializer(System.Func{Cosmos.Serialization.IYamlSerializer})">
+            <summary>
+            To config / use a yaml serializer
+            </summary>
+            <param name="serializerFactory"></param>
+        </member>
+        <member name="T:Cosmos.Serialization.IZeroFormatterSerializer">
             <summary>
             Interface of ZeroFormatter serializer<br />
             ZeroFormatter 序列化器接口

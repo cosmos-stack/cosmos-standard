@@ -11,6 +11,10 @@
         <Description>CosmosStack collections extension library</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Cosmos.Extensions.Collections.xml" />
+    </ItemGroup>
+
     <Import Project="..\..\common.props" />
 
     <Import Project="dependency.props" />

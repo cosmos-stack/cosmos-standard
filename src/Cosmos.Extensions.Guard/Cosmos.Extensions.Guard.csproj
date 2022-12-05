@@ -11,6 +11,10 @@
         <Description>CosmosStack Guard Extensions Library.</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Cosmos.Extensions.Guard.xml" />
+    </ItemGroup>
+
     <Import Project="..\..\common.props" />
 
     <Import Project="references.props" />

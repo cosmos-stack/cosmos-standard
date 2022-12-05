@@ -1,14 +1,14 @@
 <Project>
 
     <PropertyGroup Label="Package">
-        <Product>Cosmos.Core.Standard</Product>
-        <Authors>AlexLEWIS;Cosmos.Core</Authors>
+        <Product>Cosmos.Standard</Product>
+        <Authors>AlexLEWIS;CosmosStack</Authors>
         <RepositoryUrl>https://github.com/cosmos-stack/cosmos-standard</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageProjectUrl>https://github.com/cosmos-stack/cosmos-standard</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PackageTags>Cosmos.Core;Standard;Common;Framework</PackageTags>
+        <PackageTags>Cosmos;Standard;Common;Framework</PackageTags>
     </PropertyGroup>
 
     <PropertyGroup>

@@ -12,6 +12,11 @@
         <Description>CosmosStack Conversions extension library</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Cosmos.Extensions.Conversions.xml" />
+      <None Remove="Cosmos.Extensions.Conversions.csproj.DotSettings" />
+    </ItemGroup>
+
     <Import Project="..\..\common.props" />
 
     <Import Project="dependency.props" />

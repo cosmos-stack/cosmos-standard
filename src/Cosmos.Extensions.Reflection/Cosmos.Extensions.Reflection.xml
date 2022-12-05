@@ -9,6 +9,20 @@
             Boolean extensions for Exception Builder
             </summary>
         </member>
+        <member name="M:Cosmos.Dynamic.DynamicBase.GetPropertyValue(System.String)">
+            <summary>
+            Get property value
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Dynamic.DynamicBase.SetPropertyValue(System.String,System.Object)">
+            <summary>
+            Set property value
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
         <member name="T:Cosmos.Exceptions.BuildingServices.CustomExceptionBuildingManager">
             <summary>
             Custom Exception Building Manager <br />
@@ -629,6 +643,35 @@
             设置错误代码（Error Code）。
             </summary>
             <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionEvaluator.Evaluate(System.String)">
+            <summary>
+            评估
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionEvaluator.Evaluate(System.String,System.Collections.Generic.IDictionary{System.String,System.Object}@)">
+            <summary>
+            评估
+            </summary>
+            <param name="input">表达式字符串</param>
+            <param name="variables">变量字典</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParser.#ctor(System.Linq.Expressions.ParameterExpression,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Create a new instance of ExpressionParser
+            </summary>
+            <param name="parameterExpression"></param>
+            <param name="variables"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParser.Parse(System.String)">
+            <summary>
+            转换字符串表达式
+            </summary>
+            <param name="input">表达式字符串</param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Finders.BaseAttributeFinder`1">
@@ -1960,6 +2003,20 @@
             对指定的资源进行加锁，执行委托并返回结果。
             </summary>
         </member>
+        <member name="M:Cosmos.Reflection.TypeFactory.CreateType(System.Collections.Generic.IDictionary{System.String,System.Type})">
+            <summary>
+            Create dynamic type
+            </summary>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeFactory.CreateObject(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Create an instance for DynamicType
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Reflection.TypeScanner">
             <summary>
             Type Scanner <br />
@@ -2062,6 +2119,14 @@
             </summary>
         </member>
         <member name="T:Cosmos.Reflection.TypeVisit">
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
+            <summary>
+            Type visit, an advanced TypeReflections utility. <br />
+            类型访问器，一个高级的 TypeReflections 工具。
+            </summary>
             <summary>
             Type visit, an advanced TypeReflections utility. <br />
             类型访问器，一个高级的 TypeReflections 工具。
@@ -2429,22 +2494,6 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.Reflection.TypeVisit.GetFullName(System.Type)">
-            <summary>
-            Get unique fully name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
-            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的名称。
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Reflection.TypeVisit.GetFullyQualifiedName(System.Type)">
-            <summary>
-            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
-            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
         <member name="M:Cosmos.Reflection.TypeVisit.HasParameterlessConstructor(System.Type)">
             <summary>
             Determine whether there is a parameterless constructor. <br />
@@ -2470,7 +2519,35 @@
             <param name="constructorParameterTypes">The types of the contractor to find.</param>
             <returns>The <see cref="T:System.Reflection.ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
         </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetFullName(System.Type)">
+            <summary>
+            Get unique fully name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.MethodInfo"/> 的名称。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.GetFullyQualifiedName(System.Type)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeVisit.CreateDynamicType(System.Collections.Generic.IDictionary{System.String,System.Type})">
+            <summary>
+            To create a new dynamic type with the given property collection. <br />
+            使用给定的属性集合创建一个动态类型
+            </summary>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Reflection.TypeMetaVisitExtensions">
+            <summary>
+            Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
+            类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
+            </summary>
             <summary>
             Type metadata visit, a meta information access entry for TypeReflections and TypeVisit. <br />
             类型元数据访问器，为 TypeReflections 和 TypeVisit 提供元信息的访问入口
@@ -2779,15 +2856,6 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetFullyQualifiedName(System.Type)">
-            <summary>
-            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
-            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
         <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.HasParameterlessConstructor(System.Type)">
             <summary>
             Determine whether there is a parameterless constructor. <br />
@@ -2812,6 +2880,15 @@
             <param name="type">The type being tested.</param>
             <param name="constructorParameterTypes">The types of the contractor to find.</param>
             <returns>The <see cref="T:System.Reflection.ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:Cosmos.Reflection.TypeMetaVisitExtensions.GetFullyQualifiedName(System.Type)">
+            <summary>
+            Get unique fully qualified name for <see cref="T:System.Reflection.TypeInfo"/>.<br />
+            获取给定 <see cref="T:System.Reflection.TypeInfo"/> 的完全限定名。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:Cosmos.Reflection.IArgDescriptionVal">
             <summary>

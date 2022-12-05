@@ -11,6 +11,11 @@
         <Description>CosmosStack Optional extension library</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Cosmos.Extensions.Optionals.xml" />
+      <None Remove="Cosmos.Extensions.Optionals.csproj.DotSettings" />
+    </ItemGroup>
+
     <Import Project="..\..\common.props" />
 
     <Import Project="dependency.props" />

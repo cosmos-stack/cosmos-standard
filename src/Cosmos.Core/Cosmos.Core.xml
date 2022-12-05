@@ -33,16 +33,8 @@
             Resize <br />
             重新设置尺寸
             </summary>
-            <param name="this"></param>
+            <param name="buff"></param>
             <param name="newSize"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.ByteExtensions.ToMemoryStream(System.Byte[])">
-            <summary>
-            Convert byte[] to <see cref="T:System.IO.MemoryStream"/> <br />
-            转换类型，将 <see cref="T:System.Byte"/>[] 转换为 <see cref="T:System.IO.MemoryStream"/>
-            </summary>
-            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Conversions.AsciiConvHelper">
@@ -400,15 +392,13 @@
             <param name="bin"></param>
             <returns></returns>
         </member>
-        <member name="T:Cosmos.Conversions.Helpers.ScaleConvHelper">
+        <member name="M:Cosmos.Conversions.ByteArrayExtensions.ToMemoryStream(System.Byte[])">
             <summary>
-            Scale convert helper (internal)
+            Convert byte[] to <see cref="T:System.IO.MemoryStream"/> <br />
+            转换类型，将 <see cref="T:System.Byte"/>[] 转换为 <see cref="T:System.IO.MemoryStream"/>
             </summary>
-        </member>
-        <member name="T:Cosmos.Conversions.Helpers.ScaleRevHelper">
-            <summary>
-            Scale rev helper (internal)
-            </summary>
+            <param name="buff"></param>
+            <returns></returns>
         </member>
         <member name="T:Cosmos.Conversions.Hex">
             <summary>
@@ -461,6 +451,16 @@
             </summary>
             <param name="hex"></param>
             <returns></returns>
+        </member>
+        <member name="T:Cosmos.Conversions.Internals.ScaleConvHelper">
+            <summary>
+            Scale convert helper (internal)
+            </summary>
+        </member>
+        <member name="T:Cosmos.Conversions.Internals.ScaleRevHelper">
+            <summary>
+            Scale rev helper (internal)
+            </summary>
         </member>
         <member name="T:Cosmos.Conversions.ScaleConv">
             <summary>
@@ -727,6 +727,80 @@
             抛出异常
             </summary>
         </member>
+        <member name="T:Cosmos.Date.DateTimeOutputHelper">
+            <summary>
+            DateTime Helper (internal)
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeOutputHelper.Ifttt(System.Boolean,System.String,System.String)">
+            <summary>
+            If this then that...
+            </summary>
+            <param name="condition"></param>
+            <param name="format1"></param>
+            <param name="format2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cosmos.Date.DateTimeOutputExtensions">
+            <summary>
+            DateTime to String extensions <br />
+            DateTime 转换为 String 的扩展
+            </summary>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeOutputExtensions.ToString(System.DateTime,Cosmos.Date.DateTimeOutputStyles,System.Boolean)">
+            <summary>
+            Convert DateTime value to String. <br />
+            将 DateTime 转换为字符串。
+            </summary>
+            <param name="dt"></param>
+            <param name="styles"></param>
+            <param name="isRemoveSecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeOutputExtensions.ToString(System.Nullable{System.DateTime},Cosmos.Date.DateTimeOutputStyles,System.Boolean)">
+            <summary>
+            Convert DateTime value to String. <br />
+            将 DateTime 转换为字符串。
+            </summary>
+            <param name="dt"></param>
+            <param name="styles"></param>
+            <param name="isRemoveSecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeOutputExtensions.ToDateTimeOffset(System.DateTime)">
+            <summary>
+            Convert DateTime to DateTimeOffset. <br />
+            将时间转换为时间点
+            </summary>
+            <param name="localDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeOutputExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            Convert DateTime to  DateTimeOffset. <br />
+            将时间转换为时间点
+            </summary>
+            <param name="localDateTime"></param>
+            <param name="localTimeZone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeOutputExtensions.ToLocalDateTime(System.DateTimeOffset)">
+            <summary>
+            Convert DateTimeOffset to DateTime. <br />
+            将时间点转换为时间
+            </summary>
+            <param name="dateTimeUtc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Date.DateTimeOutputExtensions.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
+            <summary>
+            Convert DateTimeOffset to DateTime. <br />
+            将时间点转换为时间
+            </summary>
+            <param name="dateTimeUtc"></param>
+            <param name="localTimeZone"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cosmos.Date.DateTimeOutputStyles">
             <summary>
             Datetime Output Styles <br />
@@ -772,80 +846,6 @@
             <summary>
             Millisecond
             </summary>
-        </member>
-        <member name="T:Cosmos.Date.DateTimeHelper">
-            <summary>
-            DateTime Helper (internal)
-            </summary>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeHelper.Ifttt(System.Boolean,System.String,System.String)">
-            <summary>
-            If this then that...
-            </summary>
-            <param name="condition"></param>
-            <param name="format1"></param>
-            <param name="format2"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cosmos.Date.DateTimeToStringExtensions">
-            <summary>
-            DateTime to String extensions <br />
-            DateTime 转换为 String 的扩展
-            </summary>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToString(System.DateTime,Cosmos.Date.DateTimeOutputStyles,System.Boolean)">
-            <summary>
-            Convert DateTime value to String. <br />
-            将 DateTime 转换为字符串。
-            </summary>
-            <param name="dt"></param>
-            <param name="styles"></param>
-            <param name="isRemoveSecond"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToString(System.Nullable{System.DateTime},Cosmos.Date.DateTimeOutputStyles,System.Boolean)">
-            <summary>
-            Convert DateTime value to String. <br />
-            将 DateTime 转换为字符串。
-            </summary>
-            <param name="dt"></param>
-            <param name="styles"></param>
-            <param name="isRemoveSecond"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToDateTimeOffset(System.DateTime)">
-            <summary>
-            Convert DateTime to DateTimeOffset. <br />
-            将时间转换为时间点
-            </summary>
-            <param name="localDateTime"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
-            <summary>
-            Convert DateTime to  DateTimeOffset. <br />
-            将时间转换为时间点
-            </summary>
-            <param name="localDateTime"></param>
-            <param name="localTimeZone"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToLocalDateTime(System.DateTimeOffset)">
-            <summary>
-            Convert DateTimeOffset to DateTime. <br />
-            将时间点转换为时间
-            </summary>
-            <param name="dateTimeUtc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cosmos.Date.DateTimeToStringExtensions.ToLocalDateTime(System.DateTimeOffset,System.TimeZoneInfo)">
-            <summary>
-            Convert DateTimeOffset to DateTime. <br />
-            将时间点转换为时间
-            </summary>
-            <param name="dateTimeUtc"></param>
-            <param name="localTimeZone"></param>
-            <returns></returns>
         </member>
         <member name="T:Cosmos.Date.TimeStamp">
             <summary>
@@ -9299,6 +9299,682 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="M:Cosmos.Expressions.ExpressionParseException.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.ExpressionParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.ExpressionParseException"/> 实例。
+            </summary>
+            <param name="cause"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParseException.#ctor(System.Exception,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.ExpressionParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.ExpressionParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParseException.#ctor(System.Exception,System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.ExpressionParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.ExpressionParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParseException.#ctor(System.Exception,System.String,System.Int64)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.ExpressionParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.ExpressionParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+            <param name="errorCode"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParseException.#ctor(System.Exception,System.String,System.String,System.Int64)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.ExpressionParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.ExpressionParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+            <param name="flag"></param>
+            <param name="errorCode"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParseException.#ctor(Cosmos.CosmosException,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.ExpressionParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.ExpressionParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.ExpressionParseException.#ctor(System.String,System.String,Cosmos.Expressions.Internals.Token)">
+             <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.ExpressionParseException"/>. <br />
+             创建一个新的 <see cref="T:Cosmos.Expressions.ExpressionParseException"/> 实例。
+             </summary>
+             <param name="cause"></param>
+             <param name="input"></param>
+             <param name="token"></param>
+        </member>
+        <member name="P:Cosmos.Expressions.ExpressionParseException.Cause">
+            <summary>
+            Cause <br />
+            导致异常的原因
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Unknow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Empty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Exclam">
+            <summary>
+            !
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.DoubleQuote">
+            <summary>
+            "
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Sharp">
+            <summary>
+            #
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Dollar">
+            <summary>
+            $
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Modulo">
+            <summary>
+            %
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.And">
+            <summary>
+            &amp;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.SingleQuote">
+            <summary>
+            '
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.LeftParenthesis">
+            <summary>
+            (
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.RightParenthesis">
+            <summary>
+            )
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Asterisk">
+            <summary>
+            *
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Plus">
+            <summary>
+            +
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Comma">
+            <summary>
+            ,
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Minus">
+            <summary>
+            -
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Dot">
+            <summary>
+            .
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Slash">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Digit">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Colon">
+            <summary>
+            :
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Semicolon">
+            <summary>
+            ;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.LessThan">
+            <summary>
+            &lt;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Equal">
+            <summary>
+            =
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.GreaterThan">
+            <summary>
+            &gt;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Question">
+            <summary>
+            ?
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.At">
+            <summary>
+            @
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Letter">
+            <summary>
+            字母
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.LeftBracket">
+            <summary>
+            [
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Backslash">
+            <summary>
+            \
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.RightBracket">
+            <summary>
+            ]
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Caret">
+            <summary>
+            ^
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Underline">
+            <summary>
+            _
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Backquote">
+            <summary>
+            `
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.LeftBrace">
+            <summary>
+            {
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Bar">
+            <summary>
+            |
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.RightBrace">
+            <summary>
+            }
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.CharId.Tilde">
+            <summary>
+            ~
+            </summary>
+        </member>
+        <member name="P:Cosmos.Expressions.Internals.Token.Id">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Cosmos.Expressions.Internals.Token.Index">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Cosmos.Expressions.Internals.Token.Length">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Cosmos.Expressions.Internals.Token.Value">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Parameter">
+            <summary>
+            $
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Expression">
+            <summary>
+            Expression
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseString">
+            <summary>
+            Parse to String
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.String">
+            <summary>
+            String
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseChar">
+            <summary>
+            Parse to Char
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Char">
+            <summary>
+            Char
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseInt">
+            <summary>
+            Parse to Int32
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Int">
+            <summary>
+            Int32
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseUInt">
+            <summary>
+            Parse to UInt32
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.UInt">
+            <summary>
+            UInt32
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseLong">
+            <summary>
+            Parse to Int64
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Long">
+            <summary>
+            Int64
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseULong">
+            <summary>
+            Parse to UInt64
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ULong">
+            <summary>
+            UInt64
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseDouble">
+            <summary>
+            Parse to Double
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Double">
+            <summary>
+            Double
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseFloat">
+            <summary>
+            Parse to Float
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Float">
+            <summary>
+            Float
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseDecimal">
+            <summary>
+            Parse to Decimal
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Decimal">
+            <summary>
+            Decimal
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseBool">
+            <summary>
+            Parse to Boolean
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Bool">
+            <summary>
+            Boolean
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseGuid">
+            <summary>
+            Parse to Guid,
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Guid">
+            <summary>
+            Guid
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseDateTime">
+            <summary>
+            Parse to DateTime
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.DateTime">
+            <summary>
+            DateTime
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ParseDateTimeOffset">
+            <summary>
+            Parse to DateTimeOffset
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.DateTimeOffset">
+            <summary>
+            DateTimeOffset
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.NewArray">
+            <summary>
+            New a Array
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Array">
+            <summary>
+            Array
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.NewObject">
+            <summary>
+            New a Object
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Object">
+            <summary>
+            Object
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.In">
+            <summary>
+            Contains
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.MethodCall">
+            <summary>
+            Call a Method
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Method">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Property">
+            <summary>
+            属性
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Variable">
+            <summary>
+            变量
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.LeftBrace">
+            <summary>
+            {
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.RightBrace">
+            <summary>
+            }
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.LeftBracket">
+            <summary>
+            [
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.RightBracket">
+            <summary>
+            ]
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.LeftParenthesis">
+            <summary>
+            (
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.RightParenthesis">
+            <summary>
+            )
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Comma">
+            <summary>
+            ,
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Access">
+            <summary>
+            .
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.NullableAccess">
+            <summary>
+            ?.
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.IncrementAssign">
+            <summary>
+            ++
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.DecrementAssign">
+            <summary>
+            --
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Not">
+            <summary>
+            !
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.BitComplement">
+            <summary>
+            ~
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Divide">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Multiply">
+            <summary>
+            *
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Modulo">
+            <summary>
+            %
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Add">
+            <summary>
+            +
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Minus">
+            <summary>
+            -
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.LeftShift">
+            <summary>
+            &lt;&lt;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.RightShift">
+            <summary>
+            &gt;&gt;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.LessThan">
+            <summary>
+            &lt;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.LessThanOrEqual">
+            <summary>
+            &lt;=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.GreaterThan">
+            <summary>
+            &gt;
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.GreaterThanOrEqual">
+            <summary>
+            &gt;=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Equal">
+            <summary>
+            ==
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.NotEqual">
+            <summary>
+            !=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.And">
+            <summary>
+            &amp;-位与
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ExclusiveOr">
+            <summary>
+            ^-位异或
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Or">
+            <summary>
+            |-位或
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.AndAlso">
+            <summary>
+            &amp;&amp;-逻辑与
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.OrElse">
+            <summary>
+            ||-逻辑或
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Coalesce">
+            <summary>
+            ??
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Predicate">
+            <summary>
+            ?
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Option">
+            <summary>
+            :
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.Assign">
+            <summary>
+            =
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.DivideAssign">
+            <summary>
+            /=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.MultiplyAssign">
+            <summary>
+            *=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ModuloAssign">
+            <summary>
+            %=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.AddAssign">
+            <summary>
+            +=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.SubtractAssign">
+            <summary>
+            -=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.LeftShiftAssign">
+            <summary>
+            &lt;&lt;=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.RightShiftAssign">
+            <summary>
+            &gt;&gt;=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.AndAssign">
+            <summary>
+            &amp;=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.ExclusiveOrAssign">
+            <summary>
+            ^=
+            </summary>
+        </member>
+        <member name="F:Cosmos.Expressions.Internals.TokenId.OrAssign">
+            <summary>
+            |=
+            </summary>
+        </member>
         <member name="T:Cosmos.Expressions.LambdaExtensions">
             <summary>
             Lambda extensions
@@ -9783,6 +10459,63 @@
         <member name="M:Cosmos.Expressions.PredicateExpressionBuilder`1.ToLambda">
             <summary>
             转换为Lambda表达式
+            </summary>
+        </member>
+        <member name="M:Cosmos.Expressions.TokenParseException.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.TokenParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.TokenParseException"/> 实例。
+            </summary>
+            <param name="cause"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.TokenParseException.#ctor(System.Exception,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.TokenParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.TokenParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.TokenParseException.#ctor(System.Exception,System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.TokenParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.TokenParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.TokenParseException.#ctor(System.Exception,System.String,System.Int64)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.TokenParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.TokenParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+            <param name="errorCode"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.TokenParseException.#ctor(System.Exception,System.String,System.String,System.Int64)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.TokenParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.TokenParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+            <param name="flag"></param>
+            <param name="errorCode"></param>
+        </member>
+        <member name="M:Cosmos.Expressions.TokenParseException.#ctor(Cosmos.CosmosException,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Cosmos.Expressions.TokenParseException"/>. <br />
+            创建一个新的 <see cref="T:Cosmos.Expressions.TokenParseException"/> 实例。
+            </summary>
+            <param name="exception"></param>
+            <param name="cause"></param>
+        </member>
+        <member name="P:Cosmos.Expressions.TokenParseException.Cause">
+            <summary>
+            Cause <br />
+            导致异常的原因
             </summary>
         </member>
         <member name="T:Cosmos.Finders.BaseFinder`1">
@@ -11526,6 +12259,59 @@
             </summary>
             <param name="source"></param>
             <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Queries.LinqHelper.Execute(System.Linq.IQueryable,System.Reflection.MethodInfo,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            用于：First、FirstOrDefault、Last、LastOrDefault、Single、SingleOrDefault
+            </summary>
+            <param name="source"></param>
+            <param name="method"></param>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Queries.LinqHelper.Execute``1(System.Linq.IQueryable,System.Reflection.MethodInfo,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            用于：All、Any、Count
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="source"></param>
+            <param name="method"></param>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Queries.LinqHelper.Execute(System.Linq.IQueryable,System.Reflection.MethodInfo,System.Linq.Expressions.ConstantExpression)">
+            <summary>
+            用于：ElementAt、ElementAtOrDefault
+            </summary>
+            <param name="source"></param>
+            <param name="method"></param>
+            <param name="constant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Queries.LinqHelper.ExecuteMaxMin(System.Linq.IQueryable,System.Reflection.MethodInfo,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            用于：Max、Min
+            </summary>
+            <param name="source"></param>
+            <param name="method"></param>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Queries.LinqHelper.ExecuteAverage(System.Linq.IQueryable,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            用于：Average
+            </summary>
+            <param name="source"></param>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cosmos.Queries.LinqHelper.ExecuteSum(System.Linq.IQueryable,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            用于：Sum
+            </summary>
+            <param name="source"></param>
+            <param name="lambda"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Queries.Operator">

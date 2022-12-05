@@ -21,6 +21,11 @@
       <Folder Include="Cosmos\Queries\Internals" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Cosmos.Extensions.Reflection.xml" />
+      <None Remove="Cosmos.Extensions.Reflection.csproj.DotSettings" />
+    </ItemGroup>
+
     <Import Project="dependency.props" />
 
     <Import Project="references.props" />

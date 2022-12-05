@@ -81,9 +81,6 @@
         <member name="M:Cosmos.Asynchronous.ActionRunner.Cancel">
             <inheritdoc />
         </member>
-        <member name="M:Cosmos.Asynchronous.ActionRunner.Dispose">
-            <inheritdoc />
-        </member>
         <member name="P:Cosmos.Asynchronous.ActionRunner.IsScheduled">
             <summary>
             Is scheduled
@@ -1631,46 +1628,6 @@
         </member>
         <member name="M:System.IO.StreamWithState`1.Dispose(System.Boolean)">
             <inheritdoc />
-        </member>
-        <member name="T:System.Runtime.Remoting.Messaging.CallContext">
-            <summary>
-            CallContext for .NET Standard and .NET Core
-            for more info: http://www.cazzulino.com/callcontext-netstandard-netcore.html
-            </summary>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.SetData(System.String,System.Object)">
-            <summary>
-            Set data
-            </summary>
-            <param name="name"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext.GetData(System.String)">
-            <summary>
-            Get data
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="T:System.Runtime.Remoting.Messaging.CallContext`1">
-            <summary>
-            Call Context
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.SetData(System.String,`0)">
-            <summary>
-            Set data
-            </summary>
-            <param name="name"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:System.Runtime.Remoting.Messaging.CallContext`1.GetData(System.String)">
-            <summary>
-            Get data
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>

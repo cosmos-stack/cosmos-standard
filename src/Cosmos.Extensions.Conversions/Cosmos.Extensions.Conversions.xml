@@ -349,6 +349,9 @@
             <summary>
             Internal core conversion helper from string to DateTimeOffset
             </summary>
+            <summary>
+            Internal core conversion helper from string to DateTimeOffset
+            </summary>
         </member>
         <member name="M:Cosmos.Conversions.Determiners.StringDateTimeOffsetDeterminer.Is(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider,System.Action{System.DateTimeOffset})">
             <summary>
@@ -1011,6 +1014,9 @@
             <summary>
             Internal core conversion helper from string to TimeSpan
             </summary>
+            <summary>
+            Internal core conversion helper from string to TimeSpan
+            </summary>
         </member>
         <member name="M:Cosmos.Conversions.Determiners.StringTimeSpanDeterminer.Is(System.String,System.IFormatProvider,System.Action{System.TimeSpan})">
             <summary>
@@ -1567,12 +1573,13 @@
             <param name="stream"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.StreamCastingExtensions.CastToBytesAsync(System.IO.Stream)">
+        <member name="M:Cosmos.Conversions.StreamCastingExtensions.CastToBytesAsync(System.IO.Stream,System.Threading.CancellationToken)">
             <summary>
             Convert <see cref="T:System.IO.Stream"/> to <see cref="T:System.Byte"/> array async. <br />
             将 <see cref="T:System.IO.Stream"/> 异步地转换为 <see cref="T:System.Byte"/> 数组。
             </summary>
             <param name="stream"></param>
+            <param name="cancellationToken"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Conversions.ObjectMappingServices.DefaultObjectMapper">
