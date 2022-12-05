@@ -1,4 +1,4 @@
-﻿using Cosmos.Conversions.Helpers;
+﻿using Cosmos.Conversions.Internals;
 
 namespace Cosmos.Conversions;
 

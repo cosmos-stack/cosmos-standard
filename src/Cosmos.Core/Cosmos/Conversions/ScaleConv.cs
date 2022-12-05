@@ -1,6 +1,5 @@
-﻿using System.Text;
-using System.Text.RegularExpressions;
-using Cosmos.Conversions.Helpers;
+﻿using System.Text.RegularExpressions;
+using Cosmos.Conversions.Internals;
 
 // ReSharper disable InconsistentNaming
 

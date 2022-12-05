@@ -11,10 +11,10 @@ namespace Cosmos.Conversions.Common;
 internal static class ValueConverter
 {
     public static Action<X> ConvertAct<X>(Action<object> action) /*where X : struct*/ =>
-        action is null ? null : new Action<X>(o => action(o));
+        action is null ? default! : new Action<X>(o => action(o));
 
     public static Action<object> ConvertAct<X>(Action<X> action) /*where X : struct*/ =>
-        action is null ? null : new Action<object>(o => action.Invoke((X) o));
+        action is null ? default! : new Action<object>(o => action.Invoke((X)o));
 
     /// <summary>
     /// To xxx

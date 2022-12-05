@@ -76,7 +76,7 @@ public static class StringEncodingDeterminer
         string text,
         Encoding defaultVal = null)
     {
-        Encoding result = null;
+        Encoding result = default;
         return Is(text, encoding => result = encoding)
             ? result
             : defaultVal.SafeValue(Encoding.Default);

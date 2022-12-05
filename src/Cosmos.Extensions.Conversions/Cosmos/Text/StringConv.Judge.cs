@@ -43,14 +43,11 @@ public static class StringConvAndJudgeExtensions
     /// <exception cref="ArgumentException"></exception>
     public static bool Is(this string text, Type type, CastingContext context, Action<object> matchedCallback = null)
     {
-        if (type is null)
-            throw new ArgumentNullException(nameof(type));
-
-        if (context is null)
-            throw new ArgumentNullException(nameof(context));
+        ArgumentNullException.ThrowIfNull(type);
+        ArgumentNullException.ThrowIfNull(context);
 
         if (Types.IsNullableType(type))
-            return text is null || Is(text, TypeConv.GetNonNullableType(type), context, matchedCallback);
+            return text is null || Is(text, TypeConv.GetNonNullableType(type)!, context, matchedCallback);
 
         if (!__unsupportedTypeCheck(type,
                 out var typeIsAssignableFromEncoding,

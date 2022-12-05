@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Cosmos.Conversions.Helpers;
+﻿using Cosmos.Conversions.Internals;
 
 namespace Cosmos.Conversions;
 
@@ -31,15 +30,18 @@ public static class Hex
     /// <returns></returns>
     public static byte[] ToBytes(string hex)
     {
+        if (hex == null)
+            return new byte[] { 0 };
+
         if (hex.Length == 0)
-            return new byte[] {0};
+            return new byte[] { 0 };
 
         if (hex.Length % 2 == 1)
             hex = "0" + hex;
 
         var result = new byte[hex.Length / 2];
         for (var i = 0; i < hex.Length / 2; i++)
-            result[i] = byte.Parse(hex.Substring(2 * i, 2), System.Globalization.NumberStyles.AllowHexSpecifier);
+            result[i] = byte.Parse(hex.Substring(2 * i, 2), NumberStyles.AllowHexSpecifier);
 
         return result;
     }
@@ -70,7 +72,7 @@ public static class HexExtensions
     /// <param name="bytes"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string ToHexString(this byte[] bytes) => Hex.ToString(bytes);
+    public static string CastToHexString(this byte[] bytes) => Hex.ToString(bytes);
 
     /// <summary>
     /// Hex string to byte <br />
@@ -79,5 +81,5 @@ public static class HexExtensions
     /// <param name="hex"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static byte[] ToBytes(this string hex) => Hex.ToBytes(hex);
+    public static byte[] CastToHexBytes(this string hex) => Hex.ToBytes(hex);
 }

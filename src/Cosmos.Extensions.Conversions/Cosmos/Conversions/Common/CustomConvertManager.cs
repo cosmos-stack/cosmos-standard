@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Cosmos.Conversions.Common;
+﻿namespace Cosmos.Conversions.Common;
 
 public static class CustomConvertManager
 {
@@ -10,8 +7,8 @@ public static class CustomConvertManager
 
     static CustomConvertManager()
     {
-        _customConvertHandlers = new Dictionary<(Type, Type), Func<object, object>>();
-        _customConvertCheckers = new Dictionary<(Type, Type), Func<object, bool>>();
+        _customConvertHandlers = new();
+        _customConvertCheckers = new();
     }
 
     public static bool TryGetChecker(Type sinceType, Type toType, out Func<object, bool> checker)
@@ -27,10 +24,10 @@ public static class CustomConvertManager
         if (sinceType is null || toType is null) return false;
         return _customConvertHandlers.TryGetValue((sinceType, toType), out handler);
     }
-        
+
     private static Func<object, bool> NotFunc => _ => false;
 
-    private static Func<object, object> NullFunc => _ => default;
+    private static Func<object, object> NullFunc => _ => default!;
 
     public static void Register(Type sinceType, Type toType, Func<object, bool> checker, Func<object, object> handler)
     {

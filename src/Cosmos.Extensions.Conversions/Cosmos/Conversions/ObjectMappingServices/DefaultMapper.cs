@@ -1,3 +1,5 @@
+using Cosmos.Conversions.Common.Core.FallbackMappings;
+
 namespace Cosmos.Conversions.ObjectMappingServices;
 
 /// <summary>
@@ -13,24 +15,24 @@ public class DefaultObjectMapper : IObjectMapper
     /// <inheritdoc />
     public TDestination MapTo<TSource, TDestination>(TSource source)
     {
-        return TinyMapper.TinyMapper.Map<TSource, TDestination>(source);
+        return TinyMapper.Map<TSource, TDestination>(source);
     }
 
     /// <inheritdoc />
     public TDestination MapTo<TSource, TDestination>(TSource source, TDestination destination)
     {
-        return TinyMapper.TinyMapper.Map(source, destination);
+        return TinyMapper.Map(source, destination);
     }
 
     /// <inheritdoc />
     public object MapTo(Type sourceType, Type destinationType, object source)
     {
-        return TinyMapper.TinyMapper.Map(sourceType, destinationType, source);
+        return TinyMapper.Map(sourceType, destinationType, source);
     }
 
     /// <inheritdoc />
     public object MapTo(Type sourceType, Type destinationType, object source, object destination)
     {
-        return TinyMapper.TinyMapper.Map(sourceType, destinationType, source, destination);
+        return TinyMapper.Map(sourceType, destinationType, source, destination);
     }
 }

@@ -7,10 +7,9 @@ namespace Cosmos.Conversions;
 
 internal static class CastTypeHelper
 {
-    public static void Guard(Type type, string parameter)
+    public static void Guard(Type type, [CallerArgumentExpression("type")] string parameter = null)
     {
-        if(type is null)
-            throw new ArgumentNullException(parameter);
+        ArgumentNullException.ThrowIfNull(type, parameter);
     }
 }
 
@@ -29,9 +28,9 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type targetType)
     {
-        CastTypeHelper.Guard(targetType,nameof(targetType));
+        CastTypeHelper.Guard(targetType, nameof(targetType));
         return obj is null
-            ? default
+            ? default!
             : XConv.To(obj, obj.GetType(), targetType, TypeDeterminer.GetDefaultValue(targetType));
     }
 
@@ -44,7 +43,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type targetType, object defaultVal)
     {
-        CastTypeHelper.Guard(targetType,nameof(targetType));
+        CastTypeHelper.Guard(targetType, nameof(targetType));
         return obj is null
             ? defaultVal
             : XConv.To(obj, obj.GetType(), targetType, defaultVal);
@@ -59,8 +58,8 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type sourceType, Type targetType)
     {
-        CastTypeHelper.Guard(sourceType,nameof(sourceType));
-        CastTypeHelper.Guard(targetType,nameof(targetType));
+        CastTypeHelper.Guard(sourceType, nameof(sourceType));
+        CastTypeHelper.Guard(targetType, nameof(targetType));
         return XConv.To(obj, sourceType, targetType);
     }
 
@@ -74,8 +73,8 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type sourceType, Type targetType, object defaultVal)
     {
-        CastTypeHelper.Guard(sourceType,nameof(sourceType));
-        CastTypeHelper.Guard(targetType,nameof(targetType));
+        CastTypeHelper.Guard(sourceType, nameof(sourceType));
+        CastTypeHelper.Guard(targetType, nameof(targetType));
         return XConv.To(obj, sourceType, targetType, defaultVal);
     }
 
@@ -88,7 +87,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(object fromObj, Type enumTye, EnumsNET.EnumValidation validation)
     {
-        CastTypeHelper.Guard(enumTye,nameof(enumTye));
+        CastTypeHelper.Guard(enumTye, nameof(enumTye));
         return EnumsNET.Enums.ToObject(enumTye, fromObj, validation);
     }
 
@@ -101,7 +100,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this string str, Type targetType, object defaultVal = default)
     {
-        CastTypeHelper.Guard(targetType,nameof(targetType));
+        CastTypeHelper.Guard(targetType, nameof(targetType));
         var result = defaultVal;
         return str.Is(targetType, v => result = v)
             ? result
@@ -118,7 +117,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this string str, Type targetType, CastingContext context, object defaultVal = default)
     {
-        CastTypeHelper.Guard(targetType,nameof(targetType));
+        CastTypeHelper.Guard(targetType, nameof(targetType));
         var result = defaultVal;
         context ??= CastingContext.DefaultContext;
         return str.Is(targetType, v => result = v)
@@ -136,7 +135,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this string str, Type targetType, Action<CastingContext> contextAct, object defaultVal = default)
     {
-        CastTypeHelper.Guard(targetType,nameof(targetType));
+        CastTypeHelper.Guard(targetType, nameof(targetType));
         var result = defaultVal;
         var context = new CastingContext();
         contextAct?.Invoke(context);
@@ -153,9 +152,9 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastToNullable(this string str, Type type)
     {
-        CastTypeHelper.Guard(type,nameof(type));
+        CastTypeHelper.Guard(type, nameof(type));
         object result = default;
-        return str.IsNullable(type,  v => result = v, () => result = null)
+        return str.IsNullable(type, v => result = v, () => result = null)
             ? result
             : null;
     }
@@ -169,8 +168,8 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastToNullable(this string str, Type type, CastingContext context)
     {
-        CastTypeHelper.Guard(type,nameof(type));
-        object result = default;
+        CastTypeHelper.Guard(type, nameof(type));
+        object result = default!;
         context ??= CastingContext.DefaultContext;
         return str.IsNullable(type, context, v => result = v, () => result = null)
             ? result
@@ -186,8 +185,8 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastToNullable(this string str, Type type, Action<CastingContext> contextAct)
     {
-        CastTypeHelper.Guard(type,nameof(type));
-        object result = default;
+        CastTypeHelper.Guard(type, nameof(type));
+        object result = default!;
         return str.IsNullable(type, contextAct, v => result = v, () => result = null)
             ? result
             : null;
@@ -248,7 +247,7 @@ public static class CastingExtensions
     public static T CastTo<T>(this string str, CastingContext context, T defaultVal = default)
     {
         T result = default;
-        return str.Is<T>(context,v => result = v) ? result : XConv.To(str, defaultVal, context);
+        return str.Is<T>(context, v => result = v) ? result : XConv.To(str, defaultVal, context);
     }
 
     /// <summary>
@@ -264,7 +263,7 @@ public static class CastingExtensions
         T result = default;
         var context = new CastingContext();
         contextAct?.Invoke(context);
-        return str.Is<T>(context,v => result = v) ? result : XConv.To(str, defaultVal, context);
+        return str.Is<T>(context, v => result = v) ? result : XConv.To(str, defaultVal, context);
     }
 
     /// <summary>
@@ -273,7 +272,7 @@ public static class CastingExtensions
     /// <param name="str"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static T? CastToNullable<T>(this string str)where T : struct
+    public static T? CastToNullable<T>(this string str) where T : struct
     {
         T? result = default;
         return str.IsNullable<T>(v => result = v, () => result = null) ? result : null;
@@ -286,11 +285,11 @@ public static class CastingExtensions
     /// <param name="context"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static T? CastToNullable<T>(this string str,CastingContext context)where T : struct
+    public static T? CastToNullable<T>(this string str, CastingContext context) where T : struct
     {
         T? result = default;
         context ??= CastingContext.DefaultContext;
-        return str.IsNullable<T>(context,v => result = v, () => result = null)? result : null;
+        return str.IsNullable<T>(context, v => result = v, () => result = null) ? result : null;
     }
 
     /// <summary>
@@ -300,12 +299,12 @@ public static class CastingExtensions
     /// <param name="contextAct"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static T? CastToNullable<T>(this string str,Action<CastingContext> contextAct)where T : struct
+    public static T? CastToNullable<T>(this string str, Action<CastingContext> contextAct) where T : struct
     {
         T? result = default;
         var context = new CastingContext();
         contextAct?.Invoke(context);
-        return str.IsNullable<T>(context,v => result = v, () => result = null)? result : null;
+        return str.IsNullable<T>(context, v => result = v, () => result = null) ? result : null;
     }
 
     #endregion

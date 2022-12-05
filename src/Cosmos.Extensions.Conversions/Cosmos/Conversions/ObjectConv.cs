@@ -50,7 +50,7 @@ public static class ObjectConv
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TTo To<TTo>(object source, CastingContext context = default)
     {
-        return XConv.To(source, source?.GetType(), typeof(TTo), context: context).As<TTo>();
+        return XConv.To(source, source.GetType(), typeof(TTo), context: context).As<TTo>();
     }
 
     /// <summary>
@@ -64,7 +64,7 @@ public static class ObjectConv
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TTo To<TTo>(object source, TTo defaultVal, CastingContext context = default)
     {
-        return XConv.To(source, source?.GetType(), typeof(TTo), defaultVal, context).As<TTo>();
+        return XConv.To(source, source.GetType(), typeof(TTo), defaultVal, context).As<TTo>();
     }
 
     #endregion

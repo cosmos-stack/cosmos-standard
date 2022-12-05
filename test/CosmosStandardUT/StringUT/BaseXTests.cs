@@ -109,8 +109,8 @@ public class BaseXTests
     [Fact(DisplayName = "Extension method for Base32 string test")]
     public void ExtensionMethodForBase32StringTest()
     {
-        var baseVal = "Alex LEWIS".ToBase32String();
-        var originalVal = baseVal.FromBase32String();
+        var baseVal = "Alex LEWIS".CastToBase32String();
+        var originalVal = baseVal.CastFromBase32String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -119,8 +119,8 @@ public class BaseXTests
     public void ExtensionMethodForBase32BytesTest()
     {
         var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
-        var baseVal = byteArray.ToBase32String();
-        var originalVal = baseVal.FromBase32String();
+        var baseVal = byteArray.CastToBase32String();
+        var originalVal = baseVal.CastFromBase32String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -128,8 +128,8 @@ public class BaseXTests
     [Fact(DisplayName = "Extension method for Base64 string test")]
     public void ExtensionMethodForBase64StringTest()
     {
-        var baseVal = "Alex LEWIS".ToBase64String();
-        var originalVal = baseVal.FromBase64String();
+        var baseVal = "Alex LEWIS".CastToBase64String();
+        var originalVal = baseVal.CastFromBase64String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -138,8 +138,8 @@ public class BaseXTests
     public void ExtensionMethodForBase64BytesTest()
     {
         var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
-        var baseVal = byteArray.ToBase64String();
-        var originalVal = baseVal.FromBase64String();
+        var baseVal = byteArray.CastToBase64String();
+        var originalVal = baseVal.CastFromBase64String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -147,8 +147,8 @@ public class BaseXTests
     [Fact(DisplayName = "Extension method for Base91 string test")]
     public void ExtensionMethodForBase91StringTest()
     {
-        var baseVal = "Alex LEWIS".ToBase91String();
-        var originalVal = baseVal.FromBase91String();
+        var baseVal = "Alex LEWIS".CastToBase91String();
+        var originalVal = baseVal.CastFromBase91String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -157,8 +157,8 @@ public class BaseXTests
     public void ExtensionMethodForBase91BytesTest()
     {
         var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
-        var baseVal = byteArray.ToBase91String();
-        var originalVal = baseVal.FromBase91String();
+        var baseVal = byteArray.CastToBase91String();
+        var originalVal = baseVal.CastFromBase91String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -166,8 +166,8 @@ public class BaseXTests
     [Fact(DisplayName = "Extension method for Base256 string test")]
     public void ExtensionMethodForBase256StringTest()
     {
-        var baseVal = "Alex LEWIS".ToBase256String();
-        var originalVal = baseVal.FromBase256String();
+        var baseVal = "Alex LEWIS".CastToBase256String();
+        var originalVal = baseVal.CastFromBase256String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -176,8 +176,8 @@ public class BaseXTests
     public void ExtensionMethodForBase256BytesTest()
     {
         var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
-        var baseVal = byteArray.ToBase256String();
-        var originalVal = baseVal.FromBase256String();
+        var baseVal = byteArray.CastToBase256String();
+        var originalVal = baseVal.CastFromBase256String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -185,8 +185,8 @@ public class BaseXTests
     [Fact(DisplayName = "Extension method for ZBase32 string test")]
     public void ExtensionMethodForZBase32StringTest()
     {
-        var baseVal = "Alex LEWIS".ToZBase32String();
-        var originalVal = baseVal.FromZBase32String();
+        var baseVal = "Alex LEWIS".CastToZBase32String();
+        var originalVal = baseVal.CastFromZBase32String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }
@@ -195,8 +195,8 @@ public class BaseXTests
     public void ExtensionMethodForZBase32BytesTest()
     {
         var byteArray = Encoding.UTF8.GetBytes("Alex LEWIS");
-        var baseVal = byteArray.ToZBase32String();
-        var originalVal = baseVal.FromZBase32String();
+        var baseVal = byteArray.CastToZBase32String();
+        var originalVal = baseVal.CastFromZBase32String();
 
         Assert.Equal("Alex LEWIS", originalVal);
     }

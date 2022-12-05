@@ -2,7 +2,7 @@
 
 public static class UnmanagedCastingExtensions
 {
-    public static unsafe byte[] CastToBytes<TUnMan>(this TUnMan unmanagedObj) where TUnMan : unmanaged
+    public static unsafe byte[] CastToUnsafeBytes<TUnMan>(this TUnMan unmanagedObj) where TUnMan : unmanaged
     {
         var size = sizeof(TUnMan);
         var result = new byte[size];

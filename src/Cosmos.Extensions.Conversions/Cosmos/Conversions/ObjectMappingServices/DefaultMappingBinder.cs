@@ -1,3 +1,5 @@
+using Cosmos.Conversions.Common.Core.FallbackMappings;
+
 namespace Cosmos.Conversions.ObjectMappingServices;
 
 /// <summary>
@@ -12,7 +14,7 @@ public static class DefaultMappingBinder
     /// <typeparam name="TTarget"></typeparam>
     public static void Bind<TSource, TTarget>()
     {
-        TinyMapper.TinyMapper.Bind<TSource, TTarget>();
+        TinyMapper.Bind<TSource, TTarget>();
     }
 
     /// <summary>
@@ -22,7 +24,7 @@ public static class DefaultMappingBinder
     /// <typeparam name="TTarget"></typeparam>
     public static void Bind<TSource, TTarget>(Action<IDefaultBindingConfig<TSource, TTarget>> bindingConfigure)
     {
-        TinyMapper.TinyMapper.Bind(bindingConfigure);
+        TinyMapper.Bind(bindingConfigure);
     }
 
     /// <summary>
@@ -32,7 +34,7 @@ public static class DefaultMappingBinder
     /// <param name="targetType"></param>
     public static void Bind(Type sourceType, Type targetType)
     {
-        TinyMapper.TinyMapper.Bind(sourceType, targetType);
+        TinyMapper.Bind(sourceType, targetType);
     }
 
     /// <summary>
@@ -43,7 +45,7 @@ public static class DefaultMappingBinder
     /// <returns></returns>
     public static bool HasBound<TSource, TTarget>()
     {
-        return TinyMapper.TinyMapper.BindingExists<TSource, TTarget>();
+        return TinyMapper.BindingExists<TSource, TTarget>();
     }
 
     /// <summary>
@@ -54,6 +56,6 @@ public static class DefaultMappingBinder
     /// <returns></returns>
     public static bool HasBound(Type sourceType, Type targetType)
     {
-        return TinyMapper.TinyMapper.BindingExists(sourceType, targetType);
+        return TinyMapper.BindingExists(sourceType, targetType);
     }
 }

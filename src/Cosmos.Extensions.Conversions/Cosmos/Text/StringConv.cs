@@ -40,11 +40,12 @@ public static partial class StringConvExtensions
     /// 将对象 <see cref="object"/> 转换为字符串。
     /// </summary>
     /// <param name="obj"></param>
+    /// <param name="defaultVal"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string CastToString(this object obj)
+    public static string CastToString(this object obj, string defaultVal = default)
     {
-        return StrConvX.ObjectSafeToString(obj);
+        return StringConv.ToString(obj, defaultVal);
     }
 
     #endregion

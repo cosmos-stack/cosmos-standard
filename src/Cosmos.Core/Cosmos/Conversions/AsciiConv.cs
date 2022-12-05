@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Cosmos.Conversions;
+﻿namespace Cosmos.Conversions;
 
 /// <summary>
 /// ASCII Conv Helper (internal)

@@ -14,9 +14,7 @@ public static class StringBooleanDeterminer
     /// <param name="text"></param>
     /// <param name="matchedCallback"></param>
     /// <returns></returns>
-    public static bool Is(
-        string text,
-        Action<bool> matchedCallback = null)
+    public static bool Is(string text, Action<bool> matchedCallback = null)
     {
         if (string.IsNullOrWhiteSpace(text))
             return false;
@@ -54,6 +52,7 @@ public static class StringBooleanDeterminer
     {
         if (string.IsNullOrWhiteSpace(text))
             return defaultVal;
+
         return bool.TryParse(text, out var boolean)
             ? boolean
             : InternalBooleanValueManager.TryDetermining(text, out boolean)

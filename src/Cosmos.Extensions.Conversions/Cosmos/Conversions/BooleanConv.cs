@@ -48,6 +48,6 @@ public static class BooleanConv
     {
         if (obj is string str && StringBooleanDeterminer.Is(str))
             return StringBooleanDeterminer.To(str);
-        return InternalBooleanValueManager.Determining(obj.ToString()?.Trim().ToLower());
+        return InternalBooleanValueManager.Determining(obj?.ToString()?.Trim().ToLower());
     }
 }
