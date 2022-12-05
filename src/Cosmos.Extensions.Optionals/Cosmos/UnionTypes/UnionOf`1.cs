@@ -71,46 +71,29 @@ public class UnionOf<T0, T1> : IUnionType, IUnionType<T0, T1>
             : throw new InvalidOperationException($"Cannot return as T1 as result is T{_ix}");
     }
 
-#if NETFRAMEWORK
-    /// <inheritdoc />
-    public Type TypeOfT0 => typeof(T0);
-
-    /// <inheritdoc />
-    public Type TypeOfT1 => typeof(T1);
-
-    public int Count() => 2;
-#endif
-
     public void Switch(Action<T0> f0, Action<T1> f1)
     {
-        if (_ix is 0 && f0 is not null)
+        switch (_ix)
         {
-            f0(_v0);
-            return;
+            case 0:
+                f0(_v0);
+                return;
+            case 1:
+                f1(_v1);
+                return;
+            default:
+                throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
         }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            f1(_v1);
-            return;
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
     }
 
     public TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1)
     {
-        if (_ix is 0 && f0 is not null)
+        return _ix switch
         {
-            return f0(_v0);
-        }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            return f1(_v1);
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
+            0 => f0(_v0),
+            1 => f1(_v1),
+            _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.")
+        };
     }
 
     /// <summary>

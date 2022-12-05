@@ -70,19 +70,6 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
         throw new InvalidOperationException($"Cannot return as T2 as result is T{_ix}");
     }
 
-#if NETFRAMEWORK
-    /// <inheritdoc />
-    public Type TypeOfT0 => typeof(T0);
-
-    /// <inheritdoc />
-    public Type TypeOfT1 => typeof(T1);
-
-    /// <inheritdoc />
-    public Type TypeOfT2 => typeof(T2);
-
-    public int Count() => 3;
-#endif
-
     public static implicit operator UnionType<T0, T1, T2>(T0 t) => new(0, v0: t);
 
     public static implicit operator UnionType<T0, T1, T2>(T1 t) => new(0, v1: t);
@@ -91,45 +78,31 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
 
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2)
     {
-        if (_ix is 0 && f0 is not null)
+        switch (_ix)
         {
-            f0(_v0);
-            return;
+            case 0:
+                f0(_v0);
+                return;
+            case 1:
+                f1(_v1);
+                return;
+            case 2:
+                f2(_v2);
+                return;
+            default:
+                throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.");
         }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            f1(_v1);
-            return;
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            f2(_v2);
-            return;
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.");
     }
 
     public TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1, Func<T2, TResult> f2)
     {
-        if (_ix is 0 && f0 is not null)
+        return _ix switch
         {
-            return f0(_v0);
-        }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            return f1(_v1);
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            return f2(_v2);
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.");
+            0 => f0(_v0),
+            1 => f1(_v1),
+            2 => f2(_v2),
+            _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.")
+        };
     }
 
     internal static UnionType<T0, T1, T2> FromNull() => new(0);
@@ -142,8 +115,7 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
 
     public UnionType<TResult, T1, T2> MapT0<TResult>(Func<T0, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => mapFunc(AsT0()),
@@ -155,8 +127,7 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
 
     public UnionType<T0, TResult, T2> MapT1<TResult>(Func<T1, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -168,8 +139,7 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
 
     public UnionType<T0, T1, TResult> MapT2<TResult>(Func<T2, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -181,7 +151,7 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
 
     public bool TryPickT0(out T0 value, out UnionType<T1, T2> remainder)
     {
-        value = IsT0() ? AsT0() : default;
+        value = IsT0() ? AsT0() ! : default!;
         remainder = _ix switch
         {
             0 => default,
@@ -194,7 +164,7 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
 
     public bool TryPickT1(out T1 value, out UnionType<T0, T2> remainder)
     {
-        value = IsT1() ? AsT1() : default;
+        value = IsT1() ? AsT1() ! : default!;
         remainder = _ix switch
         {
             0 => AsT0(),
@@ -207,7 +177,7 @@ public struct UnionType<T0, T1, T2> : IUnionType, IUnionType<T0, T1, T2>
 
     public bool TryPickT2(out T2 value, out UnionType<T0, T1> remainder)
     {
-        value = IsT2() ? AsT2() : default;
+        value = IsT2() ? AsT2()! : default!;
         remainder = _ix switch
         {
             0 => AsT0(),

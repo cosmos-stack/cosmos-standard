@@ -42,18 +42,11 @@ public struct UnionType<T0> : IUnionType, IUnionType<T0>
         throw new InvalidOperationException($"Cannot return as T0 as result is T{_ix}");
     }
 
-#if NETFRAMEWORK
-    /// <inheritdoc />
-    public Type TypeOfT0 => typeof(T0);
-
-    public int Count() => 1;
-#endif
-
     public static implicit operator UnionType<T0>(T0 t) => new(0, v0: t);
 
     public void Switch(Action<T0> f0)
     {
-        if (_ix is 0 && f0 is not null)
+        if (_ix is 0)
         {
             f0(_v0);
             return;
@@ -64,7 +57,7 @@ public struct UnionType<T0> : IUnionType, IUnionType<T0>
 
     public TResult Match<TResult>(Func<T0, TResult> f0)
     {
-        if (_ix is 0 && f0 is not null)
+        if (_ix is 0)
         {
             return f0(_v0);
         }
@@ -78,8 +71,7 @@ public struct UnionType<T0> : IUnionType, IUnionType<T0>
 
     public UnionType<TResult> MapT0<TResult>(Func<T0, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => mapFunc(AsT0()),
@@ -89,7 +81,7 @@ public struct UnionType<T0> : IUnionType, IUnionType<T0>
 
     public Maybe<T0> AsOptionals()
     {
-        return new(AsT0(), true);
+        return new(AsT0() ?? default, true);
     }
 
     bool Equals(UnionType<T0> other)

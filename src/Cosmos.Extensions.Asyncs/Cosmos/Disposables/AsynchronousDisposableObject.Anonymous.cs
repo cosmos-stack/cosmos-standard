@@ -29,11 +29,7 @@ public sealed class AsynchronousAnonymousDisposableObject : AsynchronousSingleDi
     /// Dispose.
     /// </summary>
     /// <param name="context"></param>
-#if NET5_0_OR_GREATER
     protected override ValueTask DisposeAsync(Func<ValueTask> context) => context?.Invoke() ?? ValueTask.CompletedTask;
-#else
-    protected override ValueTask DisposeAsync(Func<ValueTask> context) => context.Invoke();
-#endif
 
     /// <summary>
     /// Add dispose <see cref="Action"/>.

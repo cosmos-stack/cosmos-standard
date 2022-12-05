@@ -197,46 +197,6 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
         throw new InvalidOperationException($"Cannot return as T11 as result is T{_ix}");
     }
 
-#if NETFRAMEWORK
-    /// <inheritdoc />
-    public Type TypeOfT0 => typeof(T0);
-
-    /// <inheritdoc />
-    public Type TypeOfT1 => typeof(T1);
-
-    /// <inheritdoc />
-    public Type TypeOfT2 => typeof(T2);
-
-    /// <inheritdoc />
-    public Type TypeOfT3 => typeof(T3);
-
-    /// <inheritdoc />
-    public Type TypeOfT4 => typeof(T4);
-
-    /// <inheritdoc />
-    public Type TypeOfT5 => typeof(T5);
-
-    /// <inheritdoc />
-    public Type TypeOfT6 => typeof(T6);
-
-    /// <inheritdoc />
-    public Type TypeOfT7 => typeof(T7);
-
-    /// <inheritdoc />
-    public Type TypeOfT8 => typeof(T8);
-
-    /// <inheritdoc />
-    public Type TypeOfT9 => typeof(T9);
-
-    /// <inheritdoc />
-    public Type TypeOfT10 => typeof(T10);
-
-    /// <inheritdoc />
-    public Type TypeOfT11 => typeof(T11);
-
-    public int Count() => 12;
-#endif
-
     public static implicit operator UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(T0 t) => new(0, v0: t);
 
     public static implicit operator UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(T1 t) => new(0, v1: t);
@@ -264,145 +224,68 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2, Action<T3> f3, Action<T4> f4, Action<T5> f5, Action<T6> f6, Action<T7> f7, Action<T8> f8, Action<T9> f9,
         Action<T10> f10, Action<T11> f11)
     {
-        if (_ix is 0 && f0 is not null)
+        switch (_ix)
         {
-            f0(_v0);
-            return;
+            case 0:
+                f0(_v0);
+                return;
+            case 1:
+                f1(_v1);
+                return;
+            case 2:
+                f2(_v2);
+                return;
+            case 3:
+                f3(_v3);
+                return;
+            case 4:
+                f4(_v4);
+                return;
+            case 5:
+                f5(_v5);
+                return;
+            case 6:
+                f6(_v6);
+                return;
+            case 7:
+                f7(_v7);
+                return;
+            case 8:
+                f8(_v8);
+                return;
+            case 9:
+                f9(_v9);
+                return;
+            case 10:
+                f10(_v10);
+                return;
+            case 11:
+                f11(_v11);
+                return;
+            default:
+                throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.");
         }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            f1(_v1);
-            return;
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            f2(_v2);
-            return;
-        }
-
-        if (_ix is 3 && f3 is not null)
-        {
-            f3(_v3);
-            return;
-        }
-
-        if (_ix is 4 && f4 is not null)
-        {
-            f4(_v4);
-            return;
-        }
-
-        if (_ix is 5 && f5 is not null)
-        {
-            f5(_v5);
-            return;
-        }
-
-        if (_ix is 6 && f6 is not null)
-        {
-            f6(_v6);
-            return;
-        }
-
-        if (_ix is 7 && f7 is not null)
-        {
-            f7(_v7);
-            return;
-        }
-
-        if (_ix is 8 && f8 is not null)
-        {
-            f8(_v8);
-            return;
-        }
-
-        if (_ix is 9 && f9 is not null)
-        {
-            f9(_v9);
-            return;
-        }
-
-        if (_ix is 10 && f10 is not null)
-        {
-            f10(_v10);
-            return;
-        }
-
-        if (_ix is 11 && f11 is not null)
-        {
-            f11(_v11);
-            return;
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.");
     }
 
     public TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1, Func<T2, TResult> f2, Func<T3, TResult> f3, Func<T4, TResult> f4, Func<T5, TResult> f5, Func<T6, TResult> f6, Func<T7, TResult> f7, Func<T8, TResult> f8,
         Func<T9, TResult> f9, Func<T10, TResult> f10, Func<T11, TResult> f11)
     {
-        if (_ix is 0 && f0 is not null)
+        return _ix switch
         {
-            return f0(_v0);
-        }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            return f1(_v1);
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            return f2(_v2);
-        }
-
-        if (_ix is 3 && f3 is not null)
-        {
-            return f3(_v3);
-        }
-
-        if (_ix is 4 && f4 is not null)
-        {
-            return f4(_v4);
-        }
-
-        if (_ix is 5 && f5 is not null)
-        {
-            return f5(_v5);
-        }
-
-        if (_ix is 6 && f6 is not null)
-        {
-            return f6(_v6);
-        }
-
-        if (_ix is 7 && f7 is not null)
-        {
-            return f7(_v7);
-        }
-
-        if (_ix is 8 && f8 is not null)
-        {
-            return f8(_v8);
-        }
-
-        if (_ix is 9 && f9 is not null)
-        {
-            return f9(_v9);
-        }
-
-        if (_ix is 10 && f10 is not null)
-        {
-            return f10(_v10);
-        }
-
-        if (_ix is 11 && f11 is not null)
-        {
-            return f11(_v11);
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.");
+            0 => f0(_v0),
+            1 => f1(_v1),
+            2 => f2(_v2),
+            3 => f3(_v3),
+            4 => f4(_v4),
+            5 => f5(_v5),
+            6 => f6(_v6),
+            7 => f7(_v7),
+            8 => f8(_v8),
+            9 => f9(_v9),
+            10 => f10(_v10),
+            11 => f11(_v11),
+            _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionType codegen.")
+        };
     }
 
     internal static UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> FromNull() => new(0);
@@ -433,8 +316,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<TResult, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> MapT0<TResult>(Func<T0, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => mapFunc(AsT0()),
@@ -455,8 +337,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, TResult, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> MapT1<TResult>(Func<T1, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -477,8 +358,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, TResult, T3, T4, T5, T6, T7, T8, T9, T10, T11> MapT2<TResult>(Func<T2, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -499,8 +379,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, TResult, T4, T5, T6, T7, T8, T9, T10, T11> MapT3<TResult>(Func<T3, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -521,8 +400,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, TResult, T5, T6, T7, T8, T9, T10, T11> MapT4<TResult>(Func<T4, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -543,8 +421,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, T4, TResult, T6, T7, T8, T9, T10, T11> MapT5<TResult>(Func<T5, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -565,8 +442,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, T4, T5, TResult, T7, T8, T9, T10, T11> MapT6<TResult>(Func<T6, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -587,8 +463,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, T4, T5, T6, TResult, T8, T9, T10, T11> MapT7<TResult>(Func<T7, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -609,8 +484,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, T4, T5, T6, T7, TResult, T9, T10, T11> MapT8<TResult>(Func<T8, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -631,8 +505,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, TResult, T10, T11> MapT9<TResult>(Func<T9, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -653,8 +526,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult, T11> MapT10<TResult>(Func<T10, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),
@@ -675,8 +547,7 @@ public struct UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> : IUni
 
     public UnionType<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult> MapT11<TResult>(Func<T11, TResult> mapFunc)
     {
-        if (mapFunc is null)
-            throw new ArgumentNullException(nameof(mapFunc));
+        ArgumentNullException.ThrowIfNull(mapFunc);
         return _ix switch
         {
             0 => AsT0(),

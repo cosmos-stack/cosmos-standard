@@ -1,6 +1,4 @@
-﻿#if !NET451 && !NET452
-
-namespace Cosmos.Exceptions.BuildingServices;
+﻿namespace Cosmos.Exceptions.BuildingServices;
 
 /// <summary>
 /// Custom Exception Building Manager <br />
@@ -42,8 +40,7 @@ public static class CustomExceptionBuildingManager
     /// <exception cref="InvalidOperationException"></exception>
     public static Exception Return(Type type, Dictionary<string, IArgDescriptionVal> exceptionParams, out IExceptionBuilder builder)
     {
-        if (type is null)
-            throw new ArgumentNullException(nameof(type));
+        ArgumentNullException.ThrowIfNull(type);
         if (!type.IsSubclassOf(typeof(Exception)))
             throw new ArgumentException($"Type '{type}' does not be divided from {typeof(Exception)}", nameof(type));
         if (exceptionParams is null)
@@ -193,5 +190,3 @@ public static class CustomExceptionBuildingManager
         _customExceptionBuilders[type] = buildingDelegate;
     }
 }
-
-#endif

@@ -158,11 +158,7 @@ public static class ArraysExtensions
 
         if (arrayLength <= 0)
         {
-#if NET452
-                return new T[0];
-#else
             return Array.Empty<T>();
-#endif
         }
 
         var array = new T[arrayLength];
@@ -207,11 +203,7 @@ public static class ArraysExtensions
 
         if (arrayLength <= 0)
         {
-#if NET452
-                return new T[0];
-#else
             return Array.Empty<T>();
-#endif
         }
 
         var array = new T[arrayLength];

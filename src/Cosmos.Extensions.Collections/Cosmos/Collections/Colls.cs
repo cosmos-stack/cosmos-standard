@@ -1,8 +1,5 @@
 using System.Linq.Expressions;
-
-#if !NET452
 using Collections.Pooled;
-#endif
 
 // ReSharper disable MemberHidesStaticFromOuterClass
 
@@ -73,9 +70,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static bool BeContainedIn<T>(T item, IEnumerable<T> items)
     {
-        if (items is null)
-            throw new ArgumentNullException(nameof(items));
-
+        ArgumentNullException.ThrowIfNull(items);
         return items.Contains(item, EqualityComparer<T>.Default);
     }
 
@@ -91,11 +86,8 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static bool BeContainedIn<T>(T item, IEnumerable<T> items, IEqualityComparer<T> equalityComparer)
     {
-        if (items is null)
-            throw new ArgumentNullException(nameof(items));
-        if (equalityComparer is null)
-            throw new ArgumentNullException(nameof(equalityComparer));
-
+        ArgumentNullException.ThrowIfNull(items);
+        ArgumentNullException.ThrowIfNull(equalityComparer);
         return items.Contains(item, equalityComparer);
     }
 
@@ -111,9 +103,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static bool BeContainedIn<T>(T item, IEnumerable<T> items, Expression<Func<T, bool>> condition)
     {
-        if (items is null)
-            throw new ArgumentNullException(nameof(items));
-
+        ArgumentNullException.ThrowIfNull(items);
         return items.Where(condition.Compile()).Contains(item, EqualityComparer<T>.Default);
     }
 
@@ -130,11 +120,8 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static bool BeContainedIn<T>(T item, IEnumerable<T> items, Expression<Func<T, bool>> condition, IEqualityComparer<T> equalityComparer)
     {
-        if (items is null)
-            throw new ArgumentNullException(nameof(items));
-        if (equalityComparer is null)
-            throw new ArgumentNullException(nameof(equalityComparer));
-
+        ArgumentNullException.ThrowIfNull(items);
+        ArgumentNullException.ThrowIfNull(equalityComparer);
         return items.Where(condition.Compile()).Contains(item, equalityComparer);
     }
 
@@ -152,8 +139,7 @@ public static partial class Colls
     /// <returns></returns>
     public static bool Contains<T>(IEnumerable<T> source, Expression<Func<T, bool>> condition)
     {
-        if (condition is null)
-            throw new ArgumentNullException(nameof(condition));
+        ArgumentNullException.ThrowIfNull(condition);
         var func = condition.Compile();
         return source.Any(item => func.Invoke(item));
     }
@@ -213,9 +199,7 @@ public static partial class Colls
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static List<T> Empty<T>() => Arrays.Empty<T>().ToList();
-
-#if !NET452
+    public static List<T> Empty<T>() => Array.Empty<T>().ToList();
 
     /// <summary>
     /// Create an empty pooled list instance of the specified type T. <br />
@@ -245,8 +229,6 @@ public static partial class Colls
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static PooledList<T> PooledEmpty<T>(ClearMode mode) => new(mode);
-
-#endif
 
     #endregion
 
@@ -278,11 +260,8 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static int IndexOf<T>(IEnumerable<T> source, T item, IEqualityComparer<T> equalityComparer)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (equalityComparer is null)
-            throw new ArgumentNullException(nameof(equalityComparer));
-
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(equalityComparer);
         return source.Select((i, index) => new { Item = i, Index = index })
                      .FirstOrDefault(p => equalityComparer.Equals(p.Item, item))
                      ?.Index ?? -1;
@@ -323,8 +302,7 @@ public static partial class Colls
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IEnumerable<TSource> OrderByRandom<TSource>(IEnumerable<TSource> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return source.OrderBy(_ => Guid.NewGuid());
     }
 

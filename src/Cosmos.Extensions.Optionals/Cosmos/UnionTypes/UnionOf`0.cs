@@ -51,16 +51,9 @@ public class UnionOf<T0> : IUnionType, IUnionType<T0>
             : throw new InvalidOperationException($"Cannot return as T0 as result is T{_ix}");
     }
 
-#if NETFRAMEWORK
-    /// <inheritdoc />
-    public Type TypeOfT0 => typeof(T0);
-
-    public int Count() => 1;
-#endif
-
     public void Switch(Action<T0> f0)
     {
-        if (_ix is 0 && f0 is not null)
+        if (_ix is 0)
         {
             f0(_v0);
             return;
@@ -71,7 +64,7 @@ public class UnionOf<T0> : IUnionType, IUnionType<T0>
 
     public TResult Match<TResult>(Func<T0, TResult> f0)
     {
-        if (_ix is 0 && f0 is not null)
+        if (_ix is 0)
         {
             return f0(_v0);
         }

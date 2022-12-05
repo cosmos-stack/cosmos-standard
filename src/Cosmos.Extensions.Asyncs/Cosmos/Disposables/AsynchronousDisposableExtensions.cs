@@ -1,5 +1,4 @@
-﻿#if !NET452
-namespace Cosmos.Disposables;
+﻿namespace Cosmos.Disposables;
 
 public static class AsynchronousDisposableExtensions
 {
@@ -16,4 +15,3 @@ public static class AsynchronousDisposableExtensions
 #pragma warning restore CS1998
     }
 }
-#endif

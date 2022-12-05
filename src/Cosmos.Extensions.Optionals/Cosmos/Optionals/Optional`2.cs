@@ -39,10 +39,6 @@ public abstract class Optional<T, TException, TImpl> : IOptionalImpl<T, TExcepti
     /// <inheritdoc />
     public virtual bool HasValue => Either.HasValue;
 
-#if NETFRAMEWORK
-    public bool HasNoValue => !HasValue;
-#endif
-
     /// <inheritdoc />
     public virtual T Value => Either.Value;
 

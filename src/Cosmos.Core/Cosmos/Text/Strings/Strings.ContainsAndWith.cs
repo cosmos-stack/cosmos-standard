@@ -25,7 +25,7 @@ public static partial class Strings
         IEnumerable<string> YieldReturnStrings()
         {
             yield return value;
-            if (value is null)
+            if (values is null)
                 yield break;
             foreach (var val in values)
                 yield return val;
@@ -77,15 +77,12 @@ public static partial class Strings
     /// <returns></returns>
     public static bool ContainsIgnoreCase(string text, string value, params string[] values)
     {
-#if NETFRAMEWORK || NETSTANDARD2_0
-        return YieldReturnStrings().Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase));
-#else
         return YieldReturnStrings().Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
-#endif
+
         IEnumerable<string> YieldReturnStrings()
         {
             yield return value;
-            if (value is null)
+            if (values is null)
                 yield break;
             foreach (var val in values)
                 yield return val;
@@ -115,16 +112,7 @@ public static partial class Strings
     /// <returns></returns>
     public static bool ContainsIgnoreCase(string text, char character, params char[] characters)
     {
-#if NETFRAMEWORK || NETSTANDARD2_0
-        foreach (var val in YieldReturnCharacters())
-            for (var i = 0; i < text.Length; i++)
-                if (text[i].EqualsIgnoreCase(val))
-                    return true;
-
-        return false;
-#else
         return YieldReturnCharacters().Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
-#endif
 
         IEnumerable<char> YieldReturnCharacters()
         {
@@ -148,11 +136,7 @@ public static partial class Strings
     public static bool Contains(string text, string[] values, IgnoreCase @case)
     {
         return @case.X()
-#if NETFRAMEWORK || NETSTANDARD2_0
-            ? values.Any(val => string.Equals(text, val, StringComparison.OrdinalIgnoreCase))
-#else
             ? values.Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase))
-#endif
             : values.Any(text.Contains);
     }
 
@@ -183,21 +167,9 @@ public static partial class Strings
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool Contains(string text, char[] characters, IgnoreCase @case)
     {
-        if (@case.X())
-        {
-#if NETFRAMEWORK || NETSTANDARD2_0
-            foreach (var val in characters)
-                for (var i = 0; i < text.Length; i++)
-                    if (text[i].EqualsIgnoreCase(val))
-                        return true;
-
-            return false;
-#else
-            return characters.Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase));
-#endif
-        }
-
-        return characters.Any(text.Contains);
+        return @case.X()
+            ? characters.Any(v => text.Contains(v, StringComparison.OrdinalIgnoreCase))
+            : characters.Any(text.Contains);
     }
 
     #endregion
@@ -369,7 +341,7 @@ public static partial class StringsShortcutExtensions
         if (string.IsNullOrWhiteSpace(text))
             return false;
 
-        if (values.IsNullOrEmpty())
+        if (values is null || values.IsNullOrEmpty())
             return true;
 
         return text.EndsWith(values, StringComparison.OrdinalIgnoreCase);
@@ -467,7 +439,7 @@ public static partial class StringsShortcutExtensions
         if (string.IsNullOrWhiteSpace(text))
             return false;
 
-        if (values.IsNullOrEmpty())
+        if (values is null || values.IsNullOrEmpty())
             return true;
 
         return text.StartsWith(values, StringComparison.OrdinalIgnoreCase);

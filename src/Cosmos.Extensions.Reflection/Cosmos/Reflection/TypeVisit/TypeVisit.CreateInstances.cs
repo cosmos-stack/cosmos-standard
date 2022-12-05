@@ -1,8 +1,7 @@
 ﻿using Cosmos.Collections;
 using Cosmos.Dynamic;
-using Cosmos.Reflection.Reflectors;
 
-#if !NETFRAMEWORK
+#if !NET451 && !NET452
 using System.Text;
 using System.Collections.Concurrent;
 using BTFindTree;
@@ -228,7 +227,7 @@ public static partial class TypeVisit
             : type.GetConstructor(Types.Of(args))?.GetReflector().Invoke(args);
     }
 
-#if !NETFRAMEWORK
+#if !NET451 && !NET452
     /// <summary>
     /// Create a new instance <br />
     /// 创建实例
@@ -371,7 +370,6 @@ public static partial class TypeVisitExtensions
         return TypeVisit.CreateInstance(type, args);
     }
 
-#if !NET452
     /// <summary>
     /// Create an instance of the specified type.<br />
     /// 创建指定类型的实例。
@@ -427,11 +425,8 @@ public static partial class TypeVisitExtensions
         descriptors.Insert(0, argument);
         return TypeVisit.CreateInstance(type, descriptors);
     }
-
-#endif
 }
 
-#if !NETFRAMEWORK
 internal static class CtorTypeMakingHelper
 {
     internal class Template
@@ -484,8 +479,11 @@ internal static class CtorTypeMakingHelper
                     if (king != args.Length - 1)
                         paramsScript.Append(",");
                 }
-
+#if NETFRAMEWORK
+                _creators[index] = NDelegate.DefaultDomain().Func<object[], object>($"return new {_typeFullQualifiedName}({paramsScript});");
+#else
                 _creators[index] = NDelegate.RandomDomain().Func<object[], object>($"return new {_typeFullQualifiedName}({paramsScript});");
+#endif
             }
 
             var dynamicDictionary = new Dictionary<string, string>();
@@ -541,8 +539,11 @@ for(var king = 0; king < index.Length; ++king)
 }}
 return new {resultFullQualifiedName}(values[maxIndex], maxIndex);
 ");
-            //NDelegate.RandomDomain(x=>x.).UnsafeFunc<IEnumerable<ArgumentDescriptor>, TypeVisit.CtorMatchedResult>(script.ToString());
+#if NETFRAMEWORK
+            GetIndex = NDelegate.DefaultDomain().UnsafeFunc<IEnumerable<ArgumentDescriptor>, TypeVisit.CtorMatchedResult>(script.ToString());
+#else
             GetIndex = NDelegate.RandomDomain().UnsafeFunc<IEnumerable<ArgumentDescriptor>, TypeVisit.CtorMatchedResult>(script.ToString());
+#endif
         }
 
         public object CreateInstance(IEnumerable<ArgumentDescriptor> arguments)
@@ -571,5 +572,3 @@ internal static class CtorTypeMakingCache
         return Templates.GetOrAdd(type, factory);
     }
 }
-
-#endif

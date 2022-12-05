@@ -122,88 +122,41 @@ public class UnionOf<T0, T1, T2, T3, T4> : IUnionType, IUnionType<T0, T1, T2, T3
             : throw new InvalidOperationException($"Cannot return as T4 as result is T{_ix}");
     }
 
-#if NETFRAMEWORK
-    /// <inheritdoc />
-    public Type TypeOfT0 => typeof(T0);
-
-    /// <inheritdoc />
-    public Type TypeOfT1 => typeof(T1);
-
-    /// <inheritdoc />
-    public Type TypeOfT2 => typeof(T2);
-
-    /// <inheritdoc />
-    public Type TypeOfT3 => typeof(T3);
-
-    /// <inheritdoc />
-    public Type TypeOfT4 => typeof(T4);
-
-    public int Count() => 5;
-#endif
-
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2, Action<T3> f3, Action<T4> f4)
     {
-        if (_ix is 0 && f0 is not null)
+        switch (_ix)
         {
-            f0(_v0);
-            return;
+            case 0:
+                f0(_v0);
+                return;
+            case 1:
+                f1(_v1);
+                return;
+            case 2:
+                f2(_v2);
+                return;
+            case 3:
+                f3(_v3);
+                return;
+            case 4:
+                f4(_v4);
+                return;
+            default:
+                throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
         }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            f1(_v1);
-            return;
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            f2(_v2);
-            return;
-        }
-
-        if (_ix is 3 && f3 is not null)
-        {
-            f3(_v3);
-            return;
-        }
-
-        if (_ix is 4 && f4 is not null)
-        {
-            f4(_v4);
-            return;
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
     }
 
     public TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1, Func<T2, TResult> f2, Func<T3, TResult> f3, Func<T4, TResult> f4)
     {
-        if (_ix is 0 && f0 is not null)
+        return _ix switch
         {
-            return f0(_v0);
-        }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            return f1(_v1);
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            return f2(_v2);
-        }
-
-        if (_ix is 3 && f3 is not null)
-        {
-            return f3(_v3);
-        }
-
-        if (_ix is 4 && f4 is not null)
-        {
-            return f4(_v4);
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
+            0 => f0(_v0),
+            1 => f1(_v1),
+            2 => f2(_v2),
+            3 => f3(_v3),
+            4 => f4(_v4),
+            _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.")
+        };
     }
 
     /// <summary>

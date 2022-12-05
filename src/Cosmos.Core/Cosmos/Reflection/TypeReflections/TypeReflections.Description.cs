@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Linq.Expressions;
-#if !NETCOREAPP3_1
 using System.ComponentModel.DataAnnotations;
-#endif
 
 namespace Cosmos.Reflection;
 
@@ -25,11 +23,7 @@ public static partial class TypeReflections
     public static bool IsDescriptionDefined(MemberInfo member, ReflectionOptions refOptions = ReflectionOptions.Default)
     {
         return member is not null &&
-#if NETCOREAPP3_1
-               IsAttributeDefined<DescriptionAttribute>(member, refOptions);
-#else
                (IsAttributeDefined<DescriptionAttribute>(member, refOptions) || IsAttributeDefined<DisplayAttribute>(member, refOptions));
-#endif
     }
 
     /// <summary>
@@ -43,11 +37,7 @@ public static partial class TypeReflections
     public static bool IsDescriptionDefined(ParameterInfo parameter, ReflectionOptions refOptions = ReflectionOptions.Default)
     {
         return parameter is not null &&
-#if NETCOREAPP3_1
-               IsAttributeDefined<DescriptionAttribute>(parameter, refOptions);
-#else
                (IsAttributeDefined<DescriptionAttribute>(parameter, refOptions) || IsAttributeDefined<DisplayAttribute>(parameter, refOptions));
-#endif
     }
 
     #endregion
@@ -59,10 +49,8 @@ public static partial class TypeReflections
         if (member is null) return string.Empty;
         if (GetAttribute(member, typeof(DescriptionAttribute), refOptions, ambOptions) is DescriptionAttribute attribute)
             return attribute.Description;
-#if !NETCOREAPP3_1
         if (GetAttribute(member, typeof(DisplayAttribute), refOptions, ambOptions) is DisplayAttribute displayAttribute)
             return displayAttribute.Description ?? string.Empty;
-#endif
         return member.Name;
     }
 
@@ -71,10 +59,8 @@ public static partial class TypeReflections
         if (parameter is null) return string.Empty;
         if (GetAttribute(parameter, typeof(DescriptionAttribute), refOptions, ambOptions) is DescriptionAttribute attribute)
             return attribute.Description;
-#if !NETCOREAPP3_1
         if (GetAttribute(parameter, typeof(DisplayAttribute), refOptions, ambOptions) is DisplayAttribute displayAttribute)
             return displayAttribute.Description ?? string.Empty;
-#endif
         return parameter.Name ?? string.Empty;
     }
 
@@ -201,10 +187,8 @@ public static partial class TypeReflections
         if (member is null) return string.Empty;
         if (GetAttribute(member, typeof(DisplayNameAttribute), refOptions, ambOptions) is DisplayNameAttribute displayNameAttribute)
             return displayNameAttribute.DisplayName;
-#if !NETCOREAPP3_1
         if (GetAttribute(member, typeof(DisplayAttribute), refOptions, ambOptions) is DisplayAttribute displayAttribute)
             return displayAttribute.Name ?? string.Empty;
-#endif
         return member.Name;
     }
 
@@ -213,10 +197,8 @@ public static partial class TypeReflections
         if (parameter is null) return string.Empty;
         if (GetAttribute(parameter, typeof(DisplayNameAttribute), refOptions, ambOptions) is DisplayNameAttribute displayNameAttribute)
             return displayNameAttribute.DisplayName;
-#if !NETCOREAPP3_1
         if (GetAttribute(parameter, typeof(DisplayAttribute), refOptions, ambOptions) is DisplayAttribute displayAttribute)
             return displayAttribute.Name ?? string.Empty;
-#endif
         return parameter.Name ?? string.Empty;
     }
 
@@ -406,10 +388,8 @@ public static partial class TypeReflections
         if (member is null) return defaultVal;
         if (GetAttribute(member, typeof(DisplayNameAttribute), refOptions, ambOptions) is DisplayNameAttribute displayNameAttribute)
             return displayNameAttribute.DisplayName;
-#if !NETCOREAPP3_1
         if (GetAttribute(member, typeof(DisplayAttribute), refOptions, ambOptions) is DisplayAttribute displayAttribute)
             return displayAttribute.Name ?? string.Empty;
-#endif
         return defaultVal;
     }
 
@@ -418,10 +398,8 @@ public static partial class TypeReflections
         if (parameter is null) return defaultVal;
         if (GetAttribute(parameter, typeof(DisplayNameAttribute), refOptions, ambOptions) is DisplayNameAttribute displayNameAttribute)
             return displayNameAttribute.DisplayName;
-#if !NETCOREAPP3_1
         if (GetAttribute(parameter, typeof(DisplayAttribute), refOptions, ambOptions) is DisplayAttribute displayAttribute)
             return displayAttribute.Name ?? string.Empty;
-#endif
         return defaultVal;
     }
 

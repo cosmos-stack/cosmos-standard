@@ -22,13 +22,11 @@ internal static partial class XConv
             {
                 attributeName = attributes.Get<DisplayNameAttribute>()?.DisplayName ?? string.Empty;
             }
-#if !NETCOREAPP3_1
-            else if (attributes.Has<System.ComponentModel.DataAnnotations.DisplayAttribute>())
+            else if (attributes.Has<DisplayAttribute>())
             {
                 var attribute = attributes.Get<DisplayAttribute>();
                 attributeName = attribute?.GetDescription() ?? attribute?.GetName();
             }
-#endif
         }
 
         if (string.IsNullOrWhiteSpace(attributeName))

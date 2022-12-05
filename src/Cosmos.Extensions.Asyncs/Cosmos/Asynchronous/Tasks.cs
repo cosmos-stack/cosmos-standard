@@ -8,11 +8,6 @@ public static partial class Tasks
 {
     #region CompletedTask
 
-#if NET451 || NET452
-        // ReSharper disable once InconsistentNaming
-        private static readonly Task _completedTask = Task.FromResult(true);
-#endif
-
     /// <summary>
     /// Gets a task that has been completed successfully.
     /// </summary>
@@ -20,11 +15,7 @@ public static partial class Tasks
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Task CompletedTask()
     {
-#if NET451 || NET452
-        return _completedTask;
-#else
         return Task.CompletedTask;
-#endif
     }
 
     #endregion
@@ -39,13 +30,7 @@ public static partial class Tasks
     /// <returns></returns>
     public static Task<TResult> FromCanceled<TResult>(CancellationToken cancellationToken)
     {
-#if NET451 || NET452
-        var tcs = new TaskCompletionSource<TResult>();
-        tcs.SetCanceled();
-        return tcs.Task;
-#else
         return Task.FromCanceled<TResult>(cancellationToken);
-#endif
     }
 
     /// <summary>
@@ -56,14 +41,7 @@ public static partial class Tasks
     /// <returns></returns>
     public static Task<TResult> FromCanceled<TResult>(OperationCanceledException exception)
     {
-#if NET451 || NET452
-        var tcs = new TaskCompletionSource<TResult>();
-        tcs.SetException(exception);
-        tcs.SetCanceled();
-        return tcs.Task;
-#else
         return Task.FromCanceled<TResult>(exception.CancellationToken);
-#endif
     }
 
     #endregion
@@ -78,15 +56,8 @@ public static partial class Tasks
     /// <returns></returns>
     public static Task<TResult> FromException<TResult>(Exception exception)
     {
-        if (exception is null)
-            throw new ArgumentNullException(nameof(exception), "exception is null");
-#if NET451 || NET452
-        var tcs = new TaskCompletionSource<TResult>();
-        tcs.TrySetException(exception);
-        return tcs.Task;
-#else
+        ArgumentNullException.ThrowIfNull(exception);
         return Task.FromException<TResult>(exception);
-#endif
     }
 
     #endregion

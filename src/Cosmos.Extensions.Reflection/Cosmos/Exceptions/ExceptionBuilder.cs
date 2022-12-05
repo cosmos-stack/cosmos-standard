@@ -1,6 +1,4 @@
-#if !NET451 && !NET452
 using Cosmos.Exceptions.BuildingServices;
-#endif
 
 namespace Cosmos.Exceptions;
 
@@ -9,7 +7,6 @@ namespace Cosmos.Exceptions;
 /// </summary>
 public static class ExceptionBuilder
 {
-#if !NET451 && !NET452
     /// <summary>
     /// Create a new builder for of <typeparamref name="TException"/> <see cref="FluentExceptionBuilder{TException}"/>.<br />
     /// 创建一个用于构建 <typeparamref name="TException"/> <see cref="FluentExceptionBuilder{TException}"/> 的 builder。
@@ -34,7 +31,6 @@ public static class ExceptionBuilder
             return builder;
         return new FluentExceptionBuilder(typeOfException);
     }
-#endif
 
     /// <summary>
     /// Create an exception and raise.
@@ -55,11 +51,7 @@ public static class ExceptionBuilder
         }
         else
         {
-#if !NET451 && !NET452
             exception = Create<TException>().Message(message).Build();
-#else
-            exception = TypeVisit.CreateInstance<TException>(message);
-#endif
         }
 
         ExceptionHelper.PrepareForRethrow(exception);
@@ -85,11 +77,7 @@ public static class ExceptionBuilder
         }
         else
         {
-#if !NETFRAMEWORK
             exception = Create<TException>().Message(message).InnerException(innerException).Build();
-#else
-            exception = TypeVisit.CreateInstance<TException>(message, innerException);
-#endif
         }
 
         ExceptionHelper.PrepareForRethrow(exception);

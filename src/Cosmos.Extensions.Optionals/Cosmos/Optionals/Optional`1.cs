@@ -37,10 +37,6 @@ public abstract class Optional<T, TImpl> : IOptionalImpl<T, TImpl>
     /// <inheritdoc />
     public virtual bool HasValue => Internal.HasValue;
 
-#if NETFRAMEWORK
-    public bool HasNoValue => !HasValue;
-#endif
-
     /// <inheritdoc />
     public virtual T Value => Internal.Value;
 

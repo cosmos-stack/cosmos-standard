@@ -1,11 +1,5 @@
-﻿#if !NET451 && !NET452
-
-using Cosmos.Validation;
+﻿using Cosmos.Validation;
 using Cosmos.Exceptions.BuildingServices;
-
-#if NETFRAMEWORK
-using System.Linq;
-#endif
 
 // ReSharper disable InconsistentNaming
 
@@ -25,8 +19,7 @@ internal class FluentExceptionBuilder : IFluentExceptionBuilder, IParamsCheckabl
     /// </summary>
     public FluentExceptionBuilder(Type typeOfException)
     {
-        if (typeOfException is null)
-            throw new ArgumentNullException(nameof(typeOfException));
+        ArgumentNullException.ThrowIfNull(typeOfException);
         if (!typeOfException.IsSubclassOf(typeof(Exception)))
             throw new ArgumentException($"Type '{typeOfException}' does not be divided from {typeof(Exception)}", nameof(typeOfException));
         _typeOfException = typeOfException;
@@ -40,8 +33,7 @@ internal class FluentExceptionBuilder : IFluentExceptionBuilder, IParamsCheckabl
     public FluentExceptionBuilder(Type typeOfException,
         Action<Dictionary<string, IArgDescriptionVal>, ExceptionBuildingOptions> additionalOps)
     {
-        if (typeOfException is null)
-            throw new ArgumentNullException(nameof(typeOfException));
+        ArgumentNullException.ThrowIfNull(typeOfException);
         if (!typeOfException.IsSubclassOf(typeof(Exception)))
             throw new ArgumentException($"Type '{typeOfException}' does not be divided from {typeof(Exception)}", nameof(typeOfException));
         _typeOfException = typeOfException;
@@ -153,7 +145,7 @@ internal class FluentExceptionBuilder : IFluentExceptionBuilder, IParamsCheckabl
             if (exceptionParams is not null)
                 _additionalOps?.Invoke(exceptionParams, options);
 
-#if !NETFRAMEWORK
+#if !NET451 && !NET452
             CachedException = TypeVisit.CreateInstance(options.ExceptionType, options.ArgumentDescriptors);
 #else
             CachedException = TypeVisit.CreateInstance(options.ExceptionType, options.ArgumentDescriptors.ToArray());
@@ -249,5 +241,3 @@ internal class FluentExceptionBuilder : IFluentExceptionBuilder, IParamsCheckabl
         ArgumentsChecker = checker;
     }
 }
-
-#endif
