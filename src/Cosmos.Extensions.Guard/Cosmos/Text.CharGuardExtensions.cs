@@ -20,11 +20,7 @@ public static class CharGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireWithinRange(this char argument, char min, char max, string argumentName, string message = null)
-#else
     public static void RequireWithinRange(this char argument, char min, char max, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         CharGuard.ShouldBeWithinRange(argument, min, max, argumentName, message);
     }
@@ -42,11 +38,7 @@ public static class CharGuardExtensions
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireWithinRange(this char? argument, char min, char max, string argumentName, string message = null, CharMayOptions options = CharMayOptions.Default)
-#else
     public static void RequireWithinRange(this char? argument, char min, char max, [CallerArgumentExpression("argument")] string argumentName = null, string message = null, CharMayOptions options = CharMayOptions.Default)
-#endif
     {
         CharGuard.ShouldBeWithinRange(argument, min, max, argumentName, message, options);
     }

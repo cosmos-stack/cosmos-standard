@@ -18,11 +18,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequirePositive(this TimeSpan argument, string argumentName, string message = null)
-#else
     public static void RequirePositive(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBePositive(argument, argumentName, message);
     }
@@ -37,11 +33,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequirePositive(this TimeSpan? argument, string argumentName, string message = null)
-#else
     public static void RequirePositive(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBePositive(argument, argumentName, message);
     }
@@ -56,11 +48,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequirePositiveOrZero(this TimeSpan argument, string argumentName, string message = null)
-#else
     public static void RequirePositiveOrZero(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBePositiveOrZero(argument, argumentName, message);
     }
@@ -75,11 +63,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequirePositiveOrZero(this TimeSpan? argument, string argumentName, string message = null)
-#else
     public static void RequirePositiveOrZero(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBePositiveOrZero(argument, argumentName, message);
     }
@@ -94,11 +78,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireNegative(this TimeSpan argument, string argumentName, string message = null)
-#else
     public static void RequireNegative(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBeNegative(argument, argumentName, message);
     }
@@ -113,11 +93,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireNegative(this TimeSpan? argument, string argumentName, string message = null)
-#else
     public static void RequireNegative(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBeNegative(argument, argumentName, message);
     }
@@ -132,11 +108,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireNegativeOrZero(this TimeSpan argument, string argumentName, string message = null)
-#else
     public static void RequireNegativeOrZero(this TimeSpan argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
     }
@@ -151,11 +123,7 @@ public static class TimeSpanGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireNegativeOrZero(this TimeSpan? argument, string argumentName, string message = null)
-#else
     public static void RequireNegativeOrZero(this TimeSpan? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         TimeSpanGuard.ShouldBeNegativeOrZero(argument, argumentName, message);
     }

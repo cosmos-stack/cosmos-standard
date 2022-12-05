@@ -16,7 +16,7 @@ public static class StringGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotNull(string argument, string argumentName, string message = null)
+    public static void NotNull(string argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
             !string.IsNullOrWhiteSpace(argument),
@@ -33,7 +33,7 @@ public static class StringGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotEmpty(string argument, string argumentName, string message = null)
+    public static void NotEmpty(string argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
             !string.IsNullOrEmpty((argument ?? string.Empty).Trim()),
@@ -50,7 +50,7 @@ public static class StringGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotBlank(string argument, string argumentName, string message = null)
+    public static void NotBlank(string argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         NotEmpty(argument, argumentName, message);
     }
@@ -66,7 +66,7 @@ public static class StringGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotOutOfLength(string argument, int length, string argumentName, string message = null)
+    public static void NotOutOfLength(string argument, int length, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument.Trim().Length <= length,

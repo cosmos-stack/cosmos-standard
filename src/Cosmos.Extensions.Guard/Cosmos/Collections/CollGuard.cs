@@ -18,7 +18,7 @@ public static class CollGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNotNull(IEnumerable argument, string argumentName, string message = null)
+    public static void ShouldBeNotNull(IEnumerable argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
             argument is not null,
@@ -35,7 +35,7 @@ public static class CollGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNotEmpty(IEnumerable argument, string argumentName, string message = null)
+    public static void ShouldBeNotEmpty(IEnumerable argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
             !CollJudge.IsNullOrEmpty(argument),
@@ -54,7 +54,7 @@ public static class CollGuard
     /// <param name="number"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldContainAtLeast<T>(ICollection<T> argument, int number, string argumentName, string message = null)
+    public static void ShouldContainAtLeast<T>(ICollection<T> argument, int number, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument.Count >= number,
@@ -73,7 +73,7 @@ public static class CollGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNotNull<TKey, TValue>(KeyValuePair<TKey, TValue> argument, string argumentName, string message = null)
+    public static void ShouldBeNotNull<TKey, TValue>(KeyValuePair<TKey, TValue> argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
             !string.IsNullOrWhiteSpace(argument.ToString()),

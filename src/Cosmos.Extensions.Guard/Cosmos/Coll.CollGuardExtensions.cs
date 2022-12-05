@@ -19,11 +19,7 @@ public static class CollGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void Require(this IEnumerable argument, string argumentName, string message = null)
-#else
     public static void Require(this IEnumerable argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         CollGuard.ShouldBeNotNull(argument, argumentName, message);
     }
@@ -40,11 +36,7 @@ public static class CollGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void Require<TKey, TValue>(this KeyValuePair<TKey, TValue> argument, string argumentName, string message = null)
-#else
     public static void Require<TKey, TValue>(this KeyValuePair<TKey, TValue> argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         CollGuard.ShouldBeNotNull(argument, argumentName, message);
     }
@@ -61,11 +53,7 @@ public static class CollGuardExtensions
     /// <param name="number"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireAtLeast<T>(this ICollection<T> argument, int number, string argumentName, string message = null)
-#else
     public static void RequireAtLeast<T>(this ICollection<T> argument, int number, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         CollGuard.ShouldContainAtLeast(argument, number, argumentName, message);
     }

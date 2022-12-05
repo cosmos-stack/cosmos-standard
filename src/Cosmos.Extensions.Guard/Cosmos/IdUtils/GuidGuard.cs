@@ -16,7 +16,7 @@ public static class GuidGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeValid(Guid argument, string argumentName, string message = null)
+    public static void ShouldBeValid(Guid argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
             !argument.IsNullOrEmpty(),
@@ -33,7 +33,7 @@ public static class GuidGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeValid(Guid? argument, string argumentName, string message = null)
+    public static void ShouldBeValid(Guid? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBeValid(argument.SafeValue(), argumentName, message);
     }

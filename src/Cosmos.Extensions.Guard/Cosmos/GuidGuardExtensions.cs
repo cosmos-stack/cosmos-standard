@@ -18,11 +18,7 @@ public static class GuidGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void Require(this Guid argument, string argumentName, string message = null)
-#else
     public static void Require(this Guid argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         GuidGuard.ShouldBeValid(argument, argumentName, message);
     }
@@ -37,11 +33,7 @@ public static class GuidGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void Require(this Guid? argument, string argumentName, string message = null)
-#else
     public static void Require(this Guid? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         GuidGuard.ShouldBeValid(argument, argumentName, message);
     }

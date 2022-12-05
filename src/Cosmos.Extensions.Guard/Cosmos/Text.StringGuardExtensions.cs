@@ -18,11 +18,7 @@ public static class StringGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void Require(this string argument, string argumentName, string message = null)
-#else
     public static void Require(this string argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         StringGuard.NotNull(argument, argumentName, message);
     }
@@ -37,11 +33,7 @@ public static class StringGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireNotBlank(this string argument, string argumentName, string message = null)
-#else
     public static void RequireNotBlank(this string argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         StringGuard.NotEmpty(argument, argumentName, message);
     }
@@ -56,11 +48,7 @@ public static class StringGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireNotEmpty(this string argument, string argumentName, string message = null)
-#else
     public static void RequireNotEmpty(this string argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         StringGuard.NotEmpty(argument, argumentName, message);
     }
@@ -76,11 +64,7 @@ public static class StringGuardExtensions
     ///  <param name="argumentName"></param>
     ///  <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireMaxLength(this string argument, int length, string argumentName, string message = null)
-#else
     public static void RequireMaxLength(this string argument, int length, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         StringGuard.NotOutOfLength(argument, length, argumentName, message);
     }

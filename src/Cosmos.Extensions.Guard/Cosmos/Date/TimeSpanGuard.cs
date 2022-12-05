@@ -17,7 +17,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(TimeSpan argument, string argumentName, string message = null)
+    public static void ShouldBePositive(TimeSpan argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument > TimeSpan.Zero,
@@ -35,7 +35,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(TimeSpan? argument, string argumentName, string message = null)
+    public static void ShouldBePositive(TimeSpan? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBePositive(argument.SafeValue(), argumentName, message);
     }
@@ -51,7 +51,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(TimeSpan argument, string argumentName, string message = null)
+    public static void ShouldBePositiveOrZero(TimeSpan argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument >= TimeSpan.Zero,
@@ -69,7 +69,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(TimeSpan? argument, string argumentName, string message = null)
+    public static void ShouldBePositiveOrZero(TimeSpan? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBePositiveOrZero(argument.SafeValue(), argumentName, message);
     }
@@ -85,7 +85,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(TimeSpan argument, string argumentName, string message = null)
+    public static void ShouldBeNegative(TimeSpan argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument < TimeSpan.Zero,
@@ -103,7 +103,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(TimeSpan? argument, string argumentName, string message = null)
+    public static void ShouldBeNegative(TimeSpan? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBeNegative(argument.SafeValue(), argumentName, message);
     }
@@ -119,7 +119,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(TimeSpan argument, string argumentName, string message = null)
+    public static void ShouldBeNegativeOrZero(TimeSpan argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument <= TimeSpan.Zero,
@@ -137,7 +137,7 @@ public static class TimeSpanGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(TimeSpan? argument, string argumentName, string message = null)
+    public static void ShouldBeNegativeOrZero(TimeSpan? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBeNegativeOrZero(argument.SafeValue(), argumentName, message);
     }

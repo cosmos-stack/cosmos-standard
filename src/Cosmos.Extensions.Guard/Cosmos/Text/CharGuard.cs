@@ -30,7 +30,7 @@ public static class CharGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(char argument, char min, char max, string argumentName, string message = null)
+    public static void ShouldBeWithinRange(char argument, char min, char max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             CharJudge.IsBetween(argument, min, max),
@@ -50,7 +50,7 @@ public static class CharGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(char? argument, char min, char max, string argumentName, string message = null, CharMayOptions options = CharMayOptions.Default)
+    public static void ShouldBeWithinRange(char? argument, char min, char max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, CharMayOptions options = CharMayOptions.Default)
     {
         ShouldBeWithinRange(CharGuardHelper.C(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
     }

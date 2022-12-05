@@ -28,7 +28,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(int argument, string argumentName, string message = null)
+    public static void ShouldBePositive(int argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument > 0,
@@ -46,7 +46,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositive(int? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -61,7 +61,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(int argument, string argumentName, string message = null)
+    public static void ShouldBePositiveOrZero(int argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument >= 0,
@@ -79,7 +79,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositiveOrZero(int? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -94,7 +94,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(int argument, string argumentName, string message = null)
+    public static void ShouldBeNegative(int argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument < 0,
@@ -112,7 +112,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegative(int? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -127,7 +127,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(int argument, string argumentName, string message = null)
+    public static void ShouldBeNegativeOrZero(int argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument <= 0,
@@ -145,7 +145,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(int? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegativeOrZero(int? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -162,7 +162,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(int argument, int min, int max, string argumentName, string message = null)
+    public static void ShouldBeWithinRange(int argument, int min, int max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             NumericJudge.IsBetween(argument, min, max),
@@ -182,7 +182,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(int? argument, int min, int max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeWithinRange(int? argument, int min, int max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
     }
@@ -197,7 +197,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(long argument, string argumentName, string message = null)
+    public static void ShouldBePositive(long argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument > 0,
@@ -215,7 +215,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositive(long? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -230,7 +230,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(long argument, string argumentName, string message = null)
+    public static void ShouldBePositiveOrZero(long argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument >= 0,
@@ -248,7 +248,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositiveOrZero(long? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -263,7 +263,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(long argument, string argumentName, string message = null)
+    public static void ShouldBeNegative(long argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument < 0,
@@ -281,7 +281,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegative(long? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -296,7 +296,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(long argument, string argumentName, string message = null)
+    public static void ShouldBeNegativeOrZero(long argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument <= 0,
@@ -314,7 +314,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(long? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegativeOrZero(long? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -331,7 +331,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(long argument, long min, long max, string argumentName, string message = null)
+    public static void ShouldBeWithinRange(long argument, long min, long max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             NumericJudge.IsBetween(argument, min, max),
@@ -351,7 +351,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(long? argument, long min, long max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeWithinRange(long? argument, long min, long max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
     }
@@ -366,7 +366,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(float argument, string argumentName, string message = null)
+    public static void ShouldBePositive(float argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument > 0,
@@ -384,7 +384,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositive(float? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -399,7 +399,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(float argument, string argumentName, string message = null)
+    public static void ShouldBePositiveOrZero(float argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument >= 0,
@@ -417,7 +417,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositiveOrZero(float? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -432,7 +432,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(float argument, string argumentName, string message = null)
+    public static void ShouldBeNegative(float argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument < 0,
@@ -450,7 +450,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegative(float? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -465,7 +465,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(float argument, string argumentName, string message = null)
+    public static void ShouldBeNegativeOrZero(float argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument <= 0,
@@ -483,7 +483,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(float? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegativeOrZero(float? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -500,7 +500,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(float argument, float min, float max, string argumentName, string message = null)
+    public static void ShouldBeWithinRange(float argument, float min, float max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             NumericJudge.IsBetween(argument, min, max),
@@ -520,7 +520,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(float? argument, float min, float max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeWithinRange(float? argument, float min, float max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
     }
@@ -535,7 +535,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(double argument, string argumentName, string message = null)
+    public static void ShouldBePositive(double argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument > 0,
@@ -553,7 +553,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositive(double? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -568,7 +568,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(double argument, string argumentName, string message = null)
+    public static void ShouldBePositiveOrZero(double argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument >= 0,
@@ -586,7 +586,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositiveOrZero(double? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -601,7 +601,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(double argument, string argumentName, string message = null)
+    public static void ShouldBeNegative(double argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument < 0,
@@ -619,7 +619,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegative(double? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -634,7 +634,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(double argument, string argumentName, string message = null)
+    public static void ShouldBeNegativeOrZero(double argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument <= 0,
@@ -652,7 +652,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(double? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegativeOrZero(double? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -669,7 +669,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(double argument, double min, double max, string argumentName, string message = null)
+    public static void ShouldBeWithinRange(double argument, double min, double max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             NumericJudge.IsBetween(argument, min, max),
@@ -689,7 +689,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(double? argument, double min, double max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeWithinRange(double? argument, double min, double max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
     }
@@ -704,7 +704,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(decimal argument, string argumentName, string message = null)
+    public static void ShouldBePositive(decimal argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument > 0, argumentName, argument, message ?? $"The given number ({nameof(argument)} = {argument}) should be positive.");
@@ -721,7 +721,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositive(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositive(decimal? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositive(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -736,7 +736,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(decimal argument, string argumentName, string message = null)
+    public static void ShouldBePositiveOrZero(decimal argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument >= 0,
@@ -754,7 +754,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBePositiveOrZero(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBePositiveOrZero(decimal? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBePositiveOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -769,7 +769,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(decimal argument, string argumentName, string message = null)
+    public static void ShouldBeNegative(decimal argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument < 0,
@@ -787,7 +787,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegative(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegative(decimal? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegative(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -802,7 +802,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(decimal argument, string argumentName, string message = null)
+    public static void ShouldBeNegativeOrZero(decimal argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument <= 0,
@@ -820,7 +820,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeNegativeOrZero(decimal? argument, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeNegativeOrZero(decimal? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeNegativeOrZero(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), argumentName, message);
     }
@@ -837,7 +837,7 @@ public static class NumericGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(decimal argument, decimal min, decimal max, string argumentName, string message = null)
+    public static void ShouldBeWithinRange(decimal argument, decimal min, decimal max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             NumericJudge.IsBetween(argument, min, max),
@@ -857,7 +857,7 @@ public static class NumericGuard
     /// <param name="message"></param>
     /// <param name="options"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeWithinRange(decimal? argument, decimal min, decimal max, string argumentName, string message = null, NumericMayOptions options = NumericMayOptions.Default)
+    public static void ShouldBeWithinRange(decimal? argument, decimal min, decimal max, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null, NumericMayOptions options = NumericMayOptions.Default)
     {
         ShouldBeWithinRange(NumericGuardHelper.N(argument, options, argumentName, message).SafeValue(), min, max, argumentName, message);
     }

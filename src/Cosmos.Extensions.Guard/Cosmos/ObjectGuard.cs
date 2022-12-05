@@ -16,7 +16,7 @@ public static class ObjectGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotNull(object argument, string argumentName, string message = null)
+    public static void NotNull(object argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentNullException>(
             argument is not null,

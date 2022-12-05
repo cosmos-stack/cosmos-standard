@@ -16,7 +16,7 @@ public static class DateGuard
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public static void ShouldBeValid(DateTime argument, string argumentName, string message = null)
+    public static void ShouldBeValid(DateTime argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentInvalidException>(
             IsValid(argument),
@@ -41,7 +41,7 @@ public static class DateGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeValid(DateTime? argument, string argumentName, string message = null)
+    public static void ShouldBeValid(DateTime? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBeValid(argument.SafeValue(), argumentName, message);
     }
@@ -57,7 +57,7 @@ public static class DateGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeInThePast(DateTime argument, string argumentName, string message = null)
+    public static void ShouldBeInThePast(DateTime argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument <= DateTime.UtcNow,
@@ -75,7 +75,7 @@ public static class DateGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeInThePast(DateTime? argument, string argumentName, string message = null)
+    public static void ShouldBeInThePast(DateTime? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBeInThePast(argument.SafeValue(), argumentName, message);
     }
@@ -91,7 +91,7 @@ public static class DateGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeInTheFuture(DateTime argument, string argumentName, string message = null)
+    public static void ShouldBeInTheFuture(DateTime argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ValidationExceptionHelper.WrapAndRaise<ArgumentOutOfRangeException>(
             argument >= DateTime.UtcNow,
@@ -109,7 +109,7 @@ public static class DateGuard
     /// <param name="message"></param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ShouldBeInTheFuture(DateTime? argument, string argumentName, string message = null)
+    public static void ShouldBeInTheFuture(DateTime? argument, [CallerArgumentExpression(nameof(argument))] string argumentName = null, string message = null)
     {
         ShouldBeInTheFuture(argument.SafeValue(), argumentName, message);
     }

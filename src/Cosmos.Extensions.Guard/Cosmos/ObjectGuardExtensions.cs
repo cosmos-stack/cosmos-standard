@@ -12,11 +12,7 @@ public static class ObjectGuardExtensions
     /// <param name="argumentName">参数名</param>
     /// <param name="message">消息</param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void Require(this object argument, string argumentName, string message = null)
-#else
     public static void Require(this object argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         ObjectGuard.NotNull(argument, argumentName, message);
     }

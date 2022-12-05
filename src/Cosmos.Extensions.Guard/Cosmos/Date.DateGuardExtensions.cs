@@ -18,11 +18,7 @@ public static class DateGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireValidDate(this DateTime argument, string argumentName, string message = null)
-#else
     public static void RequireValidDate(this DateTime argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         DateGuard.ShouldBeValid(argument, argumentName, message);
     }
@@ -37,11 +33,7 @@ public static class DateGuardExtensions
     /// <param name="argumentName"></param>
     /// <param name="message"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NETFRAMEWORK
-    public static void RequireValidDate(this DateTime? argument, string argumentName, string message = null)
-#else
     public static void RequireValidDate(this DateTime? argument, [CallerArgumentExpression("argument")] string argumentName = null, string message = null)
-#endif
     {
         DateGuard.ShouldBeValid(argument, argumentName, message);
     }
