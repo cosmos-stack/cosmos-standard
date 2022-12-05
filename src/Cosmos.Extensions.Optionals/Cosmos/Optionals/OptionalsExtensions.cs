@@ -351,7 +351,7 @@ public static partial class OptionalsExtensions
         where TException : Exception
     {
         if (optional.HasValue)
-            return optional.Value;
+            return optional.Value!;
         throw exception ?? throw new OptionalValueMissingException();
     }
 
@@ -366,7 +366,7 @@ public static partial class OptionalsExtensions
         where TException : Exception
     {
         if (optional.HasValue)
-            return optional.Value;
+            return optional.Value!;
         throw optional.Exception ?? throw new OptionalValueMissingException();
     }
 
@@ -431,7 +431,7 @@ public static partial class OptionalsExtensions
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static T ValueOrDefault<T>(this Maybe<T> option) =>
-        option.HasValue ? option.Value : default;
+        option.HasValue ? option.Value : default!;
 
     /// <summary>
     /// Return the value of the given <see cref="Maybe{T}"/>, if null then raise an <see cref="OptionalValueMissingException"/>.<br />
@@ -464,7 +464,7 @@ public static partial class OptionalsExtensions
     /// <typeparam name="TException"></typeparam>
     /// <returns></returns>
     public static T ValueOrDefault<T, TException>(this Either<T, TException> option) =>
-        option.HasValue ? option.Value : default;
+        option.HasValue ? option.Value : default!;
 
     /// <summary>
     /// Return the value of the given <see cref="Either{T, TException}"/>, if null then raise an <see cref="OptionalValueMissingException"/>.<br />

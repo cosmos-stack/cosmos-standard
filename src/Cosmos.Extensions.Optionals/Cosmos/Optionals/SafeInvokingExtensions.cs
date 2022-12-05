@@ -467,7 +467,7 @@ public static class SafeInvokingExtensions
     /// <param name="func"></param>
     /// <typeparam name="TResult"></typeparam>
     /// <returns></returns>
-    public static TResult SafeFuncInvoke<TResult>(this Func<TResult> func) => func is null ? default : func.Invoke();
+    public static TResult SafeFuncInvoke<TResult>(this Func<TResult> func) => func is null ? default! : func.Invoke();
 
     /// <summary>
     /// Invoke the given <see cref="Func{T, TResult}"/> in a safe way.<br />
@@ -478,7 +478,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TResult"></typeparam>
     /// <returns></returns>
-    public static TResult SafeFuncInvoke<T, TResult>(this Func<T, TResult> func, T arg) => func is null ? default : func.Invoke(arg);
+    public static TResult SafeFuncInvoke<T, TResult>(this Func<T, TResult> func, T arg) => func is null ? default! : func.Invoke(arg);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T}"/> in a safe way.<br />
@@ -491,7 +491,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static T SafeFuncInvoke<T1, T2, T>(this Func<T1, T2, T> func, T1 arg1, T2 arg2) => func is null ? default : func.Invoke(arg1, arg2);
+    public static T SafeFuncInvoke<T1, T2, T>(this Func<T1, T2, T> func, T1 arg1, T2 arg2) => func is null ? default! : func.Invoke(arg1, arg2);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T}"/> in a safe way.<br />
@@ -507,7 +507,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T>(this Func<T1, T2, T3, T> func, T1 arg1, T2 arg2, T3 arg3) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T}"/> in a safe way.<br />
@@ -525,7 +525,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T>(this Func<T1, T2, T3, T4, T> func, T1 arg1, T2 arg2, T3 arg3, T4 arg4) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T}"/> in a safe way.<br />
@@ -545,7 +545,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T>(this Func<T1, T2, T3, T4, T5, T> func, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T}"/> in a safe way.<br />
@@ -567,7 +567,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T>(this Func<T1, T2, T3, T4, T5, T6, T> func, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T}"/> in a safe way.<br />
@@ -591,7 +591,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T> func, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T}"/> in a safe way.<br />
@@ -618,7 +618,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T}"/> in a safe way.<br />
@@ -647,7 +647,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T}"/> in a safe way.<br />
@@ -678,7 +678,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T}"/> in a safe way.<br />
@@ -711,7 +711,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T}"/> in a safe way.<br />
@@ -746,7 +746,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T}"/> in a safe way.<br />
@@ -783,7 +783,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T}"/> in a safe way.<br />
@@ -822,7 +822,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T}"/> in a safe way.<br />
@@ -863,7 +863,7 @@ public static class SafeInvokingExtensions
     /// <returns></returns>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15);
 
     /// <summary>
     /// Invoke the given <see cref="Func{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T}"/> in a safe way.<br />
@@ -905,7 +905,7 @@ public static class SafeInvokingExtensions
     /// <typeparam name="T"></typeparam>
     public static T SafeFuncInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T> func,
         T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16) =>
-        func is null ? default : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16);
+        func is null ? default! : func.Invoke(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16);
 
     #endregion
 }

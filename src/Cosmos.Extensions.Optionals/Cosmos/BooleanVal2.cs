@@ -15,6 +15,8 @@ public class BooleanVal2 : UnionOf<BooleanVal2.True, BooleanVal2.False>
     /// </summary>
     public class True : ValueOf<bool, True>
     {
+        public True() : base(true) { }
+
         public static True Instance { get; } = From(true);
 
         public static implicit operator bool(True _) => true;
@@ -25,6 +27,8 @@ public class BooleanVal2 : UnionOf<BooleanVal2.True, BooleanVal2.False>
     /// </summary>
     public class False : ValueOf<bool, False>
     {
+        public False() : base(false) { }
+
         public static False Instance { get; } = From(false);
 
         public static implicit operator bool(False _) => false;
@@ -70,8 +74,8 @@ public class BooleanVal2 : UnionOf<BooleanVal2.True, BooleanVal2.False>
 
     public static implicit operator bool(BooleanVal2 value)
     {
-        if (value.IsT0()) return value.AsT0();
-        if (value.IsT1()) return value.AsT1();
+        if (value.IsT0()) return value.AsT0()!;
+        if (value.IsT1()) return value.AsT1()!;
         return false;
     }
 
@@ -172,5 +176,5 @@ public static class BooleanVal2Extensions
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static BooleanVal2 ToBooleanVal2(this bool? value) => value.HasValue ? value.Value : BooleanVal2.FalseVal;
+    public static BooleanVal2 ToBooleanVal2(this bool? value) => value ?? BooleanVal2.FalseVal;
 }

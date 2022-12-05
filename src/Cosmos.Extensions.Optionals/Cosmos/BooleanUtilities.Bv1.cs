@@ -71,7 +71,7 @@ public static partial class BooleanExtensions
     /// <param name="this"></param>
     /// <param name="that"></param>
     /// <returns></returns>
-    public static TValue Ifttt<T, TValue>(this BooleanVal<T> condition, Func<T, TValue> @this, Func<T, TValue> @that)
+    public static TValue Ifttt<T, TValue>(this BooleanVal<T> condition, Func<T, TValue> @this, Func<T, TValue> that)
     {
         if (condition.Value)
         {
@@ -242,7 +242,7 @@ public static partial class FluentBooleanExtensions
     public static BooleanVal<T> And<T>(this bool current, Func<(bool, T)> next)
     {
         if (!current) return false;
-        return next?.Invoke() ?? false.ToBooleanVal<T>();
+        return next?.Invoke() ?? false.ToBooleanVal<T>()!;
     }
 
     /// <summary>
@@ -285,7 +285,7 @@ public static partial class FluentBooleanExtensions
     public static BooleanVal<T> And<T>(this BooleanVal<T> current, Func<(bool, T)> next)
     {
         if (!current.Value) return current; // means false
-        return next?.Invoke() ?? current;
+        return next?.Invoke() ?? current!;
     }
 
     /// <summary>
@@ -357,7 +357,7 @@ public static partial class FluentBooleanExtensions
     public static BooleanVal<T> Or<T>(this bool current, Func<(bool, T)> next)
     {
         if (current) return true;
-        return next?.Invoke() ?? false.ToBooleanVal<T>();
+        return next?.Invoke() ?? false.ToBooleanVal<T>()!;
     }
 
     /// <summary>
@@ -400,7 +400,7 @@ public static partial class FluentBooleanExtensions
     public static BooleanVal<T> Or<T>(this BooleanVal<T> current, Func<(bool, T)> next)
     {
         if (current.Value) return current; // means true
-        return next?.Invoke() ?? false.ToBooleanVal(current.Object);
+        return next?.Invoke() ?? false.ToBooleanVal(current.Object)!;
     }
 
     /// <summary>

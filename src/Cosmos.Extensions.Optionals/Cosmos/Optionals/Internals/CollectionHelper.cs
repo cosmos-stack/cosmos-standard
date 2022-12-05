@@ -9,13 +9,7 @@ internal static class CollectionHelper
     /// </summary>
     /// <param name="coll"></param>
     /// <returns></returns>
-    public static bool IsNullOrEmpty(IEnumerable coll)
-    {
-        if (coll is null)
-            return true;
-
-        return !coll.Cast<object>().Any();
-    }
+    public static bool IsNullOrEmpty(IEnumerable coll) => coll is null || !coll.Cast<object>().Any();
 
     /// <summary>
     /// To judge whether the collection is null or empty.

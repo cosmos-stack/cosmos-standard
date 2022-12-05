@@ -95,7 +95,7 @@ public static partial class BooleanExtensions
     /// <param name="this"></param>
     /// <param name="that"></param>
     /// <returns></returns>
-    public static TValue Ifttt<TValue>(this BooleanVal2 condition, Func<TValue> @this, Func<TValue> @that)
+    public static TValue Ifttt<TValue>(this BooleanVal2 condition, Func<TValue> @this, Func<TValue> that)
     {
         if (condition is null)
             return default;

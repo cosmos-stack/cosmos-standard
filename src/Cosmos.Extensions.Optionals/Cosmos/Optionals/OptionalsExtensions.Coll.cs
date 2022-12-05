@@ -17,8 +17,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> MapValues<T>(this IEnumerable<Maybe<T>> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var maybe in source)
             if (maybe.HasValue)
                 yield return maybe.Value;
@@ -35,8 +34,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> MapValues<T, TException>(this IEnumerable<Either<T, TException>> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var either in source)
             if (either.HasValue)
                 yield return either.Value;
@@ -53,8 +51,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<TException> MapExceptions<T, TException>(this IEnumerable<Either<T, TException>> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var either in source)
             if (!either.HasValue)
                 yield return either.Exception;
@@ -74,12 +71,11 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static IOptional<T> FindOrNone<TKey, T>(this IEnumerable<KeyValuePair<TKey, T>> source, TKey key, OptionalType type = OptionalType.ReferenceType)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (source is IDictionary<TKey, T> dictionary)
-            return dictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type);
+            return dictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type)!;
         if (source is IReadOnlyDictionary<TKey, T> readOnlyDictionary)
-            return readOnlyDictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type);
+            return readOnlyDictionary.TryGetValue(key, out var value) ? value.Some(type) : value.None(type)!;
         return source
                .FirstOrNone(pair => EqualityComparer<TKey>.Default.Equals(pair.Key, key))
                .Map(pair => pair.Value);
@@ -94,8 +90,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> FirstOrNone<T>(this IEnumerable<T> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (source is IList<T> list)
         {
             if (list.Count > 0)
@@ -127,10 +122,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> FirstOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(predicate);
         foreach (var element in source)
         {
             if (predicate(element))
@@ -149,8 +142,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> LastOrNone<T>(this IEnumerable<T> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (source is IList<T> list)
         {
             var count = list.Count;
@@ -192,10 +184,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> LastOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(predicate);
         if (source is IList<T> list)
         {
             for (var i = list.Count - 1; i >= 0; --i)
@@ -249,8 +239,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> SingleOrNone<T>(this IEnumerable<T> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (source is IList<T> list)
         {
             switch (list.Count)
@@ -291,10 +280,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> SingleOrNone<T>(this IEnumerable<T> source, Func<T, bool> predicate)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(predicate);
         using (var enumerator = source.GetEnumerator())
         {
             while (enumerator.MoveNext())
@@ -326,8 +313,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> ElementAtOrNone<T>(this IEnumerable<T> source, int index)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (index >= 0)
         {
             if (source is IList<T> list)

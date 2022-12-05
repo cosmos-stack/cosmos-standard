@@ -106,7 +106,7 @@ public static partial class BooleanExtensions
     /// <param name="that"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TValue Ifttt<TValue>(this bool condition, Func<TValue> @this, Func<TValue> @that)
+    public static TValue Ifttt<TValue>(this bool condition, Func<TValue> @this, Func<TValue> that)
     {
         if (condition)
         {

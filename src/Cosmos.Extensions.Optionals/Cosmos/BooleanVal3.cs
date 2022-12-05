@@ -15,6 +15,8 @@ public class BooleanVal3 : UnionOf<BooleanVal3.True, BooleanVal3.False, BooleanV
     /// </summary>
     public class True : ValueOf<bool?, True>
     {
+        public True() : base(true) { }
+
         public static True Instance { get; } = From(true);
 
         public static implicit operator bool?(True _) => true;
@@ -25,6 +27,8 @@ public class BooleanVal3 : UnionOf<BooleanVal3.True, BooleanVal3.False, BooleanV
     /// </summary>
     public class False : ValueOf<bool?, False>
     {
+        public False() : base(false) { }
+
         public static False Instance { get; } = From(false);
 
         public static implicit operator bool?(False _) => false;
@@ -35,6 +39,8 @@ public class BooleanVal3 : UnionOf<BooleanVal3.True, BooleanVal3.False, BooleanV
     /// </summary>
     public class Null : ValueOf<bool?, Null>
     {
+        public Null() : base(null) { }
+
         public static Null Instance { get; } = From(null);
 
         public static implicit operator bool?(Null _) => null;
@@ -98,9 +104,9 @@ public class BooleanVal3 : UnionOf<BooleanVal3.True, BooleanVal3.False, BooleanV
     public static implicit operator bool?(BooleanVal3 value)
     {
         if (value is null) return null;
-        if (value.IsT0()) return value.AsT0();
-        if (value.IsT1()) return value.AsT1();
-        if (value.IsT2()) return value.AsT2();
+        if (value.IsT0()) return value.AsT0()!;
+        if (value.IsT1()) return value.AsT1()!;
+        if (value.IsT2()) return value.AsT2()!;
         return null;
     }
 

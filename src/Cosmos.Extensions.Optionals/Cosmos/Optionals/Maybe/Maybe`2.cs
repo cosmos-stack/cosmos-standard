@@ -29,7 +29,7 @@ public readonly struct Maybe<T1, T2> : IOptionalImpl<(T1, T2), Maybe<T1, T2>>,
     internal Maybe(T1 value1, string key1, T2 value2, string key2, bool hasValue)
     {
         _o1 = Optional.From(value1);
-        _o2 = Cosmos.Optionals.Optional.From(value2);
+        _o2 = Optional.From(value2);
         _hasValue = hasValue;
         _optionalIndexCache = NamedMaybeHelper.CreateIndexCache(2, key1, key2);
     }

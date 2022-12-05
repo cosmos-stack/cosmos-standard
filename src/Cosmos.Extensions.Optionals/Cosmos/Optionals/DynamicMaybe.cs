@@ -242,7 +242,9 @@ public readonly struct DynamicMaybe : IDynamicOptional
     /// </summary>
     /// <returns></returns>
     // ReSharper disable once InconsistentNaming
+#pragma warning disable CS8633
     public IDictionary<T, V> ToDictionary<T, V>(Func<KeyValuePair<string, dynamic>, T> keySelector, Func<KeyValuePair<string, dynamic>, V> valueSelector) where T : notnull
+#pragma warning restore CS8633
     {
         if (keySelector is null)
             throw new ArgumentNullException(nameof(keySelector));

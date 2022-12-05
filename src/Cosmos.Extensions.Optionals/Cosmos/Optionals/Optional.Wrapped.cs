@@ -1,3 +1,5 @@
+// ReSharper disable MemberHidesStaticFromOuterClass
+
 namespace Cosmos.Optionals;
 
 /// <summary>
@@ -96,8 +98,7 @@ public static partial class Optional
         // ReSharper disable once MemberHidesStaticFromOuterClass
         public static IOptional<T> From<T>(T value, Func<T, bool> condition)
         {
-            if (condition is null)
-                throw new ArgumentNullException(nameof(condition));
+            ArgumentNullException.ThrowIfNull(condition);
             if (value is null)
                 return None<T>();
             return condition(value) ? Some(value) : None<T>();

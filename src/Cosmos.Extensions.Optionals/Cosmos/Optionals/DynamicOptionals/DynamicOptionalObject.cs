@@ -62,7 +62,7 @@ public class DynamicOptionalObject
     /// Indexer
     /// </summary>
     /// <param name="key"></param>
-    public dynamic this[string key] => _dynamicDictionary.TryGetValue(key, out var result) ? result : default;
+    public dynamic this[string key] => _dynamicDictionary.TryGetValue(key, out var result) ? result : default!;
 
     #endregion
 

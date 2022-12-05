@@ -137,7 +137,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     public bool IsT10() => _ix == 10;
 
     /// <inheritdoc />
-    public T0  AsT0()
+    public T0 AsT0()
     {
         return _ix == 0
             ? _v0
@@ -145,7 +145,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T1  AsT1()
+    public T1 AsT1()
     {
         return _ix == 1
             ? _v1
@@ -153,7 +153,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T2  AsT2()
+    public T2 AsT2()
     {
         return _ix == 2
             ? _v2
@@ -161,7 +161,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T3  AsT3()
+    public T3 AsT3()
     {
         return _ix == 3
             ? _v3
@@ -169,7 +169,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T4  AsT4()
+    public T4 AsT4()
     {
         return _ix == 4
             ? _v4
@@ -177,7 +177,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T5  AsT5()
+    public T5 AsT5()
     {
         return _ix == 5
             ? _v5
@@ -185,7 +185,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T6  AsT6()
+    public T6 AsT6()
     {
         return _ix == 6
             ? _v6
@@ -193,7 +193,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T7  AsT7()
+    public T7 AsT7()
     {
         return _ix == 7
             ? _v7
@@ -201,7 +201,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T8  AsT8()
+    public T8 AsT8()
     {
         return _ix == 8
             ? _v8
@@ -209,7 +209,7 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T9  AsT9()
+    public T9 AsT9()
     {
         return _ix == 9
             ? _v9
@@ -217,181 +217,74 @@ public class UnionOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : IUnionType, 
     }
 
     /// <inheritdoc />
-    public T10  AsT10()
+    public T10 AsT10()
     {
         return _ix == 10
             ? _v10
             : throw new InvalidOperationException($"Cannot return as T10 as result is T{_ix}");
     }
 
-#if NETFRAMEWORK
-    /// <inheritdoc />
-    public Type TypeOfT0 => typeof(T0);
-
-    /// <inheritdoc />
-    public Type TypeOfT1 => typeof(T1);
-
-    /// <inheritdoc />
-    public Type TypeOfT2 => typeof(T2);
-
-    /// <inheritdoc />
-    public Type TypeOfT3 => typeof(T3);
-
-    /// <inheritdoc />
-    public Type TypeOfT4 => typeof(T4);
-
-    /// <inheritdoc />
-    public Type TypeOfT5 => typeof(T5);
-
-    /// <inheritdoc />
-    public Type TypeOfT6 => typeof(T6);
-
-    /// <inheritdoc />
-    public Type TypeOfT7 => typeof(T7);
-
-    /// <inheritdoc />
-    public Type TypeOfT8 => typeof(T8);
-
-    /// <inheritdoc />
-    public Type TypeOfT9 => typeof(T9);
-
-    /// <inheritdoc />
-    public Type TypeOfT10 => typeof(T10);
-
-    public int Count() => 11;
-#endif
-
     public void Switch(Action<T0> f0, Action<T1> f1, Action<T2> f2, Action<T3> f3, Action<T4> f4, Action<T5> f5, Action<T6> f6, Action<T7> f7, Action<T8> f8, Action<T9> f9,
         Action<T10> f10)
     {
-        if (_ix is 0 && f0 is not null)
+        switch (_ix)
         {
-            f0(_v0);
-            return;
+            case 0:
+                f0(_v0);
+                return;
+            case 1:
+                f1(_v1);
+                return;
+            case 2:
+                f2(_v2);
+                return;
+            case 3:
+                f3(_v3);
+                return;
+            case 4:
+                f4(_v4);
+                return;
+            case 5:
+                f5(_v5);
+                return;
+            case 6:
+                f6(_v6);
+                return;
+            case 7:
+                f7(_v7);
+                return;
+            case 8:
+                f8(_v8);
+                return;
+            case 9:
+                f9(_v9);
+                return;
+            case 10:
+                f10(_v10);
+                return;
+            default:
+                throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
         }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            f1(_v1);
-            return;
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            f2(_v2);
-            return;
-        }
-
-        if (_ix is 3 && f3 is not null)
-        {
-            f3(_v3);
-            return;
-        }
-
-        if (_ix is 4 && f4 is not null)
-        {
-            f4(_v4);
-            return;
-        }
-
-        if (_ix is 5 && f5 is not null)
-        {
-            f5(_v5);
-            return;
-        }
-
-        if (_ix is 6 && f6 is not null)
-        {
-            f6(_v6);
-            return;
-        }
-
-        if (_ix is 7 && f7 is not null)
-        {
-            f7(_v7);
-            return;
-        }
-
-        if (_ix is 8 && f8 is not null)
-        {
-            f8(_v8);
-            return;
-        }
-
-        if (_ix is 9 && f9 is not null)
-        {
-            f9(_v9);
-            return;
-        }
-
-        if (_ix is 10 && f10 is not null)
-        {
-            f10(_v10);
-            return;
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
     }
 
     public TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1, Func<T2, TResult> f2, Func<T3, TResult> f3, Func<T4, TResult> f4, Func<T5, TResult> f5, Func<T6, TResult> f6, Func<T7, TResult> f7, Func<T8, TResult> f8,
         Func<T9, TResult> f9, Func<T10, TResult> f10)
     {
-        if (_ix is 0 && f0 is not null)
+        return _ix switch
         {
-            return f0(_v0);
-        }
-
-        if (_ix is 1 && f1 is not null)
-        {
-            return f1(_v1);
-        }
-
-        if (_ix is 2 && f2 is not null)
-        {
-            return f2(_v2);
-        }
-
-        if (_ix is 3 && f3 is not null)
-        {
-            return f3(_v3);
-        }
-
-        if (_ix is 4 && f4 is not null)
-        {
-            return f4(_v4);
-        }
-
-        if (_ix is 5 && f5 is not null)
-        {
-            return f5(_v5);
-        }
-
-        if (_ix is 6 && f6 is not null)
-        {
-            return f6(_v6);
-        }
-
-        if (_ix is 7 && f7 is not null)
-        {
-            return f7(_v7);
-        }
-
-        if (_ix is 8 && f8 is not null)
-        {
-            return f8(_v8);
-        }
-
-        if (_ix is 9 && f9 is not null)
-        {
-            return f9(_v9);
-        }
-
-        if (_ix is 10 && f10 is not null)
-        {
-            return f10(_v10);
-        }
-
-        throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.");
+            0 => f0(_v0),
+            1 => f1(_v1),
+            2 => f2(_v2),
+            3 => f3(_v3),
+            4 => f4(_v4),
+            5 => f5(_v5),
+            6 => f6(_v6),
+            7 => f7(_v7),
+            8 => f8(_v8),
+            9 => f9(_v9),
+            10 => f10(_v10),
+            _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the UnionOf codegen.")
+        };
     }
 
     /// <summary>

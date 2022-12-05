@@ -60,8 +60,7 @@ public static partial class OptionalsExtensions
     public static IOptional<T, TException> ToOptional<T, TException>(this T? value, Func<TException> exceptionFactory,
         OptionalType type = OptionalType.ReferenceType) where T : struct
     {
-        if (exceptionFactory is null)
-            throw new ArgumentNullException(nameof(exceptionFactory));
+        ArgumentNullException.ThrowIfNull(exceptionFactory);
         return value.HasValue
             ? type == OptionalType.ReferenceType
                 ? Optional.Wrapped.Some<T, TException>(value.Value)

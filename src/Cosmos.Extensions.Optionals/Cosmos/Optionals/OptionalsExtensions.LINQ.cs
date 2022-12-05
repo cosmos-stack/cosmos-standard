@@ -18,8 +18,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<TResult> Select<TSource, TResult>(this Maybe<TSource> source, Func<TSource, TResult> selector)
     {
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(selector);
         return source.Map(selector);
     }
 
@@ -34,8 +33,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<TResult> SelectMany<TSource, TResult>(this Maybe<TSource> source, Func<TSource, Maybe<TResult>> selector)
     {
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(selector);
         return source.FlatMap(selector);
     }
 
@@ -55,10 +53,8 @@ public static partial class OptionalsExtensions
         Func<TSource, Maybe<TCollection>> collectionSelector,
         Func<TSource, TCollection, TResult> resultSelector)
     {
-        if (collectionSelector is null)
-            throw new ArgumentNullException(nameof(collectionSelector));
-        if (resultSelector is null)
-            throw new ArgumentNullException(nameof(resultSelector));
+        ArgumentNullException.ThrowIfNull(collectionSelector);
+        ArgumentNullException.ThrowIfNull(resultSelector);
         return source.FlatMap(src => collectionSelector(src).Map(elem => resultSelector(src, elem)));
     }
 
@@ -72,8 +68,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<TSource> Where<TSource>(this Maybe<TSource> source, Func<TSource, bool> predicate)
     {
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(predicate);
         return source.Filter(predicate);
     }
 
@@ -89,8 +84,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Either<TResult, TException> Select<TSource, TException, TResult>(this Either<TSource, TException> source, Func<TSource, TResult> selector)
     {
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(selector);
         return source.Map(selector);
     }
 
@@ -108,8 +102,7 @@ public static partial class OptionalsExtensions
         this Either<TSource, TException> source,
         Func<TSource, Either<TResult, TException>> selector)
     {
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(selector);
         return source.FlatMap(selector);
     }
 
@@ -130,8 +123,8 @@ public static partial class OptionalsExtensions
         Func<TSource, Either<TCollection, TException>> collectionSelector,
         Func<TSource, TCollection, TResult> resultSelector)
     {
-        if (collectionSelector is null) throw new ArgumentNullException(nameof(collectionSelector));
-        if (resultSelector is null) throw new ArgumentNullException(nameof(resultSelector));
+        ArgumentNullException.ThrowIfNull(collectionSelector);
+        ArgumentNullException.ThrowIfNull(resultSelector);
         return source.FlatMap(src => collectionSelector(src).Map(elem => resultSelector(src, elem)));
     }
 
@@ -150,8 +143,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Task<Maybe<TResult>> Select<TSource, TResult>(this Task<Maybe<TSource>> source, Func<TSource, TResult> selector)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
-        if (selector is null) throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(selector);
         return source.MapAsync(selector);
     }
 
@@ -166,8 +159,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Task<Maybe<TResult>> SelectMany<TSource, TResult>(this Task<Maybe<TSource>> source, Func<TSource, Task<Maybe<TResult>>> selector)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
-        if (selector is null) throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(selector);
         return source.FlatMapAsync(selector);
     }
 
@@ -187,9 +180,9 @@ public static partial class OptionalsExtensions
         Func<TSource, Task<Maybe<TCollection>>> collectionSelector,
         Func<TSource, TCollection, TResult> resultSelector)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
-        if (collectionSelector is null) throw new ArgumentNullException(nameof(collectionSelector));
-        if (resultSelector is null) throw new ArgumentNullException(nameof(resultSelector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(collectionSelector);
+        ArgumentNullException.ThrowIfNull(resultSelector);
         return source.FlatMapAsync(src => collectionSelector(src).MapAsync(elem => resultSelector(src, elem)));
     }
 
@@ -203,8 +196,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Task<Maybe<TSource>> Where<TSource>(this Task<Maybe<TSource>> source, Func<TSource, bool> predicate)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
-        if (predicate is null) throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(predicate);
         return source.FilterAsync(predicate);
     }
 
@@ -220,8 +213,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Task<Either<TResult, TException>> Select<TSource, TException, TResult>(this Task<Either<TSource, TException>> source, Func<TSource, TResult> selector)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
-        if (selector is null) throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(selector);
         return source.MapAsync(selector);
     }
 
@@ -239,8 +232,8 @@ public static partial class OptionalsExtensions
         this Task<Either<TSource, TException>> source,
         Func<TSource, Task<Either<TResult, TException>>> selector)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
-        if (selector is null) throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(selector);
         return source.FlatMapAsync(selector);
     }
 
@@ -261,9 +254,9 @@ public static partial class OptionalsExtensions
         Func<TSource, Task<Either<TCollection, TException>>> collectionSelector,
         Func<TSource, TCollection, TResult> resultSelector)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
-        if (collectionSelector is null) throw new ArgumentNullException(nameof(collectionSelector));
-        if (resultSelector is null) throw new ArgumentNullException(nameof(resultSelector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(collectionSelector);
+        ArgumentNullException.ThrowIfNull(resultSelector);
         return source.FlatMapAsync(src => collectionSelector(src).MapAsync(elem => resultSelector(src, elem)));
     }
 

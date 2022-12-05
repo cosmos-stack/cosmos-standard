@@ -442,7 +442,7 @@ public readonly struct Maybe<T> : IOptionalImpl<T, Maybe<T>>,
 
         if (UnderlyingType == typeof(TTarget))
         {
-            action((TTarget)Value);
+            action((TTarget)Value!);
         }
 
         return this;

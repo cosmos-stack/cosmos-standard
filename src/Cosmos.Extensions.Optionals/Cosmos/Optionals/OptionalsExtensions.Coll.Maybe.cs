@@ -19,8 +19,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="InvalidOperationException"></exception>
     public static Task<Maybe<TResult>> MapAsync<T, TResult>(this Maybe<T> option, Func<T, Task<TResult>> mapping)
     {
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(mapping);
         return option.Map(mapping).Match(
             someFactory: async valueTask =>
             {
@@ -44,10 +43,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<TResult>> MapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, TResult> mapping, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(mapping);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return option.Map(mapping);
     }
@@ -64,10 +61,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<TResult>> MapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Task<TResult>> mapping, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(mapping);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return await option.MapAsync(mapping).ConfigureAwait(continueOnCapturedContext: false);
     }
@@ -84,8 +79,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="InvalidOperationException"></exception>
     public static Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Maybe<T> option, Func<T, Task<Maybe<TResult>>> mapping)
     {
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(mapping);
         return option.Map(mapping).Match(
             someFactory: resultOptionTask =>
             {
@@ -108,10 +102,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Maybe<TResult>> mapping, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(mapping);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return option.FlatMap(mapping);
     }
@@ -129,10 +121,8 @@ public static partial class OptionalsExtensions
     public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult>(this Task<Maybe<T>> optionTask, Func<T, Task<Maybe<TResult>>> mapping,
         bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(mapping);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return await option.FlatMapAsync(mapping).ConfigureAwait(continueOnCapturedContext: false);
     }
@@ -149,8 +139,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Task<Maybe<TResult>> FlatMapAsync<T, TResult, TException>(this Maybe<T> option, Func<T, Task<Either<TResult, TException>>> mapping)
     {
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(mapping);
         return option.FlatMapAsync(async value =>
         {
             var resultOptionTask = mapping(value) ?? throw new InvalidOperationException($"{nameof(mapping)} must not return a null task.");
@@ -173,10 +162,8 @@ public static partial class OptionalsExtensions
     public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult, TException>(this Task<Maybe<T>> optionTask, Func<T, Either<TResult, TException>> mapping,
         bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(mapping);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return option.FlatMap(mapping);
     }
@@ -195,10 +182,8 @@ public static partial class OptionalsExtensions
     public static async Task<Maybe<TResult>> FlatMapAsync<T, TResult, TException>(this Task<Maybe<T>> optionTask, Func<T, Task<Either<TResult, TException>>> mapping,
         bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (mapping is null)
-            throw new ArgumentNullException(nameof(mapping));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(mapping);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return await option.FlatMapAsync(mapping).ConfigureAwait(continueOnCapturedContext: false);
     }
@@ -214,8 +199,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="InvalidOperationException"></exception>
     public static Task<Maybe<T>> FilterAsync<T>(this Maybe<T> option, Func<T, Task<bool>> predicate)
     {
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(predicate);
         return option.Match(
             someFactory: async value =>
             {
@@ -240,10 +224,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<T>> FilterAsync<T>(this Task<Maybe<T>> optionTask, Func<T, bool> predicate, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(predicate);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return option.Filter(predicate);
     }
@@ -259,10 +241,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<T>> FilterAsync<T>(this Task<Maybe<T>> optionTask, Func<T, Task<bool>> predicate, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(predicate);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return await option.FilterAsync(predicate).ConfigureAwait(continueOnCapturedContext: false);
     }
@@ -276,8 +256,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static Task<Maybe<T>> NotNullAsync<T>(this Task<Maybe<T>> optionTask)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
+        ArgumentNullException.ThrowIfNull(optionTask);
         return optionTask.FilterAsync(value => value != null);
     }
 
@@ -292,8 +271,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="InvalidOperationException"></exception>
     public static async Task<Maybe<T>> OrAsync<T>(this Maybe<T> option, Func<Task<T>> alternativeFactory)
     {
-        if (alternativeFactory is null)
-            throw new ArgumentNullException(nameof(alternativeFactory));
+        ArgumentNullException.ThrowIfNull(alternativeFactory);
 
         if (option.HasValue) return option;
 
@@ -316,11 +294,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<T>> OrAsync<T>(this Task<Maybe<T>> optionTask, Func<T> alternativeFactory, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (alternativeFactory is null)
-            throw new ArgumentNullException(nameof(alternativeFactory));
-
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(alternativeFactory);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return option.Or(alternativeFactory);
     }
@@ -336,11 +311,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<T>> OrAsync<T>(this Task<Maybe<T>> optionTask, Func<Task<T>> alternativeFactory, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (alternativeFactory is null)
-            throw new ArgumentNullException(nameof(alternativeFactory));
-
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(alternativeFactory);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return await option.OrAsync(alternativeFactory).ConfigureAwait(continueOnCapturedContext: false);
     }
@@ -356,8 +328,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="InvalidOperationException"></exception>
     public static async Task<Maybe<T>> ElseAsync<T>(this Maybe<T> option, Func<Task<Maybe<T>>> alternativeOptionFactory)
     {
-        if (alternativeOptionFactory is null)
-            throw new ArgumentNullException(nameof(alternativeOptionFactory));
+        ArgumentNullException.ThrowIfNull(alternativeOptionFactory);
 
         if (option.HasValue) return option;
 
@@ -379,11 +350,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<T>> ElseAsync<T>(this Task<Maybe<T>> optionTask, Func<Maybe<T>> alternativeOptionFactory, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (alternativeOptionFactory is null)
-            throw new ArgumentNullException(nameof(alternativeOptionFactory));
-
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(alternativeOptionFactory);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return option.Else(alternativeOptionFactory);
     }
@@ -399,11 +367,8 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<T>> ElseAsync<T>(this Task<Maybe<T>> optionTask, Func<Task<Maybe<T>>> alternativeOptionFactory, bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (alternativeOptionFactory is null)
-            throw new ArgumentNullException(nameof(alternativeOptionFactory));
-
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(alternativeOptionFactory);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return await option.ElseAsync(alternativeOptionFactory).ConfigureAwait(continueOnCapturedContext: false);
     }
@@ -432,11 +397,8 @@ public static partial class OptionalsExtensions
     public static async Task<Either<T, TException>> WithExceptionAsync<T, TException>(this Task<Maybe<T>> optionTask, Func<TException> exceptionFactory,
         bool executeOnCapturedContext = false)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-        if (exceptionFactory is null)
-            throw new ArgumentNullException(nameof(exceptionFactory));
-
+        ArgumentNullException.ThrowIfNull(optionTask);
+        ArgumentNullException.ThrowIfNull(exceptionFactory);
         var option = await optionTask.ConfigureAwait(executeOnCapturedContext);
         return option.WithException(exceptionFactory());
     }
@@ -450,9 +412,7 @@ public static partial class OptionalsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static async Task<Maybe<T>> FlattenAsync<T>(this Task<Maybe<Maybe<T>>> optionTask)
     {
-        if (optionTask is null)
-            throw new ArgumentNullException(nameof(optionTask));
-
+        ArgumentNullException.ThrowIfNull(optionTask);
         var option = await optionTask.ConfigureAwait(continueOnCapturedContext: false);
         return option.Flatten();
     }

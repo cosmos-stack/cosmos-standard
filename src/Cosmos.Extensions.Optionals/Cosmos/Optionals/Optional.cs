@@ -97,8 +97,7 @@ public static partial class Optional
     /// <exception cref="ArgumentNullException"></exception>
     public static Maybe<T> From<T>(T value, Func<T, bool> condition)
     {
-        if (condition is null)
-            throw new ArgumentNullException(nameof(condition));
+        ArgumentNullException.ThrowIfNull(condition);
         if (value is null)
             return None<T>();
         return condition(value) ? Some(value) : None<T>();

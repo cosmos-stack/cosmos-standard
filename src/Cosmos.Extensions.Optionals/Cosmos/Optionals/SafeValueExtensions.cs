@@ -97,7 +97,7 @@ namespace Cosmos.Optionals
         /// <param name="defaultValFunc"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T SafeRefValue<T>(this T value, Func<T> defaultValFunc) where T : class => value ?? (defaultValFunc?.Invoke());
+        public static T SafeRefValue<T>(this T value, Func<T> defaultValFunc) where T : class => value ?? defaultValFunc?.Invoke() ?? default!;
 
         /// <summary>
         /// Return a safe value<br />
@@ -113,7 +113,7 @@ namespace Cosmos.Optionals
         public static T SafeRefValue<T>(this T value, Func<T, bool> condition, Func<T> defaultValFunc, Func<T> elseValFunc) where T : class
         {
             if (condition?.Invoke(value) ?? false)
-                return defaultValFunc?.Invoke();
+                return defaultValFunc?.Invoke() ?? default!;
             return value.SafeRefValue(elseValFunc);
         }
 
@@ -162,7 +162,7 @@ namespace Cosmos.Optionals
             {
                 string str => str.SafeStringValue(),
                 null => string.Empty,
-                _ => @object.ToString()
+                _ => @object.ToString() ?? string.Empty
             };
         }
 
@@ -185,7 +185,7 @@ namespace Cosmos.Optionals
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string SafeTrimStringValue(this string text) => text?.Trim();
+        public static string SafeTrimStringValue(this string text) => text?.Trim() ?? string.Empty;
 
         #endregion
 
@@ -281,7 +281,7 @@ namespace Cosmos.Optionals
         /// <param name="query"></param>
         /// <returns></returns>
         public static IQueryable SafeQueryableValue(this IQueryable query) =>
-            CollectionHelper.IsNullOrEmpty(query) ? InternalArray.ForEmpty<object>().AsQueryable() : query!;
+            CollectionHelper.IsNullOrEmpty(query) ? Array.Empty<object>().AsQueryable() : query!;
 
         /// <summary>
         /// Return a safe <see cref="IQueryable{T}"/> value.<br />
@@ -290,7 +290,7 @@ namespace Cosmos.Optionals
         /// <param name="enumerable"></param>
         /// <returns></returns>
         public static IQueryable SafeQueryableValue(this IEnumerable enumerable) =>
-            enumerable?.AsQueryable().SafeQueryableValue() ?? InternalArray.ForEmpty<object>().AsQueryable();
+            enumerable?.AsQueryable().SafeQueryableValue() ?? Array.Empty<object>().AsQueryable();
 
         #endregion
 
