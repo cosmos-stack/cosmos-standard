@@ -79,7 +79,7 @@ public partial class MethodReflector : MemberReflector<MethodInfo>, IParameterRe
             }
         });
 
-        Func<object, object[], object> CreateDelegate(Action? callback = null)
+        Func<object, object[], object> CreateDelegate(Action callback = null)
         {
             ilGen.EmitCall(OpCodes.Callvirt, _reflectionInfo, null);
             callback?.Invoke();

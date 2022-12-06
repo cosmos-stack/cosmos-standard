@@ -23,7 +23,7 @@ public class Success<T> : Try<T>
     public override bool IsSuccess => true;
 
     /// <inheritdoc />
-    public override TryCreatingValueException Exception => default;
+    public override TryCreatingValueException Exception => default!;
 
     /// <inheritdoc />
     public override T Value { get; }
@@ -48,14 +48,14 @@ public class Success<T> : Try<T>
     public override void Deconstruct(out T value, out Exception exception)
     {
         value = Value;
-        exception = default;
+        exception = default!;
     }
 
     public override void Deconstruct(out T value, out bool tryResult, out Exception exception)
     {
         value = Value;
         tryResult = IsSuccess;
-        exception = default;
+        exception = default!;
     }
 
     /// <inheritdoc />

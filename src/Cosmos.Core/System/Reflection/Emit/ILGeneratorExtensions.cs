@@ -707,8 +707,8 @@ internal static class ILGeneratorExtensions
     {
         var labIfNull = default(Label);
         var labEnd = default(Label);
-        LocalBuilder? locFrom;
-        LocalBuilder? locTo;
+        LocalBuilder locFrom;
+        LocalBuilder locTo;
         locFrom = ilGenerator.DeclareLocal(typeFrom.AsType());
         ilGenerator.Emit(OpCodes.Stloc, locFrom);
         locTo = ilGenerator.DeclareLocal(typeTo.AsType());
@@ -746,7 +746,7 @@ internal static class ILGeneratorExtensions
 
     private static void EmitNullableToNonNullableStructConversion(this ILGenerator ilGenerator, TypeInfo typeFrom, TypeInfo typeTo, bool isChecked)
     {
-        LocalBuilder? locFrom;
+        LocalBuilder locFrom;
         locFrom = ilGenerator.DeclareLocal(typeFrom.AsType());
         ilGenerator.Emit(OpCodes.Stloc, locFrom);
         ilGenerator.Emit(OpCodes.Ldloca, locFrom);
@@ -764,7 +764,7 @@ internal static class ILGeneratorExtensions
 
     private static void EmitNonNullableToNullableConversion(this ILGenerator ilGenerator, TypeInfo typeFrom, TypeInfo typeTo, bool isChecked)
     {
-        LocalBuilder? locTo = null;
+        LocalBuilder locTo = null;
         locTo = ilGenerator.DeclareLocal(typeTo.AsType());
         Type nnTypeTo = TypeInfoUtils.GetNonNullableType(typeTo);
         ilGenerator.EmitConvertToType(typeFrom.AsType(), nnTypeTo, isChecked);

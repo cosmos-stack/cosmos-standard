@@ -1,7 +1,4 @@
-﻿#if !NETFRAMEWORK
-
-using System.Text;
-using System.Web;
+﻿using System.Web;
 
 namespace Cosmos.Text;
 
@@ -50,5 +47,3 @@ public static partial class StringsExtensions
 
     #endregion
 }
-
-#endif

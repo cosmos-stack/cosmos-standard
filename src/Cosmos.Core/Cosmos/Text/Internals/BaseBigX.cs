@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
-using System.Text;
+
+#pragma warning disable CS8618
 
 namespace Cosmos.Text.Internals;
 
@@ -25,8 +26,12 @@ internal class BaseBigX : BaseXCore
 
     public override bool HasSpecial => false;
 
-    public BaseBigX(string alphabet, uint blockMaxBitsCount = 64,
-        Encoding encoding = null, bool reverseOrder = false, bool parallel = false,
+    public BaseBigX(
+        string alphabet,
+        uint blockMaxBitsCount = 64,
+        Encoding encoding = null,
+        bool reverseOrder = false,
+        bool parallel = false,
         bool maxCompression = false)
         : base((uint)alphabet.Length, alphabet, '\0', encoding, parallel)
     {
@@ -42,8 +47,8 @@ internal class BaseBigX : BaseXCore
 
     public override string Encode(byte[] data)
     {
-        if (data == null || data.Length == 0)
-            return "";
+        if (data is null || data.Length == 0)
+            return string.Empty;
 
         int blockBitsCount, blockCharsCount;
         if (!MaxCompression)
@@ -58,13 +63,13 @@ internal class BaseBigX : BaseXCore
             PreparePowN(blockCharsCount);
         }
 
-        int data8 = data.Length * 8;
-        int mainBitsLength = data8 / blockBitsCount * blockBitsCount;
-        int tailBitsLength = data8 - mainBitsLength;
-        int mainCharsCount = mainBitsLength * blockCharsCount / blockBitsCount;
-        int tailCharsCount = (tailBitsLength * blockCharsCount + blockBitsCount - 1) / blockBitsCount;
-        int totalCharsCount = mainCharsCount + tailCharsCount;
-        int iterationCount = mainCharsCount / blockCharsCount;
+        var data8 = data.Length * 8;
+        var mainBitsLength = data8 / blockBitsCount * blockBitsCount;
+        var tailBitsLength = data8 - mainBitsLength;
+        var mainCharsCount = mainBitsLength * blockCharsCount / blockBitsCount;
+        var tailCharsCount = (tailBitsLength * blockCharsCount + blockBitsCount - 1) / blockBitsCount;
+        var totalCharsCount = mainCharsCount + tailCharsCount;
+        var iterationCount = mainCharsCount / blockCharsCount;
 
         var result = new char[totalCharsCount];
 
@@ -72,18 +77,18 @@ internal class BaseBigX : BaseXCore
             EncodeBlock(data, result, 0, iterationCount, blockBitsCount, blockCharsCount);
         else
         {
-            int processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
+            var processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
             System.Threading.Tasks.Parallel.For(0, processorCount, i =>
             {
-                int beginInd = i * iterationCount / processorCount;
-                int endInd = (i + 1) * iterationCount / processorCount;
+                var beginInd = i * iterationCount / processorCount;
+                var endInd = (i + 1) * iterationCount / processorCount;
                 EncodeBlock(data, result, beginInd, endInd, blockBitsCount, blockCharsCount);
             });
         }
 
         if (tailBitsLength != 0)
         {
-            BigInteger bits = GetBitsN(data, mainBitsLength, tailBitsLength);
+            var bits = GetBitsN(data, mainBitsLength, tailBitsLength);
             BitsToChars(result, mainCharsCount, tailCharsCount, bits);
         }
 
@@ -93,7 +98,7 @@ internal class BaseBigX : BaseXCore
     public override byte[] Decode(string data)
     {
         if (string.IsNullOrEmpty(data))
-            return new byte[0];
+            return Array.Empty<byte>();
 
         int blockBitsCount, blockCharsCount;
         if (!MaxCompression)
@@ -108,12 +113,12 @@ internal class BaseBigX : BaseXCore
             PreparePowN(blockCharsCount);
         }
 
-        int totalBitsLength = ((data.Length - 1) * blockBitsCount / blockCharsCount + 8) / 8 * 8;
-        int mainBitsLength = totalBitsLength / blockBitsCount * blockBitsCount;
-        int tailBitsLength = totalBitsLength - mainBitsLength;
-        int mainCharsCount = mainBitsLength * blockCharsCount / blockBitsCount;
-        int tailCharsCount = (tailBitsLength * blockCharsCount + blockBitsCount - 1) / blockBitsCount;
-        BigInteger tailBits = CharsToBits(data, mainCharsCount, tailCharsCount);
+        var totalBitsLength = ((data.Length - 1) * blockBitsCount / blockCharsCount + 8) / 8 * 8;
+        var mainBitsLength = totalBitsLength / blockBitsCount * blockBitsCount;
+        var tailBitsLength = totalBitsLength - mainBitsLength;
+        var mainCharsCount = mainBitsLength * blockCharsCount / blockBitsCount;
+        var tailCharsCount = (tailBitsLength * blockCharsCount + blockBitsCount - 1) / blockBitsCount;
+        var tailBits = CharsToBits(data, mainCharsCount, tailCharsCount);
         if (tailBits >> tailBitsLength != 0)
         {
             totalBitsLength += 8;
@@ -123,9 +128,9 @@ internal class BaseBigX : BaseXCore
             tailCharsCount = (tailBitsLength * blockCharsCount + blockBitsCount - 1) / blockBitsCount;
         }
 
-        int iterationCount = mainCharsCount / blockCharsCount;
+        var iterationCount = mainCharsCount / blockCharsCount;
 
-        byte[] result = new byte[totalBitsLength / 8];
+        var result = new byte[totalBitsLength / 8];
 
         if (!Parallel)
         {
@@ -133,18 +138,18 @@ internal class BaseBigX : BaseXCore
         }
         else
         {
-            int processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
+            var processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
             System.Threading.Tasks.Parallel.For(0, processorCount, i =>
             {
-                int beginInd = i * iterationCount / processorCount;
-                int endInd = (i + 1) * iterationCount / processorCount;
+                var beginInd = i * iterationCount / processorCount;
+                var endInd = (i + 1) * iterationCount / processorCount;
                 DecodeBlock(data, result, beginInd, endInd, blockBitsCount, blockCharsCount);
             });
         }
 
         if (tailCharsCount != 0)
         {
-            BigInteger bits = CharsToBits(data, mainCharsCount, tailCharsCount);
+            var bits = CharsToBits(data, mainCharsCount, tailCharsCount);
             AddBitsN(result, bits, mainBitsLength, tailBitsLength);
         }
 

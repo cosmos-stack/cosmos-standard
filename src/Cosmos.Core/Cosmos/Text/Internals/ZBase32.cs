@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-// ReSharper disable InconsistentNaming
+﻿// ReSharper disable InconsistentNaming
 
 namespace Cosmos.Text.Internals;
 /*
@@ -26,6 +24,9 @@ internal unsafe class ZBase32 : BaseXCore
 
     public override string Encode(byte[] data)
     {
+        if (data is null || data.Length == 0)
+            return string.Empty;
+
         unchecked
         {
             var encodedResult = new StringBuilder((int)Math.Ceiling(data.Length * 8.0 / 5.0));
@@ -57,7 +58,7 @@ internal unsafe class ZBase32 : BaseXCore
     public override byte[] Decode(string data)
     {
         if (string.IsNullOrEmpty(data))
-            return new byte[0];
+            return Array.Empty<byte>();
 
         var result = new List<byte>((int)Math.Ceiling(data.Length * 5.0 / 8.0));
 

@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Cosmos.Text.Internals;
+﻿namespace Cosmos.Text.Internals;
 
 /*
  * Reference to:
@@ -28,6 +26,9 @@ internal class Base91 : BaseXCore
 
     public override string Encode(byte[] data)
     {
+        if (data is null || data.Length == 0)
+            return string.Empty;
+
         var result = new StringBuilder(data.Length);
 
         int ebq = 0, en = 0;
@@ -72,6 +73,9 @@ internal class Base91 : BaseXCore
     {
         unchecked
         {
+            if (string.IsNullOrEmpty(data))
+                return Array.Empty<byte>();
+
             int dbq = 0, dn = 0, dv = -1;
 
             var result = new List<byte>(data.Length);

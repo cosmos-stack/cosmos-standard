@@ -57,7 +57,7 @@ public abstract class Try<T>
     /// <returns></returns>
     public virtual T GetSafeValue()
     {
-        return IsSuccess ? Value : default;
+        return IsSuccess ? Value : default!;
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ public abstract class Try<T>
         return IsSuccess
             ? Value
             : defaultValFunc is null
-                ? default
+                ? default!
                 : defaultValFunc();
     }
 
@@ -97,7 +97,7 @@ public abstract class Try<T>
         return IsSuccess
             ? Value
             : defaultValFunc is null
-                ? default
+                ? default!
                 : defaultValFunc(Exception);
     }
 
@@ -112,8 +112,8 @@ public abstract class Try<T>
         return IsSuccess
             ? Value
             : defaultValFunc is null
-                ? default
-                : defaultValFunc(Exception.InnerException, Exception.Cause);
+                ? default!
+                : defaultValFunc(Exception?.InnerException, Exception?.Cause);
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ public abstract class Try<T>
         if (IsSuccess)
             return Task.FromResult(Value);
         return defaultValAsyncFunc is null
-            ? Task.FromResult(default(T))
+            ? Task.FromResult(default(T)!)
             : defaultValAsyncFunc();
     }
 
@@ -196,7 +196,7 @@ public abstract class Try<T>
         if (IsSuccess)
             return Task.FromResult(Value);
         return defaultValAsyncFunc is null
-            ? Task.FromResult(default(T))
+            ? Task.FromResult(default(T)!)
             : defaultValAsyncFunc(Exception);
     }
 
@@ -211,8 +211,8 @@ public abstract class Try<T>
         if (IsSuccess)
             return Task.FromResult(Value);
         return defaultValAsyncFunc is null
-            ? Task.FromResult(default(T))
-            : defaultValAsyncFunc(Exception.InnerException, Exception.Cause);
+            ? Task.FromResult(default(T)!)
+            : defaultValAsyncFunc(Exception?.InnerException, Exception?.Cause);
     }
 
     /// <summary>
@@ -256,7 +256,7 @@ public abstract class Try<T>
         }
         catch
         {
-            value = default;
+            value = default!;
             return false;
         }
     }
@@ -277,7 +277,7 @@ public abstract class Try<T>
         }
         catch
         {
-            value = default;
+            value = default!;
             return false;
         }
     }
@@ -298,7 +298,7 @@ public abstract class Try<T>
         }
         catch
         {
-            value = default;
+            value = default!;
             return false;
         }
     }
@@ -611,8 +611,6 @@ public abstract class Try<T>
     /// <returns></returns>
     public Try<TResult> Map<TResult>(Func<T, TResult> map)
     {
-        if (map is null)
-            throw new ArgumentNullException(nameof(map));
         return Bind(value => Try.Create(() => map(value)));
     }
 
@@ -642,18 +640,7 @@ public abstract class Try<T>
 
     private static Task<TResult> FromException<TResult>(Exception exception)
     {
-#if NET6_0_OR_GREATER
         ArgumentNullException.ThrowIfNull(exception, nameof(exception));
-#else
-        if (exception is null)
-            throw new ArgumentNullException(nameof(exception));
-#endif
-#if NET451 || NET452
-        var tcs = new TaskCompletionSource<TResult>();
-        tcs.TrySetException(exception);
-        return tcs.Task;
-#else
         return Task.FromException<TResult>(exception);
-#endif
     }
 }

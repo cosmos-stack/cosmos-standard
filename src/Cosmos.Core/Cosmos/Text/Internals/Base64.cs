@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Cosmos.Text.Internals;
+﻿namespace Cosmos.Text.Internals;
 /*
  * Reference to:
  *	https://github.com/KvanTTT/BaseNcoding/blob/master/BaseNcoding/Base32.cs
@@ -23,6 +21,9 @@ internal class Base64 : BaseXCore
 
     public override string Encode(byte[] data)
     {
+        if (data is null || data.Length == 0)
+            return string.Empty;
+
         var resultLength = (data.Length + 2) / 3 * 4;
         var result = new char[resultLength];
 
@@ -78,7 +79,7 @@ internal class Base64 : BaseXCore
         unchecked
         {
             if (string.IsNullOrEmpty(data))
-                return new byte[0];
+                return Array.Empty<byte>();
 
             var lastSpecialInd = data.Length;
             while (data[lastSpecialInd - 1] == Special)

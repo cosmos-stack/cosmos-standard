@@ -78,7 +78,7 @@ public partial class MethodReflector
                 }
             });
 
-            Func<object, object[], object> CreateDelegate(Action? callback = null)
+            Func<object, object[], object> CreateDelegate(Action callback = null)
             {
                 ilGen.EmitCall(OpCodes.Call, _reflectionInfo, null);
                 callback?.Invoke();

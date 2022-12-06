@@ -1,5 +1,3 @@
-using Cosmos.Text;
-
 // ReSharper disable once CheckNamespace
 namespace Cosmos;
 
@@ -48,7 +46,7 @@ public static class ObjectExtensions
         }
         catch (Exception)
         {
-            return default;
+            return default!;
         }
     }
 
@@ -137,7 +135,7 @@ public static class ObjectExtensions
         }
         catch
         {
-            value = default;
+            value = default!;
             return false;
         }
     }

@@ -48,7 +48,7 @@ public class SuccessAction : TryAction
     public override void Deconstruct(out bool tryResult, out TryInvokingException exception)
     {
         tryResult = IsSuccess;
-        exception = default;
+        exception = default!;
     }
 
     /// <inheritdoc />

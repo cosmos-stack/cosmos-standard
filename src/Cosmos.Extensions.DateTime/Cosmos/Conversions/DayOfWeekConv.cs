@@ -12,9 +12,9 @@ public static class DayOfWeekConv
     /// </summary>
     /// <param name="week"></param>
     /// <returns></returns>
-    public static int ToInt(DayOfWeek week)
+    public static int ToInt32(DayOfWeek week)
     {
-        return ToInt(week, 1);
+        return ToInt32(week, 1);
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ public static class DayOfWeekConv
     /// <param name="week"></param>
     /// <param name="offset"></param>
     /// <returns></returns>
-    public static int ToInt(DayOfWeek week, int offset)
+    public static int ToInt32(DayOfWeek week, int offset)
     {
         return offset + week switch
         {
@@ -52,10 +52,7 @@ public static class DayOfWeekConvExtensions
     /// </summary>
     /// <param name="week"></param>
     /// <returns></returns>
-    public static int CastToInt(this DayOfWeek week)
-    {
-        return DayOfWeekConv.ToInt(week);
-    }
+    public static int CastToInt32(this DayOfWeek week) => DayOfWeekConv.ToInt32(week);
 
     /// <summary>
     /// Convert <see cref="DayOfWeek"/> to <see cref="int"/><br />
@@ -64,8 +61,5 @@ public static class DayOfWeekConvExtensions
     /// <param name="week"></param>
     /// <param name="offset"></param>
     /// <returns></returns>
-    public static int CastToInt(this DayOfWeek week, int offset)
-    {
-        return DayOfWeekConv.ToInt(week, offset);
-    }
+    public static int CastToInt32(this DayOfWeek week, int offset) => DayOfWeekConv.ToInt32(week, offset);
 }

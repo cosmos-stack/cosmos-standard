@@ -45,12 +45,12 @@ public class Failure<T> : Try<T>
     public override bool Equals(object obj) => obj is Failure<T> failure && Equals(failure);
 
     /// <inheritdoc/>
-    public override int GetHashCode() => Exception?.GetHashCode() ?? 0;
+    public override int GetHashCode() => Exception.GetHashCode();
 
     /// <inheritdoc />
     public override void Deconstruct(out T value, out Exception exception)
     {
-        value = default;
+        value = default!;
         exception = Exception;
     }
 
@@ -125,7 +125,7 @@ public class Failure<T> : Try<T>
     /// <inheritdoc />
     public override Try<T> Tap(Action<T> successFunction = null, Action<Exception, string> failureFunction = null)
     {
-        failureFunction?.Invoke(Exception?.InnerException, Exception?.Cause);
+        failureFunction?.Invoke(Exception.InnerException, Exception.Cause);
         return this;
     }
 

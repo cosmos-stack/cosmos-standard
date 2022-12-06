@@ -12,7 +12,7 @@ public static partial class Arrays
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static T[] Empty<T>() => InternalArray.ForEmpty<T>();
+    public static T[] Empty<T>() => Array.Empty<T>();
 
     /// <summary>
     /// To safe array <br />
@@ -471,5 +471,20 @@ public static partial class ArraysShortcutExtensions
     public static void SetByte(this Array array, int index, byte value)
     {
         Buffer.SetByte(array, index, value);
+    }
+
+    /// <summary>
+    /// Resize the array <br />
+    /// 重新设置数组的尺寸
+    /// </summary>
+    /// <param name="array"></param>
+    /// <param name="newSize"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T[] Resize<T>(this T[] array, int newSize)
+    {
+        Array.Resize(ref array, newSize);
+        return array;
     }
 }

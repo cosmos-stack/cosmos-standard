@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-// ReSharper disable InconsistentNaming
+﻿// ReSharper disable InconsistentNaming
 
 namespace Cosmos.Text;
 
@@ -323,7 +321,7 @@ public static partial class Strings
 
         bool __check(char @char)
         {
-            return (@char >= 'a' && @char <= 'z') || (@char >= 'A' && @char <= 'Z') || (@char >= '0' && @char <= '9');
+            return @char is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or >= '0' and <= '9';
         }
     }
 
@@ -340,7 +338,7 @@ public static partial class Strings
 
         bool __check(char @char)
         {
-            return @char >= '0' && @char <= '9';
+            return @char is >= '0' and <= '9';
         }
     }
 
@@ -357,7 +355,7 @@ public static partial class Strings
 
         bool __check(char @char)
         {
-            return (@char >= 'a' && @char <= 'z') || (@char >= 'A' && @char <= 'Z');
+            return @char is >= 'a' and <= 'z' or >= 'A' and <= 'Z';
         }
     }
 
@@ -614,9 +612,7 @@ public static partial class Strings
 
         var builder = new StringBuilder();
 
-        var index = 0;
-        var offset = 0;
-        var length = text.Length;
+        int index = 0, offset, length = text.Length;
 
         Func<char, char, bool> equals = @case.X()
             ? (l, r) => l.EqualsIgnoreCase(r)
@@ -667,7 +663,7 @@ public static partial class Strings
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string RemoveSince(string text, int indexOfStartToRemove)
     {
-        return indexOfStartToRemove <= 0 ? text : text.Substring(0, indexOfStartToRemove);
+        return indexOfStartToRemove <= 0 ? text : text[..indexOfStartToRemove];
     }
 
     /// <summary>
@@ -1402,7 +1398,7 @@ public static partial class StringsShortcutExtensions
     public static int LastIndexOfAny(this string text, params string[] toCheck)
     {
         if (toCheck is null || toCheck.Length == 0)
-            throw new ArgumentNullException($"The parameter '{nameof(toCheck)}' cannot be null or empty.", nameof(toCheck));
+            throw new ArgumentNullException(nameof(toCheck), $"The parameter '{nameof(toCheck)}' cannot be null or empty.");
 
         var res = -1;
         foreach (var checking in toCheck)
@@ -1467,7 +1463,7 @@ public static partial class StringsShortcutExtensions
             return string.Empty;
 
         var index = text.IndexOfIgnoreCase(from);
-        return index < 0 ? string.Empty : text.Substring(index);
+        return index < 0 ? string.Empty : text[index..];
     }
 
     /// <summary>
@@ -1483,7 +1479,7 @@ public static partial class StringsShortcutExtensions
             return string.Empty;
 
         var index = text.IndexOfIgnoreCase(to);
-        return index < 0 ? string.Empty : text.Substring(0, index);
+        return index < 0 ? string.Empty : text[..index];
     }
 
     #endregion
@@ -1546,7 +1542,7 @@ public static partial class StringsShortcutExtensions
 
         while (text.StartsWith(phrase))
         {
-            text = text.Substring(phrase.Length);
+            text = text[phrase.Length..];
         }
 
         return text;
@@ -1569,7 +1565,7 @@ public static partial class StringsShortcutExtensions
 
         while (text.EndsWithIgnoreCase(phrase))
         {
-            text = text.Substring(0, text.Length - phrase.Length);
+            text = text[..^phrase.Length];
         }
 
         return text;

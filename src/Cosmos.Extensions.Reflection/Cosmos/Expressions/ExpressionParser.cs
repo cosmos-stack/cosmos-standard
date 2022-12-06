@@ -646,7 +646,7 @@ public class ExpressionParser
 
         var expression = GetExpression(token_Right);
 
-        Token? token_RightRight;
+        Token token_RightRight;
         bool token_RightRight_IsAccess;
         do
         {
@@ -1184,7 +1184,7 @@ public class ExpressionParser
         throw new ExpressionParseException($"运算符“{tokenId.Description()}”无法应用于“{type_Left.Name}”和“{type_Right.Name}”类型的操作数");
     }
 
-    public static LambdaExpression ParseLambda(Type parameterType, string expressionString, IDictionary<string, object>? variables = default)
+    public static LambdaExpression ParseLambda(Type parameterType, string expressionString, IDictionary<string, object> variables = default)
     {
         var parameter = Expression.Parameter(parameterType);
         var parser = new ExpressionParser(parameter, variables);

@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Cosmos.Text;
+﻿namespace Cosmos.Text;
 
 /// <summary>
 /// String Utils<br />
@@ -79,8 +77,8 @@ public static partial class Strings
         return index switch
         {
             < 0 => text,
-            0 => $"{newValue}{text.Substring(oldValue.Length)}",
-            _ => $"{text.Substring(0, index)}{newValue}{text.Substring(index + oldValue.Length)}"
+            0 => $"{newValue}{text[oldValue.Length..]}",
+            _ => $"{text[..index]}{newValue}{text[(index + oldValue.Length)..]}"
         };
     }
 
@@ -105,8 +103,8 @@ public static partial class Strings
         return index switch
         {
             < 0 => text,
-            0 => $"{newValue}{text.Substring(oldValue.Length)}",
-            _ => $"{text.Substring(0, index)}{newValue}{text.Substring(index + oldValue.Length)}"
+            0 => $"{newValue}{text[oldValue.Length..]}",
+            _ => $"{text[..index]}{newValue}{text[(index + oldValue.Length)..]}"
         };
     }
 
@@ -127,7 +125,7 @@ public static partial class Strings
             return text;
 
         if (text.EndsWithIgnoreCase(oldValue))
-            return $"{text.Substring(0, text.Length - oldValue.Length)}{newValue}";
+            return $"{text[..^oldValue.Length]}{newValue}";
 
         return text;
     }

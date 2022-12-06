@@ -19,7 +19,14 @@ public struct PairOf<T1, T2> : IEquatable<PairOf<T1, T2>>
         Item2 = item2;
     }
 
-    public bool Equals(PairOf<T1, T2> obj) => Item1.Equals(obj.Item1) && Item2.Equals(obj.Item2);
+    public bool Equals(PairOf<T1, T2> obj)
+    {
+        if (Item1 is null && Item2 is null && obj.Item1 is null && obj.Item2 is null)
+            return true;
+        if (Item1 is null || Item2 is null)
+            return false;
+        return Item1.Equals(obj.Item1) && Item2.Equals(obj.Item2);
+    }
 
     public override bool Equals(object obj) => obj is PairOf<T1, T2> of && Equals(of);
 
@@ -31,7 +38,7 @@ public struct PairOf<T1, T2> : IEquatable<PairOf<T1, T2>>
         return (hash1 << 5) + hash1 ^ hash2;
     }
 
-    public override string ToString() => $"({Item1?.ToString() ?? "null"}, {Item2.ToString() ?? "null"})";
+    public override string ToString() => $"({Item1?.ToString() ?? "null"}, {Item2?.ToString() ?? "null"})";
 
     public void Deconstruct(out T1 item1, out T2 item2)
     {

@@ -2,7 +2,7 @@
 
 internal static class InternalRefactorExtensions
 {
-    internal static MethodInfo? GetMethodBySign(this TypeInfo typeInfo, MethodInfo method)
+    internal static MethodInfo GetMethodBySign(this TypeInfo typeInfo, MethodInfo method)
     {
         return typeInfo.DeclaredMethods.FirstOrDefault(m => m.ToString() == method.ToString());
     }

@@ -195,7 +195,7 @@ public static class ChineseDateHelper
     /// <returns></returns>
     public static bool IsLeapDay(ChineseLunisolarCalendar calendar, DateTime dt)
     {
-        calendar = calendar ?? new ChineseLunisolarCalendar();
+        calendar ??= new ChineseLunisolarCalendar();
         return calendar.IsLeapDay(dt.Year, dt.Month, dt.Day);
     }
 
@@ -208,7 +208,7 @@ public static class ChineseDateHelper
     /// <returns></returns>
     public static bool IsLeapDay(ChineseLunisolarCalendar calendar, DateInfo dt)
     {
-        calendar = calendar ?? new ChineseLunisolarCalendar();
+        calendar ??= new ChineseLunisolarCalendar();
         return calendar.IsLeapDay(dt.Year, dt.Month, dt.Day);
     }
 }
