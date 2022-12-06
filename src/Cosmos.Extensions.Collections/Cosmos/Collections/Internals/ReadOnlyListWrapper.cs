@@ -13,8 +13,7 @@ internal sealed class ReadOnlyListWrapper<T> : IList<T>
 
     private object ThrowNotSupportedException([CallerMemberName] string member = "")
     {
-        if (member is null)
-            throw new ArgumentNullException(nameof(member));
+        ArgumentNullException.ThrowIfNull(member);
         throw new NotSupportedException($"{GetType().FullName} does not support the {member} member.");
     }
 

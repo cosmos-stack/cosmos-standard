@@ -9,8 +9,7 @@ public static class QueryableExtensions
 
     public static bool Any(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute<bool>(source, LinqMethods.Any);
     }
 
@@ -32,8 +31,7 @@ public static class QueryableExtensions
 
     public static object Average(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.ExecuteAverage(source);
     }
 
@@ -43,8 +41,7 @@ public static class QueryableExtensions
 
     public static int Count(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute<int>(source, LinqMethods.Count);
     }
 
@@ -54,8 +51,7 @@ public static class QueryableExtensions
 
     public static IQueryable Distinct(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.CreateQuery(source, LinqMethods.Distinct);
     }
 
@@ -65,8 +61,7 @@ public static class QueryableExtensions
 
     public static object ElementAt(this IQueryable source, int index)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (index < 0)
             throw new ArgumentOutOfRangeException(nameof(index));
         return LinqHelper.Execute(source, LinqMethods.ElementAtWithIndex, Expression.Constant(index));
@@ -78,8 +73,7 @@ public static class QueryableExtensions
 
     public static object ElementAtOrDefault(this IQueryable source, int index)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (index < 0)
             throw new ArgumentOutOfRangeException(nameof(index));
         return LinqHelper.Execute(source, LinqMethods.ElementAtOrDefaultWithIndex, Expression.Constant(index));
@@ -91,8 +85,7 @@ public static class QueryableExtensions
 
     public static object First(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute(source, LinqMethods.First);
     }
 
@@ -102,8 +95,7 @@ public static class QueryableExtensions
 
     public static object FirstOrDefault(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute(source, LinqMethods.FirstOrDefault);
     }
 
@@ -113,8 +105,7 @@ public static class QueryableExtensions
 
     public static object Last(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute(source, LinqMethods.Last);
     }
 
@@ -124,8 +115,7 @@ public static class QueryableExtensions
 
     public static object LastOrDefault(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute(source, LinqMethods.LastOrDefault);
     }
 
@@ -135,8 +125,7 @@ public static class QueryableExtensions
 
     public static object Max(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.ExecuteMaxMin(source, LinqMethods.Max);
     }
 
@@ -146,8 +135,7 @@ public static class QueryableExtensions
 
     public static object Min(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.ExecuteMaxMin(source, LinqMethods.Min);
     }
 
@@ -157,8 +145,7 @@ public static class QueryableExtensions
 
     public static IQueryable Reverse(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.CreateQuery(source, LinqMethods.Reverse);
     }
 
@@ -168,8 +155,7 @@ public static class QueryableExtensions
 
     public static object Single(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute(source, LinqMethods.Single);
     }
 
@@ -179,8 +165,7 @@ public static class QueryableExtensions
 
     public static object SingleOrDefault(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.Execute(source, LinqMethods.SingleOrDefault);
     }
 
@@ -190,8 +175,7 @@ public static class QueryableExtensions
 
     public static object Sum(this IQueryable source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return LinqHelper.ExecuteSum(source);
     }
 
@@ -201,8 +185,7 @@ public static class QueryableExtensions
 
     public static IQueryable Take(this IQueryable source, int count)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         if (count < 0)
             throw new ArgumentOutOfRangeException(nameof(count));
         return LinqHelper.CreateQuery(source, LinqMethods.TakeWithCount, Expression.Constant(count));

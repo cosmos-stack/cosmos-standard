@@ -21,10 +21,8 @@ public static partial class TryExtensions
     /// <returns></returns>
     public static Try<TResult> Select<TSource, TResult>(this Try<TSource> source, Func<TSource, TResult> selector)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(selector);
         return source.Bind(val => Try.LiftValue(selector(val)));
     }
 
@@ -39,10 +37,8 @@ public static partial class TryExtensions
     /// <returns></returns>
     public static Try<TResult> SelectMany<TSource, TResult>(this Try<TSource> source, Func<TSource, Try<TResult>> selector)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(selector);
         return source.Bind(selector);
     }
 
@@ -60,12 +56,9 @@ public static partial class TryExtensions
     public static Try<TResult> SelectMany<TSource, TIntermediate, TResult>(this Try<TSource> source,
         Func<TSource, Try<TIntermediate>> convert, Func<TSource, TIntermediate, TResult> selector)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (convert is null)
-            throw new ArgumentNullException(nameof(convert));
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(convert);
+        ArgumentNullException.ThrowIfNull(selector);
         return source.Bind(val => convert(val).Select(interVal => selector(val, interVal)));
     }
 
@@ -79,10 +72,8 @@ public static partial class TryExtensions
     /// <returns></returns>
     public static Try<TSource> Where<TSource>(this Try<TSource> source, Func<TSource, bool> predicate)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(predicate);
         return source.Bind(val => predicate(val) ? source : Try.LiftException<TSource>(new InvalidOperationException("Predicate not satisfied")));
     }
 }

@@ -18,9 +18,7 @@ public static class SyncRunner
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void ForAsynchronousCalling(Task task, CancellationToken cancellationToken = default)
     {
-        if (task is null)
-            throw new ArgumentNullException(nameof(task));
-
+        ArgumentNullException.ThrowIfNull(task);
         task.WaitAndUnwrapException(cancellationToken);
     }
 
@@ -33,9 +31,7 @@ public static class SyncRunner
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void ForAsynchronousCalling(Func<Task> taskFunc, CancellationToken cancellationToken = default)
     {
-        if (taskFunc is null)
-            throw new ArgumentNullException(nameof(taskFunc));
-
+        ArgumentNullException.ThrowIfNull(taskFunc);
         Try.Create(taskFunc).GetValue()?.WaitAndUnwrapException(cancellationToken);
     }
 
@@ -98,9 +94,7 @@ public static class SyncRunner
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TResult FromAsynchronousCalling<TResult>(Task<TResult> task, CancellationToken cancellationToken = default)
     {
-        if (task is null)
-            throw new ArgumentNullException(nameof(task));
-
+        ArgumentNullException.ThrowIfNull(task);
         return task.WaitAndUnwrapException(cancellationToken);
     }
 
@@ -116,8 +110,7 @@ public static class SyncRunner
     /// <exception cref="InvalidOperationException"></exception>
     public static TResult FromAsynchronousCalling<TResult>(Func<Task<TResult>> taskFunc, CancellationToken cancellationToken = default)
     {
-        if (taskFunc is null)
-            throw new ArgumentNullException(nameof(taskFunc));
+        ArgumentNullException.ThrowIfNull(taskFunc);
 
         var task = Try.Create(taskFunc).GetValue();
 

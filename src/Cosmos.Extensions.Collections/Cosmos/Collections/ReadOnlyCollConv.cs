@@ -21,8 +21,7 @@ public static class ReadOnlyCollConv
     /// <exception cref="ArgumentNullException"></exception>
     public static IList<T> AsList<T>(IReadOnlyList<T> list)
     {
-        if (list is null)
-            throw new ArgumentNullException(nameof(list));
+        ArgumentNullException.ThrowIfNull(list);
         return new ReadOnlyListWrapper<T>(list);
     }
 
@@ -48,8 +47,7 @@ public static class ReadOnlyCollConvExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ReadOnlyCollection<T> AsReadOnly<T>(this IEnumerable<T> src)
     {
-        if (src is null)
-            throw new ArgumentNullException(nameof(src));
+        ArgumentNullException.ThrowIfNull(src);
         return ReadOnlyCollsHelper.WrapInReadOnlyCollection(src.ToList());
     }
 

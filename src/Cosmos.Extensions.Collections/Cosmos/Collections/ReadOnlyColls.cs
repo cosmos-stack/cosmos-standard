@@ -15,8 +15,7 @@ internal static class ReadOnlyCollsHelper
     /// <exception cref="ArgumentNullException"></exception>
     public static ReadOnlyCollection<T> WrapInReadOnlyCollection<T>(IList<T> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return new ReadOnlyCollection<T>(source);
     }
 
@@ -30,8 +29,7 @@ internal static class ReadOnlyCollsHelper
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> Append<T>(IEnumerable<T> source, params T[] items)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return items is null ? source : source.Concat(items);
     }
 }
@@ -55,8 +53,7 @@ public static partial class ReadOnlyColls
     /// <exception cref="ArgumentNullException"></exception>
     public static IReadOnlyCollection<T> Append<T>(IReadOnlyCollection<T> source, T item)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return new AppendedReadOnlyCollection<T>(source, item);
     }
 
@@ -77,7 +74,7 @@ public static partial class ReadOnlyColls
 
     private static class EmptyReadOnlyCollectionSingleton<T>
     {
-        internal static readonly ReadOnlyCollection<T> OneInstance = new(new T[0]);
+        internal static readonly ReadOnlyCollection<T> OneInstance = new(Array.Empty<T>());
     }
 
     #endregion

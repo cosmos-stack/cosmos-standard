@@ -22,9 +22,7 @@ public static class ReadOnlyDictConv
     public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
         IEnumerable<KeyValuePair<K, V>> src)
     {
-        if (src is null)
-            throw new ArgumentNullException(nameof(src));
-
+        ArgumentNullException.ThrowIfNull(src);
         return new ReadOnlyDictionary<K, V>(src.ToDictionary(p => p.Key, p => p.Value, EqualityComparer<K>.Default));
     }
 
@@ -41,11 +39,8 @@ public static class ReadOnlyDictConv
     public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
         IEnumerable<KeyValuePair<K, V>> src, IEqualityComparer<K> comparer)
     {
-        if (src is null)
-            throw new ArgumentNullException(nameof(src));
-        if (comparer is null)
-            throw new ArgumentNullException(nameof(comparer));
-
+        ArgumentNullException.ThrowIfNull(src);
+        ArgumentNullException.ThrowIfNull(comparer);
         return new ReadOnlyDictionary<K, V>(src.ToDictionary(p => p.Key, p => p.Value, comparer));
     }
 
@@ -62,11 +57,8 @@ public static class ReadOnlyDictConv
     public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
         IEnumerable<V> source, Func<V, K> keySelector)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (keySelector is null)
-            throw new ArgumentNullException(nameof(keySelector));
-
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(keySelector);
         return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector));
     }
 
@@ -84,13 +76,9 @@ public static class ReadOnlyDictConv
     public static IReadOnlyDictionary<K, V> ToDictionary<K, V>(
         IEnumerable<V> source, Func<V, K> keySelector, IEqualityComparer<K> comparer)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (keySelector is null)
-            throw new ArgumentNullException(nameof(keySelector));
-        if (comparer is null)
-            throw new ArgumentNullException(nameof(comparer));
-
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(keySelector);
+        ArgumentNullException.ThrowIfNull(comparer);
         return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, comparer));
     }
 
@@ -110,15 +98,10 @@ public static class ReadOnlyDictConv
     public static IReadOnlyDictionary<K, V> ToDictionary<TSource, K, V>(
         IEnumerable<TSource> source, Func<TSource, K> keySelector, Func<TSource, V> elementSelector, IEqualityComparer<K> comparer)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (keySelector is null)
-            throw new ArgumentNullException(nameof(keySelector));
-        if (elementSelector is null)
-            throw new ArgumentNullException(nameof(elementSelector));
-        if (comparer is null)
-            throw new ArgumentNullException(nameof(comparer));
-
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(keySelector);
+        ArgumentNullException.ThrowIfNull(elementSelector);
+        ArgumentNullException.ThrowIfNull(comparer);
         return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, elementSelector, comparer));
     }
 
@@ -137,13 +120,9 @@ public static class ReadOnlyDictConv
     public static IReadOnlyDictionary<K, V> ToDictionary<TSource, K, V>(
         IEnumerable<TSource> source, Func<TSource, K> keySelector, Func<TSource, V> elementSelector)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (keySelector is null)
-            throw new ArgumentNullException(nameof(keySelector));
-        if (elementSelector is null)
-            throw new ArgumentNullException(nameof(elementSelector));
-
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(keySelector);
+        ArgumentNullException.ThrowIfNull(elementSelector);
         return ReadOnlyDictHelper.WrapInReadOnlyDictionary(source.ToDictionary(keySelector, elementSelector));
     }
 

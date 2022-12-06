@@ -17,8 +17,7 @@ public static partial class Tasks
     /// <exception cref="ArgumentNullException"></exception>
     public static void RunInContext(Task task)
     {
-        if (task is null)
-            throw new ArgumentNullException(nameof(task));
+        ArgumentNullException.ThrowIfNull(task);
         AsyncContext.Run(() => task);
     }
 
@@ -31,8 +30,7 @@ public static partial class Tasks
     /// <exception cref="ArgumentNullException"></exception>
     public static T RunInContext<T>(Task<T> task)
     {
-        if (task is null)
-            throw new ArgumentNullException(nameof(task));
+        ArgumentNullException.ThrowIfNull(task);
         return AsyncContext.Run(() => task);
     }
 

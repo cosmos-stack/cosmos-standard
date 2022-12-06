@@ -21,10 +21,8 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> AddRange<T>(IEnumerable<T> source, IEnumerable<T> collection)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (collection is null)
-            throw new ArgumentNullException(nameof(collection));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(collection);
         foreach (var item in source)
             yield return item;
         foreach (var item in collection)
@@ -60,8 +58,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> AddIf<T>(IEnumerable<T> source, T value, bool flag)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var item in source)
             yield return item;
         if (flag)
@@ -80,8 +77,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> AddIf<T>(IEnumerable<T> source, T value, Func<bool> condition)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var item in source)
             yield return item;
         if (condition())
@@ -100,8 +96,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> AddIf<T>(IEnumerable<T> source, T value, Func<T, bool> condition)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var item in source)
             yield return item;
         if (condition?.Invoke(value) ?? false)
@@ -124,13 +119,9 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static T GetOrAdd<T>(ICollection<T> source, Func<T, bool> selector, Func<T> factory)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (selector is null)
-            throw new ArgumentNullException(nameof(selector));
-        if (factory is null)
-            throw new ArgumentNullException(nameof(factory));
-
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(selector);
+        ArgumentNullException.ThrowIfNull(factory);
         var item = source.FirstOrDefault(selector);
 
         if (item is null)
@@ -175,8 +166,7 @@ public static partial class Colls
     /// <returns></returns>
     public static IEnumerable<TSource> RemoveDuplicates<TSource, TCheck>(IList<TSource> source, Func<TSource, TCheck> duplicatePredicate)
     {
-        if (duplicatePredicate is null)
-            throw new ArgumentNullException(nameof(duplicatePredicate));
+        ArgumentNullException.ThrowIfNull(duplicatePredicate);
 
         var duplicateCheck = new HashSet<TCheck>();
 
@@ -223,10 +213,8 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> RemoveIf<T>(IList<T> source, Func<T, bool> predicate)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (predicate is null)
-            throw new ArgumentNullException(nameof(predicate));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(predicate);
         for (var i = source.Count - 1; i >= 0; --i)
         {
             var item = source[i];
@@ -252,8 +240,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> RemoveRangeSafety<T>(List<T> source, int index, int count)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
 
         if (index < 0 || count <= 0)
             return source;
@@ -325,7 +312,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> Merge<T>(IEnumerable<T> source, IEnumerable<T> right)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var item in source)
             yield return item;
         if (right is null)
@@ -346,7 +333,7 @@ public static partial class Colls
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> Merge<T>(IEnumerable<T> source, IEnumerable<T> right, int limit)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         foreach (var item in source)
             yield return item;
         if (right is null)

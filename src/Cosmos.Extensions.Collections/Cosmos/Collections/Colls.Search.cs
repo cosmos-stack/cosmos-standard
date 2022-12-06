@@ -124,12 +124,9 @@ public static partial class Colls
     /// <exception cref="InvalidOperationException"></exception>
     public static int BinarySearch<TSource, TValue>(IList<TSource> source, int index, int length, Func<TSource, TValue> map, TValue value, IComparer<TValue> comparer)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (map is null)
-            throw new ArgumentNullException(nameof(map));
-        if (comparer is null)
-            throw new ArgumentNullException(nameof(comparer));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(map);
+        ArgumentNullException.ThrowIfNull(comparer);
         if (index < 0)
             throw new ArgumentOutOfRangeException(nameof(index), index, $"The {nameof(index)} parameter must be a non-negative value.");
         if (length < 0)

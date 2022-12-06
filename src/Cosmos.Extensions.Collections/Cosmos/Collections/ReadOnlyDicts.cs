@@ -14,9 +14,7 @@ internal static class ReadOnlyDictHelper
     /// <exception cref="ArgumentNullException"></exception>
     public static ReadOnlyDictionary<K, V> WrapInReadOnlyDictionary<K, V>(IDictionary<K, V> dictionary)
     {
-        if (dictionary is null)
-            throw new ArgumentNullException(nameof(dictionary));
-
+        ArgumentNullException.ThrowIfNull(dictionary);
         return new ReadOnlyDictionary<K, V>(dictionary);
     }
 }

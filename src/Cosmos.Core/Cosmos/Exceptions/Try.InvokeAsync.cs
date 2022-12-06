@@ -21,9 +21,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction();
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -45,9 +45,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(obj);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -70,9 +70,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -96,9 +96,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -123,9 +123,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -152,9 +152,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -182,9 +182,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -213,9 +213,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -245,9 +245,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -279,9 +279,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -314,9 +314,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -350,9 +350,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -387,9 +387,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -425,9 +425,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -464,9 +464,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -504,9 +504,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }
@@ -545,9 +545,9 @@ public static partial class Try
     {
         try
         {
-            TaskGuard(InvokeAsyncAction, nameof(InvokeAsyncAction));
+            ArgumentNullException.ThrowIfNull(InvokeAsyncAction);
             var invokeAction = await InvokeAsyncAction;
-            NotNull(invokeAction, nameof(invokeAction));
+            ArgumentNullException.ThrowIfNull(invokeAction);
             invokeAction(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16);
             return new SuccessAction(InvokeAsyncAction.GetHashCode());
         }

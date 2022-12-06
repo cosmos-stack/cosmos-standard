@@ -21,8 +21,7 @@ public static class OptionalDictsExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static V? GetOptionalValue<K, V>(this IDictionary<K, V> dictionary, K key) where V : struct
     {
-        if (dictionary is null)
-            throw new ArgumentNullException(nameof(dictionary));
+        ArgumentNullException.ThrowIfNull(dictionary);
         return dictionary.TryGetValue(key, out var value) ? value : null;
     }
         

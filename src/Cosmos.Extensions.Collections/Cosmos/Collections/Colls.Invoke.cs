@@ -8,10 +8,8 @@ public static partial class Colls
 {
     public static void InvokeForEach<T, TState>(IEnumerable<T> sourceColl, Action<T, TState> loopAct, TState state)
     {
-        if (state is null)
-            throw new ArgumentNullException(nameof(state));
-        if (loopAct is null)
-            throw new ArgumentNullException(nameof(loopAct));
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(loopAct);
         foreach (var source in sourceColl)
         {
             loopAct.Invoke(source, state);
@@ -20,10 +18,8 @@ public static partial class Colls
 
     public static void InvokeForEach<T, TState>(IEnumerable<T> sourceColl, Action<T, int, TState> loopAct, TState state)
     {
-        if (state is null)
-            throw new ArgumentNullException(nameof(state));
-        if (loopAct is null)
-            throw new ArgumentNullException(nameof(loopAct));
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(loopAct);
         var index = 0;
         foreach (var source in sourceColl)
         {
@@ -33,22 +29,16 @@ public static partial class Colls
 
     public static TState InvokeForEach<T, TState>(IEnumerable<T> sourceColl, Func<T, TState, TState> loopFunc, TState state)
     {
-        if (state is null)
-            throw new ArgumentNullException(nameof(state));
-        if (loopFunc is null)
-            throw new ArgumentNullException(nameof(loopFunc));
-
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(loopFunc);
         return sourceColl.Aggregate(state, (current, source) => loopFunc.Invoke(source, current));
     }
 
     public static TState InvokeForEach<T, TState>(IEnumerable<T> sourceColl, Func<T, int, TState, TState> loopFunc, TState state)
     {
-        if (state is null)
-            throw new ArgumentNullException(nameof(state));
-        if (loopFunc is null)
-            throw new ArgumentNullException(nameof(loopFunc));
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(loopFunc);
         var index = 0;
-
         return sourceColl.Aggregate(state, (current, source) => loopFunc.Invoke(source, index++, current));
     }
 }

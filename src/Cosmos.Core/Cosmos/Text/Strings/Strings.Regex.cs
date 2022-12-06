@@ -17,13 +17,10 @@ public static partial class Strings
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     /// <exception cref="InvalidOperationException"></exception>
-    public static string GetGroupValue(Match match, string group)
+    public static string GetGroupedValue(Match match, string group)
     {
-        if (match is null)
-            throw new ArgumentNullException(nameof(match));
-
-        if (string.IsNullOrWhiteSpace(group))
-            throw new ArgumentNullException(nameof(group));
+        ArgumentNullException.ThrowIfNull(match);
+        ArgumentNullException.ThrowIfNull(group);
 
         var g = match.Groups[group];
 
@@ -46,8 +43,8 @@ public static partial class StringsExtensions
     /// <exception cref="ArgumentNullException"></exception>
     /// <exception cref="InvalidOperationException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string GetGroupValue(this Match match, string group)
+    public static string GetGroupedValue(this Match match, string group)
     {
-        return Strings.GetGroupValue(match, group);
+        return Strings.GetGroupedValue(match, group);
     }
 }

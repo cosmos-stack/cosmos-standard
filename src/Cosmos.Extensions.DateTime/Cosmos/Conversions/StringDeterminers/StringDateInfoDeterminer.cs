@@ -22,9 +22,7 @@ public static class StringDateInfoDeterminer
         if (string.IsNullOrWhiteSpace(text))
             return false;
 
-        if (formatProvider is null)
-            formatProvider = DateTimeFormatInfo.CurrentInfo;
-
+        formatProvider ??= DateTimeFormatInfo.CurrentInfo;
         return DateInfo.TryParse(text, formatProvider, style, out var dateInfo)
                        .IfTrueThenInvoke(matchedCallback, dateInfo);
     }
@@ -45,6 +43,7 @@ public static class StringDateInfoDeterminer
         IFormatProvider formatProvider = null,
         Action<DateInfo> matchedCallback = null)
     {
+        formatProvider ??= DateTimeFormatInfo.CurrentInfo;
         return StringDeterminingHelper.IsXXX(text, string.IsNullOrWhiteSpace,
             (s, act) => Is(s, style, formatProvider, act), tries, matchedCallback);
     }
@@ -63,9 +62,7 @@ public static class StringDateInfoDeterminer
         IFormatProvider formatProvider = null,
         DateInfo defaultVal = default)
     {
-        if (formatProvider is null)
-            formatProvider = DateTimeFormatInfo.CurrentInfo;
-
+        formatProvider ??= DateTimeFormatInfo.CurrentInfo;
         return  DateInfo.TryParse(text, formatProvider, style, out var result)
             ? result
             : defaultVal;
@@ -85,9 +82,7 @@ public static class StringDateInfoDeterminer
         DateTimeStyles style = DateTimeStyles.None,
         IFormatProvider formatProvider = null)
     {
-        if (formatProvider is null)
-            formatProvider = DateTimeFormatInfo.CurrentInfo;
-
+        formatProvider ??= DateTimeFormatInfo.CurrentInfo;
         return StringDeterminingHelper.ToXXX(text, (s, act) => Is(s, style, formatProvider, act), impls);
     }
 }

@@ -27,8 +27,8 @@ public static partial class TaskExtensions
         this TaskCompletionSource<TResult> taskCompletionSource,
         Task<TResult> completedTask)
     {
-        if (taskCompletionSource == null) throw new ArgumentNullException(nameof(taskCompletionSource));
-        if (completedTask == null) throw new ArgumentNullException(nameof(completedTask));
+        ArgumentNullException.ThrowIfNull(taskCompletionSource);
+        ArgumentNullException.ThrowIfNull(completedTask);
 
         switch (completedTask.Status)
         {
@@ -59,8 +59,8 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static Task ContinueWithSynchronously(this Task task, Action<Task> continuationAction)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationAction is null) throw new ArgumentNullException(nameof(continuationAction));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationAction);
 
         return task.ContinueWith(
             continuationAction,
@@ -78,8 +78,8 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static Task ContinueWithSynchronously(this Task task, Action<Task, object> continuationAction, object state)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationAction is null) throw new ArgumentNullException(nameof(continuationAction));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationAction);
 
         return task.ContinueWith(
             continuationAction,
@@ -98,8 +98,8 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, TResult> continuationFunc)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationFunc is null) throw new ArgumentNullException(nameof(continuationFunc));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationFunc);
 
         return task.ContinueWith(
             continuationFunc,
@@ -118,8 +118,8 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static Task<TResult> ContinueWithSynchronously<TResult>(this Task task, Func<Task, object, TResult> continuationFunc, object state)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationFunc is null) throw new ArgumentNullException(nameof(continuationFunc));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationFunc);
 
         return task.ContinueWith(
             continuationFunc,
@@ -138,8 +138,8 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>> continuationAction)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationAction is null) throw new ArgumentNullException(nameof(continuationAction));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationAction);
 
         return task.ContinueWith(
             continuationAction,
@@ -158,8 +158,8 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static Task ContinueWithSynchronously<TResult>(this Task<TResult> task, Action<Task<TResult>, object> continuationAction, object state)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationAction is null) throw new ArgumentNullException(nameof(continuationAction));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationAction);
 
         return task.ContinueWith(
             continuationAction,
@@ -179,8 +179,8 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, TNewResult> continuationFunc)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationFunc is null) throw new ArgumentNullException(nameof(continuationFunc));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationFunc);
 
         return task.ContinueWith(
             continuationFunc,
@@ -201,8 +201,8 @@ public static partial class TaskExtensions
     public static Task<TNewResult> ContinueWithSynchronously<TResult, TNewResult>(this Task<TResult> task, Func<Task<TResult>, object, TNewResult> continuationFunc,
         object state)
     {
-        if (task is null) throw new ArgumentNullException(nameof(task));
-        if (continuationFunc is null) throw new ArgumentNullException(nameof(continuationFunc));
+        ArgumentNullException.ThrowIfNull(task);
+        ArgumentNullException.ThrowIfNull(continuationFunc);
 
         return task.ContinueWith(
             continuationFunc,
@@ -223,9 +223,7 @@ public static partial class TaskExtensions
     /// <returns></returns>
     public static CancellationTokenSource ToCancellationTokenSource(this Task task)
     {
-        if (task is null)
-            throw new ArgumentNullException(nameof(task));
-
+        ArgumentNullException.ThrowIfNull(task);
         var cancellationTokenSource = new CancellationTokenSource();
         task.ContinueWithSynchronously((_, @this) => ((CancellationTokenSource) @this!).Cancel(), cancellationTokenSource);
         return cancellationTokenSource;

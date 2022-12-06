@@ -59,11 +59,8 @@ public static class Dicts
     /// <typeparam name="V"></typeparam>
     public static void AddValueOrUpdate<K, V>(Dictionary<K, V> dictionary, K key, Func<K, V> insertFunc, Func<K, V, V> updateFunc)
     {
-        if (insertFunc is null)
-            throw new ArgumentNullException(nameof(insertFunc));
-
-        if (updateFunc is null)
-            throw new ArgumentNullException(nameof(updateFunc));
+        ArgumentNullException.ThrowIfNull(insertFunc);
+        ArgumentNullException.ThrowIfNull(updateFunc);
 
         var newVal = dictionary.ContainsKey(key)
             ? updateFunc(key, dictionary[key])
@@ -85,11 +82,8 @@ public static class Dicts
     /// <exception cref="ArgumentNullException"></exception>
     public static void AddValueOrDo<K, V>(Dictionary<K, V> dictionary, K key, Func<K, V> insertFunc, Action<K, V> doAct)
     {
-        if (insertFunc is null)
-            throw new ArgumentNullException(nameof(insertFunc));
-
-        if (doAct is null)
-            throw new ArgumentNullException(nameof(doAct));
+        ArgumentNullException.ThrowIfNull(insertFunc);
+        ArgumentNullException.ThrowIfNull(doAct);
 
         if (dictionary.ContainsKey(key))
         {
@@ -211,8 +205,7 @@ public static class Dicts
     /// <exception cref="ArgumentNullException"></exception>
     public static V GetValueOrDefaultCascading<K, V>(IEnumerable<IDictionary<K, V>> dictionaryColl, K key, V defaultValue)
     {
-        if (dictionaryColl is null)
-            throw new ArgumentNullException(nameof(dictionaryColl));
+        ArgumentNullException.ThrowIfNull(dictionaryColl);
         return TryGetValueCascading(dictionaryColl, key, out var value) ? value : defaultValue;
     }
 
@@ -243,8 +236,7 @@ public static class Dicts
     /// <exception cref="ArgumentNullException"></exception>
     public static bool TryGetValueCascading<K, V>(IEnumerable<IDictionary<K, V>> dictionaryColl, K key, out V value)
     {
-        if (dictionaryColl is null)
-            throw new ArgumentNullException(nameof(dictionaryColl));
+        ArgumentNullException.ThrowIfNull(dictionaryColl);
         value = default;
         foreach (var dictionary in dictionaryColl)
             if (dictionary.TryGetValue(key, out value))
@@ -286,8 +278,7 @@ public static class Dicts
     /// <returns></returns>
     public static V GetValueOrAdd<K, V>(Dictionary<K, V> dictionary, K key, Func<K, V> newValueCreator)
     {
-        if (newValueCreator is null)
-            throw new ArgumentNullException(nameof(newValueCreator));
+        ArgumentNullException.ThrowIfNull(newValueCreator);
 
         if (dictionary.TryGetValue(key, out var res))
             return res;

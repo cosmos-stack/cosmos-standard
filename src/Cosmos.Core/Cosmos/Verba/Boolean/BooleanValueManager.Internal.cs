@@ -38,10 +38,7 @@ internal static class InternalBooleanValueManager
     /// <param name="verba"></param>
     public static void AddBooleanVerba(IBooleanVerba verba)
     {
-        if (verba is null)
-        {
-            throw new ArgumentNullException(nameof(verba));
-        }
+        ArgumentNullException.ThrowIfNull(verba);
 
         if (!m_booleanVerbaDict.ContainsKey(verba.VerbaName))
         {

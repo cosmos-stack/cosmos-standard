@@ -13,8 +13,7 @@ public static partial class TaskExtensions
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<string> GetEnumerable(this TextReader textReader)
     {
-        if (textReader is null)
-            throw new ArgumentNullException(nameof(textReader));
+        ArgumentNullException.ThrowIfNull(textReader);
 
         string line;
 

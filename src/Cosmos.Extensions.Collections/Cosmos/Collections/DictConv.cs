@@ -26,8 +26,7 @@ public static class DictConv
         where TFromKey : TToKey
         where TFromValue : TToValue
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return new CastingReadOnlyDictionaryWrapper<TFromKey, TFromValue, TToKey, TToValue>(source);
     }
 
@@ -76,10 +75,8 @@ public static class DictConv
     /// <exception cref="ArgumentNullException"></exception>
     public static IDictionary<K, V> ToDictionary<K, V>(IEnumerable<KeyValuePair<K, V>> source, IEqualityComparer<K> equalityComparer)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
-        if (equalityComparer is null)
-            throw new ArgumentNullException(nameof(equalityComparer));
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(equalityComparer);
         return source.ToDictionary(p => p.Key, p => p.Value, equalityComparer);
     }
 
@@ -97,14 +94,10 @@ public static class DictConv
     /// <returns></returns>
     public static IEnumerable<Tuple<K, V>> ToTuple<K, V>(IDictionary<K, V> dictionary)
     {
-#if NETFRAMEWORK || NETSTANDARD2_0
-        return dictionary.Select(pair => Tuple.Create(pair.Key, pair.Value));
-#else
         foreach (var (key, value) in dictionary)
         {
             yield return Tuple.Create(key, value);
         }
-#endif
     }
 
     #endregion

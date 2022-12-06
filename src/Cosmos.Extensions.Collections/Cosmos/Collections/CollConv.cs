@@ -20,8 +20,7 @@ public static class CollConv
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> ToEnumerable<T>(IEnumerator<T> enumerator)
     {
-        if (enumerator is null)
-            throw new ArgumentNullException(nameof(enumerator));
+        ArgumentNullException.ThrowIfNull(enumerator);
 
         IEnumerable<T> Implementation()
         {
@@ -42,8 +41,7 @@ public static class CollConv
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T> ToEnumerableAfter<T>(IEnumerator<T> enumerator)
     {
-        if (enumerator is null)
-            throw new ArgumentNullException(nameof(enumerator));
+        ArgumentNullException.ThrowIfNull(enumerator);
 
         IEnumerable<T> Implementation()
         {
@@ -70,8 +68,7 @@ public static class CollConv
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<KeyValuePair<int, T>> ToIndexedSequence<T>(IEnumerable<T> source)
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return source.Select((t, i) => new KeyValuePair<int, T>(i, t));
     }
 
@@ -122,8 +119,7 @@ public static class CollConv
     /// <exception cref="ArgumentNullException"></exception>
     public static IEnumerable<T?> AsOptionals<T>(IEnumerable<T> source) where T : struct
     {
-        if (source is null)
-            throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return source.Cast<T?>();
     }
 
@@ -141,8 +137,7 @@ public static class CollConv
     /// <exception cref="ArgumentNullException"></exception>
     public static EnumerableProxy<T> AsEnumerableProxy<T>(IEnumerable<T> enumerable)
     {
-        if (enumerable is null)
-            throw new ArgumentNullException(nameof(enumerable));
+        ArgumentNullException.ThrowIfNull(enumerable);
         return new EnumerableProxy<T>(enumerable);
     }
 
@@ -270,44 +265,6 @@ public static class CollConvExtensions
 
     #region ToHashSet
 
-#if NETFRAMEWORK || NETSTANDARD2_0
-
-#if !NET472 && !NET48
-
-        /// <summary>
-        /// To hashset <br />
-        /// 转换为 <see cref="HashSet{T}"/>
-        /// </summary>
-        /// <param name="source"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source) where T : IComparable<T>
-        {
-            return source.ToHashSet(EqualityComparer<T>.Default);
-        }
-#endif
-
-        /// <summary>
-        /// To hashset <br />
-        /// 转换为 <see cref="HashSet{T}"/>
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="comparer"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> source, IEqualityComparer<T> comparer)
-            where T : IComparable<T>
-        {
-            if (source is null)
-                throw new ArgumentNullException(nameof(source));
-            if (comparer is null)
-                throw new ArgumentNullException(nameof(comparer));
-            return new HashSet<T>(source, comparer);
-        }
-
-#endif
-
     /// <summary>
     /// To HashSet <br />
     /// 转换为 <see cref="HashSet{T}"/>
@@ -337,7 +294,7 @@ public static class CollConvExtensions
     public static HashSet<TKey> ToHashSet<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keyFunc)
         where TKey : IComparable<TKey>
     {
-        if (keyFunc is null) throw new ArgumentNullException(nameof(keyFunc));
+        ArgumentNullException.ThrowIfNull(keyFunc);
         return source.Select(keyFunc).ToHashSet(EqualityComparer<TKey>.Default);
     }
 
@@ -389,7 +346,7 @@ public static class CollConvShortcutExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static IList<T> ToList<T>(this IEnumerable<T> source, Func<T, bool> func)
     {
-        if (source is null) throw new ArgumentNullException(nameof(source));
+        ArgumentNullException.ThrowIfNull(source);
         return func is null ? source.ToList() : source.Where(func).ToList();
     }
 }
