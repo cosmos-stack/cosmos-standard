@@ -19,7 +19,7 @@ public static class ChineseAnimalHelper
     private static int Index(DateTime dt)
     {
         var offset = dt.Year - ANIMAL_START_YEAR;
-        return (offset % 12);
+        return offset % 12;
     }
 
     /// <summary>

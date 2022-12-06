@@ -88,7 +88,7 @@ public static class ChineseConstellationHelper
         var dict = traditionalChineseCharacters ? NAMEZ : NAMES;
         var offset = (dt - ChineseConstellationReferDay).Days;
         var modStarDay = offset % 28;
-        return (modStarDay >= 0 ? dict[modStarDay] : dict[27 + modStarDay]);
+        return modStarDay >= 0 ? dict[modStarDay] : dict[27 + modStarDay];
     }
 
     /// <summary>
@@ -103,7 +103,7 @@ public static class ChineseConstellationHelper
         var dict = traditionalChineseCharacters ? NAMEZ : NAMES;
         var offset = (dt - ChineseConstellationReferDay).Days;
         var modStarDay = offset % 28;
-        return (modStarDay >= 0 ? dict[modStarDay] : dict[27 + modStarDay]);
+        return modStarDay >= 0 ? dict[modStarDay] : dict[27 + modStarDay];
     }
 
     /// <summary>

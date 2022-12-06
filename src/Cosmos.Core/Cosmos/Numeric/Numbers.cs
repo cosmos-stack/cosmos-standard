@@ -98,7 +98,7 @@ public static partial class Numbers
     /// </summary>
     public static double FixZero(double value)
     {
-        return !value.Equals(0) && Numbers.IsZeroValue(value) ? 0 : value;
+        return !value.Equals(0) && IsZeroValue(value) ? 0 : value;
     }
 
     private static double ReturnZeroIfFinite(float value)
@@ -121,7 +121,7 @@ public static partial class Numbers
     /// </summary>
     public static int GetDecimalPlaces(double source)
     {
-        if (Numbers.IsNaN(source))
+        if (IsNaN(source))
             return 0;
 
         var valueString = source.ToString(CultureInfo.InvariantCulture); // To

@@ -1,56 +1,9 @@
 ﻿namespace Cosmos.Date;
 
 /// <summary>
-/// Datetime Output Styles <br />
-/// 时间输出风格
-/// </summary>
-public enum DateTimeOutputStyles
-{
-    /// <summary>
-    /// DateTime
-    /// </summary>
-    DateTime,
-
-    /// <summary>
-    /// Date
-    /// </summary>
-    Date,
-
-    /// <summary>
-    /// Time
-    /// </summary>
-    Time,
-
-    /// <summary>
-    /// LongDate
-    /// </summary>
-    LongDate,
-
-    /// <summary>
-    /// LongTime
-    /// </summary>
-    LongTime,
-
-    /// <summary>
-    /// ShortDate
-    /// </summary>
-    ShortDate,
-
-    /// <summary>
-    /// ShortTime
-    /// </summary>
-    ShortTime,
-
-    /// <summary>
-    /// Millisecond
-    /// </summary>
-    Millisecond,
-}
-
-/// <summary>
 /// DateTime Helper (internal)
 /// </summary>
-internal static class DateTimeHelper
+internal static class DateTimeOutputHelper
 {
     /// <summary>
     /// If this then that...
@@ -70,7 +23,7 @@ internal static class DateTimeHelper
 /// DateTime to String extensions <br />
 /// DateTime 转换为 String 的扩展
 /// </summary>
-public static class DateTimeToStringExtensions
+public static class DateTimeOutputExtensions
 {
     /// <summary>
     /// Convert DateTime value to String. <br />
@@ -84,9 +37,9 @@ public static class DateTimeToStringExtensions
     {
         return styles switch
         {
-            DateTimeOutputStyles.DateTime => dt.ToString(DateTimeHelper.Ifttt(isRemoveSecond, "yyyy-MM-dd HH:mm", "yyyy-MM-dd HH:mm:ss")),
+            DateTimeOutputStyles.DateTime => dt.ToString(DateTimeOutputHelper.Ifttt(isRemoveSecond, "yyyy-MM-dd HH:mm", "yyyy-MM-dd HH:mm:ss")),
             DateTimeOutputStyles.Date => dt.ToString("yyyy-MM-dd"),
-            DateTimeOutputStyles.Time => dt.ToString(DateTimeHelper.Ifttt(isRemoveSecond, "HH:mm", "HH:mm:ss")),
+            DateTimeOutputStyles.Time => dt.ToString(DateTimeOutputHelper.Ifttt(isRemoveSecond, "HH:mm", "HH:mm:ss")),
             DateTimeOutputStyles.LongDate => dt.ToLongDateString(),
             DateTimeOutputStyles.LongTime => dt.ToLongTimeString(),
             DateTimeOutputStyles.ShortDate => dt.ToShortDateString(),

@@ -35,7 +35,7 @@ public static class DateInfoCalc
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static DateInfo OffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek)
     {
-        return OffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0));
+        return OffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt32(0));
     }
 
     /// <summary>
@@ -73,7 +73,7 @@ public static class DateInfoCalc
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool TryOffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek, out DateInfo result)
     {
-        return TryOffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0), out result);
+        return TryOffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt32(0), out result);
     }
 
     /// <summary>

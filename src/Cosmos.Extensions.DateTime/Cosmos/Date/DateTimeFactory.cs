@@ -295,7 +295,7 @@ public static class DateTimeFactory
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static DateTime CreateByWeek(int year, int month, DayOfWeek dayOfWeek, int occurrence)
-        => DateTimeCalc.OffsetByWeek(year, month, occurrence, dayOfWeek.CastToInt(0));
+        => DateTimeCalc.OffsetByWeek(year, month, occurrence, dayOfWeek.CastToInt32(0));
 
     #endregion
 }

@@ -38,7 +38,8 @@ public static partial class Try
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T> CreateFuture<T1, T2, T>(Func<T1, T2, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T> CreateFuture<T1, T2, T>(
+        Func<T1, T2, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -50,7 +51,8 @@ public static partial class Try
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T> CreateFuture<T1, T2, T3, T>(Func<T1, T2, T3, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T> CreateFuture<T1, T2, T3, T>(
+        Func<T1, T2, T3, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -63,7 +65,8 @@ public static partial class Try
     /// <typeparam name="T4"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T> CreateFuture<T1, T2, T3, T4, T>(Func<T1, T2, T3, T4, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T> CreateFuture<T1, T2, T3, T4, T>(
+        Func<T1, T2, T3, T4, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -77,7 +80,8 @@ public static partial class Try
     /// <typeparam name="T5"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T> CreateFuture<T1, T2, T3, T4, T5, T>(Func<T1, T2, T3, T4, T5, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T> CreateFuture<T1, T2, T3, T4, T5, T>(
+        Func<T1, T2, T3, T4, T5, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -92,7 +96,8 @@ public static partial class Try
     /// <typeparam name="T6"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T> CreateFuture<T1, T2, T3, T4, T5, T6, T>(Func<T1, T2, T3, T4, T5, T6, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T> CreateFuture<T1, T2, T3, T4, T5, T6, T>(
+        Func<T1, T2, T3, T4, T5, T6, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -108,7 +113,8 @@ public static partial class Try
     /// <typeparam name="T7"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T>(Func<T1, T2, T3, T4, T5, T6, T7, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T>(
+        Func<T1, T2, T3, T4, T5, T6, T7, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -125,7 +131,8 @@ public static partial class Try
     /// <typeparam name="T8"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T>(Func<T1, T2, T3, T4, T5, T6, T7, T8, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T>(
+        Func<T1, T2, T3, T4, T5, T6, T7, T8, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -143,7 +150,8 @@ public static partial class Try
     /// <typeparam name="T9"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T>(Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T>(
+        Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -162,7 +170,8 @@ public static partial class Try
     /// <typeparam name="T10"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T>(Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T>(
+        Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -182,7 +191,8 @@ public static partial class Try
     /// <typeparam name="T11"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T>(Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T> createFunction) => new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T>(
+        Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />
@@ -203,8 +213,8 @@ public static partial class Try
     /// <typeparam name="T12"></typeparam>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T>(Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T> createFunction) =>
-        new(createFunction);
+    public static FutureCreatingBuilder<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T> CreateFuture<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T>(
+        Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T> createFunction) => new(createFunction);
 
     /// <summary>
     /// Create a new instance of <see cref="Try{TResult}"/> in the future. <br />

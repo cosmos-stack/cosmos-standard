@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Cosmos.Text.Internals;
+﻿namespace Cosmos.Text.Internals;
 /*
  * Reference to:
  *	https://github.com/KvanTTT/BaseNcoding/blob/master/BaseNcoding/BaseN.cs
@@ -21,8 +19,12 @@ internal class BaseX : BaseXCore
 
     public bool ReverseOrder { get; }
 
-    public BaseX(string alphabet, uint blockMaxBitsCount = 32,
-        Encoding encoding = null, bool reverseOrder = false, bool parallel = false)
+    public BaseX(
+        string alphabet,
+        uint blockMaxBitsCount = 32,
+        Encoding encoding = null,
+        bool reverseOrder = false,
+        bool parallel = false)
         : base((uint)alphabet.Length, alphabet, '\0', encoding, parallel)
     {
         BlockMaxBitsCount = blockMaxBitsCount;
@@ -43,14 +45,14 @@ internal class BaseX : BaseXCore
     public override string Encode(byte[] data)
     {
         if (data == null || data.Length == 0)
-            return "";
+            return string.Empty;
 
-        int mainBitsLength = data.Length * 8 / BlockBitsCount * BlockBitsCount;
-        int tailBitsLength = data.Length * 8 - mainBitsLength;
-        int mainCharsCount = mainBitsLength * BlockCharsCount / BlockBitsCount;
-        int tailCharsCount = (tailBitsLength * BlockCharsCount + BlockBitsCount - 1) / BlockBitsCount;
-        int totalCharsCount = mainCharsCount + tailCharsCount;
-        int iterationCount = mainCharsCount / BlockCharsCount;
+        var mainBitsLength = data.Length * 8 / BlockBitsCount * BlockBitsCount;
+        var tailBitsLength = data.Length * 8 - mainBitsLength;
+        var mainCharsCount = mainBitsLength * BlockCharsCount / BlockBitsCount;
+        var tailCharsCount = (tailBitsLength * BlockCharsCount + BlockBitsCount - 1) / BlockBitsCount;
+        var totalCharsCount = mainCharsCount + tailCharsCount;
+        var iterationCount = mainCharsCount / BlockCharsCount;
 
         var result = new char[totalCharsCount];
 
@@ -60,18 +62,18 @@ internal class BaseX : BaseXCore
         }
         else
         {
-            int processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
+            var processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
             System.Threading.Tasks.Parallel.For(0, processorCount, i =>
             {
-                int beginInd = i * iterationCount / processorCount;
-                int endInd = (i + 1) * iterationCount / processorCount;
+                var beginInd = i * iterationCount / processorCount;
+                var endInd = (i + 1) * iterationCount / processorCount;
                 EncodeBlock(data, result, beginInd, endInd);
             });
         }
 
         if (tailBitsLength != 0)
         {
-            ulong bits = GetBits64(data, mainBitsLength, tailBitsLength);
+            var bits = GetBits64(data, mainBitsLength, tailBitsLength);
             BitsToChars(result, mainCharsCount, tailCharsCount, bits);
         }
 
@@ -81,14 +83,14 @@ internal class BaseX : BaseXCore
     public override byte[] Decode(string data)
     {
         if (string.IsNullOrEmpty(data))
-            return new byte[0];
+            return Array.Empty<byte>();
 
-        int totalBitsLength = ((data.Length - 1) * BlockBitsCount / BlockCharsCount + 8) / 8 * 8;
-        int mainBitsLength = totalBitsLength / BlockBitsCount * BlockBitsCount;
-        int tailBitsLength = totalBitsLength - mainBitsLength;
-        int mainCharsCount = mainBitsLength * BlockCharsCount / BlockBitsCount;
-        int tailCharsCount = (tailBitsLength * BlockCharsCount + BlockBitsCount - 1) / BlockBitsCount;
-        ulong tailBits = CharsToBits(data, mainCharsCount, tailCharsCount);
+        var totalBitsLength = ((data.Length - 1) * BlockBitsCount / BlockCharsCount + 8) / 8 * 8;
+        var mainBitsLength = totalBitsLength / BlockBitsCount * BlockBitsCount;
+        var tailBitsLength = totalBitsLength - mainBitsLength;
+        var mainCharsCount = mainBitsLength * BlockCharsCount / BlockBitsCount;
+        var tailCharsCount = (tailBitsLength * BlockCharsCount + BlockBitsCount - 1) / BlockBitsCount;
+        var tailBits = CharsToBits(data, mainCharsCount, tailCharsCount);
         if (tailBits >> tailBitsLength != 0)
         {
             totalBitsLength += 8;
@@ -98,9 +100,9 @@ internal class BaseX : BaseXCore
             tailCharsCount = (tailBitsLength * BlockCharsCount + BlockBitsCount - 1) / BlockBitsCount;
         }
 
-        int iterationCount = mainCharsCount / BlockCharsCount;
+        var iterationCount = mainCharsCount / BlockCharsCount;
 
-        byte[] result = new byte[totalBitsLength / 8];
+        var result = new byte[totalBitsLength / 8];
 
         if (!Parallel)
         {
@@ -108,18 +110,18 @@ internal class BaseX : BaseXCore
         }
         else
         {
-            int processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
+            var processorCount = Math.Min(iterationCount, Environment.ProcessorCount);
             System.Threading.Tasks.Parallel.For(0, processorCount, i =>
             {
-                int beginInd = i * iterationCount / processorCount;
-                int endInd = (i + 1) * iterationCount / processorCount;
+                var beginInd = i * iterationCount / processorCount;
+                var endInd = (i + 1) * iterationCount / processorCount;
                 DecodeBlock(data, result, beginInd, endInd);
             });
         }
 
         if (tailCharsCount != 0)
         {
-            ulong bits = CharsToBits(data, mainCharsCount, tailCharsCount);
+            var bits = CharsToBits(data, mainCharsCount, tailCharsCount);
             AddBits64(result, bits, mainBitsLength, tailBitsLength);
         }
 
@@ -128,40 +130,40 @@ internal class BaseX : BaseXCore
 
     private void EncodeBlock(byte[] src, char[] dst, int beginInd, int endInd)
     {
-        for (int ind = beginInd; ind < endInd; ind++)
+        for (var ind = beginInd; ind < endInd; ind++)
         {
-            int charInd = ind * BlockCharsCount;
-            int bitInd = ind * BlockBitsCount;
-            ulong bits = GetBits64(src, bitInd, BlockBitsCount);
+            var charInd = ind * BlockCharsCount;
+            var bitInd = ind * BlockBitsCount;
+            var bits = GetBits64(src, bitInd, BlockBitsCount);
             BitsToChars(dst, charInd, BlockCharsCount, bits);
         }
     }
 
     private void DecodeBlock(string src, byte[] dst, int beginInd, int endInd)
     {
-        for (int ind = beginInd; ind < endInd; ind++)
+        for (var ind = beginInd; ind < endInd; ind++)
         {
-            int charInd = ind * BlockCharsCount;
-            int bitInd = ind * BlockBitsCount;
-            ulong bits = CharsToBits(src, charInd, BlockCharsCount);
+            var charInd = ind * BlockCharsCount;
+            var bitInd = ind * BlockBitsCount;
+            var bits = CharsToBits(src, charInd, BlockCharsCount);
             AddBits64(dst, bits, bitInd, BlockBitsCount);
         }
     }
 
     private static ulong GetBits64(byte[] data, int bitPos, int bitsCount)
     {
-        ulong result = 0;
+        var result = 0UL;
 
-        int currentBytePos = Math.DivRem(bitPos, 8, out int currentBitInBytePos);
+        var currentBytePos = Math.DivRem(bitPos, 8, out var currentBitInBytePos);
 
-        int xLength = Math.Min(bitsCount, 8 - currentBitInBytePos);
+        var xLength = Math.Min(bitsCount, 8 - currentBitInBytePos);
         if (xLength != 0)
         {
             result = ((ulong)data[currentBytePos] << 56 + currentBitInBytePos) >> 64 - xLength << bitsCount - xLength;
 
             currentBytePos += Math.DivRem(currentBitInBytePos + xLength, 8, out currentBitInBytePos);
 
-            int x2Length = bitsCount - xLength;
+            var x2Length = bitsCount - xLength;
             if (x2Length > 8)
                 x2Length = 8;
 
@@ -185,24 +187,24 @@ internal class BaseX : BaseXCore
     {
         unchecked
         {
-            int currentBytePos = Math.DivRem(bitPos, 8, out int currentBitInBytePos);
+            var currentBytePos = Math.DivRem(bitPos, 8, out int currentBitInBytePos);
 
-            int xLength = Math.Min(bitsCount, 8 - currentBitInBytePos);
+            var xLength = Math.Min(bitsCount, 8 - currentBitInBytePos);
             if (xLength != 0)
             {
-                byte x1 = (byte)(value << 64 - bitsCount >> 56 + currentBitInBytePos);
+                var x1 = (byte)(value << 64 - bitsCount >> 56 + currentBitInBytePos);
                 data[currentBytePos] |= x1;
 
                 currentBytePos += Math.DivRem(currentBitInBytePos + xLength, 8, out currentBitInBytePos);
 
-                int x2Length = bitsCount - xLength;
+                var x2Length = bitsCount - xLength;
                 if (x2Length > 8)
                     x2Length = 8;
 
                 while (x2Length > 0)
                 {
                     xLength += x2Length;
-                    byte x2 = (byte)(value >> bitsCount - xLength << 8 - x2Length);
+                    var x2 = (byte)(value >> bitsCount - xLength << 8 - x2Length);
                     data[currentBytePos] |= x2;
 
                     currentBytePos += Math.DivRem(currentBitInBytePos + x2Length, 8, out currentBitInBytePos);
@@ -217,11 +219,11 @@ internal class BaseX : BaseXCore
 
     private void BitsToChars(char[] chars, int ind, int count, ulong block)
     {
-        ulong result = block;
-        for (int i = 0; i < count; i++)
+        var result = block;
+        for (var i = 0; i < count; i++)
         {
-            ulong quotient = result / CharsCount;
-            ulong remainder = result - quotient * CharsCount;
+            var quotient = result / CharsCount;
+            var remainder = result - quotient * CharsCount;
             result = quotient;
             chars[ind + (!ReverseOrder ? i : count - 1 - i)] = Alphabet[(int)remainder];
         }
@@ -230,7 +232,7 @@ internal class BaseX : BaseXCore
     private ulong CharsToBits(string data, int ind, int count)
     {
         ulong result = 0;
-        for (int i = 0; i < count; i++)
+        for (var i = 0; i < count; i++)
             result += (ulong)InvAlphabet[data[ind + (!ReverseOrder ? i : count - 1 - i)]] * _powN[BlockCharsCount - 1 - i];
         return result;
     }

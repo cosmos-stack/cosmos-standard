@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Cosmos;
+﻿namespace Cosmos;
 
 /// <summary>
 /// Random extensions<br />

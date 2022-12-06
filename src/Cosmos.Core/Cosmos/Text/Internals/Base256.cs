@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Cosmos.Text.Internals;
+﻿namespace Cosmos.Text.Internals;
 /*
  * Reference to:
  *	https://github.com/KvanTTT/BaseNcoding/blob/master/BaseNcoding/Base256.cs
@@ -25,9 +23,12 @@ internal class Base256 : BaseXCore
 
     public override string Encode(byte[] data)
     {
+        if (data is null)
+            return string.Empty;
+
         var result = new char[data.Length];
 
-        for (int i = 0; i < data.Length; i++)
+        for (var i = 0; i < data.Length; i++)
             result[i] = Alphabet[data[i]];
 
         return new string(result);
@@ -37,9 +38,12 @@ internal class Base256 : BaseXCore
     {
         unchecked
         {
-            byte[] result = new byte[data.Length];
+            if (string.IsNullOrEmpty(data))
+                return Array.Empty<byte>();
 
-            for (int i = 0; i < data.Length; i++)
+            var result = new byte[data.Length];
+
+            for (var i = 0; i < data.Length; i++)
                 result[i] = (byte)InvAlphabet[data[i]];
 
             return result;

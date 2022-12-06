@@ -4,7 +4,7 @@
 /// Time Span Extensions <br />
 /// Time Span 扩展
 /// </summary>
-public static class TimeSpanExtensions
+public static partial class TimeSpanExtensions
 {
     #region Before
 
@@ -209,20 +209,11 @@ public static class TimeSpanExtensions
         return $"{ts.Milliseconds} milliseconds";
     }
 
-    /// <summary>
-    /// To datetime <br />
-    /// 转换为 DateTime
-    /// </summary>
-    /// <param name="time"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public static DateTime ToDateTime(this TimeSpan time)
-    {
-        var ticks = time.Ticks;
-        if (ticks < 0 || ticks > 3155378975999999999)
-            throw new ArgumentOutOfRangeException(nameof(time));
-        return new(ticks);
-    }
+    #endregion
+
+    #region To
+
+
 
     #endregion
 }

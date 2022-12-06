@@ -1,7 +1,4 @@
-﻿using System.Text;
-using Cosmos.Text;
-
-namespace Cosmos.IdUtils;
+﻿namespace Cosmos.IdUtils;
 
 internal static class StringIdentifierHelper
 {

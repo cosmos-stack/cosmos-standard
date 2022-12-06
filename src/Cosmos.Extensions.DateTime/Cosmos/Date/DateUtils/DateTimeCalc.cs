@@ -135,7 +135,7 @@ public static class DateTimeCalc
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static DateTime OffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek)
-        => OffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0));
+        => OffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt32(0));
 
     /// <summary>
     /// Create <see cref="DateTime"/> by special year, month and offset info.<br />
@@ -171,7 +171,7 @@ public static class DateTimeCalc
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool TryOffsetByWeek(int year, int month, int weekAtMonth, DayOfWeek dayOfWeek, out DateTime result)
-        => TryOffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt(0), out result);
+        => TryOffsetByWeek(year, month, weekAtMonth, dayOfWeek.CastToInt32(0), out result);
 
     /// <summary>
     /// Create <see cref="DateTime"/> by special year, month and offset info.<br />

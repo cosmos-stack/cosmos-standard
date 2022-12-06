@@ -218,7 +218,7 @@ public static class DateInfoFactory
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static DateInfo CreateByWeek(int year, int month, DayOfWeek dayOfWeek, int occurrence)
-        => DateInfoCalc.OffsetByWeek(year, month, occurrence, dayOfWeek.CastToInt(0));
+        => DateInfoCalc.OffsetByWeek(year, month, occurrence, dayOfWeek.CastToInt32(0));
 
     #endregion
 }

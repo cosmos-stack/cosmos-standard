@@ -45,8 +45,8 @@ public class UnixTimeStamp : TimeStamp
         (time.ToUniversalTime().Ticks - 621355968000000000) / 10000000;
 
     private static readonly Func<long, DateTime> FromUnixTimestampFunc = timestamp =>
-        (TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1), TimeZoneInfo.Local))
-        .Add(new TimeSpan(long.Parse(timestamp + "0000000")));
+        TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1), TimeZoneInfo.Local)
+                    .Add(new TimeSpan(long.Parse(timestamp + "0000000")));
 
     /// <summary>
     /// Gets a func for unix now.
