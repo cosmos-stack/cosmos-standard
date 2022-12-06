@@ -7,8 +7,8 @@
     <PropertyGroup>
         <RootNamespace />
         <LangVersion>latest</LangVersion>
-        <NoWarn Condition=" '$(Configuration)' == 'Debug' ">$(NoWarn);NETSDK1138</NoWarn>
-        <NoWarn Condition=" '$(Configuration)' == 'Release' ">$(NoWarn);CS1591;NETSDK1138</NoWarn>
+        <NoWarn Condition=" '$(Configuration)' == 'Debug' ">$(NoWarn);NETSDK1138;NU1803</NoWarn>
+        <NoWarn Condition=" '$(Configuration)' == 'Release' ">$(NoWarn);CS1591;NETSDK1138;NU1803</NoWarn>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

@@ -248,7 +248,7 @@
             BASE 转换工具扩展
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase32String(System.Byte[])">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase32String(System.Byte[])">
             <summary>
             Convert byte array to base32. <br />
             将字节数组转换为 BASE32
@@ -256,7 +256,7 @@
             <param name="data"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase32String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase32String(System.String,System.Text.Encoding)">
             <summary>
             Convert string to base32. <br />
             将字符串转换为 BASE32
@@ -265,7 +265,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase32String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastFromBase32String(System.String,System.Text.Encoding)">
             <summary>
             Convert string from base32. <br />
             将 BASE32 转换为字符串
@@ -274,7 +274,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToZBase32String(System.Byte[])">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToZBase32String(System.Byte[])">
             <summary>
             Convert byte array to ZBase32. <br />
             将字节数组转换为 ZBASE32
@@ -282,7 +282,7 @@
             <param name="data"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToZBase32String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToZBase32String(System.String,System.Text.Encoding)">
             <summary>
             Convert string to ZBase32. <br />
             将字符串转换为 ZBASE32
@@ -291,7 +291,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromZBase32String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastFromZBase32String(System.String,System.Text.Encoding)">
             <summary>
             Convert ZBase32 to string. <br />
             将 ZBASE32 转换为字符串
@@ -300,7 +300,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase64String(System.Byte[])">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase64String(System.Byte[])">
             <summary>
             Convert byte array to base64. <br />
             将字节数组转换为 BASE64
@@ -308,7 +308,7 @@
             <param name="data"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase64String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase64String(System.String,System.Text.Encoding)">
             <summary>
             Convert string to base64. <br />
             将字符串转换为 BASE64
@@ -317,7 +317,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase64String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastFromBase64String(System.String,System.Text.Encoding)">
             <summary>
             Convert base64 to string. <br />
             将 BASE64 转换为字符串
@@ -326,7 +326,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase91String(System.Byte[])">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase91String(System.Byte[])">
             <summary>
             Convert byte array to base91. <br />
             将字节数组转换为 BASE91
@@ -334,7 +334,7 @@
             <param name="data"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase91String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase91String(System.String,System.Text.Encoding)">
             <summary>
             Convert string to base91. <br />
             将字符串转换为 BASE91
@@ -343,7 +343,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase91String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastFromBase91String(System.String,System.Text.Encoding)">
             <summary>
             Convert base91 to string. <br />
             将 BASE91 转换为字符串
@@ -352,7 +352,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase256String(System.Byte[])">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase256String(System.Byte[])">
             <summary>
             Convert byte array to base256. <br />
             将字节数组转换为 BASE256
@@ -360,7 +360,7 @@
             <param name="data"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.ToBase256String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastToBase256String(System.String,System.Text.Encoding)">
             <summary>
             Convert string to base256. <br />
             将字符串转换为 BASE256
@@ -369,7 +369,7 @@
             <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.BaseConvExtensions.FromBase256String(System.String,System.Text.Encoding)">
+        <member name="M:Cosmos.Conversions.BaseConvExtensions.CastFromBase256String(System.String,System.Text.Encoding)">
             <summary>
             Convert base256 to string. <br />
             将 BASE256 转换为字符串
@@ -392,7 +392,7 @@
             <param name="bin"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.ByteArrayExtensions.ToMemoryStream(System.Byte[])">
+        <member name="M:Cosmos.Conversions.ByteArrayExtensions.CastToMemoryStream(System.Byte[])">
             <summary>
             Convert byte[] to <see cref="T:System.IO.MemoryStream"/> <br />
             转换类型，将 <see cref="T:System.Byte"/>[] 转换为 <see cref="T:System.IO.MemoryStream"/>
@@ -436,7 +436,7 @@
             十六进制工具扩展
             </summary>
         </member>
-        <member name="M:Cosmos.Conversions.HexExtensions.ToHexString(System.Byte[])">
+        <member name="M:Cosmos.Conversions.HexExtensions.CastToHexString(System.Byte[])">
             <summary>
             Byte array to hex string <br />
             将字节数组转换为十六进制字符串
@@ -444,7 +444,7 @@
             <param name="bytes"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Conversions.HexExtensions.ToBytes(System.String)">
+        <member name="M:Cosmos.Conversions.HexExtensions.CastToHexBytes(System.String)">
             <summary>
             Hex string to byte <br />
             将十六进制字符串转换为字节数组
@@ -1242,7 +1242,7 @@
             Unwrap<br />
             解包
             </summary>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Exceptions.ExceptionHelper.Unwrap(System.Exception,System.Type,System.Boolean)">
@@ -1250,7 +1250,7 @@
             Unwrap<br />
             解包
             </summary>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <param name="untilType"></param>
             <param name="mayDerivedClass"></param>
             <returns></returns>
@@ -1261,7 +1261,7 @@
             解包
             </summary>
             <typeparam name="TException"></typeparam>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Exceptions.ExceptionHelperExtensions">
@@ -1275,7 +1275,7 @@
             Unwrap<br />
             解包
             </summary>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Exceptions.ExceptionHelperExtensions.Unwrap(System.Exception,System.Type,System.Boolean)">
@@ -1283,7 +1283,7 @@
             Unwrap<br />
             解包
             </summary>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <param name="untilType"></param>
             <param name="mayDerivedClass"></param>
             <returns></returns>
@@ -1294,7 +1294,7 @@
             解包
             </summary>
             <typeparam name="TException"></typeparam>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Exceptions.ExceptionHelperExtensions.ToUnwrappedString(System.Exception)">
@@ -1302,7 +1302,7 @@
             Unwrap and gets message<br />
             解包并返回消息
             </summary>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Exceptions.ExceptionHelperExtensions.ToFullUnwrappedString(System.Exception)">
@@ -1310,7 +1310,7 @@
             Unwrap and gets full message<br />
             解包，尝试返回完整信息
             </summary>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <returns></returns>
         </member>
         <member name="T:Cosmos.Exceptions.ExceptionOptions">
@@ -2454,7 +2454,7 @@
             Lifts <br />
             直接使用一个异常生成 <see cref="T:Cosmos.Exceptions.Try`1"/> 实例
             </summary>
-            <param name="ex"></param>
+            <param name="exception"></param>
             <param name="cause"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
@@ -15735,7 +15735,7 @@
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.Strings.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
+        <member name="M:Cosmos.Text.Strings.GetGroupedValue(System.Text.RegularExpressions.Match,System.String)">
             <summary>
             Gets the captured substring from the input string. <br />
             从输入字符串中获取捕获的子字符串。
@@ -16323,7 +16323,7 @@
             <param name="text"></param>
             <returns></returns>
         </member>
-        <member name="M:Cosmos.Text.StringsExtensions.GetGroupValue(System.Text.RegularExpressions.Match,System.String)">
+        <member name="M:Cosmos.Text.StringsExtensions.GetGroupedValue(System.Text.RegularExpressions.Match,System.String)">
             <summary>
             Gets the captured substring from the input string. <br />
             从输入字符串中获取捕获的子字符串。

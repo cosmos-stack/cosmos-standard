@@ -98,6 +98,134 @@
             Number if false
             </summary>
         </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.Core.Extensions.EnumerableExtensions.Iter``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+                Apply the given function to each element of the collection
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">Input collection</param>
+            <param name="action">Given function</param>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.Core.Extensions.EnumerableExtensions.IterI``1(System.Collections.Generic.IEnumerable{``0},System.Action{System.Int32,``0})">
+            <summary>
+                Apply the given function to each element of the collection.
+                The integer passed to the function indicates the index of element.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">Input collection</param>
+            <param name="action">Given function</param>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.Core.Extensions.EnumerableExtensions.IterSafe``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0},System.Action{System.Exception})">
+            <summary>
+                Apply the given function to each element of the collection
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">Input collection</param>
+            <param name="action">Given function</param>
+            <param name="exceptionHandler">Exception handler action</param>
+        </member>
+        <member name="T:Cosmos.Conversions.Common.Core.FallbackMappings.ITinyMapperConfig">
+            <summary>
+            Configuration for TinyMapper
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.ITinyMapperConfig.NameMatching(System.Func{System.String,System.String,System.Boolean})">
+            <summary>
+            Custom name matching function used for auto bindings
+            </summary>
+            <param name="nameMatching">Function to match names</param>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.ITinyMapperConfig.Reset">
+            <summary>
+            Reset settings to default
+            </summary>
+        </member>
+        <member name="T:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper">
+            <summary>
+            TinyMapper is an object to object mapper for .NET. The main advantage is performance.
+            TinyMapper allows easily map object to object, i.e. properties or fields from one object to another.
+            </summary>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.Bind``2">
+            <summary>
+            Create a one-way mapping between Source and Target types.
+            </summary>
+            <typeparam name="TSource">Source type.</typeparam>
+            <typeparam name="TTarget">Target type.</typeparam>
+            <remarks>The method is thread safe.</remarks>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.Bind(System.Type,System.Type)">
+            <summary>
+            Create a one-way mapping between Source and Target types.
+            </summary>
+            <param name="sourceType">Source type.</param>
+            <param name="targetType">Target type.</param>
+            <remarks>The method is thread safe.</remarks>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.Bind``2(System.Action{Cosmos.Conversions.ObjectMappingServices.IDefaultBindingConfig{``0,``1}})">
+            <summary>
+            Create a one-way mapping between Source and Target types.
+            </summary>
+            <typeparam name="TSource">Source type.</typeparam>
+            <typeparam name="TTarget">Target type.</typeparam>
+            <param name="config">BindingConfig for custom binding.</param>
+            <remarks>The method is thread safe.</remarks>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.BindingExists``2">
+            <summary>
+            Find out if a binding exists from Source to Target.
+            </summary>
+            <typeparam name="TSource">Source type.</typeparam>
+            <typeparam name="TTarget">Target type.</typeparam>
+            <returns>True if exists, otherwise - False.</returns>
+            <remarks>The method is thread safe.</remarks>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.BindingExists(System.Type,System.Type)">
+            <summary>
+            Find out if a binding exists from Source to Target.
+            </summary>
+            <param name="sourceType">Source type.</param>
+            <param name="targetType">Target type.</param>
+            <returns>True if exists, otherwise - False.</returns>
+            <remarks>The method is thread safe.</remarks>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.Map``2(``0,``1)">
+            <summary>
+            Maps the source to Target type.
+            The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.
+            </summary>
+            <typeparam name="TSource">Source type.</typeparam>
+            <typeparam name="TTarget">Target type.</typeparam>
+            <param name="source">Source object.</param>
+            <param name="target">Target object.</param>
+            <returns>Mapped object.</returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.Map(System.Type,System.Type,System.Object,System.Object)">
+            <summary>
+            Maps the source to Target type.
+            The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.
+            </summary>
+            <param name="sourceType">Source type.</param>
+            <param name="targetType">Target type.</param>
+            <param name="source">Source object.</param>
+            <param name="target">Target object.</param>
+            <returns>Mapped object.</returns>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.Config(System.Action{Cosmos.Conversions.Common.Core.FallbackMappings.ITinyMapperConfig})">
+            <summary>
+            Configure the Mapper.
+            </summary>
+            <param name="config">Lambda to provide config settings</param>
+        </member>
+        <member name="M:Cosmos.Conversions.Common.Core.FallbackMappings.TinyMapper.Map``1(System.Object)">
+            <summary>
+            Maps the source to Target type.
+            The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.
+            </summary>
+            <typeparam name="TTarget">Target type.</typeparam>
+            <param name="source">Source object [Not null].</param>
+            <returns>Mapped object. The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.</returns>
+        </member>
         <member name="T:Cosmos.Conversions.Common.ValueConverter">
             <summary>
             Helper
@@ -709,6 +837,9 @@
             <returns></returns>
         </member>
         <member name="T:Cosmos.Conversions.Determiners.StringGuidDeterminer">
+            <summary>
+            Internal core conversion helper from string to Guid
+            </summary>
             <summary>
             Internal core conversion helper from string to Guid
             </summary>
@@ -3362,12 +3493,13 @@
             字符串转换扩展
             </summary>
         </member>
-        <member name="M:Cosmos.Text.StringConvExtensions.CastToString(System.Object)">
+        <member name="M:Cosmos.Text.StringConvExtensions.CastToString(System.Object,System.String)">
             <summary>
             Cast <see cref="T:System.Object"/> to <see cref="T:System.String"/>. <br />
             将对象 <see cref="T:System.Object"/> 转换为字符串。
             </summary>
             <param name="obj"></param>
+            <param name="defaultVal"></param>
             <returns></returns>
         </member>
         <member name="M:Cosmos.Text.StringConvExtensions.CastToString(System.Byte[])">
@@ -12992,134 +13124,6 @@
             <typeparam name="T17"></typeparam>
             <typeparam name="T18"></typeparam>
             <returns></returns>
-        </member>
-        <member name="M:TinyMapper.Core.Extensions.EnumerableExtensions.Iter``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
-            <summary>
-                Apply the given function to each element of the collection
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value">Input collection</param>
-            <param name="action">Given function</param>
-        </member>
-        <member name="M:TinyMapper.Core.Extensions.EnumerableExtensions.IterI``1(System.Collections.Generic.IEnumerable{``0},System.Action{System.Int32,``0})">
-            <summary>
-                Apply the given function to each element of the collection.
-                The integer passed to the function indicates the index of element.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value">Input collection</param>
-            <param name="action">Given function</param>
-        </member>
-        <member name="M:TinyMapper.Core.Extensions.EnumerableExtensions.IterSafe``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0},System.Action{System.Exception})">
-            <summary>
-                Apply the given function to each element of the collection
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value">Input collection</param>
-            <param name="action">Given function</param>
-            <param name="exceptionHandler">Exception handler action</param>
-        </member>
-        <member name="T:TinyMapper.ITinyMapperConfig">
-            <summary>
-            Configuration for TinyMapper
-            </summary>
-        </member>
-        <member name="M:TinyMapper.ITinyMapperConfig.NameMatching(System.Func{System.String,System.String,System.Boolean})">
-            <summary>
-            Custom name matching function used for auto bindings
-            </summary>
-            <param name="nameMatching">Function to match names</param>
-        </member>
-        <member name="M:TinyMapper.ITinyMapperConfig.Reset">
-            <summary>
-            Reset settings to default
-            </summary>
-        </member>
-        <member name="T:TinyMapper.TinyMapper">
-            <summary>
-            TinyMapper is an object to object mapper for .NET. The main advantage is performance.
-            TinyMapper allows easily map object to object, i.e. properties or fields from one object to another.
-            </summary>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.Bind``2">
-            <summary>
-            Create a one-way mapping between Source and Target types.
-            </summary>
-            <typeparam name="TSource">Source type.</typeparam>
-            <typeparam name="TTarget">Target type.</typeparam>
-            <remarks>The method is thread safe.</remarks>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.Bind(System.Type,System.Type)">
-            <summary>
-            Create a one-way mapping between Source and Target types.
-            </summary>
-            <param name="sourceType">Source type.</param>
-            <param name="targetType">Target type.</param>
-            <remarks>The method is thread safe.</remarks>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.Bind``2(System.Action{Cosmos.Conversions.ObjectMappingServices.IDefaultBindingConfig{``0,``1}})">
-            <summary>
-            Create a one-way mapping between Source and Target types.
-            </summary>
-            <typeparam name="TSource">Source type.</typeparam>
-            <typeparam name="TTarget">Target type.</typeparam>
-            <param name="config">BindingConfig for custom binding.</param>
-            <remarks>The method is thread safe.</remarks>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.BindingExists``2">
-            <summary>
-            Find out if a binding exists from Source to Target.
-            </summary>
-            <typeparam name="TSource">Source type.</typeparam>
-            <typeparam name="TTarget">Target type.</typeparam>
-            <returns>True if exists, otherwise - False.</returns>
-            <remarks>The method is thread safe.</remarks>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.BindingExists(System.Type,System.Type)">
-            <summary>
-            Find out if a binding exists from Source to Target.
-            </summary>
-            <param name="sourceType">Source type.</param>
-            <param name="targetType">Target type.</param>
-            <returns>True if exists, otherwise - False.</returns>
-            <remarks>The method is thread safe.</remarks>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.Map``2(``0,``1)">
-            <summary>
-            Maps the source to Target type.
-            The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.
-            </summary>
-            <typeparam name="TSource">Source type.</typeparam>
-            <typeparam name="TTarget">Target type.</typeparam>
-            <param name="source">Source object.</param>
-            <param name="target">Target object.</param>
-            <returns>Mapped object.</returns>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.Map(System.Type,System.Type,System.Object,System.Object)">
-            <summary>
-            Maps the source to Target type.
-            The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.
-            </summary>
-            <param name="sourceType">Source type.</param>
-            <param name="targetType">Target type.</param>
-            <param name="source">Source object.</param>
-            <param name="target">Target object.</param>
-            <returns>Mapped object.</returns>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.Config(System.Action{TinyMapper.ITinyMapperConfig})">
-            <summary>
-            Configure the Mapper.
-            </summary>
-            <param name="config">Lambda to provide config settings</param>
-        </member>
-        <member name="M:TinyMapper.TinyMapper.Map``1(System.Object)">
-            <summary>
-            Maps the source to Target type.
-            The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.
-            </summary>
-            <typeparam name="TTarget">Target type.</typeparam>
-            <param name="source">Source object [Not null].</param>
-            <returns>Mapped object. The method can be called in parallel to Map methods, but cannot be called in parallel to Bind method.</returns>
         </member>
     </members>
 </doc>
