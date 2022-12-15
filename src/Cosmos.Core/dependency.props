@@ -5,6 +5,7 @@
         <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0"/>
         <PackageReference Include="System.Collections.Immutable" Version="7.0.0"/>
         <PackageReference Include="System.Linq.Queryable" Version="4.3.0"/>
+        <PackageReference Include="DotNetCore.Natasha.CSharp" Version="5.0.2"/>
     </ItemGroup>
 
 </Project>

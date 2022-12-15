@@ -90,6 +90,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Guard", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Extensions.Enums", "src\Cosmos.Extensions.Enums\Cosmos.Extensions.Enums.csproj", "{8147E027-0736-45BB-88E4-34D396CD6B51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosXConvUT", "test\CosmosXConvUT\CosmosXConvUT.csproj", "{2212F502-3719-43AD-B21B-9C1D31EC3405}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -205,6 +207,12 @@ Global
 		{8147E027-0736-45BB-88E4-34D396CD6B51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8147E027-0736-45BB-88E4-34D396CD6B51}.Gen-Xml|Any CPU.ActiveCfg = Debug|Any CPU
 		{8147E027-0736-45BB-88E4-34D396CD6B51}.Gen-Xml|Any CPU.Build.0 = Debug|Any CPU
+		{2212F502-3719-43AD-B21B-9C1D31EC3405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2212F502-3719-43AD-B21B-9C1D31EC3405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2212F502-3719-43AD-B21B-9C1D31EC3405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2212F502-3719-43AD-B21B-9C1D31EC3405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2212F502-3719-43AD-B21B-9C1D31EC3405}.Gen-Xml|Any CPU.ActiveCfg = Debug|Any CPU
+		{2212F502-3719-43AD-B21B-9C1D31EC3405}.Gen-Xml|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -232,6 +240,7 @@ Global
 		{BBF5048C-7D8C-4D50-AA87-79AC9FD79612} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{8147E027-0736-45BB-88E4-34D396CD6B51} = {EDED875E-58F5-4762-96D3-2E0F490BF83F}
 		{890A95AB-C6F1-465D-AC11-5B9EEE712318} = {9039BEC8-72D5-46BD-B33B-712FE08F9FF0}
+		{2212F502-3719-43AD-B21B-9C1D31EC3405} = {0F01E2EF-3398-47CB-B5CB-33AF122A1BC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D68A6AF5-79FE-4679-AD20-67D6CFCF75B4}
