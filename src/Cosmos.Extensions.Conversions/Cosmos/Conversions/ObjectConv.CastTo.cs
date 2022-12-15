@@ -28,10 +28,13 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type targetType)
     {
-        CastTypeHelper.Guard(targetType, nameof(targetType));
+        CastTypeHelper.Guard(targetType);
         return obj is null
-            ? default!
-            : XConv.To(obj, obj.GetType(), targetType, TypeDeterminer.GetDefaultValue(targetType));
+            ? default
+            : XConvFuncAccessor.GetCachedConvert(obj.GetType(), targetType)(obj, TypeDeterminer.GetDefaultValue(targetType), default, null);
+        // return obj is null
+        //     ? default
+        //     : XConv.To(obj, obj.GetType(), targetType, TypeDeterminer.GetDefaultValue(targetType));
     }
 
     /// <summary>
@@ -43,10 +46,13 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type targetType, object defaultVal)
     {
-        CastTypeHelper.Guard(targetType, nameof(targetType));
+        CastTypeHelper.Guard(targetType);
         return obj is null
             ? defaultVal
-            : XConv.To(obj, obj.GetType(), targetType, defaultVal);
+            : XConvFuncAccessor.GetCachedConvert(obj.GetType(), targetType)(obj, defaultVal, default, null);
+        // return obj is null
+        //     ? defaultVal
+        //     : XConv.To(obj, obj.GetType(), targetType, defaultVal);
     }
 
     /// <summary>
@@ -58,9 +64,10 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type sourceType, Type targetType)
     {
-        CastTypeHelper.Guard(sourceType, nameof(sourceType));
-        CastTypeHelper.Guard(targetType, nameof(targetType));
-        return XConv.To(obj, sourceType, targetType);
+        CastTypeHelper.Guard(sourceType);
+        CastTypeHelper.Guard(targetType);
+        return XConvFuncAccessor.GetCachedConvert(sourceType, targetType)(obj, TypeDeterminer.GetDefaultValue(targetType), default, null);
+        // return XConv.To(obj, sourceType, targetType);
     }
 
     /// <summary>
@@ -73,9 +80,10 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this object obj, Type sourceType, Type targetType, object defaultVal)
     {
-        CastTypeHelper.Guard(sourceType, nameof(sourceType));
-        CastTypeHelper.Guard(targetType, nameof(targetType));
-        return XConv.To(obj, sourceType, targetType, defaultVal);
+        CastTypeHelper.Guard(sourceType);
+        CastTypeHelper.Guard(targetType);
+        return XConvFuncAccessor.GetCachedConvert(sourceType, targetType)(obj, defaultVal, default, null);
+        // return XConv.To(obj, sourceType, targetType, defaultVal);
     }
 
     /// <summary>
@@ -87,7 +95,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(object fromObj, Type enumTye, EnumsNET.EnumValidation validation)
     {
-        CastTypeHelper.Guard(enumTye, nameof(enumTye));
+        CastTypeHelper.Guard(enumTye);
         return EnumsNET.Enums.ToObject(enumTye, fromObj, validation);
     }
 
@@ -100,11 +108,14 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this string str, Type targetType, object defaultVal = default)
     {
-        CastTypeHelper.Guard(targetType, nameof(targetType));
+        CastTypeHelper.Guard(targetType);
         var result = defaultVal;
         return str.Is(targetType, v => result = v)
             ? result
-            : XConv.To(str, TypeClass.StringClazz, targetType, defaultVal);
+            : XConvFuncAccessor.GetCachedConvert(TypeClass.StringClazz, targetType)(str, defaultVal, default, null);
+        // return str.Is(targetType, v => result = v)
+        //     ? result
+        //     : XConv.To(str, TypeClass.StringClazz, targetType, defaultVal);
     }
 
     /// <summary>
@@ -117,12 +128,15 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this string str, Type targetType, CastingContext context, object defaultVal = default)
     {
-        CastTypeHelper.Guard(targetType, nameof(targetType));
+        CastTypeHelper.Guard(targetType);
         var result = defaultVal;
         context ??= CastingContext.DefaultContext;
         return str.Is(targetType, v => result = v)
             ? result
-            : XConv.To(str, TypeClass.StringClazz, targetType, defaultVal, context);
+            : XConvFuncAccessor.GetCachedConvert(TypeClass.StringClazz, targetType)(str, defaultVal, context, null);
+        // return str.Is(targetType, v => result = v)
+        //     ? result
+        //     : XConv.To(str, TypeClass.StringClazz, targetType, defaultVal, context);
     }
 
     /// <summary>
@@ -135,13 +149,16 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastTo(this string str, Type targetType, Action<CastingContext> contextAct, object defaultVal = default)
     {
-        CastTypeHelper.Guard(targetType, nameof(targetType));
+        CastTypeHelper.Guard(targetType);
         var result = defaultVal;
         var context = new CastingContext();
         contextAct?.Invoke(context);
         return str.Is(targetType, v => result = v)
             ? result
-            : XConv.To(str, TypeClass.StringClazz, targetType, defaultVal, context);
+            : XConvFuncAccessor.GetCachedConvert(TypeClass.StringClazz, targetType)(str, defaultVal, context, null);
+        // return str.Is(targetType, v => result = v)
+        //     ? result
+        //     : XConv.To(str, TypeClass.StringClazz, targetType, defaultVal, context);
     }
 
     /// <summary>
@@ -152,7 +169,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastToNullable(this string str, Type type)
     {
-        CastTypeHelper.Guard(type, nameof(type));
+        CastTypeHelper.Guard(type);
         object result = default;
         return str.IsNullable(type, v => result = v, () => result = null)
             ? result
@@ -168,7 +185,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastToNullable(this string str, Type type, CastingContext context)
     {
-        CastTypeHelper.Guard(type, nameof(type));
+        CastTypeHelper.Guard(type);
         object result = default!;
         context ??= CastingContext.DefaultContext;
         return str.IsNullable(type, context, v => result = v, () => result = null)
@@ -185,7 +202,7 @@ public static class CastingExtensions
     /// <returns></returns>
     public static object CastToNullable(this string str, Type type, Action<CastingContext> contextAct)
     {
-        CastTypeHelper.Guard(type, nameof(type));
+        CastTypeHelper.Guard(type);
         object result = default!;
         return str.IsNullable(type, contextAct, v => result = v, () => result = null)
             ? result
@@ -206,7 +223,10 @@ public static class CastingExtensions
     {
         return obj is null
             ? default
-            : XConv.To(obj, obj.GetType(), typeof(T)).As<T>();
+            : XConvFuncAccessor.GetCachedConvert<T>(obj.GetType())(obj, default, default, null);
+        // return obj is null
+        //     ? default
+        //     : XConv.To(obj, obj.GetType(), typeof(T)).As<T>();
     }
 
     /// <summary>
@@ -220,7 +240,10 @@ public static class CastingExtensions
     {
         return obj is null
             ? defaultVal
-            : XConv.To(obj, obj.GetType(), typeof(T), defaultVal).As<T>();
+            :  XConvFuncAccessor.GetCachedConvert<T>(obj.GetType())(obj, defaultVal, default, null);
+        // return obj is null
+        //     ? defaultVal
+        //     : XConv.To(obj, obj.GetType(), typeof(T), defaultVal).As<T>();
     }
 
     /// <summary>
@@ -233,7 +256,10 @@ public static class CastingExtensions
     public static T CastTo<T>(this string str, T defaultVal = default)
     {
         T result = default;
-        return str.Is<T>(v => result = v) ? result : XConv.To(str, defaultVal);
+        return str.Is<T>(v => result = v)
+            ? result
+            : XConvFuncAccessor.GetCachedConvert<string, T>()(str, defaultVal, default, null);
+        //return str.Is<T>(v => result = v) ? result : XConv.To(str, defaultVal);
     }
 
     /// <summary>
@@ -247,7 +273,10 @@ public static class CastingExtensions
     public static T CastTo<T>(this string str, CastingContext context, T defaultVal = default)
     {
         T result = default;
-        return str.Is<T>(context, v => result = v) ? result : XConv.To(str, defaultVal, context);
+        return str.Is<T>(v => result = v)
+            ? result
+            : XConvFuncAccessor.GetCachedConvert<string, T>()(str, defaultVal, context, null);
+        //return str.Is<T>(context, v => result = v) ? result : XConv.To(str, defaultVal, context);
     }
 
     /// <summary>
@@ -263,7 +292,10 @@ public static class CastingExtensions
         T result = default;
         var context = new CastingContext();
         contextAct?.Invoke(context);
-        return str.Is<T>(context, v => result = v) ? result : XConv.To(str, defaultVal, context);
+        return str.Is<T>(v => result = v)
+            ? result
+            : XConvFuncAccessor.GetCachedConvert<string, T>()(str, defaultVal, context, null);
+        //return str.Is<T>(context, v => result = v) ? result : XConv.To(str, defaultVal, context);
     }
 
     /// <summary>
@@ -336,7 +368,9 @@ public static class CastingExtensions
     /// <returns></returns>
     public static TTo CastTo<TFrom, TTo>(TFrom fromObj, TTo defaultVal = default)
     {
-        return XConv.To(fromObj, defaultVal);
+        var handler = XConvFuncAccessor.GetCachedConvert<TFrom, TTo>();
+        return handler(fromObj, defaultVal, default, null);
+        //return XConv.To(fromObj, defaultVal);
     }
 
     /// <summary>
@@ -350,7 +384,9 @@ public static class CastingExtensions
     /// <returns></returns>
     public static TTo CastTo<TFrom, TTo>(TFrom fromObj, CastingContext context, TTo defaultVal = default)
     {
-        return XConv.To(fromObj, defaultVal, context);
+        var handler = XConvFuncAccessor.GetCachedConvert<TFrom, TTo>();
+        return handler(fromObj, defaultVal, context, null);
+        // return XConv.To(fromObj, defaultVal, context);
     }
 
     #endregion

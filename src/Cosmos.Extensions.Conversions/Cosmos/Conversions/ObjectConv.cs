@@ -7,6 +7,11 @@ namespace Cosmos.Conversions;
 /// </summary>
 public static class ObjectConv
 {
+    static ObjectConv()
+    {
+        NatashaInitializer.Preheating();
+    }
+
     #region 0
 
     /// <summary>
@@ -19,7 +24,9 @@ public static class ObjectConv
     /// <returns></returns>
     public static object To(Type sourceType, Type targetType, object source, CastingContext context = default)
     {
-        return XConv.To(source, sourceType, targetType, context: context);
+        var handler = XConvFuncAccessor.GetCachedConvert(sourceType, targetType);
+        return handler(source, default, context, null);
+        // return XConv.To(source, sourceType, targetType, context: context);
     }
 
     /// <summary>
@@ -33,7 +40,9 @@ public static class ObjectConv
     /// <returns></returns>
     public static object To(Type sourceType, Type targetType, object source, object defaultVal, CastingContext context = default)
     {
-        return XConv.To(source, sourceType, targetType, defaultVal, context);
+        var handler = XConvFuncAccessor.GetCachedConvert(sourceType, targetType);
+        return handler(source, defaultVal, context, null);
+        // return XConv.To(source, sourceType, targetType, defaultVal, context);
     }
 
     #endregion
@@ -50,7 +59,9 @@ public static class ObjectConv
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TTo To<TTo>(object source, CastingContext context = default)
     {
-        return XConv.To(source, source.GetType(), typeof(TTo), context: context).As<TTo>();
+        var handler = XConvFuncAccessor.GetCachedConvert<TTo>(source.GetType());
+        return handler(source, default, context, null);
+        // return XConv.To(source, source.GetType(), typeof(TTo), context: context).As<TTo>();
     }
 
     /// <summary>
@@ -64,7 +75,9 @@ public static class ObjectConv
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TTo To<TTo>(object source, TTo defaultVal, CastingContext context = default)
     {
-        return XConv.To(source, source.GetType(), typeof(TTo), defaultVal, context).As<TTo>();
+        var handler = XConvFuncAccessor.GetCachedConvert<TTo>(source.GetType());
+        return handler(source, defaultVal, context, null);
+        // return XConv.To(source, source.GetType(), typeof(TTo), defaultVal, context).As<TTo>();
     }
 
     #endregion
@@ -82,7 +95,9 @@ public static class ObjectConv
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TTo To<TFrom, TTo>(TFrom source, CastingContext context = default)
     {
-        return XConv.To<TFrom, TTo>(source, context: context);
+        var handler = XConvFuncAccessor.GetCachedConvert<TFrom, TTo>();
+        return handler(source, default, context, null);
+        //return XConv.To<TFrom, TTo>(source, context: context);
     }
 
     /// <summary>
@@ -97,7 +112,9 @@ public static class ObjectConv
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TTo To<TFrom, TTo>(TFrom source, TTo defaultVal, CastingContext context = default)
     {
-        return XConv.To(source, defaultVal, context);
+        var handler = XConvFuncAccessor.GetCachedConvert<TFrom, TTo>();
+        return handler(source, defaultVal, context, null);
+        // return XConv.To(source, defaultVal, context);
     }
 
     #endregion
