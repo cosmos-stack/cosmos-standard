@@ -1,3 +1,5 @@
+using System.Web;
+
 namespace Cosmos;
 
 /// <summary>
@@ -35,5 +37,15 @@ public static class ByteExtensions
     {
         Array.Resize(ref buff, newSize);
         return buff;
+    }
+
+    public static string AsUrlValue(this byte[] value)
+    {
+        return HttpUtility.UrlEncode(value);
+    }
+
+    public static byte[] FromUrlValueToBytes(this string value)
+    {
+        return HttpUtility.UrlDecodeToBytes(value);
     }
 }

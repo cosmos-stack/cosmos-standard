@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Reflection;
+using Cosmos.Reflection;
 
 namespace Cosmos.Conversions.Common.Core.FallbackMappings.Core.Extensions;
 
@@ -78,6 +79,6 @@ internal static class TypeExtensions
 
     public static bool IsNullable(this Type type)
     {
-        return Helpers.IsGenericType(type) && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+        return Types.IsNullableType(type);
     }
 }
